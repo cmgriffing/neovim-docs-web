@@ -1,0 +1,13 @@
+li.active {
+  color: var(--theme-text-accent);
+  background-color: var(--theme-bg-accent);
+  font-weight: 600;
+}
+
+li.depth-3 {
+  display: none;
+}
+
+li.depth-3.active-parent {
+  display: block;
+}

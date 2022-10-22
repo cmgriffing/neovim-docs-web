@@ -1,0 +1,13 @@
+---
+title: {{title}}
+description: Some page
+layout: ../../layouts/MainLayout.astro
+---
+
+{{#sections}}
+
+## <a id="{{anchor}}" class="section-title" href="#{{anchor}}">{{title}}</a> {{#extraAnchor}}<span id="{{extraAnchor}}"></span>{{/extraAnchor}}
+
+{{{content}}}
+
+{{/sections}}

@@ -1,0 +1,30 @@
+{
+  "name": "cli",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "parse-txt": "ts-node ./scripts/parse-text-files.ts",
+    "watch": "nodemon -e ts,mustache --watch src --exec \"pnpm parse-txt\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/fs-extra": "^9.0.13",
+    "@types/glob": "^8.0.0",
+    "@types/mustache": "^4.2.1",
+    "@types/node": "^18.0.0",
+    "fs-extra": "^10.1.0",
+    "glob": "^8.0.3",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4",
+    "yargs": "^17.6.0"
+  },
+  "dependencies": {
+    "case": "^1.6.3",
+    "mustache": "^4.2.0"
+  }
+}

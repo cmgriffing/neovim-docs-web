@@ -33,16 +33,14 @@ export function parseTextContents(textContent: string): HelpPage {
 
     const firstOtherLine = otherLines[0];
     let [extraAnchor] =
-      firstOtherLine.match(new RegExp("^\\s+(\\*\\S+\\*)", "gm")) || [];
+      firstOtherLine?.match(new RegExp("^\\s+(\\*\\S+\\*)", "gm")) || [];
 
     if (extraAnchor) {
       extraAnchor = extraAnchor.trim().replace(new RegExp("\\*", "gm"), "");
       otherLines = otherLines.slice(1);
     }
 
-    otherLines = otherLines.map((otherLine, index) => {
-      otherLine = otherLine.trimStart();
-
+    otherLines = otherLines.map((otherLine) => {
       const scrubbedLine = otherLine.replace(
         new RegExp("\\s{2,}", "gm"),
         DETAIL_SPLITTER
@@ -50,24 +48,25 @@ export function parseTextContents(textContent: string): HelpPage {
 
       let [detail, rawDetailAnchor] = scrubbedLine.split(DETAIL_SPLITTER);
 
-      if (!detail || !rawDetailAnchor || rawDetailAnchor.indexOf("*") === -1) {
-        return otherLine;
+      if (!rawDetailAnchor || rawDetailAnchor.indexOf("*") === -1) {
+        if (scrubbedLine.indexOf("lua-treesitter-not-predicate") > -1) {
+          console.log("Bailing out", { scrubbedLine });
+        }
+        return otherLine.trimStart();
       }
 
-      if (Case.of(detail) === "upper") {
-        detail = Case.title(detail);
-      }
+      otherLine = otherLine.trimStart();
 
       rawDetailAnchor = rawDetailAnchor
         .trimStart()
         .replace(new RegExp("\\*", "gm"), "");
 
-      // if (otherLines[index + 1]) {
-      //   otherLines[index + 1] = otherLines[index + 1].trim();
-      // }
+      if (!detail) {
+        detail = "Note:";
+      }
 
-      if (otherLine.indexOf("treesitter-predicate-eq") > -1) {
-        console.log({ otherLine });
+      if (Case.of(detail) === "upper") {
+        detail = Case.title(detail);
       }
 
       let headerLevel = 3;
@@ -79,6 +78,8 @@ export function parseTextContents(textContent: string): HelpPage {
       let headerHashes = Array.from({ length: headerLevel })
         .map(() => "#")
         .join("");
+
+      //TODO:  HANDLE NOTES
 
       return `${headerHashes} <a id="${rawDetailAnchor}" class="section-title" href="#${rawDetailAnchor}">${detail}</a>`;
     });

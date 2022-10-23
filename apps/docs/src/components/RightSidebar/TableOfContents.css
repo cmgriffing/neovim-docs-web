@@ -1,13 +1,32 @@
+li.active-parent,
+li.has-active-parent {
+  background-color: #f4f4f4;
+}
+
+li.active-parent {
+  font-weight: 600;
+}
+
 li.active {
   color: var(--theme-text-accent);
   background-color: var(--theme-bg-accent);
   font-weight: 600;
 }
 
-li.depth-3 {
+li.depth-3,
+li.depth-4 {
   display: none;
 }
 
-li.depth-3.active-parent {
+li.depth-3.active-parent,
+li.depth-4.active-parent,
+li.depth-3.has-active-parent,
+li.depth-4.has-active-parent,
+li.depth-3.has-active-parent a,
+li.depth-4.has-active-parent a {
   display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }

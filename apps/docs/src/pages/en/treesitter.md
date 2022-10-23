@@ -184,12 +184,12 @@ table). Presently it is a (non-printable) string.
 Note: The `id` is not guaranteed to be unique for nodes from different
 trees.
 
-*tsnode:descendant_for_range()*
+### <a id="tsnode:descendant_for_range()" class="section-title" href="#tsnode:descendant_for_range()">Note:</a>
 tsnode:descendant_for_range({start_row}, {start_col}, {end_row}, {end_col})
 Get the smallest node within this node that spans the given range of (row,
 column) positions
 
-*tsnode:named_descendant_for_range()*
+### <a id="tsnode:named_descendant_for_range()" class="section-title" href="#tsnode:named_descendant_for_range()">Note:</a>
 tsnode:named_descendant_for_range({start_row}, {start_col}, {end_row}, {end_col})
 Get the smallest named node within this node that spans the given range of
 (row, column) positions
@@ -236,7 +236,7 @@ to only match identifier corresponding to the `"foo"` text.
 
 The following predicates are built in:
 
-#### <a id="treesitter-predicate-eq?" class="section-title" href="#treesitter-predicate-eq?">`eq?`</a>
+`eq?`                                            *treesitter-predicate-eq?*
 Match a string against the text corresponding to a node:
 ```
 ((identifier) @foo (#eq? @foo "foo"))
@@ -244,8 +244,8 @@ Match a string against the text corresponding to a node:
 
 ```
 
-#### <a id="treesitter-predicate-match?" class="section-title" href="#treesitter-predicate-match?">`match?`</a>
-#### <a id="treesitter-predicate-vim-match?" class="section-title" href="#treesitter-predicate-vim-match?">`vim-match?`</a>
+`match?`                                      *treesitter-predicate-match?*
+`vim-match?`                              *treesitter-predicate-vim-match?*
 Match a [regexp](#regexp) against the text corresponding to a node:
 ```
 ((identifier) @constant (#match? @constant "^[A-Z_]+$"))
@@ -254,11 +254,11 @@ Match a [regexp](#regexp) against the text corresponding to a node:
          Note: The `^` and `$` anchors will match the start and end of the
 node's text.
 
-#### <a id="treesitter-predicate-lua-match?" class="section-title" href="#treesitter-predicate-lua-match?">`lua-match?`</a>
+`lua-match?`                              *treesitter-predicate-lua-match?*
 Match [lua-patterns](#lua-patterns) against the text corresponding to a node,
 similar to `match?`
 
-#### <a id="treesitter-predicate-contains?" class="section-title" href="#treesitter-predicate-contains?">`contains?`</a>
+`contains?`                                *treesitter-predicate-contains?*
 Match a string against parts of the text corresponding to a node:
 ```
 ((identifier) @foo (#contains? @foo "foo"))
@@ -266,7 +266,7 @@ Match a string against parts of the text corresponding to a node:
 
 ```
 
-#### <a id="treesitter-predicate-any-of?" class="section-title" href="#treesitter-predicate-any-of?">`any-of?`</a>
+`any-of?`                                    *treesitter-predicate-any-of?*
 Match any of the given strings against the text corresponding to
 a node:
 ```
@@ -277,7 +277,7 @@ a node:
 This is the recommended way to check if the node matches one of many
 keywords, as it has been optimized for this.
 
-*lua-treesitter-not-predicate*
+### <a id="lua-treesitter-not-predicate" class="section-title" href="#lua-treesitter-not-predicate">Note:</a>
 Each predicate has a `not-` prefixed predicate that is just the negation of
 the predicate.
 
@@ -298,7 +298,7 @@ effects. For example, the [set!](#set!) predicate sets metadata on the match or 
 
 The following directives are built in:
 
-#### <a id="treesitter-directive-set!" class="section-title" href="#treesitter-directive-set!">`set!`</a>
+`set!`                                          *treesitter-directive-set!*
 Sets key/value metadata for a specific match or capture. Value is
 accessible as either `metadata[key]` (match specific) or
 `metadata[capture_id][key]` (capture specific).
@@ -315,7 +315,7 @@ Examples:
 
 ```
 
-#### <a id="treesitter-directive-offset!" class="section-title" href="#treesitter-directive-offset!">`offset!`</a>
+`offset!`                                      *treesitter-directive-offset!*
 Takes the range of the captured node and applies an offset. This will
 generate a new range object for the captured node as
 `metadata[capture_id].range`.
@@ -345,7 +345,7 @@ Neovim supports to customize the behavior of the queries using a set of
 "modelines", that is comments in the queries starting with `;`. Here are the
 currently supported modeline alternatives:
 
-#### <a id="treesitter-query-modeline-inherits" class="section-title" href="#treesitter-query-modeline-inherits">`inherits: {lang}...`</a>
+`inherits: {lang}...`                     *treesitter-query-modeline-inherits*
 Specifies that this query should inherit the queries from {lang}.
 This will recursively descend in the queries of {lang} unless wrapped
 in parentheses: `({lang})`.
@@ -353,7 +353,7 @@ Note: This is meant to be used to include queries from another
 language. If you want your query to extend the queries of the same
 language, use `extends`.
 
-#### <a id="treesitter-query-modeline-extends" class="section-title" href="#treesitter-query-modeline-extends">`extends`</a>
+`extends`                                  *treesitter-query-modeline-extends*
 Specifies that this query should be used as an extension for the
 query, i.e. that it should be merged with the others.
 Note: The order of the extensions, and the query that will be used as
@@ -398,7 +398,7 @@ Assuming a suitable parser and `highlights.scm` query is found in runtimepath,
 treesitter highlighting for the current buffer can be enabled simply via
 [vim.treesitter.start()](#vim.treesitter.start()).
 
-*treesitter-highlight-groups*
+### <a id="treesitter-highlight-groups" class="section-title" href="#treesitter-highlight-groups">Note:</a>
 The capture names, with `@` included, are directly usable as highlight groups.
 For many commonly used captures, the corresponding highlight groups are linked
 to Nvim's standard [highlight-groups](#highlight-groups) by default but can be overridden in
@@ -477,7 +477,7 @@ The following captures are linked by default to standard [group-name](#group-nam
 
 ```
 
-*treesitter-highlight-spell*
+### <a id="treesitter-highlight-spell" class="section-title" href="#treesitter-highlight-spell">Note:</a>
 The special `@spell` capture can be used to indicate that a node should be
 spell checked by Nvim's builtin [spell](#spell) checker. For example, the following
 capture marks comments as to be checked:
@@ -487,7 +487,7 @@ capture marks comments as to be checked:
 
 ```
 
-*treesitter-highlight-conceal*
+### <a id="treesitter-highlight-conceal" class="section-title" href="#treesitter-highlight-conceal">Note:</a>
 Treesitter highlighting supports [conceal](#conceal) via the `conceal` metadata. By
 convention, nodes to be concealed are captured as `@conceal`, but any capture
 can be used. For example, the following query can be used to hide code block
@@ -510,7 +510,7 @@ still highlighted the same as other operators:
 
 Conceals specified in this way respect 'conceallevel'.
 
-*treesitter-highlight-priority*
+### <a id="treesitter-highlight-priority" class="section-title" href="#treesitter-highlight-priority">Note:</a>
 Treesitter uses [nvim_buf_set_extmark()](#nvim_buf_set_extmark()) to set highlights with a default
 priority of 100. This enables plugins to set a highlighting priority lower or
 higher than tree-sitter. It is also possible to change the priority of an
@@ -532,11 +532,11 @@ Most of the following content is automatically generated from the function
 documentation.
 
 
-*vim.treesitter.language_version*
+### <a id="vim.treesitter.language_version" class="section-title" href="#vim.treesitter.language_version">Note:</a>
 The latest parser ABI version that is supported by the bundled tree-sitter
 library.
 
-*vim.treesitter.minimum_language_version*
+### <a id="vim.treesitter.minimum_language_version" class="section-title" href="#vim.treesitter.minimum_language_version">Note:</a>
 The earliest parser ABI version that is supported by the bundled tree-sitter
 library.
 
@@ -708,7 +708,7 @@ Parameters: ~
 Return: ~
 (table)
 
-*require_language()*
+### <a id="require_language()" class="section-title" href="#require_language()">Note:</a>
 require_language({lang}, {path}, {silent}, {symbol_name})
 Asserts that a parser for the language {lang} is installed.
 
@@ -774,7 +774,7 @@ Parameters: ~
 Return: ~
 Query Parsed query
 
-*get_query_files()*
+### <a id="get_query_files()" class="section-title" href="#get_query_files()">Note:</a>
 get_query_files({lang}, {query_name}, {is_included})
 Gets the list of files used to make up a query
 
@@ -805,7 +805,7 @@ Parse {query} as a string. (If the query is in a file, the caller should
 read the contents into a string before calling).
 
 Returns a `Query` (see [lua-treesitter-query](#lua-treesitter-query)) object which can be used to search nodes in
-the syntax tree for the patterns defined in {query} using `iter_*` methods below.
+### <a id="the syntax tree for the patterns defined in {query} using `iter_` methods below." class="section-title" href="#the syntax tree for the patterns defined in {query} using `iter_` methods below.">Note:</a>
 
 Exposes `info` and `captures` with additional context about {query}.
 • `captures` contains the list of unique capture names defined in {query}.
@@ -819,7 +819,7 @@ Parameters: ~
 Return: ~
 Query Parsed query
 
-*Query:iter_captures()*
+### <a id="Query:iter_captures()" class="section-title" href="#Query:iter_captures()">Note:</a>
 Query:iter_captures({self}, {node}, {source}, {start}, {stop})
 Iterate over all captures from all matches inside {node}
 
@@ -859,7 +859,7 @@ Return: ~
 (table) capture_node Capture for {node}
 (table) metadata for the {capture}
 
-*Query:iter_matches()*
+### <a id="Query:iter_matches()" class="section-title" href="#Query:iter_matches()">Note:</a>
 Query:iter_matches({self}, {node}, {source}, {start}, {stop})
 Iterates the matches of self on a given range.
 
@@ -957,7 +957,7 @@ Note: This DOES NOT remove this tree from a parent. Instead, `remove_child` must
 Parameters: ~
 • {self}
 
-*LanguageTree:for_each_child()*
+### <a id="LanguageTree:for_each_child()" class="section-title" href="#LanguageTree:for_each_child()">Note:</a>
 LanguageTree:for_each_child({self}, {fn}, {include_self})
 Invokes the callback for each [LanguageTree](#LanguageTree) and its children recursively
 
@@ -1000,7 +1000,7 @@ Gets the language of this tree node.
 Parameters: ~
 • {self}
 
-*LanguageTree:language_for_range()*
+### <a id="LanguageTree:language_for_range()" class="section-title" href="#LanguageTree:language_for_range()">Note:</a>
 LanguageTree:language_for_range({self}, {range})
 Gets the appropriate language that contains {range}.
 
@@ -1011,7 +1011,7 @@ Parameters: ~
 Return: ~
 LanguageTree Managing {range}
 
-*LanguageTree:named_node_for_range()*
+### <a id="LanguageTree:named_node_for_range()" class="section-title" href="#LanguageTree:named_node_for_range()">Note:</a>
 LanguageTree:named_node_for_range({self}, {range}, {opts})
 Gets the smallest named node that contains {range}.
 
@@ -1060,7 +1060,7 @@ Returns the source content of the language tree (bufnr or string).
 Parameters: ~
 • {self}
 
-*LanguageTree:tree_for_range()*
+### <a id="LanguageTree:tree_for_range()" class="section-title" href="#LanguageTree:tree_for_range()">Note:</a>
 LanguageTree:tree_for_range({self}, {range}, {opts})
 Gets the tree that contains {range}.
 

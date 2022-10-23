@@ -51,6 +51,10 @@ export const SIDEBAR: Sidebar = {
       { text: "Introduction", link: "en/introduction" },
       { text: "Page 3", link: "en/page-3" },
     ],
-    Plugins: [{ text: "Treesitter", link: "en/treesitter" }],
+    Config: [{ text: "autocmd", link: "en/autocmd" }],
+    Plugins: [
+      { text: "API", link: "en/api" },
+      { text: "Treesitter", link: "en/treesitter" },
+    ],
   },
 };

@@ -8,6 +8,7 @@ type ItemOffsets = {
   topOffset: number;
   depth: number;
   parentId: string;
+  text: string;
 };
 
 const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
@@ -20,12 +21,11 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
   const [activeSectionId, setActiveSectionId] = useState<string>("");
   useEffect(() => {
     const getItemOffsets = () => {
-      const titles = document.querySelectorAll("article :is(h1, h2, h3, h4)");
+      const titles = document.querySelectorAll("#article :is(h1, h2, h3)");
       const mappedTitles = Array.from(titles)
         .map((title) => {
           let depth = 2;
 
-          console.log("TAG NAME", title.tagName);
           if (title.tagName === "H3") {
             depth = 3;
           }
@@ -34,6 +34,10 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
             id: title.id,
             topOffset: title.getBoundingClientRect().top + window.scrollY,
             depth,
+            text:
+              title.children[0]?.children[0]?.innerHTML ??
+              title.children[0]?.innerHTML ??
+              title.innerHTML,
           };
         })
         .sort((offsetA, offsetB) => {
@@ -43,7 +47,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
       let parentId = "";
       const newChildToParentIdMap: Record<string, string> = {};
       itemOffsets.current = mappedTitles.map((itemOffset) => {
-        if (itemOffset.depth === 2) {
+        if (itemOffset.depth === 2 && itemOffset.id) {
           parentId = itemOffset.id;
         }
 
@@ -73,9 +77,8 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
       itemOffsets.current.some((itemOffset) => {
         newActiveId = itemOffset.id;
 
-        if (itemOffset.depth === 2) {
+        if (itemOffset.depth === 2 && itemOffset.id) {
           newActiveSectionId = itemOffset.id;
-          console.log({ newActiveSectionId });
         }
 
         return window.scrollY < itemOffset.topOffset;
@@ -106,21 +109,27 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
         >
           <a href="#overview">Overview</a>
         </li>
-        {headings
-          .filter(({ depth }) => depth > 1 && depth < 4)
+        {itemOffsets.current
+          .filter(
+            ({ depth, id, text }) =>
+              depth > 1 && depth < 4 && !!id && text !== "Note:"
+          )
           .map((heading) => (
             <li
               className={`heading-link depth-${heading.depth} ${
-                activeId === heading.slug ? "active" : ""
+                activeId === heading.id ? "active" : ""
               } ${
-                activeSectionId === childToParentIdMap.current[heading.slug]
-                  ? "active-parent"
+                activeSectionId === childToParentIdMap.current[heading.id] &&
+                heading.id !== activeSectionId
+                  ? "has-active-parent"
                   : ""
+              } ${
+                heading.id === activeSectionId ? "active-parent" : ""
               }`.trim()}
-              data-parent={childToParentIdMap.current[heading.slug]}
-              data-slug={heading.slug}
+              data-parent={childToParentIdMap.current[heading.id]}
+              data-id={heading.id}
             >
-              <a href={`#${heading.slug}`}>{heading.text}</a>
+              <a href={`#${heading.id}`}>{heading.text}</a>
             </li>
           ))}
       </ul>

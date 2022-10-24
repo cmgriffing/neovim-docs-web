@@ -1,7 +1,7 @@
 // import generatedConfig from "./config.json";
 
 export const SITE = {
-  title: "Neovim HTML Documentation",
+  title: "Neovim Docs",
   description: "Programmatically generated HTML documentation for Neovim.",
   defaultLanguage: "en_US",
 };

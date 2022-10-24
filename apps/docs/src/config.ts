@@ -1,3 +1,5 @@
+// import generatedConfig from "./config.json";
+
 export const SITE = {
   title: "Neovim HTML Documentation",
   description: "Programmatically generated HTML documentation for Neovim.",
@@ -47,14 +49,8 @@ export type Sidebar = Record<
 >;
 export const SIDEBAR: Sidebar = {
   en: {
-    Main: [
-      { text: "Introduction", link: "en/introduction" },
-      { text: "Page 3", link: "en/page-3" },
-    ],
-    Config: [{ text: "autocmd", link: "en/autocmd" }],
-    Plugins: [
-      { text: "API", link: "en/api" },
-      { text: "Treesitter", link: "en/treesitter" },
-    ],
+    Main: [{ text: "Introduction", link: "en/introduction" }],
+    // ...generatedConfig,
+    Misc: [{ text: "Treesitter", link: "/en/misc/treesitter" }],
   },
 };

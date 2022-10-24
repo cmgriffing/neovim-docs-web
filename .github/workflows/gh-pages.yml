@@ -40,8 +40,8 @@ jobs:
         with:
           version: 6.0.2
 
-      - name: Setup Pages
-        uses: actions/configure-pages@v2
+      # - name: Setup Pages
+      #   uses: actions/configure-pages@v2
 
       - name: Install dependencies
         run: pnpm install

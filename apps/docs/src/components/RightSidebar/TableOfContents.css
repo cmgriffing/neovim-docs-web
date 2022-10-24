@@ -3,6 +3,11 @@ li.has-active-parent {
   background-color: #f4f4f4;
 }
 
+.theme-dark li.active-parent,
+.theme-dark li.has-active-parent {
+  background-color: #191919;
+}
+
 li.active-parent {
   font-weight: 600;
 }

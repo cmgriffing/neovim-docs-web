@@ -26,7 +26,8 @@ const sidebar = SIDEBAR[langCode];
               </summary>
               <ul>
                 {children.map((child) => {
-                  const url = Astro.site?.pathname + child.link;
+                  const url =
+                    "/neovim-docs-web" + Astro.site?.pathname + child.link;
                   return (
                     <li class="nav-link">
                       <a

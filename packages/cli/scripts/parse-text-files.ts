@@ -60,6 +60,19 @@ outputMarkdownFiles(userDocs, "User Reference", "usr");
 outputMarkdownFiles(neovimDocs, "Neovim Reference", "neovim");
 outputMarkdownFiles(coreVimDocs, "Vim Reference", "vim");
 outputMarkdownFiles(genericDocs, "Misc", "misc");
+{
+}
+// write to config.json
+fs.outputFileSync(
+  path.resolve(process.cwd(), `../../apps/docs/src/config.json`),
+  JSON.stringify(
+    {
+      sidebarLinks,
+    },
+    null,
+    2
+  )
+);
 
 function outputMarkdownFiles(
   files: string[],
@@ -94,7 +107,7 @@ function outputMarkdownFiles(
 
     sidebarLinks[configKey].push({
       text: Case.title(name),
-      link: `/en/${subdirectoryString}`,
+      link: `en/${subdirectoryString}${name}`,
     });
   });
 }

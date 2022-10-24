@@ -1,1 +1,646 @@
-{}
+{
+  "sidebarLinks": {
+    "Standard Plugins": [
+      {
+        "text": "Pi Gzip",
+        "link": "en/pi/pi_gzip"
+      },
+      {
+        "text": "Pi Health",
+        "link": "en/pi/pi_health"
+      },
+      {
+        "text": "Pi Msgpack",
+        "link": "en/pi/pi_msgpack"
+      },
+      {
+        "text": "Pi Netrw",
+        "link": "en/pi/pi_netrw"
+      },
+      {
+        "text": "Pi Paren",
+        "link": "en/pi/pi_paren"
+      },
+      {
+        "text": "Pi Spec",
+        "link": "en/pi/pi_spec"
+      },
+      {
+        "text": "Pi Tar",
+        "link": "en/pi/pi_tar"
+      },
+      {
+        "text": "Pi Tutor",
+        "link": "en/pi/pi_tutor"
+      },
+      {
+        "text": "Pi Zip",
+        "link": "en/pi/pi_zip"
+      }
+    ],
+    "User Reference": [
+      {
+        "text": "Usr 01",
+        "link": "en/usr/usr_01"
+      },
+      {
+        "text": "Usr 02",
+        "link": "en/usr/usr_02"
+      },
+      {
+        "text": "Usr 03",
+        "link": "en/usr/usr_03"
+      },
+      {
+        "text": "Usr 04",
+        "link": "en/usr/usr_04"
+      },
+      {
+        "text": "Usr 05",
+        "link": "en/usr/usr_05"
+      },
+      {
+        "text": "Usr 06",
+        "link": "en/usr/usr_06"
+      },
+      {
+        "text": "Usr 07",
+        "link": "en/usr/usr_07"
+      },
+      {
+        "text": "Usr 08",
+        "link": "en/usr/usr_08"
+      },
+      {
+        "text": "Usr 09",
+        "link": "en/usr/usr_09"
+      },
+      {
+        "text": "Usr 10",
+        "link": "en/usr/usr_10"
+      },
+      {
+        "text": "Usr 11",
+        "link": "en/usr/usr_11"
+      },
+      {
+        "text": "Usr 12",
+        "link": "en/usr/usr_12"
+      },
+      {
+        "text": "Usr 20",
+        "link": "en/usr/usr_20"
+      },
+      {
+        "text": "Usr 21",
+        "link": "en/usr/usr_21"
+      },
+      {
+        "text": "Usr 22",
+        "link": "en/usr/usr_22"
+      },
+      {
+        "text": "Usr 23",
+        "link": "en/usr/usr_23"
+      },
+      {
+        "text": "Usr 24",
+        "link": "en/usr/usr_24"
+      },
+      {
+        "text": "Usr 25",
+        "link": "en/usr/usr_25"
+      },
+      {
+        "text": "Usr 26",
+        "link": "en/usr/usr_26"
+      },
+      {
+        "text": "Usr 27",
+        "link": "en/usr/usr_27"
+      },
+      {
+        "text": "Usr 28",
+        "link": "en/usr/usr_28"
+      },
+      {
+        "text": "Usr 29",
+        "link": "en/usr/usr_29"
+      },
+      {
+        "text": "Usr 30",
+        "link": "en/usr/usr_30"
+      },
+      {
+        "text": "Usr 31",
+        "link": "en/usr/usr_31"
+      },
+      {
+        "text": "Usr 32",
+        "link": "en/usr/usr_32"
+      },
+      {
+        "text": "Usr 40",
+        "link": "en/usr/usr_40"
+      },
+      {
+        "text": "Usr 41",
+        "link": "en/usr/usr_41"
+      },
+      {
+        "text": "Usr 42",
+        "link": "en/usr/usr_42"
+      },
+      {
+        "text": "Usr 43",
+        "link": "en/usr/usr_43"
+      },
+      {
+        "text": "Usr 44",
+        "link": "en/usr/usr_44"
+      },
+      {
+        "text": "Usr 45",
+        "link": "en/usr/usr_45"
+      },
+      {
+        "text": "Usr Toc",
+        "link": "en/usr/usr_toc"
+      }
+    ],
+    "Neovim Reference": [
+      {
+        "text": "Autocmd",
+        "link": "en/neovim/autocmd"
+      },
+      {
+        "text": "Change",
+        "link": "en/neovim/change"
+      },
+      {
+        "text": "Cmdline",
+        "link": "en/neovim/cmdline"
+      },
+      {
+        "text": "Debug",
+        "link": "en/neovim/debug"
+      },
+      {
+        "text": "Diff",
+        "link": "en/neovim/diff"
+      },
+      {
+        "text": "Digraph",
+        "link": "en/neovim/digraph"
+      },
+      {
+        "text": "Editing",
+        "link": "en/neovim/editing"
+      },
+      {
+        "text": "Filetype",
+        "link": "en/neovim/filetype"
+      },
+      {
+        "text": "Fold",
+        "link": "en/neovim/fold"
+      },
+      {
+        "text": "Gui",
+        "link": "en/neovim/gui"
+      },
+      {
+        "text": "Hebrew",
+        "link": "en/neovim/hebrew"
+      },
+      {
+        "text": "Helphelp",
+        "link": "en/neovim/helphelp"
+      },
+      {
+        "text": "If Perl",
+        "link": "en/neovim/if_perl"
+      },
+      {
+        "text": "If Ruby",
+        "link": "en/neovim/if_ruby"
+      },
+      {
+        "text": "Indent",
+        "link": "en/neovim/indent"
+      },
+      {
+        "text": "Index",
+        "link": "en/neovim/index"
+      },
+      {
+        "text": "Insert",
+        "link": "en/neovim/insert"
+      },
+      {
+        "text": "Map",
+        "link": "en/neovim/map"
+      },
+      {
+        "text": "Message",
+        "link": "en/neovim/message"
+      },
+      {
+        "text": "Mlang",
+        "link": "en/neovim/mlang"
+      },
+      {
+        "text": "Motion",
+        "link": "en/neovim/motion"
+      },
+      {
+        "text": "Pattern",
+        "link": "en/neovim/pattern"
+      },
+      {
+        "text": "Print",
+        "link": "en/neovim/print"
+      },
+      {
+        "text": "Quickfix",
+        "link": "en/neovim/quickfix"
+      },
+      {
+        "text": "Quickref",
+        "link": "en/neovim/quickref"
+      },
+      {
+        "text": "Recover",
+        "link": "en/neovim/recover"
+      },
+      {
+        "text": "Remote",
+        "link": "en/neovim/remote"
+      },
+      {
+        "text": "Repeat",
+        "link": "en/neovim/repeat"
+      },
+      {
+        "text": "Rileft",
+        "link": "en/neovim/rileft"
+      },
+      {
+        "text": "Russian",
+        "link": "en/neovim/russian"
+      },
+      {
+        "text": "Scroll",
+        "link": "en/neovim/scroll"
+      },
+      {
+        "text": "Sign",
+        "link": "en/neovim/sign"
+      },
+      {
+        "text": "Starting",
+        "link": "en/neovim/starting"
+      },
+      {
+        "text": "Tabpage",
+        "link": "en/neovim/tabpage"
+      },
+      {
+        "text": "Tagsrch",
+        "link": "en/neovim/tagsrch"
+      },
+      {
+        "text": "Tips",
+        "link": "en/neovim/tips"
+      },
+      {
+        "text": "Uganda",
+        "link": "en/neovim/uganda"
+      },
+      {
+        "text": "Undo",
+        "link": "en/neovim/undo"
+      },
+      {
+        "text": "Various",
+        "link": "en/neovim/various"
+      },
+      {
+        "text": "Vi Diff",
+        "link": "en/neovim/vi_diff"
+      },
+      {
+        "text": "Visual",
+        "link": "en/neovim/visual"
+      },
+      {
+        "text": "Windows",
+        "link": "en/neovim/windows"
+      }
+    ],
+    "Vim Reference": [
+      {
+        "text": "Autocmd",
+        "link": "en/vim/autocmd"
+      },
+      {
+        "text": "Change",
+        "link": "en/vim/change"
+      },
+      {
+        "text": "Cmdline",
+        "link": "en/vim/cmdline"
+      },
+      {
+        "text": "Debug",
+        "link": "en/vim/debug"
+      },
+      {
+        "text": "Diff",
+        "link": "en/vim/diff"
+      },
+      {
+        "text": "Digraph",
+        "link": "en/vim/digraph"
+      },
+      {
+        "text": "Editing",
+        "link": "en/vim/editing"
+      },
+      {
+        "text": "Filetype",
+        "link": "en/vim/filetype"
+      },
+      {
+        "text": "Fold",
+        "link": "en/vim/fold"
+      },
+      {
+        "text": "Gui",
+        "link": "en/vim/gui"
+      },
+      {
+        "text": "Hebrew",
+        "link": "en/vim/hebrew"
+      },
+      {
+        "text": "Helphelp",
+        "link": "en/vim/helphelp"
+      },
+      {
+        "text": "If Perl",
+        "link": "en/vim/if_perl"
+      },
+      {
+        "text": "If Ruby",
+        "link": "en/vim/if_ruby"
+      },
+      {
+        "text": "Indent",
+        "link": "en/vim/indent"
+      },
+      {
+        "text": "Index",
+        "link": "en/vim/index"
+      },
+      {
+        "text": "Insert",
+        "link": "en/vim/insert"
+      },
+      {
+        "text": "Map",
+        "link": "en/vim/map"
+      },
+      {
+        "text": "Message",
+        "link": "en/vim/message"
+      },
+      {
+        "text": "Mlang",
+        "link": "en/vim/mlang"
+      },
+      {
+        "text": "Motion",
+        "link": "en/vim/motion"
+      },
+      {
+        "text": "Pattern",
+        "link": "en/vim/pattern"
+      },
+      {
+        "text": "Print",
+        "link": "en/vim/print"
+      },
+      {
+        "text": "Quickfix",
+        "link": "en/vim/quickfix"
+      },
+      {
+        "text": "Quickref",
+        "link": "en/vim/quickref"
+      },
+      {
+        "text": "Recover",
+        "link": "en/vim/recover"
+      },
+      {
+        "text": "Remote",
+        "link": "en/vim/remote"
+      },
+      {
+        "text": "Repeat",
+        "link": "en/vim/repeat"
+      },
+      {
+        "text": "Rileft",
+        "link": "en/vim/rileft"
+      },
+      {
+        "text": "Russian",
+        "link": "en/vim/russian"
+      },
+      {
+        "text": "Scroll",
+        "link": "en/vim/scroll"
+      },
+      {
+        "text": "Sign",
+        "link": "en/vim/sign"
+      },
+      {
+        "text": "Starting",
+        "link": "en/vim/starting"
+      },
+      {
+        "text": "Tabpage",
+        "link": "en/vim/tabpage"
+      },
+      {
+        "text": "Tagsrch",
+        "link": "en/vim/tagsrch"
+      },
+      {
+        "text": "Tips",
+        "link": "en/vim/tips"
+      },
+      {
+        "text": "Uganda",
+        "link": "en/vim/uganda"
+      },
+      {
+        "text": "Undo",
+        "link": "en/vim/undo"
+      },
+      {
+        "text": "Various",
+        "link": "en/vim/various"
+      },
+      {
+        "text": "Vi Diff",
+        "link": "en/vim/vi_diff"
+      },
+      {
+        "text": "Visual",
+        "link": "en/vim/visual"
+      },
+      {
+        "text": "Windows",
+        "link": "en/vim/windows"
+      }
+    ],
+    "Misc": [
+      {
+        "text": "Arabic",
+        "link": "en/misc/arabic"
+      },
+      {
+        "text": "Builtin",
+        "link": "en/misc/builtin"
+      },
+      {
+        "text": "Deprecated",
+        "link": "en/misc/deprecated"
+      },
+      {
+        "text": "Dev Style",
+        "link": "en/misc/dev_style"
+      },
+      {
+        "text": "Develop",
+        "link": "en/misc/develop"
+      },
+      {
+        "text": "Diagnostic",
+        "link": "en/misc/diagnostic"
+      },
+      {
+        "text": "Eval",
+        "link": "en/misc/eval"
+      },
+      {
+        "text": "Ft Ada",
+        "link": "en/misc/ft_ada"
+      },
+      {
+        "text": "Ft Ps1",
+        "link": "en/misc/ft_ps1"
+      },
+      {
+        "text": "Ft Raku",
+        "link": "en/misc/ft_raku"
+      },
+      {
+        "text": "Ft Rust",
+        "link": "en/misc/ft_rust"
+      },
+      {
+        "text": "Ft Sql",
+        "link": "en/misc/ft_sql"
+      },
+      {
+        "text": "Help",
+        "link": "en/misc/help"
+      },
+      {
+        "text": "If Pyth",
+        "link": "en/misc/if_pyth"
+      },
+      {
+        "text": "Intro",
+        "link": "en/misc/intro"
+      },
+      {
+        "text": "Lsp Extension",
+        "link": "en/misc/lsp-extension"
+      },
+      {
+        "text": "Lsp",
+        "link": "en/misc/lsp"
+      },
+      {
+        "text": "Lua",
+        "link": "en/misc/lua"
+      },
+      {
+        "text": "Luaref",
+        "link": "en/misc/luaref"
+      },
+      {
+        "text": "Luvref",
+        "link": "en/misc/luvref"
+      },
+      {
+        "text": "Mbyte",
+        "link": "en/misc/mbyte"
+      },
+      {
+        "text": "News",
+        "link": "en/misc/news"
+      },
+      {
+        "text": "Nvim",
+        "link": "en/misc/nvim"
+      },
+      {
+        "text": "Options",
+        "link": "en/misc/options"
+      },
+      {
+        "text": "Spell",
+        "link": "en/misc/spell"
+      },
+      {
+        "text": "Support",
+        "link": "en/misc/support"
+      },
+      {
+        "text": "Syntax",
+        "link": "en/misc/syntax"
+      },
+      {
+        "text": "Term",
+        "link": "en/misc/term"
+      },
+      {
+        "text": "Testing",
+        "link": "en/misc/testing"
+      },
+      {
+        "text": "Treesitter",
+        "link": "en/misc/treesitter"
+      },
+      {
+        "text": "Ui",
+        "link": "en/misc/ui"
+      },
+      {
+        "text": "Userfunc",
+        "link": "en/misc/userfunc"
+      },
+      {
+        "text": "Vim Diff",
+        "link": "en/misc/vim_diff"
+      }
+    ]
+  }
+}

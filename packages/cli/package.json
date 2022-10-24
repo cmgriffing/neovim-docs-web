@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "parse-txt": "ts-node ./scripts/parse-text-files.ts",
-    "watch": "nodemon -e ts,mustache --watch src --exec \"pnpm parse-txt\"",
+    "watch": "nodemon -e ts,mustache --watch src --watch scripts --exec \"pnpm parse-txt\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

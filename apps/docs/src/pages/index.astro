@@ -1,5 +1,10 @@
 <script is:inline>
   // Redirect your homepage to the first page of documentation.
   // If you have a landing page, remove this script and add it here!
-  window.location.pathname = `/en/misc/treesitter`;
+  let newPathName = `/en/introduction`;
+
+  if (window.location.pathname.indexOf("neovim-docs-web") > -1) {
+    newPathName = `/neovim-docs-web/en/introduction`;
+  }
+  window.location.pathname = newPathName;
 </script>

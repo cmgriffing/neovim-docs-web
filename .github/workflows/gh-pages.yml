@@ -7,7 +7,7 @@ name: Deploy Astro site to Pages
 on:
   # Runs on pushes targeting the default branch
   push:
-    branches: [$default-branch]
+    branches: [main]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -31,19 +31,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Detect package manager
-        id: detect-package-manager
-        run: |
-          echo "::set-output name=manager::pnpm"
-          echo "::set-output name=command::ci"
-          echo "::set-output name=runner::pnpx --no-install"
-          exit 0
-
-      - name: Setup Node
+      - name: Install Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "16"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          node-version: 16
+
       - uses: pnpm/action-setup@v2.2.4
         with:
           version: 6.0.2

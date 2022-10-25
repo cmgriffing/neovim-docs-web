@@ -15,22 +15,22 @@ VIM USER MANUAL - by Bram Moolenaar
 Before you can insert or delete text the cursor has to be moved to the right
 place.  Vim has a large number of commands to position the cursor.  This
 chapter shows you how to use the most important ones.  You can find a list of
-these commands below [Q_lr](#Q_lr).
+these commands below |Q_lr|.
 
-[03.1](#03.1)	Word movement
-[03.2](#03.2)	Moving to the start or end of a line
-[03.3](#03.3)	Moving to a character
-[03.4](#03.4)	Matching a parenthesis
-[03.5](#03.5)	Moving to a specific line
-[03.6](#03.6)	Telling where you are
-[03.7](#03.7)	Scrolling around
-[03.8](#03.8)	Simple searches
-[03.9](#03.9)	Simple search patterns
-[03.10](#03.10)	Using marks
+|03.1|	Word movement
+|03.2|	Moving to the start or end of a line
+|03.3|	Moving to a character
+|03.4|	Matching a parenthesis
+|03.5|	Moving to a specific line
+|03.6|	Telling where you are
+|03.7|	Scrolling around
+|03.8|	Simple searches
+|03.9|	Simple search patterns
+|03.10|	Using marks
 
-     Next chapter: [usr_04.txt](#usr_04.txt)  Making small changes
- Previous chapter: [usr_02.txt](#usr_02.txt)  The first steps in Vim
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_04.txt|  Making small changes
+ Previous chapter: |usr_02.txt|  The first steps in Vim
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*03.1*	Word Movement</a> 
@@ -41,8 +41,8 @@ example, "3w" moves three words.  This figure shows how it works (starting at
 the position marked with "x"):
 
 	This is a line with example text ~
-	  x-->-->->-----------------
-```	   w  w  w    3w
+	  x-->-->->----------------->
+	   w  w  w    3w
 
 Notice that "w" moves to the start of the next word if it already is at the
 start of a word.
@@ -194,15 +194,15 @@ to go down thirty-two lines.  It is not a good way, but it works.  A much
 better way of doing things is to use the "G" command.  With a count, this
 command positions you at the given line number.  For example, "33G" puts you
 on line 33.  (For a better way of going through a compiler's error list, see
-[usr_30.txt](#usr_30.txt), for information on the :make command.)
+|usr_30.txt|, for information on the :make command.)
    With no argument, "G" positions you at the end of the file.  A quick way to
 go to the start of a file use "gg".  "1G" will do the same, but is a tiny bit
 more typing.
 
 	    |	first line of a file   ^
-	    [	text text text text    ](#	text text text text    )
-	    [	text text text text    ](#	text text text text    )  gg
-	7G  [	text text text text    ](#	text text text text    )
+	    |	text text text text    |
+	    |	text text text text    |  gg
+	7G  |	text text text text    |
 	    |	text text text text
 	    |	text text text text
 	    V	text text text text    |
@@ -219,15 +219,15 @@ it's currently visible or not.  What if you want to move to one of the lines
 you can see?  This figure shows the three commands you can use:
 
 			+---------------------------+
-		H -->	[ text sample text	    ](# text sample text	    )
-			[ sample text		    ](# sample text		    )
-			[ text sample text	    ](# text sample text	    )
-			[ sample text		    ](# sample text		    )
-		M -->	[ text sample text	    ](# text sample text	    )
-			[ sample text		    ](# sample text		    )
-			[ text sample text	    ](# text sample text	    )
-			[ sample text		    ](# sample text		    )
-		L -->	[ text sample text	    ](# text sample text	    )
+		H -->	| text sample text	    |
+			| sample text		    |
+			| text sample text	    |
+			| sample text		    |
+		M -->	| text sample text	    |
+			| sample text		    |
+			| text sample text	    |
+			| sample text		    |
+		L -->	| text sample text	    |
 			+---------------------------+
 
 Hints: "H" stands for Home, "M" for Middle and "L" for Last.  Alternatively,
@@ -253,11 +253,11 @@ To see where you are in a file, there are three ways:
 
 2.  Set the 'number' option.  This will display a line number in front of
     every line:
-
+```
 	:set number
 ```
 
-    To switch this off again: 
+    To switch this off again:
 ```
 	:set nonumber
 ```
@@ -289,21 +289,21 @@ which end is up.  Most users have the same problem.
 thus scrolls the text up half a screen.
 
 				       +----------------+
-				       [ some text	](# some text	)
-				       [ some text	](# some text	)
-				       [ some text	](# some text	)
-	+---------------+	       [ some text	](# some text	)
-	[ some text	|  CTRL-U  --> |		](# some text	|  CTRL-U  --> |		)
-	[		|	       | 123456		](#		|	       | 123456		)
-	[ 123456	](# 123456	)	       +----------------+
-	[ 7890		](# 7890		)
-	[		](#		)	       +----------------+
-	[ example	|  CTRL-D -->  | 7890		](# example	|  CTRL-D -->  | 7890		)
-	+---------------+	       [		](#		)
-				       [ example	](# example	)
-				       [ example	](# example	)
-				       [ example	](# example	)
-				       [ example	](# example	)
+				       | some text	|
+				       | some text	|
+				       | some text	|
+	+---------------+	       | some text	|
+	| some text	|  CTRL-U  --> |		|
+	|		|	       | 123456		|
+	| 123456	|	       +----------------+
+	| 7890		|
+	|		|	       +----------------+
+	| example	|  CTRL-D -->  | 7890		|
+	+---------------+	       |		|
+				       | example	|
+				       | example	|
+				       | example	|
+				       | example	|
 				       +----------------+
 
 To scroll one line at a time use CTRL-E (scroll up) and CTRL-Y (scroll down).
@@ -319,17 +319,17 @@ the bottom of the screen.  You would like to see the context of the line with
 the cursor.  That's done with the "zz" command.
 
 	+------------------+		 +------------------+
-	[ earlier text	   |		 | earlier text	    ](# earlier text	   |		 | earlier text	    )
-	[ earlier text	   |		 | earlier text	    ](# earlier text	   |		 | earlier text	    )
-	[ earlier text	   |		 | earlier text	    ](# earlier text	   |		 | earlier text	    )
-	[ earlier text	   |   zz  -->	 | line with cursor ](# earlier text	   |   zz  -->	 | line with cursor )
-	[ earlier text	   |		 | later text	    ](# earlier text	   |		 | later text	    )
-	[ earlier text	   |		 | later text	    ](# earlier text	   |		 | later text	    )
-	[ line with cursor |		 | later text	    ](# line with cursor |		 | later text	    )
+	| earlier text	   |		 | earlier text	    |
+	| earlier text	   |		 | earlier text	    |
+	| earlier text	   |		 | earlier text	    |
+	| earlier text	   |   zz  -->	 | line with cursor |
+	| earlier text	   |		 | later text	    |
+	| earlier text	   |		 | later text	    |
+	| line with cursor |		 | later text	    |
 	+------------------+		 +------------------+
 
 The "zt" command puts the cursor line at the top, "zb" at the bottom.  There
-are a few more scrolling commands, see [Q_sc](#Q_sc).  To always keep a few lines of
+are a few more scrolling commands, see |Q_sc|.  To always keep a few lines of
 context around the cursor, use the 'scrolloff' option.
 
 
@@ -506,8 +506,8 @@ Regular expressions are an extremely powerful and compact way to specify a
 search pattern.  Unfortunately, this power comes at a price, because regular
 expressions are a bit tricky to specify.
    In this section we mention only a few essential ones.  More about search
-patterns and commands can be found in chapter 27 [usr_27.txt](#usr_27.txt).  You can find
-the full explanation here: [pattern](#pattern).
+patterns and commands can be found in chapter 27 |usr_27.txt|.  You can find
+the full explanation here: [pattern](undefined#pattern).
 
 
 BEGINNING AND END OF A LINE
@@ -595,12 +595,12 @@ where you started.  If you now use CTRL-I you jump to line 33 again.  And
 to the match for "The" with another CTRL-I.
 
 
-	     [	example text   ^	     ](#	example text   ^	     )
-	33G  [	example text   |  CTRL-O     ](#	example text   |  CTRL-O     ) CTRL-I
-	     [	example text   |	     ](#	example text   |	     )
+	     |	example text   ^	     |
+	33G  |	example text   |  CTRL-O     | CTRL-I
+	     |	example text   |	     |
 	     V	line 33 text   ^	     V
-	     [	example text   |	     ](#	example text   |	     )
-       /^The [	example text   |  CTRL-O     ](#	example text   |  CTRL-O     ) CTRL-I
+	     |	example text   |	     |
+       /^The |	example text   |  CTRL-O     | CTRL-I
 	     V	There you are  |	     V
 		example text
 
@@ -657,7 +657,7 @@ You will notice a few special marks.  These include:
 	]	End of the last change
 
 
-## <a id="Making small changes" class="section-title" href="#Making small changes">Next Chapter: [Usr_04.Txt](#Usr_04.Txt)</a> 
+## <a id="Making small changes" class="section-title" href="#Making small changes">Next Chapter: |Usr_04.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

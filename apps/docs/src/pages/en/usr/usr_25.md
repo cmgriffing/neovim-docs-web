@@ -16,15 +16,15 @@ Text hardly ever comes in one sentence per line.  This chapter is about
 breaking sentences to make them fit on a page and other formatting.
 Vim also has useful features for editing single-line paragraphs and tables.
 
-[25.1](#25.1)	Breaking lines
-[25.2](#25.2)	Aligning text
-[25.3](#25.3)	Indents and tabs
-[25.4](#25.4)	Dealing with long lines
-[25.5](#25.5)	Editing tables
+|25.1|	Breaking lines
+|25.2|	Aligning text
+|25.3|	Indents and tabs
+|25.4|	Dealing with long lines
+|25.5|	Editing tables
 
-     Next chapter: [usr_26.txt](#usr_26.txt)  Repeating
- Previous chapter: [usr_24.txt](#usr_24.txt)  Inserting quickly
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_26.txt|  Repeating
+ Previous chapter: |usr_24.txt|  Inserting quickly
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*25.1*	Breaking Lines</a> 
@@ -105,7 +105,7 @@ the "gq" operator.  The result is:
 	story. ~
 
 Note: there is a way to do automatic formatting for specific types of text
-layouts, see [auto-format](#auto-format).
+layouts, see [auto-format](undefined#auto-format).
 
 Since "gq" is an operator, you can use one of the three ways to select the
 text it works on: With Visual mode, with a movement and with a text object.
@@ -129,7 +129,7 @@ whole file by typing this:
 together.  A common mistake is to have a line with a space or tab.  That's a
 blank line, but not an empty line.
 
-Vim is able to format more than just plain text.  See [fo-table](#fo-table) for how to
+Vim is able to format more than just plain text.  See [fo-table](undefined#fo-table) for how to
 change this.  See the 'joinspaces' option to change the number of spaces used
 after a full stop.
    It is possible to use an external program for formatting.  This is useful
@@ -205,7 +205,7 @@ command:
 
 	:packadd justify
 
-Or put this line in your [vimrc](#vimrc):
+Or put this line in your [vimrc](undefined#vimrc):
 
 	packadd! justify
 
@@ -332,16 +332,16 @@ Let's attempt to show this with one line of text.  The cursor is on the "w" of
 currently visible.  The "window"s below the text indicate the text that is
 visible after the command left of it.
 
-			      [<-- current window -->](#<-- current window -->)
+			      |<-- current window -->|
 		some long text, part of which is visible in the window ~
-	ze	  [<--	   window     -->](#<--	   window     -->)
-	zH	   [<--     window     -->](#<--     window     -->)
-	4zh		  [<--	   window     -->](#<--	   window     -->)
-	zh		     [<--     window	 -->](#<--     window	 -->)
-	zl		       [<--	window	   -->](#<--	window	   -->)
-	4zl			  [<--	   window     -->](#<--	   window     -->)
-	zL				[<--	 window     -->](#<--	 window     -->)
-	zs			       [<--	window	   -->](#<--	window	   -->)
+	ze	  |<--	   window     -->|
+	zH	   |<--     window     -->|
+	4zh		  |<--	   window     -->|
+	zh		     |<--     window	 -->|
+	zl		       |<--	window	   -->|
+	4zl			  |<--	   window     -->|
+	zL				|<--	 window     -->|
+	zs			       |<--	window	   -->|
 
 
 MOVING WITH WRAP OFF
@@ -357,7 +357,7 @@ scroll:
 	gM		to middle of the text in this line
 	g$		to last visible character in this line
 
-		[<--	  window     -->](#<--	  window     -->)
+		|<--	  window     -->|
 	some long    text, part of which is visible in one line ~
 		 g0  g^    gm	   gM g$
 
@@ -374,11 +374,11 @@ displaying the line.  The text in the file remains unchanged.
    Without 'linebreak' text might look like this:
 
 	+---------------------------------+
-	[letter generation program for a b](#letter generation program for a b)
-	[ank.  They wanted to send out a s](#ank.  They wanted to send out a s)
-	[pecial, personalized letter to th](#pecial, personalized letter to th)
-	[eir richest 1000 customers.  Unfo](#eir richest 1000 customers.  Unfo)
-	[rtunately for the programmer, he ](#rtunately for the programmer, he )
+	|letter generation program for a b|
+	|ank.  They wanted to send out a s|
+	|pecial, personalized letter to th|
+	|eir richest 1000 customers.  Unfo|
+	|rtunately for the programmer, he |
 	+---------------------------------+
 After:
 
@@ -387,11 +387,11 @@ After:
 it looks like this:
 
 	+---------------------------------+
-	[letter generation program for a  ](#letter generation program for a  )
-	[bank.  They wanted to send out a ](#bank.  They wanted to send out a )
-	[special, personalized letter to  ](#special, personalized letter to  )
-	[their richest 1000 customers.    ](#their richest 1000 customers.    )
-	[Unfortunately for the programmer,](#Unfortunately for the programmer,)
+	|letter generation program for a  |
+	|bank.  They wanted to send out a |
+	|special, personalized letter to  |
+	|their richest 1000 customers.    |
+	|Unfortunately for the programmer,|
 	+---------------------------------+
 
 Related options:
@@ -434,24 +434,24 @@ That looks complicated.  Let's break it up in pieces:
 Starting with this text, containing eight lines broken at column 30:
 
 	+----------------------------------+
-	[A letter generation program	   ](#A letter generation program	   )
-	[for a bank.  They wanted to	   ](#for a bank.  They wanted to	   )
-	[send out a special,		   ](#send out a special,		   )
-	[personalized letter.		   ](#personalized letter.		   )
-	[				   ](#				   )
-	[To their richest 1000		   ](#To their richest 1000		   )
-	[customers.  Unfortunately for	   ](#customers.  Unfortunately for	   )
-	[the programmer,		   ](#the programmer,		   )
+	|A letter generation program	   |
+	|for a bank.  They wanted to	   |
+	|send out a special,		   |
+	|personalized letter.		   |
+	|				   |
+	|To their richest 1000		   |
+	|customers.  Unfortunately for	   |
+	|the programmer,		   |
 	+----------------------------------+
 
 You end up with two lines:
 
 	+----------------------------------+
-	[A letter generation program for a ](#A letter generation program for a )
-	[bank.	They wanted to send out a s](#bank.	They wanted to send out a s)
-	[pecial, personalized letter.	   ](#pecial, personalized letter.	   )
-	[To their richest 1000 customers.  ](#To their richest 1000 customers.  )
-	[Unfortunately for the programmer, ](#Unfortunately for the programmer, )
+	|A letter generation program for a |
+	|bank.	They wanted to send out a s|
+	|pecial, personalized letter.	   |
+	|To their richest 1000 customers.  |
+	|Unfortunately for the programmer, |
 	+----------------------------------+
 
 Note that this doesn't work when the separating line is blank but not empty;
@@ -561,7 +561,7 @@ gap.  Thus what actually happens is that a tab is replaced by "x" and then
 blanks added to make the text after it keep its place.  In this case a
 tab is inserted.
    When you need to replace more than one character, you use the "R" command
-to go to Replace mode (see [04.9](#04.9)).  This messes up the layout and replaces
+to go to Replace mode (see |04.9|).  This messes up the layout and replaces
 the wrong characters:
 
 	inp	0	0.534	0.693 ~
@@ -583,7 +583,7 @@ The "gR" command uses Virtual Replace mode.  This preserves the layout:
 	inp	0.786	0.534	0.693 ~
 
 
-## <a id="Repeating" class="section-title" href="#Repeating">Next Chapter: [Usr_26.Txt](#Usr_26.Txt)</a> 
+## <a id="Repeating" class="section-title" href="#Repeating">Next Chapter: |Usr_26.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

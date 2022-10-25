@@ -12,7 +12,7 @@ layout: "@layouts/MainLayout.astro"
 Vim-raku provides syntax highlighting, indentation, and other support for
 editing Raku programs.
 
-1. Using Unicode in your Raku files	[raku-unicode](#raku-unicode)
+1. Using Unicode in your Raku files	[raku-unicode](/neovim-docs-web/en/misc/ft_raku#raku-unicode)
 
 
 ## <a id="raku-unicode" class="section-title" href="#raku-unicode">1. Using Unicode in Your Raku Files</a> 
@@ -27,9 +27,9 @@ Unicode operators is highly desirable. Your operating system provides input
 facilities, but using the features built in to Vim may be preferable.
 
 The natural way to produce these symbols in Vim is to use digraph shortcuts
-(:help [digraphs-use](#digraphs-use)). Many of them are defined; type `:digraphs` to get
+(:help [digraphs-use](/neovim-docs-web/en/vim/digraph#digraphs-use)). Many of them are defined; type `:digraphs` to get
 the list. A convenient way to read the list of digraphs is to save them in a
-file. From the shell: 
+file. From the shell:
 ```        vim +'redir >/tmp/vim-digraphs-listing.txt' +digraphs +'redir END' +q
 
 Some of them are available with standard Vim digraphs:

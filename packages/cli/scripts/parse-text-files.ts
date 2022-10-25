@@ -4,6 +4,7 @@ import { parseTextContents } from "../src/utils/parse-text-contents";
 import { renderSectionMarkdown } from "../src/utils/render-section-markdown";
 import glob from "glob";
 import Case from "case";
+import { formatMarkdown } from "../src/utils/format-markdown";
 
 interface SidebarLink {
   text: string;
@@ -40,14 +41,14 @@ const genericDocs: string[] = [];
 remainingDocs.forEach((filePath) => {
   const fileContents = fs.readFileSync(filePath, { encoding: "utf8" });
 
-  const isVimDoc = fileContents.indexOf(" VIM REFERENCE MANUAL ") > -1;
-  if (isVimDoc) {
-    coreVimDocs.push(filePath);
+  const isNeovimDoc = fileContents.indexOf("NVIM REFERENCE MANUAL") > -1;
+  if (isNeovimDoc) {
+    neovimDocs.push(filePath);
   }
 
-  const isNeovimDoc = fileContents.indexOf(" NVIM REFERENCE MANUAL ") > -1;
-  if (isVimDoc) {
-    neovimDocs.push(filePath);
+  const isVimDoc = fileContents.indexOf("VIM REFERENCE MANUAL") > -1;
+  if (!isNeovimDoc && isVimDoc) {
+    coreVimDocs.push(filePath);
   }
 
   if (!isVimDoc && !isNeovimDoc) {
@@ -55,13 +56,14 @@ remainingDocs.forEach((filePath) => {
   }
 });
 
-outputMarkdownFiles(piDocs, "Standard Plugins", "pi");
-outputMarkdownFiles(userDocs, "User Reference", "usr");
-outputMarkdownFiles(neovimDocs, "Neovim Reference", "neovim");
-outputMarkdownFiles(coreVimDocs, "Vim Reference", "vim");
-outputMarkdownFiles(genericDocs, "Misc", "misc", true);
-{
-}
+const anchorMap: Record<string, string> = {};
+
+outputMarkdownFiles(piDocs, "Standard Plugins", anchorMap, "pi");
+outputMarkdownFiles(userDocs, "User Reference", anchorMap, "usr");
+outputMarkdownFiles(neovimDocs, "Neovim Reference", anchorMap, "neovim");
+outputMarkdownFiles(coreVimDocs, "Vim Reference", anchorMap, "vim");
+outputMarkdownFiles(genericDocs, "Misc", anchorMap, "misc", true);
+
 // write to config.json
 fs.outputFileSync(
   path.resolve(process.cwd(), `../../apps/docs/src/config.json`),
@@ -74,25 +76,54 @@ fs.outputFileSync(
   )
 );
 
+console.log({ anchorMap });
+
+glob
+  .sync(path.resolve(process.cwd(), `../../apps/docs/src/pages/**/*.md`))
+  .forEach((markdownFile) => {
+    // const { name } = path.parse(markdownFile);
+
+    const markdownContent = fs.readFileSync(markdownFile, { encoding: "utf8" });
+
+    const newContent = formatMarkdown(markdownContent, anchorMap);
+
+    fs.outputFileSync(markdownFile, newContent);
+  });
+
 function outputMarkdownFiles(
   files: string[],
   configKey: string,
+  anchorMap: Record<string, string>,
   outputSubdirectory: string = "",
   shouldTrimStart = false
 ) {
   files.forEach((filePath) => {
     const { name } = path.parse(filePath);
 
-    const content = fs.readFileSync(filePath, { encoding: "utf8" });
-
-    const parsedContent = parseTextContents(name, content, shouldTrimStart);
-
-    const renderedContent = renderSectionMarkdown(parsedContent);
-
     let subdirectoryString = "";
     if (outputSubdirectory) {
       subdirectoryString = `${outputSubdirectory}/`;
     }
+
+    anchorMap[
+      `${name}.txt`
+    ] = `/neovim-docs-web/en/${subdirectoryString}${name}`;
+
+    const content = fs.readFileSync(filePath, { encoding: "utf8" });
+
+    const { page, anchors } = parseTextContents(name, content, shouldTrimStart);
+
+    if (name === "treesitter") {
+      console.log({ anchors });
+    }
+
+    anchors.forEach((anchor) => {
+      if (anchor) {
+        anchorMap[anchor] = `/neovim-docs-web/en/${subdirectoryString}${name}`;
+      }
+    });
+
+    const renderedContent = renderSectionMarkdown(page);
 
     fs.outputFileSync(
       path.resolve(

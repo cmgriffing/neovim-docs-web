@@ -15,27 +15,27 @@ The Structured Query Language (SQL) is a standard which specifies statements
 that allow a user to interact with a relational database.  Vim includes
 features for navigation, indentation and syntax highlighting.
 
-1. Navigation					[sql-navigation](#sql-navigation)
-1.1 Matchit					[sql-matchit](#sql-matchit)
-1.2 Text Object Motions			[sql-object-motions](#sql-object-motions)
-1.3 Predefined Object Motions		[sql-predefined-objects](#sql-predefined-objects)
-1.4 Macros					[sql-macros](#sql-macros)
-2. SQL Dialects					[sql-dialects](#sql-dialects)
-2.1 SQLSetType				[SQLSetType](#SQLSetType)
-2.2 SQLGetType				[SQLGetType](#SQLGetType)
-2.3 SQL Dialect Default			[sql-type-default](#sql-type-default)
-3. Adding new SQL Dialects			[sql-adding-dialects](#sql-adding-dialects)
-4. OMNI SQL Completion				[sql-completion](#sql-completion)
-4.1 Static mode				[sql-completion-static](#sql-completion-static)
-4.2 Dynamic mode				[sql-completion-dynamic](#sql-completion-dynamic)
-4.3 Tutorial				[sql-completion-tutorial](#sql-completion-tutorial)
-4.3.1 Complete Tables			[sql-completion-tables](#sql-completion-tables)
-4.3.2 Complete Columns			[sql-completion-columns](#sql-completion-columns)
-4.3.3 Complete Procedures		[sql-completion-procedures](#sql-completion-procedures)
-4.3.4 Complete Views			[sql-completion-views](#sql-completion-views)
-4.4 Completion Customization		[sql-completion-customization](#sql-completion-customization)
-4.5 SQL Maps				[sql-completion-maps](#sql-completion-maps)
-4.6 Using with other filetypes		[sql-completion-filetypes](#sql-completion-filetypes)
+1. Navigation					[sql-navigation](/neovim-docs-web/en/misc/ft_sql#sql-navigation)
+1.1 Matchit					[sql-matchit](undefined#sql-matchit)
+1.2 Text Object Motions			[sql-object-motions](undefined#sql-object-motions)
+1.3 Predefined Object Motions		[sql-predefined-objects](undefined#sql-predefined-objects)
+1.4 Macros					[sql-macros](undefined#sql-macros)
+2. SQL Dialects					[sql-dialects](undefined#sql-dialects)
+2.1 SQLSetType				[SQLSetType](undefined#SQLSetType)
+2.2 SQLGetType				[SQLGetType](undefined#SQLGetType)
+2.3 SQL Dialect Default			[sql-type-default](undefined#sql-type-default)
+3. Adding new SQL Dialects			[sql-adding-dialects](/neovim-docs-web/en/misc/ft_sql#sql-adding-dialects)
+4. OMNI SQL Completion				[sql-completion](/neovim-docs-web/en/misc/ft_sql#sql-completion)
+4.1 Static mode				[sql-completion-static](undefined#sql-completion-static)
+4.2 Dynamic mode				[sql-completion-dynamic](undefined#sql-completion-dynamic)
+4.3 Tutorial				[sql-completion-tutorial](undefined#sql-completion-tutorial)
+4.3.1 Complete Tables			[sql-completion-tables](undefined#sql-completion-tables)
+4.3.2 Complete Columns			[sql-completion-columns](undefined#sql-completion-columns)
+4.3.3 Complete Procedures		[sql-completion-procedures](undefined#sql-completion-procedures)
+4.3.4 Complete Views			[sql-completion-views](undefined#sql-completion-views)
+4.4 Completion Customization		[sql-completion-customization](undefined#sql-completion-customization)
+4.5 SQL Maps				[sql-completion-maps](undefined#sql-completion-maps)
+4.6 Using with other filetypes		[sql-completion-filetypes](undefined#sql-completion-filetypes)
 
 
 ## <a id="sql-navigation" class="section-title" href="#sql-navigation">1. Navigation</a> 
@@ -45,8 +45,10 @@ navigation.
 
 
 ### <a id="sql-matchit" class="section-title" href="#sql-matchit">1.1 Matchit</a>
------------
-The matchit plugin (https://www.vim.org/scripts/script.php?script_id=39)
+
+
+## <a id="" class="section-title" href="#">The Matchit Plugin (Https://Www.Vim.Org/Scripts/Script.Php?Script_Id=39)</a> 
+
 provides many additional features and can be customized for different
 languages.  The matchit plugin is configured by defining a local
 buffer variable, b:match_words.  Pressing the % key while on various
@@ -54,8 +56,8 @@ keywords will move the cursor to its match.  For example, if the cursor
 is on an "if", pressing % will cycle between the "else", "elseif" and
 "end if" keywords.
 
-The following keywords are supported: 
-```    if
+The following keywords are supported:
+if
 elseif | elsif
 else [if]
 end if
@@ -88,17 +90,19 @@ merge
 when not matched
 when matched
 
-create[ or replace] procedure[function](#function)event
+create[ or replace] procedure[function](undefined#function)event
 returns
 
 
 ### <a id="sql-object-motions" class="section-title" href="#sql-object-motions">1.2 Text Object Motions</a>
------------------------
-Vim has a number of predefined keys for working with text [object-motions](#object-motions).
+
+
+## <a id="" class="section-title" href="#">Vim Has a Number of Predefined Keys for Working With Text [Object-Motions](undefined#Object-Motions).</a> 
+
 This filetype plugin attempts to translate these keys to maps which make sense
 for the SQL language.
 
-The following [Normal| mode and |Visual](#Normal| mode and |Visual) mode maps exist (when you edit a SQL
+The following [Normal](undefined#Normal) mode and [Visual](undefined#Visual) mode maps exist (when you edit a SQL
 file):
 ]]		    move forward to the next 'begin'
 [[		    move backwards to the previous 'begin'
@@ -107,20 +111,22 @@ file):
 
 
 ### <a id="sql-predefined-objects" class="section-title" href="#sql-predefined-objects">1.3 Predefined Object Motions</a>
------------------------------
-Most relational databases support various standard features, tables, indices,
+
+
+## <a id="" class="section-title" href="#">Most Relational Databases Support Various Standard Features, Tables, Indices,</a> 
+
 triggers and stored procedures.  Each vendor also has a variety of proprietary
 objects.  The next set of maps have been created to help move between these
 objects.  Depends on which database vendor you are using, the list of objects
 must be configurable.  The filetype plugin attempts to define many of the
 standard objects, plus many additional ones.  In order to make this as
 flexible as possible, you can override the list of objects from within your
-[vimrc](#vimrc) with the following:
+[vimrc](undefined#vimrc) with the following:
 let g:ftplugin_sql_objects = 'function,procedure,event,table,trigger' ..
 \ ',schema,service,publication,database,datatype,domain' ..
 \ ',index,subscription,synchronization,view,variable'
 
-The following [Normal| mode and |Visual](#Normal| mode and |Visual) mode maps have been created which use
+The following [Normal](undefined#Normal) mode and [Visual](undefined#Visual) mode maps have been created which use
 the above list:
 ]}		    move forward to the next 'create <object name>'
 [{		    move backward to the previous 'create <object name>'
@@ -156,7 +162,7 @@ create global temporary table t3 (
 );
 
 By default, the ftplugin only searches for CREATE statements.  You can also
-override this via your [init.vim](#init.vim) with the following:
+override this via your |init.vim| with the following:
 let g:ftplugin_sql_statements = 'create,alter'
 
 The filetype plugin defines three types of comments:
@@ -166,7 +172,7 @@ The filetype plugin defines three types of comments:
 ### <a id="" class="section-title" href="#">Note:</a>
 ### <a id="/" class="section-title" href="#/">Note:</a>
 
-The following [Normal| mode and |Visual](#Normal| mode and |Visual) mode maps have been created to work
+The following [Normal](undefined#Normal) mode and [Visual](undefined#Visual) mode maps have been created to work
 with comments:
 ]"		    move forward to the beginning of a comment
 ["		    move forward to the end of a comment
@@ -174,10 +180,12 @@ with comments:
 
 
 ### <a id="sql-macros" class="section-title" href="#sql-macros">1.4 Macros</a>
-----------
-Vim's feature to find macro definitions, ['define'](#'define'), is supported using this
+
+
+## <a id="" class="section-title" href="#">Vim's Feature to Find Macro Definitions, |'define'|, Is Supported Using This</a> 
+
 regular expression:
-\c\<\(VARIABLE\[DECLARE\|IN\|OUT\](#DECLARE\|IN\|OUT\)INOUT\)\>
+\c\<\(VARIABLE\|DECLARE\|IN\|OUT\|INOUT\)\>
 
 This addresses the following code:
 CREATE VARIABLE myVar1 INTEGER;
@@ -233,24 +241,26 @@ you must either create:
 3.  Manual steps / commands
 
 The majority of people work with only one vendor's database product, it would
-be nice to specify a default in your [init.vim](#init.vim).
+be nice to specify a default in your |init.vim|.
 
 
 ### <a id="sqlsettype SQLSetType" class="section-title" href="#sqlsettype SQLSetType">2.1 SQLSetType</a>
---------------
-For the people that work with many different databases, it is nice to be
+
+
+## <a id="" class="section-title" href="#">For the People That Work With Many Different Databases, It Is Nice to Be</a> 
+
 able to flip between the various vendors rules (indent, syntax) on a per
 buffer basis, at any time.  The ftplugin/sql.vim file defines this function:
 SQLSetType
 
 Executing this function without any parameters will set the indent and syntax
-scripts back to their defaults, see [sql-type-default](#sql-type-default).  You can use the <Tab>
+scripts back to their defaults, see [sql-type-default](undefined#sql-type-default).  You can use the <Tab>
 key to complete the optional parameter.
 
 After typing the function name and a space, you can use the completion to
 supply a parameter.  The function takes the name of the Vim script you want to
-source.  Using the [cmdline-completion](#cmdline-completion) feature, the SQLSetType function will
-search the ['runtimepath'](#'runtimepath') for all Vim scripts with a name containing "sql".
+source.  Using the [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion) feature, the SQLSetType function will
+search the |'runtimepath'| for all Vim scripts with a name containing "sql".
 This takes the guess work out of the spelling of the names.  The following are
 examples:
 :SQLSetType
@@ -266,8 +276,10 @@ of available Vim script names:
 
 
 ### <a id="sqlgettype SQLGetType" class="section-title" href="#sqlgettype SQLGetType">2.2 SQLGetType</a>
---------------
-At anytime you can determine which SQL dialect you are using by calling the
+
+
+## <a id="" class="section-title" href="#">At Anytime You Can Determine Which SQL Dialect You Are Using by Calling The</a> 
+
 SQLGetType command.  The ftplugin/sql.vim file defines this function:
 SQLGetType
 
@@ -276,15 +288,17 @@ Current SQL dialect in use:sqlanywhere
 
 
 ### <a id="sql-type-default" class="section-title" href="#sql-type-default">2.3 SQL Dialect Default</a>
------------------------
-As mentioned earlier, the default syntax rules for Vim is based on Oracle
+
+
+## <a id="" class="section-title" href="#">As Mentioned Earlier, the Default Syntax Rules for Vim Is Based on Oracle</a> 
+
 (PL/SQL).  You can override this default by placing one of the following in
-your [init.vim](#init.vim):
+your |init.vim|:
 let g:sql_type_default = 'sqlanywhere'
 let g:sql_type_default = 'sqlinformix'
 let g:sql_type_default = 'mysql'
 
-If you added the following to your [init.vim](#init.vim):
+If you added the following to your |init.vim|:
 let g:sql_type_default = 'sqlinformix'
 
 The next time edit a SQL file the following scripts will be automatically
@@ -302,7 +316,7 @@ exist.
 If you begin working with a SQL dialect which does not have any customizations
 available with the default Vim distribution you can check https://www.vim.org
 to see if any customization currently exist.  If not, you can begin by cloning
-an existing script.  Read [filetype-plugins](#filetype-plugins) for more details.
+an existing script.  Read [filetype-plugins](/neovim-docs-web/en/vim/filetype#filetype-plugins) for more details.
 
 To help identify these scripts, try to create the files with a "sql" prefix.
 If you decide you wish to create customizations for the SQLite database, you
@@ -328,8 +342,10 @@ directly from a database.  This includes, table lists, column lists,
 procedures names and more.
 
 ### <a id="sql-completion-static" class="section-title" href="#sql-completion-static">4.1 Static Mode</a>
----------------
-The static popups created contain items defined by the active syntax rules
+
+
+## <a id="" class="section-title" href="#">The Static Popups Created Contain Items Defined by the Active Syntax Rules</a> 
+
 while editing a file with a filetype of SQL.  The plugin defines (by default)
 various maps to help the user refine the list of items to be displayed.
 The defaults static maps are:
@@ -340,7 +356,7 @@ imap <buffer> <C-C>o <C-\><C-O>:call sqlcomplete#Map('sqlOption')<CR><C-X><C-O>
 imap <buffer> <C-C>T <C-\><C-O>:call sqlcomplete#Map('sqlType')<CR><C-X><C-O>
 imap <buffer> <C-C>s <C-\><C-O>:call sqlcomplete#Map('sqlStatement')<CR><C-X><C-O>
 
-The use of "<C-C>" can be user chosen by using the following in your [init.vim](#init.vim)
+The use of "<C-C>" can be user chosen by using the following in your |init.vim|
 as it may not work properly on all platforms:
 let g:ftplugin_sql_omni_key = '<C-C>'
 The static maps (which are based on the syntax highlight groups) follow this
@@ -383,7 +399,7 @@ Using the 'syntax' keyword is a special case.  This instructs the
 syntaxcomplete plugin to retrieve all syntax items.  So this will effectively
 work for any of Vim's SQL syntax files.  At the time of writing this includes
 10 different syntax files for the different dialects of SQL (see section 3
-above, [sql-dialects](#sql-dialects)).
+above, [sql-dialects](undefined#sql-dialects)).
 
 Here are some examples of the entries which are pulled from the syntax files:
 All
@@ -401,8 +417,10 @@ Types
 
 
 ### <a id="sql-completion-dynamic" class="section-title" href="#sql-completion-dynamic">4.2 Dynamic Mode</a>
-----------------
-Dynamic mode populates the popups with data directly from a database.  In
+
+
+## <a id="In" class="section-title" href="#In">Dynamic Mode Populates the Popups With Data Directly From a Database.</a> 
+
 order for the dynamic feature to be enabled you must have the dbext.vim
 plugin installed, (https://vim.sourceforge.net/script.php?script_id=356).
 
@@ -438,7 +456,7 @@ replace the column list with the list of tables.
 - This allows you to quickly drill down into a
 table to view its columns and back again.
 - <Right> and <Left> can also be chosen via
-your [init.vim](#init.vim)
+your |init.vim|
 let g:ftplugin_sql_omni_key_right = '<Right>'
 let g:ftplugin_sql_omni_key_left  = '<Left>'
 
@@ -450,9 +468,10 @@ imap <buffer> <C-C>R <C-\><C-O>:call sqlcomplete#Map('ResetCache')<CR><C-X><C-O>
 
 
 ### <a id="sql-completion-tutorial" class="section-title" href="#sql-completion-tutorial">4.3 SQL Tutorial</a>
-----------------
 
-This tutorial is designed to take you through the common features of the SQL
+
+## <a id="" class="section-title" href="#">This Tutorial Is Designed to Take You Through the Common Features of the SQL</a> 
+
 completion plugin so that:
 a) You gain familiarity with the plugin
 b) You are introduced to some of the more common features
@@ -464,8 +483,10 @@ First, create a new buffer:
 
 
 Static features
----------------
-To take you through the various lists, simply enter insert mode, hit:
+
+
+## <a id="" class="section-title" href="#">To Take You Through the Various Lists, Simply Enter Insert Mode, Hit:</a> 
+
 <C-C>s   (show SQL statements)
 At this point, you can page down through the list until you find "select".
 If you are familiar with the item you are looking for, for example you know
@@ -486,8 +507,10 @@ DECLARE customer_id <C-C>T <-- Choose a type from the list
 
 
 Dynamic features
-----------------
-To take advantage of the dynamic features you must first install the
+
+
+## <a id="" class="section-title" href="#">To Take Advantage of the Dynamic Features You Must First Install The</a> 
+
 dbext.vim plugin (https://vim.sourceforge.net/script.php?script_id=356).  It
 also comes with a tutorial.  From the SQL completion plugin's perspective,
 the main feature dbext provides is a connection to a database.  dbext
@@ -599,14 +622,15 @@ database.
 
 
 ### <a id="sql-completion-customization" class="section-title" href="#sql-completion-customization">4.4 Completion Customization</a>
-----------------------------
 
-The SQL completion plugin can be customized through various options set in
-your [init.vim](#init.vim):
-omni_sql_no_default_maps
+
+## <a id="" class="section-title" href="#">The SQL Completion Plugin Can Be Customized Through Various Options Set In</a> 
+
+your |init.vim|:
+```    omni_sql_no_default_maps
 - Default: This variable is not defined
 - If this variable is defined, no maps are created for OMNI
-completion.  See [sql-completion-maps](#sql-completion-maps) for further discussion.
+completion.  See [sql-completion-maps](undefined#sql-completion-maps) for further discussion.
 omni_sql_use_tbl_alias
 - Default: a
 - This setting is only used when generating a comma-separated
@@ -652,20 +676,23 @@ omni_sql_precache_syntax_groups
 - Default:
 ['syntax','sqlKeyword','sqlFunction','sqlOption','sqlType','sqlStatement']
 - sqlcomplete can be used in conjunction with other completion
-plugins.  This is outlined at [sql-completion-filetypes](#sql-completion-filetypes).  When the
+plugins.  This is outlined at [sql-completion-filetypes](undefined#sql-completion-filetypes).  When the
 filetype is changed temporarily to SQL, the sqlcompletion plugin
 will cache the syntax groups listed in the List specified in this
 option.
 
 ### <a id="sql-completion-maps" class="section-title" href="#sql-completion-maps">4.5 SQL Maps</a>
-------------
 
-The default SQL maps have been described in other sections of this document in
+
+## <a id="" class="section-title" href="#">The Default SQL Maps Have Been Described in Other Sections of This Document In</a> 
+
 greater detail.  Here is a list of the maps with a brief description of each.
 
 Static Maps
------------
-These are maps which use populate the completion list using Vim's syntax
+
+
+## <a id="" class="section-title" href="#">These Are Maps Which Use Populate the Completion List Using Vim's Syntax</a> 
+
 highlighting rules.
 <C-C>a
 - Displays all SQL syntax items.
@@ -681,8 +708,10 @@ highlighting rules.
 - Displays all SQL syntax items defined as 'sqlStatement'.
 
 Dynamic Maps
-------------
-These are maps which use populate the completion list using the dbext.vim
+
+
+## <a id="" class="section-title" href="#">These Are Maps Which Use Populate the Completion List Using the Dbext.Vim</a> 
+
 plugin.
 <C-C>t
 - Displays a list of tables.
@@ -714,29 +743,32 @@ your vimrc.
 to regenerate the list of items.
 
 Customizing Maps
-----------------
-You can create as many additional key maps as you like.  Generally, the maps
+
+
+## <a id="Generally, the maps" class="section-title" href="#Generally, the maps">You Can Create as Many Additional Key Maps as You Like.</a> 
+
 will be specifying different syntax highlight groups.
 
 If you do not wish the default maps created or the key choices do not work on
 your platform (often a case on *nix) you define the following variable in
-your [init.vim](#init.vim):
+your |init.vim|:
 let g:omni_sql_no_default_maps = 1
 
 Do not edit ftplugin/sql.vim directly!  If you change this file your changes
 will be over written on future updates.  Vim has a special directory structure
 which allows you to make customizations without changing the files that are
 included with the Vim distribution.  If you wish to customize the maps
-create an after/ftplugin/sql.vim (see [after-directory](#after-directory)) and place the same
+create an after/ftplugin/sql.vim (see [after-directory](undefined#after-directory)) and place the same
 maps from the ftplugin/sql.vim in it using your own key strokes.  <C-C> was
 chosen since it will work on both Windows and *nix platforms.  On the windows
 platform you can also use <C-Space> or ALT keys.
 
 
 ### <a id="sql-completion-filetypes" class="section-title" href="#sql-completion-filetypes">4.6 Using with other filetypes</a>
-------------------------------
 
-Many times SQL can be used with different filetypes.  For example Perl, Java,
+
+## <a id="For example Perl, Java," class="section-title" href="#For example Perl, Java,">Many Times SQL Can Be Used With Different Filetypes.</a> 
+
 PHP, Javascript can all interact with a database.  Often you need both the SQL
 completion and the completion capabilities for the current language you are
 editing.
@@ -747,29 +779,35 @@ This can be enabled easily with the following steps (assuming a Perl file):
 3.  :set ft=perl
 
 Step 1
-------
-Begins by editing a Perl file.  Vim automatically sets the filetype to
+
+
+## <a id="Vim automatically sets the filetype to" class="section-title" href="#Vim automatically sets the filetype to">Begins by Editing a Perl File.</a> 
+
 "perl".  By default, Vim runs the appropriate filetype file
 ftplugin/perl.vim.  If you are using the syntax completion plugin by following
-the directions at [ft-syntax-omni| then the |'omnifunc'](#ft-syntax-omni| then the |'omnifunc') option has been set to
+the directions at [ft-syntax-omni](undefined#ft-syntax-omni) then the |'omnifunc'| option has been set to
 "syntax#Complete".  Pressing <C-X><C-O> will display the omni popup containing
 the syntax items for Perl.
 
 Step 2
-------
-Manually setting the filetype to "sql" will also fire the appropriate filetype
+
+
+## <a id="" class="section-title" href="#">Manually Setting the Filetype to "Sql" Will Also Fire the Appropriate Filetype</a> 
+
 files ftplugin/sql.vim.  This file will define a number of buffer specific
-maps for SQL completion, see [sql-completion-maps](#sql-completion-maps).  Now these maps have
+maps for SQL completion, see [sql-completion-maps](undefined#sql-completion-maps).  Now these maps have
 been created and the SQL completion plugin has been initialized.  All SQL
 syntax items have been cached in preparation.  The SQL filetype script detects
 we are attempting to use two different completion plugins.  Since the SQL maps
-begin with <C-C>, the maps will toggle the ['omnifunc'](#'omnifunc') when in use.  So you
+begin with <C-C>, the maps will toggle the |'omnifunc'| when in use.  So you
 can use <C-X><C-O> to continue using the completion for Perl (using the syntax
 completion plugin) and <C-C> to use the SQL completion features.
 
 Step 3
-------
-Setting the filetype back to Perl sets all the usual "perl" related items back
+
+
+## <a id="" class="section-title" href="#">Setting the Filetype Back to Perl Sets All the Usual "Perl" Related Items Back</a> 
+
 as they were.
 
 

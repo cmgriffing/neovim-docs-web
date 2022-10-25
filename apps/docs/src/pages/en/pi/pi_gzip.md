@@ -12,9 +12,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="gzip bzip2 compress" class="section-title" href="#gzip bzip2 compress">Editing compressed files with Vim</a>
 
-1. Autocommands			[gzip-autocmd](#gzip-autocmd)
+1. Autocommands			[gzip-autocmd](/neovim-docs-web/en/pi/pi_gzip#gzip-autocmd)
 
-The functionality mentioned here is a [standard-plugin](#standard-plugin).
+The functionality mentioned here is a [standard-plugin](undefined#standard-plugin).
 This plugin is only available if 'compatible' is not set.
 You can avoid loading this plugin by setting the "loaded_gzip" variable:
 	:let loaded_gzip = 1

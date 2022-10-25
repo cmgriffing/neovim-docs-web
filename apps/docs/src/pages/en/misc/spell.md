@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL	  by Bram Moolenaar
 
 ### <a id="spell" class="section-title" href="#spell">Spell checking</a>
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="spell-quickstart E756" class="section-title" href="#spell-quickstart E756">1. Quick Start</a> 
@@ -24,10 +24,10 @@ This command switches on spell checking:
 This switches on the 'spell' option and specifies to check for US English.
 
 The words that are not recognized are highlighted with one of these:
-SpellBad	word not recognized			[hl-SpellBad](#hl-SpellBad)
-SpellCap	word not capitalised			[hl-SpellCap](#hl-SpellCap)
-SpellRare	rare word				[hl-SpellRare](#hl-SpellRare)
-SpellLocal	wrong spelling for selected region	[hl-SpellLocal](#hl-SpellLocal)
+SpellBad	word not recognized			[[hl-SpellBad](/undefined#hl-SpellBad)](/undefined)
+SpellCap	word not capitalised			[[hl-SpellCap](/undefined#hl-SpellCap)](/undefined)
+SpellRare	rare word				[[hl-SpellRare](/undefined#hl-SpellRare)](/undefined)
+SpellLocal	wrong spelling for selected region	[[[hl-SpellLocal](/undefined#hl-SpellLocal)](/undefined)](/undefined)
 
 Vim only checks words for spelling, there is no grammar check.
 
@@ -78,48 +78,48 @@ another spell file the result is unpredictable.
 
 ### <a id="zG" class="section-title" href="#zG">Note:</a>
 zG			Like "zg" but add the word to the internal word list
-[internal-wordlist](#internal-wordlist).
+[[[internal-wordlist](/undefined#internal-wordlist)](/undefined)](/undefined).
 
 ### <a id="zw" class="section-title" href="#zw">Note:</a>
 zw			Like "zg" but mark the word as a wrong (bad) word.
 If the word already appears in 'spellfile' it is
-turned into a comment line.  See [spellfile-cleanup](#spellfile-cleanup)
+turned into a comment line.  See [[spellfile-cleanup](/undefined#spellfile-cleanup)](/undefined)
 for getting rid of those.
 
 ### <a id="zW" class="section-title" href="#zW">Note:</a>
 zW			Like "zw" but add the word to the internal word list
-[internal-wordlist](#internal-wordlist).
+[[[internal-wordlist](/undefined#internal-wordlist)](/undefined)](/undefined).
 
 ### <a id="zug zuw" class="section-title" href="#zug zuw">zuw</a>
-zug			Undo [zw| and |zg](#zw| and |zg), remove the word from the entry in
-'spellfile'.  Count used as with [zg](#zg).
+zug			Undo [[[[[[zw](/undefined#zw)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and [[[[[[[zg](/undefined#zg)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), remove the word from the entry in
+'spellfile'.  Count used as with [[[[[[[zg](/undefined#zg)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="zuG zuW" class="section-title" href="#zuG zuW">zuW</a>
-zuG			Undo [zW| and |zG](#zW| and |zG), remove the word from the internal
-word list.  Count used as with [zg](#zg).
+zuG			Undo [[[[zW](/undefined#zW)](/undefined)](/undefined)](/undefined) and [[[zG](/undefined#zG)](/undefined)](/undefined), remove the word from the internal
+word list.  Count used as with [[[[[[[zg](/undefined#zg)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id=":spe :spellgood E1280" class="section-title" href="#:spe :spellgood E1280">Note:</a>
 :[count]spe[llgood] {word}
 Add {word} as a good word to 'spellfile', like with
-[zg](#zg).  Without count the first name is used, with a
+[[[[[[[zg](/undefined#zg)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Without count the first name is used, with a
 count of two the second entry, etc.
 
 :spe[llgood]! {word}	Add {word} as a good word to the internal word list,
-like with [zG](#zG).
+like with [[[zG](/undefined#zG)](/undefined)](/undefined).
 
 ### <a id=":spellw :spellwrong" class="section-title" href="#:spellw :spellwrong">Note:</a>
 :[count]spellw[rong] {word}
 Add {word} as a wrong (bad) word to 'spellfile', as
-with [zw](#zw).  Without count the first name is used, with
+with [[[[[[zw](/undefined#zw)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Without count the first name is used, with
 a count of two the second entry, etc.
 
 :spellw[rong]! {word}	Add {word} as a wrong (bad) word to the internal word
-list, like with [zW](#zW).
+list, like with [[[[zW](/undefined#zW)](/undefined)](/undefined)](/undefined).
 
 ### <a id=":spellra :spellrare" class="section-title" href="#:spellra :spellrare">Note:</a>
 :[count]spellr[are] {word}
 Add {word} as a rare word to 'spellfile', similar to
-[zw](#zw).  Without count the first name is used, with
+[[[[[[zw](/undefined#zw)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Without count the first name is used, with
 a count of two the second entry, etc.
 
 There are no normal mode commands to mark words as
@@ -128,26 +128,26 @@ intuitive commands for this are already taken. If you
 want you can add mappings with e.g.:
 nnoremap z?  :exe ':spellrare  ' .. expand('<cWORD>')<CR>
 nnoremap z/  :exe ':spellrare! ' .. expand('<cWORD>')<CR>
-[:spellundo|, |zuw|, or |zuW](#:spellundo|, |zuw|, or |zuW) can be used to undo this.
+|:spellundo|, [[[zuw](/undefined#zuw)](/undefined)](/undefined), or [[[zuW](/undefined#zuW)](/undefined)](/undefined) can be used to undo this.
 
 :spellr[rare]! {word}	Add {word} as a rare word to the internal word
-list, similar to [zW](#zW).
+list, similar to [[[[zW](/undefined#zW)](/undefined)](/undefined)](/undefined).
 
 ### <a id=":spellu :spellundo" class="section-title" href="#:spellu :spellundo">:[count]spellu[ndo] {word}</a>
-Like [zuw|.  [count] used as with |:spellgood](#zuw|.  [count] used as with |:spellgood).
+Like [[[zuw](/undefined#zuw)](/undefined)](/undefined).  [count] used as with |:spellgood|.
 
-:spellu[ndo]! {word}	Like [zuW|.  [count] used as with |:spellgood](#zuW|.  [count] used as with |:spellgood).
+:spellu[ndo]! {word}	Like [[[zuW](/undefined#zuW)](/undefined)](/undefined).  [count] used as with |:spellgood|.
 
 
 After adding a word to 'spellfile' with the above commands its associated
 ".spl" file will automatically be updated and reloaded.  If you change
-'spellfile' manually you need to use the [:mkspell](#:mkspell) command.  This sequence of
+'spellfile' manually you need to use the |:mkspell| command.  This sequence of
 commands mostly works well:
 :edit <file in 'spellfile'>
 (make changes to the spell file)
 :mkspell! %
 
-More details about the 'spellfile' format below [spell-wordlist-format](#spell-wordlist-format).
+More details about the 'spellfile' format below [[[[spell-wordlist-format](/undefined#spell-wordlist-format)](/undefined)](/undefined)](/undefined).
 
 ### <a id="internal-wordlist" class="section-title" href="#internal-wordlist">Note:</a>
 The internal word list is used for all buffers where 'spell' is set.  It is
@@ -194,20 +194,20 @@ the good word and <Esc>.  This does NOT work for Thai
 and other languages without spaces between words.
 
 ### <a id=":spellr :spellrepall E752 E753" class="section-title" href="#:spellr :spellrepall E752 E753">Note:</a>
-:spellr[epall]		Repeat the replacement done by [z=](#z=) for all matches
+:spellr[epall]		Repeat the replacement done by |z=| for all matches
 with the replaced word in the current window.
 
 In Insert mode, when the cursor is after a badly spelled word, you can use
 CTRL-X s to find suggestions.  This works like Insert mode completion.  Use
-CTRL-N to use the next suggestion, CTRL-P to go back. [i_CTRL-X_s](#i_CTRL-X_s)
+CTRL-N to use the next suggestion, CTRL-P to go back. |i_CTRL-X_s|
 
 The 'spellsuggest' option influences how the list of suggestions is generated
-and sorted.  See ['spellsuggest'](#'spellsuggest').
+and sorted.  See |'spellsuggest'|.
 
 The 'spellcapcheck' option is used to check the first word of a sentence
 starts with a capital.  This doesn't work for the first word in the file.
 When there is a line break right after a sentence the highlighting of the next
-line may be postponed.  Use [CTRL-L| when needed.  Also see |set-spc-auto](#CTRL-L| when needed.  Also see |set-spc-auto) for
+line may be postponed.  Use [[[CTRL-L](/undefined#CTRL-L)](/undefined)](/undefined) when needed.  Also see [[set-spc-auto](/undefined#set-spc-auto)](/undefined) for
 how it can be set automatically when 'spelllang' is set.
 
 The 'spelloptions' option has a few more flags that influence the way spell
@@ -217,7 +217,7 @@ Vim counts the number of times a good word is encountered.  This is used to
 sort the suggestions: words that have been seen before get a small bonus,
 words that have been seen often get a bigger bonus.  The COMMON item in the
 affix file can be used to define common words, so that this mechanism also
-works in a new or short file [spell-COMMON](#spell-COMMON).
+works in a new or short file [[spell-COMMON](/undefined#spell-COMMON)](/undefined).
 
 
 ## <a id="spell-remarks" class="section-title" href="#spell-remarks">2. Remarks on Spell Checking</a> 
@@ -246,13 +246,13 @@ en_nz		New Zealand
 en_us		USA
 
 Words that are not used in one region but are used in another region are
-highlighted with SpellLocal [hl-SpellLocal](#hl-SpellLocal).
+highlighted with SpellLocal [[[hl-SpellLocal](/undefined#hl-SpellLocal)](/undefined)](/undefined).
 
 Always use lowercase letters for the language and region names.
 
-When adding a word with [zg](#zg) or another command it's always added for all
+When adding a word with [[[[[[[zg](/undefined#zg)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or another command it's always added for all
 regions.  You can change that by manually editing the 'spellfile'.  See
-[spell-wordlist-format](#spell-wordlist-format).  Note that the regions as specified in the files in
+[[[[spell-wordlist-format](/undefined#spell-wordlist-format)](/undefined)](/undefined)](/undefined).  Note that the regions as specified in the files in
 'spellfile' are only used when all entries in 'spelllang' specify the same
 region (not counting files specified by their .spl name).
 
@@ -307,12 +307,12 @@ Only the first file is loaded, the one that is first in 'runtimepath'.  If
 this succeeds then additionally files with the name LL.EEE.add.spl are loaded.
 All the ones that are found are used.
 
-If no spell file is found the [SpellFileMissing](#SpellFileMissing) autocommand event is
-triggered.  This may trigger the [spellfile.vim](#spellfile.vim) plugin to offer you
+If no spell file is found the [[[SpellFileMissing](/undefined#SpellFileMissing)](/undefined)](/undefined) autocommand event is
+triggered.  This may trigger the |spellfile.vim| plugin to offer you
 downloading the spell file.
 
 Additionally, the files related to the names in 'spellfile' are loaded.  These
-are the files that [zg| and |zw](#zg| and |zw) add good and wrong words to.
+are the files that [[[[[[[zg](/undefined#zg)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and [[[[[[zw](/undefined#zw)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) add good and wrong words to.
 
 Exceptions:
 - Vim uses "latin1" when 'encoding' is "iso-8859-15".  The euro sign doesn't
@@ -349,7 +349,7 @@ This assumes none of them are found (Polish doesn't make sense when leaving
 out the non-ASCII characters).
 
 A spell file might not be available in the current 'encoding'.  See
-[spell-mkspell](#spell-mkspell) about how to create a spell file.  Converting a spell file
+[[spell-mkspell](/undefined#spell-mkspell)](/undefined) about how to create a spell file.  Converting a spell file
 with "iconv" will NOT work!
 
 ### <a id="spell-sug-file E781" class="section-title" href="#spell-sug-file E781">Note:</a>
@@ -365,7 +365,7 @@ version.
 
 ### <a id="spellfile-cleanup" class="section-title" href="#spellfile-cleanup">Spellfile Cleanup</a>
 
-The [zw](#zw) command turns existing entries in 'spellfile' into comment lines.
+The [[[[[[zw](/undefined#zw)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) command turns existing entries in 'spellfile' into comment lines.
 This avoids having to write a new file every time, but results in the file
 only getting longer, never shorter.  To clean up the comment lines in all
 ".add" spell files do this:
@@ -411,7 +411,7 @@ for spelling mistakes.  When you make a change to one line and only that line
 is redrawn Vim won't look in the previous line, thus when "et" is at the end
 of the previous line "al." will be flagged as an error.  And when you type
 "the<CR>the" the highlighting doesn't appear until the first line is redrawn.
-Use [CTRL-L](#CTRL-L) to redraw right away.  "[s" will also stop at a word combination
+Use [[[CTRL-L](/undefined#CTRL-L)](/undefined)](/undefined) to redraw right away.  "[s" will also stop at a word combination
 with a line break.
 
 When encountering a line break Vim skips characters such as '*', '>' and '"',
@@ -430,7 +430,7 @@ done:
 For the second method adding the @NoSpell cluster will disable spell checking
 again.  This can be used, for example, to add @Spell to the comments of a
 program, and add @NoSpell for items that shouldn't be checked.
-Also see [:syn-spell](#:syn-spell) for text that is not in a syntax item.
+Also see |:syn-spell| for text that is not in a syntax item.
 
 
 VIM SCRIPTS
@@ -501,7 +501,7 @@ apply patches needed for Vim and build the .spl file.
 Make sure your current locale is set properly, otherwise Vim doesn't know what
 characters are upper/lower case letters.  If the locale isn't available (e.g.,
 when using an MS-Windows codepage on Unix) add tables to the .aff file
-[spell-affix-chars](#spell-affix-chars).  If the .aff file doesn't define a table then the word
+[[spell-affix-chars](/undefined#spell-affix-chars)](/undefined).  If the .aff file doesn't define a table then the word
 table of the currently active spelling is used.  If spelling is not active
 then Vim will try to guess.
 
@@ -535,7 +535,7 @@ This combines the English word lists for US, CA and AU
 into one en.spl file.
 ### <a id="Up to eight regions can be combined. E754 E755" class="section-title" href="#Up to eight regions can be combined. E754 E755">Note:</a>
 The REP and SAL items of the first .aff file where
-they appear are used. [spell-REP| |spell-SAL](#spell-REP| |spell-SAL)
+they appear are used. [[spell-REP](/undefined#spell-REP)](/undefined) [[spell-SAL](/undefined#spell-SAL)](/undefined)
 ### <a id="E845" class="section-title" href="#E845">Note:</a>
 This command uses a lot of memory, required to find
 the optimal word tree (Polish, Italian and Hungarian
@@ -572,7 +572,7 @@ following procedure is recommended:
 3. Change the xx_YY.aff and xx_YY.dic files to remove bad words, add missing
 words, define word characters with FOL/LOW/UPP, etc.  The distributed
 ### <a id="".diff" files can be used." class="section-title" href="#".diff" files can be used.">Note:</a>
-4. Start Vim with the right locale and use [:mkspell](#:mkspell) to generate the Vim
+4. Start Vim with the right locale and use |:mkspell| to generate the Vim
 spell file.
 5. Try out the spell file with ":set spell spelllang=xx" if you wrote it in
 a spell directory in 'runtimepath', or ":set spelllang=xx.enc.spl" if you
@@ -580,7 +580,7 @@ wrote it somewhere else.
 
 When the Myspell files are updated you can merge the differences:
 1. Obtain the new Myspell files as xx_YY.new.aff and xx_UU.new.dic.
-2. Use [diff-mode](#diff-mode) to see what changed:
+2. Use [[diff-mode](/undefined#diff-mode)](/undefined) to see what changed:
 nvim -d xx_YY.orig.dic xx_YY.new.dic
 3. Take over the changes you like in xx_YY.dic.
 You may also need to change xx_YY.aff.
@@ -622,7 +622,7 @@ the number of times the word was found while
 updating the screen.  Words that are in COMMON items
 get a starting count of 10.
 
-The format of the word list is used [spell-wordlist-format](#spell-wordlist-format).  You should be
+The format of the word list is used [[[[spell-wordlist-format](/undefined#spell-wordlist-format)](/undefined)](/undefined)](/undefined).  You should be
 able to read it with ":mkspell" to generate one .spl file that includes all
 the words.
 
@@ -646,7 +646,7 @@ The plugin has a default place where to look for spell files, on the Vim ftp
 server.  The protocol used is SSL (https://) for security.  If you want to use
 another location or another protocol, set the g:spellfile_URL variable to the
 directory that holds the spell files.  You can use http:// or ftp://, but you
-are taking a security risk then.  The [netrw](#netrw) plugin is used for getting the
+are taking a security risk then.  The [[netrw](/undefined#netrw)](/undefined) plugin is used for getting the
 file, look there for the specific syntax of the URL.  Example:
 let g:spellfile_URL = 'https://ftp.nluug.nl/vim/runtime/spell'
 You may need to escape special characters.
@@ -659,7 +659,7 @@ To avoid using the "spellfile.vim" plugin do this in your vimrc file:
 
 let loaded_spellfile_plugin = 1
 
-Instead of using the plugin you can define a [SpellFileMissing](#SpellFileMissing) autocommand to
+Instead of using the plugin you can define a [[[SpellFileMissing](/undefined#SpellFileMissing)](/undefined)](/undefined) autocommand to
 handle the missing file yourself.  You can use it like this:
 
 :au SpellFileMissing * call Download_spell_file(expand('<amatch>'))
@@ -773,7 +773,7 @@ here:
 https://lingucomponent.openoffice.org/affix.readme ~
 Note that affixes are case sensitive, this isn't obvious from the description.
 
-Vim supports quite a few extras.  They are described below [spell-affix-vim](#spell-affix-vim).
+Vim supports quite a few extras.  They are described below [[spell-affix-vim](/undefined#spell-affix-vim)](/undefined).
 Attempts have been made to keep this compatible with other spell checkers, so
 that the same files can often be used.  One other project that offers more
 than Myspell is Hunspell ( https://hunspell.github.io ).
@@ -802,7 +802,7 @@ The first line contains the number of words.  Vim ignores it, but you do get
 
 What follows is one word per line.  White space at the end of the line is
 ignored, all other white space matters.  The encoding is specified in the
-affix file [spell-SET](#spell-SET).
+affix file [[spell-SET](/undefined#spell-SET)](/undefined).
 
 Comment lines start with '#' or '/'.  See the example lines 8 and 12.  Note
 that putting a comment after a word is NOT allowed:
@@ -811,9 +811,9 @@ someword   # comment that causes an error! ~
 
 After the word there is an optional slash and flags.  Most of these flags are
 letters that indicate the affixes that can be used with this word.  These are
-specified with SFX and PFX lines in the .aff file, see [spell-SFX](#spell-SFX) and
-[spell-PFX](#spell-PFX).  Vim allows using other flag types with the FLAG item in the
-affix file [spell-FLAG](#spell-FLAG).
+specified with SFX and PFX lines in the .aff file, see [[spell-SFX](/undefined#spell-SFX)](/undefined) and
+[[spell-PFX](/undefined#spell-PFX)](/undefined).  Vim allows using other flag types with the FLAG item in the
+affix file [[[spell-FLAG](/undefined#spell-FLAG)](/undefined)](/undefined).
 
 When the word only has lower-case letters it will also match with the word
 starting with an upper-case letter.
@@ -832,7 +832,7 @@ ALS		ALS			als Als ALs AlS aLs aLS
 AlS		AlS ALS			als Als ALs aLs aLS
 
 The KEEPCASE affix ID can be used to specifically match a word with identical
-case only, see below [spell-KEEPCASE](#spell-KEEPCASE).
+case only, see below [[spell-KEEPCASE](/undefined#spell-KEEPCASE)](/undefined).
 
 Note: in line 5 to 7 non-word characters are used.  You can include any
 character in a word.  When checking the text a word still only matches when it
@@ -841,7 +841,7 @@ starting with a non-word character probably won't work.
 
 In line 12 the word "TCP/IP" is defined.  Since the slash has a special
 meaning the comma is used instead.  This is defined with the SLASH item in the
-affix file, see [spell-SLASH](#spell-SLASH).  Note that without this SLASH item the word
+affix file, see [[spell-SLASH](/undefined#spell-SLASH)](/undefined).  Note that without this SLASH item the word
 will be "TCP,IP".
 
 
@@ -863,8 +863,8 @@ KEEPCASE =  # fix case for words with this flag ~
 
 The affix file can be in any encoding that is supported by "iconv".  However,
 in some cases the current locale should also be set properly at the time
-[:mkspell](#:mkspell) is invoked.  Adding FOL/LOW/UPP lines removes this requirement
-[spell-FOL](#spell-FOL).
+|:mkspell| is invoked.  Adding FOL/LOW/UPP lines removes this requirement
+[[spell-FOL](/undefined#spell-FOL)](/undefined).
 
 The encoding should be specified before anything where the encoding matters.
 The encoding applies both to the affix file and the dictionary file.  It is
@@ -897,7 +897,7 @@ AUTHOR		John Doe
 EMAIL		john AT Doe DOT net
 COPYRIGHT	LGPL
 
-These fields are put in the .spl file as-is.  The [:spellinfo](#:spellinfo) command can be
+These fields are put in the .spl file as-is.  The |:spellinfo| command can be
 used to view the info.
 
 ### <a id=":spellinfo :spelli" class="section-title" href="#:spellinfo :spelli">Note:</a>
@@ -949,7 +949,7 @@ If you get an E763 warning that the word tables differ you need to update your
 ".spl" spell files.  If you downloaded the files, get the latest version of
 all spell files you use.  If you are only using one, e.g., German, then also
 download the recent English spell files.  Otherwise generate the .spl file
-again with [:mkspell](#:mkspell).  If you still get errors check the FOL, LOW and UPP
+again with |:mkspell|.  If you still get errors check the FOL, LOW and UPP
 lines in the used .aff files.
 
 The XX.ascii.spl spell file generated with the "-ascii" argument will not
@@ -1013,7 +1013,7 @@ The first line is a header and has four fields:
 SFX {flag} {combine} {count}
 
 {flag}		The name used for the suffix.  Mostly it's a single letter,
-but other characters can be used, see [spell-FLAG](#spell-FLAG).
+but other characters can be used, see [[[spell-FLAG](/undefined#spell-FLAG)](/undefined)](/undefined).
 
 {combine}	Can be 'Y' or 'N'.  When 'Y' then the word plus suffix can
 also have a prefix.  When 'N' then a prefix is not allowed.
@@ -1037,7 +1037,7 @@ When {strip} is 0 (zero) then nothing is stripped.
 
 {add}		Characters added to the basic word, after removing {strip}.
 Optionally there is a '/' followed by flags.  The flags apply
-to the word plus affix.  See [spell-affix-flags](#spell-affix-flags)
+to the word plus affix.  See [[[spell-affix-flags](/undefined#spell-affix-flags)](/undefined)](/undefined)
 
 {condition}	A simplistic pattern.  Only when this matches with a basic
 word will the suffix be used for that word.  This is normally
@@ -1108,16 +1108,16 @@ used when both support combining.
 Specifically, the affix flags can be used for:
 - Suffixes on suffixes, as in the example above.  This works once, thus you
 can have two suffixes on a word (plus one prefix).
-- Making the word with the affix rare, by using the [spell-RARE](#spell-RARE) flag.
+- Making the word with the affix rare, by using the [[spell-RARE](/undefined#spell-RARE)](/undefined) flag.
 - Exclude the word with the affix from compounding, by using the
-[spell-COMPOUNDFORBIDFLAG](#spell-COMPOUNDFORBIDFLAG) flag.
+[[[spell-COMPOUNDFORBIDFLAG](/undefined#spell-COMPOUNDFORBIDFLAG)](/undefined)](/undefined) flag.
 - Allow the word with the affix to be part of a compound word on the side of
-the affix with the [spell-COMPOUNDPERMITFLAG](#spell-COMPOUNDPERMITFLAG).
+the affix with the [[[spell-COMPOUNDPERMITFLAG](/undefined#spell-COMPOUNDPERMITFLAG)](/undefined)](/undefined).
 - Use the NEEDCOMPOUND flag: word plus affix can only be used as part of a
-compound word. [spell-NEEDCOMPOUND](#spell-NEEDCOMPOUND)
+compound word. [[spell-NEEDCOMPOUND](/undefined#spell-NEEDCOMPOUND)](/undefined)
 - Compound flags: word plus affix can be part of a compound word at the end,
 middle, start, etc.  The flags are combined with the flags of the basic
-word.  [spell-compound](#spell-compound)
+word.  [[spell-compound](/undefined#spell-compound)](/undefined)
 - NEEDAFFIX: another affix is needed to make a valid word.
 - CIRCUMFIX, as explained just below.
 
@@ -1136,7 +1136,7 @@ The CIRCUMFIX flag means a prefix and suffix must be added at the same time.
 If a prefix has the CIRCUMFIX flag then only suffixes with the CIRCUMFIX flag
 can be added, and the other way around.
 An alternative is to only specify the suffix, and give that suffix two flags:
-the required prefix and the NEEDAFFIX flag.  [spell-NEEDAFFIX](#spell-NEEDAFFIX)
+the required prefix and the NEEDAFFIX flag.  [[[spell-NEEDAFFIX](/undefined#spell-NEEDAFFIX)](/undefined)](/undefined)
 
 
 ### <a id="spell-PFXPOSTPONE" class="section-title" href="#spell-PFXPOSTPONE">PFXPOSTPONE</a>
@@ -1197,7 +1197,7 @@ words that are correct for the language, but are hardly ever used and could be
 a typing mistake anyway.
 
 This flag can also be used on an affix, so that a basic word is not rare but
-the basic word plus affix is rare [spell-affix-flags](#spell-affix-flags).  However, if the word
+the basic word plus affix is rare [[[spell-affix-flags](/undefined#spell-affix-flags)](/undefined)](/undefined).  However, if the word
 also appears as a good word in another way (e.g., in another region) it won't
 be marked as rare.
 
@@ -1307,7 +1307,7 @@ An additional implied rule is that, without further flags, a word with a
 prefix cannot be compounded after another word, and a word with a suffix
 cannot be compounded with a following word.  Thus the affix cannot appear
 on the inside of a compound word.  This can be changed with the
-[spell-COMPOUNDPERMITFLAG](#spell-COMPOUNDPERMITFLAG).
+[[[spell-COMPOUNDPERMITFLAG](/undefined#spell-COMPOUNDPERMITFLAG)](/undefined)](/undefined).
 
 ### <a id="spell-NEEDCOMPOUND" class="section-title" href="#spell-NEEDCOMPOUND">Note:</a>
 The NEEDCOMPOUND flag is used to require that a word is used as part of a
@@ -1415,7 +1415,7 @@ With the example "ideeen" has three syllables, counted by "i", "ee" and "e".
 Only case-folded letters need to be included.
 
 Another way to restrict compounding was mentioned above: Adding the
-[spell-COMPOUNDFORBIDFLAG](#spell-COMPOUNDFORBIDFLAG) flag to an affix causes all words that are made
+[[[spell-COMPOUNDFORBIDFLAG](/undefined#spell-COMPOUNDFORBIDFLAG)](/undefined)](/undefined) flag to an affix causes all words that are made
 with that affix to not be used for compounding.
 
 
@@ -1500,7 +1500,7 @@ efficient if the first letter is ASCII or at least one without accents.
 When soundfolding is specified in the affix file then ":mkspell" will normally
 produce a .sug file next to the .spl file.  This file is used to find
 suggestions by their sound-a-like form quickly.  At the cost of a lot of
-memory (the amount depends on the number of words, [:mkspell](#:mkspell) will display an
+memory (the amount depends on the number of words, |:mkspell| will display an
 estimate when it's done).
 
 To avoid producing a .sug file use this item in the affix file:
@@ -1557,8 +1557,8 @@ Characters that do not appear in SOFOFROM will be left out, except that all
 white space is replaced by one space.  Sequences of the same character in
 SOFOFROM are replaced by one.
 
-You can use the [soundfold()](#soundfold()) function to try out the results.  Or set the
-'verbose' option to see the score in the output of the [z=](#z=) command.
+You can use the |soundfold()| function to try out the results.  Or set the
+'verbose' option to see the score in the output of the |z=| command.
 
 
 ### <a id="spell-affix-not-supported" class="section-title" href="#spell-affix-not-supported">Unsupported Items</a>
@@ -1567,7 +1567,7 @@ These items appear in the affix file of other spell checkers.  In Vim they are
 ignored, not supported or defined in another way.
 
 ACCENT		(Hunspell)				*spell-ACCENT*
-Use MAP instead. [spell-MAP](#spell-MAP)
+Use MAP instead. [[spell-MAP](/undefined#spell-MAP)](/undefined)
 
 BREAK		(Hunspell)				*spell-BREAK*
 Define break points.  Unclear how it works exactly.
@@ -1600,20 +1600,20 @@ Enables using two prefixes.  Not supported.
 This is one line with the count of COMPOUND items, followed by
 that many COMPOUND lines with a pattern.
 Remove the first line with the count and rename the other
-items to COMPOUNDRULE [spell-COMPOUNDRULE](#spell-COMPOUNDRULE)
+items to COMPOUNDRULE [[[[[[spell-COMPOUNDRULE](/undefined#spell-COMPOUNDRULE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="spell-COMPOUNDFIRST" class="section-title" href="#spell-COMPOUNDFIRST">COMPOUNDFIRST	(Hunspell)</a>
-Use COMPOUNDRULE instead. [spell-COMPOUNDRULE](#spell-COMPOUNDRULE)
+Use COMPOUNDRULE instead. [[[[[[spell-COMPOUNDRULE](/undefined#spell-COMPOUNDRULE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="spell-COMPOUNDBEGIN" class="section-title" href="#spell-COMPOUNDBEGIN">COMPOUNDBEGIN	(Hunspell)</a>
 Words signed with COMPOUNDBEGIN may be first elements in
 compound words.
-Use COMPOUNDRULE instead. [spell-COMPOUNDRULE](#spell-COMPOUNDRULE)
+Use COMPOUNDRULE instead. [[[[[[spell-COMPOUNDRULE](/undefined#spell-COMPOUNDRULE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="spell-COMPOUNDLAST" class="section-title" href="#spell-COMPOUNDLAST">COMPOUNDLAST	(Hunspell)</a>
 Words signed with COMPOUNDLAST may be last elements in
 compound words.
-Use COMPOUNDRULE instead. [spell-COMPOUNDRULE](#spell-COMPOUNDRULE)
+Use COMPOUNDRULE instead. [[[[[[spell-COMPOUNDRULE](/undefined#spell-COMPOUNDRULE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="spell-COMPOUNDEND" class="section-title" href="#spell-COMPOUNDEND">COMPOUNDEND	(Hunspell)</a>
 Probably the same as COMPOUNDLAST
@@ -1621,15 +1621,15 @@ Probably the same as COMPOUNDLAST
 ### <a id="spell-COMPOUNDMIDDLE" class="section-title" href="#spell-COMPOUNDMIDDLE">COMPOUNDMIDDLE	(Hunspell)</a>
 Words signed with COMPOUNDMIDDLE may be middle elements in
 compound words.
-Use COMPOUNDRULE instead. [spell-COMPOUNDRULE](#spell-COMPOUNDRULE)
+Use COMPOUNDRULE instead. [[[[[[spell-COMPOUNDRULE](/undefined#spell-COMPOUNDRULE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="spell-COMPOUNDRULES" class="section-title" href="#spell-COMPOUNDRULES">COMPOUNDRULES	(Hunspell)</a>
 Number of COMPOUNDRULE lines following.  Ignored, but the
 argument must be a number.
 
 COMPOUNDSYLLABLE  (Hunspell)			*spell-COMPOUNDSYLLABLE*
-Use SYLLABLE and COMPOUNDSYLMAX instead. [spell-SYLLABLE](#spell-SYLLABLE)
-[spell-COMPOUNDSYLMAX](#spell-COMPOUNDSYLMAX)
+Use SYLLABLE and COMPOUNDSYLMAX instead. [[spell-SYLLABLE](/undefined#spell-SYLLABLE)](/undefined)
+[[spell-COMPOUNDSYLMAX](/undefined#spell-COMPOUNDSYLMAX)](/undefined)
 
 KEY		(Hunspell)				*spell-KEY*
 Define characters that are close together on the keyboard.
@@ -1648,7 +1648,7 @@ Only needed for morphological analysis.
 Set number of n-gram suggestions.  Not supported.
 
 ### <a id="spell-PSEUDOROOT" class="section-title" href="#spell-PSEUDOROOT">PSEUDOROOT	(Hunspell)</a>
-Use NEEDAFFIX instead. [spell-NEEDAFFIX](#spell-NEEDAFFIX)
+Use NEEDAFFIX instead. [[[spell-NEEDAFFIX](/undefined#spell-NEEDAFFIX)](/undefined)](/undefined)
 
 ### <a id="spell-SUGSWITHDOTS" class="section-title" href="#spell-SUGSWITHDOTS">SUGSWITHDOTS	(Hunspell)</a>
 Adds dots to suggestions.  Vim doesn't need this.

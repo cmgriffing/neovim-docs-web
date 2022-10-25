@@ -8,13 +8,13 @@ layout: "@layouts/MainLayout.astro"
 ## <a id="" class="section-title" href="#">*Pi_Zip.Txt*	Nvim</a> 
 
 +====================+
-				[ Zip File Interface ](# Zip File Interface )
+				| Zip File Interface |
 				+====================+
 
-Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
-```	  (remove NOSPAM from Campbell's email first)
+Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM>
+	  (remove NOSPAM from Campbell's email first)
 ### <a id="zip-copyright" class="section-title" href="#zip-copyright">Copyright: Copyright (C) 2005-2015 Charles E Campbell</a>
-	The VIM LICENSE (see [copyright](#copyright)) applies to the files in this
+	The VIM LICENSE (see [copyright](undefined#copyright)) applies to the files in this
 	package, including zipPlugin.vim, zip.vim, and pi_zip.vim.  except use
 	"zip.vim" instead of "VIM".  Like anything else that's free, zip.vim
 	and its associated files are provided *as is* and comes with no
@@ -27,10 +27,10 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
 
 ## <a id="zip zip-contents" class="section-title" href="#zip zip-contents">1. Contents</a> 
 
-1. Contents................................................[zip-contents](#zip-contents)
-   2. Usage...................................................[zip-usage](#zip-usage)
-   3. Additional Extensions...................................[zip-extension](#zip-extension)
-   4. History.................................................[zip-history](#zip-history)
+1. Contents................................................[zip-contents](undefined#zip-contents)
+   2. Usage...................................................[zip-usage](undefined#zip-usage)
+   3. Additional Extensions...................................[zip-extension](/neovim-docs-web/en/pi/pi_zip#zip-extension)
+   4. History.................................................[zip-history](undefined#zip-history)
 
 
 ## <a id="zip-usage zip-manual" class="section-title" href="#zip-usage zip-manual">2. Usage</a> 
@@ -57,7 +57,7 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
    commands.  Zip will try to guess the correct quoting mechanism to
    allow spaces and whatnot in filenames; however, if it is incorrectly
    guessing the quote to use for your setup, you may use
-	g:zip_shq
+```	g:zip_shq
   which by default is a single quote under Unix (') and a double quote
    under Windows (").  If you'd rather have no quotes, simply set
    g:zip_shq to the empty string (let g:zip_shq= "") in your <.vimrc>.
@@ -71,13 +71,13 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
 ### <a id="g:zip_zipcmd" class="section-title" href="#g:zip_zipcmd">Note:</a>
    Use this option to specify the program which does the duty of "zip".
    It's used during the writing (updating) of a file already in a zip
-   file; by default: 
+   file; by default:
 ```   	let g:zip_zipcmd= "zip"
 ```
 
 ### <a id="g:zip_extractcmd" class="section-title" href="#g:zip_extractcmd">Note:</a>
    This option specifies the program (and any options needed) used to
-   extract a file from a zip archive.  By default, 
+   extract a file from a zip archive.  By default,
 ```   	let g:zip_extractcmd= g:zip_unzipcmd
 ```
 
@@ -85,7 +85,7 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
 
    If for some reason you do not wish to use vim to examine zipped files,
    you may put the following two variables into your <.vimrc> to prevent
-   the zip plugin from loading: 
+   the zip plugin from loading:
 ```
 	let g:loaded_zipPlugin= 1
 	let g:loaded_zip      = 1
@@ -96,7 +96,7 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
 
 Apparently there are a number of archivers which generate zip files that
    don't use the .zip extension (.jar, .xpi, etc).  To handle such files,
-   place a line in your <.vimrc> file: 
+   place a line in your <.vimrc> file:
 ```
 	au BufReadCmd *.jar,*.xpi call zip#Browse(expand("<amatch>"))
 ```
@@ -121,13 +121,13 @@ Apparently there are a number of archivers which generate zip files that
 ### <a id="v29 Apr 02, 2017  (Klartext) reported that an encrypted zip file could" class="section-title" href="#v29 Apr 02, 2017  (Klartext) reported that an encrypted zip file could">Note:</a>
    		      opened but the swapfile held unencrypted contents.
 		      The solution is to edit the contents of a zip file
-		      using the [:noswapfile](#:noswapfile) modifier.
+		      using the |:noswapfile| modifier.
 ### <a id="v28 Oct 08, 2014  changed the sanity checks for executables to reflect" class="section-title" href="#v28 Oct 08, 2014  changed the sanity checks for executables to reflect">Note:</a>
    		      the command actually to be attempted in zip#Read()
 		      and zip#Write()
 ### <a id=" added the extraction of a file capability" class="section-title" href="# added the extraction of a file capability">Note:</a>
-### <a id="Nov 30, 2015  added .epub to the [g:zipPlugin_ext](#g:zipPlugin_ext) list" class="section-title" href="#Nov 30, 2015  added .epub to the [g:zipPlugin_ext](#g:zipPlugin_ext) list">Note:</a>
-### <a id="Sep 13, 2016  added .apk to the [g:zipPlugin_ext](#g:zipPlugin_ext) list and" class="section-title" href="#Sep 13, 2016  added .apk to the [g:zipPlugin_ext](#g:zipPlugin_ext) list and">Note:</a>
+### <a id="Nov 30, 2015  added .epub to the |g:zipPlugin_ext| list" class="section-title" href="#Nov 30, 2015  added .epub to the |g:zipPlugin_ext| list">Note:</a>
+### <a id="Sep 13, 2016  added .apk to the |g:zipPlugin_ext| list and" class="section-title" href="#Sep 13, 2016  added .apk to the |g:zipPlugin_ext| list and">Note:</a>
 		      sorted the suffices.
 ### <a id="v27 Jul 02, 2013  sanity check: zipfile must have "PK" as its first" class="section-title" href="#v27 Jul 02, 2013  sanity check: zipfile must have "PK" as its first">Note:</a>
 		      two bytes.

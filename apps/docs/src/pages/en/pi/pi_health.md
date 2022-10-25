@@ -7,9 +7,9 @@ layout: "@layouts/MainLayout.astro"
 
 ## <a id="Healthcheck framework" class="section-title" href="#Healthcheck framework"> Pi Health Txt</a> 
 
-Author: TJ DeVries <devries.timothyj@gmail.com
-```
-                                      Type [gO](#gO) to see the table of contents.
+Author: TJ DeVries <devries.timothyj@gmail.com>
+
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="health" class="section-title" href="#health">Introduction</a> 
@@ -20,39 +20,39 @@ with healthchecks for configuration, performance, python support, ruby
 support, clipboard support, and more.
 
 To run all healthchecks, use:
-
+```
         :checkhealth
 ```
 
-Plugin authors are encouraged to write new healthchecks. [health-dev](#health-dev)
+Plugin authors are encouraged to write new healthchecks. [health-dev](/neovim-docs-web/en/pi/pi_health#health-dev)
 
 
 ## <a id="health-commands" class="section-title" href="#health-commands">Commands</a> 
 
-### <a id=":checkhealth :CheckHealth" class="section-title" href="#:checkhealth :CheckHealth">Note:</a>
-:checkhealth    Run all healthchecks.
+### <a id=":che :checkhealth :CheckHealth" class="section-title" href="#:che :checkhealth :CheckHealth">Note:</a>
+:che[ckhealth]  Run all healthchecks.
 ### <a id="E5009" class="section-title" href="#E5009">Note:</a>
-                Nvim depends on [$VIMRUNTIME](#$VIMRUNTIME), 'runtimepath' and 'packpath' to
+                Nvim depends on |$VIMRUNTIME|, 'runtimepath' and 'packpath' to
                 find the standard "runtime files" for syntax highlighting,
                 filetype-specific behavior, and standard plugins (including
                 :checkhealth).  If the runtime files cannot be found then
                 those features will not work.
 
-:checkhealth {plugins}
+:che[ckhealth] {plugins}
                 Run healthcheck(s) for one or more plugins. E.g. to run only
-                the standard Nvim healthcheck: 
+                the standard Nvim healthcheck:
 ```                        :checkhealth nvim
 ```
 
                 To run the healthchecks for the "foo" and "bar" plugins
                 (assuming they are on 'runtimepath' and they have implemented
-                the Lua `require("foo.health").check()` interface): 
+                the Lua `require("foo.health").check()` interface):
 ```                        :checkhealth foo bar
 ```
 
                 To run healthchecks for Lua submodules, use dot notation or
 ### <a id=""" to refer to all submodules. For example Nvim provides" class="section-title" href="#"" to refer to all submodules. For example Nvim provides">Note:</a>
-                `vim.lsp` and `vim.treesitter`:  
+                `vim.lsp` and `vim.treesitter`:
 ```                        :checkhealth vim.lsp vim.treesitter
 ### <a id=":checkhealth vim" class="section-title" href="#:checkhealth vim">Note:</a>
 ```
@@ -61,7 +61,7 @@ Plugin authors are encouraged to write new healthchecks. [health-dev](#health-de
 ## <a id="health-functions vim.health" class="section-title" href="#health-functions vim.health">Functions</a> 
 
 The Lua "health" module can be used to create new healthchecks. To get started
-see [health-dev](#health-dev).
+see [health-dev](/neovim-docs-web/en/pi/pi_health#health-dev).
 
 ### <a id="vim.health.report_start()" class="section-title" href="#vim.health.report_start()">vim.health.report_start({name})</a>
         Starts a new report. Most plugins should call this only once, but if
@@ -95,7 +95,7 @@ healthchecks in:
 
 To add a new healthcheck for your own plugin, simply create a "health.lua"
 module on 'runtimepath' that returns a table with a "check()" function. Then
-[:checkhealth](#:checkhealth) will automatically find and invoke the function.
+|:checkhealth| will automatically find and invoke the function.
 
 For example if your plugin is named "foo", define your healthcheck module at
 one of these locations (on 'runtimepath'):

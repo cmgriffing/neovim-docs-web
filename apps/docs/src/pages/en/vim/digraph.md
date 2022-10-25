@@ -15,12 +15,12 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 Digraphs are used to enter characters that normally cannot be entered by
 an ordinary keyboard.  These are mostly printable non-ASCII characters.  The
 digraphs are easier to remember than the decimal number that can be entered
-with CTRL-V (see [i_CTRL-V](#i_CTRL-V)).
+with CTRL-V (see |i_CTRL-V|).
 
-There is a brief introduction on digraphs in the user manual: [24.9](#24.9)
+There is a brief introduction on digraphs in the user manual: |24.9|
 An alternative is using the 'keymap' option.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="digraphs-define" class="section-title" href="#digraphs-define">1. Defining Digraphs</a> 
@@ -33,7 +33,7 @@ An alternative is using the 'keymap' option.
 :dig[raphs] {char1}{char2} {number} ...
 			Add digraph {char1}{char2} to the list.  {number} is
 			the decimal representation of the character.  Normally
-			it is the Unicode character, see [digraph-encoding](#digraph-encoding).
+			it is the Unicode character, see [digraph-encoding](undefined#digraph-encoding).
 			Example:
 	:digr e: 235 a: 228
 			You can use `:exe` to enter a hex number:
@@ -43,7 +43,7 @@ An alternative is using the 'keymap' option.
 			future.
 			NOTE: This command cannot add a digraph that starts
 			with a white space.  If you want to add such digraph,
-			you can use [digraph_set()](#digraph_set()) instead.
+			you can use |digraph_set()| instead.
 
 Example of the output of ":digraphs":
  TH Þ  222  ss ß  223  a! à  224  a' á  225  a> â  226  a? ã  227  a: ä  228
@@ -91,7 +91,7 @@ Example:
 	CTRL-K '-' '-'	will enter a soft hyphen (173)
 
 The current digraphs are listed with the ":digraphs" command.  Some of the
-default ones are listed below [digraph-table](#digraph-table).
+default ones are listed below [digraph-table](undefined#digraph-table).
 
 For CTRL-K, there is one general digraph: CTRL-K <Space> {char} will enter
 {char} with the highest bit set.  You can use this to enter meta-characters.

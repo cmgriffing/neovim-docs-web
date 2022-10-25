@@ -12,9 +12,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="filetype file-type" class="section-title" href="#filetype file-type">Filetypes</a>
 
-Also see [autocmd.txt](#autocmd.txt).
+Also see |autocmd.txt|.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="filetypes file-types" class="section-title" href="#filetypes file-types">1. Filetypes</a> 
@@ -24,7 +24,7 @@ file name and sometimes by inspecting the contents of the file for specific
 text.
 
 ### <a id=":filetype :filet" class="section-title" href="#:filetype :filet">Note:</a>
-To enable file type detection, use this command in your vimrc: 
+To enable file type detection, use this command in your vimrc:
 ```	:filetype on
 Each time a new or existing file is edited, Vim will try to recognize the type
 of the file and set the 'filetype' option.  This will trigger the FileType
@@ -45,10 +45,10 @@ Detail: The ":filetype on" command will load these files:
 	If the file type is not found by the name, the file
 	$VIMRUNTIME/scripts.vim is used to detect it from the contents of the
 	file.
-	When the GUI is running or will start soon, the [menu.vim](#menu.vim) script is
-	also sourced.  See ['go-M'](#'go-M') about avoiding that.
+	When the GUI is running or will start soon, the |menu.vim| script is
+	also sourced.  See |'go-M'| about avoiding that.
 
-To add your own file types, see [new-filetype](#new-filetype) below.  To search for help on a
+To add your own file types, see [new-filetype](undefined#new-filetype) below.  To search for help on a
 filetype prepend "ft-" and optionally append "-syntax", "-indent" or
 "-plugin".  For example:
 	:help ft-vim-indent
@@ -60,7 +60,7 @@ you can either set the 'filetype' option manually, or add a modeline to your
 file.  Example, for an IDL file use the command:
 	:set filetype=idl
 
-or add this [modeline](#modeline) to the file:
+or add this [modeline](undefined#modeline) to the file:
 	/* vim: set filetype=idl : */ ~
 
 ### <a id=":filetype-plugin-on" class="section-title" href="#:filetype-plugin-on">Note:</a>
@@ -69,7 +69,7 @@ You can enable loading the plugin files for specific file types with:
 If filetype detection was not switched on yet, it will be as well.
 This actually loads the file "ftplugin.vim" in 'runtimepath'.
 The result is that when a file is edited its plugin file is loaded (if there
-is one for the detected filetype). [filetype-plugin](#filetype-plugin)
+is one for the detected filetype). [filetype-plugin](/neovim-docs-web/en/usr/usr_43#filetype-plugin)
 
 ### <a id=":filetype-plugin-off" class="section-title" href="#:filetype-plugin-off">Note:</a>
 You can disable it again with:
@@ -84,7 +84,7 @@ You can enable loading the indent file for specific file types with:
 If filetype detection was not switched on yet, it will be as well.
 This actually loads the file "indent.vim" in 'runtimepath'.
 The result is that when a file is edited its indent file is loaded (if there
-is one for the detected filetype). [indent-expression](#indent-expression)
+is one for the detected filetype). [indent-expression](/neovim-docs-web/en/vim/indent#indent-expression)
 
 ### <a id=":filetype-indent-off" class="section-title" href="#:filetype-indent-off">Note:</a>
 You can disable it again with:
@@ -125,7 +125,7 @@ command is used, the file type detection is installed too.  There is no need
 to do ":filetype on" after ":syntax on".
 
 To disable one of the file types, add a line in your filetype file, see
-[remove-filetype](#remove-filetype).
+[remove-filetype](undefined#remove-filetype).
 
 ### <a id="filetype-detect" class="section-title" href="#filetype-detect">Note:</a>
 To detect the file type again:
@@ -142,47 +142,47 @@ what kind of file it is.  This doesn't always work.  A number of global
 variables can be used to overrule the filetype used for certain extensions:
 
 	file name	variable ~
-	*.asa		g:filetype_asa	[ft-aspvbs-syntax| |ft-aspperl-syntax](#ft-aspvbs-syntax| |ft-aspperl-syntax)
-	*.asm		g:asmsyntax	[ft-asm-syntax](#ft-asm-syntax)
-	*.asp		g:filetype_asp	[ft-aspvbs-syntax| |ft-aspperl-syntax](#ft-aspvbs-syntax| |ft-aspperl-syntax)
-	*.bas		g:filetype_bas	[ft-basic-syntax](#ft-basic-syntax)
+	*.asa		g:filetype_asa	[ft-aspvbs-syntax](undefined#ft-aspvbs-syntax) [ft-aspperl-syntax](undefined#ft-aspperl-syntax)
+	*.asm		g:asmsyntax	[ft-asm-syntax](undefined#ft-asm-syntax)
+	*.asp		g:filetype_asp	[ft-aspvbs-syntax](undefined#ft-aspvbs-syntax) [ft-aspperl-syntax](undefined#ft-aspperl-syntax)
+	*.bas		g:filetype_bas	[ft-basic-syntax](undefined#ft-basic-syntax)
 	*.cfg		g:filetype_cfg
 	*.cls		g:filetype_cls
-	*.csh		g:filetype_csh	[ft-csh-syntax](#ft-csh-syntax)
+	*.csh		g:filetype_csh	[ft-csh-syntax](undefined#ft-csh-syntax)
 	*.dat		g:filetype_dat
-	*.frm		g:filetype_frm	[ft-form-syntax](#ft-form-syntax)
-	*.fs		g:filetype_fs	[ft-forth-syntax](#ft-forth-syntax)
-	*.i		g:filetype_i	[ft-progress-syntax](#ft-progress-syntax)
+	*.frm		g:filetype_frm	[ft-form-syntax](undefined#ft-form-syntax)
+	*.fs		g:filetype_fs	[ft-forth-syntax](undefined#ft-forth-syntax)
+	*.i		g:filetype_i	[ft-progress-syntax](undefined#ft-progress-syntax)
 	*.inc		g:filetype_inc
 	*.lsl		g:filetype_lsl
-	*.m		g:filetype_m	[ft-mathematica-syntax](#ft-mathematica-syntax)
+	*.m		g:filetype_m	[ft-mathematica-syntax](undefined#ft-mathematica-syntax)
 	*.mod		g:filetype_mod
-	*.p		g:filetype_p	[ft-pascal-syntax](#ft-pascal-syntax)
+	*.p		g:filetype_p	[ft-pascal-syntax](undefined#ft-pascal-syntax)
 	*.pl		g:filetype_pl
-	*.pp		g:filetype_pp	[ft-pascal-syntax](#ft-pascal-syntax)
+	*.pp		g:filetype_pp	[ft-pascal-syntax](undefined#ft-pascal-syntax)
 	*.prg		g:filetype_prg
 	*.r		g:filetype_r
 	*.sig		g:filetype_sig
-	*.sql		g:filetype_sql	[ft-sql-syntax](#ft-sql-syntax)
+	*.sql		g:filetype_sql	[ft-sql-syntax](undefined#ft-sql-syntax)
 	*.src		g:filetype_src
 	*.sys		g:filetype_sys
-	*.sh		g:bash_is_sh	[ft-sh-syntax](#ft-sh-syntax)
-	*.tex		g:tex_flavor	[ft-tex-plugin](#ft-tex-plugin)
-	*.w		g:filetype_w	[ft-cweb-syntax](#ft-cweb-syntax)
+	*.sh		g:bash_is_sh	[ft-sh-syntax](undefined#ft-sh-syntax)
+	*.tex		g:tex_flavor	[ft-tex-plugin](undefined#ft-tex-plugin)
+	*.w		g:filetype_w	[ft-cweb-syntax](undefined#ft-cweb-syntax)
 
 For a few filetypes the global variable is used only when the filetype could
 not be detected:
-	*.r		g:filetype_r	[ft-rexx-syntax](#ft-rexx-syntax)
+	*.r		g:filetype_r	[ft-rexx-syntax](undefined#ft-rexx-syntax)
 
 ### <a id="filetype-ignore" class="section-title" href="#filetype-ignore">Note:</a>
 To avoid that certain files are being inspected, the g:ft_ignore_pat variable
 is used.  The default value is set like this:
-	:let g:ft_ignore_pat = '\.\(Z\[gz\|bz2\|zip\](#gz\|bz2\|zip\)tgz\)$'
+	:let g:ft_ignore_pat = '\.\(Z\|gz\|bz2\|zip\|tgz\)$'
 This means that the contents of compressed files are not inspected.
 
 ### <a id="new-filetype" class="section-title" href="#new-filetype">Note:</a>
 If a file type that you want to use is not detected yet, there are a few ways
-to add it.  The recommended way is to use [vim.filetype.add()](#vim.filetype.add()) to add it to
+to add it.  The recommended way is to use |vim.filetype.add()| to add it to
 Nvim's builtin filetype detection mechanism.  If you want to handle the
 detection manually, proceed as follows:
 
@@ -198,7 +198,7 @@ A. If you want to overrule all default file type checks.
 ```
 
    2. Create a file that contains an autocommand to detect the file type.
-      Example: 
+      Example:
 ```	au BufRead,BufNewFile *.mine		set filetype=mine
      Note that there is no "augroup" command, this has already been done
       when sourcing your file.  You could also use the pattern "*" and then
@@ -211,7 +211,7 @@ A. If you want to overrule all default file type checks.
 
    The files in the "ftdetect" directory are used after all the default
    checks, thus they can overrule a previously detected file type.  But you
-   can also use [:setfiletype](#:setfiletype) to keep a previously detected filetype.
+   can also use |:setfiletype| to keep a previously detected filetype.
 
 B. If you want to detect your file after the default file type checks.
 
@@ -222,7 +222,7 @@ B. If you want to detect your file after the default file type checks.
 ```
 
    You can also use the already detected file type in your command.  For
-   example, to use the file type "mypascal" when "pascal" has been detected: 
+   example, to use the file type "mypascal" when "pascal" has been detected:
 ```	au BufRead,BufNewFile *		if &ft == 'pascal' | set ft=mypascal
 								       | endif
 
@@ -233,7 +233,7 @@ C. If your file type can be detected by the file name or extension.
 ```
 
    2. Create a file that contains autocommands to detect the file type.
-      Example: 
+      Example:
 ```	" my filetype file
 	if exists("did_load_filetypes")
 	  finish
@@ -245,7 +245,7 @@ C. If your file type can be detected by the file name or extension.
 ```
 
       Write this file as "filetype.vim" in your user runtime directory.  For
-      example, for Unix: 
+      example, for Unix:
 ```	:w ~/.config/nvim/filetype.vim
 
    3. To use the new filetype detection you must restart Vim.
@@ -263,7 +263,7 @@ D. If your filetype can only be detected by inspecting the contents of the
 	:!mkdir -p ~/.config/nvim
 ```
 
-   2. Create a vim script file for doing this.  Example: 
+   2. Create a vim script file for doing this.  Example:
 ```	if did_filetype()	" filetype already set..
 	  finish		" ..don't do these checks
 	endif
@@ -296,8 +296,8 @@ the `did_load_filetypes` global variable. If this variable exists, the default
 ### <a id="plugin-details" class="section-title" href="#plugin-details">Note:</a>
 The "plugin" directory can be in any of the directories in the 'runtimepath'
 option.  All of these directories will be searched for plugins and they are
-all loaded.  For example, if this command: 
-```
+all loaded.  For example, if this command:
+
 	set runtimepath
 
 produces this output:
@@ -312,12 +312,12 @@ then Vim will load all plugins in these directories and below:
 
 Note that the last one is the value of $VIMRUNTIME which has been expanded.
 
-Note that when using a plugin manager or [packages](#packages) many directories will be
+Note that when using a plugin manager or [packages](/neovim-docs-web/en/vim/repeat#packages) many directories will be
 added to 'runtimepath'.  These plugins each require their own directory, don't
 put them directly in ~/.config/nvim/plugin.
 
 What if it looks like your plugin is not being loaded?  You can find out what
-happens when Vim starts up by using the [-V](#-V) argument:
+happens when Vim starts up by using the [-V](undefined#-V) argument:
 
 	vim -V2
 
@@ -331,7 +331,7 @@ There you can see where Vim looks for your plugin scripts.
 
 ## <a id="filetype-plugins" class="section-title" href="#filetype-plugins">2. Filetype Plugin</a> 
 
-When loading filetype plugins has been enabled [:filetype-plugin-on](#:filetype-plugin-on), options
+When loading filetype plugins has been enabled |:filetype-plugin-on|, options
 will be set and mappings defined.  These are all local to the buffer, they
 will not be used for other files.
 
@@ -339,9 +339,9 @@ Defining mappings for a filetype may get in the way of the mappings you
 define yourself.  There are a few ways to avoid this:
 1. Set the "maplocalleader" variable to the key sequence you want the mappings
    to start with.  Example:
-	:let maplocalleader = ","
+```	:let maplocalleader = ","
   All mappings will then start with a comma instead of the default, which
-   is a backslash.  Also see [<LocalLeader>](#<LocalLeader>).
+   is a backslash.  Also see |<LocalLeader>|.
 
 2. Define your own mapping.  Example:
 	:map ,p <Plug>MailQuote
@@ -367,8 +367,8 @@ ways to change this:
 
 1. Add a few settings.
    You must create a new filetype plugin in a directory early in
-   'runtimepath'.  For Unix, for example you could use this file: 
-```	vim ~/.config/nvim/ftplugin/fortran.vim
+   'runtimepath'.  For Unix, for example you could use this file:
+	vim ~/.config/nvim/ftplugin/fortran.vim
   You can set those settings and mappings that you would like to add.  Note
    that the global plugin will be loaded after this, it may overrule the
    settings that you do here.  If this is the case, you need to use one of the
@@ -396,7 +396,7 @@ ways to change this:
 
 Support for features specific to GNU Awk, like @include, can be enabled by
 setting:
-	let g:awk_is_gawk = 1
+```	let g:awk_is_gawk = 1
 
 
 ### <a id="ft-changelog-plugin" class="section-title" href="#ft-changelog-plugin">CHANGELOG</a>
@@ -421,7 +421,7 @@ Global mappings:
 			NOTE: The global mappings are accessed by sourcing the
 			ftplugin/changelog.vim file first, e.g. with
 				runtime ftplugin/changelog.vim
-			in your [init.vim](#init.vim).
+			in your |init.vim|.
 Leader>o		Switches to the ChangeLog buffer opened for the
 			current directory, or opens it in a new buffer if it
 			exists in the current directory.  Then it does the
@@ -431,7 +431,7 @@ Variables:
 g:changelog_timeformat  Deprecated; use g:changelog_dateformat instead.
 g:changelog_dateformat	The date (and time) format used in ChangeLog entries.
 			The format accepted is the same as for the
-			[strftime()](#strftime()) function.
+			|strftime()| function.
 			The default is "%Y-%m-%d" which is the standard format
 			for many ChangeLog layouts.
 g:changelog_username	The name and email address of the user.
@@ -457,10 +457,10 @@ g:changelog_new_date_format
 			The default is "%d  %u\n\n\t* %p%c\n\n", which produces
 			something like (| is where cursor will be, unless at
 			the start of the line where it denotes the beginning
-			of the line) 
+			of the line)
 ```				|2003-01-14  Full Name  <user@host>
 				|
-				[        * prefix](#        * prefix)
+				|        * prefix|
 ```
 
 g:changelog_new_entry_format
@@ -470,8 +470,8 @@ g:changelog_new_entry_format
                                 %p	insert result of b:changelog_entry_prefix
 				%c	where to position cursor when done
 ### <a id="The default is "\t%c", which produces something" class="section-title" href="#The default is "\t%c", which produces something">Note:</a>
-			similar to 
-```				[        * prefix](#        * prefix)
+			similar to
+```				|        * prefix|
 ```
 
 g:changelog_date_entry_search
@@ -480,7 +480,7 @@ g:changelog_date_entry_search
 			The same tokens that can be used for
 			g:changelog_new_date_format can be used here as well.
 ### <a id="The default is '^\s%d\_s%u' which finds lines" class="section-title" href="#The default is '^\s%d\_s%u' which finds lines">Note:</a>
-			matching the form 
+			matching the form
 ```				|2003-01-14  Full Name  <user@host>
 			and some similar formats.
 
@@ -499,7 +499,7 @@ g:changelog_date_end_entry_search
 b:changelog_path
 			Path of the ChangeLog to use for the current buffer.
 			The default is empty, thus looking for a file named
-			[b:changelog_name](#b:changelog_name) in the same directory as the
+			|b:changelog_name| in the same directory as the
 			current buffer.  If not found, the parent directory of
 			the current buffer is searched.  This continues
 			recursively until a file is found or there are no more
@@ -530,9 +530,9 @@ Options:
 'textwidth'	is set to 72 for fixed source format as required by the
 		Fortran standards and to 80 for free source format.
 'formatoptions' is set to break code and comment lines and to preserve long
-		lines.  You can format comments with [gq](#gq).
+		lines.  You can format comments with [gq](undefined#gq).
 For further discussion of fortran_have_tabs and the method used for the
-detection of source format see [ft-fortran-syntax](#ft-fortran-syntax).
+detection of source format see [ft-fortran-syntax](undefined#ft-fortran-syntax).
 
 
 ### <a id="ft-freebasic-plugin" class="section-title" href="#ft-freebasic-plugin">FREEBASIC</a>
@@ -578,7 +578,7 @@ Options:
 'textwidth'	is set to 72.  This is often recommended for e-mail.
 'formatoptions'	is set to break text lines and to repeat the comment leader
 		in new lines, so that a leading ">" for quotes is repeated.
-		You can also format quoted text with [gq](#gq).
+		You can also format quoted text with [gq](undefined#gq).
 
 Local mappings:
 LocalLeader>q   or   \\MailQuote
@@ -589,7 +589,7 @@ LocalLeader>q   or   \\MailQuote
 ### <a id="ft-man-plugin :Man man.lua" class="section-title" href="#ft-man-plugin :Man man.lua">MAN</a>
 
 View manpages in Nvim. Supports highlighting, completion, locales, and
-navigation. Also see [find-manpage](#find-manpage).
+navigation. Also see [find-manpage](/neovim-docs-web/en/usr/usr_12#find-manpage).
 
 man.lua will always attempt to reuse the closest man window (above/left) but
 otherwise create a split.
@@ -608,7 +608,7 @@ Man                       Open the manpage for the <cWORD> (man buffers)
                           or <cword> (non-man buffers) under the cursor.
 Man!                      Display the current buffer contents as a manpage.
 
-[:Man](#:Man) accepts command modifiers. For example, to use a vertical split:
+|:Man| accepts command modifiers. For example, to use a vertical split:
      :vertical Man printf
 
 Local mappings:
@@ -616,7 +616,7 @@ K or CTRL-]               Jump to the manpage for the <cWORD> under the
                           cursor. Takes a count for the section.
 CTRL-T                    Jump back to the location that the manpage was
                           opened from.
-gO                        Show the manpage outline. [gO](#gO)
+gO                        Show the manpage outline. [gO](undefined#gO)
 q                         :quit if invoked as $MANPAGER, otherwise :close.
 
 Variables:
@@ -626,7 +626,7 @@ Variables:
                           For example in C one usually wants section 3 or 2:
                                :let b:man_default_sections = '3,2'
 *g:man_hardwrap*            Hard-wrap to $MANWIDTH or window width if $MANWIDTH is
-                          empty. Enabled by default. Set [FALSE](#FALSE) to enable soft
+                          empty. Enabled by default. Set [FALSE](undefined#FALSE) to enable soft
                           wrapping.
 
 To use Nvim as a manpager:
@@ -662,14 +662,14 @@ the PDF.  The following are treated as tags:
 - A line of the form "0123456789 00000 n" in the xref table
 - An object reference like "1 0 R" anywhere in the PDF
 
-These maps can be disabled with 
+These maps can be disabled with
 ```	:let g:no_pdf_maps = 1
 ```
 
 
 ### <a id="ft-python-plugin PEP8" class="section-title" href="#ft-python-plugin PEP8">PYTHON</a>
 
-By default the following options are set, in accordance with PEP8: 
+By default the following options are set, in accordance with PEP8:
 ```
 	setlocal expandtab shiftwidth=4 softtabstop=4 tabstop=8
 
@@ -680,10 +680,10 @@ To disable this behavior, set the following variable in your vimrc:
 
 ### <a id="qf.vim ft-qf-plugin" class="section-title" href="#qf.vim ft-qf-plugin">Qf Quickfix</a>
 
-The "qf" filetype is used for the quickfix window, see [quickfix-window](#quickfix-window).
+The "qf" filetype is used for the quickfix window, see [quickfix-window](/neovim-docs-web/en/vim/quickfix#quickfix-window).
 
 The quickfix filetype plugin includes configuration for displaying the command
-that produced the quickfix list in the [status-line](#status-line). To disable this setting,
+that produced the quickfix list in the [status-line](undefined#status-line). To disable this setting,
 configure as follows:
 	:let g:qf_disable_statusline = 1
 
@@ -691,12 +691,12 @@ configure as follows:
 ### <a id="ft-rmd-plugin" class="section-title" href="#ft-rmd-plugin">R Markdown</a>
 
 By default ftplugin/html.vim is not sourced. If you want it sourced, add to
-your [vimrc](#vimrc):
+your [vimrc](undefined#vimrc):
 	let rmd_include_html = 1
 
 The 'formatexpr' option is set dynamically with different values for R code
 and for Markdown code. If you prefer that 'formatexpr' is not set, add to your
-[vimrc](#vimrc):
+[vimrc](undefined#vimrc):
 	let rmd_dynamic_comments = 0
 
 
@@ -704,7 +704,7 @@ and for Markdown code. If you prefer that 'formatexpr' is not set, add to your
 
 The 'formatexpr' option is set dynamically with different values for R code
 and for ReStructured text. If you prefer that 'formatexpr' is not set, add to
-your [vimrc](#vimrc):
+your [vimrc](undefined#vimrc):
 	let rrst_dynamic_comments = 0
 
 
@@ -720,12 +720,12 @@ To enable this behavior, set the following variable in your vimrc:
 ### <a id="ft-spec-plugin" class="section-title" href="#ft-spec-plugin">Rpm Spec</a>
 
 Since the text for this plugin is rather long it has been put in a separate
-file: [pi_spec.txt](#pi_spec.txt).
+file: |pi_spec.txt|.
 
 
 ### <a id="ft-shada" class="section-title" href="#ft-shada">SHADA</a>
 
-Allows editing binary [shada-file](#shada-file)s in a nice way.  Opened binary files are 
+Allows editing binary [shada-file](undefined#shada-file)s in a nice way.  Opened binary files are 
 displayed in the following format:
 
     Type with timestamp YYYY-mm-ddTHH:MM:SS:
@@ -740,16 +740,16 @@ displayed in the following format:
       # Unexpected type: type instead of map
       = {msgpack-value}
 
-Filetype plugin defines all [Cmd-event|s.  Defined |SourceCmd](#Cmd-event|s.  Defined |SourceCmd) event makes 
-"source file.shada" be equivalent to "[:rshada| file.shada".  |BufWriteCmd](#:rshada| file.shada".  |BufWriteCmd), 
-[FileWriteCmd| and |FileAppendCmd](#FileWriteCmd| and |FileAppendCmd) events are affected by the following 
+Filetype plugin defines all [Cmd-event](undefined#Cmd-event)s.  Defined [SourceCmd](undefined#SourceCmd) event makes 
+"source file.shada" be equivalent to "|:rshada| file.shada".  [BufWriteCmd](undefined#BufWriteCmd), 
+[FileWriteCmd](undefined#FileWriteCmd) and [FileAppendCmd](undefined#FileAppendCmd) events are affected by the following 
 settings:
 
 *g:shada#keep_old_header*	Boolean, if set to false all header entries 
 				are ignored when writing.  Defaults to 1.
 *g:shada#add_own_header*	Boolean, if set to true first written entry 
 				will always be header entry with two values in 
-				a map with attached data: [v:version](#v:version) attached 
+				a map with attached data: |v:version| attached 
 				to "version" key and "shada.vim" attached to 
 				"generator" key.  Defaults to 1.
 
@@ -760,10 +760,10 @@ Format description:
    ShaDa format.  Lines containing no non-whitespace characters are also 
    ignored.
 2. Each entry starts with line that has format "{type} with timestamp 
-   {timestamp}:". {timestamp} is [strftime()](#strftime())-formatted string representing 
+   {timestamp}:". {timestamp} is |strftime()|-formatted string representing 
    actual Unix timestamp value. First strftime() argument is equal to
    `%Y-%m-%dT%H:%M:%S`.  When writing this timestamp is parsed using 
-   [msgpack#strptime()](#msgpack#strptime()), with caching (it remembers which timestamp produced 
+   |msgpack#strptime()|, with caching (it remembers which timestamp produced 
    particular strftime() output and uses this value if you did not change 
    timestamp). {type} is one of
     1 - Header
@@ -784,7 +784,7 @@ Format description:
 3. After header there is one of the following lines:
    1. "  % Key__  Description__  Value": map header.  After mapping header 
       follows a table which may contain comments and lines consisting of 
-      "  +", key, description and [{msgpack-value}](#{msgpack-value}).  Key is separated by at 
+      "  +", key, description and |{msgpack-value}|.  Key is separated by at 
       least two spaces with description, description is separated by at least 
       two spaces with the value.  Each key in the map must be at most as wide 
       as "Key__" header: "Key" allows at most 3-byte keys, "Key__" allows at 
@@ -795,7 +795,7 @@ Format description:
       on width and contents, except that empty descriptions are allowed.  
       Description column may be omitted.
 
-      When writing description is ignored.  Keys with values [msgpack#equal](#msgpack#equal) 
+      When writing description is ignored.  Keys with values |msgpack#equal| 
       to default ones are ignored.  Order of keys is preserved.  All keys are 
       treated as strings (not binary strings).
 
@@ -810,13 +810,13 @@ Format description:
           + c    column       10
 ```
 
-      is equivalent to 
+      is equivalent to
 ```
         Buffer list with timestamp 1970-01-01T00:00:00:
           = [{="f": "/foo", ="c": 10}]
 ```
 
-      and 
+      and
 ```
         Buffer list with timestamp 1970-01-01T00:00:00:
           % Key  Description  Value
@@ -826,14 +826,14 @@ Format description:
           + f    file name    "/bar"
 ```
 
-      is equivalent to 
+      is equivalent to
 ```
         Buffer list with timestamp 1970-01-01T00:00:00:
           = [{="f": "/foo"}, {="f": "/bar"}]
 ```
 
       Note 2: specifically for register entries special syntax for arrays was 
-      designed: 
+      designed:
 ```
         Register with timestamp 1970-01-01T00:00:00:
           % Key  Description  Value
@@ -842,7 +842,7 @@ Format description:
           | - "line2"
 ```
 
-      This is equivalent to 
+      This is equivalent to
 ```
         Register with timestamp 1970-01-01T00:00:00:
           % Key  Description  Value
@@ -853,7 +853,7 @@ Format description:
       too lengthy.
    2. "  @  Description__  Value": array header.  Same as map, but key is 
       omitted and description cannot be omitted.  Array entries start with 
-      "  -". Example: 
+      "  -". Example:
 ```
         History entry with timestamp 1970-01-01T00:00:00:
           @ Description_  Value
@@ -862,14 +862,14 @@ Format description:
           - separator     '/'
 ```
 
-      is equivalent to 
+      is equivalent to
 ```
         History entry with timestamp 1970-01-01T00:00:00:
           = [SEARCH, "foo", '/']
 ```
 
       Note: special array syntax for register entries is not recognized here.
-   3. "  = {msgpack-value}": raw values.  [{msgpack-value}](#{msgpack-value}) in this case may 
+   3. "  = {msgpack-value}": raw values.  |{msgpack-value}| in this case may 
       have absolutely any type.  Special array syntax for register entries is 
       not recognized here as well.
 
@@ -877,18 +877,18 @@ Format description:
 ### <a id="ft-rust" class="section-title" href="#ft-rust">RUST</a>
 
 Since the text for this plugin is rather long it has been put in a separate
-file: [ft_rust.txt](#ft_rust.txt).
+file: |ft_rust.txt|.
 
 
 ### <a id="ft-sql" class="section-title" href="#ft-sql">SQL</a>
 
 Since the text for this plugin is rather long it has been put in a separate
-file: [ft_sql.txt](#ft_sql.txt).
+file: |ft_sql.txt|.
 
 
 ### <a id="ft-tex-plugin g:tex_flavor" class="section-title" href="#ft-tex-plugin g:tex_flavor">TEX</a>
 
-If the first line of a *.tex file has the form 
+If the first line of a *.tex file has the form
 ```	%&<format>
 then this determined the file type:  plaintex (for plain TeX), context (for
 ConTeXt), or tex (for LaTeX).  Otherwise, the file is searched for keywords to

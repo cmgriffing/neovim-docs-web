@@ -16,14 +16,14 @@ This chapter is about editing files that are not ordinary files.  With Vim you
 can edit files that are compressed.  Some files need to be accessed over the
 internet.  With some restrictions, binary files can be edited as well.
 
-[23.1](#23.1)	DOS, Mac and Unix files
-[23.2](#23.2)	Files on the internet
-[23.3](#23.3)	Binary files
-[23.4](#23.4)	Compressed files
+|23.1|	DOS, Mac and Unix files
+|23.2|	Files on the internet
+|23.3|	Binary files
+|23.4|	Compressed files
 
-     Next chapter: [usr_24.txt](#usr_24.txt)  Inserting quickly
- Previous chapter: [usr_22.txt](#usr_22.txt)  Finding the file to edit
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_24.txt|  Inserting quickly
+ Previous chapter: |usr_22.txt|  Finding the file to edit
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*23.1*	DOS, Mac and Unix Files</a> 
@@ -156,7 +156,7 @@ Vim detects these URLs for each command that starts editing a new file, also
 with ":edit" and ":split", for example.  Write commands also work, except for
 http://.
 
-For more information, also about passwords, see [netrw](#netrw).
+For more information, also about passwords, see [netrw](undefined#netrw).
 
 
 ## <a id="" class="section-title" href="#">*23.3*	Binary Files</a> 
@@ -259,7 +259,7 @@ Vim uses the mentioned programs to do the actual compression and
 decompression.  You might need to install the programs first.
 
 
-## <a id="Inserting quickly" class="section-title" href="#Inserting quickly">Next Chapter: [Usr_24.Txt](#Usr_24.Txt)</a> 
+## <a id="Inserting quickly" class="section-title" href="#Inserting quickly">Next Chapter: |Usr_24.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

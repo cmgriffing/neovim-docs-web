@@ -11,21 +11,21 @@ ADA FILE TYPE PLUG-INS REFERENCE MANUAL~
 
 ### <a id="ada.vim" class="section-title" href="#ada.vim">ADA</a>
 
-1.  Syntax Highlighting			    [ft-ada-syntax](#ft-ada-syntax)
-2.  File type Plug-in			    [ft-ada-plugin](#ft-ada-plugin)
-3.  Omni Completion			    [ft-ada-omni](#ft-ada-omni)
-3.1 Omni Completion with "gnat xref"	[gnat-xref](#gnat-xref)
-3.2 Omni Completion with "ctags"		[ada-ctags](#ada-ctags)
-4.  Compiler Support			    [ada-compiler](#ada-compiler)
-4.1 GNAT					[compiler-gnat](#compiler-gnat)
-4.2 Dec Ada					[compiler-decada](#compiler-decada)
-5.  References				    [ada-reference](#ada-reference)
-5.1 Options					[ft-ada-options](#ft-ada-options)
-5.2 Commands				[ft-ada-commands](#ft-ada-commands)
-5.3 Variables				[ft-ada-variables](#ft-ada-variables)
-5.4 Constants				[ft-ada-constants](#ft-ada-constants)
-5.5 Functions				[ft-ada-functions](#ft-ada-functions)
-6.  Extra Plug-ins			    [ada-extra-plugins](#ada-extra-plugins)
+1.  Syntax Highlighting			    [ft-ada-syntax](/neovim-docs-web/en/misc/ft_ada#ft-ada-syntax)
+2.  File type Plug-in			    [ft-ada-plugin](undefined#ft-ada-plugin)
+3.  Omni Completion			    [ft-ada-omni](/neovim-docs-web/en/misc/ft_ada#ft-ada-omni)
+3.1 Omni Completion with "gnat xref"	[gnat-xref](/neovim-docs-web/en/misc/ft_ada#gnat-xref)
+3.2 Omni Completion with "ctags"		[ada-ctags](/neovim-docs-web/en/misc/ft_ada#ada-ctags)
+4.  Compiler Support			    [ada-compiler](/neovim-docs-web/en/misc/ft_ada#ada-compiler)
+4.1 GNAT					[compiler-gnat](/neovim-docs-web/en/misc/ft_ada#compiler-gnat)
+4.2 Dec Ada					[compiler-decada](undefined#compiler-decada)
+5.  References				    [ada-reference](/neovim-docs-web/en/misc/ft_ada#ada-reference)
+5.1 Options					[ft-ada-options](/neovim-docs-web/en/misc/ft_ada#ft-ada-options)
+5.2 Commands				[ft-ada-commands](/neovim-docs-web/en/misc/ft_ada#ft-ada-commands)
+5.3 Variables				[ft-ada-variables](/neovim-docs-web/en/misc/ft_ada#ft-ada-variables)
+5.4 Constants				[ft-ada-constants](/neovim-docs-web/en/misc/ft_ada#ft-ada-constants)
+5.5 Functions				[ft-ada-functions](/neovim-docs-web/en/misc/ft_ada#ft-ada-functions)
+6.  Extra Plug-ins			    [ada-extra-plugins](/neovim-docs-web/en/misc/ft_ada#ada-extra-plugins)
 
 
 ## <a id="" class="section-title" href="#">1. Syntax Highlighting ~</a> <span id="ft-ada-syntax"></span>
@@ -50,7 +50,7 @@ to change how loops are displayed, enter the command ":hi Repeat" followed by
 the colour specification; on simple terminals the colour specification
 ctermfg=White often shows well).
 
-There are several options you can select in this Ada mode. See [ft-ada-options](#ft-ada-options)
+There are several options you can select in this Ada mode. See [ft-ada-options](/neovim-docs-web/en/misc/ft_ada#ft-ada-options)
 for a complete list.
 
 To enable them, assign a value to the option.  For example, to turn one on:
@@ -61,13 +61,13 @@ To disable them use ":unlet".  Example:
 
 You can just use ":" and type these into the command line to set these
 temporarily before loading an Ada file.  You can make these option settings
-permanent by adding the "let" command(s), without a colon, to your [init.vim](#init.vim)
+permanent by adding the "let" command(s), without a colon, to your |init.vim|
 file.
 
 Even on a slow (90Mhz) PC this mode works quickly, but if you find the
-performance unacceptable, turn on [g:ada_withuse_ordinary](#g:ada_withuse_ordinary).
+performance unacceptable, turn on |g:ada_withuse_ordinary|.
 
-Syntax folding instructions ([fold-syntax|) are added when |g:ada_folding](#fold-syntax|) are added when |g:ada_folding) is
+Syntax folding instructions ([fold-syntax](undefined#fold-syntax)) are added when |g:ada_folding| is
 set.
 
 
@@ -75,13 +75,13 @@ set.
 
 The Ada plug-in provides support for:
 
-- auto indenting	([indent.txt](#indent.txt))
-- insert completion	([i_CTRL-N](#i_CTRL-N))
-- user completion	([i_CTRL-X_CTRL-U](#i_CTRL-X_CTRL-U))
-- tag searches		([tagsrch.txt](#tagsrch.txt))
-- Quick Fix		([quickfix.txt](#quickfix.txt))
-- backspace handling	(['backspace'](#'backspace'))
-- comment handling	(['comments'|, |'commentstring'](#'comments'|, |'commentstring'))
+- auto indenting	(|indent.txt|)
+- insert completion	(|i_CTRL-N|)
+- user completion	(|i_CTRL-X_CTRL-U|)
+- tag searches		(|tagsrch.txt|)
+- Quick Fix		(|quickfix.txt|)
+- backspace handling	(|'backspace'|)
+- comment handling	(|'comments'|, |'commentstring'|)
 
 The plug-in only activates the features of the Ada mode whenever an Ada
 file is opened and adds Ada related entries to the main and pop-up menu.
@@ -89,14 +89,13 @@ file is opened and adds Ada related entries to the main and pop-up menu.
 
 ## <a id="" class="section-title" href="#">3. Omni Completion ~</a> <span id="ft-ada-omni"></span>
 
-The Ada omni-completions ([i_CTRL-X_CTRL-O](#i_CTRL-X_CTRL-O)) uses tags database created either
+The Ada omni-completions (|i_CTRL-X_CTRL-O|) uses tags database created either
 by "gnat xref -v" or the "Universal Ctags" (https://ctags.io).  The complete
 function will automatically detect which tool was used to create the tags
 file.
 
-------------------------------------------------------------------------------
-3.1 Omni Completion with "gnat xref" ~
-### <a id="gnat-xref" class="section-title" href="#gnat-xref">Note:</a>
+
+## <a id="" class="section-title" href="#">3.1 Omni Completion With "Gnat Xref" ~</a> <span id="gnat-xref"></span>
 
 GNAT XREF uses the compiler internal information (ali-files) to produce the
 tags file. This has the advantage to be 100% correct and the option of deep
@@ -122,9 +121,8 @@ your .ali files.
 6)  Remember to insert "!_TAG_FILE_SORTED 2 %sort ui" as first line to mark
 the file assorted.
 
-------------------------------------------------------------------------------
-3.2 Omni Completion with "ctags"~
-### <a id="ada-ctags" class="section-title" href="#ada-ctags">Note:</a>
+
+## <a id="" class="section-title" href="#">3.2 Omni Completion With "Ctags"~</a> <span id="ada-ctags"></span>
 
 Universal/Exuberant Ctags use their own multi-language code parser.  The
 parser is quite fast, produces a lot of extra information and can run on files
@@ -143,15 +141,14 @@ complete support yet.
 ## <a id="" class="section-title" href="#">4. Compiler Support ~</a> <span id="ada-compiler"></span>
 
 The Ada mode supports more than one Ada compiler and will automatically load the
-compiler set in [g:ada_default_compiler](#g:ada_default_compiler) whenever an Ada source is opened. The
+compiler set in |g:ada_default_compiler| whenever an Ada source is opened. The
 provided compiler plug-ins are split into the actual compiler plug-in and a
 collection of support functions and variables. This allows the easy
 development of specialized compiler plug-ins fine tuned to your development
 environment.
 
-------------------------------------------------------------------------------
-4.1 GNAT ~
-### <a id="compiler-gnat" class="section-title" href="#compiler-gnat">Note:</a>
+
+## <a id="" class="section-title" href="#">4.1 Gnat ~</a> <span id="compiler-gnat"></span>
 
 GNAT is the only free (beer and speech) Ada compiler available. There are
 several versions available which differ in the licence terms used.
@@ -161,7 +158,7 @@ immediately shows the result. You can set the project file to be used by
 setting:
 > call g:gnat.Set_Project_File ('my_project.gpr')
 
-Setting a project file will also create a Vim session ([views-sessions](#views-sessions)) so -
+Setting a project file will also create a Vim session ([views-sessions](/neovim-docs-web/en/vim/starting#views-sessions)) so -
 like with the GPS - opened files, window positions etc. will be remembered
 separately for all projects.
 
@@ -170,20 +167,20 @@ GNAT OBJECT ~
 
 ### <a id="g:gnat.Make()" class="section-title" href="#g:gnat.Make()">Note:</a>
 g:gnat.Make()
-Calls [g:gnat.Make_Command](#g:gnat.Make_Command) and displays the result inside a
-[quickfix](#quickfix) window.
+Calls |g:gnat.Make_Command| and displays the result inside a
+[quickfix](undefined#quickfix) window.
 
 ### <a id="g:gnat.Pretty()" class="section-title" href="#g:gnat.Pretty()">Note:</a>
 g:gnat.Pretty()
-Calls [g:gnat.Pretty_Program](#g:gnat.Pretty_Program)
+Calls |g:gnat.Pretty_Program|
 
 ### <a id="g:gnat.Find()" class="section-title" href="#g:gnat.Find()">Note:</a>
 g:gnat.Find()
-Calls [g:gnat.Find_Program](#g:gnat.Find_Program)
+Calls |g:gnat.Find_Program|
 
 ### <a id="g:gnat.Tags()" class="section-title" href="#g:gnat.Tags()">Note:</a>
 g:gnat.Tags()
-Calls [g:gnat.Tags_Command](#g:gnat.Tags_Command)
+Calls |g:gnat.Tags_Command|
 
 ### <a id="g:gnat.Set_Project_File()" class="section-title" href="#g:gnat.Set_Project_File()">Note:</a>
 g:gnat.Set_Project_File([{file}])
@@ -199,27 +196,27 @@ Current project file.
 
 ### <a id="g:gnat.Make_Command" class="section-title" href="#g:gnat.Make_Command">Note:</a>
 g:gnat.Make_Command	string
-External command used for [g:gnat.Make()| (|'makeprg'](#g:gnat.Make()| (|'makeprg')).
+External command used for |g:gnat.Make()| (|'makeprg'|).
 
 ### <a id="g:gnat.Pretty_Program" class="section-title" href="#g:gnat.Pretty_Program">Note:</a>
 g:gnat.Pretty_Program	string
-External command used for [g:gnat.Pretty()](#g:gnat.Pretty())
+External command used for |g:gnat.Pretty()|
 
 ### <a id="g:gnat.Find_Program" class="section-title" href="#g:gnat.Find_Program">Note:</a>
 g:gnat.Find_Program	string
-External command used for [g:gnat.Find()](#g:gnat.Find())
+External command used for |g:gnat.Find()|
 
 ### <a id="g:gnat.Tags_Command" class="section-title" href="#g:gnat.Tags_Command">Note:</a>
 g:gnat.Tags_Command	string
-External command used for [g:gnat.Tags()](#g:gnat.Tags())
+External command used for |g:gnat.Tags()|
 
 ### <a id="g:gnat.Error_Format" class="section-title" href="#g:gnat.Error_Format">Note:</a>
 g:gnat.Error_Format	string
-Error format (['errorformat'](#'errorformat'))
+Error format (|'errorformat'|)
 
-------------------------------------------------------------------------------
-4.2 Dec Ada ~
-### <a id="compiler-hpada compiler-decada" class="section-title" href="#compiler-hpada compiler-decada">Note:</a>
+
+## <a id="" class="section-title" href="#">4.2 Dec Ada ~</a> <span id="compiler-hpada"></span>
+
 ### <a id="compiler-vaxada compiler-compaqada" class="section-title" href="#compiler-vaxada compiler-compaqada">Note:</a>
 
 Dec Ada (also known by - in chronological order - VAX Ada, Dec Ada, Compaq Ada
@@ -236,8 +233,8 @@ DEC ADA OBJECT ~
 
 ### <a id="g:decada.Make()" class="section-title" href="#g:decada.Make()">Note:</a>
 g:decada.Make()		function
-Calls [g:decada.Make_Command](#g:decada.Make_Command) and displays the result inside a
-[quickfix](#quickfix) window.
+Calls |g:decada.Make_Command| and displays the result inside a
+[quickfix](undefined#quickfix) window.
 
 ### <a id="g:decada.Unit_Name()" class="section-title" href="#g:decada.Unit_Name()">Note:</a>
 g:decada.Unit_Name()	function
@@ -245,18 +242,19 @@ Get the Unit name for the current file.
 
 ### <a id="g:decada.Make_Command" class="section-title" href="#g:decada.Make_Command">Note:</a>
 g:decada.Make_Command	string
-External command used for [g:decada.Make()| (|'makeprg'](#g:decada.Make()| (|'makeprg')).
+External command used for |g:decada.Make()| (|'makeprg'|).
 
 ### <a id="g:decada.Error_Format" class="section-title" href="#g:decada.Error_Format">Note:</a>
 g:decada.Error_Format	string
-Error format (['errorformat'](#'errorformat')).
+Error format (|'errorformat'|).
 
 
 ## <a id="" class="section-title" href="#">5. References ~</a> <span id="ada-reference"></span>
 
-------------------------------------------------------------------------------
-5.1 Options ~
-### <a id="ft-ada-options" class="section-title" href="#ft-ada-options">Note:</a>
+
+
+
+## <a id="" class="section-title" href="#">5.1 Options ~</a> <span id="ft-ada-options"></span>
 
 ### <a id="g:ada_standard_types" class="section-title" href="#g:ada_standard_types">Note:</a>
 g:ada_standard_types	bool (true when exists)
@@ -328,8 +326,8 @@ preprocessor commands.
 ### <a id="g:ada_omni_with_keywords" class="section-title" href="#g:ada_omni_with_keywords">Note:</a>
 g:ada_omni_with_keywords
 Add Keywords, Pragmas, Attributes to omni-completions
-([compl-omni](#compl-omni)). Note: You can always complete then with user
-completion ([i_CTRL-X_CTRL-U](#i_CTRL-X_CTRL-U)).
+([compl-omni](undefined#compl-omni)). Note: You can always complete then with user
+completion (|i_CTRL-X_CTRL-U|).
 
 ### <a id="g:ada_extended_tagging" class="section-title" href="#g:ada_extended_tagging">Note:</a>
 g:ada_extended_tagging	  enum ("jump", "list")
@@ -343,7 +341,7 @@ tagging was originally developed for C.
 ### <a id="g:ada_extended_completion" class="section-title" href="#g:ada_extended_completion">Note:</a>
 g:ada_extended_completion
 Uses extended completion for <C-N> and <C-R> completions
-([i_CTRL-N](#i_CTRL-N)). In this mode the '.' is used as part of the
+(|i_CTRL-N|). In this mode the '.' is used as part of the
 identifier so that 'Object.Method' or 'Package.Procedure' are
 completed together.
 
@@ -364,19 +362,18 @@ An "exists" type is a boolean considered true when the variable is defined and
 false when the variable is undefined. The value to which the variable is set
 makes no difference.
 
-------------------------------------------------------------------------------
-5.2 Commands ~
-### <a id="ft-ada-commands" class="section-title" href="#ft-ada-commands">Note:</a>
+
+## <a id="" class="section-title" href="#">5.2 Commands ~</a> <span id="ft-ada-commands"></span>
 
 ### <a id=":AdaRainbow" class="section-title" href="#:AdaRainbow">:AdaRainbow</a>
-Toggles rainbow colour ([g:ada_rainbow_color](#g:ada_rainbow_color)) mode for
+Toggles rainbow colour (|g:ada_rainbow_color|) mode for
 '(' and ')'.
 
 ### <a id=":AdaLines" class="section-title" href="#:AdaLines">:AdaLines</a>
-Toggles line error ([g:ada_line_errors](#g:ada_line_errors)) display.
+Toggles line error (|g:ada_line_errors|) display.
 
 ### <a id=":AdaSpaces" class="section-title" href="#:AdaSpaces">:AdaSpaces</a>
-Toggles space error ([g:ada_space_errors](#g:ada_space_errors)) display.
+Toggles space error (|g:ada_space_errors|) display.
 
 ### <a id=":AdaTagDir" class="section-title" href="#:AdaTagDir">:AdaTagDir</a>
 Creates tags file for the directory of the current file.
@@ -385,40 +382,38 @@ Creates tags file for the directory of the current file.
 Creates tags file for the current file.
 
 ### <a id=":AdaTypes" class="section-title" href="#:AdaTypes">:AdaTypes</a>
-Toggles standard types ([g:ada_standard_types](#g:ada_standard_types)) colour.
+Toggles standard types (|g:ada_standard_types|) colour.
 
 ### <a id=":GnatFind" class="section-title" href="#:GnatFind">:GnatFind</a>
-Calls [g:gnat.Find()](#g:gnat.Find())
+Calls |g:gnat.Find()|
 
 ### <a id=":GnatPretty" class="section-title" href="#:GnatPretty">:GnatPretty</a>
-Calls [g:gnat.Pretty()](#g:gnat.Pretty())
+Calls |g:gnat.Pretty()|
 
 ### <a id=":GnatTags" class="section-title" href="#:GnatTags">:GnatTags</a>
-Calls [g:gnat.Tags()](#g:gnat.Tags())
+Calls |g:gnat.Tags()|
 
-------------------------------------------------------------------------------
-5.3 Variables ~
-### <a id="ft-ada-variables" class="section-title" href="#ft-ada-variables">Note:</a>
+
+## <a id="" class="section-title" href="#">5.3 Variables ~</a> <span id="ft-ada-variables"></span>
 
 ### <a id="g:gnat" class="section-title" href="#g:gnat">Note:</a>
 g:gnat			    object
 Control object which manages GNAT compiles.  The object
 is created when the first Ada source code is loaded provided
-that [g:ada_default_compiler](#g:ada_default_compiler) is set to "gnat". See
-[gnat_members](#gnat_members) for details.
+that |g:ada_default_compiler| is set to "gnat". See
+|gnat_members| for details.
 
 ### <a id="g:decada" class="section-title" href="#g:decada">Note:</a>
 g:decada		      object
 Control object which manages Dec Ada compiles.	The object
 is created when the first Ada source code is loaded provided
-that [g:ada_default_compiler](#g:ada_default_compiler) is set to "decada". See
-[decada_members](#decada_members) for details.
+that |g:ada_default_compiler| is set to "decada". See
+|decada_members| for details.
 
-------------------------------------------------------------------------------
-5.4 Constants ~
-### <a id="ft-ada-constants" class="section-title" href="#ft-ada-constants">Note:</a>
 
-All constants are locked. See [:lockvar](#:lockvar) for details.
+## <a id="" class="section-title" href="#">5.4 Constants ~</a> <span id="ft-ada-constants"></span>
+
+All constants are locked. See |:lockvar| for details.
 
 ### <a id="g:ada#WordRegex" class="section-title" href="#g:ada#WordRegex">Note:</a>
 g:ada#WordRegex		string
@@ -435,16 +430,15 @@ Regular expression to search for Ada comments.
 ### <a id="g:ada#Keywords" class="section-title" href="#g:ada#Keywords">Note:</a>
 g:ada#Keywords		list of dictionaries
 List of keywords, attributes etc. pp. in the format used by
-omni completion. See [complete-items](#complete-items) for details.
+omni completion. See [complete-items](undefined#complete-items) for details.
 
 ### <a id="g:ada#Ctags_Kinds" class="section-title" href="#g:ada#Ctags_Kinds">Note:</a>
 g:ada#Ctags_Kinds	dictionary of lists
 Dictionary of the various kinds of items which the Ada support
 for Ctags generates.
 
-------------------------------------------------------------------------------
-5.5 Functions ~
-### <a id="ft-ada-functions" class="section-title" href="#ft-ada-functions">Note:</a>
+
+## <a id="" class="section-title" href="#">5.5 Functions ~</a> <span id="ft-ada-functions"></span>
 
 ### <a id="ada#Word()" class="section-title" href="#ada#Word()">ada#Word([{line}, {col}])</a>
 Return full name of Ada entity under the cursor (or at given
@@ -473,7 +467,7 @@ Toggles highlighting options on or off. Used for the Ada menu.
 
 ### <a id="gnat#New()" class="section-title" href="#gnat#New()">Note:</a>
 gnat#New ()
-Create a new gnat object. See [g:gnat](#g:gnat) for details.
+Create a new gnat object. See |g:gnat| for details.
 
 
 ## <a id="" class="section-title" href="#">6. Extra Plugins ~</a> <span id="ada-extra-plugins"></span>

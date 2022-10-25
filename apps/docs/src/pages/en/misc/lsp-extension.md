@@ -12,16 +12,16 @@ NVIM REFERENCE MANUAL
 
 The `vim.lsp` Lua module is a framework for building LSP plugins.
 
-1. Start with [vim.lsp.start_client()| and |vim.lsp.buf_attach_client()](#vim.lsp.start_client()| and |vim.lsp.buf_attach_client()).
+1. Start with |vim.lsp.start_client()| and |vim.lsp.buf_attach_client()|.
 2. Peek at the API: 
 ```       :lua print(vim.inspect(vim.lsp))
-3. See [lsp-extension-example](#lsp-extension-example) for a full example.
+3. See [[lsp-extension-example](/undefined#lsp-extension-example)](/undefined) for a full example.
 
 
 ## <a id="lsp-extension-example" class="section-title" href="#lsp-extension-example">Lsp Example</a> 
 
 This example is for plugin authors or users who want a lot of control. If you
-are just getting started see [lsp-quickstart](#lsp-quickstart).
+are just getting started see [[lsp-quickstart](/undefined#lsp-quickstart)](/undefined).
 
 For more advanced configurations where just filtering by filetype isn't
 sufficient, you can use the `vim.lsp.start_client()` and

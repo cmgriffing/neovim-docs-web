@@ -17,15 +17,15 @@ contains many features to aid in writing programs.  Jump around to find where
 identifiers are defined and used.  Preview declarations in a separate window.
 There is more in the next chapter.
 
-[29.1](#29.1)	Using tags
-[29.2](#29.2)	The preview window
-[29.3](#29.3)	Moving through a program
-[29.4](#29.4)	Finding global identifiers
-[29.5](#29.5)	Finding local identifiers
+|29.1|	Using tags
+|29.2|	The preview window
+|29.3|	Moving through a program
+|29.4|	Finding global identifiers
+|29.5|	Finding local identifiers
 
-     Next chapter: [usr_30.txt](#usr_30.txt)  Editing programs
- Previous chapter: [usr_28.txt](#usr_28.txt)  Folding
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_30.txt|  Editing programs
+ Previous chapter: |usr_28.txt|  Folding
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*29.1*	Using Tags</a> 
@@ -62,29 +62,29 @@ it does.  So you position the cursor over the call to "write_char" and press
 CTRL-].  Now you are at the definition of "write_char".
 
 	+-------------------------------------+
-### <a id="](#void write_block(char s; int cnt)" class="section-title" href="#](#void write_block(char s; int cnt)">	[void write_block(char **s; int cnt)</a>
-	[{				      ](#{				      )
-	[   int i;			      ](#   int i;			      )
-	[   for (i = 0; i < cnt; ++i)	      ](#   for (i = 0; i < cnt; ++i)	      )
-	[      write_line(s[i]);	      ](#      write_line(s[i]);	      )
-	[}	    |			      ](#}	    |			      )
+	|void write_block(char **s; int cnt)  |
+	|{				      |
+	|   int i;			      |
+	|   for (i = 0; i < cnt; ++i)	      |
+	|      write_line(s[i]);	      |
+	|}	    |			      |
 	+-----------|-------------------------+
 		    |
 	     CTRL-] |
 		    |	 +----------------------------+
-### <a id="+--> [void write_line(char s)" class="section-title" href="#+--> [void write_line(char s)">Note:</a>
-			 [{			      ](#{			      )
-			 [   while (*s != 0)	      ](#   while (*s != 0)	      )
-### <a id="[	write_char(s++);" class="section-title" href="#[	write_char(s++);">Note:</a>
-			 [}	  |		      ](#}	  |		      )
+### <a id="+--> |void write_line(char s)" class="section-title" href="#+--> |void write_line(char s)">Note:</a>
+			 |{			      |
+			 |   while (*s != 0)	      |
+### <a id="|	write_char(s++);" class="section-title" href="#|	write_char(s++);">Note:</a>
+			 |}	  |		      |
 			 +--------|-------------------+
 				  |
 			   CTRL-] |
 				  |    +------------------------------------+
-				  +--> [void write_char(char c)		    ](#void write_char(char c)		    )
-				       [{				    ](#{				    )
-				       [    putchar((int)(unsigned char)c); ](#    putchar((int)(unsigned char)c); )
-				       [}				    ](#}				    )
+				  +--> |void write_char(char c)		    |
+				       |{				    |
+				       |    putchar((int)(unsigned char)c); |
+				       |}				    |
 				       +------------------------------------+
 
 The ":tags" command shows the list of tags that you traversed through:
@@ -294,7 +294,7 @@ in the preview window with:
 	CTRL-W }
 
 There is a script that automatically displays the text where the word under
-the cursor was defined.  See [CursorHold-example](#CursorHold-example).
+the cursor was defined.  See [CursorHold-example](undefined#CursorHold-example).
 
 To close the preview window use this command:
 
@@ -375,13 +375,13 @@ pairs of {} at the same level.  "]}" jumps to the end.
 	   +->		{
 	   |		    if (a)
 	   |	   +->	    {
-	[[ [	   ](#	   )		for (;;)	       --+
-	   [	   |	  +->	{			 ](#	   |	  +->	{			 )
-	   [	[{ |	  |	    foo(32);		 ](#	[{ |	  |	    foo(32);		 )     --+
-	   [	   |   [{ |	    if (bar(a))  --+	 | ]}	 ](#	   |   [{ |	    if (bar(a))  --+	 | ]}	 )
-	   +--	   [	  +--		break;	   | ]}  |	 ](#	  +--		break;	   | ]}  |	 )
-		   [		}		 <-+	 |	 ](#		}		 <-+	 |	 ) ][
-		   +--		foobar(a)		 [	 ](#	 )
+	[[ |	   |		for (;;)	       --+
+	   |	   |	  +->	{			 |
+	   |	[{ |	  |	    foo(32);		 |     --+
+	   |	   |   [{ |	    if (bar(a))  --+	 | ]}	 |
+	   +--	   |	  +--		break;	   | ]}  |	 |
+		   |		}		 <-+	 |	 | ][
+		   +--		foobar(a)		 |	 |
 			    }			       <-+	 |
 			}				       <-+
 
@@ -400,9 +400,9 @@ by a "}" in the first column.
 		  |
 	      []  |		int func2(void)
 		  |	   +->	{
-		  [    [[  ](#    [[  )		if (flag)
+		  |    [[  |		if (flag)
 	start	  +--	   +--			return flag;
-		  [    ][  ](#    ][  )		return 2;
+		  |    ][  |		return 2;
 		  |	   +->	}
 	      ]]  |
 		  |		int func3(void)
@@ -421,7 +421,7 @@ work on () pairs instead of {} pairs.
 				  [(
 		    <--------------------------------
 			      <-------
-		if (a == b && (c == d || (e > f)) && x > y) ~
+		if (a == b && (c == d [](undefined#) (e > f)) && x > y) ~
 				  -------------->
 			  -------------------------------->
 				       ])
@@ -432,8 +432,8 @@ To move back to the start of a comment use "[/".  Move forward to the end of a
 ### <a id="This only works for / - / comments." class="section-title" href="#This only works for / - / comments.">comment with "]/".</a>
 
 	  +->	  +-> /*
-	  [    [/ ](#    [/ )    * A comment about      --+
-       [/ [	  +--  * wonderful life.	](#	  +--  * wonderful life.	) ]/
+	  |    [/ |    * A comment about      --+
+       [/ |	  +--  * wonderful life.	| ]/
 	  |	       */		      <-+
 	  |
 	  +--	       foo = bar * 3;	      --+
@@ -609,7 +609,7 @@ for the identifier.  Example (cursor on "idx"):
 		}
 
 
-## <a id="Editing programs" class="section-title" href="#Editing programs">Next Chapter: [Usr_30.Txt](#Usr_30.Txt)</a> 
+## <a id="Editing programs" class="section-title" href="#Editing programs">Next Chapter: |Usr_30.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

@@ -14,25 +14,25 @@ VIM USER MANUAL - by Bram Moolenaar
 
 Vim comes with highlighting for a couple of hundred different file types.  If
 the file you are editing isn't included, read this chapter to find out how to
-get this type of file highlighted.  Also see [:syn-define](#:syn-define) in the reference
+get this type of file highlighted.  Also see |:syn-define| in the reference
 manual.
 
-[44.1](#44.1)	Basic syntax commands
-[44.2](#44.2)	Keywords
-[44.3](#44.3)	Matches
-[44.4](#44.4)	Regions
-[44.5](#44.5)	Nested items
-[44.6](#44.6)	Following groups
-[44.7](#44.7)	Other arguments
-[44.8](#44.8)	Clusters
-[44.9](#44.9)	Including another syntax file
-[44.10](#44.10)	Synchronizing
-[44.11](#44.11)	Installing a syntax file
-[44.12](#44.12)	Portable syntax file layout
+|44.1|	Basic syntax commands
+|44.2|	Keywords
+|44.3|	Matches
+|44.4|	Regions
+|44.5|	Nested items
+|44.6|	Following groups
+|44.7|	Other arguments
+|44.8|	Clusters
+|44.9|	Including another syntax file
+|44.10|	Synchronizing
+|44.11|	Installing a syntax file
+|44.12|	Portable syntax file layout
 
-     Next chapter: [usr_45.txt](#usr_45.txt)  Select your language
- Previous chapter: [usr_43.txt](#usr_43.txt)  Using filetypes
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_45.txt|  Select your language
+ Previous chapter: |usr_43.txt|  Using filetypes
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*44.1*	Basic Syntax Commands</a> 
@@ -43,8 +43,8 @@ These files will also show you the normal layout of a syntax file.  To
 understand it, you need to read the following.
 
 Let's start with the basic arguments.  Before we start defining any new
-syntax, we need to clear out any old definitions: 
-```
+syntax, we need to clear out any old definitions:
+
 	:syntax clear
 
 This isn't required in the final syntax file, but very useful when
@@ -68,7 +68,7 @@ colors used for each item, which helps to find out what is what.
 
 	:syntax list {group-name}
 
-This also can be used to list clusters (explained in [44.8](#44.8)).  Just include
+This also can be used to list clusters (explained in |44.8|).  Just include
 the @ in the name.
 
 
@@ -118,7 +118,7 @@ names.  You do this with the following commands:
 	:highlight link xStatement Statement
 
 This tells Vim to highlight "xType" like "Type" and "xStatement" like
-"Statement".  See [group-name](#group-name) for the standard names.
+"Statement".  See [group-name](undefined#group-name) for the standard names.
 
 
 UNUSUAL KEYWORDS
@@ -147,7 +147,7 @@ This doesn't match "nextone", keywords always match whole words only.
 Consider defining something a bit more complex.  You want to match ordinary
 identifiers.  To do this, you define a match syntax item.  This one matches
 any word consisting of only lowercase letters:
-
+```
 	:syntax match xIdentifier /\<\l\+\>/
 ```
 
@@ -167,7 +167,7 @@ the end of a line:
 	:syntax match xComment /#.*/
 
 Since you can use any search pattern, you can highlight very complex things
-with a match item.  See [pattern](#pattern) for help on search patterns.
+with a match item.  See [pattern](undefined#pattern) for help on search patterns.
 
 
 ## <a id="" class="section-title" href="#">*44.4*	Regions</a> 
@@ -291,7 +291,7 @@ groups but the ones that are listed:
 
 With the "TOP" item you can include all items that don't have a "contained"
 argument.  "CONTAINED" is used to only include items with a "contained"
-argument.  See [:syn-contains](#:syn-contains) for the details.
+argument.  See |:syn-contains| for the details.
 
 
 ## <a id="" class="section-title" href="#">*44.6*	Following Groups</a> 
@@ -396,7 +396,7 @@ result is that in this text:
 
 Only the text "foo == bar" will be highlighted as xCond.
 
-More about offsets here: [:syn-pattern-offset](#:syn-pattern-offset).
+More about offsets here: |:syn-pattern-offset|.
 
 
 ONELINE
@@ -607,7 +607,7 @@ even if it would normally match another synchronization method:
 
 	:syntax sync match xSpecial /{.*}/
 
-More about synchronizing in the reference manual: [:syn-sync](#:syn-sync).
+More about synchronizing in the reference manual: |:syn-sync|.
 
 
 ## <a id="" class="section-title" href="#">*44.11*	Installing a Syntax File</a> 
@@ -619,7 +619,7 @@ added.  Thus for the x language, the full path of the file would be:
 
 	~/.config/nvim/syntax/x.vim ~
 
-You must also make the file type be recognized.  See [43.2](#43.2).
+You must also make the file type be recognized.  See |43.2|.
 
 If your file works well, you might want to make it available to other Vim
 users.  First read the next section to make sure your file works well for
@@ -704,7 +704,7 @@ Add the "display" argument to items that are not used when syncing, to speed
 up scrolling backwards and CTRL-L.
 
 
-## <a id="Select your language" class="section-title" href="#Select your language">Next Chapter: [Usr_45.Txt](#Usr_45.Txt)</a> 
+## <a id="Select your language" class="section-title" href="#Select your language">Next Chapter: |Usr_45.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

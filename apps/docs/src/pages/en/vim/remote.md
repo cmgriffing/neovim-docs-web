@@ -12,12 +12,12 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="client-server" class="section-title" href="#client-server">Vim client-server communication</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="clientserver" class="section-title" href="#clientserver">1. Common Functionality</a> 
 
-Nvim's [RPC](#RPC) functionality allows clients to programmatically control Nvim. Nvim
+Nvim's [RPC](undefined#RPC) functionality allows clients to programmatically control Nvim. Nvim
 itself takes command-line arguments that cause it to become a client to another
 Nvim running as a server. These arguments match those provided by Vim's
 clientserver option.
@@ -36,9 +36,9 @@ The following command line arguments are available:
 				The rest of the command line is taken as the
 				file list.  Thus any non-file arguments must
 				come before this.
-				You cannot edit stdin this way [--](#--).
+				You cannot edit stdin this way [--](undefined#--).
 				The remote Vim is raised.  If you don't want
-				this use 
+				this use
 ```				 nvim --remote-send "<C-\><C-N>:n filename<CR>"
 ```
 
@@ -62,7 +62,7 @@ The following command line arguments are available:
 ### <a id="--server" class="section-title" href="#--server">Note:</a>
    --server {addr}		Connect to the named pipe or socket at the
 				given address for executing remote commands.
-				See [--listen](#--listen) for specifying an address when
+				See [--listen](undefined#--listen) for specifying an address when
 				starting a server.
 
 Examples ~
@@ -82,7 +82,7 @@ Tell the remote server to write all files and exit:
 
 REMOTE EDITING
 
-The --remote argument will cause a [:drop](#:drop) command to be constructed from the
+The --remote argument will cause a |:drop| command to be constructed from the
 rest of the command line and sent as described above.
 Note that the --remote and --remote-wait arguments will consume the rest of
 the command line.  I.e. all remaining arguments will be regarded as filenames.

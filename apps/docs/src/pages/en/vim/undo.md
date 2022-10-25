@@ -12,9 +12,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="undo-redo" class="section-title" href="#undo-redo">Undo and redo</a>
 
-The basics are explained in section [02.5](#02.5) of the user manual.
+The basics are explained in section |02.5| of the user manual.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="undo-commands" class="section-title" href="#undo-commands">1. Undo and Redo Commands</a> 
@@ -25,7 +25,7 @@ u			Undo [count] changes.
 ### <a id=":u :un :undo" class="section-title" href="#:u :un :undo">Note:</a>
 :u[ndo]			Undo one change.
 ### <a id="E830" class="section-title" href="#E830">Note:</a>
-:u[ndo] {N}		Jump to after change number {N}.  See [undo-branches](#undo-branches)
+:u[ndo] {N}		Jump to after change number {N}.  See [undo-branches](undefined#undo-branches)
 			for the meaning of {N}.
 
 :u[ndo]!		Undo one change and remove it from undo history.
@@ -44,8 +44,8 @@ CTRL-R			Redo [count] changes which were undone.
 
 ### <a id="U" class="section-title" href="#U">Note:</a>
 U			Undo all latest changes on one line, the line where
-			the latest change was made. [U](#U) itself also counts as
-			a change, and thus [U| undoes a previous |U](#U| undoes a previous |U).
+			the latest change was made. [U](undefined#U) itself also counts as
+			a change, and thus [U](undefined#U) undoes a previous [U](undefined#U).
 
 The last changes are remembered.  You can use the undo and redo commands above
 to revert the text to how it was before each change.  You can also apply the
@@ -104,7 +104,7 @@ change but joins in with the previous change use this command:
 			or redo.
 
 This is most useful when you need to prompt the user halfway through a change.
-For example in a function that calls [getchar()](#getchar()).  Do make sure that there was
+For example in a function that calls |getchar()|.  Do make sure that there was
 a related change before this that you must join with.
 
 This doesn't work by itself, because the next key press will start a new
@@ -117,7 +117,7 @@ change.
 ### <a id="undo-break undo-close-block" class="section-title" href="#undo-break undo-close-block">Note:</a>
 To do the opposite, use a new undo block for the next change, in Insert mode
 use CTRL-G u.  This is useful if you want an insert command to be undoable in
-parts.  E.g., for each sentence.  [i_CTRL-G_u](#i_CTRL-G_u)
+parts.  E.g., for each sentence.  |i_CTRL-G_u|
 
 Setting the value of 'undolevels' also closes the undo block.  Even when the
 new value is equal to the old value:
@@ -131,7 +131,7 @@ branch off.  This happens when you undo a few changes and then make a new
 change.  The undone changes become a branch.  You can go to that branch with
 the following commands.
 
-This is explained in the user manual: [usr_32.txt](#usr_32.txt).
+This is explained in the user manual: |usr_32.txt|.
 
 ### <a id=":undol :undolist" class="section-title" href="#:undol :undolist">Note:</a>
 :undol[ist]		List the leafs in the tree of changes.  Example:
@@ -143,7 +143,7 @@ This is explained in the user manual: [usr_32.txt](#usr_32.txt).
 
 			The "number" column is the change number.  This number
 			continuously increases and can be used to identify a
-			specific undo-able change, see [:undo](#:undo).
+			specific undo-able change, see |:undo|.
 			The "changes" column is the number of changes to this
 			leaf from the root of the tree.
 			The "when" column is the date and time when this
@@ -154,8 +154,8 @@ This is explained in the user manual: [usr_32.txt](#usr_32.txt).
 			    YYYY/MM/DD HH:MM:SS  idem, with year
 			The "saved" column specifies, if this change was
 			written to disk and which file write it was. This can
-			be used with the [:later| and |:earlier](#:later| and |:earlier) commands.
-			For more details use the [undotree()](#undotree()) function.
+			be used with the |:later| and |:earlier| commands.
+			For more details use the |undotree()| function.
 
 ### <a id="g-" class="section-title" href="#g-">Note:</a>
 g-			Go to older text state.  With a count repeat that many
@@ -303,7 +303,7 @@ history file.  E.g.:
 You should keep 'undofile' off, otherwise you end up with two undo files for
 every write.
 
-You can use the [undofile()](#undofile()) function to find out the file name that Vim would
+You can use the |undofile()| function to find out the file name that Vim would
 use.
 
 Note that while reading/writing files and 'undofile' is set most errors will
@@ -372,7 +372,7 @@ Note that this is relative to the last write of the file.  Typing "u" after
 ":w" actually changes the buffer, compared to what was written, so the buffer
 is considered changed then.
 
-When manual [folding](#folding) is being used, the folds are not saved and restored.
+When manual [folding](undefined#folding) is being used, the folds are not saved and restored.
 Only changes completely within a fold will keep the fold as it was, because
 the first and last line of the fold don't change.
 

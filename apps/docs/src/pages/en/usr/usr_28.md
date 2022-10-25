@@ -16,20 +16,20 @@ Structured text can be separated in sections.  And sections in sub-sections.
 Folding allows you to display a section as one line, providing an overview.
 This chapter explains the different ways this can be done.
 
-[28.1](#28.1)	What is folding?
-[28.2](#28.2)	Manual folding
-[28.3](#28.3)	Working with folds
-[28.4](#28.4)	Saving and restoring folds
-[28.5](#28.5)	Folding by indent
-[28.6](#28.6)	Folding with markers
-[28.7](#28.7)	Folding by syntax
-[28.8](#28.8)	Folding by expression
-[28.9](#28.9)	Folding unchanged lines
-[28.10](#28.10)	Which fold method to use?
+|28.1|	What is folding?
+|28.2|	Manual folding
+|28.3|	Working with folds
+|28.4|	Saving and restoring folds
+|28.5|	Folding by indent
+|28.6|	Folding with markers
+|28.7|	Folding by syntax
+|28.8|	Folding by expression
+|28.9|	Folding unchanged lines
+|28.10|	Which fold method to use?
 
-     Next chapter: [usr_29.txt](#usr_29.txt)  Moving through programs
- Previous chapter: [usr_27.txt](#usr_27.txt)  Search commands and patterns
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_29.txt|  Moving through programs
+ Previous chapter: |usr_27.txt|  Search commands and patterns
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*28.1*	What Is Folding?</a> 
@@ -38,17 +38,17 @@ Folding is used to show a range of lines in the buffer as a single line on the
 screen.  Like a piece of paper which is folded to make it shorter:
 
 	+------------------------+
-	[ line 1		 ](# line 1		 )
-	[ line 2		 ](# line 2		 )
-	[ line 3		 ](# line 3		 )
-	[_______________________ ](#_______________________ )
+	| line 1		 |
+	| line 2		 |
+	| line 3		 |
+	|_______________________ |
 	\			 \
 	 \________________________\
 	 / folded lines		  /
 	/________________________/
-	[ line 12		 ](# line 12		 )
-	[ line 13		 ](# line 13		 )
-	[ line 14		 ](# line 14		 )
+	| line 12		 |
+	| line 13		 |
+	| line 14		 |
 	+------------------------+
 
 The text is still in the buffer, unchanged.  Only the way lines are displayed
@@ -66,9 +66,9 @@ Try it out: Position the cursor in a paragraph and type:
 	zfap
 
 You will see that the paragraph is replaced by a highlighted line.  You have
-created a fold.  [zf| is an operator and |ap](#zf| is an operator and |ap) a text object selection.  You
-can use the [zf](#zf) operator with any movement command to create a fold for the
-text that it moved over.  [zf](#zf) also works in Visual mode.
+created a fold.  [zf](undefined#zf) is an operator and [ap](undefined#ap) a text object selection.  You
+can use the [zf](undefined#zf) operator with any movement command to create a fold for the
+text that it moved over.  [zf](undefined#zf) also works in Visual mode.
 
 To view the text again, open the fold by typing:
 
@@ -115,15 +115,15 @@ with:
 
 This folds M-ore and M-ore.
 
-You can quickly disable the folding with the [zn| command.  Then |zN](#zn| command.  Then |zN) brings
-back the folding as it was.  [zi](#zi) toggles between the two.  This is a useful
+You can quickly disable the folding with the [zn](undefined#zn) command.  Then [zN](undefined#zN) brings
+back the folding as it was.  [zi](undefined#zi) toggles between the two.  This is a useful
 way of working:
 - create folds to get overview on your file
 - move around to where you want to do your work
-- do [zi](#zi) to look at the text and edit it
-- do [zi](#zi) again to go back to moving around
+- do [zi](undefined#zi) to look at the text and edit it
+- do [zi](undefined#zi) again to go back to moving around
 
-More about manual folding in the reference manual: [fold-manual](#fold-manual)
+More about manual folding in the reference manual: [fold-manual](undefined#fold-manual)
 
 
 ## <a id="" class="section-title" href="#">*28.3*	Working With Folds</a> 
@@ -145,7 +145,7 @@ use Visual selection:
 - move the cursor to the new position and "p"ut the lines there.
 
 It is sometimes difficult to see or remember where a fold is located, thus
-where a [zo](#zo) command would actually work.  To see the defined folds:
+where a [zo](undefined#zo) command would actually work.  To see the defined folds:
 
 	:set foldcolumn=4
 
@@ -156,10 +156,10 @@ fold and "|" at following lines of the fold.
 You can use the mouse to open a fold by clicking on the "+" in the foldcolumn.
 Clicking on the "-" or a "|" below it will close an open fold.
 
-To open all folds at the cursor line use [zO](#zO).
-To close all folds at the cursor line use [zC](#zC).
-To delete a fold at the cursor line use [zd](#zd).
-To delete all folds at the cursor line use [zD](#zD).
+To open all folds at the cursor line use [zO](undefined#zO).
+To close all folds at the cursor line use [zC](undefined#zC).
+To delete a fold at the cursor line use [zd](undefined#zd).
+To delete all folds at the cursor line use [zD](undefined#zD).
 
 When in Insert mode, the fold at the cursor line is never closed.  That allows
 you to see what you type!
@@ -182,8 +182,8 @@ You can make folds close automatically when you move out of it:
 	:set foldclose=all
 
 This will re-apply 'foldlevel' to all folds that don't contain the cursor.
-You have to try it out if you like how this feels.  Use [zm](#zm) to fold more and
-[zr](#zr) to fold less (reduce folds).
+You have to try it out if you like how this feels.  Use [zm](undefined#zm) to fold more and
+[zr](undefined#zr) to fold less (reduce folds).
 
 The folding is local to the window.  This allows you to open two windows on
 the same buffer, one with folds and one without folds.  Or one with all folds
@@ -195,7 +195,7 @@ closed and one with all folds open.
 When you abandon a file (starting to edit another one), the state of the folds
 is lost.  If you come back to the same file later, all manually opened and
 closed folds are back to their default.  When folds have been created
-manually, all folds are gone!  To save the folds use the [:mkview](#:mkview) command:
+manually, all folds are gone!  To save the folds use the |:mkview| command:
 
 	:mkview
 
@@ -218,7 +218,7 @@ stored.  You might want to delete old views now and then.
 
 ## <a id="" class="section-title" href="#">*28.5*	Folding by Indent</a> 
 
-Defining folds with [zf](#zf) is a lot of work.  If your text is structured by
+Defining folds with [zf](undefined#zf) is a lot of work.  If your text is structured by
 giving lower level items a larger indent, you can use the indent folding
 method.  This will create folds for every sequence of lines with the same
 indent.  Lines with a larger indent will become nested folds.  This works well
@@ -228,7 +228,7 @@ Try this by setting the 'foldmethod' option:
 
 	:set foldmethod=indent
 
-Then you can use the [zm| and |zr](#zm| and |zr) commands to fold more and reduce folding.
+Then you can use the [zm](undefined#zm) and [zr](undefined#zr) commands to fold more and reduce folding.
 It's easy to see on this example text:
 
 This line is not indented
@@ -244,15 +244,15 @@ Note that the relation between the amount of indent and the fold depth depends
 on the 'shiftwidth' option.  Each 'shiftwidth' worth of indent adds one to the
 depth of the fold.  This is called a fold level.
 
-When you use the [zr| and |zm](#zr| and |zm) commands you actually increase or decrease the
+When you use the [zr](undefined#zr) and [zm](undefined#zm) commands you actually increase or decrease the
 'foldlevel' option.  You could also set it directly:
 
 	:set foldlevel=3
 
 This means that all folds with three times a 'shiftwidth' indent or more will
 be closed.  The lower the foldlevel, the more folds will be closed.  When
-'foldlevel' is zero, all folds are closed.  [zM](#zM) does set 'foldlevel' to zero.
-The opposite command [zR](#zR) sets 'foldlevel' to the deepest fold level that is
+'foldlevel' is zero, all folds are closed.  [zM](undefined#zM) does set 'foldlevel' to zero.
+The opposite command [zR](undefined#zR) sets 'foldlevel' to the deepest fold level that is
 present in the file.
 
 Thus there are two ways to open and close the folds:
@@ -260,18 +260,18 @@ Thus there are two ways to open and close the folds:
     This gives a very quick way of "zooming out" to view the structure of the
     text, move the cursor, and "zoom in" on the text again.
 
-(B) By using [zo| and |zc](#zo| and |zc) commands to open or close specific folds.
+(B) By using [zo](undefined#zo) and [zc](undefined#zc) commands to open or close specific folds.
     This allows opening only those folds that you want to be open, while other
     folds remain closed.
 
-This can be combined: You can first close most folds by using [zm](#zm) a few times
-and then open a specific fold with [zo|.  Or open all folds with |zR](#zo|.  Or open all folds with |zR) and
-then close specific folds with [zc](#zc).
+This can be combined: You can first close most folds by using [zm](undefined#zm) a few times
+and then open a specific fold with [zo](undefined#zo).  Or open all folds with [zR](undefined#zR) and
+then close specific folds with [zc](undefined#zc).
 
 But you cannot manually define folds when 'foldmethod' is "indent", as that
 would conflict with the relation between the indent and the fold level.
 
-More about folding by indent in the reference manual: [fold-indent](#fold-indent)
+More about folding by indent in the reference manual: [fold-indent](undefined#fold-indent)
 
 
 ## <a id="" class="section-title" href="#">*28.6*	Folding With Markers</a> 
@@ -317,7 +317,7 @@ any fold at a higher level stop here.  You can just use numbered start markers
 to define all folds.  Only when you want to explicitly stop a fold before
 another starts you need to add an end marker.
 
-More about folding with markers in the reference manual: [fold-marker](#fold-marker)
+More about folding with markers in the reference manual: [fold-marker](undefined#fold-marker)
 
 
 ## <a id="" class="section-title" href="#">*28.7*	Folding by Syntax</a> 
@@ -333,7 +333,7 @@ all folding happens automatically.
 nothing more to explain.  You can open and close folds as explained above.
 The folds will be created and deleted automatically when you edit the file.
 
-More about folding by syntax in the reference manual: [fold-syntax](#fold-syntax)
+More about folding by syntax in the reference manual: [fold-syntax](undefined#fold-syntax)
 
 
 ## <a id="" class="section-title" href="#">*28.8*	Folding by Expression</a> 
@@ -377,13 +377,13 @@ then edit.
 When the expression gets more complicated you should put it in a function and
 set 'foldexpr' to call that function.
 
-More about folding by expression in the reference manual: [fold-expr](#fold-expr)
+More about folding by expression in the reference manual: [fold-expr](undefined#fold-expr)
 
 
 ## <a id="" class="section-title" href="#">*28.9*	Folding Unchanged Lines</a> 
 
 This is useful when you set the 'diff' option in the same window.  The
-[-d](#-d) option does this for you.  Example:
+[-d](undefined#-d) option does this for you.  Example:
 
 	:setlocal diff foldmethod=diff scrollbind nowrap foldlevel=1
 
@@ -391,7 +391,7 @@ Do this in every window that shows a different version of the same file.  You
 will clearly see the differences between the files, while the text that didn't
 change is folded.
 
-For more details see [fold-diff](#fold-diff).
+For more details see [fold-diff](undefined#fold-diff).
 
 
 ## <a id="" class="section-title" href="#">*28.10* Which Fold Method to Use?</a> 
@@ -405,7 +405,7 @@ This requires a good knowledge of search patterns.  It's not easy, but when
 it's working you will not have to define folds manually.
 
 Typing commands to manually fold regions can be used for unstructured text.
-Then use the [:mkview](#:mkview) command to save and restore your folds.
+Then use the |:mkview| command to save and restore your folds.
 
 The marker method requires you to change the file.  If you are sharing the
 files with other people or you have to meet company standards, you might not
@@ -427,7 +427,7 @@ you want them, you could switch to the "manual" method.  This will not remove
 the defined folds.  Then you can delete or add folds manually.
 
 
-## <a id="Moving through programs" class="section-title" href="#Moving through programs">Next Chapter: [Usr_29.Txt](#Usr_29.Txt)</a> 
+## <a id="Moving through programs" class="section-title" href="#Moving through programs">Next Chapter: |Usr_29.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

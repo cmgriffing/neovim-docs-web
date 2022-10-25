@@ -17,14 +17,14 @@ Vim works in an ordinary terminal, while gVim has a Graphical User Interface
 toolbar, scrollbars and other items.  This chapter is about these extra things
 that the GUI offers.
 
-[09.1](#09.1)	Parts of the GUI
-[09.2](#09.2)	Using the mouse
-[09.3](#09.3)	The clipboard
-[09.4](#09.4)	Select mode
+|09.1|	Parts of the GUI
+|09.2|	Using the mouse
+|09.3|	The clipboard
+|09.4|	Select mode
 
-     Next chapter: [usr_10.txt](#usr_10.txt)  Making big changes
- Previous chapter: [usr_08.txt](#usr_08.txt)  Splitting windows
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_10.txt|  Making big changes
+ Previous chapter: |usr_08.txt|  Splitting windows
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*09.1*	Parts of the GUI</a> 
@@ -42,20 +42,20 @@ like depends on the version of Vim.  It should resemble the following picture
 (for as far as this can be shown in ASCII!).
 
 	+----------------------------------------------------+
-	[ file.txt + (~/dir) - VIM			   X ](# file.txt + (~/dir) - VIM			   X )	<- window title
+	| file.txt + (~/dir) - VIM			   X |	<- window title
 	+----------------------------------------------------+
-	[ File	Edit  Tools  Syntax  Buffers  Window  Help   ](# File	Edit  Tools  Syntax  Buffers  Window  Help   )	<- menubar
+	| File	Edit  Tools  Syntax  Buffers  Window  Help   |	<- menubar
 	+----------------------------------------------------+
-	[ aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   ](# aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   )	<- toolbar
-	[ aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   ](# aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   )
+	| aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   |	<- toolbar
+	| aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   |
 	+----------------------------------------------------+
-	[ file text					 | ^ ](# file text					 | ^ )
-	[ ~						 | # ](# ~						 | # )
-	[ ~						 | # ](# ~						 | # )	<- scrollbar
-	[ ~						 | # ](# ~						 | # )
-	[ ~						 | # ](# ~						 | # )
-	[ ~						 | # ](# ~						 | # )
-	[						 | V ](#						 | V )
+	| file text					 | ^ |
+	| ~						 | # |
+	| ~						 | # |	<- scrollbar
+	| ~						 | # |
+	| ~						 | # |
+	| ~						 | # |
+	|						 | V |
 	+----------------------------------------------------+
 
 The largest space is occupied by the file text.  This shows the file in the
@@ -143,7 +143,7 @@ The following command makes the mouse work like a Microsoft Windows mouse:
 
 The default behavior of the mouse on Unix systems is xterm.  The default
 behavior on Windows systems is selected during the installation process.  For
-details about what the two behaviors are, see [:behave](#:behave).  Here follows a
+details about what the two behaviors are, see |:behave|.  Here follows a
 summary.
 
 
@@ -159,7 +159,7 @@ Right mouse click		extend the selected text until the mouse
 MSWIN MOUSE BEHAVIOR
 
 Left mouse click		position the cursor
-Left mouse drag			select text in Select mode (see [09.4](#09.4))
+Left mouse drag			select text in Select mode (see |09.4|)
 Left mouse click, with Shift	extend the selected text until the mouse
 				pointer
 Middle mouse click		paste text from the clipboard
@@ -178,7 +178,7 @@ the way how the mouse works:
 
 ## <a id="" class="section-title" href="#">*09.3*	the Clipboard</a> 
 
-In section [04.7](#04.7) the basic use of the clipboard was explained.  There is one
+In section |04.7| the basic use of the clipboard was explained.  There is one
 essential thing to explain about X-windows: There are actually two places to
 exchange text between programs.  MS-Windows doesn't have this.
 
@@ -286,7 +286,7 @@ do what you expect.  <S-End> and <S-Home> also work.
 You can tune the way Select mode works with the 'selectmode' option.
 
 
-## <a id="Making big changes" class="section-title" href="#Making big changes">Next Chapter: [Usr_10.Txt](#Usr_10.Txt)</a> 
+## <a id="Making big changes" class="section-title" href="#Making big changes">Next Chapter: |Usr_10.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

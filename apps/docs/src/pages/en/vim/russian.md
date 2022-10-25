@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Vassily Ragosin
 
 ### <a id="russian Russian" class="section-title" href="#russian Russian">Russian language localization and support in Vim</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="russian-intro" class="section-title" href="#russian-intro">1. Introduction</a> 
@@ -26,14 +26,13 @@ Russian text just as any other, without the need to tweak the settings.
 To switch between languages you can use your system native keyboard switcher,
 or use one of the Russian keymaps, included in the Vim distribution.  For
 example,
-
 ```    :set keymap=russian-jcukenwin
 ```
 
 In the latter case, you can switch between languages even if you do not have
 system Russian keyboard or independently from a system-wide keyboard settings.
 See 'keymap'.  You can also map a key to switch between keyboards, if you
-choose the latter option.  See [:map](#:map).
+choose the latter option.  See |:map|.
 
 For your convenience, to avoid switching between keyboards, when you need to
 enter Normal mode command, you can also set 'langmap' option:

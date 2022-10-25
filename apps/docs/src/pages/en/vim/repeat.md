@@ -12,9 +12,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="repeating" class="section-title" href="#repeating">Repeating commands, Vim scripts and debugging</a>
 
-Chapter 26 of the user manual introduces repeating [usr_26.txt](#usr_26.txt).
+Chapter 26 of the user manual introduces repeating |usr_26.txt|.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="single-repeat" class="section-title" href="#single-repeat">Single Repeats</a> 
@@ -27,14 +27,14 @@ Chapter 26 of the user manual introduces repeating [usr_26.txt](#usr_26.txt).
 
 Simple changes can be repeated with the "." command.  Without a count, the
 count of the last change is used.  If you enter a count, it will replace the
-last one.  [v:count| and |v:count1](#v:count| and |v:count1) will be set.
+last one.  |v:count| and |v:count1| will be set.
 
 If the last change included a specification of a numbered register, the
-register number will be incremented.  See [redo-register](#redo-register) for an example how
+register number will be incremented.  See [redo-register](undefined#redo-register) for an example how
 to use this.
 
 Note that when repeating a command that used a Visual selection, the same SIZE
-of area is used, see [visual-repeat](#visual-repeat).
+of area is used, see [visual-repeat](/neovim-docs-web/en/vim/visual#visual-repeat).
 
 ### <a id="@:" class="section-title" href="#@:">Note:</a>
 @:			Repeat last command-line [count] times.
@@ -55,8 +55,8 @@ of area is used, see [visual-repeat](#visual-repeat).
 :[range]v[global]/{pattern}/[cmd]
 			Same as :g!.
 
-Example: 
-```	:g/^Obsolete/d _
+Example:
+	:g/^Obsolete/d _
 Using the underscore after `:d` avoids clobbering registers or the clipboard.
 This also makes it faster.
 
@@ -65,9 +65,9 @@ single byte character, but not an alphabetic character, '\', '"' or '|'.
 This is useful if you want to include a '/' in the search pattern or
 replacement string.
 
-For the definition of a pattern, see [pattern](#pattern).
+For the definition of a pattern, see [pattern](undefined#pattern).
 
-NOTE [cmd] may contain a range; see [collapse| and |edit-paragraph-join](#collapse| and |edit-paragraph-join) for
+NOTE [cmd] may contain a range; see [collapse](undefined#collapse) and [edit-paragraph-join](undefined#edit-paragraph-join) for
 examples.
 
 The global commands work by first scanning through the [range] lines and
@@ -88,12 +88,12 @@ pattern and do not match another pattern:
 This first finds all lines containing "found", but only executes {cmd} when
 there is no match for "notfound".
 
-Any Ex command can be used, see [ex-cmd-index](#ex-cmd-index).  To execute a Normal mode
+Any Ex command can be used, see [ex-cmd-index](undefined#ex-cmd-index).  To execute a Normal mode
 command, you can use the `:normal` command:
 	:g/pat/normal {commands}
 Make sure that {commands} ends with a whole command, otherwise Vim will wait
 for you to type the rest of the command for each match.  The screen will not
-have been updated, so you don't know what you are doing.  See [:normal](#:normal).
+have been updated, so you don't know what you are doing.  See |:normal|.
 
 The undo/redo command will undo/redo the whole global command at once.
 The previous context mark will only be set once (with "''" you go back to
@@ -109,7 +109,7 @@ Which is two characters shorter!
 
 When using "global" in Ex mode, a special case is using ":visual" as a
 command.  This will move to a matching line, go to Normal mode to let you
-execute commands there until you use [gQ](#gQ) to return to Ex mode.  This will be
+execute commands there until you use [gQ](undefined#gQ) to return to Ex mode.  This will be
 repeated for each matching line.  While doing this you cannot use ":global".
 To abort this type CTRL-C twice.
 
@@ -120,10 +120,10 @@ To abort this type CTRL-C twice.
 q{0-9a-zA-Z"}		Record typed characters into register {0-9a-zA-Z"}
 			(uppercase to append).  The 'q' command is disabled
 			while executing a register, and it doesn't work inside
-			a mapping and [:normal](#:normal).
+			a mapping and |:normal|.
 
 			Note: If the register being used for recording is also
-			used for [y| and |p](#y| and |p) the result is most likely not
+			used for [y](undefined#y) and [p](undefined#p) the result is most likely not
 			what is expected, because the put will paste the
 			recorded macro and the yank will overwrite the
 			recorded macro.
@@ -148,14 +148,14 @@ q			Stops recording.
 			applies, and undo might not be synced in the same way.
 			For "@=" you are prompted to enter an expression.  The
 			result of the expression is then executed.
-			See also [@:](#@:).
+			See also |@:|.
 
 ### <a id="@@ E748" class="section-title" href="#@@ E748">Note:</a>
 ### <a id="Repeat the previous @{0-9a-z":} [count] times." class="section-title" href="#Repeat the previous @{0-9a-z":} [count] times.">@@</a>
 
 ### <a id="Q" class="section-title" href="#Q">Note:</a>
 Q			Repeat the last recorded register [count] times.
-			See [reg_recorded()](#reg_recorded()).
+			See |reg_recorded()|.
 
 ### <a id=":@" class="section-title" href="#:@">Note:</a>
 :[addr]@{0-9a-z".=*+}	Execute the contents of register {0-9a-z".=*+} as an Ex
@@ -167,7 +167,7 @@ Q			Repeat the last recorded register [count] times.
 			result of evaluating the expression is executed as an
 			Ex command.
 			Mappings are not recognized in these commands.
-			When the [line-continuation](#line-continuation) character (\) is present
+			When the [line-continuation](undefined#line-continuation) character (\) is present
 			at the beginning of a line in a linewise register,
 			then it is combined with the previous line. This is
 			useful for yanking and executing parts of a Vim
@@ -184,28 +184,28 @@ Q			Repeat the last recorded register [count] times.
 
 ## <a id="using-scripts" class="section-title" href="#using-scripts">Using Vim Scripts</a> 
 
-For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41.txt).
+For writing a Vim script, see chapter 41 of the user manual |usr_41.txt|.
 
 ### <a id=":so :source load-vim-script" class="section-title" href="#:so :source load-vim-script">Note:</a>
-:[range]so[urce] [file]	Runs [Ex](#Ex) commands or Lua code (".lua" files) from
+:[range]so[urce] [file]	Runs [Ex](undefined#Ex) commands or Lua code (".lua" files) from
 			[file], or current buffer if no [file].
-			Triggers the [SourcePre](#SourcePre) autocommand.
+			Triggers the [SourcePre](undefined#SourcePre) autocommand.
 ### <a id=":source!" class="section-title" href="#:source!">Note:</a>
 :[range]so[urce]! {file}
-			Runs [Normal-mode](#Normal-mode) commands from {file}. When used
-			after [:global|, |:argdo|, |:windo|, |:bufdo](#:global|, |:argdo|, |:windo|, |:bufdo), in
+			Runs [Normal-mode](undefined#Normal-mode) commands from {file}. When used
+			after |:global|, |:argdo|, |:windo|, |:bufdo|, in
 			a loop or when another command follows the display
 			won't be updated while executing the commands.
 
 ### <a id=":ru :runtime" class="section-title" href="#:ru :runtime">Note:</a>
 :ru[ntime][!] [where] {file} ..
-			Sources [Ex](#Ex) commands or Lua code (".lua" files) read
+			Sources [Ex](undefined#Ex) commands or Lua code (".lua" files) read
 			from {file} (a relative path) in each directory given
 			by 'runtimepath' and/or 'packpath'.
 			Ignores non-existing files.
 
 			Example:
-				:runtime syntax/c.vim
+```				:runtime syntax/c.vim
 				:runtime syntax/c.lua
 
 			There can be multiple space-separated {file}
@@ -265,22 +265,22 @@ For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41
 
 			If the filetype detection was already enabled (this
 			is usually done with a "syntax enable" or "filetype
-			on" command in your [init.vim](#init.vim), or automatically during
-			[initialization](#initialization)), and the package was found in
+			on" command in your |init.vim|, or automatically during
+			[initialization](undefined#initialization)), and the package was found in
 ### <a id=""pack//opt/{name}", this command will also look" class="section-title" href="#"pack//opt/{name}", this command will also look">Note:</a>
 ### <a id="for "{name}/ftdetect/.vim" files." class="section-title" href="#for "{name}/ftdetect/.vim" files.">Note:</a>
 
 			When the optional ! is added no plugin files or
 			ftdetect scripts are loaded, only the matching
 			directories are added to 'runtimepath'.  This is
-			useful in your [init.vim](#init.vim).  The plugins will then be
-			loaded during [initialization|, see |load-plugins](#initialization|, see |load-plugins) (note
+			useful in your |init.vim|.  The plugins will then be
+			loaded during [initialization](undefined#initialization), see [load-plugins](undefined#load-plugins) (note
 			that the loading order will be reversed, because each
 			directory is inserted before others). In this case, the
-			ftdetect scripts will be loaded during [initialization](#initialization),
-			before the [load-plugins](#load-plugins) step.
+			ftdetect scripts will be loaded during [initialization](undefined#initialization),
+			before the [load-plugins](undefined#load-plugins) step.
 
-			Also see [pack-add](#pack-add).
+			Also see [pack-add](undefined#pack-add).
 
 ### <a id=":packl :packloadall" class="section-title" href="#:packl :packloadall">Note:</a>
 :packl[oadall][!]	Load all packages in the "start" directory under each
@@ -290,11 +290,11 @@ For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41
 			'runtimepath', then the plugins found in the
 			directories are sourced.  This allows for a plugin to
 			depend on something of another plugin, e.g. an
-			"autoload" directory.  See [packload-two-steps](#packload-two-steps) for
+			"autoload" directory.  See [packload-two-steps](undefined#packload-two-steps) for
 			how this can be useful.
 
 			This is normally done automatically during startup,
-			after loading your [vimrc](#vimrc) file.  With this command it
+			after loading your [vimrc](undefined#vimrc) file.  With this command it
 			can be done earlier.
 
 			Packages will be loaded only once.  Using
@@ -302,7 +302,7 @@ For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41
 			When the optional ! is added this command will load
 			packages even when done before.
 
-			Note that when using `:packloadall` in the [vimrc](#vimrc)
+			Note that when using `:packloadall` in the [vimrc](undefined#vimrc)
 			file, the 'runtimepath' option is updated, and later
 			all plugins in 'runtimepath' will be loaded, which
 			means they are loaded again.  Plugins are expected to
@@ -310,7 +310,7 @@ For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41
 
 			An error only causes sourcing the script where it
 			happens to be aborted, further plugins will be loaded.
-			See [packages](#packages).
+			See [packages](/neovim-docs-web/en/vim/repeat#packages).
 
 ### <a id=":scripte :scriptencoding E167" class="section-title" href="#:scripte :scriptencoding E167">:scripte[ncoding] [encoding]</a>
 			Specify the character encoding used in the script.
@@ -323,7 +323,7 @@ For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41
 
 			When [encoding] is empty, no conversion is done.  This
 			can be used to restrict conversion to a sequence of
-			lines: 
+			lines:
 ```				scriptencoding euc-jp
 				... lines to be converted ...
 				scriptencoding
@@ -343,20 +343,20 @@ For writing a Vim script, see chapter 41 of the user manual [usr_41.txt](#usr_41
 ### <a id=":scr :scriptnames" class="section-title" href="#:scr :scriptnames">Note:</a>
 :scr[iptnames]		List all sourced script names, in the order they were
 			first sourced.  The number is used for the script ID
-			[<SID>](#<SID>).
+			|<SID>|.
 
 ### <a id=":script" class="section-title" href="#:script">:scr[iptnames][!] {scriptId}</a>
 			Edit script {scriptId}.  Although ":scriptnames name"
 			works, using ":script name" is recommended.
-			When the current buffer can't be [abandon](#abandon)ed and the !
+			When the current buffer can't be [abandon](undefined#abandon)ed and the !
 			is not present, the command fails.
 
 ### <a id=":fini :finish E168" class="section-title" href="#:fini :finish E168">Note:</a>
 :fini[sh]		Stop sourcing a script.  Can only be used in a Vim
 			script file.  This is a quick way to skip the rest of
-			the file.  If it is used after a [:try](#:try) but before the
-			matching [:finally](#:finally) (if present), the commands
-			following the ":finally" up to the matching [:endtry](#:endtry)
+			the file.  If it is used after a |:try| but before the
+			matching |:finally| (if present), the commands
+			following the ":finally" up to the matching |:endtry|
 			are executed first.  This process applies to all
 			nested ":try"s in the script.  The outermost ":endtry"
 			then stops sourcing the script.
@@ -384,7 +384,7 @@ have to type any needed keyboard input.  The ':source!' command reads from a
 script file character by character, interpreting each character as if you
 typed it.
 
-Example: When you give the ":!ls" command you get the [hit-enter](#hit-enter) prompt.  If
+Example: When you give the ":!ls" command you get the [hit-enter](undefined#hit-enter) prompt.  If
 you ':source' a file with the line "!ls" in it, you will have to type the
 Enter> yourself.  But if you ':source!' a file with the line ":!ls" in it,
 the next characters from that file are read until a <CR> is found.  You will
@@ -398,15 +398,15 @@ nested as deep as the number of files that can be opened at one time (about
 You can use the "<sfile>" string (literally, this is not a special key) inside
 of the sourced file, in places where a file name is expected.  It will be
 replaced by the file name of the sourced file.  For example, if you have a
-"other.vimrc" file in the same directory as your [init.vim](#init.vim) file, you can
-source it from your [init.vim](#init.vim) file with this command:
+"other.vimrc" file in the same directory as your |init.vim| file, you can
+source it from your |init.vim| file with this command:
 	:source <sfile>:h/other.vimrc
 
 In script files terminal-dependent key codes are represented by
 terminal-independent two character codes.  This means that they can be used
 in the same way on different kinds of terminals.  The first character of a
 key code is 0x80 or 128, shown on the screen as "~@".  The second one can be
-found in the list [key-notation](#key-notation).  Any of these codes can also be entered
+found in the list [key-notation](undefined#key-notation).  Any of these codes can also be entered
 with CTRL-V followed by the three digit decimal code.
 
 ### <a id=":source_crnl W15" class="section-title" href="#:source_crnl W15">Note:</a>
@@ -479,8 +479,8 @@ flag when defining the function, it is not relevant when executing it.
 
 ### <a id="line-continuation-comment" class="section-title" href="#line-continuation-comment">Note:</a>
 To add a comment in between the lines start with `'"\ '`.  Notice the space
-after the backslash.  Example: 
-```	let array = [
+after the backslash.  Example:
+	let array = [
 		"\ first entry comment
 		\ 'first',
 		"\ second entry comment
@@ -505,7 +505,7 @@ Rationale:
 
 ## <a id="packages" class="section-title" href="#packages">Using Vim Packages</a> 
 
-A Vim "package" is a directory that contains [plugin](#plugin)s.  Compared to normal
+A Vim "package" is a directory that contains [plugin](undefined#plugin)s.  Compared to normal
 plugins, a package can...
 - be downloaded as an archive and unpacked in its own directory, so the files
   are not mixed with files of other plugins.
@@ -513,17 +513,17 @@ plugins, a package can...
 - contain multiple plugins that depend on each other.
 - contain plugins that are automatically loaded on startup ("start" packages,
 ### <a id="located in "pack//start/") and ones that are only loaded when needed with" class="section-title" href="#located in "pack//start/") and ones that are only loaded when needed with">Note:</a>
-### <a id="[:packadd](#:packadd) ("opt" packages, located in "pack//opt/")." class="section-title" href="#[:packadd](#:packadd) ("opt" packages, located in "pack//opt/").">Note:</a>
+### <a id="|:packadd| ("opt" packages, located in "pack//opt/")." class="section-title" href="#|:packadd| ("opt" packages, located in "pack//opt/").">Note:</a>
 
 ### <a id="runtime-search-path" class="section-title" href="#runtime-search-path">Note:</a>
-Nvim searches for [:runtime](#:runtime) files in:
+Nvim searches for |:runtime| files in:
 	1. all paths in 'runtimepath'
 	2. all "pack/*/start/*" dirs
 
 Note that the "pack/*/start/*" paths are not explicitly included in
 'runtimepath', so they will not be reported by ":set rtp" or "echo &rtp".
-Scripts can use [nvim_list_runtime_paths()](#nvim_list_runtime_paths()) to list all used directories, and
-[nvim_get_runtime_file()](#nvim_get_runtime_file()) to query for specific files or sub-folders within
+Scripts can use |nvim_list_runtime_paths()| to list all used directories, and
+|nvim_get_runtime_file()| to query for specific files or sub-folders within
 the runtime path. Example:
 	" List all runtime dirs and packages with Lua paths.
 	:echo nvim_get_runtime_file("lua/", v:true)
@@ -544,11 +544,11 @@ You would now have these files under ~/.local/share/nvim/site:
 	pack/foo/start/foobar/syntax/some.vim
 	pack/foo/opt/foodebug/plugin/debugger.vim
 
-On startup after processing your [config](#config), Nvim scans all directories in
+On startup after processing your [config](undefined#config), Nvim scans all directories in
 'packpath' for plugins in "pack/*/start/*", then loads the plugins.
 
-To allow for calling into package functionality while parsing your [vimrc](#vimrc),
-[:colorscheme| and |autoload](#:colorscheme| and |autoload) will both automatically search under 'packpath'
+To allow for calling into package functionality while parsing your [vimrc](undefined#vimrc),
+|:colorscheme| and [autoload](undefined#autoload) will both automatically search under 'packpath'
 as well in addition to 'runtimepath'.  See the documentation for each for
 details.
 
@@ -562,11 +562,11 @@ path.
 Nvim will also load ftdetect files, if there are any.
 
 Note that the files under "pack/foo/opt" are not loaded automatically, only the
-ones under "pack/foo/start".  See [pack-add](#pack-add) below for how the "opt" directory
+ones under "pack/foo/start".  See [pack-add](undefined#pack-add) below for how the "opt" directory
 is used.
 
 Loading packages automatically will not happen if loading plugins is disabled,
-see [load-plugins](#load-plugins).
+see [load-plugins](undefined#load-plugins).
 
 To load packages earlier, so that plugin/ files are sourced:
 	:packloadall
@@ -604,10 +604,10 @@ This could be done if some conditions are met.  For example, depending on
 whether Nvim supports a feature or a dependency is missing.
 
 You can also load an optional plugin at startup, by putting this command in
-your [config](#config):
+your [config](undefined#config):
 	:packadd! foodebug
 The extra "!" is so that the plugin isn't loaded if Nvim was started with
-[--noplugin](#--noplugin).
+[--noplugin](undefined#--noplugin).
 
 It is perfectly normal for a package to only have files in the "opt"
 directory.  You then need to load each plugin when you want to use it.
@@ -717,7 +717,7 @@ number it will give more verbose messages about what Vim is doing.
 ### <a id="debug-mode" class="section-title" href="#debug-mode">Starting Debug Mode</a>
 
 To enter debugging mode use one of these methods:
-1. Start Vim with the [-D](#-D) argument:
+1. Start Vim with the [-D](undefined#-D) argument:
 	vim -D file.txt
   Debugging will start as soon as the first vimrc file is sourced.  This is
    useful to find out what is happening when Vim is starting up.  A side
@@ -788,7 +788,7 @@ Additionally, these commands can be used:
 ### <a id=">interrupt" class="section-title" href="#>interrupt">Note:</a>
 	interrupt	This is like using CTRL-C, but unlike ">quit" comes
 			back to debug mode for the next command that is
-			executed.  Useful for testing [:finally| and |:catch](#:finally| and |:catch)
+			executed.  Useful for testing |:finally| and |:catch|
 			on interrupt exceptions.
 ### <a id=">finish" class="section-title" href="#>finish">Note:</a>
 	finish		Finish the current script or user function and come
@@ -862,7 +862,7 @@ DEFINING BREAKPOINTS
 		variable that does not exist yet.  This also means you will
 		not notice anything if the expression has a mistake.
 
-		Note if you watch a [script-variable](#script-variable) this will break
+		Note if you watch a [script-variable](undefined#script-variable) this will break
 		when switching scripts, since the script variable is only
 		valid in the script where it has been defined and if that
 		script is called from several other scripts, this will stop
@@ -877,7 +877,7 @@ this line.  When omitted line 1 is used.
 pattern is like what is used for autocommands.  There must be a full match (as
 ### <a id="A "" matches any sequence" class="section-title" href="#A "" matches any sequence">if the pattern starts with "^" and ends in "$").</a>
 of characters.  'ignorecase' is not used, but "\c" can be used in the pattern
-to ignore case [/\c](#/\c).  Don't include the () for the function name!
+to ignore case |/\c|.  Don't include the () for the function name!
 
 The match for sourced scripts is done against the full file name.  If no path
 is specified the current directory is used.  Examples:
@@ -900,7 +900,7 @@ breakpoints.
 DELETING BREAKPOINTS
 ### <a id=":breakd :breakdel E161" class="section-title" href="#:breakd :breakdel E161">Note:</a>
 :breakd[el] {nr}
-		Delete breakpoint {nr}.  Use [:breaklist](#:breaklist) to see the number of
+		Delete breakpoint {nr}.  Use |:breaklist| to see the number of
 		each breakpoint.
 
 :breakd[el] *
@@ -946,12 +946,12 @@ OBSCURE
 Profiling means that Vim measures the time that is spent on executing
 functions and/or scripts.
 
-You can also use the [reltime()](#reltime()) function to measure time.
+You can also use the |reltime()| function to measure time.
 
-For profiling syntax highlighting see [:syntime](#:syntime).
+For profiling syntax highlighting see |:syntime|.
 
 For example, to profile the one_script.vim script file:
-	:profile start /tmp/one_script_profile
+```	:profile start /tmp/one_script_profile
 	:profile file one_script.vim
 	:source one_script.vim
 	:exit
@@ -961,7 +961,7 @@ For example, to profile the one_script.vim script file:
 		Start profiling, write the output in {fname} upon exit.
 		"~/" and environment variables in {fname} will be expanded.
 		If {fname} already exists it will be silently overwritten.
-		The variable [v:profiling](#v:profiling) is set to one.
+		The variable |v:profiling| is set to one.
 
 :prof[ile] stop
 		Write the logfile and stop profiling.
@@ -976,11 +976,11 @@ For example, to profile the one_script.vim script file:
 
 :prof[ile] func {pattern}
 		Profile function that matches the pattern {pattern}.
-		See [:debug-name](#:debug-name) for how {pattern} is used.
+		See |:debug-name| for how {pattern} is used.
 
 :prof[ile][!] file {pattern}
 		Profile script file that matches the pattern {pattern}.
-		See [:debug-name](#:debug-name) for how {pattern} is used.
+		See |:debug-name| for how {pattern} is used.
 		This only profiles the script itself, not the functions
 		defined in it.
 		When the [!] is added then all functions defined in the script
@@ -994,7 +994,7 @@ For example, to profile the one_script.vim script file:
 		profiling to the log immediately.
 
 ### <a id=":profd :profdel" class="section-title" href="#:profd :profdel">:profd[el] ...</a>
-		Stop profiling for the arguments specified. See [:breakdel](#:breakdel)
+		Stop profiling for the arguments specified. See |:breakdel|
 		for the arguments.
 
 
@@ -1046,7 +1046,7 @@ mind there are various things that may clobber the results:
   function.  There is some overhead in between.
 
 - Functions that are deleted before Vim exits will not produce profiling
-  information.  You can check the [v:profiling](#v:profiling) variable if needed:
+  information.  You can check the |v:profiling| variable if needed:
 	:if !v:profiling
 	:   delfunc MyFunc
 	:endif
@@ -1061,28 +1061,28 @@ mind there are various things that may clobber the results:
 ## <a id="Context context" class="section-title" href="#Context context">Context</a> 
 
 The editor state is represented by the Context concept. This includes things
-like the current [jumplist|, values of |registers](#jumplist|, values of |registers), and more, described below.
+like the current [jumplist](undefined#jumplist), values of [registers](undefined#registers), and more, described below.
 
 ### <a id="context-types" class="section-title" href="#context-types">Note:</a>
 The following Context items are supported:
-	"jumps"		[jumplist](#jumplist)
-	"regs"		[registers](#registers)
-	"bufs"		[buffer-list](#buffer-list)
-	"gvars"		[global-variable](#global-variable)s
-	"sfuncs"	[script-local](#script-local) functions
-	"funcs"		global and [script-local](#script-local) functions
+	"jumps"		[jumplist](undefined#jumplist)
+	"regs"		[registers](undefined#registers)
+	"bufs"		[buffer-list](/neovim-docs-web/en/vim/windows#buffer-list)
+	"gvars"		[global-variable](undefined#global-variable)s
+	"sfuncs"	[script-local](/neovim-docs-web/en/vim/map#script-local) functions
+	"funcs"		global and [script-local](/neovim-docs-web/en/vim/map#script-local) functions
 
 ### <a id="context-dict" class="section-title" href="#context-dict">Note:</a>
 Context objects are dictionaries with the following key-value pairs:
 - "jumps", "regs", "bufs", "gvars":
-      [readfile()|-style |List](#readfile()|-style |List) representation of corresponding msgpack
-      objects (see [msgpackdump()| and |msgpackparse()](#msgpackdump()| and |msgpackparse())).
-- "funcs" (includes [script-local](#script-local) functions as well):
-      [List| of |:function](#List| of |:function) definitions.
+      |readfile()|-style [List](undefined#List) representation of corresponding msgpack
+      objects (see |msgpackdump()| and |msgpackparse()|).
+- "funcs" (includes [script-local](/neovim-docs-web/en/vim/map#script-local) functions as well):
+      [List](undefined#List) of |:function| definitions.
 
 ### <a id="context-stack" class="section-title" href="#context-stack">Note:</a>
 An initially-empty internal Context stack is maintained by the ctx-family
-functions (see [ctx-functions](#ctx-functions)).
+functions (see [ctx-functions](undefined#ctx-functions)).
 
 
  vim:tw=78:ts=8:noet:ft=help:norl:

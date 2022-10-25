@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="various" class="section-title" href="#various">Various commands</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="various-cmds" class="section-title" href="#various-cmds">1. Various Commands</a> 
@@ -22,8 +22,8 @@ CTRL-L			Clears and redraws the screen.  The redraw may happen
 			later, after processing typeahead.
 ### <a id="CTRL-L-default" class="section-title" href="#CTRL-L-default">Note:</a>
 			By default, also clears search highlighting
-			[:nohlsearch| and updates diffs |:diffupdate](#:nohlsearch| and updates diffs |:diffupdate).
-			[default-mappings](#default-mappings)
+			|:nohlsearch| and updates diffs |:diffupdate|.
+			[default-mappings](undefined#default-mappings)
 
 ### <a id=":mod :mode" class="section-title" href="#:mod :mode">Note:</a>
 :mod[e]			Clears and redraws the screen.
@@ -31,7 +31,7 @@ CTRL-L			Clears and redraws the screen.  The redraw may happen
 ### <a id=":redr :redraw" class="section-title" href="#:redr :redraw">Note:</a>
 :redr[aw][!]		Redraws pending screen updates now, or the entire
 			screen if "!" is included.  To CLEAR the screen use
-			[:mode| or |CTRL-L](#:mode| or |CTRL-L).
+			|:mode| or [CTRL-L](undefined#CTRL-L).
 			Useful to update the screen during a script or
 			function (or a mapping if 'lazyredraw' set).
 
@@ -49,7 +49,7 @@ CTRL-L			Clears and redraws the screen.  The redraw may happen
 ### <a id="N<Del>" class="section-title" href="#N<Del>">Note:</a>
 Del>			When entering a number: Remove the last digit.
 			Note: if you like to use <BS> for this, add this
-			mapping to your vimrc: 
+			mapping to your vimrc:
 ```				:map CTRL-V <BS>   CTRL-V <Del>
 ```
 
@@ -86,7 +86,7 @@ ga			Print the ascii value of the character under the
 
 ### <a id="g8" class="section-title" href="#g8">Note:</a>
 g8			Print the hex values of the bytes used in the
-			character under the cursor, assuming it is in [UTF-8](#UTF-8)
+			character under the cursor, assuming it is in [UTF-8](undefined#UTF-8)
 			encoding.  This also shows composing characters.  The
 			value of 'maxcombine' doesn't matter.
 			Example of a character with two composing characters:
@@ -110,36 +110,36 @@ g8			Print the hex values of the bytes used in the
 :[range]p[rint] [flags]
 			Print [range] lines (default current line).
 			Note: If you are looking for a way to print your text
-			on paper see [:hardcopy](#:hardcopy).  In the GUI you can use the
+			on paper see |:hardcopy|.  In the GUI you can use the
 			File.Print menu entry.
-			See [ex-flags](#ex-flags) for [flags].
-			The [:filter](#:filter) command can be used to only show lines
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
+			The |:filter| command can be used to only show lines
 			matching a pattern.
 
 :[range]p[rint] {count} [flags]
 			Print {count} lines, starting with [range] (default
-			current line [cmdline-ranges](#cmdline-ranges)).
-			See [ex-flags](#ex-flags) for [flags].
+			current line [cmdline-ranges](undefined#cmdline-ranges)).
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 ### <a id=":l :list" class="section-title" href="#:l :list">Note:</a>
 :[range]l[ist] [count] [flags]
 			Same as :print, but show tabs as ">", trailing spaces
 			as "-", and non-breakable space characters as "+" by
 			default.  Further changed by the 'listchars' option.
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 ### <a id=":nu :number" class="section-title" href="#:nu :number">Note:</a>
 :[range]nu[mber] [count] [flags]
 			Same as :print, but precede each line with its line
-			number.  (See also [hl-LineNr](#hl-LineNr) and 'numberwidth').
-			See [ex-flags](#ex-flags) for [flags].
+			number.  (See also [hl-LineNr](undefined#hl-LineNr) and 'numberwidth').
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 ### <a id=":#" class="section-title" href="#:#">Note:</a>
 :[range]# [count] [flags]
 			synonym for :number.
 
 ### <a id=":#!" class="section-title" href="#:#!">Note:</a>
-:#!{anything}		Ignored, so that you can start a Vim script with: 
+:#!{anything}		Ignored, so that you can start a Vim script with:
 ```				#!vim -S
 				echo "this is a Vim script"
 				quit
@@ -184,12 +184,12 @@ g8			Print the hex values of the bytes used in the
 
 ### <a id=":=" class="section-title" href="#:=">Note:</a>
 := [flags]		Print the last line number.
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 :{range}= [flags]	Prints the last line number in {range}.  For example,
-			this prints the current line number: 
+			this prints the current line number:
 ```				:.=
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 ### <a id=":norm :normal" class="section-title" href="#:norm :normal">:norm[al][!] {commands}</a>
 			Execute Normal mode commands {commands}.  This makes
@@ -200,14 +200,14 @@ g8			Print the hex values of the bytes used in the
 
 			If the [!] is given, mappings will not be used.
 			Without it, when this command is called from a
-			non-remappable mapping ([:noremap](#:noremap)), the argument can
+			non-remappable mapping (|:noremap|), the argument can
 			be mapped anyway.
 
 			{commands} should be a complete command.  If
 			{commands} does not finish a command, the last one
 			will be aborted as if <Esc> or <C-C> was typed.
 			This implies that an insert command must be completed
-			(to start Insert mode, see [:startinsert](#:startinsert)).  A ":"
+			(to start Insert mode, see |:startinsert|).  A ":"
 			command must be completed as well.  And you can't use
 			"Q" or "gQ" to start Ex mode.
 
@@ -222,7 +222,7 @@ g8			Print the hex values of the bytes used in the
 			This command can be used recursively, but the depth is
 			limited by 'maxmapdepth'.
 
-			An alternative is to use [:execute](#:execute), which uses an
+			An alternative is to use |:execute|, which uses an
 			expression as argument.  This allows the use of
 			printable characters to represent special characters.
 
@@ -239,40 +239,40 @@ g8			Print the hex values of the bytes used in the
 			":normal" command without a range.
 
 ### <a id=":sh :shell E371 E360" class="section-title" href="#:sh :shell E371 E360">Note:</a>
-:sh[ell]		Removed. [vim-differences](#vim-differences)
+:sh[ell]		Removed. [vim-differences](undefined#vim-differences)
 
 ### <a id=":terminal :te" class="section-title" href="#:terminal :te">Note:</a>
 :te[rminal][!] [{cmd}]	Run {cmd} in a non-interactive 'shell' in a new
-			[terminal-emulator](#terminal-emulator) buffer. Without {cmd}, start an
+			[terminal-emulator](undefined#terminal-emulator) buffer. Without {cmd}, start an
 			interactive 'shell'.
 
-			Type [i| to enter |Terminal-mode](#i| to enter |Terminal-mode), then keys are sent to
+			Type [i](undefined#i) to enter [Terminal-mode](undefined#Terminal-mode), then keys are sent to
 			the job running in the terminal. Type <C-\><C-N> to
-			leave Terminal-mode. [CTRL-\_CTRL-N](#CTRL-\_CTRL-N). Type <C-\><C-O
-```			to execute a single normal mode command [t_CTRL-\_CTRL-O](#t_CTRL-\_CTRL-O)
+			leave Terminal-mode. |CTRL-\_CTRL-N|. Type <C-\><C-O>
+			to execute a single normal mode command |t_CTRL-\_CTRL-O|
 
 			Fails if changes have been made to the current buffer,
 			unless 'hidden' is set.
 
-			To enter [Terminal-mode](#Terminal-mode) automatically:
-### <a id="autocmd TermOpen  startinsert" class="section-title" href="#autocmd TermOpen  startinsert">Note:</a>
+			To enter [Terminal-mode](undefined#Terminal-mode) automatically:
+#### <a id="autocmd TermOpen  startinsert" class="section-title" href="#autocmd TermOpen  startinsert">```</a>
 ```
 
 ### <a id=":!cmd :!" class="section-title" href="#:!cmd :!">Note:</a>
-:!{cmd}			Execute {cmd} with 'shell'. See also [:terminal](#:terminal).
+:!{cmd}			Execute {cmd} with 'shell'. See also |:terminal|.
 
 			The command runs in a non-interactive shell connected
-			to a pipe (not a terminal). Use [:terminal](#:terminal) to run an
+			to a pipe (not a terminal). Use |:terminal| to run an
 			interactive shell connected to a terminal.
 
 			Backgrounded ("&") commands must not write to stdout
-			or stderr, the streams are closed immediately. [E5677](#E5677)
-			Use [jobstart()](#jobstart()) instead. 
+			or stderr, the streams are closed immediately. [E5677](undefined#E5677)
+			Use |jobstart()| instead.
 ```				:call jobstart('foo', {'detach':1})
 ```
 
 			For powershell, chaining a stringed executable path
-			requires using the call operator (&). 
+			requires using the call operator (&).
 ```				:!Write-Output "1`n2" | & "C:\Windows\System32\sort.exe" /r
 ```
 
@@ -283,29 +283,29 @@ g8			Print the hex values of the bytes used in the
 			":!echo ! \! \\!" executes "echo ls ! \!".
 
 			Any "|" in {cmd} is passed to the shell, you cannot
-			use it to append a Vim command.  See [:bar](#:bar).
+			use it to append a Vim command.  See |:bar|.
 
 			Any "%" in {cmd} is expanded to the current file name.
 			Any "#" in {cmd} is expanded to the alternate file name.
 			Special characters are not escaped, use quotes or
-			[shellescape()](#shellescape()): 
+			|shellescape()|:
 ```				:!ls "%"
 				:exe "!ls " .. shellescape(expand("%"))
 ```
 
 			Newline character ends {cmd} unless a backslash
 			precedes the newline.  What follows is interpreted as
-			another [:](#:) command.
+			another |:| command.
 
 			After the command has been executed, the timestamp and
-			size of the current file is checked [timestamp](#timestamp).
+			size of the current file is checked [timestamp](undefined#timestamp).
 
 			If the command produces too much output some lines may
 			be skipped so the command can execute quickly.  No
 			data is lost, this only affects the display.  The last
 			few lines are always displayed (never skipped).
 
-			To avoid the hit-enter prompt use: 
+			To avoid the hit-enter prompt use:
 ```				:silent !{cmd}
 ```
 
@@ -314,7 +314,7 @@ g8			Print the hex values of the bytes used in the
 
 ### <a id=":ve :ver :version" class="section-title" href="#:ve :ver :version">Note:</a>
 :ve[rsion]		Print editor version and build information.
-			See also [feature-compile](#feature-compile).
+			See also [feature-compile](undefined#feature-compile).
 
 ### <a id=":redi :redir" class="section-title" href="#:redi :redir">Note:</a>
 :redi[r][!] > {file}	Redirect messages to file {file}.  The messages which
@@ -327,13 +327,13 @@ g8			Print the hex values of the bytes used in the
 			Only one ":redir" can be active at a time.  Calls to
 			":redir" will close any active redirection before
 			starting redirection to the new target.  For recursive
-			use check out [execute()](#execute()).
+			use check out |execute()|.
 
 			To stop the messages and commands from being echoed to
 			the screen, put the commands in a function and call it
 			with ":silent call Function()".
 			Alternatives are the 'verbosefile' option or
-			[execute()](#execute()) function, these can be used in combination
+			|execute()| function, these can be used in combination
 			with ":redir".
 
 :redi[r] >> {file}	Redirect messages to file {file}.  Append if {file}
@@ -346,10 +346,10 @@ g8			Print the hex values of the bytes used in the
 			optional.
 :redi[r] @{a-z}>>	Append messages to register {a-z}.
 
-:redi[r] @*
-```:redi[r] @+>		Redirect messages to the selection or clipboard. For
+:redi[r] @*>
+:redi[r] @+>		Redirect messages to the selection or clipboard. For
 			backward compatibility, the ">" after the register
-			name can be omitted. See [quotestar| and |quoteplus](#quotestar| and |quoteplus).
+			name can be omitted. See [quotestar](undefined#quotestar) and [quoteplus](undefined#quoteplus).
 :redi[r] @*>>
 :redi[r] @+>>		Append messages to the selection or clipboard.
 
@@ -370,7 +370,7 @@ g8			Print the hex values of the bytes used in the
 			script) and another `:redir` causes the current one to
 			end, the scope might be different and the assignment
 			fails.
-			To get the output of one command the [execute()](#execute())
+			To get the output of one command the |execute()|
 			function can be used instead of redirection.
 
 :redi[r] =>> {var}	Append messages to an existing variable.  Only string
@@ -383,12 +383,12 @@ g8			Print the hex values of the bytes used in the
 :filt[er][!] /{pattern}/ {command}
 			Restrict the output of {command} to lines matching
 			with {pattern}.  For example, to list only xml files:
-				:filter /\.xml$/ oldfiles
+```				:filter /\.xml$/ oldfiles
 			If the [!] is given, restrict the output of {command}
 			to lines that do NOT match {pattern}.
 
 			{pattern} is a Vim search pattern.  Instead of enclosing
-			it in / any non-ID character (see ['isident'](#'isident')) can be
+			it in / any non-ID character (see |'isident'|) can be
 			used, so long as it does not appear in {pattern}.
 			Without the enclosing character the pattern cannot
 			include the bar character. 'ignorecase' is not used.
@@ -397,21 +397,21 @@ g8			Print the hex values of the bytes used in the
 			the output, not necessarily the whole line. Only some
 			commands support filtering, try it out to check if it
 			works. Some of the commands that support filtering:
-			   [:#](#:#)          - filter whole line
-			   [:clist](#:clist)      - filter by file name or module name
-			   [:command](#:command)    - filter by command name
-			   [:files](#:files)      - filter by file name
-			   [:highlight](#:highlight)  - filter by highlight group
-			   [:jumps](#:jumps)      - filter by file name
-			   [:let](#:let)        - filter by variable name
-			   [:list](#:list)       - filter whole line
-			   [:llist](#:llist)      - filter by file name or module name
-			   [:marks](#:marks)      - filter by text in the current file,
+			   |:#|          - filter whole line
+			   |:clist|      - filter by file name or module name
+			   |:command|    - filter by command name
+			   |:files|      - filter by file name
+			   |:highlight|  - filter by highlight group
+			   |:jumps|      - filter by file name
+			   |:let|        - filter by variable name
+			   |:list|       - filter whole line
+			   |:llist|      - filter by file name or module name
+			   |:marks|      - filter by text in the current file,
 					   or file name for other files
-			   [:oldfiles](#:oldfiles)   - filter by file name
-			   [:registers](#:registers)  - filter by register contents
+			   |:oldfiles|   - filter by file name
+			   |:registers|  - filter by register contents
 					   (does not work multi-line)
-			   [:set](#:set)        - filter by option name
+			   |:set|        - filter by option name
 
 			Only normal messages are filtered, error messages are
 			not.
@@ -421,10 +421,10 @@ g8			Print the hex values of the bytes used in the
 			be given or added to the message history.
 			When [!] is added, error messages will also be
 			skipped, and commands and mappings will not be aborted
-			when an error is detected.  [v:errmsg](#v:errmsg) is still set.
+			when an error is detected.  |v:errmsg| is still set.
 			When [!] is not used, an error message will cause
 			further messages to be displayed normally.
-			Redirection, started with [:redir](#:redir), will continue as
+			Redirection, started with |:redir|, will continue as
 			usual, although there might be small differences.
 			This will allow redirecting the output of a command
 			without seeing it on the screen.  Example:
@@ -432,7 +432,7 @@ g8			Print the hex values of the bytes used in the
 			    :silent g/Aap/p
 			    :redir END
 			To execute a Normal mode command silently, use the
-			[:normal](#:normal) command.  For example, to search for a
+			|:normal| command.  For example, to search for a
 			string without messages:
 			    :silent exe "normal /path\<CR>"
 			":silent!" is useful to execute a command that may
@@ -442,16 +442,16 @@ g8			Print the hex values of the bytes used in the
 			    :if v:errmsg != ""
 			    : ... pattern was not found
 			":silent" also skips the hit-enter prompt.
-			Dialogs that prompt for user input ([confirm()](#confirm()),
+			Dialogs that prompt for user input (|confirm()|,
 			'swapfile', …) are never silent.
 
 ### <a id=":uns :unsilent" class="section-title" href="#:uns :unsilent">Note:</a>
 :uns[ilent] {command}	Execute {command} not silently.  Only makes a
-			difference when [:silent](#:silent) was used to get to this
+			difference when |:silent| was used to get to this
 			command.
-			Use this for giving a message even when [:silent](#:silent) was
-			used.  In this example [:silent](#:silent) is used to avoid the
-			message about reading the file and [:unsilent](#:unsilent) to be
+			Use this for giving a message even when |:silent| was
+			used.  In this example |:silent| is used to avoid the
+			message about reading the file and |:unsilent| to be
 			able to list the first line of each file.
 		:silent argdo unsilent echo expand('%') .. ": " .. getline(1)
 ```
@@ -466,8 +466,8 @@ g8			Print the hex values of the bytes used in the
 			generated but not displayed.
 			The combination of ":silent" and ":verbose" can be
 			used to generate messages and check them with
-			[v:statusmsg](#v:statusmsg) and friends.  For example: 
-```				:let v:statusmsg = ""
+			|v:statusmsg| and friends.  For example:
+				:let v:statusmsg = ""
 				:silent verbose runtime foobar.vim
 				:if v:statusmsg != ""
 				:  " foobar.vim could not be found
@@ -491,13 +491,13 @@ user command or autocommand, the script in which it was defined is reported.
 
 ### <a id="K" class="section-title" href="#K">Note:</a>
 [count]K       		Runs the program given by 'keywordprg' to lookup the
-			[word](#word) (defined by 'iskeyword') under or right of the
+			[word](undefined#word) (defined by 'iskeyword') under or right of the
 			cursor. Default is "man". Works like this:
 				:tabnew | terminal {program} {keyword}
 			Special cases:
 			- If 'keywordprg' begins with ":" it is invoked as
 			  a Vim command with [count].
-			- If 'keywordprg' is empty, [:help](#:help) is used.
+			- If 'keywordprg' is empty, |:help| is used.
 			- When 'keywordprg' is equal to "man", a [count]
 			  before "K" is inserted after the "man" command and
 			  before the keyword.  For example, using "2K" while
@@ -514,10 +514,10 @@ user command or autocommand, the script in which it was defined is reported.
 
 ### <a id="gO" class="section-title" href="#gO">Note:</a>
 gO			Show a filetype-specific, navigable "outline" of the
-			current buffer. For example, in a [help](#help) buffer this
+			current buffer. For example, in a [help](undefined#help) buffer this
 			shows the table of contents.
 
-			Currently works in [help| and |:Man](#help| and |:Man) buffers.
+			Currently works in [help](undefined#help) and |:Man| buffers.
 
 ### <a id="gs :sl :sleep" class="section-title" href="#gs :sl :sleep">[N]gs</a>
 :[N]sl[eep] [N][m]	Do nothing for [N] seconds, or [N] milliseconds if [m]
@@ -535,7 +535,7 @@ gO			Show a filetype-specific, navigable "outline" of the
 
 ### <a id=":sl! :sleep!" class="section-title" href="#:sl! :sleep!">Note:</a>
 :[N]sl[eep]! [N][m]	Same as above. Unlike Vim, it does not hide the
-			cursor. [vim-differences](#vim-differences)
+			cursor. [vim-differences](undefined#vim-differences)
 
 
 ## <a id="less" class="section-title" href="#less">2. Using Vim Like Less or More</a> 
@@ -556,7 +556,7 @@ The "h" key will give you a short overview of the available commands.
 
 If you want to set options differently when using less, define the
 LessInitFunc in your vimrc, for example:
-
+```
 	func LessInitFunc()
 	  set nocursorcolumn nocursorline
 	endfunc

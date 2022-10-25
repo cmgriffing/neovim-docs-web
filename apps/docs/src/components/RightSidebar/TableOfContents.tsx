@@ -96,8 +96,6 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[] }> = ({
     };
   }, [itemOffsets.current]);
 
-  console.log({ childToParentIdMap });
-
   return (
     <>
       <h2 className="heading">On this page</h2>

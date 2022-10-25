@@ -12,12 +12,12 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="starting" class="section-title" href="#starting">Starting Vim</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="vim-arguments" class="section-title" href="#vim-arguments">Nvim Arguments</a> 
 
-Most often, Nvim is started to edit a single file with the command: 
+Most often, Nvim is started to edit a single file with the command:
 ```
 	nvim filename
 
@@ -45,23 +45,23 @@ filename	One or more file names.  The first one will be the current
 		Example:
 			echo text | nvim - file
 		"text" is read into buffer 1, "file" is opened as buffer 2.
-		In most cases (except -s, -es, [--embed](#--embed), --headless) if stdin
+		In most cases (except -s, -es, [--embed](undefined#--embed), --headless) if stdin
 		is not a TTY then it is read as text, so "-" is implied:
 			echo text | nvim file
 		The buffer will be marked as modified, because it contains
-		text that needs to be saved (except for readonly [-R](#-R) mode).
+		text that needs to be saved (except for readonly [-R](undefined#-R) mode).
 		If you don't like that, put these lines in your init.vim:
 			" Don't set 'modified' when reading from stdin
 ### <a id="au StdinReadPost  set nomodified" class="section-title" href="#au StdinReadPost  set nomodified">Note:</a>
 ```
 
-		To read stdin as Normal commands use [-s](#-s) with "-": 
+		To read stdin as Normal commands use [-s](undefined#-s) with "-":
 ```			echo "ifoo" | nvim -s -
-		To read stdin as Ex commands use [-es| or |-e](#-es| or |-e):
+		To read stdin as Ex commands use [-es](undefined#-es) or [-e](undefined#-e):
 			echo "echo getpid()" | nvim -e - -V1
 		To open a file literally named "-", put it after "--":
 			echo foo | nvim -- -
-		To read stdin as text with [--headless](#--headless) use "-".
+		To read stdin as text with [--headless](undefined#--headless) use "-".
 
 ### <a id="-t -tag" class="section-title" href="#-t -tag">Note:</a>
 -t {tag}	A tag.  "tag" is looked up in the tags file, the associated
@@ -70,11 +70,11 @@ filename	One or more file names.  The first one will be the current
 		"tag" often is a function name.  The effect is that the file
 		containing that function becomes the current file and the
 		cursor is positioned on the start of the function (see
-		[tags](#tags)).
+		[tags](undefined#tags)).
 
 ### <a id="-q -qf" class="section-title" href="#-q -qf">Note:</a>
 -q [errorfile]	QuickFix mode.  The file with the name [errorfile] is read
-		and the first error is displayed.  See [quickfix](#quickfix).
+		and the first error is displayed.  See [quickfix](undefined#quickfix).
 		If [errorfile] is not given, the 'errorfile' option is used
 		for the file name.  See 'errorfile' for the default value.
 
@@ -92,7 +92,7 @@ argument.
 
 ### <a id="-v --version" class="section-title" href="#-v --version">--version</a>
 -v		Print version information and exit.  Same output as for
-		[:version](#:version) command.
+		|:version| command.
 
 ### <a id="--clean" class="section-title" href="#--clean">Note:</a>
 --clean		Mimics a fresh install of Nvim:
@@ -103,7 +103,7 @@ argument.
 
 ### <a id="--noplugin" class="section-title" href="#--noplugin">Note:</a>
 --noplugin	Skip loading plugins.  Resets the 'loadplugins' option.
-		Note that the [-u](#-u) argument may also disable loading plugins:
+		Note that the [-u](undefined#-u) argument may also disable loading plugins:
 			argument	load vimrc files	load plugins ~
 			(nothing)		yes		    yes
 			-u NONE			no		    no
@@ -113,7 +113,7 @@ argument.
 ### <a id="--startuptime" class="section-title" href="#--startuptime">--startuptime {fname}</a>
 		During startup write timing messages to the file {fname}.
 		This can be used to find out where time is spent while loading
-		your [config](#config), plugins and opening the first file.
+		your [config](undefined#config), plugins and opening the first file.
 		When {fname} already exists new messages are appended.
 
 ### <a id="-+" class="section-title" href="#-+">Note:</a>
@@ -123,10 +123,10 @@ argument.
 
 ### <a id="-+/" class="section-title" href="#-+/">Note:</a>
 +/{pat}		The cursor will be positioned on the first line containing
-		"pat" in the first file being edited (see [pattern](#pattern) for the
+		"pat" in the first file being edited (see [pattern](undefined#pattern) for the
 		available search patterns).  The search starts at the cursor
 		position, which can be the first line or the cursor position
-		last used from [shada](#shada). To force a search from the first
+		last used from [shada](undefined#shada). To force a search from the first
 		line use "+1 +/pat".
 
 ### <a id="-+c -c" class="section-title" href="#-+c -c">+{command}</a>
@@ -151,8 +151,8 @@ argument.
 		these commands, independently from "-c" commands.
 
 ### <a id="-S" class="section-title" href="#-S">Note:</a>
--S {file}	Vimscript or Lua (".lua") {file} will be [:source](#:source)d after the
-		first file has been read. Equivalent to: 
+-S {file}	Vimscript or Lua (".lua") {file} will be |:source|d after the
+		first file has been read. Equivalent to:
 ```			-c "source {file}"
 		Can be repeated like "-c", subject to the same limit of 10
 		"-c" arguments. {file} cannot start with a "-".
@@ -164,7 +164,7 @@ argument.
 -r		Recovery mode.  Without a file name argument, a list of
 		existing swap files is given.  With a file name, a swap file
 		is read to recover a crashed editing session.  See
-		[crash-recovery](#crash-recovery).
+		[crash-recovery](undefined#crash-recovery).
 
 ### <a id="-R" class="section-title" href="#-R">Note:</a>
 -R		Readonly mode.  The 'readonly' option will be set for all the
@@ -173,12 +173,12 @@ argument.
 		forgot that you are in View mode and did make some changes,
 		you can overwrite a file by adding an exclamation mark to
 		the Ex command, as in ":w!".  The 'readonly' option can be
-		reset with ":set noro" (see the options chapter, [options](#options)).
+		reset with ":set noro" (see the options chapter, [options](undefined#options)).
 		Subsequent edits will not be done in readonly mode.  Calling
 		the executable "view" has the same effect as the -R argument.
 		The 'updatecount' option will be set to 10000, meaning that
 		the swap file will not be updated automatically very often.
-		See [-M](#-M) for disallowing modifications.
+		See [-M](undefined#-M) for disallowing modifications.
 
 ### <a id="-m" class="section-title" href="#-m">Note:</a>
 -m		Modifications not allowed to be written.  The 'write' option
@@ -193,20 +193,20 @@ argument.
 		changes and writing.
 
 ### <a id="-e -E" class="section-title" href="#-e -E">-e</a>
--E		Start Nvim in Ex mode [gQ|, see |Ex-mode](#gQ|, see |Ex-mode).
+-E		Start Nvim in Ex mode [gQ](undefined#gQ), see [Ex-mode](undefined#Ex-mode).
 
 		If stdin is not a TTY:
 		  -e reads/executes stdin as Ex commands.
 		  -E reads stdin as text (into buffer 1).
 
 ### <a id="-es -Es -s-ex silent-mode" class="section-title" href="#-es -Es -s-ex silent-mode">-es</a>
--Es		Silent mode (no UI), for scripting.  Unrelated to [-s](#-s).
+-Es		Silent mode (no UI), for scripting.  Unrelated to [-s](undefined#-s).
 		Disables most prompts, messages, warnings and errors.
 
 		-es reads/executes stdin as Ex commands.
 			printf "put ='foo'\n%%print\n" | nvim -es
 
-		-Es reads stdin as text (into buffer 1).  Use [-c](#-c) or "+" to
+		-Es reads stdin as text (into buffer 1).  Use [-c](undefined#-c) or "+" to
 		send commands.
 			printf "foo\n" | nvim -Es +"%print"
 
@@ -215,20 +215,20 @@ argument.
 			:number
 			:print
 			:set
-		With [:verbose](#:verbose) or 'verbose', other commands display on stderr:
+		With |:verbose| or 'verbose', other commands display on stderr:
 			nvim -es +":verbose echo 'foo'"
 			nvim -V1 -es +foo
 
-		User [config| is skipped (unless given with |-u](#config| is skipped (unless given with |-u)).
-		Swap file is skipped (like [-n](#-n)).
-		User [shada](#shada) is loaded (unless "-i NONE" is given).
+		User [config](undefined#config) is skipped (unless given with [-u](undefined#-u)).
+		Swap file is skipped (like [-n](undefined#-n)).
+		User [shada](undefined#shada) is loaded (unless "-i NONE" is given).
 
 ### <a id="-b" class="section-title" href="#-b">Note:</a>
 -b		Binary mode.  File I/O will only recognize <NL> to separate
 		lines.  The 'expandtab' option will be reset.  The 'textwidth'
 		option is set to 0.  'modeline' is reset.  The 'binary' option
-		is set.  This is done after reading the [vimrc](#vimrc) but before
-		reading any file in the arglist.  See also [edit-binary](#edit-binary).
+		is set.  This is done after reading the [vimrc](undefined#vimrc) but before
+		reading any file in the arglist.  See also [edit-binary](/neovim-docs-web/en/vim/editing#edit-binary).
 
 ### <a id="-l" class="section-title" href="#-l">Note:</a>
 -l		Lisp mode.  Sets the 'lisp' and 'showmatch' options on.
@@ -257,10 +257,10 @@ argument.
 
 ### <a id="-D" class="section-title" href="#-D">Note:</a>
 -D		Debugging.  Go to debugging mode when executing the first
-		command from a script. [debug-mode](#debug-mode)
+		command from a script. [debug-mode](undefined#debug-mode)
 
 ### <a id="-n" class="section-title" href="#-n">Note:</a>
--n		No [swap-file](#swap-file) will be used.  Recovery after a crash will be
+-n		No [swap-file](/neovim-docs-web/en/vim/recover#swap-file) will be used.  Recovery after a crash will be
 		impossible.  Handy if you want to view or edit a file on a
 		very slow medium (e.g., a floppy).
 		Can also be done with ":set updatecount=0".  You can switch it
@@ -269,7 +269,7 @@ argument.
 		'updatecount' is set to 0 AFTER executing commands from a
 		vimrc file, but before the GUI initializations.  Thus it
 		overrides a setting for 'updatecount' in a vimrc file, but not
-		in a gvimrc file.  See [startup](#startup).
+		in a gvimrc file.  See [startup](undefined#startup).
 		When you want to reduce accesses to the disk (e.g., for a
 		laptop), don't use "-n", but set 'updatetime' and
 		'updatecount' to very big numbers, and type ":preserve" when
@@ -293,19 +293,19 @@ argument.
 		for every file given as argument.  The maximum is set with
 		'tabpagemax' pages (default 50).  If there are more tab pages
 		than arguments, the last few tab pages will be editing an
-		empty file.  Also see [tabpage](#tabpage).
+		empty file.  Also see [tabpage](undefined#tabpage).
 ### <a id="-d" class="section-title" href="#-d">Note:</a>
--d		Start in [diff-mode](#diff-mode).
+-d		Start in [diff-mode](undefined#diff-mode).
 
 ### <a id="-u E282" class="section-title" href="#-u E282">Note:</a>
 -u {vimrc}	The file {vimrc} is read for initializations.  Most other
-		initializations are skipped; see [initialization](#initialization).
+		initializations are skipped; see [initialization](undefined#initialization).
 
 		This can be used to start Vim in a special mode, with special
 		mappings and settings.  A shell alias can be used to make
-		this easy to use.  For example: 
+		this easy to use.  For example:
 #### <a id="alias vimc vim -u ~/.config/nvim/c_init.vim !" class="section-title" href="#alias vimc vim -u ~/.config/nvim/c_init.vim !">```</a>
-		Also consider using autocommands; see [autocommand](#autocommand).
+		Also consider using autocommands; see [autocommand](undefined#autocommand).
 
 		When {vimrc} is "NONE" (all uppercase), all initializations
 		from files and environment variables are skipped.  Plugins and
@@ -319,7 +319,7 @@ argument.
 -i {shada}	The file {shada} is used instead of the default ShaDa
 		file.  If the name "NONE" is used (all uppercase), no ShaDa
 		file is read or written, even if 'shada' is set or when
-		":rsh" or ":wsh" are used.  See also [shada-file](#shada-file).
+		":rsh" or ":wsh" are used.  See also [shada-file](undefined#shada-file).
 
 ### <a id="-s" class="section-title" href="#-s">Note:</a>
 -s {scriptin}	Read script file {scriptin}, interpreting characters as
@@ -330,7 +330,7 @@ argument.
 		If the end of the file is reached before Nvim exits, further
 		characters are read from the keyboard.
 
-		Does not work with [-es|.  See also |complex-repeat](#-es|.  See also |complex-repeat).
+		Does not work with [-es](undefined#-es).  See also [complex-repeat](/neovim-docs-web/en/vim/repeat#complex-repeat).
 
 ### <a id="-w_nr" class="section-title" href="#-w_nr">Note:</a>
 -w {number}
@@ -341,20 +341,20 @@ argument.
 		until you exit Vim.  Useful to create a script file to be used
 		with "vim -s" or ":source!".  Appends to the "scriptout" file
 		if it already exists. {scriptout} cannot start with a digit.
-		See also [vim.on_key()](#vim.on_key()).
-		See also [complex-repeat](#complex-repeat).
+		See also |vim.on_key()|.
+		See also [complex-repeat](/neovim-docs-web/en/vim/repeat#complex-repeat).
 
 ### <a id="-W" class="section-title" href="#-W">Note:</a>
 -W {scriptout}	Like -w, but do not append, overwrite an existing file.
 
 ### <a id="--api-info" class="section-title" href="#--api-info">Note:</a>
---api-info 	Print msgpack-encoded [api-metadata](#api-metadata) and exit.
+--api-info 	Print msgpack-encoded [api-metadata](/neovim-docs-web/en/neovim/api#api-metadata) and exit.
 
 ### <a id="--embed" class="section-title" href="#--embed">Note:</a>
 --embed		Use stdin/stdout as a msgpack-RPC channel, so applications can
-		embed and control Nvim via the RPC [API](#API).
+		embed and control Nvim via the RPC [API](undefined#API).
 
-		Waits for the client ("embedder") to call [nvim_ui_attach()](#nvim_ui_attach())
+		Waits for the client ("embedder") to call |nvim_ui_attach()|
 		before sourcing startup files and reading buffers, so that UIs
 		can deterministically handle (display) early messages,
 		dialogs, etc.  The client can do other requests before
@@ -362,37 +362,37 @@ argument.
 		During this pre-startup phase the user config is of course not
 		available (similar to `--cmd`).
 
-		Embedders _not_ using the UI protocol must pass [--headless](#--headless):
+		Embedders _not_ using the UI protocol must pass [--headless](undefined#--headless):
 		    nvim --embed --headless
 
 		Then startup will continue without waiting for `nvim_ui_attach`.
 		This is equivalent to:
 		    nvim --headless --cmd "call stdioopen({'rpc': v:true})"
 
-		See also: [ui-startup| |channel-stdio](#ui-startup| |channel-stdio)
+		See also: [ui-startup](/neovim-docs-web/en/neovim/ui#ui-startup) [channel-stdio](/neovim-docs-web/en/neovim/channel#channel-stdio)
 
 ### <a id="--headless" class="section-title" href="#--headless">Note:</a>
 --headless 	Start without UI, and do not wait for `nvim_ui_attach`. The
 		builtin TUI is not used, so stdio works as an arbitrary
-		communication channel. [channel-stdio](#channel-stdio)
+		communication channel. [channel-stdio](/neovim-docs-web/en/neovim/channel#channel-stdio)
 
 		Also useful for scripting (tests) to see messages that would
-		not be printed by [-es](#-es).
+		not be printed by [-es](undefined#-es).
 
-		To detect if a UI is available, check if [nvim_list_uis()](#nvim_list_uis()) is
-		empty during or after [VimEnter](#VimEnter).
+		To detect if a UI is available, check if |nvim_list_uis()| is
+		empty during or after [VimEnter](undefined#VimEnter).
 
 		To read stdin as text, "-" must be given explicitly:
 		--headless cannot assume that stdin is just text.
 			echo foo | nvim --headless +"%print" +"q!" -
 ```
 
-		See also [--embed](#--embed).
-		See also [-es](#-es), which also disables most messages.
+		See also [--embed](undefined#--embed).
+		See also [-es](undefined#-es), which also disables most messages.
 
 ### <a id="--listen" class="section-title" href="#--listen">--listen {addr}</a>
-		Start [RPC](#RPC) server on pipe or TCP address {addr}. Sets the
-		primary listen address [v:servername| to {addr}. |serverstart()](#v:servername| to {addr}. |serverstart())
+		Start [RPC](undefined#RPC) server on pipe or TCP address {addr}. Sets the
+		primary listen address |v:servername| to {addr}. |serverstart()|
 
 
 ## <a id="initialization startup" class="section-title" href="#initialization startup">Initialization</a> 
@@ -408,20 +408,20 @@ accordingly, proceeding as follows:
 2. Process the arguments
 	The options and file names from the command that start Vim are
 	inspected.  Buffers are created for all files (but not loaded yet).
-	The [-V](#-V) argument can be used to display or log what happens next,
+	The [-V](undefined#-V) argument can be used to display or log what happens next,
 	useful for debugging the initializations.
 
-3. Start a server (unless [--listen| was given) and set |v:servername](#--listen| was given) and set |v:servername).
+3. Start a server (unless [--listen](undefined#--listen) was given) and set |v:servername|.
 
 4. Wait for UI to connect.
-	Nvim started with [--embed](#--embed) waits for the UI to connect before
+	Nvim started with [--embed](undefined#--embed) waits for the UI to connect before
 	proceeding to load user configuration.
 
-5. Setup [default-mappings| and |default-autocmds|.  Create |popup-menu](#default-mappings| and |default-autocmds|.  Create |popup-menu).
+5. Setup [default-mappings](undefined#default-mappings) and [default-autocmds](undefined#default-autocmds).  Create [popup-menu](undefined#popup-menu).
 
 6. Enable filetype and indent plugins.
-	This does the same as the command: 
-```		:runtime! ftplugin.vim indent.vim
+	This does the same as the command:
+		:runtime! ftplugin.vim indent.vim
 	Skipped if the "-u NONE" command line argument was given.
 
 7. Load user config (execute Ex commands from files, environment, …).
@@ -431,35 +431,35 @@ accordingly, proceeding as follows:
 	A file containing initialization commands is generically called
 	a "vimrc" or config file.  It can be either Vimscript ("init.vim") or
 	Lua ("init.lua"), but not both. *E5422*
-	See also [vimrc-intro| and |base-directories](#vimrc-intro| and |base-directories).
+	See also [vimrc-intro](/neovim-docs-web/en/usr/usr_05#vimrc-intro) and [base-directories](undefined#base-directories).
 
 	The config file is located at:
 	Unix			~/.config/nvim/init.vim		(or init.lua)
 	Windows			~/AppData/Local/nvim/init.vim	(or init.lua)
-	[$XDG_CONFIG_HOME](#$XDG_CONFIG_HOME)	$XDG_CONFIG_HOME/nvim/init.vim	(or init.lua)
+	|$XDG_CONFIG_HOME|	$XDG_CONFIG_HOME/nvim/init.vim	(or init.lua)
 
 	If Nvim was started with "-u {file}" then {file} is used as the config
 	and all initializations until 5. are skipped. $MYVIMRC is not set.
 	"nvim -u NORC" can be used to skip these initializations without
 	reading a file.  "nvim -u NONE" also skips plugins and syntax
-	highlighting.  [-u](#-u)
+	highlighting.  [-u](undefined#-u)
 
-	If Nvim was started with [-es](#-es) all initializations until 5. are
+	If Nvim was started with [-es](undefined#-es) all initializations until 5. are
 	skipped.
 ### <a id="system-vimrc sysinit.vim" class="section-title" href="#system-vimrc sysinit.vim">Note:</a>
      a. The system vimrc file is read for initializations.  If
 	nvim/sysinit.vim file exists in one of $XDG_CONFIG_DIRS, it will be
 	used.  Otherwise the system vimrc file is used. The path of this file
-	is given by the [:version](#:version) command.  Usually it's "$VIM/sysinit.vim".
+	is given by the |:version| command.  Usually it's "$VIM/sysinit.vim".
 
 ### <a id="VIMINIT EXINIT $MYVIMRC" class="section-title" href="#VIMINIT EXINIT $MYVIMRC">Note:</a>
      b. Locations searched for initializations, in order of preference:
 	-  $VIMINIT environment variable (Ex command line).
-	-  User [config](#config): $XDG_CONFIG_HOME/nvim/init.vim (or init.lua).
+	-  User [config](undefined#config): $XDG_CONFIG_HOME/nvim/init.vim (or init.lua).
 	-  Other config: {dir}/nvim/init.vim (or init.lua) where {dir} is any
 	   directory in $XDG_CONFIG_DIRS.
 	-  $EXINIT environment variable (Ex command line).
-	[$MYVIMRC](#$MYVIMRC) is set to the first valid location unless it was already
+	|$MYVIMRC| is set to the first valid location unless it was already
 	set or when using $VIMINIT.
 
      c. If the 'exrc' option is on (which is NOT the default), the current
@@ -493,17 +493,17 @@ accordingly, proceeding as follows:
 	here and only loaded after packages, see below.
 	Loading plugins won't be done when:
 	- The 'loadplugins' option was reset in a vimrc file.
-	- The [--noplugin](#--noplugin) command line argument is used.
-	- The [--clean](#--clean) command line argument is used.
-	- The "-u NONE" command line argument is used [-u](#-u).
+	- The [--noplugin](undefined#--noplugin) command line argument is used.
+	- The [--clean](undefined#--clean) command line argument is used.
+	- The "-u NONE" command line argument is used [-u](undefined#-u).
 	Note that using "-c 'set noloadplugins'" doesn't work, because the
 	commands from the command line have not been executed yet.  You can
-	use "--cmd 'set noloadplugins'" or "--cmd 'set loadplugins'" [--cmd](#--cmd).
+	use "--cmd 'set noloadplugins'" or "--cmd 'set loadplugins'" [--cmd](undefined#--cmd).
 
 	Packages are loaded.  These are plugins, as above, but found in the
 	"start" directory of each entry in 'packpath'.  Every plugin directory
 	found is added in 'runtimepath' and then the plugins are sourced.  See
-	[packages](#packages).
+	[packages](/neovim-docs-web/en/vim/repeat#packages).
 
 	The plugins scripts are loaded, as above, but now only the directories
 	ending in "after" are used.  Note that 'runtimepath' will have changed
@@ -518,35 +518,35 @@ accordingly, proceeding as follows:
 
 12. Set 'updatecount' to zero, if "-n" command argument used
 
-13. Set binary options if the [-b](#-b) flag was given.
+13. Set binary options if the [-b](undefined#-b) flag was given.
 
-14. Read the [shada-file](#shada-file).
+14. Read the [shada-file](undefined#shada-file).
 
-15. Read the quickfix file if the [-q](#-q) flag was given, or exit on failure.
+15. Read the quickfix file if the [-q](undefined#-q) flag was given, or exit on failure.
 
 16. Open all windows
-	When the [-o](#-o) flag was given, windows will be opened (but not
+	When the [-o](undefined#-o) flag was given, windows will be opened (but not
 	displayed yet).
-	When the [-p](#-p) flag was given, tab pages will be created (but not
+	When the [-p](undefined#-p) flag was given, tab pages will be created (but not
 	displayed yet).
 	When switching screens, it happens now.  Redrawing starts.
-	If the [-q](#-q) flag was given, the first error is jumped to.
-	Buffers for all windows will be loaded, without triggering [BufAdd](#BufAdd)
+	If the [-q](undefined#-q) flag was given, the first error is jumped to.
+	Buffers for all windows will be loaded, without triggering [BufAdd](undefined#BufAdd)
 	autocommands.
 
 17. Execute startup commands
-	If a [-t](#-t) flag was given, the tag is jumped to.
-	Commands given with [-c| and |+cmd](#-c| and |+cmd) are executed.
+	If a [-t](undefined#-t) flag was given, the tag is jumped to.
+	Commands given with [-c](undefined#-c) and |+cmd| are executed.
 	The starting flag is reset, has("vim_starting") will now return zero.
-	The [v:vim_did_enter](#v:vim_did_enter) variable is set to 1.
-	The [VimEnter](#VimEnter) autocommands are executed.
+	The |v:vim_did_enter| variable is set to 1.
+	The [VimEnter](undefined#VimEnter) autocommands are executed.
 
 
 Saving the current state of Vim to a file ~
 
 Whenever you have changed values of options or when you have created a
 mapping, then you may want to save them in a vimrc file for later use.  See
-[save-settings](#save-settings) about saving the current state of settings to a file.
+[save-settings](/neovim-docs-web/en/vim/starting#save-settings) about saving the current state of settings to a file.
 
 
 Avoiding trojan horses ~
@@ -576,13 +576,13 @@ just like executing a command from a vimrc in the current directory.
 
 If Vim startup is slow ~
 ### <a id="slow-start" class="section-title" href="#slow-start">Note:</a>
-If Vim takes a long time to start up, use the [--startuptime](#--startuptime) argument to find
+If Vim takes a long time to start up, use the [--startuptime](undefined#--startuptime) argument to find
 out what happens.
 
 If you have 'shada' enabled, the loading of the ShaDa file may take a
 while.  You can find out if this is the problem by disabling ShaDa for a
-moment (use the Vim argument "-i NONE", [-i](#-i)).  Try reducing the number of
-lines stored in a register with ":set shada='20,<50,s10".  [shada-file](#shada-file).
+moment (use the Vim argument "-i NONE", [-i](undefined#-i)).  Try reducing the number of
+lines stored in a register with ":set shada='20,<50,s10".  [shada-file](undefined#shada-file).
 
 
 Troubleshooting broken configurations ~
@@ -591,7 +591,7 @@ The extreme flexibility of editors like Vim and Emacs means that any plugin or
 setting can affect the entire editor in ways that are not initially obvious.
 
 To find the cause of a problem in your config, you must "bisect" it:
-1. Remove or disable half of your [config](#config).
+1. Remove or disable half of your [config](undefined#config).
 2. Restart Nvim.
 3. If the problem still occurs, goto 1.
 4. If the problem is gone, restore half of the removed lines.
@@ -610,8 +610,8 @@ to 'shortmess'.
 ## <a id="" class="section-title" href="#">$VIM and $VIMRUNTIME</a> <span id="$VIM"></span>
 
 The environment variable "$VIM" is used to locate various user files for Nvim,
-such as the user [config](#config).  This depends on the system, see
-[startup](#startup).
+such as the user [config](undefined#config).  This depends on the system, see
+[startup](undefined#startup).
 
 Nvim will try to get the value for $VIM in this order:
 
@@ -638,7 +638,7 @@ Nvim will try to get the value for $VIMRUNTIME in this order:
 3. Directory path "$VIM/runtime", if it exists.
 4. Value of $VIM environment variable.  This is for backwards compatibility
    with older Vim versions.
-5. If "../share/nvim/runtime" exists relative to [v:progpath](#v:progpath), it is used.
+5. If "../share/nvim/runtime" exists relative to |v:progpath|, it is used.
 6. Path derived from the 'helpfile' option (if it doesn't contain '$') with
    "doc/help.txt" removed from the end.
 
@@ -662,7 +662,7 @@ CTRL-Z			Suspend Nvim, like ":stop".
 ### <a id=":sus :suspend :st :stop" class="section-title" href="#:sus :suspend :st :stop">:sus[pend][!]	or</a>
 :st[op][!]		Suspend Nvim using OS "job control"; it will continue
 			if you make it the foreground job again.  Triggers
-			[VimSuspend| before suspending and |VimResume](#VimSuspend| before suspending and |VimResume) when
+			[VimSuspend](undefined#VimSuspend) before suspending and [VimResume](undefined#VimResume) when
 			resumed.
 			If "!" is not given and 'autowrite' is set, every
 			buffer with changes and a file name is written out.
@@ -722,13 +722,13 @@ can be used with different terminals.
 
 Only global mappings are stored, not mappings local to a buffer.
 
-A common method is to use a default [config](#config) file, make some modifications
+A common method is to use a default [config](undefined#config) file, make some modifications
 with ":map" and ":set" commands and write the modified file.  First read the
 default vimrc in with a command like ":source ~piet/.vimrc.Cprogs", change
 the settings and then save them in the current directory with ":mkvimrc!".  If
-you want to make this file your default [config](#config), move it to
-$XDG_CONFIG_HOME/nvim.  You could also use autocommands [autocommand](#autocommand) and/or
-modelines [modeline](#modeline).
+you want to make this file your default [config](undefined#config), move it to
+$XDG_CONFIG_HOME/nvim.  You could also use autocommands [autocommand](undefined#autocommand) and/or
+modelines [modeline](undefined#modeline).
 
 ### <a id="vimrc-option-example" class="section-title" href="#vimrc-option-example">Note:</a>
 If you only want to add a single option setting to your vimrc, you can use
@@ -745,7 +745,7 @@ these steps:
 
 ## <a id="views-sessions" class="section-title" href="#views-sessions">Views and Sessions</a> 
 
-This is introduced in sections [21.4| and |21.5](#21.4| and |21.5) of the user manual.
+This is introduced in sections |21.4| and |21.5| of the user manual.
 
 ### <a id="View view-file" class="section-title" href="#View view-file">Note:</a>
 A View is a collection of settings that apply to one window.  You can save a
@@ -760,11 +760,11 @@ You can use a Session to quickly switch between different projects,
 automatically loading the files you were last working on in that project.
 
 Views and Sessions are a nice addition to ShaDa files, which are used to
-remember information for all Views and Sessions together [shada-file](#shada-file).
+remember information for all Views and Sessions together [shada-file](undefined#shada-file).
 
 You can quickly start editing with a previously saved View or Session with the
-[-S](#-S) argument:
-	vim -S Session.vim
+[-S](undefined#-S) argument:
+```	vim -S Session.vim
 ```
 
 ### <a id=":mks :mksession" class="section-title" href="#:mks :mksession">Note:</a>
@@ -800,7 +800,7 @@ resulting file, when executed with a ":source" command:
    If 'sessionoptions' contains "winsize" and no (help/blank) windows were
    left out, the window sizes are restored (relative to the screen size).
    Otherwise, the windows are just given sensible sizes.
-9. Restores the Views for all the windows, as with [:mkview](#:mkview).  But
+9. Restores the Views for all the windows, as with |:mkview|.  But
    'sessionoptions' is used instead of 'viewoptions'.
 10. If a file exists with the same name as the Session file, but ending in
    "x.vim" (for eXtra), executes that as well.  You can use *x.vim files to
@@ -808,15 +808,15 @@ resulting file, when executed with a ":source" command:
    such as creating menu items in the GUI version.
 
 After restoring the Session, the full filename of your current Session is
-available in the internal variable [v:this_session](#v:this_session).
+available in the internal variable |v:this_session|.
 An example mapping:
   :nmap <F2> :wa<Bar>exe "mksession! " .. v:this_session<CR>:so ~/sessions/
 This saves the current Session, and starts off the command to load another.
 
 A session includes all tab pages, unless "tabpages" was removed from
-'sessionoptions'. [tab-page](#tab-page)
+'sessionoptions'. [tab-page](undefined#tab-page)
 
-The [SessionLoadPost](#SessionLoadPost) autocmd event is triggered after a session file is
+The [SessionLoadPost](undefined#SessionLoadPost) autocmd event is triggered after a session file is
 loaded/sourced.
 ### <a id="SessionLoad-variable" class="section-title" href="#SessionLoad-variable">Note:</a>
 While the session file is loading the SessionLoad global variable is set to 1.
@@ -834,7 +834,7 @@ triggered.
 			"$VIM/vimfiles/view" then "view" is created in
 			"$VIM/vimfiles".
 			An existing file is always overwritten then.  Use
-			[:loadview](#:loadview) to load this view again.
+			|:loadview| to load this view again.
 			When [file] is the name of a file ('viewdir' is not
 			used), a command to edit the file is added to the
 			generated file.
@@ -899,7 +899,7 @@ information.  The ShaDa file can be used to remember that information, which
 enables you to continue where you left off.  Its name is the abbreviation of
 SHAred DAta because it is used for sharing data between Neovim sessions.
 
-This is introduced in section [21.3](#21.3) of the user manual.
+This is introduced in section |21.3| of the user manual.
 
 The ShaDa file is used to store:
 - The command line history.
@@ -917,18 +917,18 @@ does not depend on what you are working on.  There normally is only one
 ShaDa file.  Session files are used to save the state of a specific editing
 Session.  You could have several Session files, one for each project you are
 working on.  ShaDa and Session files together can be used to effectively
-enter Vim and directly start working in your desired setup. [session-file](#session-file)
+enter Vim and directly start working in your desired setup. [session-file](undefined#session-file)
 
 ### <a id="shada-read" class="section-title" href="#shada-read">Note:</a>
 When Vim is started and the 'shada' option is non-empty, the contents of
 the ShaDa file are read and the info can be used in the appropriate places.
-The [v:oldfiles](#v:oldfiles) variable is filled.  The marks are not read in at startup
-(but file marks are).  See [initialization](#initialization) for how to set the 'shada'
+The |v:oldfiles| variable is filled.  The marks are not read in at startup
+(but file marks are).  See [initialization](undefined#initialization) for how to set the 'shada'
 option upon startup.
 
 ### <a id="shada-write" class="section-title" href="#shada-write">Note:</a>
 When Vim exits and 'shada' is non-empty, the info is stored in the ShaDa file
-(it's actually merged with the existing one, if one exists [shada-merging](#shada-merging)).
+(it's actually merged with the existing one, if one exists [shada-merging](undefined#shada-merging)).
 The 'shada' option is a string containing information about what info should
 be stored, and contains limits on how much should be stored (see 'shada').
 
@@ -958,13 +958,13 @@ cursor position when the file was last exited.  No marks are saved for files
 that start with any string given with the "r" flag in 'shada'.  This can be
 used to avoid saving marks for files on removable media (for MS-Windows you
 would use "ra:,rb:").
-The [v:oldfiles](#v:oldfiles) variable is filled with the file names that the ShaDa file
+The |v:oldfiles| variable is filled with the file names that the ShaDa file
 has marks for.
 
 ### <a id="shada-file-marks" class="section-title" href="#shada-file-marks">Note:</a>
 Uppercase marks ('A to 'Z) are stored when writing the ShaDa file.  The
 numbered marks ('0 to '9) are a bit special.  When the ShaDa file is written
-(when exiting or with the [:wshada](#:wshada) command), '0 is set to the current cursor
+(when exiting or with the |:wshada| command), '0 is set to the current cursor
 position and file.  The old '0 is moved to '1, '1 to '2, etc.  This
 resembles what happens with the "1 to "9 delete registers.  If the current
 cursor position is already present in '0 to '9, it is moved to '0, to avoid
@@ -987,33 +987,33 @@ remembered.
 
 ### <a id="shada-merging" class="section-title" href="#shada-merging">MERGING</a>
 
-When writing ShaDa files with [:wshada](#:wshada) without bang or at regular exit
+When writing ShaDa files with |:wshada| without bang or at regular exit
 information in the existing ShaDa file is merged with information from current
 Neovim instance.  For this purpose ShaDa files store timestamps associated
 with ShaDa entries.  Specifically the following is being done:
 
 1. History lines are merged, ordered by timestamp.  Maximum amount of items in
-   ShaDa file is defined by 'shada' option ([shada-/|, |shada-:|, |shada-@](#shada-/|, |shada-:|, |shada-@),
+   ShaDa file is defined by 'shada' option (|shada-/|, |shada-:|, |shada-@|,
    etc: one suboption for each character that represents history name
-   ([:history](#:history))).
+   (|:history|)).
 2. Local marks and changes for files that were not opened by Neovim are copied
    to new ShaDa file. Marks for files that were opened by Neovim are merged,
-   changes to files opened by Neovim are ignored. [shada-'](#shada-')
+   changes to files opened by Neovim are ignored. |shada-'|
 3. Jump list is merged: jumps are ordered by timestamp, identical jumps
    (identical position AND timestamp) are squashed.
 4. Search patterns and substitute strings are not merged: search pattern or
    substitute string which has greatest timestamp will be the only one copied
    to ShaDa file.
 5. For each register entity with greatest timestamp is the only saved.
-   [shada-<](#shada-<)
+   |shada-<|
 6. All saved variables are saved from current Neovim instance. Additionally
    existing variable values are copied, meaning that the only way to remove
    variable from a ShaDa file is either removing it by hand or disabling
-   writing variables completely. [shada-!](#shada-!)
+   writing variables completely. |shada-!|
 7. For each global mark entity with greatest timestamp is the only saved.
 8. Buffer list and header are the only entries which are not merged in any
    fashion: the only header and buffer list present are the ones from the
-   Neovim instance which was last writing the file. [shada-%](#shada-%)
+   Neovim instance which was last writing the file. |shada-%|
 
 ### <a id="shada-compatibility" class="section-title" href="#shada-compatibility">COMPATIBILITY</a>
 
@@ -1023,19 +1023,19 @@ ShaDa files are forward and backward compatible.  This means that
    ignored when reading and blindly copied when writing.
 2. Register entries with unknown register name are ignored when reading and
    blindly copied when writing. Limitation: only registers that use name with
-   code in interval [1, 255] are supported. [registers](#registers)
+   code in interval [1, 255] are supported. [registers](undefined#registers)
 3. Register entries with unknown register type are ignored when reading and
-   merged as usual when writing. [getregtype()](#getregtype())
+   merged as usual when writing. |getregtype()|
 4. Local and global mark entries with unknown mark names are ignored when
    reading. When writing global mark entries are blindly copied and local mark
    entries are also blindly copied, but only if file they are attached to fits
-   in the [shada-'](#shada-') limit. Unknown local mark entry's timestamp is also taken
+   in the |shada-'| limit. Unknown local mark entry's timestamp is also taken
    into account when calculating which files exactly should fit into this
    limit. Limitation: only marks that use name with code in interval [1, 255]
-   are supported. [mark-motions](#mark-motions)
+   are supported. [mark-motions](undefined#mark-motions)
 5. History entries with unknown history type are ignored when reading and
    blindly copied when writing. Limitation: there can be only up to 256
-   history types. [history](#history)
+   history types. [history](undefined#history)
 6. Unknown keys found in register, local mark, global mark, change, jump and
    search pattern entries are saved internally and dumped when writing.
    Entries created during Neovim session never have such additions.
@@ -1049,17 +1049,17 @@ ShaDa files are forward and backward compatible.  This means that
    reading ShaDa files.
 
 "Blindly" here means that there will be no attempts to somehow merge them,
-even if other entries (with known name/type/etc) are merged. [shada-merging](#shada-merging)
+even if other entries (with known name/type/etc) are merged. [shada-merging](undefined#shada-merging)
 
 ### <a id="shada-file-name" class="section-title" href="#shada-file-name">Shada File Name</a>
 
-- Default name of the [shada](#shada) file is:
+- Default name of the [shada](undefined#shada) file is:
       Unix:     "$XDG_STATE_HOME/nvim/shada/main.shada"
       Windows:  "$XDG_STATE_HOME/nvim-data/shada/main.shada"
-  See also [base-directories](#base-directories).
+  See also [base-directories](undefined#base-directories).
 - To choose a different file name you can use:
     - The "n" flag in the 'shada' option.
-    - The [-i](#-i) startup argument.  "NONE" means no shada file is ever read or
+    - The [-i](undefined#-i) startup argument.  "NONE" means no shada file is ever read or
       written.  Also not for the commands below!
     - The 'shadafile' option.  The value from the "-i" argument (if any) is
       stored in the 'shadafile' option.
@@ -1083,12 +1083,12 @@ do this.  This can be useful in order to create a second file, say
 "~/.my.shada" which could contain certain settings that you always want when
 you first start Neovim.  For example, you can preload registers with
 particular data, or put certain commands in the command line history.  A line
-in your [config](#config) file like
+in your [config](undefined#config) file like
 	:rshada! ~/.my.shada
 can be used to load this information.  You could even have different ShaDa
 files for different types of files (e.g., C code) and load them based on the
-file name, using the ":autocmd" command (see [:autocmd](#:autocmd)).  More information on
-ShaDa file format is contained in [shada-format](#shada-format) section.
+file name, using the ":autocmd" command (see |:autocmd|).  More information on
+ShaDa file format is contained in [shada-format](undefined#shada-format) section.
 
 ### <a id="E136 E929 shada-error-handling" class="section-title" href="#E136 E929 shada-error-handling">Note:</a>
 Some errors make Neovim leave temporary file named `{basename}.tmp.X` (X is
@@ -1100,7 +1100,7 @@ include:
   non-ShaDa files are not overwritten for safety reasons to avoid accidentally
   destroying an unrelated file.  This could happen e.g. when typing "nvim -i
   file" in place of "nvim -R file" (yes, somebody did that at least with Vim).
-  Such errors are listed at [shada-critical-contents-errors](#shada-critical-contents-errors).
+  Such errors are listed at [shada-critical-contents-errors](undefined#shada-critical-contents-errors).
 - If writing to the temporary file failed: e.g. because of the insufficient
   space left.
 - If renaming file failed: e.g. because of insufficient permissions.
@@ -1110,8 +1110,8 @@ include:
 
 Do not forget to remove the temporary file or replace the target file with
 temporary one after getting one of the above errors or all attempts to create
-a ShaDa file may fail with [E929](#E929).  If you got one of them when using
-[:wshada](#:wshada) (and not when exiting Neovim: i.e. when you have Neovim session
+a ShaDa file may fail with [E929](undefined#E929).  If you got one of them when using
+|:wshada| (and not when exiting Neovim: i.e. when you have Neovim session
 running) you have additional options:
 
 - First thing which you should consider if you got any error, except failure
@@ -1119,19 +1119,19 @@ running) you have additional options:
   temporary file.  Do it even if you have running Neovim instance.
 - Fix the permissions and/or file ownership, free some space and attempt to
   write again.  Do not remove the existing file.
-- Use [:wshada](#:wshada) with bang.  Does not help in case of permission error.  If
+- Use |:wshada| with bang.  Does not help in case of permission error.  If
   target file was actually the ShaDa file some information may be lost in this
-  case.  To make the matters slightly better use [:rshada](#:rshada) prior to writing,
+  case.  To make the matters slightly better use |:rshada| prior to writing,
   but this still will loose buffer-local marks and change list entries for any
   file which is not opened in the current Neovim instance.
-- Remove the target file from shell and use [:wshada](#:wshada).  Consequences are not
-  different from using [:wshada](#:wshada) with bang, but "rm -f" works in some cases
+- Remove the target file from shell and use |:wshada|.  Consequences are not
+  different from using |:wshada| with bang, but "rm -f" works in some cases
   when you don't have write permissions.
 
 ### <a id=":rsh :rshada E886" class="section-title" href="#:rsh :rshada E886">Note:</a>
 :rsh[ada][!] [file]	Read from ShaDa file [file] (default: see above).
 			If [!] is given, then any information that is
-			already set (registers, marks, [v:oldfiles](#v:oldfiles), etc.)
+			already set (registers, marks, |v:oldfiles|, etc.)
 			will be overwritten.
 
 ### <a id=":wsh :wshada E137" class="section-title" href="#:wsh :wshada E137">Note:</a>
@@ -1140,31 +1140,31 @@ running) you have additional options:
 			a merge between old and new info.  When [!] is used,
 			the old information is not read first, only the
 			internal info is written (also disables safety checks
-			described in [shada-error-handling](#shada-error-handling)).  If 'shada' is
+			described in [shada-error-handling](undefined#shada-error-handling)).  If 'shada' is
 			empty, marks for up to 100 files will be written.
 			When you get error "E929: All .tmp.X files exist,
 			cannot write ShaDa file!" check that no old temp files
 			were left behind (e.g.
 ### <a id="~/.local/state/nvim/shada/main.shada.tmp)." class="section-title" href="#~/.local/state/nvim/shada/main.shada.tmp).">Note:</a>
 
-			Note: Executing :wshada will reset all ['quote](#'quote) marks.
+			Note: Executing :wshada will reset all |'quote| marks.
 
 ### <a id=":o :ol :oldfiles" class="section-title" href="#:o :ol :oldfiles">Note:</a>
 :o[ldfiles]		List the files that have marks stored in the ShaDa
 			file.  This list is read on startup and only changes
-			afterwards with `:rshada!`.  Also see [v:oldfiles](#v:oldfiles).
-			The number can be used with [c_#<](#c_#<).
-			The output can be filtered with [:filter](#:filter), e.g.:
+			afterwards with `:rshada!`.  Also see |v:oldfiles|.
+			The number can be used with |c_#<|.
+			The output can be filtered with |:filter|, e.g.:
 				filter /\.vim/ oldfiles
 			The filtering happens on the file name.
 
 :bro[wse] o[ldfiles][!]
-			List file names as with [:oldfiles](#:oldfiles), and then prompt
+			List file names as with |:oldfiles|, and then prompt
 			for a number.  When the number is valid that file from
 			the list is edited.
-			If you get the [press-enter](#press-enter) prompt you can press "q"
+			If you get the [press-enter](undefined#press-enter) prompt you can press "q"
 			and still get the prompt to enter a file number.
-			Use ! to abandon a modified buffer. [abandon](#abandon)
+			Use ! to abandon a modified buffer. [abandon](undefined#abandon)
 
 ### <a id="shada-format" class="section-title" href="#shada-format">Shada File Format</a>
 
@@ -1193,16 +1193,16 @@ exactly four MessagePack objects:
                                   written by Neovim.
                        version    Binary, generator version.
                        encoding   Binary, effective 'encoding' value.
-                       max_kbyte  Integer, effective [shada-s](#shada-s) limit value.
+                       max_kbyte  Integer, effective [shada-s](undefined#shada-s) limit value.
                        pid        Integer, instance process ID.
 ### <a id="``" class="section-title" href="#``">Note:</a>
                                   additional keys with any data.
    2 (SearchPattern)   Map containing data describing last used search or
                        substitute pattern.  Normally ShaDa file contains two
                        such entries: one with "ss" key set to true (describes
-                       substitute pattern, see [:substitute](#:substitute)), and one set to
+                       substitute pattern, see |:substitute|), and one set to
                        false (describes search pattern, see
-                       [search-commands](#search-commands)). "su" key should be true on one of
+                       [search-commands](/neovim-docs-web/en/vim/pattern#search-commands)). "su" key should be true on one of
                        the entries.  If key value is equal to default then it
                        is normally not present.  Keys:
                        Key  Type     Default  Description ~
@@ -1210,83 +1210,83 @@ exactly four MessagePack objects:
                        sc   Boolean  false    Effective 'smartcase' value.
                        sl   Boolean  true     True if search pattern comes
                                               with a line offset.  See
-                                              [search-offset](#search-offset).
-                       se   Boolean  false    True if [search-offset](#search-offset)
+                                              [search-offset](undefined#search-offset).
+                       se   Boolean  false    True if [search-offset](undefined#search-offset)
                                               requested to place cursor at
                                               (relative to) the end of the
                                               pattern.
-                       so   Integer  0        Offset value. [search-offset](#search-offset)
+                       so   Integer  0        Offset value. [search-offset](undefined#search-offset)
                        su   Boolean  false    True if current entry was the
                                               last used search pattern.
                        ss   Boolean  false    True if current entry describes
-                                              [:substitute](#:substitute) pattern.
-                       sh   Boolean  false    True if [v:hlsearch](#v:hlsearch) is on.
-                                              With [shada-h](#shada-h) or 'nohlsearch'
+                                              |:substitute| pattern.
+                       sh   Boolean  false    True if |v:hlsearch| is on.
+                                              With [shada-h](undefined#shada-h) or 'nohlsearch'
                                               this key is always false.
                        sp   Binary   N/A      Actual pattern.  Required.
                        sb   Boolean  false    True if search direction is
                                               backward.
 ### <a id="``" class="section-title" href="#``">Note:</a>
                                               compatibility reasons, see
-                                              [shada-compatibility](#shada-compatibility).
-   3 (SubString)       Array containing last [:substitute](#:substitute) replacement string.
+                                              [shada-compatibility](undefined#shada-compatibility).
+   3 (SubString)       Array containing last |:substitute| replacement string.
                        Contains single entry: binary, replacement string used.
                        More entries are allowed for compatibility reasons, see
-                       [shada-compatibility](#shada-compatibility).
+                       [shada-compatibility](undefined#shada-compatibility).
    4 (HistoryEntry)    Array containing one entry from history.  Should have
                        two or three entries.  First one is history type
                        (unsigned integer), second is history line (binary),
                        third is the separator character (unsigned integer,
                        must be in interval [0, 255]).  Third item is only
                        valid for search history.  Possible history types are
-                       listed in [hist-names](#hist-names), here are the corresponding
+                       listed in [hist-names](undefined#hist-names), here are the corresponding
                        numbers: 0 - cmd, 1 - search, 2 - expr, 3 - input,
                        4 - debug.
-   5 (Register)        Map describing one register ([registers](#registers)).  If key
+   5 (Register)        Map describing one register ([registers](undefined#registers)).  If key
                        value is equal to default then it is normally not
                        present.  Keys:
                        Key  Type             Def   Description ~
                        rt   UInteger         0     Register type:
                                                    No  Description ~
-                                                   0   [charwise-register](#charwise-register)
-                                                   1   [linewise-register](#linewise-register)
-                                                   2   [blockwise-register](#blockwise-register)
+                                                   0   [charwise-register](undefined#charwise-register)
+                                                   1   [linewise-register](undefined#linewise-register)
+                                                   2   [blockwise-register](undefined#blockwise-register)
                        rw   UInteger         0     Register width. Only valid
-                                                   for [blockwise-register](#blockwise-register)s.
+                                                   for [blockwise-register](undefined#blockwise-register)s.
                        rc   Array of binary  N/A   Register contents.  Each
                                                    entry in the array
                                                    represents its own line.
                                                    NUL characters inside the
                                                    line should be represented
                                                    as NL according to
-                                                   [NL-used-for-Nul](#NL-used-for-Nul).
+                                                   [NL-used-for-Nul](undefined#NL-used-for-Nul).
                        ru   Boolean          false Unnamed register. Whether
                                                    the unnamed register had
                                                    pointed to this register.
                        n    UInteger         N/A   Register name: character
                                                    code in range [1, 255].
-                                                   Example: [quote0](#quote0) register
+                                                   Example: [quote0](undefined#quote0) register
                                                    has name 48 (ASCII code for
                                                    zero character).
 ### <a id="" class="section-title" href="#">Note:</a>
                                                    for compatibility reasons,
-                                                   see [shada-compatibility](#shada-compatibility).
+                                                   see [shada-compatibility](undefined#shada-compatibility).
    6 (Variable)        Array containing two items: variable name (binary) and
                        variable value (any object).  Values are converted
-                       using the same code [msgpackparse()](#msgpackparse()) uses when reading,
-                       [msgpackdump()](#msgpackdump()) when writing, so there may appear
-                       [msgpack-special-dict](#msgpack-special-dict)s.  If there are more then two
+                       using the same code |msgpackparse()| uses when reading,
+                       |msgpackdump()| when writing, so there may appear
+                       [msgpack-special-dict](undefined#msgpack-special-dict)s.  If there are more then two
                        entries then the rest are ignored
-                       ([shada-compatibility](#shada-compatibility)).
+                       ([shada-compatibility](undefined#shada-compatibility)).
    7 (GlobalMark)
    8 (Jump)
    10 (LocalMark)
    11 (Change)         Map containing some position description:
                        Entry      Position ~
-                       GlobaMark  Global mark position. ['A](#'A)
-                       LocalMark  Local mark position. ['a](#'a)
-                       Jump       One position from the [jumplist](#jumplist).
-                       Change     One position from the [changelist](#changelist).
+                       GlobaMark  Global mark position. |'A|
+                       LocalMark  Local mark position. |'a|
+                       Jump       One position from the [jumplist](undefined#jumplist).
+                       Change     One position from the [changelist](undefined#changelist).
 
                        Data contained in the map:
                        Key  Type      Default  Description ~
@@ -1299,7 +1299,7 @@ exactly four MessagePack objects:
                        f    Binary    N/A      File name.  Required.
 ### <a id="``" class="section-title" href="#``">Note:</a>
                                                compatibility reasons, see
-                                               [shada-compatibility](#shada-compatibility).
+                                               [shada-compatibility](undefined#shada-compatibility).
    9 (BufferList)      Array containing maps.  Each map in the array
                        represents one buffer.  Possible keys:
                        Key  Type      Default  Description ~
@@ -1309,14 +1309,14 @@ exactly four MessagePack objects:
                        f    Binary    N/A      File name.  Required.
 ### <a id="``" class="section-title" href="#``">Note:</a>
                                                compatibility reasons, see
-                                               [shada-compatibility](#shada-compatibility).
+                                               [shada-compatibility](undefined#shada-compatibility).
 ### <a id="`` (Unknown)" class="section-title" href="#`` (Unknown)">Note:</a>
-                       reasons, see [shada-compatibility](#shada-compatibility).
+                       reasons, see [shada-compatibility](undefined#shada-compatibility).
 
 ### <a id="E575 E576" class="section-title" href="#E575 E576">Note:</a>
 Errors in ShaDa file may have two types: E575 used for all “logical” errors
 and E576 used for all “critical” errors.  Critical errors trigger behaviour
-described in [shada-error-handling](#shada-error-handling) when writing and skipping the rest of the
+described in [shada-error-handling](undefined#shada-error-handling) when writing and skipping the rest of the
 file when reading and include:
 ### <a id="shada-critical-contents-errors" class="section-title" href="#shada-critical-contents-errors">Note:</a>
 - Any of first three MessagePack objects being not an unsigned integer.
@@ -1333,7 +1333,7 @@ file when reading and include:
 ## <a id="standard-path" class="section-title" href="#standard-path">Standard Paths</a> 
 
 Nvim stores configuration, data, and logs in standard locations. Plugins are
-strongly encouraged to follow this pattern also. Use [stdpath()](#stdpath()) to get the
+strongly encouraged to follow this pattern also. Use |stdpath()| to get the
 paths.
 
 ### <a id="base-directories xdg" class="section-title" href="#base-directories xdg">Note:</a>
@@ -1371,7 +1371,7 @@ Besides 'debug' and 'verbose', Nvim keeps a general log file for internal
 debugging, plugins and RPC clients.
 	:echo $NVIM_LOG_FILE
 By default, the file is located at stdpath("log")/log unless that path
-is inaccessible or if $NVIM_LOG_FILE was set before [startup](#startup).
+is inaccessible or if $NVIM_LOG_FILE was set before [startup](undefined#startup).
 
 
  vim:noet:tw=78:ts=8:ft=help:norl:

@@ -1414,7 +1414,7 @@ Vim remembers the modification timestamp, mode and size of a file when you
 begin editing it.  This is used to avoid that you have two different versions
 of the same file (without you knowing this).
 
-After a shell command is run ([:!cmd| |suspend| |:read!| |K](#:!cmd| |suspend| |:read!| |K)) timestamps,
+After a shell command is run ([:!cmd| [[[suspend](/undefined#suspend)](/undefined)](/undefined) |:read!| |K](#:!cmd| [[[suspend](/undefined#suspend)](/undefined)](/undefined) |:read!| |K)) timestamps,
 file modes and file sizes are compared for all buffers in a window.   Vim will
 run any associated [FileChangedShell](#FileChangedShell) autocommands or display a warning for
 any files that have changed.  In the GUI this happens when Vim regains input

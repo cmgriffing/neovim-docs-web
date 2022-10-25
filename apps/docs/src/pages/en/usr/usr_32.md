@@ -16,14 +16,14 @@ Vim provides multi-level undo.  If you undo a few changes and then make a new
 change you create a branch in the undo tree.  This text is about moving
 through the branches.
 
-[32.1](#32.1)	Undo up to a file write
-[32.2](#32.2)	Numbering changes
-[32.3](#32.3)	Jumping around the tree
-[32.4](#32.4)	Time travelling
+|32.1|	Undo up to a file write
+|32.2|	Numbering changes
+|32.3|	Jumping around the tree
+|32.4|	Time travelling
 
-     Next chapter: [usr_40.txt](#usr_40.txt)  Make new commands
- Previous chapter: [usr_31.txt](#usr_31.txt)  Exploiting the GUI
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_40.txt|  Make new commands
+ Previous chapter: |usr_31.txt|  Exploiting the GUI
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*32.1*	Undo Up to a File Write</a> 
@@ -46,12 +46,12 @@ Note that these commands really work in time sequence.  This matters if you
 made changes after undoing some changes.  It's explained in the next section.
 
 Also note that we are talking about text writes here.  For writing the undo
-information in a file see [undo-persistence](#undo-persistence).
+information in a file see [undo-persistence](undefined#undo-persistence).
 
 
 ## <a id="" class="section-title" href="#">*32.2*	Numbering Changes</a> 
 
-In section [02.5](#02.5) we only discussed one line of undo/redo.  But it is also
+In section |02.5| we only discussed one line of undo/redo.  But it is also
 possible to branch off.  This happens when you undo a few changes and then
 make a new change.  The new changes become a branch in the undo tree.
 
@@ -79,11 +79,11 @@ create a branch in the undo tree:
 	      one too ~
 	      /     \
 	 change 2  change 3
-	    [	      ](#	      )
+	    |	      |
 	 one two    me too ~
 
-You can now use the [u](#u) command to undo.  If you do this twice you get to
-"one".  Use [CTRL-R| to redo, and you will go to "one too".  One more |CTRL-R](#CTRL-R| to redo, and you will go to "one too".  One more |CTRL-R)
+You can now use the [u](undefined#u) command to undo.  If you do this twice you get to
+"one".  Use [CTRL-R](undefined#CTRL-R) to redo, and you will go to "one too".  One more [CTRL-R](undefined#CTRL-R)
 takes you to "me too".  Thus undo and redo go up and down in the tree, using
 the branch that was last used.
 
@@ -103,7 +103,7 @@ So how do you get to "one two" now?  You can use this command:
 
 	:undo 2
 
-The text is now "one two", you are below change 2.  You can use the [:undo](#:undo)
+The text is now "one two", you are below change 2.  You can use the |:undo|
 command to jump to below any change in the tree.
 
 Now make another change: change "one" to "not":
@@ -115,34 +115,34 @@ Now make another change: change "one" to "not":
 	      one too ~
 	      /     \
 	 change 2  change 3
-	    [	      ](#	      )
+	    |	      |
 	 one two    me too ~
 	    |
 	 change 4
 	    |
 	 not two ~
 
-Now you change your mind and want to go back to "me too".  Use the [g-](#g-)
+Now you change your mind and want to go back to "me too".  Use the [g-](undefined#g-)
 command.  This moves back in time.  Thus it doesn't walk the tree upwards or
 downwards, but goes to the change made before.
 
-You can repeat [g-](#g-) and you will see the text change:
+You can repeat [g-](undefined#g-) and you will see the text change:
 	me too ~
 	one two ~
 	one too ~
 	one ~
 
-Use [g+](#g+) to move forward in time:
+Use |g+| to move forward in time:
 	one ~
 	one too ~
 	one two ~
 	me too ~
 	not two ~
 
-Using [:undo| is useful if you know what change you want to jump to.  |g-](#:undo| is useful if you know what change you want to jump to.  |g-) and
-[g+](#g+) are useful if you don't know exactly what the change number is.
+Using |:undo| is useful if you know what change you want to jump to.  [g-](undefined#g-) and
+|g+| are useful if you don't know exactly what the change number is.
 
-You can type a count before [g-| and |g+](#g-| and |g+) to repeat them.
+You can type a count before [g-](undefined#g-) and |g+| to repeat them.
 
 
 ## <a id="" class="section-title" href="#">*32.4*	Time Travelling</a> 
@@ -164,24 +164,24 @@ seconds with this command:
 	:earlier 10s
 
 Depending on how much time you took for the changes you end up at a certain
-position in the tree.  The [:earlier](#:earlier) command argument can be "m" for minutes,
+position in the tree.  The |:earlier| command argument can be "m" for minutes,
 "h" for hours and "d" for days.  To go all the way back use a big number:
 
 	:earlier 100d
 
-To travel forward in time again use the [:later](#:later) command:
+To travel forward in time again use the |:later| command:
 
 	:later 1m
 
-The arguments are "s", "m" and "h", just like with [:earlier](#:earlier).
+The arguments are "s", "m" and "h", just like with |:earlier|.
 
 If you want even more details, or want to manipulate the information, you can
-use the [undotree()](#undotree()) function.  To see what it returns:
+use the |undotree()| function.  To see what it returns:
 
 	:echo undotree()
 
 
-## <a id="Make new commands" class="section-title" href="#Make new commands">Next Chapter: [Usr_40.Txt](#Usr_40.Txt)</a> 
+## <a id="Make new commands" class="section-title" href="#Make new commands">Next Chapter: |Usr_40.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

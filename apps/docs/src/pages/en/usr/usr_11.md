@@ -17,14 +17,14 @@ stores enough information to be able to restore most of your work.  This
 chapter shows you how to get your work back and explains how the swap file is
 used.
 
-[11.1](#11.1)	Basic recovery
-[11.2](#11.2)	Where is the swap file?
-[11.3](#11.3)	Crashed or not?
-[11.4](#11.4)	Further reading
+|11.1|	Basic recovery
+|11.2|	Where is the swap file?
+|11.3|	Crashed or not?
+|11.4|	Further reading
 
-     Next chapter: [usr_12.txt](#usr_12.txt)  Clever tricks
- Previous chapter: [usr_10.txt](#usr_10.txt)  Making big changes
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_12.txt|  Clever tricks
+ Previous chapter: |usr_10.txt|  Making big changes
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*11.1*	Basic Recovery</a> 
@@ -51,7 +51,7 @@ To be on the safe side, write this file under another name:
 	:write help.txt.recovered
 
 Compare the file with the original file to check if you ended up with what you
-expected.  Diff mode is very useful for this [08.7](#08.7).  For example:
+expected.  Diff mode is very useful for this |08.7|.  For example:
 
 	:write help.txt.recovered
 	:edit #
@@ -218,7 +218,7 @@ will automatically delete it:
 - The flag that the file was modified is not set.
 - The process is not running.
 
-You can programmatically deal with this situation with the [FileChangedShell](#FileChangedShell)
+You can programmatically deal with this situation with the [FileChangedShell](undefined#FileChangedShell)
 autocommand event.
 
 
@@ -300,22 +300,22 @@ machines.  Therefore, don't rely on Vim always warning you.
 If you really don't want to see this message, you can add the 'A' flag to the
 'shortmess' option.  But it's very unusual that you need this.
 
-For programmatic access to the swap file, see [swapinfo()](#swapinfo()).
+For programmatic access to the swap file, see |swapinfo()|.
 
 
 ## <a id="" class="section-title" href="#">*11.4*	Further Reading</a> 
 
-[swap-file](#swap-file)	An explanation about where the swap file will be created and
+[swap-file](/neovim-docs-web/en/vim/recover#swap-file)	An explanation about where the swap file will be created and
 		what its name is.
-[:preserve](#:preserve)	Manually flushing the swap file to disk.
-[:swapname](#:swapname)	See the name of the swap file for the current file.
+|:preserve|	Manually flushing the swap file to disk.
+|:swapname|	See the name of the swap file for the current file.
 'updatecount'	Number of key strokes after which the swap file is flushed to
 		disk.
 'updatetime'	Timeout after which the swap file is flushed to disk.
 'directory'	List of directory names where to store the swap file.
 
 
-## <a id="Clever tricks" class="section-title" href="#Clever tricks">Next Chapter: [Usr_12.Txt](#Usr_12.Txt)</a> 
+## <a id="Clever tricks" class="section-title" href="#Clever tricks">Next Chapter: |Usr_12.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

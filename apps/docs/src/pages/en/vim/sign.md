@@ -13,7 +13,7 @@ VIM REFERENCE MANUAL    by Gordon Prieur
 
 ### <a id="sign-support" class="section-title" href="#sign-support">Sign Support Features</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="sign-intro signs" class="section-title" href="#sign-intro signs">1. Introduction</a> 
@@ -49,21 +49,21 @@ characters to display them in.  When the last sign is unplaced the column
 disappears again.  This behavior can be changed with the 'signcolumn' option.
 
 The color of the column is set with the SignColumn highlight group
-[hl-SignColumn](#hl-SignColumn).  Example to set the color: 
+[hl-SignColumn](undefined#hl-SignColumn).  Example to set the color:
 ```
 	:highlight SignColumn guibg=darkgrey
 ```
 
 If 'cursorline' is enabled, then the CursorLineSign highlight group is used
-[hl-CursorLineSign](#hl-CursorLineSign).
+[hl-CursorLineSign](undefined#hl-CursorLineSign).
 ### <a id="sign-identifier" class="section-title" href="#sign-identifier">Note:</a>
 Each placed sign is identified by a number called the sign identifier. This
 identifier is used to jump to the sign or to remove the sign. The identifier
-is assigned when placing the sign using the [:sign-place](#:sign-place) command or the
-[sign_place()](#sign_place()) function. Each sign identifier should be a unique number. If
+is assigned when placing the sign using the |:sign-place| command or the
+|sign_place()| function. Each sign identifier should be a unique number. If
 multiple placed signs use the same identifier, then jumping to or removing a
 sign becomes unpredictable. To avoid overlapping identifiers, sign groups can
-be used. The [sign_place()](#sign_place()) function can be called with a zero sign identifier
+be used. The |sign_place()| function can be called with a zero sign identifier
 to allocate the next available identifier.
 
 ### <a id="sign-group" class="section-title" href="#sign-group">Note:</a>
@@ -92,7 +92,7 @@ the delete is undone the sign does not move back.
 ## <a id="sign-commands :sig :sign" class="section-title" href="#sign-commands :sig :sign">2. Commands</a> 
 
 Here is an example that places a sign "piet", displayed with the text ">>", in
-line 23 of the current file: 
+line 23 of the current file:
 ```	:sign define piet text=>> texthl=Search
 	:exe ":sign place 2 line=23 name=piet file=" .. expand("%:p")
 
@@ -100,12 +100,12 @@ And here is the command to delete it again:
 	:sign unplace 2
 
 Note that the ":sign" command cannot be followed by another command or a
-comment.  If you do need that, use the [:execute](#:execute) command.
+comment.  If you do need that, use the |:execute| command.
 
 
 ### <a id=":sign-define E255 E160 E612" class="section-title" href="#:sign-define E255 E160 E612">Defining a Sign.</a>
 
-See [sign_define()](#sign_define()) for the equivalent Vim script function.
+See |sign_define()| for the equivalent Vim script function.
 
 :sign define {name} {argument}...
 		Define a new sign or set attributes for an existing sign.
@@ -130,8 +130,8 @@ See [sign_define()](#sign_define()) for the equivalent Vim script function.
 
 	numhl={group}
 		Highlighting group used for the line number on the line where
-		the sign is placed.  Overrides [hl-LineNr|, |hl-LineNrAbove](#hl-LineNr|, |hl-LineNrAbove),
-		[hl-LineNrBelow|, and |hl-CursorLineNr](#hl-LineNrBelow|, and |hl-CursorLineNr).
+		the sign is placed.  Overrides [hl-LineNr](undefined#hl-LineNr), [hl-LineNrAbove](undefined#hl-LineNrAbove),
+		[hl-LineNrBelow](undefined#hl-LineNrBelow), and [hl-CursorLineNr](undefined#hl-CursorLineNr).
 
 ### <a id="E239" class="section-title" href="#E239">	text={text}</a>
 		Define the text that is displayed when there is no icon or the
@@ -152,20 +152,20 @@ See [sign_define()](#sign_define()) for the equivalent Vim script function.
 
 ### <a id=":sign-undefine E155" class="section-title" href="#:sign-undefine E155">Deleting a Sign</a>
 
-See [sign_undefine()](#sign_undefine()) for the equivalent Vim script function.
+See |sign_undefine()| for the equivalent Vim script function.
 
 :sign undefine {name}
 		Deletes a previously defined sign.  If signs with this {name}
 		are still placed this will cause trouble.
 
-		Example: 
+		Example:
 ```			:sign undefine MySign
 ```
 
 
 ### <a id=":sign-list E156" class="section-title" href="#:sign-list E156">Listing Signs</a>
 
-See [sign_getdefined()](#sign_getdefined()) for the equivalent Vim script function.
+See |sign_getdefined()| for the equivalent Vim script function.
 
 :sign list	Lists all defined signs and their attributes.
 
@@ -175,7 +175,7 @@ See [sign_getdefined()](#sign_getdefined()) for the equivalent Vim script functi
 
 ### <a id=":sign-place E158" class="section-title" href="#:sign-place E158">Placing Signs</a>
 
-See [sign_place()](#sign_place()) for the equivalent Vim script function.
+See |sign_place()| for the equivalent Vim script function.
 
 :sign place {id} line={lnum} name={name} file={fname}
 		Place sign defined as {name} at line {lnum} in file {fname}.
@@ -205,7 +205,7 @@ See [sign_place()](#sign_place()) for the equivalent Vim script function.
 		that is displayed when multiple signs are placed on the same
 		line.
 
-		Examples: 
+		Examples:
 ```			:sign place 5 line=3 name=sign1 file=a.py
 			:sign place 6 group=g2 line=2 name=sign2 file=x.py
 			:sign place 9 group=g2 priority=50 line=5
@@ -216,7 +216,7 @@ See [sign_place()](#sign_place()) for the equivalent Vim script function.
 		Same, but use buffer {nr}.  If the buffer argument is not
 		given, place the sign in the current buffer.
 
-		Example: 
+		Example:
 ```			:sign place 10 line=99 name=sign3
 			:sign place 10 line=99 name=sign3 buffer=3
 ```
@@ -224,7 +224,7 @@ See [sign_place()](#sign_place()) for the equivalent Vim script function.
 ### <a id="E885" class="section-title" href="#E885">Note:</a>
 :sign place {id} name={name} file={fname}
 		Change the placed sign {id} in file {fname} to use the defined
-		sign {name}.  See remark above about {fname} [:sign-fname](#:sign-fname).
+		sign {name}.  See remark above about {fname} |:sign-fname|.
 		This can be used to change the displayed sign without moving
 		it (e.g., when the debugger has stopped at a breakpoint).
 
@@ -233,7 +233,7 @@ See [sign_place()](#sign_place()) for the equivalent Vim script function.
 		"priority={prio}" attribute can be used to change the priority
 		of an existing sign.
 
-		Example: 
+		Example:
 ```			:sign place 23 name=sign1 file=/path/to/edit.py
 ```
 
@@ -241,7 +241,7 @@ See [sign_place()](#sign_place()) for the equivalent Vim script function.
 		Same, but use buffer {nr}.  If the buffer argument is not
 		given, use the current buffer.
 
-		Example: 
+		Example:
 ```			:sign place 23 name=sign1
 			:sign place 23 name=sign1 buffer=7
 ```
@@ -249,11 +249,11 @@ See [sign_place()](#sign_place()) for the equivalent Vim script function.
 
 ### <a id=":sign-unplace E159" class="section-title" href="#:sign-unplace E159">Removing Signs</a>
 
-See [sign_unplace()](#sign_unplace()) for the equivalent Vim script function.
+See |sign_unplace()| for the equivalent Vim script function.
 
 :sign unplace {id} file={fname}
 		Remove the previously placed sign {id} from file {fname}.
-		See remark above about {fname} [:sign-fname](#:sign-fname).
+		See remark above about {fname} |:sign-fname|.
 
 :sign unplace {id} group={group} file={fname}
 		Same but remove the sign {id} in sign group {group}.
@@ -325,11 +325,11 @@ See [sign_unplace()](#sign_unplace()) for the equivalent Vim script function.
 
 ### <a id=":sign-place-list" class="section-title" href="#:sign-place-list">Listing Placed Signs</a>
 
-See [sign_getplaced()](#sign_getplaced()) for the equivalent Vim script function.
+See |sign_getplaced()| for the equivalent Vim script function.
 
 :sign place file={fname}
 		List signs placed in file {fname}.
-		See remark above about {fname} [:sign-fname](#:sign-fname).
+		See remark above about {fname} |:sign-fname|.
 
 :sign place group={group} file={fname}
 		List signs in group {group} placed in file {fname}.
@@ -356,14 +356,14 @@ See [sign_getplaced()](#sign_getplaced()) for the equivalent Vim script function
 
 ### <a id=":sign-jump E157" class="section-title" href="#:sign-jump E157">Jumping to a Sign</a>
 
-See [sign_jump()](#sign_jump()) for the equivalent Vim script function.
+See |sign_jump()| for the equivalent Vim script function.
 
 :sign jump {id} file={fname}
 		Open the file {fname} or jump to the window that contains
 		{fname} and position the cursor at sign {id}.
-		See remark above about {fname} [:sign-fname](#:sign-fname).
+		See remark above about {fname} |:sign-fname|.
 		If the file isn't displayed in window and the current file can
-		not be [abandon](#abandon)ed this fails.
+		not be [abandon](undefined#abandon)ed this fails.
 
 :sign jump {id} group={group} file={fname}
 		Same but jump to the sign in group {group}
@@ -382,7 +382,7 @@ See [sign_jump()](#sign_jump()) for the equivalent Vim script function.
 ### <a id="sign_define()" class="section-title" href="#sign_define()">sign_define({name} [, {dict}])</a>
 sign_define({list})
 		Define a new sign named {name} or modify the attributes of an
-		existing sign.  This is similar to the [:sign-define](#:sign-define) command.
+		existing sign.  This is similar to the |:sign-define| command.
 
 		Prefix {name} with a unique text to avoid name collisions.
 		There is no {group} like with placing signs.
@@ -400,8 +400,8 @@ sign_define({list})
 				the cursor is on the same line as the sign and
 				'cursorline' is enabled.
 		   numhl	highlight group used for 'number' column at the
-				associated line. Overrides [hl-LineNr](#hl-LineNr),
-				[hl-CursorLineNr](#hl-CursorLineNr).
+				associated line. Overrides [hl-LineNr](undefined#hl-LineNr),
+				[hl-CursorLineNr](undefined#hl-CursorLineNr).
 
 		If the sign named {name} already exists, then the attributes
 		of the sign are updated.
@@ -414,7 +414,7 @@ sign_define({list})
 		{list} is used, then returns a List of values one for each
 		defined sign.
 
-		Examples: 
+		Examples:
 ```			call sign_define("mySign", {
 				\ "text" : "=>",
 				\ "texthl" : "Error",
@@ -427,12 +427,12 @@ sign_define({list})
 				\ ])
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignList()->sign_define()
 
 ### <a id="sign_getdefined()" class="section-title" href="#sign_getdefined()">sign_getdefined([{name}])</a>
 		Get a list of defined signs and their attributes.
-		This is similar to the [:sign-list](#:sign-list) command.
+		This is similar to the |:sign-list| command.
 
 		If the {name} is not supplied, then a list of all the defined
 		signs is returned. Otherwise the attribute of the specified
@@ -453,8 +453,8 @@ sign_define({list})
 				'cursorline' is enabled; not present if not
 				set.
 		   numhl	highlight group used for 'number' column at the
-				associated line. Overrides [hl-LineNr](#hl-LineNr),
-				[hl-CursorLineNr](#hl-CursorLineNr); not present if not set.
+				associated line. Overrides [hl-LineNr](undefined#hl-LineNr),
+				[hl-CursorLineNr](undefined#hl-CursorLineNr); not present if not set.
 
 		Returns an empty List if there are no signs and when {name} is
 		not found.
@@ -467,27 +467,27 @@ sign_define({list})
 			echo sign_getdefined("mySign")
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignList()->sign_getdefined()
 
 ### <a id="sign_getplaced()" class="section-title" href="#sign_getplaced()">sign_getplaced([{buf} [, {dict}]])</a>
 		Return a list of signs placed in a buffer or all the buffers.
-		This is similar to the [:sign-place-list](#:sign-place-list) command.
+		This is similar to the |:sign-place-list| command.
 
 		If the optional buffer name {buf} is specified, then only the
 		list of signs placed in that buffer is returned.  For the use
-		of {buf}, see [bufname()](#bufname()). The optional {dict} can contain
+		of {buf}, see |bufname()|. The optional {dict} can contain
 		the following entries:
 		   group	select only signs in this group
 		   id		select sign with this identifier
 		   lnum		select signs placed in this line. For the use
-				of {lnum}, see [line()](#line()).
+				of {lnum}, see |line()|.
 ### <a id="If {group} is '', then signs in all the groups including the" class="section-title" href="#If {group} is '', then signs in all the groups including the">Note:</a>
 		global group are returned. If {group} is not supplied or is an
 		empty string, then only signs in the global group are
 		returned.  If no arguments are supplied, then signs in the
 		global group placed in all the buffers are returned.
-		See [sign-group](#sign-group).
+		See [sign-group](undefined#sign-group).
 
 		Each list item in the returned value is a dictionary with the
 		following entries:
@@ -531,7 +531,7 @@ sign_define({list})
 			echo sign_getplaced()
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetBufname()->sign_getplaced()
 ```
 
@@ -539,19 +539,19 @@ sign_define({list})
 sign_jump({id}, {group}, {buf})
 		Open the buffer {buf} or jump to the window that contains
 		{buf} and position the cursor at sign {id} in group {group}.
-		This is similar to the [:sign-jump](#:sign-jump) command.
+		This is similar to the |:sign-jump| command.
 
-		For the use of {buf}, see [bufname()](#bufname()).
+		For the use of {buf}, see |bufname()|.
 
 		Returns the line number of the sign. Returns -1 if the
 		arguments are invalid.
 
-		Example: 
+		Example:
 ```			" Jump to sign 10 in the current buffer
 			call sign_jump(10, '', '')
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignid()->sign_jump()
 ```
 
@@ -559,25 +559,25 @@ sign_jump({id}, {group}, {buf})
 sign_place({id}, {group}, {name}, {buf} [, {dict}])
 		Place the sign defined as {name} at line {lnum} in file or
 		buffer {buf} and assign {id} and {group} to sign.  This is
-		similar to the [:sign-place](#:sign-place) command.
+		similar to the |:sign-place| command.
 
 		If the sign identifier {id} is zero, then a new identifier is
 		allocated.  Otherwise the specified number is used. {group} is
 		the sign group name. To use the global sign group, use an
 		empty string.  {group} functions as a namespace for {id}, thus
-		two groups can use the same IDs. Refer to [sign-identifier](#sign-identifier)
-		and [sign-group](#sign-group) for more information.
+		two groups can use the same IDs. Refer to [sign-identifier](undefined#sign-identifier)
+		and [sign-group](undefined#sign-group) for more information.
 
 		{name} refers to a defined sign.
 		{buf} refers to a buffer name or number. For the accepted
-		values, see [bufname()](#bufname()).
+		values, see |bufname()|.
 
 		The optional {dict} argument supports the following entries:
 			lnum		line number in the file or buffer
 					{buf} where the sign is to be placed.
-					For the accepted values, see [line()](#line()).
+					For the accepted values, see |line()|.
 			priority	priority of the sign. See
-					[sign-priority](#sign-priority) for more information.
+					[sign-priority](undefined#sign-priority) for more information.
 
 		If the optional {dict} is not specified, then it modifies the
 		placed sign {id} in group {group} to use the defined sign
@@ -585,7 +585,7 @@ sign_place({id}, {group}, {name}, {buf} [, {dict}])
 
 		Returns the sign identifier on success and -1 on failure.
 
-		Examples: 
+		Examples:
 ```			" Place a sign named sign1 with id 5 at line 20 in
 			" buffer json.c
 			call sign_place(5, '', 'sign1', 'json.c',
@@ -605,37 +605,37 @@ sign_place({id}, {group}, {name}, {buf} [, {dict}])
 					\ {'lnum' : 40, 'priority' : 90})
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignid()->sign_place(group, name, expr)
 ```
 
 ### <a id="sign_placelist()" class="section-title" href="#sign_placelist()">Note:</a>
 sign_placelist({list})
 		Place one or more signs.  This is similar to the
-		[sign_place()](#sign_place()) function.  The {list} argument specifies the
+		|sign_place()| function.  The {list} argument specifies the
 		List of signs to place. Each list item is a dict with the
 		following sign attributes:
 		    buffer	buffer name or number. For the accepted
-				values, see [bufname()](#bufname()).
+				values, see |bufname()|.
 		    group	sign group. {group} functions as a namespace
 				for {id}, thus two groups can use the same
 				IDs. If not specified or set to an empty
 				string, then the global group is used.   See
-				[sign-group](#sign-group) for more information.
+				[sign-group](undefined#sign-group) for more information.
 		    id		sign identifier. If not specified or zero,
 				then a new unique identifier is allocated.
 				Otherwise the specified number is used. See
-				[sign-identifier](#sign-identifier) for more information.
+				[sign-identifier](undefined#sign-identifier) for more information.
 		    lnum	line number in the buffer {buf} where the
 				sign is to be placed. For the accepted values,
-				see [line()](#line()).
-		    name	name of the sign to place. See [sign_define()](#sign_define())
+				see |line()|.
+		    name	name of the sign to place. See |sign_define()|
 		    		for more information.
 		    priority	priority of the sign. When multiple signs are
 				placed on a line, the sign with the highest
 				priority is used. If not specified, the
 				default value of 10 is used. See
-				[sign-priority](#sign-priority) for more information.
+				[sign-priority](undefined#sign-priority) for more information.
 
 		If {id} refers to an existing sign, then the existing sign is
 		modified to use the specified {name} and/or {priority}.
@@ -643,7 +643,7 @@ sign_placelist({list})
 		Returns a List of sign identifiers. If failed to place a
 		sign, the corresponding list item is set to -1.
 
-		Examples: 
+		Examples:
 ```			" Place sign s1 with id 5 at line 20 and id 10 at line
 			" 30 in buffer a.c
 			let [n1, n2] = sign_placelist([
@@ -669,13 +669,13 @@ sign_placelist({list})
 				\ ])
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignlist()->sign_placelist()
 
 ### <a id="sign_undefine()" class="section-title" href="#sign_undefine()">sign_undefine([{name}])</a>
 sign_undefine({list})
 		Deletes a previously defined sign {name}. This is similar to
-		the [:sign-undefine](#:sign-undefine) command. If {name} is not supplied, then
+		the |:sign-undefine| command. If {name} is not supplied, then
 		deletes all the defined signs.
 
 		The one argument {list} can be used to undefine a list of
@@ -696,12 +696,12 @@ sign_undefine({list})
 			call sign_undefine()
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignlist()->sign_undefine()
 
 ### <a id="sign_unplace()" class="section-title" href="#sign_unplace()">sign_unplace({group} [, {dict}])</a>
 		Remove a previously placed sign in one or more buffers.  This
-		is similar to the [:sign-unplace](#:sign-unplace) command.
+		is similar to the |:sign-unplace| command.
 
 		{group} is the sign group name. To use the global sign group,
 		use an empty string.  If {group} is set to '*', then all the
@@ -709,7 +709,7 @@ sign_undefine({list})
 		The signs in {group} are selected based on the entries in
 		{dict}.  The following optional entries in {dict} are
 		supported:
-			buffer	buffer name or number. See [bufname()](#bufname()).
+			buffer	buffer name or number. See |bufname()|.
 			id	sign identifier
 		If {dict} is not supplied, then all the signs in {group} are
 		removed.
@@ -741,18 +741,18 @@ sign_undefine({list})
 			" Remove all the placed signs from all the buffers
 ### <a id="call sign_unplace('')" class="section-title" href="#call sign_unplace('')">Note:</a>
 
-		Can also be used as a [method](#method):
+		Can also be used as a [method](undefined#method):
 			GetSigngroup()->sign_unplace()
 ```
 
 ### <a id="sign_unplacelist()" class="section-title" href="#sign_unplacelist()">sign_unplacelist({list})</a>
 		Remove previously placed signs from one or more buffers.  This
-		is similar to the [sign_unplace()](#sign_unplace()) function.
+		is similar to the |sign_unplace()| function.
 
 		The {list} argument specifies the List of signs to remove.
 		Each list item is a dict with the following sign attributes:
 		    buffer	buffer name or number. For the accepted
-				values, see [bufname()](#bufname()). If not specified,
+				values, see |bufname()|. If not specified,
 				then the specified sign is removed from all
 				the buffers.
 		    group	sign group name. If not specified or set to an
@@ -765,7 +765,7 @@ sign_undefine({list})
 		Returns a List where an entry is set to 0 if the corresponding
 		sign was successfully removed or -1 on failure.
 
-		Example: 
+		Example:
 ```			" Remove sign with id 10 from buffer a.vim and sign
 			" with id 20 from buffer b.vim
 			call sign_unplacelist([
@@ -774,7 +774,7 @@ sign_undefine({list})
 				\ ])
 ```
 
-		Can also be used as a [method](#method): 
+		Can also be used as a [method](undefined#method):
 ```			GetSignlist()->sign_unplacelist()
 ```
 

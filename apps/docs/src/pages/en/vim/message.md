@@ -14,7 +14,7 @@ This file contains an alphabetical list of messages and error messages that
 Vim produces.  You can use this if you don't understand what the message
 means.  It is not complete though.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id=":messages :mes message-history" class="section-title" href="#:messages :mes message-history">1. Old Messages</a> 
@@ -46,8 +46,8 @@ The previous command output is cleared when another command produces output.
 The "g<" output is not redirected.
 
 If you want to find help on a specific (error) message, use the ID at the
-start of the message.  For example, to get help on the message: 
-```
+start of the message.  For example, to get help on the message:
+
 	E72: Close error on swap file
 
 or (translated):
@@ -67,7 +67,7 @@ If you are lazy, it also works without the shift key:
 
 When an error message is displayed, but it is removed before you could read
 it, you can see it again with:
-  :echo v:errmsg
+```  :echo v:errmsg
 Or view a list of recent messages with:
   :messages
 See `:messages` above.
@@ -99,18 +99,18 @@ LIST OF MESSAGES
   Invalid count for del_bytes(): {N}
 
 This is an internal error.  If you can reproduce it, please send in a bug
-report. [bugs](#bugs)
+report. [bugs](undefined#bugs)
   ATTENTION
   Found a swap file by the name ...
 
-See [ATTENTION](#ATTENTION).
+See [ATTENTION](undefined#ATTENTION).
 
 ### <a id="E92" class="section-title" href="#E92">Note:</a>
   Buffer {N} not found
 
 The buffer you requested does not exist.  This can also happen when you have
 wiped out a buffer which contains a mark or is referenced in another way.
-[:bwipeout](#:bwipeout)
+|:bwipeout|
 
 ### <a id="E95" class="section-title" href="#E95">Note:</a>
   Buffer with this name already exists
@@ -121,7 +121,7 @@ path leading to the file.
 ### <a id="E72" class="section-title" href="#E72">Note:</a>
   Close error on swap file
 
-The [swap-file](#swap-file), that is used to keep a copy of the edited text, could not be
+The [swap-file](/neovim-docs-web/en/vim/recover#swap-file), that is used to keep a copy of the edited text, could not be
 closed properly.  Mostly harmless.
 
 ### <a id="E169" class="section-title" href="#E169">Note:</a>
@@ -130,12 +130,12 @@ closed properly.  Mostly harmless.
 This happens when an Ex command executes an Ex command that executes an Ex
 command, etc.  The limit is 200 or the value of 'maxfuncdepth', whatever is
 larger.  When it's more there probably is an endless loop.  Probably a
-[:execute| or |:source](#:execute| or |:source) command is involved.
+|:execute| or |:source| command is involved.
 
 ### <a id="E254" class="section-title" href="#E254">Note:</a>
   Cannot allocate color {name}
 
-The color name {name} is unknown.  See [gui-colors](#gui-colors) for a list of colors that
+The color name {name} is unknown.  See [gui-colors](undefined#gui-colors) for a list of colors that
 are available on most systems.
 
 ### <a id="E458" class="section-title" href="#E458">Note:</a>
@@ -193,8 +193,8 @@ can overwrite.
 ### <a id="E46" class="section-title" href="#E46">Note:</a>
   Cannot change read-only variable "{name}"
 
-You are trying to assign a value to an argument of a function [a:var](#a:var) or a Vim
-internal variable [v:var](#v:var) which is read-only.
+You are trying to assign a value to an argument of a function |a:var| or a Vim
+internal variable |v:var| which is read-only.
 
 ### <a id="E90" class="section-title" href="#E90">Note:</a>
   Cannot unload last buffer
@@ -249,7 +249,7 @@ changes.
 ### <a id="E302" class="section-title" href="#E302">Note:</a>
   Could not rename swap file
 
-When the file name changes, Vim tries to rename the [swap-file](#swap-file) as well.
+When the file name changes, Vim tries to rename the [swap-file](/neovim-docs-web/en/vim/recover#swap-file) as well.
 This failed and the old swap file is now still used.  Mostly harmless.
 
 ### <a id="E43 E44" class="section-title" href="#E43 E44">Note:</a>
@@ -257,7 +257,7 @@ This failed and the old swap file is now still used.  Mostly harmless.
   Corrupted regexp program
 
 Something inside Vim went wrong and resulted in a corrupted regexp.  If you
-know how to reproduce this problem, please report it. [bugs](#bugs)
+know how to reproduce this problem, please report it. [bugs](undefined#bugs)
 
 ### <a id="E208 E209 E210" class="section-title" href="#E208 E209 E210">Note:</a>
   Error writing to "{filename}"
@@ -321,7 +321,7 @@ buffer.  This would result in two versions of the same file.
   File not written: Writing is disabled by 'write' option
 
 The 'write' option is off.  This makes all commands that try to write a file
-generate this message.  This could be caused by a [-m](#-m) commandline argument.
+generate this message.  This could be caused by a [-m](undefined#-m) commandline argument.
 You can switch the 'write' option on with ":set write".
 
 ### <a id="E25" class="section-title" href="#E25">Note:</a>
@@ -360,21 +360,21 @@ the other way around.  It should be used like this: {foo,bar}.  This matches
   ml_get: invalid lnum: {number}
 
 This is an internal Vim error.  Please try to find out how it can be
-reproduced, and submit a [bug-report](#bug-report).
+reproduced, and submit a [bug-report](undefined#bug-report).
 
 ### <a id="E173" class="section-title" href="#E173">Note:</a>
   {number} more files to edit
 
 You are trying to exit, while the last item in the argument list has not been
 edited.  This protects you from accidentally exiting when you still have more
-files to work on.  See [argument-list](#argument-list).  If you do want to exit, just do it
+files to work on.  See [argument-list](undefined#argument-list).  If you do want to exit, just do it
 again and it will work.
 
 ### <a id="E23 E194" class="section-title" href="#E23 E194">Note:</a>
   No alternate file
   No alternate file name to substitute for '#'
 
-The alternate file is not defined yet.  See [alternate-file](#alternate-file).
+The alternate file is not defined yet.  See [alternate-file](undefined#alternate-file).
 
 ### <a id="E32" class="section-title" href="#E32">Note:</a>
   No file name
@@ -396,7 +396,7 @@ cannot be written.  You need to give the buffer a file name:
 
 When using the '~' character in a pattern, it is replaced with the previously
 used pattern in a ":substitute" command.  This fails when no such command has
-been used yet.  See [/~](#/~).  This also happens when using ":s/pat/%/", where the
+been used yet.  See |/~|.  This also happens when using ":s/pat/%/", where the
 "%" stands for the previous substitute string.
 
 ### <a id="E35" class="section-title" href="#E35">Note:</a>
@@ -420,15 +420,15 @@ mapping.  All variations of this command give the same message: ":cunmap",
 ":unmap!", etc.  A few hints:
 - Check for trailing white space.
 - If the mapping is buffer-local you need to use ":unmap <buffer>".
-  [:map-<buffer>](#:map-<buffer>)
+  |:map-<buffer>|
 
 ### <a id="E37 E89" class="section-title" href="#E37 E89">Note:</a>
   No write since last change (add ! to override)
   No write since last change for buffer {N} (add ! to override)
 
-You are trying to [abandon](#abandon) a file that has changes.  Vim protects you from
+You are trying to [abandon](undefined#abandon) a file that has changes.  Vim protects you from
 losing your work.  You can either write the changed file with ":w", or, if you
-are sure, [abandon](#abandon) it anyway, and lose all the changes.  This can be done by
+are sure, [abandon](undefined#abandon) it anyway, and lose all the changes.  This can be done by
 adding a '!' character just after the command you used.  Example:
 	:e other_file
 changes to:
@@ -439,7 +439,7 @@ changes to:
 ```  No write since last change for buffer "{name}"
 
 This appears when you try to exit Vim while some buffers are changed.  You
-will either have to write the changed buffer (with [:w](#:w)), or use a command to
+will either have to write the changed buffer (with |:w|), or use a command to
 abandon the buffer forcefully, e.g., with ":qa!".  Careful, make sure you
 don't throw away changes you really want to keep.  You might have forgotten
 about a buffer, especially when 'hidden' is set.
@@ -452,7 +452,7 @@ changed.  To avoid the message reset the 'warn' option.
   Null argument
 
 Something inside Vim went wrong and resulted in a NULL pointer.  If you know
-how to reproduce this problem, please report it. [bugs](#bugs)
+how to reproduce this problem, please report it. [bugs](undefined#bugs)
 
 ### <a id="E41 E82 E83 E342" class="section-title" href="#E41 E82 E83 E342">Note:</a>
   Out of memory!
@@ -497,7 +497,7 @@ changes to:
   Seek error in swap file read
   Oops, lost the swap file!!!
 
-Vim tried to read text from the [swap-file](#swap-file), but something went wrong.  The
+Vim tried to read text from the [swap-file](/neovim-docs-web/en/vim/recover#swap-file), but something went wrong.  The
 text in the related buffer may now be corrupted!  Check carefully before you
 write a buffer.  You may want to write it in another file and check for
 differences.
@@ -534,7 +534,7 @@ attempting a symlink attack (could happen when editing a file in /tmp or when
 
 Vim (and Vi) expect tags files to be sorted in ASCII order.  Binary searching
 can then be used, which is a lot faster than a linear search.  If your tags
-files are not properly sorted, reset the ['tagbsearch'](#'tagbsearch') option.
+files are not properly sorted, reset the |'tagbsearch'| option.
 This message is only given when Vim detects a problem when searching for a
 tag.  Sometimes this message is not given, even though the tags file is not
 properly sorted.
@@ -543,7 +543,7 @@ properly sorted.
   Too many different highlighting attributes in use
 
 Vim can only handle about 223 different kinds of highlighting.  If you run
-into this limit, you have used too many [:highlight](#:highlight) commands with different
+into this limit, you have used too many |:highlight| commands with different
 arguments.  A ":highlight link" is not counted.
 
 ### <a id="E77" class="section-title" href="#E77">Note:</a>
@@ -559,7 +559,7 @@ Vim was not able to create a swap file.  You can still edit the file, but if
 Vim unexpectedly exits the changes will be lost.  And Vim may consume a lot of
 memory when editing a big file.  You may want to change the 'directory' option
 to avoid this error.  This error is not given when 'directory' is empty.  See
-[swap-file](#swap-file).
+[swap-file](/neovim-docs-web/en/vim/recover#swap-file).
 
 ### <a id="E140" class="section-title" href="#E140">Note:</a>
   Use ! to write partial buffer
@@ -579,7 +579,7 @@ X11 configuration is wrong.
   Warning: Changing a readonly file
 
 The file is read-only and you are making a change to it anyway.  You can use
-the [FileChangedRO](#FileChangedRO) autocommand event to avoid this message (the autocommand
+the [FileChangedRO](undefined#FileChangedRO) autocommand event to avoid this message (the autocommand
 must reset the 'readonly' option).  See 'modifiable' to completely disallow
 making changes to a file.
 This message is only given for the first change after 'readonly' has been set.
@@ -656,7 +656,7 @@ a buffer will not always work, better restart Vim.
   Write error in swap file
 
 This mostly happens when the disk is full.  Vim could not write text into the
-[swap-file](#swap-file).  It's not directly harmful, but when Vim unexpectedly exits some
+[swap-file](/neovim-docs-web/en/vim/recover#swap-file).  It's not directly harmful, but when Vim unexpectedly exits some
 text may be lost without recovery being possible.  Vim might run out of memory
 when this problem persists.
 
@@ -677,8 +677,8 @@ Ex command was executed without a mandatory argument(s).
   Invalid argument: {arg}
   Duplicate argument: {arg}
 
-Ex command or function was given an invalid argument. Or [jobstart()](#jobstart()) or
-[system()](#system()) was given a non-executable command.
+Ex command or function was given an invalid argument. Or |jobstart()| or
+|system()| was given a non-executable command.
 
 ### <a id="E488" class="section-title" href="#E488">Note:</a>
   Trailing characters
@@ -696,7 +696,7 @@ You have added a "!" after an Ex command that doesn't permit one.
   No range allowed
 
 A range was specified for an Ex command that doesn't permit one.  See
-[cmdline-ranges](#cmdline-ranges).
+[cmdline-ranges](undefined#cmdline-ranges).
 
 ### <a id="E482 E483" class="section-title" href="#E482 E483">Note:</a>
   Can't create file {filename}
@@ -710,15 +710,15 @@ Vim cannot create a temporary file.
 
 Vim cannot read a temporary file.  Especially on Windows, this can be caused
 by wrong escaping of special characters for cmd.exe; the approach was
-changed with patch 7.3.443.  Try using [shellescape()](#shellescape()) for all shell arguments
-given to [system()](#system()), or explicitly add escaping with ^.  Also see
+changed with patch 7.3.443.  Try using |shellescape()| for all shell arguments
+given to |system()|, or explicitly add escaping with ^.  Also see
 'shellxquote' and 'shellxescape'.
 
 ### <a id="E464" class="section-title" href="#E464">Note:</a>
   Ambiguous use of user-defined command
 
 There are two user-defined commands with a common name prefix, and you used
-Command-line completion to execute one of them. [user-cmd-ambiguous](#user-cmd-ambiguous)
+Command-line completion to execute one of them. [user-cmd-ambiguous](undefined#user-cmd-ambiguous)
 Example:
 	:command MyCommand1 echo "one"
 	:command MyCommand2 echo "two"
@@ -766,7 +766,7 @@ and the screen is about to be redrawn:
    keys, may not work normally, because the terminal is still set to a state
    for executing the external command.
 -> Press 'k', <Up>, 'u', 'b' or 'g' to scroll back in the messages.  This
-   works the same way as at the [more-prompt](#more-prompt).  Only works when 'more' is on.
+   works the same way as at the [more-prompt](undefined#more-prompt).  Only works when 'more' is on.
 -> Pressing 'j', 'f', 'd' or <Down> is ignored when messages scrolled off the
    top of the screen and 'more' is on, to avoid that typing one 'j' or 'f' too
    many causes the messages to disappear.
@@ -778,18 +778,18 @@ and the screen is about to be redrawn:
    pressing <Space>.
 
 If you accidentally hit <Enter> or <Space> and you want to see the displayed
-text then use [g<](#g<).  This only works when 'more' is set.
+text then use |g<|.  This only works when 'more' is set.
 
 To reduce the number of hit-enter prompts:
 - Set 'cmdheight' to 2 or higher.
 - Add flags to 'shortmess'.
 - Reset 'showcmd' and/or 'ruler'.
-- Make sure `:echo` text is within [v:echospace](#v:echospace) screen cells.
+- Make sure `:echo` text is within |v:echospace| screen cells.
 
 If your script causes the hit-enter prompt and you don't know why, you may
-find the [v:scrollstart](#v:scrollstart) variable useful.
+find the |v:scrollstart| variable useful.
 
-Also see 'mouse'.  The hit-enter message is highlighted with the [hl-Question](#hl-Question)
+Also see 'mouse'.  The hit-enter message is highlighted with the [hl-Question](undefined#hl-Question)
 group.
 
 
@@ -798,7 +798,7 @@ group.
   -- More -- SPACE/d/j: screen/page/line down, b/u/k: up, q: quit
 
 This message is given when the screen is filled with messages.  It is only
-given when the 'more' option is on.  It is highlighted with the [hl-MoreMsg](#hl-MoreMsg)
+given when the 'more' option is on.  It is highlighted with the [hl-MoreMsg](undefined#hl-MoreMsg)
 group.
 
 Type					effect ~
@@ -832,7 +832,7 @@ Any other key causes the meaning of the keys to be displayed.
 Note: The typed key is directly obtained from the terminal, it is not mapped
 and typeahead is ignored.
 
-The [g<](#g<) command can be used to see the last page of previous command output.
+The |g<| command can be used to see the last page of previous command output.
 This is especially useful if you accidentally typed <Space> at the hit-enter
 prompt.
 

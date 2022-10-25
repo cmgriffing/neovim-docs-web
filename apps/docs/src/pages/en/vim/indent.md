@@ -12,20 +12,20 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 This file is about indenting C programs and other files.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="C-indenting" class="section-title" href="#C-indenting">1. Indenting C Style Programs</a> 
 
-The basics for C style indenting are explained in section [30.2](#30.2) of the user
+The basics for C style indenting are explained in section |30.2| of the user
 manual.
 
 Vim has options for automatically indenting C style program files. Many
 programming languages including Java and C++ follow very closely the
 formatting conventions established with C.  These options affect only the
 indent and do not perform other formatting.  There are additional options that
-affect other kinds of formatting as well as indenting, see [format-comments](#format-comments),
-[fo-table|, |gq| and |formatting](#fo-table|, |gq| and |formatting) for the main ones.
+affect other kinds of formatting as well as indenting, see [format-comments](undefined#format-comments),
+[fo-table](undefined#fo-table), [gq](undefined#gq) and [formatting](/neovim-docs-web/en/vim/change#formatting) for the main ones.
 
 There are in fact four main methods available for indentation, each one
 overrides the previous if it is enabled, or non-empty for 'indentexpr':
@@ -36,7 +36,7 @@ overrides the previous if it is enabled, or non-empty for 'indentexpr':
 		different indenting styles.
 'indentexpr'	The most flexible of all: Evaluates an expression to compute
 		the indent of a line.  When non-empty this method overrides
-		the other ones.  See [indent-expression](#indent-expression).
+		the other ones.  See [indent-expression](/neovim-docs-web/en/vim/indent#indent-expression).
 The rest of this section describes the 'cindent' option.
 
 Note that 'cindent' indenting does not work for every code scenario.  Vim
@@ -54,7 +54,7 @@ These five options control C program indenting:
 If 'lisp' is not on and 'equalprg' is empty, the "=" operator indents using
 Vim's built-in algorithm rather than calling an external program.
 
-See [autocommand](#autocommand) for how to set the 'cindent' option automatically for C code
+See [autocommand](undefined#autocommand) for how to set the 'cindent' option automatically for C code
 files and reset it for others.
 
 ### <a id="cinkeys-format indentkeys-format" class="section-title" href="#cinkeys-format indentkeys-format">Note:</a>
@@ -98,7 +98,7 @@ type the key.  So ';' sets the indentation of a line which includes the ';'.
 
 Special key names:
 >	Angle brackets mean spelled-out names of keys.  For example: "<Up>",
-	"<Ins>" (see [key-notation](#key-notation)).
+	"<Ins>" (see [key-notation](undefined#key-notation)).
 ^	Letters preceded by a caret (^) are control characters.  For example:
 	"^F" is CTRL-F.
 o	Reindent a line when you use the "o" command or when Vim opens a new
@@ -150,7 +150,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      increase the indent (lines starting with "if", an opening brace,
 	      etc.).  (default 'shiftwidth').
 
-		cino=		    cino=>2		cino=>2s 
+		cino=		    cino=>2		cino=>2s
 ```		  if (cond)	      if (cond)		  if (cond)
 		  {		      {			  {
 		      foo;		foo;			  foo;
@@ -164,7 +164,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      different indent when the '{' is at the start of the line from
 	      when '{' is at the end of the line.  (default 0).
 
-		cino=		    cino=e2		cino=e-2 
+		cino=		    cino=e2		cino=e-2
 ```		  if (cond) {	      if (cond) {	  if (cond) {
 		      foo;		    foo;	    foo;
 		  }		      }			  }
@@ -181,7 +181,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      before the statement from when there is a '{' before it.
 	      (default 0).
 
-		cino=		    cino=n2		cino=n-2 
+		cino=		    cino=n2		cino=n-2
 ```		  if (cond)	      if (cond)		  if (cond)
 		      foo;		    foo;	    foo;
 		  else		      else		  else
@@ -196,7 +196,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      inside other braces and is at the start of the line.  What comes
 	      after the brace is put relative to this brace.  (default 0).
 
-		cino=		    cino=f.5s		cino=f1s 
+		cino=		    cino=f.5s		cino=f1s
 ```		  func()	      func()		  func()
 		  {			{		      {
 		      int foo;		    int foo;		  int foo;
@@ -207,7 +207,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      This applies only for opening braces that are inside other
 	      braces.  (default 0).
 
-		cino=		    cino={.5s		cino={1s 
+		cino=		    cino={.5s		cino={1s
 ```		  if (cond)	      if (cond)		  if (cond)
 		  {			{		      {
 		      foo;		  foo;		      foo;
@@ -217,7 +217,7 @@ The examples below assume a 'shiftwidth' of 4.
 	}N    Place closing braces N characters from the matching opening
 	      brace.  (default 0).
 
-		cino=		    cino={2,}-0.5s	cino=}2 
+		cino=		    cino={2,}-0.5s	cino=}2
 ```		  if (cond)	      if (cond)		  if (cond)
 		  {			{		  {
 		      foo;		  foo;		      foo;
@@ -230,7 +230,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      indent for whole of a function (some may like to set it to a
 	      negative number).  (default 0).
 
-		cino=		    cino=^-2		cino=^-s 
+		cino=		    cino=^-2		cino=^-s
 ```		  func()	      func()		  func()
 		  {		      {			  {
 		      if (cond)		if (cond)	  if (cond)
@@ -245,7 +245,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      will be placed at column 1. If N is non-negative, the indent of
 	      the label will be the prevailing indent minus N.  (default -1).
 
-		cino=               cino=L2             cino=Ls 
+		cino=               cino=L2             cino=Ls
 ```		  func()              func()              func()
 		  {                   {                   {
 		      {                   {                   {
@@ -259,7 +259,7 @@ The examples below assume a 'shiftwidth' of 4.
 	:N    Place case labels N characters from the indent of the switch().
 	      (default 'shiftwidth').
 
-		cino=		    cino=:0 
+		cino=		    cino=:0
 ```		  switch (x)	      switch(x)
 		  {		      {
 		      case 1:	      case 1:
@@ -272,7 +272,7 @@ The examples below assume a 'shiftwidth' of 4.
 	=N    Place statements occurring after a case label N characters from
 	      the indent of the label.  (default 'shiftwidth').
 
-		cino=		    cino==10 
+		cino=		    cino==10
 ```		   case 11:		case 11:  a = a + 1;
 		       a = a + 1;		  b = b + 1;
 ```
@@ -281,7 +281,7 @@ The examples below assume a 'shiftwidth' of 4.
 	lN    If N != 0 Vim will align with a case label instead of the
 	      statement after it in the same line.
 
-		cino=			    cino=l1 
+		cino=			    cino=l1
 ```		    switch (a) {	      switch (a) {
 			case 1: {		  case 1: {
 				    break;	      break;
@@ -293,7 +293,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      so that case..break looks like a sort of block.  (default: 0).
 	      When using 1, consider adding "0=break" to 'cinkeys'.
 
-		cino=		    cino=b1 
+		cino=		    cino=b1
 ```		  switch (x)	      switch(x)
 		  {		      {
 		      case 1:		  case 1:
@@ -312,7 +312,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      declaration is "public:", "protected:" or "private:". This can
 	      be adjusted with the 'cinscopedecls' option.
 
-		cino=		    cino=g0 
+		cino=		    cino=g0
 ```		  {		      {
 		      public:	      public:
 			  a = b;	  a = b;
@@ -325,7 +325,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      characters from the indent of the label.  (default
 	      'shiftwidth').
 
-		cino=		    cino=h10 
+		cino=		    cino=h10
 ```		   public:		public:   a = a + 1;
 		       a = a + 1;		  b = b + 1;
 ```
@@ -334,7 +334,7 @@ The examples below assume a 'shiftwidth' of 4.
 	NN    Indent inside C++ namespace N characters extra compared to a
 	      normal block.  (default 0).
 
-		cino=			   cino=N-s 
+		cino=			   cino=N-s
 ```		  namespace {                namespace {
 		      void function();       void function();
 		  }                          }
@@ -350,7 +350,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      extern "C++") N characters extra compared to a normal block.
 	      (default 0).
 
-		cino=			   cino=E-s 
+		cino=			   cino=E-s
 ```		  extern "C" {               extern "C" {
 		      void function();       void function();
 		  }                          }
@@ -366,7 +366,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      be indented N characters from the margin.  (default
 	      'shiftwidth').
 
-		cino=		    cino=p0		cino=p2s 
+		cino=		    cino=p0		cino=p2s
 ```		  func(a, b)	      func(a, b)	  func(a, b)
 		      int a;	      int a;			  int a;
 		      char b;	      char b;			  char b;
@@ -376,7 +376,7 @@ The examples below assume a 'shiftwidth' of 4.
 	tN    Indent a function return type declaration N characters from the
 	      margin.  (default 'shiftwidth').
 
-		cino=		    cino=t0		cino=t7 
+		cino=		    cino=t0		cino=t7
 ```		      int	      int			 int
 		  func()	      func()		  func()
 ```
@@ -387,7 +387,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      are aligned at the right side of the ':').
 	      (default 'shiftwidth').
 
-		cino=			  cino=i0 
+		cino=			  cino=i0
 ```		  class MyClass :	    class MyClass :
 		      public BaseClass      public BaseClass
 		  {}			    {}
@@ -403,7 +403,7 @@ The examples below assume a 'shiftwidth' of 4.
               Outside of a function, when the previous line ended in a
 ### <a id="backslash, the 2  N is used." class="section-title" href="#backslash, the 2  N is used.">Note:</a>
 
-		cino=			  cino=+10 
+		cino=			  cino=+10
 #### <a id="a = b + 9 " class="section-title" href="#a = b + 9 ">```</a>
 		      c;			      c;
 ```
@@ -411,9 +411,9 @@ The examples below assume a 'shiftwidth' of 4.
 ### <a id="cino-c" class="section-title" href="#cino-c">Note:</a>
 	cN    Indent comment lines after the comment opener, when there is no
 	      other text with which to align, N characters from the comment
-	      opener.  (default 3).  See also [format-comments](#format-comments).
+	      opener.  (default 3).  See also [format-comments](undefined#format-comments).
 
-		cino=			  cino=c5 
+		cino=			  cino=c5
 #### <a id="/" class="section-title" href="#/">```</a>
 		     text.			 text.
 ### <a id="/" class="section-title" href="#/">Note:</a>
@@ -424,7 +424,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      with the c flag above even if there is other text behind the
 	      comment opener.  (default 0).
 
-		cino=c0			  cino=c0,C1 
+		cino=c0			  cino=c0,C1
 #### <a id="/" class="section-title" href="#/">```</a>
 		    text.		    text.
 ### <a id="/" class="section-title" href="#/">Note:</a>
@@ -446,12 +446,12 @@ The examples below assume a 'shiftwidth' of 4.
 	      up with the next non-white character after the unclosed
 	      parenthesis.  (default 'shiftwidth' * 2).
 
-		cino=			  cino=(0 
-```		  if (c1 && (c2 [|	    if (c1 && (c2 |](#|	    if (c1 && (c2 |)
+		cino=			  cino=(0
+```		  if (c1 && (c2 [](undefined#)	    if (c1 && (c2 [](undefined#)
 			      c3))		       c3))
 		      foo;			foo;
 		  if (c1 &&		    if (c1 &&
-			  (c2 [| c3))		(c2 |](#| c3))		(c2 |) c3))
+			  (c2 [](undefined#) c3))		(c2 [](undefined#) c3))
 		     {			       {
 ```
 
@@ -459,10 +459,10 @@ The examples below assume a 'shiftwidth' of 4.
 	uN    Same as (N, but for one nesting level deeper.
 	      (default 'shiftwidth').
 
-		cino=			  cino=u2 
+		cino=			  cino=u2
 ```		  if (c123456789	    if (c123456789
 			  && (c22345		    && (c22345
-			      [| c3))		      |](#| c3))		      |) c3))
+			      [](undefined#) c3))		      [](undefined#) c3))
 ```
 
 ### <a id="cino-U" class="section-title" href="#cino-U">Note:</a>
@@ -470,10 +470,10 @@ The examples below assume a 'shiftwidth' of 4.
 	      ( or u in case that the unclosed parenthesis is the first
 	      non-white character in its line.  (default 0).
 
-		cino= or cino=(s	  cino=(s,U1 
+		cino= or cino=(s	  cino=(s,U1
 ```		  c = c1 &&		    c = c1 &&
 		      (				(
-		       c2 [|			    c2 |](#|			    c2 |)
+		       c2 [](undefined#)			    c2 [](undefined#)
 		       c3			    c3
 		      ) && c4;			) && c4;
 ```
@@ -485,10 +485,10 @@ The examples below assume a 'shiftwidth' of 4.
 	      up with the character immediately after the unclosed parenthesis
 	      rather than the first non-white character.  (default 0).
 
-		cino=(0			  cino=(0,w1 
+		cino=(0			  cino=(0,w1
 ```		  if (   c1		    if (   c1
 			 && (   c2		&& (   c2
-				[| c3))		    |](#| c3))		    |) c3))
+				[](undefined#) c3))		    [](undefined#) c3))
 		      foo;			foo;
 ```
 
@@ -500,7 +500,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      relative to the outer context (i.e. start of the line or the
 	      next unclosed parenthesis).  (default: 0).
 
-		cino=(0			   cino=(0,W4 
+		cino=(0			   cino=(0,W4
 ```		  a_long_line(		    a_long_line(
 			      argument,		argument,
 			      argument);	argument);
@@ -517,7 +517,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      only for the "if", "for" and "while" conditions.  If 0, defaults
 	      to behaviour defined by the "(N" flag.  (default: 0).
 
-		cino=(0			   cino=(0,ks 
+		cino=(0			   cino=(0,ks
 ```		  if (condition1	    if (condition1
 		      && condition2)		    && condition2)
 		      action();			action();
@@ -530,9 +530,9 @@ The examples below assume a 'shiftwidth' of 4.
 	      parenthesis with the first character of the line with the
 	      matching opening parenthesis.  (default 0).
 
-		cino=(s			  cino=(s,m1 
+		cino=(s			  cino=(s,m1
 ```		  c = c1 && (		    c = c1 && (
-		      c2 [|			c2 |](#|			c2 |)
+		      c2 [](undefined#)			c2 [](undefined#)
 		      c3			c3
 		      ) && c4;		    ) && c4;
 		  if (			    if (
@@ -546,7 +546,7 @@ The examples below assume a 'shiftwidth' of 4.
 	      parenthesis with the first character of the previous line.
 	      (default 0).
 
-		cino=			  cino=M1 
+		cino=			  cino=M1
 ```		  if (cond1 &&		    if (cond1 &&
 			 cond2			   cond2
 		     )				   )
@@ -556,7 +556,7 @@ The examples below assume a 'shiftwidth' of 4.
 	jN    Indent Java anonymous classes correctly.  Also works well for
 	      Javascript.  The value 'N' is currently unused but must be
 	      non-zero (e.g. 'j1').  'j1' will indent for example the
-	      following code snippet correctly: 
+	      following code snippet correctly:
 ```
 		object.add(new ChangeListener() {
 		    public void stateChanged(ChangeEvent e) {
@@ -569,7 +569,7 @@ The examples below assume a 'shiftwidth' of 4.
 	JN    Indent JavaScript object declarations correctly by not confusing
 	      them with labels.  The value 'N' is currently unused but must be
 	      non-zero (e.g. 'J1').  If you enable this you probably also want
-	      to set [cino-j](#cino-j). 
+	      to set [cino-j](undefined#cino-j).
 ```
 		var bar = {
 		    foo: {
@@ -627,7 +627,7 @@ Vim puts a line in column 1 if:
 
 ## <a id="indent-expression" class="section-title" href="#indent-expression">2. Indenting by Expression</a> 
 
-The basics for using flexible indenting are explained in section [30.3](#30.3) of the
+The basics for using flexible indenting are explained in section |30.3| of the
 user manual.
 
 If you want to write your own indent file, it must set the 'indentexpr'
@@ -662,7 +662,6 @@ The 'lispwords' option is a list of comma-separated words that mark special
 forms whose subforms should be indented with two spaces.
 
 For example:
-
 ```	(defn bad []
 	      "Incorrect indentation")
 
@@ -670,17 +669,16 @@ For example:
 	  "Correct indentation")
 ```
 
-If you would like to specify 'lispwords' with a [pattern](#pattern) instead, you can use
+If you would like to specify 'lispwords' with a [pattern](undefined#pattern) instead, you can use
 the fuzzy indent feature:
-
 ```	" Default
 	let g:clojure_fuzzy_indent = 1
 	let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 	let g:clojure_fuzzy_indent_blacklist =
-		\ ['-fn$', '\v^with-%(meta[out-str](#out-str)loading-context)$']
+		\ ['-fn$', '\v^with-%(meta[out-str](undefined#out-str)loading-context)$']
 ```
 
-[g:clojure_fuzzy_indent_patterns| and |g:clojure_fuzzy_indent_blacklist](#g:clojure_fuzzy_indent_patterns| and |g:clojure_fuzzy_indent_blacklist) are
+|g:clojure_fuzzy_indent_patterns| and |g:clojure_fuzzy_indent_blacklist| are
 lists of patterns that will be matched against the unqualified symbol at the
 head of a list.  This means that a pattern like `"^foo"` will match all these
 candidates: `foobar`, `my.ns/foobar`, and `#'foobar`.
@@ -689,9 +687,9 @@ Each candidate word is tested for special treatment in this order:
 
 	1. Return true if word is literally in 'lispwords'
 	2. Return false if word matches a pattern in
-	   [g:clojure_fuzzy_indent_blacklist](#g:clojure_fuzzy_indent_blacklist)
+	   |g:clojure_fuzzy_indent_blacklist|
 	3. Return true if word matches a pattern in
-	   [g:clojure_fuzzy_indent_patterns](#g:clojure_fuzzy_indent_patterns)
+	   |g:clojure_fuzzy_indent_patterns|
 	4. Return false and indent normally otherwise
 
 
@@ -701,7 +699,6 @@ Some forms in Clojure are indented such that every subform is indented by only
 two spaces, regardless of 'lispwords'.  If you have a custom construct that
 should be indented in this idiosyncratic fashion, you can add your symbols to
 the default list below.
-
 ```	" Default
 	let g:clojure_special_indent_words =
 	   \ 'deftype,defrecord,reify,proxy,extend-type,extend-protocol,letfn'
@@ -714,7 +711,6 @@ Align subsequent lines in multi-line strings to the column after the opening
 quote, instead of the same column.
 
 For example:
-
 ```	(def default
 	  "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
 	  eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -734,7 +730,6 @@ For example:
 By default, parenthesized compound forms that look like function calls and
 whose head subform is on its own line have subsequent subforms indented by
 two spaces relative to the opening paren:
-
 ```	(foo
 	  bar
 	  baz)
@@ -743,7 +738,6 @@ two spaces relative to the opening paren:
 Setting this option to `1` changes this behaviour so that all subforms are
 aligned to the same column, emulating the default behaviour of
 clojure-mode.el:
-
 ```	(foo
 	 bar
 	 baz)
@@ -760,7 +754,7 @@ free source form, whereas they are not indented if the Fortran is in fixed
 source form because of the left margin requirements.  Hence manual indent
 corrections will be necessary for labelled statements and continuation lines
 when fixed source form is being used.  For further discussion of the method
-used for the detection of source format see [ft-fortran-syntax](#ft-fortran-syntax).
+used for the detection of source format see [ft-fortran-syntax](undefined#ft-fortran-syntax).
 
 Do loops ~
 All do loops are left unindented by default.  Do loops can be unstructured in
@@ -774,7 +768,7 @@ other than ending a do loop.  Programs such as Tidy can convert structured
 do/continue loops to the do/enddo form.  Do loops of the do/enddo variety can
 be indented.  If you use only structured loops of the do/enddo form, you should
 declare this by setting the fortran_do_enddo variable in your vimrc as
-follows 
+follows
 ```
    let fortran_do_enddo=1
 
@@ -818,7 +812,7 @@ You can set the indent for the first line after <script> and <style>
       "auto"	auto indent (same indent as the blocktag)
       "inc"	auto indent + one indent step
 
-You can set the indent for attributes after an open <tag line: 
+You can set the indent for attributes after an open <tag line:
 ```
       :let g:html_indent_attribute = 1
 ```
@@ -829,8 +823,8 @@ You can set the indent for attributes after an open <tag line:
       > 2	auto indent, more indent steps
 
 Many tags increase the indent for what follows per default (see "Add Indent
-Tags" in the script).  You can add further tags with: 
-```
+Tags" in the script).  You can add further tags with:
+
       :let g:html_indent_inctags = "html,body,head,tbody"
 
 You can also remove such tags with:
@@ -869,7 +863,7 @@ functions.
 
 ### <a id="ft-php-indent php-indent php-indenting" class="section-title" href="#ft-php-indent php-indent php-indenting">PHP</a>
 
-NOTE:	PHP files will be indented correctly only if PHP [syntax](#syntax) is active.
+NOTE:	PHP files will be indented correctly only if PHP [syntax](undefined#syntax) is active.
 
 If you are editing a file in Unix 'fileformat' and '\r' characters are present
 before new lines, indentation won't proceed correctly ; you have to remove
@@ -877,8 +871,8 @@ those useless characters first with a command like:
 
     :%s /\r$//g
 
-Or, you can simply [:let](#:let) the variable PHP_removeCRwhenUnix to 1 and the
-script will silently remove them when Vim loads a PHP file (at each [BufRead](#BufRead)).
+Or, you can simply |:let| the variable PHP_removeCRwhenUnix to 1 and the
+script will silently remove them when Vim loads a PHP file (at each [BufRead](undefined#BufRead)).
 
 OPTIONS: ~
 
@@ -891,10 +885,11 @@ own 'formatoptions'):
     :let g:PHP_autoformatcomment = 0
 
 Else, 't' will be removed from the 'formatoptions' string and "qrowcb" will be
-added, see [fo-table](#fo-table) for more information.
--------------
+added, see [fo-table](undefined#fo-table) for more information.
 
-### <a id="PHP_outdentSLComments" class="section-title" href="#PHP_outdentSLComments">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP OutdentSLComments</a> 
+
 To add extra indentation to single-line comments:
     :let g:PHP_outdentSLComments = N
 
@@ -904,9 +899,10 @@ Only single-line comments will be affected such as:
     # Comment
     // Comment
 ### <a id="/ Comment /" class="section-title" href="#/ Comment /">Note:</a>
--------------
 
-### <a id="PHP_default_indenting" class="section-title" href="#PHP_default_indenting">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP Default Indenting</a> 
+
 To add extra indentation to every PHP lines with N being the number of
 'shiftwidth' to add:
     :let g:PHP_default_indenting = N
@@ -923,20 +919,23 @@ For example, with N = 1, this will give:
 	$command_hist = TRUE;
     ?>
 (Notice the extra indentation between the PHP container markers and the code)
--------------
 
-### <a id="PHP_outdentphpescape" class="section-title" href="#PHP_outdentphpescape">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP Outdentphpescape</a> 
+
 To indent PHP escape tags as the surrounding non-PHP code (only affects the
 PHP escape tags):
     :let g:PHP_outdentphpescape = 0
--------------
 
-### <a id="PHP_removeCRwhenUnix" class="section-title" href="#PHP_removeCRwhenUnix">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP RemoveCRwhenUnix</a> 
+
 To automatically remove '\r' characters when the 'fileformat' is set to Unix:
     :let g:PHP_removeCRwhenUnix = 1
--------------
 
-### <a id="PHP_BracesAtCodeLevel" class="section-title" href="#PHP_BracesAtCodeLevel">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP BracesAtCodeLevel</a> 
+
 To indent braces at the same level than the code they contain:
     :let g:PHP_BracesAtCodeLevel = 1
 
@@ -953,9 +952,10 @@ Instead of:
 
 NOTE:	Indenting will be a bit slower if this option is used because some
 	optimizations won't be available.
--------------
 
-### <a id="PHP_vintage_case_default_indent" class="section-title" href="#PHP_vintage_case_default_indent">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP Vintage Case Default Indent</a> 
+
 To indent 'case:' and 'default:' statements in switch() blocks:
     :let g:PHP_vintage_case_default_indent = 1
 
@@ -963,9 +963,10 @@ In PHP braces are not required inside 'case/default' blocks therefore 'case:'
 and 'default:' are indented at the same level than the 'switch()' to avoid
 meaningless indentation. You can use the above option to return to the
 traditional way.
--------------
 
-### <a id="PHP_noArrowMatching" class="section-title" href="#PHP_noArrowMatching">Note:</a>
+
+## <a id="" class="section-title" href="#"> PHP NoArrowMatching</a> 
+
 By default the indent script will indent multi-line chained calls by matching
 the position of the '->':
 
@@ -982,9 +983,9 @@ You will obtain the following result:
         ->age()
         ->info();
 
--------------
 
-### <a id="PHP_IndentFunctionCallParameters" class="section-title" href="#PHP_IndentFunctionCallParameters">Note:</a>
+## <a id="" class="section-title" href="#"> PHP IndentFunctionCallParameters</a> 
+
 Extra indentation levels to add to parameters in multi-line function calls.
     let g:PHP_IndentFunctionCallParameters = 1
 
@@ -1000,12 +1001,12 @@ Function call arguments will indent 1 extra level. For two-space indentation:
       );
     }
 
--------------
 
-### <a id="PHP_IndentFunctionDeclarationParameters" class="section-title" href="#PHP_IndentFunctionDeclarationParameters">Note:</a>
+## <a id="" class="section-title" href="#"> PHP IndentFunctionDeclarationParameters</a> 
+
 Extra indentation levels to add to arguments in multi-line function
 definitions.
-    let g:PHP_IndentFunctionDeclarationParameters = 1
+```    let g:PHP_IndentFunctionDeclarationParameters = 1
 
 Function arguments in declarations will indent 1 extra level. For two-space
 indentation:
@@ -1023,7 +1024,7 @@ indentation:
 
 ### <a id="ft-python-indent" class="section-title" href="#ft-python-indent">PYTHON</a>
 
-The amount of indent can be set with the `g:python_indent` [Dictionary](#Dictionary), which
+The amount of indent can be set with the `g:python_indent` [Dictionary](undefined#Dictionary), which
 needs to be created before adding the items:
 	let g:python_indent = {}
 The examples given are the defaults.  Note that the dictionary values are set
@@ -1043,7 +1044,7 @@ If you prefer that it's lined up under the first character of the line that
 starts the multiline construct, reset this key:
 	let g:python_indent.closed_paren_align_last_line = v:false
 
-The method uses [searchpair()](#searchpair()) to look back for unclosed parentheses.  This
+The method uses |searchpair()| to look back for unclosed parentheses.  This
 can sometimes be slow, thus it timeouts after 150 msec.  If you notice the
 indenting isn't correct, you can set a larger timeout in msec:
 	let g:python_indent.searchpair_timeout = 500
@@ -1064,7 +1065,7 @@ For backward compatibility, these variables are also supported:
 ### <a id="ft-r-indent" class="section-title" href="#ft-r-indent">R</a>
 
 Function arguments are aligned if they span for multiple lines. If you prefer
-do not have the arguments of functions aligned, put in your [vimrc](#vimrc):
+do not have the arguments of functions aligned, put in your [vimrc](undefined#vimrc):
    let r_indent_align_args = 0
 ```
 
@@ -1072,27 +1073,23 @@ All lines beginning with a comment character, #, get the same indentation
 level of the normal R code. Users of Emacs/ESS may be used to have lines
 beginning with a single # indented in the 40th column, ## indented as R code,
 and ### not indented. If you prefer that lines beginning with comment
-characters are aligned as they are by Emacs/ESS, put in your [vimrc](#vimrc):
-
+characters are aligned as they are by Emacs/ESS, put in your [vimrc](undefined#vimrc):
 ```   let r_indent_ess_comments = 1
 ```
 
 If you prefer that lines beginning with a single # are aligned at a column
 different from the 40th one, you should set a new value to the variable
 r_indent_comment_column, as in the example below:
-
 ```   let r_indent_comment_column = 30
 ```
 
 Any code after a line that ends with "<-" is indented. Emacs/ESS does not
 indent the code if it is a top level function. If you prefer that the
-Vim-R-plugin behaves like Emacs/ESS in this regard, put in your [vimrc](#vimrc):
-
+Vim-R-plugin behaves like Emacs/ESS in this regard, put in your [vimrc](undefined#vimrc):
 ```   let r_indent_ess_compatible = 1
 ```
 
 Below is an example of indentation with and without this option enabled:
-
 ```   ### r_indent_ess_compatible = 1           ### r_indent_ess_compatible = 0
    foo <-                                    foo <-
        function(x)                               function(x)
@@ -1102,16 +1099,16 @@ Below is an example of indentation with and without this option enabled:
 ```
 
 The code will be indented after lines that match the pattern
-`'\(&\[|\|+\|-\|\*\|/\|=\|\~\|%\](#|\|+\|-\|\*\|/\|=\|\~\|%\)->\)\s*$'`. If you want indentation after
+`'\(&\[](undefined#)\|+\|-\|\*\|/\|=\|\~\|%\|->\)\s*$'`. If you want indentation after
 lines that match a different pattern, you should set the appropriate value of
-`r_indent_op_pattern` in your [vimrc](#vimrc).
+`r_indent_op_pattern` in your [vimrc](undefined#vimrc).
 
 
 ### <a id="ft-sh-indent" class="section-title" href="#ft-sh-indent">SHELL</a>
 
 The amount of indent applied under various circumstances in a shell file can
-be configured by setting the following keys in the [Dictionary](#Dictionary)
-b:sh_indent_defaults to a specific amount or to a [Funcref](#Funcref) that references a
+be configured by setting the following keys in the [Dictionary](undefined#Dictionary)
+b:sh_indent_defaults to a specific amount or to a [Funcref](undefined#Funcref) that references a
 function that will return the amount desired:
 
 b:sh_indent_options['default']	Default amount of indent.
@@ -1194,9 +1191,9 @@ to the vimrc file, which causes the previous alignment example to change:
   );
   END ENTITY sync;
 
-----------------------------------------
 
-Alignment of right-hand side assignment "<=" statements are performed by
+## <a id="" class="section-title" href="#">Alignment of Right-Hand Side Assignment "<=" Statements Are Performed By</a> 
+
 default. This causes the following alignment example:
 
   sig_out <= (bus_a(1) AND
@@ -1213,9 +1210,9 @@ to the vimrc file, which causes the previous alignment example to change:
     (sig_b OR sig_c)) OR
     (bus_a(0) AND sig_d);
 
-----------------------------------------
 
-Full-line comments (lines that begin with "--") are indented to be aligned with
+## <a id="" class="section-title" href="#">Full-Line Comments (Lines That Begin With "--") Are Indented to Be Aligned With</a> 
+
 the very previous line's comment, PROVIDED that a whitespace follows after
 "--".
 

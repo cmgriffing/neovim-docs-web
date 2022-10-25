@@ -16,13 +16,13 @@ VIM REFERENCE MANUAL    by Shugo Maeda
 The home page for ruby is https://www.ruby-lang.org/.  You can find links for
 downloading Ruby there.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="ruby-commands" class="section-title" href="#ruby-commands">1. Commands</a> 
 
 ### <a id=":ruby :rub" class="section-title" href="#:ruby :rub">Note:</a>
-:rub[y] {cmd}		Execute Ruby command {cmd}.  A command to try it out: 
+:rub[y] {cmd}		Execute Ruby command {cmd}.  A command to try it out:
 ```				:ruby print "Hello"
 
 :rub[y] << [endmarker]
@@ -33,9 +33,9 @@ downloading Ruby there.
 			any white space.
 
 			If [endmarker] is omitted, it defaults to a dot '.'
-			like for the [:append| and |:insert](#:append| and |:insert) commands.
+			like for the |:append| and |:insert| commands.
 
-			This form of the [:ruby](#:ruby) command is mainly useful for
+			This form of the |:ruby| command is mainly useful for
 			including ruby code in vim scripts.
 
 Example Vim script:
@@ -56,7 +56,7 @@ Example Vim script:
 	endfunction
 ```
 
-To see what version of Ruby you have: 
+To see what version of Ruby you have:
 ```	:ruby print RUBY_VERSION
 ```
 
@@ -73,14 +73,14 @@ To see what version of Ruby you have:
 :rubyf[ile] {file}	Execute the Ruby script in {file}.  This is the same as
 			`:ruby load 'file'`, but allows file name completion.
 
-Executing Ruby commands is not possible in the [sandbox](#sandbox).
+Executing Ruby commands is not possible in the [sandbox](undefined#sandbox).
 
 
 ## <a id="ruby-vim" class="section-title" href="#ruby-vim">2. the VIM Module</a> 
 
 Ruby code gets all of its access to vim via the "VIM" module.
 
-Overview 
+Overview
 ```	print "Hello"			      # displays a message
 	VIM.command(cmd)		      # execute an Ex command
 	num = VIM::Window.count		      # gets the number of windows
@@ -114,7 +114,7 @@ VIM::message({msg})
 VIM::set_option({arg})
 	Sets a vim option.  {arg} can be any argument that the ":set" command
 	accepts.  Note that this means that no spaces are allowed in the
-	argument!  See [:set](#:set).
+	argument!  See |:set|.
 
 ### <a id="ruby-command" class="section-title" href="#ruby-command">Note:</a>
 VIM::command({cmd})
@@ -123,8 +123,8 @@ VIM::command({cmd})
 ### <a id="ruby-evaluate" class="section-title" href="#ruby-evaluate">Note:</a>
 VIM::evaluate({expr})
 	Evaluates {expr} using the vim internal expression evaluator (see
-	[expression](#expression)).  Returns the expression result as a string.
-	A [List](#List) is turned into a string by joining the items and inserting
+	[expression](undefined#expression)).  Returns the expression result as a string.
+	A [List](undefined#List) is turned into a string by joining the items and inserting
 	line breaks.
 
 
@@ -192,7 +192,7 @@ $curbuf		The current buffer object.
 
 ## <a id="ruby-rubyeval" class="section-title" href="#ruby-rubyeval">6. Rubyeval() Vim Function</a> 
 
-To facilitate bi-directional interface, you can use [rubyeval()](#rubyeval()) function to
+To facilitate bi-directional interface, you can use |rubyeval()| function to
 evaluate Ruby expressions and pass their values to Vim script.
 
 The Ruby value "true", "false" and "nil" are converted to v:true, v:false and

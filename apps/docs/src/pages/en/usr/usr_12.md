@@ -16,18 +16,18 @@ By combining several commands you can make Vim do nearly everything.  In this
 chapter a number of useful combinations will be presented.  This uses the
 commands introduced in the previous chapters and a few more.
 
-[12.1](#12.1)	Replace a word
-[12.2](#12.2)	Change "Last, First" to "First Last"
-[12.3](#12.3)	Sort a list
-[12.4](#12.4)	Reverse line order
-[12.5](#12.5)	Count words
-[12.6](#12.6)	Find a man page
-[12.7](#12.7)	Trim blanks
-[12.8](#12.8)	Find where a word is used
+|12.1|	Replace a word
+|12.2|	Change "Last, First" to "First Last"
+|12.3|	Sort a list
+|12.4|	Reverse line order
+|12.5|	Count words
+|12.6|	Find a man page
+|12.7|	Trim blanks
+|12.8|	Find where a word is used
 
-     Next chapter: [usr_20.txt](#usr_20.txt)  Typing command-line commands quickly
- Previous chapter: [usr_11.txt](#usr_11.txt)  Recovering from a crash
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_20.txt|  Typing command-line commands quickly
+ Previous chapter: |usr_11.txt|  Recovering from a crash
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*12.1*	Replace a Word</a> 
@@ -133,7 +133,7 @@ refers to the text matched by the second "\( \)", which is the "First" name.
 "\1" refers to the first "\( \)", which is the "Last" name.
    You can use up to nine backreferences in the "to" part of a substitute
 command.  "\0" stands for the whole matched pattern.  There are a few more
-special items in a substitute command, see [sub-replace-special](#sub-replace-special).
+special items in a substitute command, see [sub-replace-special](undefined#sub-replace-special).
 
 
 ## <a id="" class="section-title" href="#">*12.3*	Sort a List</a> 
@@ -184,7 +184,7 @@ after it.  That way you don't have this problem again.
 
 ## <a id="" class="section-title" href="#">*12.4*	Reverse Line Order</a> 
 
-The [:global| command can be combined with the |:move](#:global| command can be combined with the |:move) command to move all the
+The |:global| command can be combined with the |:move| command to move all the
 lines before the first line, resulting in a reversed file.  The command is:
 
 	:global/^/move 0
@@ -194,10 +194,10 @@ Abbreviated:
 	:g/^/m 0
 
 The "^" regular expression matches the beginning of the line (even if the line
-is blank).  The [:move](#:move) command moves the matching line to after the imaginary
+is blank).  The |:move| command moves the matching line to after the imaginary
 zeroth line, so the current matching line becomes the first line of the file.
-As the [:global](#:global) command is not confused by the changing line numbering,
-[:global](#:global) proceeds to match all remaining lines of the file and puts each as
+As the |:global| command is not confused by the changing line numbering,
+|:global| proceeds to match all remaining lines of the file and puts each as
 the first.
 
 This also works on a range of lines.  First move to above the first line and
@@ -233,7 +233,7 @@ want to count words in.  Then type g CTRL-G.  The result:
 
 	Selected 5 of 293 Lines; 70 of 1884 Words; 359 of 10928 Bytes ~
 
-For other ways to count words, lines and other items, see [count-items](#count-items).
+For other ways to count words, lines and other items, see [count-items](/neovim-docs-web/en/vim/tips#count-items).
 
 
 ## <a id="find-manpage" class="section-title" href="#find-manpage">*12.6*	Find a Man Page</a> 
@@ -244,8 +244,8 @@ simple way: Move the cursor to the word you want to find help on and press
 
 	K
 
-Nvim will run [:Man](#:Man) on the word.  If the man page is found, it is displayed.
-You can also use the [:Man](#:Man) command to open a window on a man page:
+Nvim will run |:Man| on the word.  If the man page is found, it is displayed.
+You can also use the |:Man| command to open a window on a man page:
 
 	:Man csh
 
@@ -285,7 +285,7 @@ command:
 The line range "%" is used, thus this works on the whole file.  The pattern
 that the ":substitute" command matches with is "\s\+$".  This finds white
 space characters (\s), 1 or more of them (\+), before the end-of-line ($).
-Later will be explained how you write patterns like this, see [usr_27.txt](#usr_27.txt).
+Later will be explained how you write patterns like this, see |usr_27.txt|.
    The "to" part of the substitute command is empty: "//".  Thus it replaces
 with nothing, effectively deleting the matched white space.
 
@@ -347,7 +347,7 @@ matches and where they are.
 (on Windows).  You can change this by setting the option 'grepprg'.
 
 
-## <a id="Typing command-line commands quickly" class="section-title" href="#Typing command-line commands quickly">Next Chapter: [Usr_20.Txt](#Usr_20.Txt)</a> 
+## <a id="Typing command-line commands quickly" class="section-title" href="#Typing command-line commands quickly">Next Chapter: |Usr_20.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

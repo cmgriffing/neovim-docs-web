@@ -13,11 +13,11 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 ### <a id="multilang multi-lang" class="section-title" href="#multilang multi-lang">Multi-language features</a>
 
 This is about using messages and menus in various languages.  For editing
-multibyte text see [multibyte](#multibyte).
+multibyte text see [multibyte](undefined#multibyte).
 
-The basics are explained in the user manual: [usr_45.txt](#usr_45.txt).
+The basics are explained in the user manual: |usr_45.txt|.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="multilang-messages" class="section-title" href="#multilang-messages">1. Messages</a> 
@@ -50,7 +50,7 @@ use of "-" and "_".
 			Without argument all parts of the locale are printed
 			(this is system dependent).
 			The current language can also be obtained with the
-			[v:lang|, |v:ctype|, |v:collate| and |v:lc_time](#v:lang|, |v:ctype|, |v:collate| and |v:lc_time)
+			|v:lang|, |v:ctype|, |v:collate| and |v:lc_time|
 			variables.
 
 :lan[guage] {name}
@@ -63,7 +63,7 @@ use of "-" and "_".
 			system.  Some systems accept aliases like "en" or
 			"en_US", but some only accept the full specification
 			like "en_US.ISO_8859-1".  On Unix systems you can use
-			this command to see what locales are supported: 
+			this command to see what locales are supported:
 ```				:!locale -a
 			With the "messages" argument the language used for
 			messages is set.  This can be different when you want,
@@ -105,8 +105,8 @@ write your own translations you need to generate the .po file and convert it
 to a .mo file.
 
 To overrule the automatic choice of the language, set the $LANG variable to
-the language of your choice.  use "en" to disable translations. 
-```
+the language of your choice.  use "en" to disable translations.
+
   :let $LANG = 'ja'
 
 (text for Windows by Muraoka Taro)
@@ -114,7 +114,7 @@ the language of your choice.  use "en" to disable translations.
 
 ## <a id="multilang-menus" class="section-title" href="#multilang-menus">2. Menus</a> 
 
-See [45.2](#45.2) for the basics, esp. using 'langmenu'.
+See |45.2| for the basics, esp. using 'langmenu'.
 
 Note that if changes have been made to the menus after the translation was
 done, some of the menus may be shown in English.  Please try contacting the
@@ -122,7 +122,7 @@ maintainer of the translation and ask him to update it.  You can find the
 name and e-mail address of the translator in
 "$VIMRUNTIME/lang/menu_<lang>.vim".
 
-To set the font to use for the menus, use the [:highlight](#:highlight) command.  Example:
+To set the font to use for the menus, use the |:highlight| command.  Example:
 
 	:highlight Menu font=k12,r12
 
@@ -156,7 +156,7 @@ file put a command to load the menu file with the other name:
 
 TRANSLATING MENUS
 
-If you want to do your own translations, you can use the [:menutrans](#:menutrans) command,
+If you want to do your own translations, you can use the |:menutrans| command,
 explained below.  It is recommended to put the translations for one language
 in a Vim script.  For a language that has no translation yet, please consider
 becoming the maintainer and make your translations available to all Vim users.
@@ -170,7 +170,7 @@ Send an e-mail to the Vim maintainer <maintainer@vim.org>.
 			Translate menu name {english} to {mylang}.  All
 			special characters like "&" and "<Tab>" need to be
 			included.  Spaces and dots need to be escaped with a
-			backslash, just like in other [:menu](#:menu) commands.
+			backslash, just like in other |:menu| commands.
 			Case in {english} is ignored.
 
 See the $VIMRUNTIME/lang directory for examples.
@@ -188,13 +188,13 @@ Each part of a menu path is translated separately.  The result is that when
 
 ## <a id="multilang-scripts" class="section-title" href="#multilang-scripts">3. Scripts</a> 
 
-In Vim scripts you can use the [v:lang](#v:lang) variable to get the current language
+In Vim scripts you can use the |v:lang| variable to get the current language
 (locale).  The default value is "C" or comes from the $LANG environment
 variable.
 
 The following example shows how this variable is used in a simple way, to make
 a message adapt to language preferences of the user,
-
+```
 	:if v:lang =~ "de_DE"
 	:  echo "Guten Morgen"
 	:else

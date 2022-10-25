@@ -13,16 +13,16 @@ NVIM REFERENCE MANUAL
 ### <a id="TUI tui" class="section-title" href="#TUI tui">Terminal UI</a>
 
 Nvim uses a list of terminal capabilities to display its user interface
-(except in [--embed| and |--headless](#--embed| and |--headless) modes). If that information is wrong,
+(except in [[[--embed](/undefined#--embed)](/undefined)](/undefined) and [[[--headless](/undefined#--headless)](/undefined)](/undefined) modes). If that information is wrong,
 the screen may be messed up or keys may not be recognized.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="startup-terminal" class="section-title" href="#startup-terminal">Startup</a> 
 
-Nvim guesses the terminal type when it starts (except in [--embed](#--embed) and
-[--headless| modes). The |$TERM](#--headless| modes). The |$TERM) environment variable is the primary hint that
+Nvim guesses the terminal type when it starts (except in [[[--embed](/undefined#--embed)](/undefined)](/undefined) and
+[[[--headless](/undefined#--headless)](/undefined)](/undefined) modes). The |$TERM| environment variable is the primary hint that
 determines the terminal type.
 
 ### <a id="terminfo E557 E558 E559" class="section-title" href="#terminfo E557 E558 E559">Note:</a>
@@ -48,7 +48,7 @@ or sub-optimal behavior will result (scrolling quirks, wrong colors, etc.).
 $TERM is also important because it is forwarded by SSH to the remote session,
 unlike most other environment variables.
 
-For this terminal           Set $TERM to                  [builtin-terms](#builtin-terms)
+For this terminal           Set $TERM to                  [[builtin-terms](/undefined#builtin-terms)](/undefined)
 -------------------------------------------------------------------------
 anything libvte-based       vte, vte-256color                   Y
 (e.g. GNOME Terminal)      (aliases: gnome, gnome-256color)
@@ -70,10 +70,10 @@ Windows/legacy console      win32con                            Y
 xterm or compatible         xterm, xterm-256color               Y
 
 ### <a id="builtin-terms builtin_terms" class="section-title" href="#builtin-terms builtin_terms">Note:</a>
-If a [terminfo](#terminfo) database is not available or there is no entry for the current
-terminal, Nvim will map [$TERM](#$TERM) to a builtin entry according to the above
+If a [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) database is not available or there is no entry for the current
+terminal, Nvim will map |$TERM| to a builtin entry according to the above
 table, or "ansi" if there is no match. For example "TERM=putty-256color" will
-be mapped to the builtin "putty" entry. See also [tui-colors](#tui-colors).
+be mapped to the builtin "putty" entry. See also [[tui-colors](/undefined#tui-colors)](/undefined).
 
 The builtin terminfo is not combined with any external terminfo database, nor
 can it be used in preference to one.  You can thus entirely override any
@@ -85,9 +85,9 @@ supplying an external one with entries for the terminal type.
 If you want to set terminal-dependent options or mappings, you can do this in
 your init.vim.  Example: 
 ```
-### <a id="if $TERM =~ '^\(rxvt\[screen\|interix\](#screen\|interix\)putty\)\(-.\)\?$'" class="section-title" href="#if $TERM =~ '^\(rxvt\[screen\|interix\](#screen\|interix\)putty\)\(-.\)\?$'">Note:</a>
+### <a id="if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.\)\?$'" class="section-title" href="#if $TERM =~ '^\(rxvt\|screen\|interix\|putty\)\(-.\)\?$'">Note:</a>
 set notermguicolors
-### <a id="elseif $TERM =~ '^\(tmux\[iterm\|vte\](#iterm\|vte\)gnome\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(tmux\[iterm\|vte\](#iterm\|vte\)gnome\)\(-.\)\?$'">Note:</a>
+### <a id="elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(tmux\|iterm\|vte\|gnome\)\(-.\)\?$'">Note:</a>
 set termguicolors
 ### <a id="elseif $TERM =~ '^\(xterm\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(xterm\)\(-.\)\?$'">Note:</a>
 if $XTERM_VERSION != ''
@@ -118,7 +118,7 @@ width of the terminal.
 
 ### <a id="tui-input" class="section-title" href="#tui-input">Note:</a>
 Nvim uses libtermkey to convert terminal escape sequences to key codes.
-[terminfo| is used first, and CSI sequences not in |terminfo](#terminfo| is used first, and CSI sequences not in |terminfo) (including
+[[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) is used first, and CSI sequences not in [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) (including
 extended keys a.k.a. modifyOtherKeys or "CSI u") can also be parsed.
 For example, when running Nvim in tmux, this makes Nvim leave Insert mode and
 go to the window below: 
@@ -169,7 +169,7 @@ emulator could be in a bad state. If this happens, simply run "reset".
 
 
 ### <a id="tui-colors" class="section-title" href="#tui-colors">Note:</a>
-Nvim uses 256 colours by default, ignoring [terminfo](#terminfo) for most terminal types,
+Nvim uses 256 colours by default, ignoring [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) for most terminal types,
 including "linux" (whose virtual terminals have had 256-colour support since
 4.8) and anything claiming to be "xterm".  Also when $COLORTERM or $TERM
 contain the string "256".
@@ -180,7 +180,7 @@ value, is capable of at least 16-colour operation.
 ### <a id="true-color xterm-true-color" class="section-title" href="#true-color xterm-true-color">Note:</a>
 Nvim emits true (24-bit) colours in the terminal, if 'termguicolors' is set.
 
-It uses the "setrgbf" and "setrgbb" [terminfo](#terminfo) extensions (proposed by Rüdiger
+It uses the "setrgbf" and "setrgbb" [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) extensions (proposed by Rüdiger
 Sonderfeld in 2013). If your terminfo definition is missing them, then Nvim
 will decide whether to add them to your terminfo definition, using the ISO
 8613-6:1994/ITU T.416:1993 control sequences for setting RGB colours (but
@@ -200,14 +200,14 @@ environment variable to "truecolor" is detected.
 
 ### <a id="xterm-resize" class="section-title" href="#xterm-resize">Note:</a>
 Nvim can resize the terminal display on some terminals that implement an
-extension pioneered by dtterm.  [terminfo](#terminfo) does not have a flag for this
+extension pioneered by dtterm.  [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) does not have a flag for this
 extension.  So Nvim simply assumes that (all) "dtterm", "xterm", "teraterm",
 "rxvt" terminal types, and Konsole, are capable of this.
 
 ### <a id="tui-cursor-shape" class="section-title" href="#tui-cursor-shape">Note:</a>
 Nvim will adjust the shape of the cursor from a block to a line when in insert
 mode (or as specified by the 'guicursor' option), on terminals that support
-it.  It uses the same [terminfo](#terminfo) extensions that were pioneered by tmux for
+it.  It uses the same [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) extensions that were pioneered by tmux for
 this: "Ss" and "Se".
 Similarly, if you set the cursor highlight group with blend=100, Nvim hides
 the cursor through the "cvvis" and "civis" extensions.
@@ -246,12 +246,12 @@ On Unix systems, three methods are tried to get the window size:
 
 - an ioctl call (TIOCGSIZE or TIOCGWINSZ, depends on your system)
 - the environment variables "LINES" and "COLUMNS"
-- from the [terminfo](#terminfo) entries "lines" and "columns"
+- from the [[[[[[[[[terminfo](/undefined#terminfo)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) entries "lines" and "columns"
 
 If everything fails a default size of 24 lines and 80 columns is assumed.  If
 a window-resize signal is received the size will be set again.  If the window
 size is wrong you can use the 'lines' and 'columns' options to set the
-correct values. See [:mode](#:mode).
+correct values. See |:mode|.
 
 
 ## <a id="slow-fast-terminal" class="section-title" href="#slow-fast-terminal">Slow and Fast Terminals</a> <span id="slow-terminal"></span>
@@ -266,7 +266,7 @@ number of lines that Vim uses with the command "z{height}<CR>".
 
 If the characters from the terminal are arriving with more than 1 second
 between them you might want to set the 'timeout' and/or 'ttimeout' option.
-See the "Options" chapter [options](#options).
+See the "Options" chapter [[options](/undefined#options)](/undefined).
 
 If you are using a color terminal that is slow when displaying lines beyond
 the end of a buffer, this is because Nvim is drawing the whitespace twice, in
@@ -428,7 +428,7 @@ Note the use of ":noremap" instead of "map" to avoid a recursive mapping.
 :map <X1Mouse> <C-O>
 :map <X2Mouse> <C-I>
 Map the X1 and X2 buttons to go forwards and backwards in the jump list, see
-[CTRL-O| and |CTRL-I](#CTRL-O| and |CTRL-I).
+[[CTRL-O](/undefined#CTRL-O)](/undefined) and [[CTRL-I](/undefined#CTRL-I)](/undefined).
 
 ### <a id="mouse-swap-buttons" class="section-title" href="#mouse-swap-buttons">Note:</a>
 To swap the meaning of the left and right mouse buttons:

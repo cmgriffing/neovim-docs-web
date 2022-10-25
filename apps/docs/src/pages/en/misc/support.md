@@ -12,7 +12,7 @@ NVIM REFERENCE MANUAL
 
 Support
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="supported-platforms" class="section-title" href="#supported-platforms">Supported Platforms</a> 

@@ -16,17 +16,17 @@ No matter how many files you have, you can edit them without leaving Vim.
 Define a list of files to work on and jump from one to the other.  Copy text
 from one file and put it in another one.
 
-[07.1](#07.1)	Edit another file
-[07.2](#07.2)	A list of files
-[07.3](#07.3)	Jumping from file to file
-[07.4](#07.4)	Backup files
-[07.5](#07.5)	Copy text between files
-[07.6](#07.6)	Viewing a file
-[07.7](#07.7)	Changing the file name
+|07.1|	Edit another file
+|07.2|	A list of files
+|07.3|	Jumping from file to file
+|07.4|	Backup files
+|07.5|	Copy text between files
+|07.6|	Viewing a file
+|07.7|	Changing the file name
 
-     Next chapter: [usr_08.txt](#usr_08.txt)  Splitting windows
- Previous chapter: [usr_06.txt](#usr_06.txt)  Using syntax highlighting
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_08.txt|  Splitting windows
+ Previous chapter: |usr_06.txt|  Using syntax highlighting
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*07.1*	Edit Another File</a> 
@@ -65,7 +65,7 @@ file yet, you can make it hidden:
 	:hide edit foo.txt
 
 The text with changes is still there, but you can't see it.  This is further
-explained in section [22.4](#22.4): The buffer list.
+explained in section |22.4|: The buffer list.
 
 
 ## <a id="" class="section-title" href="#">*07.2*	a List of Files</a> 
@@ -234,7 +234,7 @@ the file.
 
 FILE MARKS
 
-In section [03.10](#03.10) was explained how you can place a mark in a file with "mx"
+In section |03.10| was explained how you can place a mark in a file with "mx"
 and jump to that position with "`x".  That works within one file.  If you edit
 another file and place marks there, these are specific for that file.  Thus
 each file has its own set of marks, they are local to the file.
@@ -479,7 +479,7 @@ this message:
 This protects you from accidentally overwriting another file.
 
 
-## <a id="Splitting windows" class="section-title" href="#Splitting windows">Next Chapter: [Usr_08.Txt](#Usr_08.Txt)</a> 
+## <a id="Splitting windows" class="section-title" href="#Splitting windows">Next Chapter: |Usr_08.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

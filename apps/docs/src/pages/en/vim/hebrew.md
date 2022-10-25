@@ -18,20 +18,24 @@ currently helping support these features.
 
 
 Introduction
-------------
-Hebrew-specific options are 'hkmap', 'hkmapp' 'keymap'=hebrew and 'aleph'.
+
+
+## <a id="" class="section-title" href="#">Hebrew-Specific Options Are 'hkmap', 'hkmapp' 'keymap'=Hebrew and 'aleph'.</a> 
+
 Hebrew-useful options are 'delcombine', 'allowrevins', 'revins', 'rightleft'
 and 'rightleftcmd'.
 
 The 'rightleft' mode reverses the display order, so characters are displayed
 from right to left instead of the usual left to right.  This is useful
 primarily when editing Hebrew or other Middle-Eastern languages.
-See [rileft.txt](#rileft.txt) for further details.
+See |rileft.txt| for further details.
 
 Details
---------------
-+  Options:
-   +  'rightleft' ('rl') sets window orientation to right-to-left.  This means
+
+
+## <a id="Options:" class="section-title" href="#Options:">+</a> 
+
++  'rightleft' ('rl') sets window orientation to right-to-left.  This means
       that the logical text 'ABC' will be displayed as 'CBA', and will start
       drawing at the right edge of the window, not the left edge.
    +  'hkmap' ('hk') sets keyboard mapping to Hebrew, in insert/replace modes.
@@ -123,8 +127,10 @@ text (if possible).
 
 
 Pasting when in a rightleft window
-----------------------------------
-When cutting text with the mouse and pasting it in a rightleft window
+
+
+## <a id="" class="section-title" href="#">When Cutting Text With the Mouse and Pasting It in a Rightleft Window</a> 
+
 the text will be reversed, because the characters come from the cut buffer
 from the left to the right, while inserted in the file from the right to
 the left.   In order to avoid it, toggle 'revins' (by typing CTRL-? or CTRL-_)
@@ -132,8 +138,10 @@ before pasting.
 
 
 Hebrew characters and the 'isprint' variable
---------------------------------------------
-Sometimes Hebrew character codes are in the non-printable range defined by
+
+
+## <a id="" class="section-title" href="#">Sometimes Hebrew Character Codes Are in the Non-Printable Range Defined By</a> 
+
 the 'isprint' variable.  For example in the Linux console, the Hebrew font
 encoding starts from 128, while the default 'isprint' variable is @,161-255.
 The result is that all Hebrew characters are displayed as ~x.  To solve this

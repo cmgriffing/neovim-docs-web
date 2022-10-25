@@ -12,74 +12,74 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="pattern-searches" class="section-title" href="#pattern-searches">Patterns and search commands</a>
 
-The very basics can be found in section [03.9](#03.9) of the user manual.  A few more
-explanations are in chapter 27 [usr_27.txt](#usr_27.txt).
+The very basics can be found in section |03.9| of the user manual.  A few more
+explanations are in chapter 27 |usr_27.txt|.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="search-commands" class="section-title" href="#search-commands">1. Search Commands</a> 
 
 ### <a id="/" class="section-title" href="#/">Note:</a>
 /{pattern}[/]<CR>	Search forward for the [count]'th occurrence of
-			{pattern} [exclusive](#exclusive).
+			{pattern} [exclusive](undefined#exclusive).
 
 /{pattern}/{offset}<CR>	Search forward for the [count]'th occurrence of
-			{pattern} and go [{offset}](#{offset}) lines up or down.
-			[linewise](#linewise).
+			{pattern} and go |{offset}| lines up or down.
+			[linewise](undefined#linewise).
 
 ### <a id="/<CR>" class="section-title" href="#/<CR>">Note:</a>
 /<CR>			Search forward for the [count]'th occurrence of the
-			latest used pattern [last-pattern](#last-pattern) with latest used
-			[{offset}](#{offset}).
+			latest used pattern [last-pattern](undefined#last-pattern) with latest used
+			|{offset}|.
 
 //{offset}<CR>		Search forward for the [count]'th occurrence of the
-			latest used pattern [last-pattern](#last-pattern) with new
-			[{offset}](#{offset}).  If {offset} is empty no offset is used.
+			latest used pattern [last-pattern](undefined#last-pattern) with new
+			|{offset}|.  If {offset} is empty no offset is used.
 
 ### <a id="?" class="section-title" href="#?">Note:</a>
 ?{pattern}[?]<CR>	Search backward for the [count]'th previous
-			occurrence of {pattern} [exclusive](#exclusive).
+			occurrence of {pattern} [exclusive](undefined#exclusive).
 
 ?{pattern}?{offset}<CR>	Search backward for the [count]'th previous
-			occurrence of {pattern} and go [{offset}](#{offset}) lines up or
-			down [linewise](#linewise).
+			occurrence of {pattern} and go |{offset}| lines up or
+			down [linewise](undefined#linewise).
 
 ### <a id="?<CR>" class="section-title" href="#?<CR>">Note:</a>
 ?<CR>			Search backward for the [count]'th occurrence of the
-			latest used pattern [last-pattern](#last-pattern) with latest used
-			[{offset}](#{offset}).
+			latest used pattern [last-pattern](undefined#last-pattern) with latest used
+			|{offset}|.
 
 ??{offset}<CR>		Search backward for the [count]'th occurrence of the
-			latest used pattern [last-pattern](#last-pattern) with new
-			[{offset}](#{offset}).  If {offset} is empty no offset is used.
+			latest used pattern [last-pattern](undefined#last-pattern) with new
+			|{offset}|.  If {offset} is empty no offset is used.
 
 ### <a id="n" class="section-title" href="#n">Note:</a>
 n			Repeat the latest "/" or "?" [count] times.
 			If the cursor doesn't move the search is repeated with
 			count + 1.
-			[last-pattern](#last-pattern)
+			[last-pattern](undefined#last-pattern)
 
 ### <a id="N" class="section-title" href="#N">Note:</a>
 N			Repeat the latest "/" or "?" [count] times in
-			opposite direction. [last-pattern](#last-pattern)
+			opposite direction. [last-pattern](undefined#last-pattern)
 
 ### <a id="star E348 E349" class="section-title" href="#star E348 E349">Note:</a>
 *			Search forward for the [count]'th occurrence of the
 			word nearest to the cursor.  The word used for the
 			search is the first of:
-				1. the keyword under the cursor ['iskeyword'](#'iskeyword')
+				1. the keyword under the cursor |'iskeyword'|
 				2. the first keyword after the cursor, in the
 				   current line
 				3. the non-blank word under the cursor
 				4. the first non-blank word after the cursor,
 				   in the current line
 			Only whole keywords are searched for, like with the
-			command "/\<keyword\>".  [exclusive](#exclusive)
+			command "/\<keyword\>".  [exclusive](undefined#exclusive)
 			'ignorecase' is used, 'smartcase' is not.
 ### <a id="v_star-default" class="section-title" href="#v_star-default">Note:</a>
 			In Visual mode, search forward for the current selection.
-			[default-mappings](#default-mappings)
+			[default-mappings](undefined#default-mappings)
 
 ### <a id="#" class="section-title" href="##">Note:</a>
 ### <a id="Same as "", but search backward." class="section-title" href="#Same as "", but search backward.">#</a>
@@ -88,7 +88,7 @@ N			Repeat the latest "/" or "?" [count] times in
 			Vim (<BS> is CTRL-H or a real backspace).
 ### <a id="v_#-default" class="section-title" href="#v_#-default">Note:</a>
 			In Visual mode, search backward for the current selection.
-			[default-mappings](#default-mappings)
+			[default-mappings](undefined#default-mappings)
 
 ### <a id="gstar" class="section-title" href="#gstar">Note:</a>
 ### <a id="Like "", but don't put "\<" and "\>" around the word." class="section-title" href="#Like "", but don't put "\<" and "\>" around the word.">g*</a>
@@ -113,8 +113,8 @@ gd			Goto local Declaration.  When the cursor is on a local
 			Note that this is not guaranteed to work, Vim does not
 			really check the syntax, it only searches for a match
 			with the keyword.  If included files also need to be
-			searched use the commands listed in [include-search](#include-search).
-			After this command [n](#n) searches forward for the next
+			searched use the commands listed in [include-search](undefined#include-search).
+			After this command [n](undefined#n) searches forward for the next
 			match (not backward).
 
 ### <a id="gD" class="section-title" href="#gD">Note:</a>
@@ -142,7 +142,7 @@ CTRL-C			Interrupt current (search) command.
 			command, or setting the 'hlsearch' option.
 			This command doesn't work in an autocommand, because
 			the highlighting state is saved and restored when
-			executing autocommands [autocmd-searchpat](#autocmd-searchpat).
+			executing autocommands [autocmd-searchpat](undefined#autocmd-searchpat).
 			Same thing for when invoking a user function.
 
 While typing the search pattern the current match will be shown if the
@@ -151,10 +151,10 @@ command with <CR> to actually position the cursor at the displayed match.  Or
 use <Esc> to abandon the search.
 
 All matches for the last used search pattern will be highlighted if you set
-the 'hlsearch' option.  This can be suspended with the [:nohlsearch](#:nohlsearch) command.
+the 'hlsearch' option.  This can be suspended with the |:nohlsearch| command.
 
 When 'shortmess' does not include the "S" flag, Vim will automatically show an
-index, on which the cursor is. This can look like this: 
+index, on which the cursor is. This can look like this:
 ```
   [1/5]		Cursor is on first of 5 matches.
   [1/>99]	Cursor is on first of more than 99 matches.
@@ -167,8 +167,8 @@ Note: the count does not take offset into account.
 When no match is found you get the error: *E486* Pattern not found
 Note that for the `:global` command, you get a normal message "Pattern not
 found", for Vi compatibility.
-For the [:s](#:s) command the "e" flag can be used to avoid the error message
-[:s_flags](#:s_flags).
+For the |:s| command the "e" flag can be used to avoid the error message
+|:s_flags|.
 
 ### <a id="search-offset {offset}" class="section-title" href="#search-offset {offset}">Note:</a>
 These commands search for the specified pattern.  With "/" and "?" an
@@ -185,7 +185,7 @@ The offset gives the cursor position relative to the found match:
     s[-num]	[num] characters to the left of the start of the match
     b[+num]	[num] identical to s[+num] above (mnemonic: begin)
     b[-num]	[num] identical to s[-num] above (mnemonic: begin)
-    ;{pattern}  perform another search, see [//;](#//;)
+    ;{pattern}  perform another search, see |//;|
 
 If a '-' or '+' is given but [num] is omitted, a count of one will be used.
 When including an offset with 'e', the search becomes inclusive (the
@@ -216,8 +216,8 @@ with another word:
 ```
 
 ### <a id="//; E386" class="section-title" href="#//; E386">Note:</a>
-A very special offset is ';' followed by another search command.  For example: 
-```
+A very special offset is ';' followed by another search command.  For example:
+
    /test 1/;/test
 ### <a id="/test./+1;?ing?" class="section-title" href="#/test./+1;?ing?">Note:</a>
 
@@ -253,7 +253,7 @@ everywhere.  The pattern is really cleared, like when starting Vim.
 
 The search usually skips matches that don't move the cursor.  Whether the next
 match is found at the next character or after the skipped match depends on the
-'c' flag in 'cpoptions'.  See [cpo-c](#cpo-c).
+'c' flag in 'cpoptions'.  See [cpo-c](undefined#cpo-c).
 	   with 'c' flag:   "/..." advances 1 to 3 characters
 	without 'c' flag:   "/..." advances 1 character
 The unpredictability with the 'c' flag is caused by starting the search in the
@@ -286,7 +286,7 @@ You can limit the search command "/" to a certain range of lines by including
 \%>l items.  For example, to match the word "limit" below line 199 and above
 line 300:
 	/\%>199l\%<300llimit
-Also see [/\%>l](#/\%>l).
+Also see |/\%>l|.
 
 Another way is to use the ":substitute" command with the 'c' flag.  Example:
    :.,300s/Pattern//gc
@@ -320,7 +320,7 @@ the pattern.
 
 ### <a id="E383 E476" class="section-title" href="#E383 E476">Note:</a>
 
-For starters, read chapter 27 of the user manual [usr_27.txt](#usr_27.txt).
+For starters, read chapter 27 of the user manual |usr_27.txt|.
 
 ### <a id="/bar /\bar /pattern" class="section-title" href="#/bar /\bar /pattern">Note:</a>
 1. A pattern is one or more branches, separated by "\|".  It matches anything
@@ -329,7 +329,7 @@ For starters, read chapter 27 of the user manual [usr_27.txt](#usr_27.txt).
 
    pattern ::=	    branch
 		or  branch \| branch
-		or  branch \[ branch \](# branch \) branch
+		or  branch \| branch \| branch
 		etc.
 
 ### <a id="/branch /\&" class="section-title" href="#/branch /\&">Note:</a>
@@ -357,7 +357,7 @@ For starters, read chapter 27 of the user manual [usr_27.txt](#usr_27.txt).
 ### <a id="/piece" class="section-title" href="#/piece">Note:</a>
 4. A piece is an atom, possibly followed by a multi, an indication of how many
    times the atom can be matched.  Example: "a*" matches any sequence of "a"
-   characters: "", "a", "aa", etc.  See [/multi](#/multi).
+   characters: "", "a", "aa", etc.  See |/multi|.
 
    piece   ::=	    atom
 		or  atom  multi
@@ -368,10 +368,10 @@ For starters, read chapter 27 of the user manual [usr_27.txt](#usr_27.txt).
    Parentheses can be used to make a pattern into an atom.  The "\z(\)"
    construct is only for syntax highlighting.
 
-   atom    ::=	    ordinary-atom		[/ordinary-atom](#/ordinary-atom)
-		or  \( pattern \)		[/\(](#/\()
-		or  \%( pattern \)		[/\%(](#/\%()
-		or  \z( pattern \)		[/\z(](#/\z()
+   atom    ::=	    ordinary-atom		|/ordinary-atom|
+		or  \( pattern \)		|/\(|
+		or  \%( pattern \)		|/\%(|
+		or  \z( pattern \)		|/\z(|
 
 
 ### <a id="/\%#= two-engines NFA" class="section-title" href="#/\%#= two-engines NFA">Note:</a>
@@ -433,7 +433,7 @@ after:	  \v	   \m	    \M	     \V		matches ~
 ### <a id="" class="section-title" href="#">Note:</a>
 	  ~	   ~	    \~	     \~		latest substitute string
 	  ()	   \(\)     \(\)     \(\)	group as an atom
-	  [	   \|	    \|	     \](#	   \|	    \|	     \)		nothing: separates alternatives
+	  |	   \|	    \|	     \|		nothing: separates alternatives
 	  \\	   \\	    \\	     \\		literal backslash
 	  \{	   {	    {	     {		literal curly brace
 
@@ -450,29 +450,29 @@ or not by putting "\m" or "\M" at the start of the pattern.
 
 	  multi ~
      'magic' 'nomagic'	matches of the preceding atom ~
-[/star](#/star)	*	\*	0 or more	as many as possible
-[/\+](#/\+)	\+	\+	1 or more	as many as possible
-[/\=](#/\=)	\=	\=	0 or 1		as many as possible
-[/\?](#/\?)	\?	\?	0 or 1		as many as possible
+|/star|	*	\*	0 or more	as many as possible
+|/\+|	\+	\+	1 or more	as many as possible
+|/\=|	\=	\=	0 or 1		as many as possible
+|/\?|	\?	\?	0 or 1		as many as possible
 
-[/\{](#/\{)	\{n,m}	\{n,m}	n to m		as many as possible
+|/\{|	\{n,m}	\{n,m}	n to m		as many as possible
 	\{n}	\{n}	n		exactly
 	\{n,}	\{n,}	at least n	as many as possible
 	\{,m}	\{,m}	0 to m		as many as possible
 	\{}	\{}	0 or more	as many as possible (same as *)
 
-[/\{-](#/\{-)	\{-n,m}	\{-n,m}	n to m		as few as possible
+|/\{-|	\{-n,m}	\{-n,m}	n to m		as few as possible
 	\{-n}	\{-n}	n		exactly
 	\{-n,}	\{-n,}	at least n	as few as possible
 	\{-,m}	\{-,m}	0 to m		as few as possible
 	\{-}	\{-}	0 or more	as few as possible
 
 ### <a id="E59" class="section-title" href="#E59">Note:</a>
-[/\@>](#/\@>)	\@>	\@>	1, like matching a whole pattern
-[/\@=|	\@=	\@=	nothing, requires a match |/zero-width](#/\@=|	\@=	\@=	nothing, requires a match |/zero-width)
-[/\@!|	\@!	\@!	nothing, requires NO match |/zero-width](#/\@!|	\@!	\@!	nothing, requires NO match |/zero-width)
-[/\@<=|	\@<=	\@<=	nothing, requires a match behind |/zero-width](#/\@<=|	\@<=	\@<=	nothing, requires a match behind |/zero-width)
-[/\@<!|	\@<!	\@<!	nothing, requires NO match behind |/zero-width](#/\@<!|	\@<!	\@<!	nothing, requires NO match behind |/zero-width)
+|/\@>|	\@>	\@>	1, like matching a whole pattern
+|/\@=|	\@=	\@=	nothing, requires a match |/zero-width|
+|/\@!|	\@!	\@!	nothing, requires NO match |/zero-width|
+|/\@<=|	\@<=	\@<=	nothing, requires a match behind |/zero-width|
+|/\@<!|	\@<!	\@<!	nothing, requires NO match behind |/zero-width|
 
 
 ### <a id="/ordinary-atom" class="section-title" href="#/ordinary-atom">Overview of ordinary atoms.</a>
@@ -480,99 +480,99 @@ More explanation and examples below, follow the links.
 
       ordinary atom ~
       magic   nomagic	matches ~
-[/^|	^	^	start-of-line (at start of pattern) |/zero-width](#/^|	^	^	start-of-line (at start of pattern) |/zero-width)
-[/\^](#/\^)	\^	\^	literal '^'
-[/\_^|	\_^	\_^	start-of-line (used anywhere) |/zero-width](#/\_^|	\_^	\_^	start-of-line (used anywhere) |/zero-width)
-[/$|	$	$	end-of-line (at end of pattern) |/zero-width](#/$|	$	$	end-of-line (at end of pattern) |/zero-width)
-[/\$](#/\$)	\$	\$	literal '$'
-[/\_$|	\_$	\_$	end-of-line (used anywhere) |/zero-width](#/\_$|	\_$	\_$	end-of-line (used anywhere) |/zero-width)
-[/.](#/.)	.	\.	any single character (not an end-of-line)
-[/\_.](#/\_.)	\_.	\_.	any single character or end-of-line
-[/\<|	\<	\<	beginning of a word |/zero-width](#/\<|	\<	\<	beginning of a word |/zero-width)
-[/\>|	\>	\>	end of a word |/zero-width](#/\>|	\>	\>	end of a word |/zero-width)
-[/\zs](#/\zs)	\zs	\zs	anything, sets start of match
-[/\ze](#/\ze)	\ze	\ze	anything, sets end of match
-### <a id="E71" class="section-title" href="#E71">[/\%^|	\%^	\%^	beginning of file |/zero-width](#/\%^|	\%^	\%^	beginning of file |/zero-width)</a>
-[/\%$|	\%$	\%$	end of file |/zero-width](#/\%$|	\%$	\%$	end of file |/zero-width)
-[/\%V|	\%V	\%V	inside Visual area |/zero-width](#/\%V|	\%V	\%V	inside Visual area |/zero-width)
-[/\%#|	\%#	\%#	cursor position |/zero-width](#/\%#|	\%#	\%#	cursor position |/zero-width)
-[/\%'m|	\%'m	\%'m	mark m position |/zero-width](#/\%'m|	\%'m	\%'m	mark m position |/zero-width)
-[/\%l|	\%23l	\%23l	in line 23 |/zero-width](#/\%l|	\%23l	\%23l	in line 23 |/zero-width)
-[/\%c|	\%23c	\%23c	in column 23 |/zero-width](#/\%c|	\%23c	\%23c	in column 23 |/zero-width)
-[/\%v|	\%23v	\%23v	in virtual column 23 |/zero-width](#/\%v|	\%23v	\%23v	in virtual column 23 |/zero-width)
+|/^|	^	^	start-of-line (at start of pattern) |/zero-width|
+|/\^|	\^	\^	literal '^'
+|/\_^|	\_^	\_^	start-of-line (used anywhere) |/zero-width|
+|/$|	$	$	end-of-line (at end of pattern) |/zero-width|
+|/\$|	\$	\$	literal '$'
+|/\_$|	\_$	\_$	end-of-line (used anywhere) |/zero-width|
+|/.|	.	\.	any single character (not an end-of-line)
+|/\_.|	\_.	\_.	any single character or end-of-line
+|/\<|	\<	\<	beginning of a word |/zero-width|
+|/\>|	\>	\>	end of a word |/zero-width|
+|/\zs|	\zs	\zs	anything, sets start of match
+|/\ze|	\ze	\ze	anything, sets end of match
+### <a id="E71" class="section-title" href="#E71">|/\%^|	\%^	\%^	beginning of file |/zero-width|</a>
+|/\%$|	\%$	\%$	end of file |/zero-width|
+|/\%V|	\%V	\%V	inside Visual area |/zero-width|
+|/\%#|	\%#	\%#	cursor position |/zero-width|
+|/\%'m|	\%'m	\%'m	mark m position |/zero-width|
+|/\%l|	\%23l	\%23l	in line 23 |/zero-width|
+|/\%c|	\%23c	\%23c	in column 23 |/zero-width|
+|/\%v|	\%23v	\%23v	in virtual column 23 |/zero-width|
 
 ### <a id="/character-classes" class="section-title" href="#/character-classes">Character classes:</a>
       magic   nomagic	matches ~
-[/\i](#/\i)	\i	\i	identifier character (see 'isident' option)
-[/\I](#/\I)	\I	\I	like "\i", but excluding digits
-[/\k](#/\k)	\k	\k	keyword character (see 'iskeyword' option)
-[/\K](#/\K)	\K	\K	like "\k", but excluding digits
-[/\f](#/\f)	\f	\f	file name character (see 'isfname' option)
-[/\F](#/\F)	\F	\F	like "\f", but excluding digits
-[/\p](#/\p)	\p	\p	printable character (see 'isprint' option)
-[/\P](#/\P)	\P	\P	like "\p", but excluding digits
-[/\s](#/\s)	\s	\s	whitespace character: <Space> and <Tab>
-[/\S](#/\S)	\S	\S	non-whitespace character; opposite of \s
-[/\d](#/\d)	\d	\d	digit:				[0-9]
-[/\D](#/\D)	\D	\D	non-digit:			[^0-9]
-[/\x](#/\x)	\x	\x	hex digit:			[0-9A-Fa-f]
-[/\X](#/\X)	\X	\X	non-hex digit:			[^0-9A-Fa-f]
-[/\o](#/\o)	\o	\o	octal digit:			[0-7]
-[/\O](#/\O)	\O	\O	non-octal digit:		[^0-7]
-[/\w](#/\w)	\w	\w	word character:			[0-9A-Za-z_]
-[/\W](#/\W)	\W	\W	non-word character:		[^0-9A-Za-z_]
-[/\h](#/\h)	\h	\h	head of word character:		[A-Za-z_]
-[/\H](#/\H)	\H	\H	non-head of word character:	[^A-Za-z_]
-[/\a](#/\a)	\a	\a	alphabetic character:		[A-Za-z]
-[/\A](#/\A)	\A	\A	non-alphabetic character:	[^A-Za-z]
-[/\l](#/\l)	\l	\l	lowercase character:		[a-z]
-[/\L](#/\L)	\L	\L	non-lowercase character:	[^a-z]
-[/\u](#/\u)	\u	\u	uppercase character:		[A-Z]
-[/\U](#/\U)	\U	\U	non-uppercase character		[^A-Z]
-[/\_](#/\_)	\_x	\_x	where x is any of the characters above: character
+|/\i|	\i	\i	identifier character (see 'isident' option)
+|/\I|	\I	\I	like "\i", but excluding digits
+|/\k|	\k	\k	keyword character (see 'iskeyword' option)
+|/\K|	\K	\K	like "\k", but excluding digits
+|/\f|	\f	\f	file name character (see 'isfname' option)
+|/\F|	\F	\F	like "\f", but excluding digits
+|/\p|	\p	\p	printable character (see 'isprint' option)
+|/\P|	\P	\P	like "\p", but excluding digits
+|/\s|	\s	\s	whitespace character: <Space> and <Tab>
+|/\S|	\S	\S	non-whitespace character; opposite of \s
+|/\d|	\d	\d	digit:				[0-9]
+|/\D|	\D	\D	non-digit:			[^0-9]
+|/\x|	\x	\x	hex digit:			[0-9A-Fa-f]
+|/\X|	\X	\X	non-hex digit:			[^0-9A-Fa-f]
+|/\o|	\o	\o	octal digit:			[0-7]
+|/\O|	\O	\O	non-octal digit:		[^0-7]
+|/\w|	\w	\w	word character:			[0-9A-Za-z_]
+|/\W|	\W	\W	non-word character:		[^0-9A-Za-z_]
+|/\h|	\h	\h	head of word character:		[A-Za-z_]
+|/\H|	\H	\H	non-head of word character:	[^A-Za-z_]
+|/\a|	\a	\a	alphabetic character:		[A-Za-z]
+|/\A|	\A	\A	non-alphabetic character:	[^A-Za-z]
+|/\l|	\l	\l	lowercase character:		[a-z]
+|/\L|	\L	\L	non-lowercase character:	[^a-z]
+|/\u|	\u	\u	uppercase character:		[A-Z]
+|/\U|	\U	\U	non-uppercase character		[^A-Z]
+|/\_|	\_x	\_x	where x is any of the characters above: character
 			class with end-of-line included
 (end of character classes)
 
       magic   nomagic	matches ~
-[/\e](#/\e)	\e	\e	<Esc>
-[/\t](#/\t)	\t	\t	<Tab>
-[/\r](#/\r)	\r	\r	<CR>
-[/\b](#/\b)	\b	\b	<BS>
-[/\n](#/\n)	\n	\n	end-of-line
-[/~](#/~)	~	\~	last given substitute string
-[/\1](#/\1)	\1	\1	same string as matched by first \(\)
-[/\2](#/\2)	\2	\2	Like "\1", but uses second \(\)
+|/\e|	\e	\e	<Esc>
+|/\t|	\t	\t	<Tab>
+|/\r|	\r	\r	<CR>
+|/\b|	\b	\b	<BS>
+|/\n|	\n	\n	end-of-line
+|/~|	~	\~	last given substitute string
+|/\1|	\1	\1	same string as matched by first \(\)
+|/\2|	\2	\2	Like "\1", but uses second \(\)
 	   ...
-[/\9](#/\9)	\9	\9	Like "\1", but uses ninth \(\)
+|/\9|	\9	\9	Like "\1", but uses ninth \(\)
 ### <a id="E68" class="section-title" href="#E68">Note:</a>
-[/\z1|	\z1	\z1	only for syntax highlighting, see |:syn-ext-match](#/\z1|	\z1	\z1	only for syntax highlighting, see |:syn-ext-match)
+|/\z1|	\z1	\z1	only for syntax highlighting, see |:syn-ext-match|
 	   ...
-[/\z1|	\z9	\z9	only for syntax highlighting, see |:syn-ext-match](#/\z1|	\z9	\z9	only for syntax highlighting, see |:syn-ext-match)
+|/\z1|	\z9	\z9	only for syntax highlighting, see |:syn-ext-match|
 
 	x	x	a character with no special meaning matches itself
 
-[/[]](#/[])	[]	\[]	any character specified inside the []
-[/\%[]](#/\%[])	\%[]	\%[]	a sequence of optionally matched atoms
+|/[]|	[]	\[]	any character specified inside the []
+|/\%[]|	\%[]	\%[]	a sequence of optionally matched atoms
 
-[/\c](#/\c)	\c	\c	ignore case, do not use the 'ignorecase' option
-[/\C](#/\C)	\C	\C	match case, do not use the 'ignorecase' option
-[/\Z](#/\Z)	\Z	\Z	ignore differences in Unicode "combining characters".
+|/\c|	\c	\c	ignore case, do not use the 'ignorecase' option
+|/\C|	\C	\C	match case, do not use the 'ignorecase' option
+|/\Z|	\Z	\Z	ignore differences in Unicode "combining characters".
 			Useful when searching voweled Hebrew or Arabic text.
 
       magic   nomagic	matches ~
-[/\m](#/\m)	\m	\m	'magic' on for the following chars in the pattern
-[/\M](#/\M)	\M	\M	'magic' off for the following chars in the pattern
-[/\v](#/\v)	\v	\v	the following chars in the pattern are "very magic"
-[/\V](#/\V)	\V	\V	the following chars in the pattern are "very nomagic"
-[/\%#=|   \%#=1   \%#=1   select regexp engine |/zero-width](#/\%#=|   \%#=1   \%#=1   select regexp engine |/zero-width)
+|/\m|	\m	\m	'magic' on for the following chars in the pattern
+|/\M|	\M	\M	'magic' off for the following chars in the pattern
+|/\v|	\v	\v	the following chars in the pattern are "very magic"
+|/\V|	\V	\V	the following chars in the pattern are "very nomagic"
+|/\%#=|   \%#=1   \%#=1   select regexp engine |/zero-width|
 
-[/\%d](#/\%d)	\%d	\%d	match specified decimal character (eg \%d123)
-[/\%x](#/\%x)	\%x	\%x	match specified hex character (eg \%x2a)
-[/\%o](#/\%o)	\%o	\%o	match specified octal character (eg \%o040)
-[/\%u](#/\%u)	\%u	\%u	match specified multibyte character (eg \%u20ac)
-[/\%U](#/\%U)	\%U	\%U	match specified large multibyte character (eg
+|/\%d|	\%d	\%d	match specified decimal character (eg \%d123)
+|/\%x|	\%x	\%x	match specified hex character (eg \%x2a)
+|/\%o|	\%o	\%o	match specified octal character (eg \%o040)
+|/\%u|	\%u	\%u	match specified multibyte character (eg \%u20ac)
+|/\%U|	\%U	\%U	match specified large multibyte character (eg
 			\%U12345678)
-[/\%C](#/\%C)	\%C	\%C	match any composing characters
+|/\%C|	\%C	\%C	match any composing characters
 
 Example			matches ~
 \<\I\i*		or
@@ -593,7 +593,7 @@ cat\Z			Both "cat" and "càt" ("a" followed by 0x0300)
 ## <a id="pattern-multi-items" class="section-title" href="#pattern-multi-items">5. Multi Items</a> 
 
 An atom can be followed by an indication of how many times the atom can be
-matched and in what way.  This is called a multi.  See [/multi](#/multi) for an
+matched and in what way.  This is called a multi.  See |/multi| for an
 overview.
 
 ### <a id="/star /\star" class="section-title" href="#/star /\star">Note:</a>
@@ -685,7 +685,7 @@ overview.
 
 ### <a id="/\@!" class="section-title" href="#/\@!">Note:</a>
 \@!	Matches with zero width if the preceding atom does NOT match at the
-	current position. [/zero-width](#/zero-width)
+	current position. |/zero-width|
 	Like "(?!pattern)" in Perl.
 	Example			matches ~
 	foo\(bar\)\@!		any "foo" not followed by "bar"
@@ -715,13 +715,13 @@ overview.
 
 ### <a id="/\@<=" class="section-title" href="#/\@<=">Note:</a>
 \@<=	Matches with zero width if the preceding atom matches just before what
-	follows. [/zero-width](#/zero-width)
+	follows. |/zero-width|
 	Like "(?<=pattern)" in Perl, but Vim allows non-fixed-width patterns.
 	Example			matches ~
 	\(an\_s\+\)\@<=file	"file" after "an" and white space or an
 				end-of-line
 	For speed it's often much better to avoid this multi.  Try using "\zs"
-	instead [/\zs](#/\zs).  To match the same as the above example:
+	instead |/\zs|.  To match the same as the above example:
 		an\_s\+\zsfile
 	At least set a limit for the look-behind, see below.
 
@@ -759,7 +759,7 @@ overview.
 \@<!	Matches with zero width if the preceding atom does NOT match just
 	before what follows.  Thus this matches if there is no position in the
 	current or previous line where the atom matches such that it ends just
-	before what follows.  [/zero-width](#/zero-width)
+	before what follows.  |/zero-width|
 	Like "(?<!pattern)" in Perl, but Vim allows non-fixed-width patterns.
 	The match with the preceding atom is made to end just before the match
 	with what follows, thus an atom that ends in ".*" will work.
@@ -795,7 +795,7 @@ An ordinary atom can be:
 
 ### <a id="/^" class="section-title" href="#/^">Note:</a>
 ^	At beginning of pattern or after "\|", "\(", "\%(" or "\n": matches
-	start-of-line; at other positions, matches literal '^'. [/zero-width](#/zero-width)
+	start-of-line; at other positions, matches literal '^'. |/zero-width|
 	Example		matches ~
 	^beep(		the start of the C function "beep" (probably).
 
@@ -804,7 +804,7 @@ An ordinary atom can be:
 	not inside [].
 
 ### <a id="/\_^" class="section-title" href="#/\_^">Note:</a>
-\_^	Matches start-of-line. [/zero-width](#/zero-width)  Can be used at any position in
+\_^	Matches start-of-line. |/zero-width|  Can be used at any position in
 	the pattern, but not inside [].
 	Example		matches ~
 	\_s*\_^foo	white space and blank lines and then "foo" at
@@ -813,16 +813,16 @@ An ordinary atom can be:
 ### <a id="/$" class="section-title" href="#/$">Note:</a>
 $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	matches end-of-line <EOL>; at other positions, matches literal '$'.
-	[/zero-width](#/zero-width)
+	|/zero-width|
 
 ### <a id="/\$" class="section-title" href="#/\$">Note:</a>
 \$	Matches literal '$'.  Can be used at any position in the pattern, but
 	not inside [].
 
 ### <a id="/\_$" class="section-title" href="#/\_$">Note:</a>
-\_$	Matches end-of-line. [/zero-width](#/zero-width)  Can be used at any position in the
+\_$	Matches end-of-line. |/zero-width|  Can be used at any position in the
 	pattern, but not inside [].  Note that "a\_$b" never matches, since
-	"b" cannot match an end-of-line.  Use "a\nb" instead [/\n](#/\n).
+	"b" cannot match an end-of-line.  Use "a\nb" instead |/\n|.
 	Example		matches ~
 	foo\_$\_s*	"foo" at end-of-line and following white space and
 			blank lines
@@ -837,19 +837,19 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 ### <a id="/\<" class="section-title" href="#/\<">Note:</a>
 \<	Matches the beginning of a word: The next char is the first char of a
 	word.  The 'iskeyword' option specifies what is a word character.
-	[/zero-width](#/zero-width)
+	|/zero-width|
 
 ### <a id="/\>" class="section-title" href="#/\>">Note:</a>
 \>	Matches the end of a word: The previous char is the last char of a
 	word.  The 'iskeyword' option specifies what is a word character.
-	[/zero-width](#/zero-width)
+	|/zero-width|
 
 ### <a id="/\zs" class="section-title" href="#/\zs">Note:</a>
 \zs	Matches at any position, but not inside [], and sets the start of the
 	match there: The next char is the first char of the whole match.
-	[/zero-width](#/zero-width)
+	|/zero-width|
 	Example:
-### <a id="/^\s\zsif" class="section-title" href="#/^\s\zsif">Note:</a>
+#### <a id="/^\s\zsif" class="section-title" href="#/^\s\zsif">```</a>
 	matches an "if" at the start of a line, ignoring white space.
 	Can be used multiple times, the last one encountered in a matching
 	branch is used.  Example:
@@ -860,12 +860,12 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 ### <a id="/\ze" class="section-title" href="#/\ze">Note:</a>
 \ze	Matches at any position, but not inside [], and sets the end of the
 	match there: The previous char is the last char of the whole match.
-	[/zero-width](#/zero-width)
+	|/zero-width|
 	Can be used multiple times, the last one encountered in a matching
 	branch is used.
 	Example: "end\ze\(if\|for\)" matches the "end" in "endif" and
 	"endfor".
-	This cannot be followed by a multi. [E888](#E888)
+	This cannot be followed by a multi. [E888](undefined#E888)
 
 ### <a id="/\%^ start-of-file" class="section-title" href="#/\%^ start-of-file">Note:</a>
 \%^	Matches start of the file.  When matching with a string, matches the
@@ -882,14 +882,14 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	It will find the next VIM, because the part after it will always
 	match.  This one will find the last "VIM" in the file:
 ### <a id="/VIM\ze\(\(VIM\)\@!\_.\)\%$" class="section-title" href="#/VIM\ze\(\(VIM\)\@!\_.\)\%$">Note:</a>
-	This uses [/\@!](#/\@!) to ascertain that "VIM" does NOT match in any
+	This uses |/\@!| to ascertain that "VIM" does NOT match in any
 	position after the first "VIM".
 	Searching from the end of the file backwards is easier!
 
 ### <a id="/\%V" class="section-title" href="#/\%V">Note:</a>
 \%V	Match inside the Visual area.  When Visual mode has already been
-	stopped match in the area that [gv](#gv) would reselect.
-	This is a [/zero-width](#/zero-width) match.  To make sure the whole pattern is
+	stopped match in the area that [gv](undefined#gv) would reselect.
+	This is a |/zero-width| match.  To make sure the whole pattern is
 	inside the Visual area put it at the start and just before the end of
 	the pattern, e.g.:
 ### <a id="/\%Vfoo.ba\%Vr" class="section-title" href="#/\%Vfoo.ba\%Vr">Note:</a>
@@ -906,7 +906,7 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	This is especially relevant for syntax highlighting and 'hlsearch'.
 	In other words: When the cursor moves the display isn't updated for
 	this change.  An update is done for lines which are changed (the whole
-	line is updated) or when using the [CTRL-L](#CTRL-L) command (the whole screen
+	line is updated) or when using the [CTRL-L](undefined#CTRL-L) command (the whole screen
 	is updated).  Example, to highlight the word under the cursor:
 ### <a id="/\k\%#\k" class="section-title" href="#/\k\%#\k">Note:</a>
 	When 'hlsearch' is set and you move the cursor around and make changes
@@ -920,10 +920,10 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 ### <a id="/.\%>'s.\%<'e.." class="section-title" href="#/.\%>'s.\%<'e..">Note:</a>
 	Note that two dots are required to include mark 'e in the match.  That
 	is because "\%<'e" matches at the character before the 'e mark, and
-	since it's a [/zero-width](#/zero-width) match it doesn't include that character.
+	since it's a |/zero-width| match it doesn't include that character.
 	WARNING: When the mark is moved after the pattern was used, the result
 	becomes invalid.  Vim doesn't automatically update the matches.
-	Similar to moving the cursor for "\%#" [/\%#](#/\%#).
+	Similar to moving the cursor for "\%#" |/\%#|.
 
 ### <a id="/\%l /\%>l /\%<l E951 E1204" class="section-title" href="#/\%l /\%>l /\%<l E951 E1204">Note:</a>
 \%23l	Matches in a specific line.
@@ -938,7 +938,7 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	update the matches.  This means Syntax highlighting quickly becomes
 	wrong.  Also when referring to the cursor position (".") and
 	the cursor moves the display isn't updated for this change.  An update
-	is done when using the [CTRL-L](#CTRL-L) command (the whole screen is updated).
+	is done when using the [CTRL-L](undefined#CTRL-L) command (the whole screen is updated).
 	Example, to highlight the line where the cursor currently is:
 		:exe '/\%' .. line(".") .. 'l'
 	Alternatively use:
@@ -961,7 +961,7 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	update the matches.  This means Syntax highlighting quickly becomes
 	wrong.  Also when referring to the cursor position (".") and
 	the cursor moves the display isn't updated for this change.  An update
-	is done when using the [CTRL-L](#CTRL-L) command (the whole screen is updated).
+	is done when using the [CTRL-L](undefined#CTRL-L) command (the whole screen is updated).
 	Example, to highlight the column where the cursor currently is:
 		:exe '/\%' .. col(".") .. 'c'
 	Alternatively use:
@@ -990,7 +990,7 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	update highlighted matches.  This means Syntax highlighting quickly
 	becomes wrong.  Also when referring to the cursor position (".") and
 	the cursor moves the display isn't updated for this change.  An update
-	is done when using the [CTRL-L](#CTRL-L) command (the whole screen is updated).
+	is done when using the [CTRL-L](undefined#CTRL-L) command (the whole screen is updated).
 	Example, to highlight all the characters after virtual column 72:
 ### <a id="/\%>72v." class="section-title" href="#/\%>72v.">Note:</a>
 	When 'hlsearch' is set and you move the cursor around and make changes
@@ -1000,7 +1000,7 @@ $	At end of pattern or in front of "\|", "\)" or "\n" ('magic' on):
 	To match all characters after the current virtual column (where the
 	cursor is):
 ### <a id="/\%>.v." class="section-title" href="#/\%>.v.">Note:</a>
-	Column 17 is not included, because this is a [/zero-width](#/zero-width) match. To
+	Column 17 is not included, because this is a |/zero-width| match. To
 	include the column use:
 ### <a id="/^.\%17v." class="section-title" href="#/^.\%17v.">Note:</a>
 	This command does the same thing, but also matches when there is no
@@ -1164,7 +1164,7 @@ x	A single character, with no special meaning, matches itself
 	  '~'.
 	  These items only work for 8-bit characters, except [:lower:] and
 	  [:upper:] also work for multibyte characters when using the new
-	  regexp engine.  See [two-engines](#two-engines).  In the future these items may
+	  regexp engine.  See [two-engines](undefined#two-engines).  In the future these items may
 	  work for multibyte characters.  For now, to get all "alpha"
 	  characters you can use: [[:lower:][:upper:]].
 
@@ -1202,7 +1202,7 @@ x	A single character, with no special meaning, matches itself
 		\t	<Tab>
 		\r	<CR>	(NOT end-of-line!)
 		\b	<BS>
-		\n	line break, see above [/[\n]](#/[\n])
+		\n	line break, see above |/[\n]|
 		\d123	decimal number of character
 		\o40	octal number of character up to 0o377
 		\x20	hexadecimal number of character up to 0xff
@@ -1214,7 +1214,7 @@ x	A single character, with no special meaning, matches itself
 	  the text has to be compared with each character in the collection.
 	  Use one of the other atoms above when possible.  Example: "\d" is
 	  much faster than "[0-9]" and matches the same characters.  However,
-	  the new [NFA](#NFA) regexp engine deals with this better than the old one.
+	  the new [NFA](undefined#NFA) regexp engine deals with this better than the old one.
 
 ### <a id="/\%[] E69 E70 E369" class="section-title" href="#/\%[] E69 E70 E369">Note:</a>
 \%[]	A sequence of optionally matched atoms.  This always matches.
@@ -1342,8 +1342,10 @@ difference between them is mostly just notation;  here's a summary of where
 they differ:
 
 Capability			in Vimspeak	in Perlspeak ~
-----------------------------------------------------------------
-force case insensitivity	\c		(?i)
+
+
+## <a id="(?i)" class="section-title" href="#(?i)">Force Case Insensitivity	\C</a> 
+
 force case sensitivity		\C		(?-i)
 backref-less grouping		\%(atom\)	(?:atom)
 ### <a id="?, +?, ??, {}?" class="section-title" href="#?, +?, ??, {}?">conservative quantifiers	\{-n,m}</a>
@@ -1406,7 +1408,7 @@ Finally, these constructs are unique to Perl:
 		with ":match" only exists in the current window.  It is kept
 		when switching to another buffer.
 
-		'ignorecase' does not apply, use [/\c](#/\c) in the pattern to
+		'ignorecase' does not apply, use |/\c| in the pattern to
 		ignore case.  Otherwise case is not ignored.
 
 		'redrawtime' defines the maximum time searched for pattern
@@ -1416,14 +1418,14 @@ Finally, these constructs are unique to Perl:
 		display you may get unexpected results.  That is because Vim
 		looks for a match in the line where redrawing starts.
 
-		Also see [matcharg()| and |getmatches()](#matcharg()| and |getmatches()). The former returns
-		the highlight group and pattern of a previous [:match](#:match)
+		Also see |matcharg()| and |getmatches()|. The former returns
+		the highlight group and pattern of a previous |:match|
 		command.  The latter returns a list with highlight groups and
-		patterns defined by both [matchadd()| and |:match](#matchadd()| and |:match).
+		patterns defined by both |matchadd()| and |:match|.
 
-		Highlighting matches using [:match](#:match) are limited to three
-		matches (aside from [:match|, |:2match| and |:3match](#:match|, |:2match| and |:3match) are
-		available). [matchadd()](#matchadd()) does not have this limitation and in
+		Highlighting matches using |:match| are limited to three
+		matches (aside from |:match|, |:2match| and |:3match| are
+		available). |matchadd()| does not have this limitation and in
 		addition makes it possible to prioritize matches.
 
 		Another example, which highlights all characters in virtual
@@ -1447,11 +1449,11 @@ Finally, these constructs are unique to Perl:
 ### <a id=":3match" class="section-title" href="#:3match">:3mat[ch] {group} /{pattern}/</a>
 :3mat[ch]
 :3mat[ch] none
-		Just like [:match](#:match) above, but set a separate match.  Thus
+		Just like |:match| above, but set a separate match.  Thus
 		there can be three matches active at the same time.  The match
 		with the lowest number has priority if several match at the
 		same position.
-		The ":3match" command is used by the [matchparen](#matchparen) plugin.  You
+		The ":3match" command is used by the [matchparen](undefined#matchparen) plugin.  You
 		are suggested to use ":match" for manual matching and
 		":2match" for another plugin.
 
@@ -1481,7 +1483,7 @@ For example, when you search for the "get pat" string using fuzzy matching, it
 will match the strings "GetPattern", "PatternGet", "getPattern", "patGetter",
 "getSomePattern", "MatchpatternGet" etc.
 
-The functions [matchfuzzy()| and |matchfuzzypos()](#matchfuzzy()| and |matchfuzzypos()) can be used to fuzzy search
+The functions |matchfuzzy()| and |matchfuzzypos()| can be used to fuzzy search
 a string in a List of strings. The matchfuzzy() function returns a List of
 matching strings. The matchfuzzypos() functions returns the List of matches,
 the matching positions and the fuzzy match scores.

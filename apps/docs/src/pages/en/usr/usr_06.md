@@ -17,16 +17,16 @@ not only looks nice, it also speeds up your work.  Change the colors used for
 the different sorts of text.  Print your text, with the colors you see on the
 screen.
 
-[06.1](#06.1)	Switching it on
-[06.2](#06.2)	No or wrong colors?
-[06.3](#06.3)	Different colors
-[06.4](#06.4)	With colors or without colors
-[06.5](#06.5)	Printing with colors
-[06.6](#06.6)	Further reading
+|06.1|	Switching it on
+|06.2|	No or wrong colors?
+|06.3|	Different colors
+|06.4|	With colors or without colors
+|06.5|	Printing with colors
+|06.6|	Further reading
 
-     Next chapter: [usr_07.txt](#usr_07.txt)  Editing more than one file
- Previous chapter: [usr_05.txt](#usr_05.txt)  Set your settings
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_07.txt|  Editing more than one file
+ Previous chapter: |usr_05.txt|  Set your settings
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*06.1*	Switching It On</a> 
@@ -46,12 +46,12 @@ There can be a number of reasons why you don't see colors:
 
 - Your terminal does support colors, but Vim doesn't know this.
 	Make sure your $TERM setting is correct.  For example, when using an
-	xterm that supports colors: 
+	xterm that supports colors:
 ```
 		setenv TERM xterm-color
 ```
 
-	or (depending on your shell): 
+	or (depending on your shell):
 ```
 		TERM=xterm-color; export TERM
 
@@ -66,13 +66,13 @@ There can be a number of reasons why you don't see colors:
 
 	If the result is "filetype=" then the problem is indeed that Vim
 	doesn't know what type of file this is.  You can set the type
-	manually: 
-```
+	manually:
+
 		:set filetype=fortran
 
 	To see which types are available, look in the directory
 	$VIMRUNTIME/syntax.  For the GUI you can use the Syntax menu.
-	Setting the filetype can also be done with a [modeline](#modeline), so that the
+	Setting the filetype can also be done with a [modeline](undefined#modeline), so that the
 	file will be highlighted each time you edit it.  For example, this
 	line can be used in a Makefile (put it near the start or end of the
 	file):
@@ -81,12 +81,12 @@ There can be a number of reasons why you don't see colors:
 
 	You might know how to detect the file type yourself.  Often the file
 	name extension (after the dot) can be used.
-	See [new-filetype](#new-filetype) for how to tell Vim to detect that file type.
+	See [new-filetype](undefined#new-filetype) for how to tell Vim to detect that file type.
 
 - There is no highlighting for your file type.
 	You could try using a similar file type by manually setting it as
 	mentioned above.  If that isn't good enough, you can write your own
-	syntax file, see [mysyntaxfile](#mysyntaxfile).
+	syntax file, see [mysyntaxfile](undefined#mysyntaxfile).
 
 
 Or the colors could be wrong:
@@ -114,23 +114,23 @@ Or the colors could be wrong:
 	wherever you are viewing the file.  That saves a lot of time, but
 	sometimes the colors are wrong.  A simple fix is hitting CTRL-L.  Or
 	scroll back a bit and then forward again.
-	For a real fix, see [:syn-sync](#:syn-sync).  Some syntax files have a way to make
+	For a real fix, see |:syn-sync|.  Some syntax files have a way to make
 	it look further back, see the help for the specific syntax file.  For
-	example, [tex.vim](#tex.vim) for the TeX syntax.
+	example, |tex.vim| for the TeX syntax.
 
 
 ## <a id=":syn-default-override" class="section-title" href="#:syn-default-override">*06.3*	Different Colors</a> 
 
 If you don't like the default colors, you can select another color scheme.  In
 the GUI use the Edit/Color Scheme menu.  You can also type the command:
-
+```
 	:colorscheme evening
 
 "evening" is the name of the color scheme.  There are several others you might
 want to try out.  Look in the directory $VIMRUNTIME/colors.
 
 When you found the color scheme that you like, add the ":colorscheme" command
-to your [init.vim](#init.vim) file.
+to your |init.vim| file.
 
 You could also write your own color scheme.  This is how you do it:
 
@@ -152,17 +152,17 @@ You could also write your own color scheme.  This is how you do it:
 	guifg		foreground color in the GUI
 	guibg		background color in the GUI
 
-   For example, to make comments green: 
+   For example, to make comments green:
 ```
 	:highlight Comment ctermfg=green guifg=green
 ```
 
    Attributes you can use for "cterm" and "gui" are "bold" and "underline".
-   If you want both, use "bold,underline".  For details see the [:highlight](#:highlight)
+   If you want both, use "bold,underline".  For details see the |:highlight|
    command.
 
-3. Tell Vim to always use your color scheme.  Put this line in your [vimrc](#vimrc): 
-```
+3. Tell Vim to always use your color scheme.  Put this line in your [vimrc](undefined#vimrc):
+
 	colorscheme mine
 
 If you want to see what the most often used color combinations look like, use
@@ -178,7 +178,7 @@ readable and look nice.
 
 Displaying text in color takes a lot of effort.  If you find the displaying
 too slow, you might want to disable syntax highlighting for a moment:
-
+```
 	:syntax clear
 
 When editing another file (or the same one) the colors will come back.
@@ -188,7 +188,7 @@ If you want to stop highlighting completely use:
 	:syntax off
 
 This will completely disable syntax highlighting and remove it immediately for
-all buffers.  See [:syntax-off](#:syntax-off) for more details.
+all buffers.  See |:syntax-off| for more details.
 
 ### <a id=":syn-manual" class="section-title" href="#:syn-manual">Note:</a>
 If you want syntax highlighting only for specific files, use this:
@@ -247,7 +247,7 @@ Some time later another window shows the HTML code.  Now write this somewhere
 	:write main.c.html
 
 Open this file in your favorite browser and print it from there.  If all goes
-well, the output should look exactly as it does in Vim.  See [2html.vim](#2html.vim) for
+well, the output should look exactly as it does in Vim.  See |2html.vim| for
 details.  Don't forget to delete the HTML file when you are done with it.
 
 Instead of printing, you could also put the HTML file on a web server, and let
@@ -256,11 +256,11 @@ others look at the colored text.
 
 ## <a id="" class="section-title" href="#">*06.6*	Further Reading</a> 
 
-[usr_44.txt](#usr_44.txt)  Your own syntax highlighted.
-[syntax](#syntax)      All the details.
+|usr_44.txt|  Your own syntax highlighted.
+[syntax](undefined#syntax)      All the details.
 
 
-## <a id="Editing more than one file" class="section-title" href="#Editing more than one file">Next Chapter: [Usr_07.Txt](#Usr_07.Txt)</a> 
+## <a id="Editing more than one file" class="section-title" href="#Editing more than one file">Next Chapter: |Usr_07.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

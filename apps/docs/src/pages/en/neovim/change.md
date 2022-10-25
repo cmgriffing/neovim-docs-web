@@ -1208,7 +1208,7 @@ unless the command specified another register with ["x].
 change command, unless the command specified another register or the text is
 less than one line (the small delete register is used then).  An exception is
 made for the delete operator with these movement commands: [%|, |(|, |)|, |`](#%|, |(|, |)|, |`),
-[/|, |?|, |n|, |N|, |{| and |}](#/|, |?|, |n|, |N|, |{| and |}).  Register "1 is always used then (this is Vi
+[/|, |?|, [[[n](/undefined#n)](/undefined)](/undefined), [[[N](/undefined#N)](/undefined)](/undefined), |{| and |}](#/|, |?|, [[[n](/undefined#n)](/undefined)](/undefined), [[[N](/undefined#N)](/undefined)](/undefined), |{| and |}).  Register "1 is always used then (this is Vi
 compatible).  The "- register is used as well if the delete is within a line.
 Note that these characters may be mapped.  E.g. [%](#%) is mapped by the matchit
 plugin.

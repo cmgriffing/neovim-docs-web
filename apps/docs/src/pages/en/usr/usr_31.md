@@ -16,15 +16,15 @@ Vim works well in a terminal, but the GUI has a few extra items.  A file
 browser can be used for commands that use a file.  A dialog to make a choice
 between alternatives.  Use keyboard shortcuts to access menu items quickly.
 
-[31.1](#31.1)	The file browser
-[31.2](#31.2)	Confirmation
-[31.3](#31.3)	Menu shortcuts
-[31.4](#31.4)	Vim window position and size
-[31.5](#31.5)	Various
+|31.1|	The file browser
+|31.2|	Confirmation
+|31.3|	Menu shortcuts
+|31.4|	Vim window position and size
+|31.5|	Various
 
-     Next chapter: [usr_32.txt](#usr_32.txt)  The undo tree
- Previous chapter: [usr_30.txt](#usr_30.txt)  Editing programs
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_32.txt|  The undo tree
+ Previous chapter: |usr_30.txt|  Editing programs
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*31.1*	the File Browser</a> 
@@ -35,8 +35,8 @@ edit another file?  There is no menu entry for this.  You could first use
 Window/Split and then File/Open..., but that's more work.
    Since you are typing most commands in Vim, opening the file browser with a
 typed command is possible as well.  To make the split command use the file
-browser, prepend "browse": 
-```
+browser, prepend "browse":
+
 	:browse split
 
 Select a file and then the ":split" command will be executed with it.  If you
@@ -83,7 +83,7 @@ Will start the browser in "/usr".
 
 When you are not using the GUI version, you could use the file explorer window
 to select files like in a file browser.  However, this doesn't work for the
-":browse" command.  See [netrw-browse](#netrw-browse).
+":browse" command.  See [netrw-browse](undefined#netrw-browse).
 
 
 ## <a id="" class="section-title" href="#">*31.2*	Confirmation</a> 
@@ -101,10 +101,10 @@ editing another file with:
 Vim will pop up a dialog that looks something like this:
 
 	+-----------------------------------+
-	[				    ](#				    )
-	[   ?	Save changes to "bar.txt"?  ](#   ?	Save changes to "bar.txt"?  )
-	[				    ](#				    )
-	[   YES   NO		 CANCEL     ](#   YES   NO		 CANCEL     )
+	|				    |
+	|   ?	Save changes to "bar.txt"?  |
+	|				    |
+	|   YES   NO		 CANCEL     |
 	+-----------------------------------+
 
 Now make your choice.  If you do want to save the changes, select "YES".  If
@@ -168,7 +168,7 @@ Alt> key combinations may also do other things than selecting a menu.
 ## <a id="" class="section-title" href="#">*31.4*	Vim Window Position and Size</a> 
 
 To see the current Vim window position on the screen use:
-
+```
 	:winpos
 
 This will only work in the GUI.  The output may look like this:
@@ -244,7 +244,7 @@ using the terminal for something else.  The "-f" argument is used here to run
 the GUI in the foreground.  You can also use ":gui -f".
 
 
-## <a id="The undo tree" class="section-title" href="#The undo tree">Next Chapter: [Usr_32.Txt](#Usr_32.Txt)</a> 
+## <a id="The undo tree" class="section-title" href="#The undo tree">Next Chapter: |Usr_32.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

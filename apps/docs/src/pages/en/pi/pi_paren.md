@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="matchparen" class="section-title" href="#matchparen">Highlighting matching parens</a>
 
-The functionality mentioned here is a [standard-plugin](#standard-plugin).
+The functionality mentioned here is a [standard-plugin](undefined#standard-plugin).
 This plugin is only available if 'compatible' is not set.
 
 You can avoid loading this plugin by setting the "loaded_matchparen" variable:
@@ -57,7 +57,7 @@ are:
   buffer-local equivalents b:matchparen_timeout and
   b:matchparen_insert_timeout.
 
-If you would like the [%| command to work better, the |matchit](#%| command to work better, the |matchit) plugin can be
+If you would like the |%| command to work better, the [matchit](undefined#matchit) plugin can be
 used.  This plugin also helps to skip matches in comments.  This is unrelated
 to the matchparen highlighting, they use a different mechanism.
 

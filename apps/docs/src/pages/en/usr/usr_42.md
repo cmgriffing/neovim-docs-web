@@ -16,14 +16,14 @@ By now you know that Vim is very flexible.  This includes the menus used in
 the GUI.  You can define your own menu entries to make certain commands easily
 accessible.  This is for mouse-happy users only.
 
-[42.1](#42.1)	Introduction
-[42.2](#42.2)	Menu commands
-[42.3](#42.3)	Various
-[42.4](#42.4)	Toolbar and popup menus
+|42.1|	Introduction
+|42.2|	Menu commands
+|42.3|	Various
+|42.4|	Toolbar and popup menus
 
-     Next chapter: [usr_43.txt](#usr_43.txt)  Using filetypes
- Previous chapter: [usr_41.txt](#usr_41.txt)  Write a Vim script
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_43.txt|  Using filetypes
+ Previous chapter: |usr_41.txt|  Write a Vim script
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*42.1*	Introduction</a> 
@@ -32,8 +32,8 @@ The menus that Vim uses are defined in the file "$VIMRUNTIME/menu.vim".  If
 you want to write your own menus, you might first want to look through that
 file.
    To define a menu item, use the ":menu" command.  The basic form of this
-command is as follows: 
-```
+command is as follows:
+
 	:menu {menu-item} {keys}
 
 The {menu-item} describes where on the menu to put the item.  A typical
@@ -80,7 +80,7 @@ higher numbers to the right.
 	  10	20     40     50      60       70		9999
 
 	+------------------------------------------------------------+
-	[ File	Edit  Tools  Syntax  Buffers  Window		Help ](# File	Edit  Tools  Syntax  Buffers  Window		Help )
+	| File	Edit  Tools  Syntax  Buffers  Window		Help |
 	+------------------------------------------------------------+
 
 Notice that the Help menu is given a very high number, to make it appear on
@@ -90,21 +90,21 @@ pull-down menu.  Lower numbers go on top, higher number on the bottom.  These
 are the priorities in the File menu:
 
 			+-----------------+
-	    10.310	[Open...	  ](#Open...	  )
-	    10.320	[Split-Open...	  ](#Split-Open...	  )
-	    10.325	[New		  ](#New		  )
-	    10.330	[Close		  ](#Close		  )
-	    10.335	[---------------- ](#---------------- )
-	    10.340	[Save		  ](#Save		  )
-	    10.350	[Save As...	  ](#Save As...	  )
-	    10.400	[---------------- ](#---------------- )
-	    10.410	[Split Diff with  ](#Split Diff with  )
-	    10.420	[Split Patched By ](#Split Patched By )
-	    10.500	[---------------- ](#---------------- )
-	    10.510	[Print		  ](#Print		  )
-	    10.600	[---------------- ](#---------------- )
-	    10.610	[Save-Exit	  ](#Save-Exit	  )
-	    10.620	[Exit		  ](#Exit		  )
+	    10.310	|Open...	  |
+	    10.320	|Split-Open...	  |
+	    10.325	|New		  |
+	    10.330	|Close		  |
+	    10.335	|---------------- |
+	    10.340	|Save		  |
+	    10.350	|Save As...	  |
+	    10.400	|---------------- |
+	    10.410	|Split Diff with  |
+	    10.420	|Split Patched By |
+	    10.500	|---------------- |
+	    10.510	|Print		  |
+	    10.600	|---------------- |
+	    10.610	|Save-Exit	  |
+	    10.620	|Exit		  |
 			+-----------------+
 
 Notice that there is room in between the numbers.  This is where you can
@@ -196,7 +196,7 @@ This menu entry goes to the next file in the argument list with ":next".  Then
 it searches for the line that starts with "Code".
    The <SID> before the function name is the script ID.  This makes the
 function local to the current Vim script file.  This avoids problems when a
-function with the same name is defined in another script file.  See [<SID>](#<SID>).
+function with the same name is defined in another script file.  See |<SID>|.
 
 
 SILENT MENUS
@@ -264,7 +264,7 @@ This deletes the Syntax menu and all the items in it.
 You can change the appearance of the menus with flags in 'guioptions'.  In the
 default value they are all included, except "M".  You can remove a flag with a
 command like:
-
+```
 	:set guioptions-=m
 ```
 
@@ -276,13 +276,13 @@ command like:
 			but are completely removed.  (Does not work on all
 			systems.)
 
-For translating menu items, see [:menutrans](#:menutrans).
+For translating menu items, see |:menutrans|.
 
 Since the mouse has to be used to select a menu item, it is a good idea to use
 the ":browse" command for selecting a file.  And ":confirm" to get a dialog
 instead of an error message, e.g., when the current buffer contains changes.
-These two can be combined: 
-```
+These two can be combined:
+
 	:amenu File.Open  :browse confirm edit<CR>
 
 The ":browse" makes a file browser appear to select the file to edit.  The
@@ -306,11 +306,11 @@ option.
 example, the {menu-item} named "ToolBar.New" causes the "New" icon to appear
 on the toolbar.
    The Vim editor has 28 built-in icons.  You can find a table here:
-[builtin-tools](#builtin-tools).  Most of them are used in the default toolbar.  You can
+[builtin-tools](undefined#builtin-tools).  Most of them are used in the default toolbar.  You can
 redefine what these items do (after the default menus are setup).
    You can add another bitmap for a toolbar item.  Or define a new toolbar
 item with a bitmap.  For example, define a new toolbar item with:
-
+```
 	:tmenu ToolBar.Compile  Compile the current file
 	:amenu ToolBar.Compile  :!cc %:S -o %:r:S<CR>
 
@@ -334,7 +334,7 @@ Example:
 	Pay attention to the case used.  "Toolbar" and "toolbar" are different
 	from "ToolBar"!
 
-To remove a tooltip, use the [:tunmenu](#:tunmenu) command.
+To remove a tooltip, use the |:tunmenu| command.
 
 The 'toolbar' option can be used to display text instead of a bitmap, or both
 text and a bitmap.  Most people use just the bitmap, since the text takes
@@ -361,7 +361,7 @@ now dead, unfortunately.  So now you might wonder what the meaning of death
 is...
 
 
-## <a id="Using filetypes" class="section-title" href="#Using filetypes">Next Chapter: [Usr_43.Txt](#Usr_43.Txt)</a> 
+## <a id="Using filetypes" class="section-title" href="#Using filetypes">Next Chapter: |Usr_43.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

@@ -17,16 +17,16 @@ executing program from inside Vim or by leaving Vim and coming back later.
 Furthermore, this is about the ways to remember the state of Vim and restore
 it later.
 
-[21.1](#21.1)	Suspend and resume
-[21.2](#21.2)	Executing shell commands
-[21.3](#21.3)	Remembering information; ShaDa
-[21.4](#21.4)	Sessions
-[21.5](#21.5)	Views
-[21.6](#21.6)	Modelines
+|21.1|	Suspend and resume
+|21.2|	Executing shell commands
+|21.3|	Remembering information; ShaDa
+|21.4|	Sessions
+|21.5|	Views
+|21.6|	Modelines
 
-     Next chapter: [usr_22.txt](#usr_22.txt)  Finding the file to edit
- Previous chapter: [usr_20.txt](#usr_20.txt)  Typing command-line commands quickly
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_22.txt|  Finding the file to edit
+ Previous chapter: |usr_20.txt|  Typing command-line commands quickly
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*21.1*	Suspend and Resume</a> 
@@ -34,8 +34,8 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 Like most Unix programs Vim can be suspended by pressing CTRL-Z.  This stops
 Vim and takes you back to the shell it was started in.  You can then do any
 other commands until you are bored with them.  Then bring back Vim with the
-"fg" command. 
-```
+"fg" command.
+
 	CTRL-Z
 	{any sequence of shell commands}
 	fg
@@ -77,7 +77,7 @@ difference.  Without it executes the program normally, with the range a number
 of text lines is filtered through the program.
 
 Executing a whole row of programs this way is possible.  But a shell is much
-better at it.  You can start a new shell with [:terminal](#:terminal).
+better at it.  You can start a new shell with |:terminal|.
 
 This is similar to using CTRL-Z to suspend Vim.  The difference is that a new
 shell is started.
@@ -105,7 +105,7 @@ restored.
 The 'shada' option is set by default to restore a limited number of items.
 You might want to set it to remember more information.  This is done through
 the following command:
-
+```
 	:set shada=string
 
 The string specifies what to save.  The syntax of this string is an option
@@ -146,7 +146,7 @@ Other options you might want to use:
 	c	convert the text using 'encoding'
 	n	name used for the ShaDa file (must be the last option)
 
-See the 'shada' option and [shada-file](#shada-file) for more information.
+See the 'shada' option and [shada-file](undefined#shada-file) for more information.
 
 When you run Vim multiple times, the last one exiting will store its
 information.  This may cause information that previously exiting Vims stored
@@ -164,7 +164,7 @@ And you are right back where you left Vim.  So you can get on with your work.
    Vim creates a mark each time you exit Vim.  The last one is '0.  The
 position that '0 pointed to is made '1.  And '1 is made to '2, and so forth.
 Mark '9 is lost.
-   The [:marks](#:marks) command is useful to find out where '0 to '9 will take you.
+   The |:marks| command is useful to find out where '0 to '9 will take you.
 
 
 GETTING BACK TO SOME FILE
@@ -199,14 +199,14 @@ Fortunately there is a simpler way:
 	3: /tmp/draft ~
 	-- More --
 
-You get the same list of files as with [:oldfiles](#:oldfiles).  If you want to edit
+You get the same list of files as with |:oldfiles|.  If you want to edit
 "resume.txt" first press "q" to stop the listing.  You will get a prompt:
 
 	Type number and <Enter> (empty cancels): ~
 
 Type "2" and press <Enter> to edit the second file.
 
-More info at [:oldfiles|, |v:oldfiles| and |c_#<](#:oldfiles|, |v:oldfiles| and |c_#<).
+More info at |:oldfiles|, |v:oldfiles| and |c_#<|.
 
 
 MOVE INFO FROM ONE VIM TO ANOTHER
@@ -308,19 +308,19 @@ you want.
    For example, this is a nice layout to use:
 
 	+----------------------------------------+
-	[		   VIM - main help file  ](#		   VIM - main help file  )
-	[					 ](#					 )
-	[Move around:  Use the cursor keys, or "h](#Move around:  Use the cursor keys, or "h)
-	[help.txt================================](#help.txt================================)
-	[explorer   |				 ](#explorer   |				 )
-	[dir	    |~				 ](#dir	    |~				 )
-	[dir	    |~				 ](#dir	    |~				 )
-	[file	    |~				 ](#file	    |~				 )
-	[file	    |~				 ](#file	    |~				 )
-	[file	    |~				 ](#file	    |~				 )
-	[file	    |~				 ](#file	    |~				 )
-	[~/=========|[No File]===================](#~/=========|[No File]===================)
-	[					 ](#					 )
+	|		   VIM - main help file  |
+	|					 |
+	|Move around:  Use the cursor keys, or "h|
+	|help.txt================================|
+	|explorer   |				 |
+	|dir	    |~				 |
+	|dir	    |~				 |
+	|file	    |~				 |
+	|file	    |~				 |
+	|file	    |~				 |
+	|file	    |~				 |
+	|~/=========|[No File]===================|
+	|					 |
 	+----------------------------------------+
 
 This has a help window at the top, so that you can read this text.  The narrow
@@ -473,10 +473,10 @@ There is an extra backslash before the first colon, so that it's included in
 the ":set" command.  The text after the second colon is ignored, thus a remark
 can be placed there.
 
-For more details see [modeline](#modeline).
+For more details see [modeline](undefined#modeline).
 
 
-## <a id="Finding the file to edit" class="section-title" href="#Finding the file to edit">Next Chapter: [Usr_22.Txt](#Usr_22.Txt)</a> 
+## <a id="Finding the file to edit" class="section-title" href="#Finding the file to edit">Next Chapter: |Usr_22.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

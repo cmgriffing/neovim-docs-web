@@ -16,18 +16,18 @@ Vim can be tuned to work like you want it to.  This chapter shows you how to
 make Vim start with options set to different values.  Add plugins to extend
 Vim's capabilities.  Or define your own macros.
 
-[05.1](#05.1)	The vimrc file
-[05.2](#05.2)	The example vimrc file explained
-[05.3](#05.3)	Simple mappings
-[05.4](#05.4)	Adding a package
-[05.5](#05.5)	Adding a plugin
-[05.6](#05.6)	Adding a help file
-[05.7](#05.7)	The option window
-[05.8](#05.8)	Often used options
+|05.1|	The vimrc file
+|05.2|	The example vimrc file explained
+|05.3|	Simple mappings
+|05.4|	Adding a package
+|05.5|	Adding a plugin
+|05.6|	Adding a help file
+|05.7|	The option window
+|05.8|	Often used options
 
-     Next chapter: [usr_06.txt](#usr_06.txt)  Using syntax highlighting
- Previous chapter: [usr_04.txt](#usr_04.txt)  Making small changes
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_06.txt|  Using syntax highlighting
+ Previous chapter: |usr_04.txt|  Making small changes
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="vimrc-intro" class="section-title" href="#vimrc-intro">*05.1*	the Vimrc File</a> 
@@ -38,11 +38,11 @@ what is called the init.vim file.  Vim executes the commands in this file when
 it starts up.
 
 If you already have a init.vim file (e.g., when your sysadmin has one setup 
-for you), you can edit it this way: 
-```
+for you), you can edit it this way:
+
 	:edit $MYVIMRC
 
-If you don't have a vimrc file yet, see [init.vim](#init.vim) to find out where you can
+If you don't have a vimrc file yet, see |init.vim| to find out where you can
 create a vimrc file.
 
 This file is always used and is recommended:
@@ -60,7 +60,7 @@ For this new line to take effect you need to exit Vim and start it again.
 Later you will learn how to do this without exiting Vim.
 
 This chapter only explains the most basic items.  For more information on how
-to write a Vim script file: [usr_41.txt](#usr_41.txt).
+to write a Vim script file: |usr_41.txt|.
 
 
 ## <a id="vimrc_example.vim" class="section-title" href="#vimrc_example.vim">*05.2*	the Example Vimrc File Explained</a> 
@@ -89,7 +89,7 @@ new line.
 	set backup
 
 This tells Vim to keep a backup copy of a file when overwriting it. The backup
-file will have the same name as the original file with "~" added.  See [07.4](#07.4)
+file will have the same name as the original file with "~" added.  See |07.4|
 
 	set history=50
 
@@ -108,10 +108,10 @@ type the character to find and "2f" is displayed.  When you press "w" next,
 the "2fw" command is executed and the displayed "2f" is removed.
 
 	+-------------------------------------------------+
-	[text in the Vim window				  ](#text in the Vim window				  )
-	[~						  ](#~						  )
-	[~						  ](#~						  )
-	[-- VISUAL --			2f     43,8   17% ](#-- VISUAL --			2f     43,8   17% )
+	|text in the Vim window				  |
+	|~						  |
+	|~						  |
+	|-- VISUAL --			2f     43,8   17% |
 	+-------------------------------------------------+
 	 ^^^^^^^^^^^		      ^^^^^^^^ ^^^^^^^^^^
 	  'showmode'		     'showcmd'	'ruler'
@@ -134,7 +134,7 @@ executed like you typed them.
 
 This option tells Vim to highlight matches with the last used search pattern.
 The "if" command is very useful to set options only when some condition is
-met.  More about that in [usr_41.txt](#usr_41.txt).
+met.  More about that in |usr_41.txt|.
 
 ### <a id="vimrc-filetype" class="section-title" href="#vimrc-filetype">Note:</a>
 	filetype plugin indent on
@@ -147,36 +147,36 @@ This switches on three very clever mechanisms:
    "#!/bin/sh", Vim will recognize it as a "sh" filetype.
    The filetype detection is used for syntax highlighting and the other two
    items below.
-   See [filetypes](#filetypes).
+   See [filetypes](undefined#filetypes).
 
 2. Using filetype plugin files
    Many different filetypes are edited with different options.  For example,
    when you edit a "c" file, it's very useful to set the 'cindent' option to
    automatically indent the lines.  These commonly useful option settings are
    included with Vim in filetype plugins.  You can also add your own, see
-   [write-filetype-plugin](#write-filetype-plugin).
+   [write-filetype-plugin](undefined#write-filetype-plugin).
 
 3. Using indent files
    When editing programs, the indent of a line can often be computed
    automatically.  Vim comes with these indent rules for a number of
-   filetypes.  See [:filetype-indent-on](#:filetype-indent-on) and 'indentexpr'.
+   filetypes.  See |:filetype-indent-on| and 'indentexpr'.
 
 
 ### <a id="restore-cursor last-position-jump" class="section-title" href="#restore-cursor last-position-jump">Note:</a>
 ### <a id="autocmd BufRead  autocmd FileType <buffer> ++once" class="section-title" href="#autocmd BufRead  autocmd FileType <buffer> ++once">Note:</a>
-      \ if &ft !~# 'commit\[rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' ](#rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' ) endif
+      \ if &ft !~# 'commit\|rebase' && line("'\"") > 1 && line("'\"") <= line("$") | exe 'normal! g`"' | endif
 
 Another autocommand.  This time it is used after reading any file.  The
 complicated stuff after it checks if the '" mark is defined, and jumps to it
 if so.  The backslash at the start of a line is used to continue the command
 from the previous line.  That avoids a line getting very long.
-See [line-continuation](#line-continuation).  This only works in a Vim script file, not when
+See [line-continuation](undefined#line-continuation).  This only works in a Vim script file, not when
 typing commands at the command-line.
-	command DiffOrig vert new [ set bt=nofile | r ++edit # | 0d_ ](# set bt=nofile | r ++edit # | 0d_ ) diffthis
-		  \ [ wincmd p ](# wincmd p ) diffthis
+	command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
 
 This adds the ":DiffOrig" command.  Use this in a modified buffer to see the
-differences with the file it was loaded from.  See [diff| and |:DiffOrig](#diff| and |:DiffOrig).
+differences with the file it was loaded from.  See [diff](undefined#diff) and |:DiffOrig|.
 	set nolangremap
 
 Prevent that the langmap option applies to characters that result from a
@@ -191,7 +191,7 @@ for example, that you need to surround certain words with curly braces.  In
 other words, you need to change a word such as "amount" into "{amount}".  With
 the :map command, you can tell Vim that the F5 key does this job.  The command
 is as follows:
-
+```
 	:map <F5> i{<Esc>ea}<Esc>
 ```
 
@@ -229,7 +229,7 @@ You need to type the \ and the p quickly after another, so that Vim knows they
 belong together.
 
 The ":map" command (with no arguments) lists your current mappings.  At
-least the ones for Normal mode.  More about mappings in section [40.1](#40.1).
+least the ones for Normal mode.  More about mappings in section |40.1|.
 
 
 ## <a id="add-package vimball-install" class="section-title" href="#add-package vimball-install">*05.4*	Adding a Package</a> 
@@ -269,7 +269,7 @@ an archive or as a repository.  For an archive you can follow these steps:
 	   Here "fancytext" is the name of the package, it can be anything
 	   else.
 
-More information about packages can be found here: [packages](#packages).
+More information about packages can be found here: [packages](/neovim-docs-web/en/vim/repeat#packages).
 
 
 ## <a id="add-plugin plugin" class="section-title" href="#add-plugin plugin">*05.5*	Adding a Plugin</a> 
@@ -284,7 +284,7 @@ There are two types of plugins:
   filetype plugin: Only used for a specific type of file
 
 The global plugins will be discussed first, then the filetype ones
-[add-filetype-plugin](#add-filetype-plugin).
+[add-filetype-plugin](undefined#add-filetype-plugin).
 
 
 ### <a id="standard-plugin" class="section-title" href="#standard-plugin">Global Plugins</a>
@@ -293,7 +293,7 @@ When you start Vim, it will automatically load a number of global plugins.
 You don't have to do anything for this.  They add functionality that most
 people will want to use, but which was implemented as a Vim script instead of
 being compiled into Vim.  You can find them listed in the help index
-[standard-plugin-list|.  Also see |load-plugins](#standard-plugin-list|.  Also see |load-plugins).
+[standard-plugin-list](undefined#standard-plugin-list).  Also see [load-plugins](undefined#load-plugins).
 
 ### <a id="add-global-plugin" class="section-title" href="#add-global-plugin">Note:</a>
 You can add a global plugin to add functionality that will always be present
@@ -310,7 +310,7 @@ Where can you find plugins?
   and its sub-directories and under $VIM/vimfiles/pack/dist/opt/.
 - Download from the net.  There is a large collection on https://www.vim.org.
 - They are sometimes posted in a Vim maillist.
-- You could write one yourself, see [write-plugin](#write-plugin).
+- You could write one yourself, see [write-plugin](/neovim-docs-web/en/usr/usr_41#write-plugin).
 
 
 USING A GLOBAL PLUGIN
@@ -341,7 +341,7 @@ you can start using with this command:
 
 	:filetype plugin on
 
-That's all!  See [vimrc-filetype](#vimrc-filetype).
+That's all!  See [vimrc-filetype](undefined#vimrc-filetype).
 
 If you are missing a plugin for a filetype you are using, or you found a
 better one, you can add it.  There are two steps for adding a filetype plugin:
@@ -398,14 +398,14 @@ for the same filetype.  Note that it must end in ".vim" or ".lua".
 
 
 Further reading:
-[filetype-plugins](#filetype-plugins)	Documentation for the filetype plugins and information
+[filetype-plugins](/neovim-docs-web/en/vim/filetype#filetype-plugins)	Documentation for the filetype plugins and information
 			about how to avoid that mappings cause problems.
-[load-plugins](#load-plugins)		When the global plugins are loaded during startup.
-[ftplugin-overrule](#ftplugin-overrule)	Overruling the settings from a global plugin.
-[write-plugin](#write-plugin)		How to write a plugin script.
-[plugin-details](#plugin-details)	For more information about using plugins or when your
+[load-plugins](undefined#load-plugins)		When the global plugins are loaded during startup.
+[ftplugin-overrule](undefined#ftplugin-overrule)	Overruling the settings from a global plugin.
+[write-plugin](/neovim-docs-web/en/usr/usr_41#write-plugin)		How to write a plugin script.
+[plugin-details](undefined#plugin-details)	For more information about using plugins or when your
 			plugin doesn't work.
-[new-filetype](#new-filetype)		How to detect a new file type.
+[new-filetype](undefined#new-filetype)		How to detect a new file type.
 
 
 ## <a id="add-local-help" class="section-title" href="#add-local-help">*05.6*	Adding a Help File</a> 
@@ -426,7 +426,7 @@ Now, copy the help file to the "doc" directory:
 	:!cp my-plugin/my-plugin-doc.txt ~/.local/share/nvim/site/doc
 
 Here comes the trick, which allows you to jump to the subjects in the new help
-file. Generate the local tags file with the [:helptags](#:helptags) command:
+file. Generate the local tags file with the |:helptags| command:
 
 	:helptags ~/.local/share/nvim/site/doc
 
@@ -438,13 +438,13 @@ The title lines from the local help files are automagically added to this
 section.  There you can see which local help files have been added and jump to
 them through the tag.
 
-For writing a local help file, see [write-local-help](#write-local-help).
+For writing a local help file, see [write-local-help](undefined#write-local-help).
 
 
 ## <a id="" class="section-title" href="#">*05.7*	the Option Window</a> 
 
 If you are looking for an option that does what you want, you can search in
-the help files here: [options](#options).  Another way is by using this command:
+the help files here: [options](undefined#options).  Another way is by using this command:
 
 	:options
 
@@ -595,7 +595,7 @@ messages.  Example:
 This does mean there is less room to edit text, thus it's a compromise.
 
 
-## <a id="Using syntax highlighting" class="section-title" href="#Using syntax highlighting">Next Chapter: [Usr_06.Txt](#Usr_06.Txt)</a> 
+## <a id="Using syntax highlighting" class="section-title" href="#Using syntax highlighting">Next Chapter: |Usr_06.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

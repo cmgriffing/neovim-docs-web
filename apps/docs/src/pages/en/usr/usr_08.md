@@ -16,19 +16,19 @@ Display two different files above each other.  Or view two locations in the
 file at the same time.  See the difference between two files by putting them
 side by side.  All this is possible with split windows.
 
-[08.1](#08.1)	Split a window
-[08.2](#08.2)	Split a window on another file
-[08.3](#08.3)	Window size
-[08.4](#08.4)	Vertical splits
-[08.5](#08.5)	Moving windows
-[08.6](#08.6)	Commands for all windows
-[08.7](#08.7)	Viewing differences with diff mode
-[08.8](#08.8)	Various
-[08.9](#08.9)	Tab pages
+|08.1|	Split a window
+|08.2|	Split a window on another file
+|08.3|	Window size
+|08.4|	Vertical splits
+|08.5|	Moving windows
+|08.6|	Commands for all windows
+|08.7|	Viewing differences with diff mode
+|08.8|	Various
+|08.9|	Tab pages
 
-     Next chapter: [usr_09.txt](#usr_09.txt)  Using the GUI
- Previous chapter: [usr_07.txt](#usr_07.txt)  Editing more than one file
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_09.txt|  Using the GUI
+ Previous chapter: |usr_07.txt|  Editing more than one file
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*08.1*	Split a Window</a> 
@@ -41,14 +41,14 @@ This command splits the screen into two windows and leaves the cursor in the
 top one:
 
 	+----------------------------------+
-### <a id="](#/ file one.c /" class="section-title" href="#](#/ file one.c /">	[/* file one.c */</a>
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[one.c=============================](#one.c=============================)
-### <a id="](#/ file one.c /" class="section-title" href="#](#/ file one.c /">	[/* file one.c */</a>
-	[~				   ](#~				   )
-	[one.c=============================](#one.c=============================)
-	[				   ](#				   )
+	|/* file one.c */		   |
+	|~				   |
+	|~				   |
+	|one.c=============================|
+	|/* file one.c */		   |
+	|~				   |
+	|one.c=============================|
+	|				   |
 	+----------------------------------+
 
 What you see here is two windows on the same file.  The line with "====" is
@@ -95,14 +95,14 @@ The following command opens a second window and starts editing the given file:
 If you were editing one.c, then the result looks like this:
 
 	+----------------------------------+
-### <a id="](#/ file two.c /" class="section-title" href="#](#/ file two.c /">	[/* file two.c */</a>
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[two.c=============================](#two.c=============================)
-### <a id="](#/ file one.c /" class="section-title" href="#](#/ file one.c /">	[/* file one.c */</a>
-	[~				   ](#~				   )
-	[one.c=============================](#one.c=============================)
-	[				   ](#				   )
+	|/* file two.c */		   |
+	|~				   |
+	|~				   |
+	|two.c=============================|
+	|/* file one.c */		   |
+	|~				   |
+	|one.c=============================|
+	|				   |
 	+----------------------------------+
 
 To open a window on a new, empty file, use this:
@@ -178,12 +178,12 @@ or:
 The result looks something like this:
 
 	+--------------------------------------+
-### <a id="|/ file one.c /" class="section-title" href="#|/ file one.c /">	[/* file two.c */</a>
-	[~		    |~		       ](#~		    |~		       )
-	[~		    |~		       ](#~		    |~		       )
-	[~		    |~		       ](#~		    |~		       )
-	[two.c===============one.c=============](#two.c===============one.c=============)
-	[				       ](#				       )
+### <a id="|/ file one.c /" class="section-title" href="#|/ file one.c /">	|/* file two.c */</a>
+	|~		    |~		       |
+	|~		    |~		       |
+	|~		    |~		       |
+	|two.c===============one.c=============|
+	|				       |
 	+--------------------------------------+
 
 Actually, the | lines in the middle will be in reverse video.  This is called
@@ -216,7 +216,7 @@ to move between them:
 
 You will notice the same letters as used for moving the cursor.  And the
 cursor keys can also be used, if you like.
-   More commands to move to other windows: [Q_wi](#Q_wi).
+   More commands to move to other windows: |Q_wi|.
 
 
 ## <a id="" class="section-title" href="#">*08.5*	Moving Windows</a> 
@@ -226,18 +226,18 @@ need a command to move the window somewhere else.  For example, you have three
 windows like this:
 
 	+----------------------------------+
-### <a id="](#/ file two.c /" class="section-title" href="#](#/ file two.c /">	[/* file two.c */</a>
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[two.c=============================](#two.c=============================)
-### <a id="](#/ file three.c /" class="section-title" href="#](#/ file three.c /">	[/* file three.c */</a>
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[three.c===========================](#three.c===========================)
-### <a id="](#/ file one.c /" class="section-title" href="#](#/ file one.c /">	[/* file one.c */</a>
-	[~				   ](#~				   )
-	[one.c=============================](#one.c=============================)
-	[				   ](#				   )
+	|/* file two.c */		   |
+	|~				   |
+	|~				   |
+	|two.c=============================|
+	|/* file three.c */		   |
+	|~				   |
+	|~				   |
+	|three.c===========================|
+	|/* file one.c */		   |
+	|~				   |
+	|one.c=============================|
+	|				   |
 	+----------------------------------+
 
 Clearly the last one should be at the top.  Go to that window (using CTRL-W w)
@@ -252,27 +252,27 @@ top and make it occupy the full width of the Vim window.  If this is your
 layout:
 
 	+-------------------------------------------+
-### <a id="|/ three.c /" class="section-title" href="#|/ three.c /">	[/* two.c */</a>
-	[~	      |~	      |~	    ](#~	      |~	      |~	    )
-	[~	      |~	      |~	    ](#~	      |~	      |~	    )
-	[~	      |~	      |~	    ](#~	      |~	      |~	    )
-	[~	      |~	      |~	    ](#~	      |~	      |~	    )
-	[~	      |~	      |~	    ](#~	      |~	      |~	    )
-	[two.c=========three.c=========one.c========](#two.c=========three.c=========one.c========)
-	[					    ](#					    )
+### <a id="|/ three.c /" class="section-title" href="#|/ three.c /">	|/* two.c */</a>
+	|~	      |~	      |~	    |
+	|~	      |~	      |~	    |
+	|~	      |~	      |~	    |
+	|~	      |~	      |~	    |
+	|~	      |~	      |~	    |
+	|two.c=========three.c=========one.c========|
+	|					    |
 	+-------------------------------------------+
 
 Then using CTRL-W K in the middle window (three.c) will result in:
 
 	+-------------------------------------------+
-### <a id="](#/ three.c /" class="section-title" href="#](#/ three.c /">	[/* three.c */</a>
-	[~					    ](#~					    )
-	[~					    ](#~					    )
-	[three.c====================================](#three.c====================================)
-### <a id="|/ one.c /" class="section-title" href="#|/ one.c /">	[/* two.c */</a>
-	[~		       |~		    ](#~		       |~		    )
-	[two.c==================one.c===============](#two.c==================one.c===============)
-	[					    ](#					    )
+	|/* three.c */				    |
+	|~					    |
+	|~					    |
+	|three.c====================================|
+### <a id="|/ one.c /" class="section-title" href="#|/ one.c /">	|/* two.c */</a>
+	|~		       |~		    |
+	|two.c==================one.c===============|
+	|					    |
 	+-------------------------------------------+
 
 The other three similar commands (you can probably guess these now):
@@ -324,16 +324,16 @@ To make Vim open a window for each file, start it with the "-o" argument:
 This results in:
 
 	+-------------------------------+
-	[file one.txt			](#file one.txt			)
-	[~				](#~				)
-	[one.txt========================](#one.txt========================)
-	[file two.txt			](#file two.txt			)
-	[~				](#~				)
-	[two.txt========================](#two.txt========================)
-	[file three.txt			](#file three.txt			)
-	[~				](#~				)
-	[three.txt======================](#three.txt======================)
-	[				](#				)
+	|file one.txt			|
+	|~				|
+	|one.txt========================|
+	|file two.txt			|
+	|~				|
+	|two.txt========================|
+	|file three.txt			|
+	|~				|
+	|three.txt======================|
+	|				|
 	+-------------------------------+
 
 The "-O" argument is used to get vertically split windows.
@@ -356,21 +356,21 @@ in which you added characters, and a few lines above and below it.
 
 	 VV		      VV
 	+-----------------------------------------+
-	[+ +--123 lines: /* a|+ +--123 lines: /* a](#+ +--123 lines: /* a|+ +--123 lines: /* a)  <- fold
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[  text		     |	changed text	  ](#  text		     |	changed text	  )  <- changed line
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[  text		     |	------------------](#  text		     |	------------------)  <- deleted line
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[  text		     |	text		  ](#  text		     |	text		  )
-	[+ +--432 lines: text|+ +--432 lines: text](#+ +--432 lines: text|+ +--432 lines: text)  <- fold
-	[  ~		     |	~		  ](#  ~		     |	~		  )
-	[  ~		     |	~		  ](#  ~		     |	~		  )
-	[main.c~==============main.c==============](#main.c~==============main.c==============)
-	[					  ](#					  )
+	|+ +--123 lines: /* a|+ +--123 lines: /* a|  <- fold
+	|  text		     |	text		  |
+	|  text		     |	text		  |
+	|  text		     |	text		  |
+	|  text		     |	changed text	  |  <- changed line
+	|  text		     |	text		  |
+	|  text		     |	------------------|  <- deleted line
+	|  text		     |	text		  |
+	|  text		     |	text		  |
+	|  text		     |	text		  |
+	|+ +--432 lines: text|+ +--432 lines: text|  <- fold
+	|  ~		     |	~		  |
+	|  ~		     |	~		  |
+	|main.c~==============main.c==============|
+	|					  |
 	+-----------------------------------------+
 
 (This picture doesn't show the highlighting, use "nvim -d" for that.)
@@ -477,7 +477,7 @@ Since there are no changes left now, Vim puts all text in a closed fold.
 "do" stands for "diff obtain".  "dg" would have been better, but that already
 has a different meaning ("dgg" deletes from the cursor until the first line).
 
-For details about diff mode, see [diff-mode](#diff-mode).
+For details about diff mode, see [diff-mode](undefined#diff-mode).
 
 
 ## <a id="" class="section-title" href="#">*08.8*	Various</a> 
@@ -526,14 +526,14 @@ This will edit the file "thatfile" in a window that occupies the whole Vim
 window.  And you will notice a bar at the top with the two file names:
 
 	+----------------------------------+
-	[ thisfile | /thatfile/ __________X](# thisfile | /thatfile/ __________X)    (thatfile is bold)
-### <a id="](#/ thatfile /" class="section-title" href="#](#/ thatfile /">	[/* thatfile */</a>
-	[that				   ](#that				   )
-	[that				   ](#that				   )
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[				   ](#				   )
+	| thisfile | /thatfile/ __________X|    (thatfile is bold)
+	|/* thatfile */			   |
+	|that				   |
+	|that				   |
+	|~				   |
+	|~				   |
+	|~				   |
+	|				   |
 	+----------------------------------+
 
 You now have two tab pages.  The first one has a window for "thisfile" and the
@@ -543,14 +543,14 @@ each other, with a tab sticking out of each page showing the file name.
 Now use the mouse to click on "thisfile" in the top line.  The result is
 
 	+----------------------------------+
-	[ /thisfile/ | thatfile __________X](# /thisfile/ | thatfile __________X)    (thisfile is bold)
-### <a id="](#/ thisfile /" class="section-title" href="#](#/ thisfile /">	[/* thisfile */</a>
-	[this				   ](#this				   )
-	[this				   ](#this				   )
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[~				   ](#~				   )
-	[				   ](#				   )
+	| /thisfile/ | thatfile __________X|    (thisfile is bold)
+	|/* thisfile */			   |
+	|this				   |
+	|this				   |
+	|~				   |
+	|~				   |
+	|~				   |
+	|				   |
 	+----------------------------------+
 
 Thus you can switch between tab pages by clicking on the label in the top
@@ -565,14 +565,14 @@ This makes a new tab page with one window that is editing the same buffer as
 the window we were in:
 
 	+-------------------------------------+
-	[ thisfile | /thisfile/ | thatfile __X](# thisfile | /thisfile/ | thatfile __X)   (thisfile is bold)
-### <a id="](#/ thisfile /" class="section-title" href="#](#/ thisfile /">	[/* thisfile */</a>
-	[this				      ](#this				      )
-	[this				      ](#this				      )
-	[~				      ](#~				      )
-	[~				      ](#~				      )
-	[~				      ](#~				      )
-	[				      ](#				      )
+	| thisfile | /thisfile/ | thatfile __X|   (thisfile is bold)
+	|/* thisfile */			      |
+	|this				      |
+	|this				      |
+	|~				      |
+	|~				      |
+	|~				      |
+	|				      |
 	+-------------------------------------+
 
 You can put ":tab" before any Ex command that opens a window.  The window will
@@ -598,10 +598,10 @@ A few more things you can do with tab pages:
 	Closes all tab pages except the current one.  Unless there are unsaved
 	changes in other tab pages.
 
-For more information about tab pages see [tab-page](#tab-page).
+For more information about tab pages see [tab-page](undefined#tab-page).
 
 
-## <a id="Using the GUI" class="section-title" href="#Using the GUI">Next Chapter: [Usr_09.Txt](#Usr_09.Txt)</a> 
+## <a id="Using the GUI" class="section-title" href="#Using the GUI">Next Chapter: |Usr_09.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

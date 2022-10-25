@@ -17,14 +17,14 @@ ways to browse the directory tree.  There are commands to jump to a file that
 is mentioned in another.  And Vim remembers which files have been edited
 before.
 
-[22.1](#22.1)	The file browser
-[22.2](#22.2)	The current directory
-[22.3](#22.3)	Finding a file
-[22.4](#22.4)	The buffer list
+|22.1|	The file browser
+|22.2|	The current directory
+|22.3|	Finding a file
+|22.4|	The buffer list
 
-     Next chapter: [usr_23.txt](#usr_23.txt)  Editing other files
- Previous chapter: [usr_21.txt](#usr_21.txt)  Go away and come back
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_23.txt|  Editing other files
+ Previous chapter: |usr_21.txt|  Go away and come back
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*22.1*	the File Browser</a> 
@@ -84,38 +84,38 @@ browser.  This is what you get:
     9. Directory Browsing	 netrw-browse   netrw-dir   netrw-list   netrw-help
 
     MAPS								 netrw-maps
-     	 <F1>.............Help.......................................[netrw-help](#netrw-help)
-     	 <cr>.............Browsing...................................[netrw-cr](#netrw-cr)
-     	 <del>............Deleting Files or Directories..............[netrw-delete](#netrw-delete)
-     	 -................Going Up...................................[netrw--](#netrw--)
-     	 a................Hiding Files or Directories................[netrw-a](#netrw-a)
-     	 mb...............Bookmarking a Directory....................[netrw-mb](#netrw-mb)
-     	 gb...............Changing to a Bookmarked Directory.........[netrw-gb](#netrw-gb)
-     	 cd...............Make Browsing Directory The Current Dir....[netrw-c](#netrw-c)
-     	 d................Make A New Directory.......................[netrw-d](#netrw-d)
-     	 D................Deleting Files or Directories..............[netrw-D](#netrw-D)
-     	 <c-h>............Edit File/Directory Hiding List............[netrw-ctrl-h](#netrw-ctrl-h)
-     	 i................Change Listing Style.......................[netrw-i](#netrw-i)
-     	 <c-l>............Refreshing the Listing.....................[netrw-ctrl-l](#netrw-ctrl-l)
-     	 o................Browsing with a Horizontal Split...........[netrw-o](#netrw-o)
-     	 p................Use Preview Window.........................[netrw-p](#netrw-p)
-     	 P................Edit in Previous Window....................[netrw-p](#netrw-p)
-     	 q................Listing Bookmarks and History..............[netrw-qb](#netrw-qb)
-     	 r................Reversing Sorting Order....................[netrw-r](#netrw-r)
+     	 <F1>.............Help.......................................[netrw-help](undefined#netrw-help)
+     	 <cr>.............Browsing...................................[netrw-cr](undefined#netrw-cr)
+     	 <del>............Deleting Files or Directories..............[netrw-delete](undefined#netrw-delete)
+     	 -................Going Up...................................[netrw--](undefined#netrw--)
+     	 a................Hiding Files or Directories................[netrw-a](undefined#netrw-a)
+     	 mb...............Bookmarking a Directory....................[netrw-mb](undefined#netrw-mb)
+     	 gb...............Changing to a Bookmarked Directory.........[netrw-gb](undefined#netrw-gb)
+     	 cd...............Make Browsing Directory The Current Dir....[netrw-c](undefined#netrw-c)
+     	 d................Make A New Directory.......................[netrw-d](undefined#netrw-d)
+     	 D................Deleting Files or Directories..............[netrw-D](undefined#netrw-D)
+     	 <c-h>............Edit File/Directory Hiding List............[netrw-ctrl-h](undefined#netrw-ctrl-h)
+     	 i................Change Listing Style.......................[netrw-i](undefined#netrw-i)
+     	 <c-l>............Refreshing the Listing.....................[netrw-ctrl-l](undefined#netrw-ctrl-l)
+     	 o................Browsing with a Horizontal Split...........[netrw-o](undefined#netrw-o)
+     	 p................Use Preview Window.........................[netrw-p](undefined#netrw-p)
+     	 P................Edit in Previous Window....................[netrw-p](undefined#netrw-p)
+     	 q................Listing Bookmarks and History..............[netrw-qb](undefined#netrw-qb)
+     	 r................Reversing Sorting Order....................[netrw-r](undefined#netrw-r)
     	(etc)
 
 The <F1> key thus brings you to a netrw directory browsing contents help page.
-It's a regular help page; use the usual [CTRL-]](#CTRL-]) to jump to tagged help items
-and [CTRL-O](#CTRL-O) to jump back.
+It's a regular help page; use the usual |CTRL-]| to jump to tagged help items
+and [CTRL-O](undefined#CTRL-O) to jump back.
 
 To select files for display and editing: (with the cursor is atop a filename)
 
-	<enter>		Open the file in the current window.	   [netrw-cr](#netrw-cr)
-	o		Horizontally split window and display file [netrw-o](#netrw-o)
-	v		Vertically split window and display file   [netrw-v](#netrw-v)
-	p		Use the [preview-window| 		   |netrw-p](#preview-window| 		   |netrw-p)
-	P		Edit in the previous window		   [netrw-P](#netrw-P)
-	t		Open file in a new tab			   [netrw-t](#netrw-t)
+	<enter>		Open the file in the current window.	   [netrw-cr](undefined#netrw-cr)
+	o		Horizontally split window and display file [netrw-o](undefined#netrw-o)
+	v		Vertically split window and display file   [netrw-v](undefined#netrw-v)
+	p		Use the [preview-window](/neovim-docs-web/en/vim/windows#preview-window) 		   [netrw-p](undefined#netrw-p)
+	P		Edit in the previous window		   [netrw-P](undefined#netrw-P)
+	t		Open file in a new tab			   [netrw-t](undefined#netrw-t)
 
 The following normal-mode commands may be used to control the browser display:
 
@@ -130,7 +130,7 @@ As a sampling of extra normal-mode commands:
 
 	cd		Change Vim's notion of the current directory to be
 			the same as the browser directory.  (see
-			[g:netrw_keepdir](#g:netrw_keepdir) to control this, too)
+			|g:netrw_keepdir| to control this, too)
 	R		Rename the file or directory under the cursor; a
 			prompt will be issued for the new name.
 	D		Delete the file or directory under the cursor; a
@@ -150,7 +150,7 @@ urls such as:    (that trailing / is important)
 	:Explore ftp://somehost/path/to/dir/
 	:e scp://somehost/path/to/dir/
 
-See [netrw-browse](#netrw-browse) for more.
+See [netrw-browse](undefined#netrw-browse) for more.
 
 
 ## <a id="" class="section-title" href="#">*22.2*	the Current Directory</a> 
@@ -286,7 +286,7 @@ A nice way to directly start Vim to edit a file somewhere in the 'path':
 	vim "+find stdio.h"
 
 This finds the file "stdio.h" in your value of 'path'.  The quotes are
-necessary to have one argument [-+c](#-+c).
+necessary to have one argument |-+c|.
 
 
 ## <a id="" class="section-title" href="#">*22.4*	the Buffer List</a> 
@@ -355,7 +355,7 @@ buffer without having to type the name, see below.
 and the line number where the cursor was the last time.
    The flags that can appear are these (from left to right):
 
-	u	Buffer is unlisted [unlisted-buffer](#unlisted-buffer).
+	u	Buffer is unlisted [unlisted-buffer](undefined#unlisted-buffer).
 	 %	Current buffer.
 	 #	Alternate buffer.
 	  a	Buffer is loaded and displayed.
@@ -413,7 +413,7 @@ can't be editing nothing!
 	use ":bwipe".  Also see the 'buflisted' option.
 
 
-## <a id="Editing other files" class="section-title" href="#Editing other files">Next Chapter: [Usr_23.Txt](#Usr_23.Txt)</a> 
+## <a id="Editing other files" class="section-title" href="#Editing other files">Next Chapter: |Usr_23.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

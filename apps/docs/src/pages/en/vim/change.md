@@ -15,44 +15,44 @@ changing text means deleting the text and replacing it with other text using
 one command.  You can undo all of these commands.  You can repeat the non-Ex
 commands with the "." command.
 
-For inserting text see [insert.txt](#insert.txt).
+For inserting text see |insert.txt|.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="deleting E470" class="section-title" href="#deleting E470">1. Deleting Text</a> 
 
 ### <a id="<Del> x dl" class="section-title" href="#<Del> x dl">["x]<Del>	or</a>
 ["x]x			Delete [count] characters under and after the cursor
-			[into register x] (not [linewise](#linewise)).  Does the same as
+			[into register x] (not [linewise](undefined#linewise)).  Does the same as
 			"dl".
 			The <Del> key does not take a [count].  Instead, it
 			deletes the last character of the count.
-			See ['whichwrap'](#'whichwrap') for deleting a line break (join
+			See |'whichwrap'| for deleting a line break (join
 			lines).
 
 ### <a id="X dh" class="section-title" href="#X dh">Note:</a>
 ["x]X			Delete [count] characters before the cursor [into
-			register x] (not [linewise](#linewise)).  Does the same as "dh".
-			Also see ['whichwrap'](#'whichwrap').
+			register x] (not [linewise](undefined#linewise)).  Does the same as "dh".
+			Also see |'whichwrap'|.
 
 ### <a id="d" class="section-title" href="#d">Note:</a>
 ["x]d{motion}		Delete text that {motion} moves over [into register
 			x].  See below for exceptions.
 
 ### <a id="dd" class="section-title" href="#dd">Note:</a>
-["x]dd			Delete [count] lines [into register x] [linewise](#linewise).
+["x]dd			Delete [count] lines [into register x] [linewise](undefined#linewise).
 
 ### <a id="D" class="section-title" href="#D">Note:</a>
 ["x]D			Delete the characters under the cursor until the end
 			of the line and [count]-1 more lines [into register
 			x]; synonym for "d$".
-			(not [linewise](#linewise))
+			(not [linewise](undefined#linewise))
 
 ### <a id="v_x v_d v_<Del>" class="section-title" href="#v_x v_d v_<Del>">{Visual}["x]x	or</a>
 {Visual}["x]d   or
 {Visual}["x]<Del>	Delete the highlighted text [into register x] (for
-			{Visual} see [Visual-mode](#Visual-mode)).
+			{Visual} see [Visual-mode](undefined#Visual-mode)).
 
 {Visual}["x]CTRL-H   or					*v_CTRL-H* *v_<BS>*
 {Visual}["x]<BS>	When in Select mode: Delete the highlighted text [into
@@ -60,7 +60,7 @@ For inserting text see [insert.txt](#insert.txt).
 
 ### <a id="v_X v_D v_b_D" class="section-title" href="#v_X v_D v_b_D">{Visual}["x]X	or</a>
 {Visual}["x]D		Delete the highlighted lines [into register x] (for
-			{Visual} see [Visual-mode](#Visual-mode)).  In Visual block mode,
+			{Visual} see [Visual-mode](undefined#Visual-mode)).  In Visual block mode,
 			"D" deletes the highlighted text plus all text until
 			the end of the line.
 
@@ -82,18 +82,18 @@ For inserting text see [insert.txt](#insert.txt).
 
 :[range]d[elete] [x] {count}
 			Delete {count} lines, starting with [range]
-			(default: current line [cmdline-ranges](#cmdline-ranges)) [into
+			(default: current line [cmdline-ranges](undefined#cmdline-ranges)) [into
 			register x].
 
 These commands delete text.  You can repeat them with the `.` command
 (except `:d`) and undo them.  Use Visual mode to delete blocks of text.  See
-[registers](#registers) for an explanation of registers.
+[registers](undefined#registers) for an explanation of registers.
 
 An exception for the d{motion} command: If the motion is not linewise, the
 start and end of the motion are not in the same line, and there are only
 blanks before the start and there are no non-blanks after the end of the
 motion, the delete becomes linewise.  This means that the delete also removes
-the line of blanks that you might expect to remain. Use the [o_v](#o_v) operator to
+the line of blanks that you might expect to remain. Use the |o_v| operator to
 force the motion to be charwise.
 
 Trying to delete an empty region of text (e.g., "d0" in the first column)
@@ -126,14 +126,14 @@ gJ			Join [count] lines, with a minimum of two lines.
 			If a [range] has equal start and end values, this
 			command does nothing.  The default behavior is to
 			join the current line with the line below it.
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 :[range]j[oin][!] {count} [flags]
 			Join {count} lines, starting with [range] (default:
-			current line [cmdline-ranges](#cmdline-ranges)).  Same as "J", except
+			current line [cmdline-ranges](undefined#cmdline-ranges)).  Same as "J", except
 			with [!] the join does not insert or delete any
 			spaces.
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 These commands delete the <EOL> between lines.  This has the effect of joining
 multiple lines into one line.  You can repeat these commands (except `:j`) and
@@ -145,7 +145,7 @@ commands, except "gJ", delete any leading white space on the next line.  If
 the 'joinspaces' option is on, these commands insert two spaces after a '.',
 '!' or '?'.
 The 'B' and 'M' flags in 'formatoptions' change the behavior for inserting
-spaces before and after a multibyte character [fo-table](#fo-table).
+spaces before and after a multibyte character [fo-table](undefined#fo-table).
 
 The '[ mark is set at the end of the first line that was joined, '] at the end
 of the resulting line.
@@ -157,14 +157,14 @@ of the resulting line.
 R			Enter Replace mode: Each character you type replaces
 			an existing character, starting with the character
 			under the cursor.  Repeat the entered text [count]-1
-			times.  See [Replace-mode](#Replace-mode) for more details.
+			times.  See [Replace-mode](undefined#Replace-mode) for more details.
 
 ### <a id="gR" class="section-title" href="#gR">Note:</a>
 gR			Enter Virtual Replace mode: Each character you type
 			replaces existing characters in screen space.  So a
 			<Tab> may replace several characters at once.
 			Repeat the entered text [count]-1 times.  See
-			[Virtual-Replace-mode](#Virtual-Replace-mode) for more details.
+			[Virtual-Replace-mode](undefined#Virtual-Replace-mode) for more details.
 
 ### <a id="c" class="section-title" href="#c">Note:</a>
 ["x]c{motion}		Delete {motion} text [into register x] and start
@@ -178,26 +178,26 @@ gR			Enter Virtual Replace mode: Each character you type
 
 ### <a id="cc" class="section-title" href="#cc">Note:</a>
 ["x]cc			Delete [count] lines [into register x] and start
-			insert [linewise](#linewise).  If 'autoindent' is on, preserve
+			insert [linewise](undefined#linewise).  If 'autoindent' is on, preserve
 			the indent of the first line.
 
 ### <a id="C" class="section-title" href="#C">Note:</a>
 ["x]C			Delete from the cursor position to the end of the
 			line and [count]-1 more lines [into register x], and
-			start insert.  Synonym for c$ (not [linewise](#linewise)).
+			start insert.  Synonym for c$ (not [linewise](undefined#linewise)).
 
 ### <a id="s" class="section-title" href="#s">Note:</a>
 ["x]s			Delete [count] characters [into register x] and start
 			insert (s stands for Substitute).  Synonym for "cl"
-			(not [linewise](#linewise)).
+			(not [linewise](undefined#linewise)).
 
 ### <a id="S" class="section-title" href="#S">Note:</a>
 ["x]S			Delete [count] lines [into register x] and start
-			insert.  Synonym for "cc" [linewise](#linewise).
+			insert.  Synonym for "cc" [linewise](undefined#linewise).
 
 ### <a id="v_c v_s" class="section-title" href="#v_c v_s">{Visual}["x]c	or</a>
 {Visual}["x]s		Delete the highlighted text [into register x] and
-			start insert (for {Visual} see [Visual-mode](#Visual-mode)).
+			start insert (for {Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id="v_r" class="section-title" href="#v_r">Note:</a>
 {Visual}r{char}		Replace all selected characters by {char}.
@@ -205,10 +205,10 @@ gR			Enter Virtual Replace mode: Each character you type
 ### <a id="v_C" class="section-title" href="#v_C">Note:</a>
 {Visual}["x]C		Delete the highlighted lines [into register x] and
 			start insert.  In Visual block mode it works
-			differently [v_b_C](#v_b_C).
+			differently |v_b_C|.
 ### <a id="v_S" class="section-title" href="#v_S">Note:</a>
 {Visual}["x]S		Delete the highlighted lines [into register x] and
-			start insert (for {Visual} see [Visual-mode](#Visual-mode)).
+			start insert (for {Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id="v_R" class="section-title" href="#v_R">Note:</a>
 {Visual}["x]R		Currently just like {Visual}["x]S.  In a next version
@@ -216,20 +216,20 @@ gR			Enter Virtual Replace mode: Each character you type
 
 Notes:
 - You can end Insert and Replace mode with <Esc>.
-- See the section "Insert and Replace mode" [mode-ins-repl](#mode-ins-repl) for the other
+- See the section "Insert and Replace mode" [mode-ins-repl](undefined#mode-ins-repl) for the other
   special characters in these modes.
 - The effect of [count] takes place after Vim exits Insert or Replace mode.
 - When the 'cpoptions' option contains '$' and the change is within one line,
   Vim continues to show the text to be deleted and puts a '$' at the last
   deleted character.
 
-See [registers](#registers) for an explanation of registers.
+See [registers](undefined#registers) for an explanation of registers.
 
 Replace mode is just like Insert mode, except that every character you enter
 deletes one character.  If you reach the end of a line, Vim appends any
 further characters (just like Insert mode).  In Replace mode, the backspace
 key restores the original text (if there was any).  (See section "Insert and
-Replace mode" [mode-ins-repl](#mode-ins-repl)).
+Replace mode" [mode-ins-repl](undefined#mode-ins-repl)).
 
 ### <a id="cw cW" class="section-title" href="#cw cW">Note:</a>
 Special case: When the cursor is in a word, "cw" and "cW" do not include the
@@ -237,9 +237,9 @@ white space after a word, they only change up to the end of the word.  This is
 because Vim interprets "cw" as change-word, and a word does not include the
 following white space.
 
-If you prefer "cw" to include the space after a word, use this mapping: 
-```	:map cw dwi
-Or use "caw" (see [aw](#aw)).
+If you prefer "cw" to include the space after a word, use this mapping:
+	:map cw dwi
+Or use "caw" (see [aw](undefined#aw)).
 
 ### <a id=":c :ch :change" class="section-title" href="#:c :ch :change">Note:</a>
 :{range}c[hange][!]	Replace lines of text with some different text.
@@ -259,8 +259,8 @@ r{char}			Replace the character under the cursor with {char}.
 			<CR>.  CTRL-V <NL> replaces with a <Nul>.
 
 			If {char} is CTRL-E or CTRL-Y the character from the
-			line below or above is used, just like with [i_CTRL-E](#i_CTRL-E)
-			and [i_CTRL-Y](#i_CTRL-Y).  This also works with a count, thus
+			line below or above is used, just like with |i_CTRL-E|
+			and |i_CTRL-Y|.  This also works with a count, thus
 			`10r<C-E>` copies 10 characters from the line below.
 
 			If you give a [count], Vim replaces [count] characters
@@ -271,27 +271,27 @@ r{char}			Replace the character under the cursor with {char}.
 			autoindenting.  This works just like deleting the
 			characters that are replaced and then doing
 			"i<CR><Esc>".
-			{char} can be entered as a digraph [digraph-arg](#digraph-arg).
-			[:lmap](#:lmap) mappings apply to {char}.  The CTRL-^ command
+			{char} can be entered as a digraph [digraph-arg](undefined#digraph-arg).
+			|:lmap| mappings apply to {char}.  The CTRL-^ command
 			in Insert mode can be used to switch this on/off
-			[i_CTRL-^|.  See |utf-8-char-arg](#i_CTRL-^|.  See |utf-8-char-arg) about using
+			|i_CTRL-^|.  See [utf-8-char-arg](undefined#utf-8-char-arg) about using
 			composing characters when 'encoding' is Unicode.
 
 ### <a id="gr" class="section-title" href="#gr">Note:</a>
 gr{char}		Replace the virtual characters under the cursor with
 			{char}.  This replaces in screen space, not file
-			space.  See [gR| and |Virtual-Replace-mode](#gR| and |Virtual-Replace-mode) for more
-			details.  As with [r](#r) a count may be given.
-			{char} can be entered like with [r](#r).
+			space.  See [gR](undefined#gR) and [Virtual-Replace-mode](undefined#Virtual-Replace-mode) for more
+			details.  As with [r](undefined#r) a count may be given.
+			{char} can be entered like with [r](undefined#r).
 
 ### <a id="digraph-arg" class="section-title" href="#digraph-arg">Note:</a>
-The argument for Normal mode commands like [r| and |t](#r| and |t) is a single character.
+The argument for Normal mode commands like [r](undefined#r) and [t](undefined#t) is a single character.
 When 'cpo' doesn't contain the 'D' flag, this character can also be entered
-like [digraphs](#digraphs).  First type CTRL-K and then the two digraph characters.
+like [digraphs](undefined#digraphs).  First type CTRL-K and then the two digraph characters.
 
 ### <a id="case" class="section-title" href="#case">Note:</a>
 The following commands change the case of letters.  The currently active
-[locale| is used.  See |:language](#locale| is used.  See |:language).  The LC_CTYPE value matters here.
+[locale](undefined#locale) is used.  See |:language|.  The LC_CTYPE value matters here.
 
 ### <a id="~" class="section-title" href="#~">Note:</a>
 ~			'notildeop' option: Switch case of the character
@@ -308,11 +308,11 @@ g~~			Switch case of current line.
 
 ### <a id="v_~" class="section-title" href="#v_~">Note:</a>
 {Visual}~		Switch case of highlighted text (for {Visual} see
-			[Visual-mode](#Visual-mode)).
+			[Visual-mode](undefined#Visual-mode)).
 
 ### <a id="v_U" class="section-title" href="#v_U">Note:</a>
 {Visual}U		Make highlighted text uppercase (for {Visual} see
-			[Visual-mode](#Visual-mode)).
+			[Visual-mode](undefined#Visual-mode)).
 
 ### <a id="gU uppercase" class="section-title" href="#gU uppercase">Note:</a>
 gU{motion}		Make {motion} text uppercase.
@@ -328,7 +328,7 @@ gUU			Make current line uppercase.
 
 ### <a id="v_u" class="section-title" href="#v_u">Note:</a>
 {Visual}u		Make highlighted text lowercase (for {Visual} see
-			[Visual-mode](#Visual-mode)).
+			[Visual-mode](undefined#Visual-mode)).
 
 ### <a id="gu lowercase" class="section-title" href="#gu lowercase">Note:</a>
 gu{motion}		Make {motion} text lowercase.
@@ -341,7 +341,7 @@ g?{motion}		Rot13 encode {motion} text.
 
 ### <a id="v_g?" class="section-title" href="#v_g?">Note:</a>
 {Visual}g?		Rot13 encode the highlighted text (for {Visual} see
-			[Visual-mode](#Visual-mode)).
+			[Visual-mode](undefined#Visual-mode)).
 
 ### <a id="g?g? g??" class="section-title" href="#g?g? g??">g?g?</a>
 g??			Rot13 encode current line.
@@ -446,17 +446,17 @@ steps to make a numbered list.
 ### <a id="shift-left-right" class="section-title" href="#shift-left-right">Shifting Lines Left or Right</a>
 
 ### <a id="<" class="section-title" href="#<">Note:</a>
-{motion}		Shift {motion} lines one 'shiftwidth' leftwards.
+ <{motion}		Shift {motion} lines one 'shiftwidth' leftwards.
 
 			If the 'shiftwidth' option is set to zero, the amount
 			of indent is calculated at the first non-blank
 			character in the line.
 ### <a id="<<" class="section-title" href="#<<">Note:</a>
-<			Shift [count] lines one 'shiftwidth' leftwards.
+ <<			Shift [count] lines one 'shiftwidth' leftwards.
 
 ### <a id="v_<" class="section-title" href="#v_<">Note:</a>
 {Visual}[count]<	Shift the highlighted lines [count] 'shiftwidth'
-			leftwards (for {Visual} see [Visual-mode](#Visual-mode)).
+			leftwards (for {Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id=">" class="section-title" href="#>">Note:</a>
  >{motion}		Shift {motion} lines one 'shiftwidth' rightwards.
@@ -469,14 +469,14 @@ steps to make a numbered list.
 
 ### <a id="v_>" class="section-title" href="#v_>">Note:</a>
 {Visual}[count]>	Shift the highlighted lines [count] 'shiftwidth'
-			rightwards (for {Visual} see [Visual-mode](#Visual-mode)).
+			rightwards (for {Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id=":<" class="section-title" href="#:<">Note:</a>
 :[range]<		Shift [range] lines one 'shiftwidth' left.  Repeat '<'
 			for shifting multiple 'shiftwidth's.
 
 :[range]< {count}	Shift {count} lines one 'shiftwidth' left, starting
-			with [range] (default current line [cmdline-ranges](#cmdline-ranges)).
+			with [range] (default current line [cmdline-ranges](undefined#cmdline-ranges)).
 			Repeat '<' for shifting multiple 'shiftwidth's.
 
 :[range]le[ft] [indent]	left align lines in [range].  Sets the indent in the
@@ -485,13 +485,13 @@ steps to make a numbered list.
 ### <a id=":>" class="section-title" href="#:>">Note:</a>
 :[range]> [flags]	Shift {count} [range] lines one 'shiftwidth' right.
 			Repeat '>' for shifting multiple 'shiftwidth's.
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 :[range]> {count} [flags]
 			Shift {count} lines one 'shiftwidth' right, starting
-			with [range] (default current line [cmdline-ranges](#cmdline-ranges)).
+			with [range] (default current line [cmdline-ranges](undefined#cmdline-ranges)).
 			Repeat '>' for shifting multiple 'shiftwidth's.
-			See [ex-flags](#ex-flags) for [flags].
+			See [ex-flags](/neovim-docs-web/en/vim/cmdline#ex-flags) for [flags].
 
 The ">" and "<" commands are handy for changing the indentation within
 programs.  Use the 'shiftwidth' option to set the size of the white space
@@ -505,7 +505,7 @@ If the 'shiftround' option is on, the indent is rounded to a multiple of
 If the 'smartindent' option is on, or 'cindent' is on and 'cinkeys' contains
 '#' with a zero value, shift right does not affect lines starting with '#'
 (these are supposed to be C preprocessor lines that must stay in column 1).
-This can be changed with the 'cino' option, see [cino-#](#cino-#).
+This can be changed with the 'cino' option, see |cino-#|.
 
 When the 'expandtab' option is off (this is the default) Vim uses <Tab>s as
 much as possible to make the indent.  You can use ">><<" to replace an indent
@@ -546,7 +546,7 @@ with ".".  Vim does not recognize a comment (starting with '"') after the
 
 ### <a id="v_!" class="section-title" href="#v_!">Note:</a>
 {Visual}!{filter}	Filter the highlighted lines through the external
-			program {filter} (for {Visual} see [Visual-mode](#Visual-mode)).
+			program {filter} (for {Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id=":range!" class="section-title" href="#:range!">:{range}![!]{filter} [!][arg]</a>
 			Filter {range} lines through the external program
@@ -554,14 +554,14 @@ with ".".  Vim does not recognize a comment (starting with '"') after the
 			latest given command and appends the optional [arg].
 			Vim saves the output of the filter command in a
 			temporary file and then reads the file into the buffer
-			[tempfile](#tempfile).  Vim uses the 'shellredir' option to
+			[tempfile](undefined#tempfile).  Vim uses the 'shellredir' option to
 			redirect the filter output to the temporary file.
 			However, if the 'shelltemp' option is off then pipes
 			are used when possible (on Unix).
 			When the 'R' flag is included in 'cpoptions' marks in
 			the filtered lines are deleted, unless the
-			[:keepmarks](#:keepmarks) command is used.  Example:
-				:keepmarks '<,'>!sort
+			|:keepmarks| command is used.  Example:
+```				:keepmarks '<,'>!sort
 			When the number of lines after filtering is less than
 			before, marks in the missing lines are deleted anyway.
 
@@ -569,9 +569,9 @@ with ".".  Vim does not recognize a comment (starting with '"') after the
 ={motion}		Filter {motion} lines through the external program
 			given with the 'equalprg' option.  When the 'equalprg'
 			option is empty (this is the default), use the
-			internal formatting function [C-indenting](#C-indenting) and
-			['lisp'](#'lisp').  But when 'indentexpr' is not empty, it will
-			be used instead [indent-expression](#indent-expression).
+			internal formatting function [C-indenting](/neovim-docs-web/en/vim/indent#C-indenting) and
+			|'lisp'|.  But when 'indentexpr' is not empty, it will
+			be used instead [indent-expression](/neovim-docs-web/en/vim/indent#indent-expression).
 
 ### <a id="==" class="section-title" href="#==">Note:</a>
 ==			Filter [count] lines like with ={motion}.
@@ -599,38 +599,38 @@ Directory for temporary files is created in the first possible directory of:
 :[range]s[ubstitute]/{pattern}/{string}/[flags] [count]
 			For each line in [range] replace a match of {pattern}
 			with {string}.
-			For the {pattern} see [pattern](#pattern).
+			For the {pattern} see [pattern](undefined#pattern).
 			{string} can be a literal string, or something
-			special; see [sub-replace-special](#sub-replace-special).
+			special; see [sub-replace-special](undefined#sub-replace-special).
 			When [range] and [count] are omitted, replace in the
 			current line only.  When [count] is given, replace in
 			[count] lines, starting with the last line in [range].
 			When [range] is omitted start in the current line.
 ### <a id="E939" class="section-title" href="#E939">Note:</a>
 			[count] must be a positive number.  Also see
-			[cmdline-ranges](#cmdline-ranges).
+			[cmdline-ranges](undefined#cmdline-ranges).
 
-			See [:s_flags](#:s_flags) for [flags].
+			See |:s_flags| for [flags].
 			The delimiter doesn't need to be /, see
-			[pattern-delimiter](#pattern-delimiter).
+			[pattern-delimiter](undefined#pattern-delimiter).
 
 :[range]s[ubstitute] [flags] [count]
 ### <a id=":&" class="section-title" href="#:&">:[range]&[&][flags] [count]</a>
 			Repeat last :substitute with same search pattern and
 			substitute string, but without the same flags.  You
-			may add [flags], see [:s_flags](#:s_flags).
+			may add [flags], see |:s_flags|.
 			Note that after `:substitute` the '&' flag can't be
 			used, it's recognized as a pattern separator.
 			The space between `:substitute` and the 'c', 'g',
 			'i', 'I' and 'r' flags isn't required, but in scripts
 			it's a good idea to keep it to avoid confusion.
 			Also see the two and three letter commands to repeat
-			:substitute below [:substitute-repeat](#:substitute-repeat).
+			:substitute below |:substitute-repeat|.
 
 ### <a id=":~" class="section-title" href="#:~">:[range]~[&][flags] [count]</a>
 			Repeat last substitute with same substitute string
 			but with last used search pattern.  This is like
-			`:&r`.  See [:s_flags](#:s_flags) for [flags].
+			`:&r`.  See |:s_flags| for [flags].
 
 ### <a id="&" class="section-title" href="#&">Note:</a>
 &			Synonym for `:s` (repeat last substitute).  Note
@@ -639,7 +639,7 @@ Directory for temporary files is created in the first possible directory of:
 			the flags.
 
 ### <a id="&-default" class="section-title" href="#&-default">Note:</a>
-			Mapped to ":&&<CR>" by default. [default-mappings](#default-mappings)
+			Mapped to ":&&<CR>" by default. [default-mappings](undefined#default-mappings)
 
 ### <a id="g&" class="section-title" href="#g&">Note:</a>
 g&			Synonym for `:%s//~/&` (repeat last substitute with
@@ -666,7 +666,7 @@ The flags that you can use for the substitute commands:
 	Note that `:s` and `:&` don't keep the flags.
 
 [c]	Confirm each substitution.  Vim highlights the matching string (with
-	[hl-IncSearch](#hl-IncSearch)).  You can type:				*:s_c*
+	[hl-IncSearch](undefined#hl-IncSearch)).  You can type:				*:s_c*
 	    'y'	    to substitute this match
 	    'l'	    to substitute this match and then quit ("last")
 	    'n'	    to skip this match
@@ -704,15 +704,15 @@ The flags that you can use for the substitute commands:
 ### <a id=":s_n" class="section-title" href="#:s_n">Note:</a>
 [n]	Report the number of matches, do not actually substitute.  The [c]
 	flag is ignored.  The matches are reported as if 'report' is zero.
-	Useful to [count-items](#count-items).
-	If \= [sub-replace-expression](#sub-replace-expression) is used, the expression will be
-	evaluated in the [sandbox](#sandbox) at every match.
+	Useful to [count-items](/neovim-docs-web/en/vim/tips#count-items).
+	If \= [sub-replace-expression](undefined#sub-replace-expression) is used, the expression will be
+	evaluated in the [sandbox](undefined#sandbox) at every match.
 
 ### <a id=":s_p" class="section-title" href="#:s_p">[p]	Print the line containing the last substitute.</a>
 
 ### <a id=":s_#" class="section-title" href="#:s_#">[#]	Like [p] and prepend the line number.</a>
 
-### <a id=":s_l" class="section-title" href="#:s_l">[l]	Like [p] but print the text like [:list](#:list).</a>
+### <a id=":s_l" class="section-title" href="#:s_l">[l]	Like [p] but print the text like |:list|.</a>
 
 ### <a id=":s_r" class="section-title" href="#:s_r">Note:</a>
 [r]	Only useful in combination with `:&` or `:s` without arguments.  `:&r`
@@ -733,7 +733,7 @@ The flags that you can use for the substitute commands:
 	The last command will replace "blue" with "red".
 
 Note that there is no flag to change the "magicness" of the pattern.  A
-different command is used instead, or you can use [/\v](#/\v) and friends.  The
+different command is used instead, or you can use |/\v| and friends.  The
 reason is that the flags can only be found by skipping the pattern, and in
 order to skip the pattern the "magicness" must be known.  Catch 22!
 
@@ -761,13 +761,13 @@ use another single-byte character.  This is useful if you want to include a
 You can use most characters, but not an alphanumeric character, '\', '"' or
 '|'.
 
-For the definition of a pattern, see [pattern](#pattern).  In Visual block mode, use
-[/\%V](#/\%V) in the pattern to have the substitute work in the block only.
+For the definition of a pattern, see [pattern](undefined#pattern).  In Visual block mode, use
+|/\%V| in the pattern to have the substitute work in the block only.
 Otherwise it works on whole lines anyway.
 
 ### <a id="sub-replace-special :s\=" class="section-title" href="#sub-replace-special :s\=">Note:</a>
 When the {string} starts with "\=" it is evaluated as an expression, see
-[sub-replace-expression](#sub-replace-expression).  You can use that for complex replacement or special
+[sub-replace-expression](undefined#sub-replace-expression).  You can use that for complex replacement or special
 characters.
 
 The substitution is limited in recursion to 4 levels. *E1290*
@@ -808,7 +808,7 @@ magic	nomagic	  action    ~
 		  Reserved for future expansion
 
 The special meaning is also used inside the third argument {sub} of
-the [substitute()](#substitute()) function with the following exceptions:
+the |substitute()| function with the following exceptions:
   - A % inserts a percent literally without regard to 'cpoptions'.
   - magic is always set without regard to 'magic'.
   - A ~ inserts a tilde literally.
@@ -843,7 +843,7 @@ times, the last one will be used for "\1", "\2", etc.  Example:
 ### <a id=":s/\(\(a[a-d] \)\)/\2/" class="section-title" href="#:s/\(\(a[a-d] \)\)/\2/">Note:</a>
 The "\2" is for "\(a[a-d] \)".  At first it matches "aa ", secondly "ab ".
 
-When using parentheses in combination with '[', like in \([ab]\)\](#', like in \([ab]\)\)\([cd]\),
+When using parentheses in combination with '|', like in \([ab]\)\|\([cd]\),
 either the first or second pattern in parentheses did not match, so either
 \1 or \2 is empty.  Example:
   :s/\([ab]\)\|\([cd]\)/\1x/g   modifies "a b c d"  to "ax bx x x"
@@ -891,22 +891,22 @@ Exceptions:
 When the substitute string starts with "\=" the remainder is interpreted as an
 expression.
 
-The special meaning for characters as mentioned at [sub-replace-special](#sub-replace-special) does
+The special meaning for characters as mentioned at [sub-replace-special](undefined#sub-replace-special) does
 not apply except for "<CR>".  A <NL> character is used as a line break, you
 can get one with a double-quote string: "\n".  Prepend a backslash to get a
 real <NL> character (which will be a NUL in the file).
 
 The "\=" notation can also be used inside the third argument {sub} of
-[substitute()](#substitute()) function.  In this case, the special meaning for characters as
-mentioned at [sub-replace-special](#sub-replace-special) does not apply at all. Especially, <CR> and
+|substitute()| function.  In this case, the special meaning for characters as
+mentioned at [sub-replace-special](undefined#sub-replace-special) does not apply at all. Especially, <CR> and
 NL> are interpreted not as a line break but as a carriage-return and a
 new-line respectively.
 
-When the result is a [List](#List) then the items are joined with separating line
+When the result is a [List](undefined#List) then the items are joined with separating line
 breaks.  Thus each item becomes a line, except that they can contain line
 breaks themselves.
 
-The [submatch()](#submatch()) function can be used to obtain matched text.  The whole
+The |submatch()| function can be used to obtain matched text.  The whole
 matched text can be accessed with "submatch(0)".  The text matched with the
 first pair of () with "submatch(1)".  Likewise for further sub-matches in ().
 
@@ -914,12 +914,12 @@ Be careful: The separation character must not appear in the expression!
 Consider using a character like "@" or ":".  There is no problem if the result
 of the expression contains the separation character.
 
-Examples: 
-```	:s@\n@\="\r" .. expand("$HOME") .. "\r"@
+Examples:
+	:s@\n@\="\r" .. expand("$HOME") .. "\r"@
 This replaces an end-of-line with a new line containing the value of $HOME.
 
 	s/E/\="\<Char-0x20ac>"/g
-This replaces each 'E' character with a euro sign.  Read more in [<Char->](#<Char->).
+This replaces each 'E' character with a euro sign.  Read more in |<Char->|.
 
 
 ### <a id="change-tabs" class="section-title" href="#change-tabs">4.3 Changing tabs</a>
@@ -970,11 +970,11 @@ inside of strings can change!  Also see 'softtabstop' option.
 ### <a id=":reg :registers" class="section-title" href="#:reg :registers">Note:</a>
 :reg[isters]		Display the type and contents of all numbered and
 			named registers.  If a register is written to for
-			[:redir](#:redir) it will not be listed.
+			|:redir| it will not be listed.
 			Type can be one of:
-			"c"	for [characterwise](#characterwise) text
-			"l"	for [linewise](#linewise) text
-			"b"	for [blockwise-visual](#blockwise-visual) text
+			"c"	for [characterwise](undefined#characterwise) text
+			"l"	for [linewise](undefined#linewise) text
+			"b"	for [blockwise-visual](undefined#blockwise-visual) text
 
 
 :reg[isters] {arg}	Display the contents of the numbered and named
@@ -993,38 +993,38 @@ inside of strings can change!  Also see 'softtabstop' option.
 			flag.
 
 ### <a id="yy" class="section-title" href="#yy">Note:</a>
-["x]yy			Yank [count] lines [into register x] [linewise](#linewise).
+["x]yy			Yank [count] lines [into register x] [linewise](undefined#linewise).
 
 ### <a id="Y" class="section-title" href="#Y">Note:</a>
 ["x]Y			yank [count] lines [into register x] (synonym for
-			yy, [linewise](#linewise)).
+			yy, [linewise](undefined#linewise)).
 ### <a id="Y-default" class="section-title" href="#Y-default">Note:</a>
-			Mapped to "y$" by default. [default-mappings](#default-mappings)
+			Mapped to "y$" by default. [default-mappings](undefined#default-mappings)
 
 ### <a id="zy" class="section-title" href="#zy">Note:</a>
 ["x]zy{motion}		Yank {motion} text [into register x].  Only differs
-			from `y` when selecting a block of text, see [v_zy](#v_zy).
+			from `y` when selecting a block of text, see |v_zy|.
 
 ### <a id="v_y" class="section-title" href="#v_y">Note:</a>
 {Visual}["x]y		Yank the highlighted text [into register x] (for
-			{Visual} see [Visual-mode](#Visual-mode)).
+			{Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id="v_Y" class="section-title" href="#v_Y">Note:</a>
 {Visual}["x]Y		Yank the highlighted lines [into register x] (for
-			{Visual} see [Visual-mode](#Visual-mode)).
+			{Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id="v_zy" class="section-title" href="#v_zy">Note:</a>
 {Visual}["x]zy		Yank the highlighted text [into register x].  Trailing
 			whitespace at the end of each line of a selected block
 			won't be yanked.  Especially useful in combination
-			with `zp`.  (for {Visual} see [Visual-mode](#Visual-mode))
+			with `zp`.  (for {Visual} see [Visual-mode](undefined#Visual-mode))
 
 ### <a id=":y :yank E850" class="section-title" href="#:y :yank E850">Note:</a>
 :[range]y[ank] [x]	Yank [range] lines [into register x].
 
 :[range]y[ank] [x] {count}
 			Yank {count} lines, starting with last line number
-			in [range] (default: current line [cmdline-ranges](#cmdline-ranges)),
+			in [range] (default: current line [cmdline-ranges](undefined#cmdline-ranges)),
 			[into register x].
 
 ### <a id="p put E353 E1240" class="section-title" href="#p put E353 E1240">Note:</a>
@@ -1048,7 +1048,7 @@ inside of strings can change!  Also see 'softtabstop' option.
 				:map <MiddleMouse> <Nop>
 				:imap <MiddleMouse> <Nop>
 			You might want to disable the multi-click versions
-			too, see [double-click](#double-click).
+			too, see [double-click](undefined#double-click).
 
 ### <a id="gp" class="section-title" href="#gp">Note:</a>
 ["x]gp			Just like "p", but leave the cursor just after the new
@@ -1060,15 +1060,15 @@ inside of strings can change!  Also see 'softtabstop' option.
 
 ### <a id=":pu :put" class="section-title" href="#:pu :put">Note:</a>
 :[line]pu[t] [x]	Put the text [from register x] after [line] (default
-			current line).  This always works [linewise](#linewise), thus
+			current line).  This always works [linewise](undefined#linewise), thus
 			this command can be used to put a yanked block as new
 			lines.
 			If no register is specified, it depends on the 'cb'
 			option: If 'cb' contains "unnamedplus", paste from the
-			+ register [quoteplus](#quoteplus).  Otherwise, if 'cb' contains
-### <a id=""unnamed", paste from the  register [quotestar](#quotestar)." class="section-title" href="#"unnamed", paste from the  register [quotestar](#quotestar).">Note:</a>
+			+ register [quoteplus](undefined#quoteplus).  Otherwise, if 'cb' contains
+### <a id=""unnamed", paste from the  register [quotestar](undefined#quotestar)." class="section-title" href="#"unnamed", paste from the  register [quotestar](undefined#quotestar).">Note:</a>
 			Otherwise, paste from the unnamed register
-			[quote_quote](#quote_quote).
+			|quote_quote|.
 			The register can also be '=' followed by an optional
 			expression.  The expression continues until the end of
 			the command.  You need to escape the '|' and '"'
@@ -1097,7 +1097,7 @@ inside of strings can change!  Also see 'softtabstop' option.
 ["x]zP			Like "p" and "P", except without adding trailing spaces
 			when pasting a block.  Thus the inserted text will not
 			always be a rectangle.  Especially useful in
-			combination with [v_zy](#v_zy).
+			combination with |v_zy|.
 
 You can use these commands to copy text from one place to another.  Do this
 by first getting the text into a register with a yank, delete or change
@@ -1108,7 +1108,7 @@ way to toggle between two files).
 
 ### <a id="linewise-register charwise-register" class="section-title" href="#linewise-register charwise-register">Note:</a>
 You can repeat the put commands with "." (except for :put) and undo them.  If
-the command that was used to get the text into the register was [linewise](#linewise),
+the command that was used to get the text into the register was [linewise](undefined#linewise),
 Vim inserts the text below ("p") or above ("P") the line where the cursor is.
 Otherwise Vim inserts the text after ("p") or before ("P") the cursor.  With
 the ":put" command, Vim always inserts the text in the next line.  You can
@@ -1120,19 +1120,19 @@ move the cursor to the end of the inserted text, or use "'[" or "`[" to move
 the cursor to the start.
 
 ### <a id="put-Visual-mode v_p v_P" class="section-title" href="#put-Visual-mode v_p v_P">Note:</a>
-When using a put command like [p| or |P](#p| or |P) in Visual mode, Vim will try to
+When using a put command like [p](undefined#p) or [P](undefined#P) in Visual mode, Vim will try to
 replace the selected text with the contents of the register.  Whether this
 works well depends on the type of selection and the type of the text in the
 register.  With blockwise selection it also depends on the size of the block
 and whether the corners are on an existing character.  (Implementation detail:
 it actually works by first putting the register after the selection and then
 deleting the selection.)
-With [p](#p) the previously selected text is put in the unnamed register (and
+With [p](undefined#p) the previously selected text is put in the unnamed register (and
 possibly the selection and/or clipboard).  This is useful if you want to put
 that text somewhere else.  But you cannot repeat the same change.
-With [P](#P) the unnamed register is not changed (and neither the selection or
+With [P](undefined#P) the unnamed register is not changed (and neither the selection or
 clipboard), you can repeat the same change. But the deleted text cannot be
-used.  If you do need it you can use [p](#p) with another register.  E.g., yank
+used.  If you do need it you can use [p](undefined#p) with another register.  E.g., yank
 the text to copy, Visually select the text to replace and use "0p .  You can
 repeat this as many times as you like, and the unnamed register will be
 changed each time.
@@ -1161,7 +1161,7 @@ this happen.  However, if the width of the block is not a multiple of a <Tab>
 width and the text after the inserted block contains <Tab>s, that text may be
 misaligned.
 
-Use [zP|/|zp](#zP|/|zp) to paste a blockwise yanked register without appending trailing
+Use [zP](undefined#zP)/[zp](undefined#zp) to paste a blockwise yanked register without appending trailing
 spaces.
 
 Note that after a charwise yank command, Vim leaves the cursor on the first
@@ -1207,10 +1207,10 @@ unless the command specified another register with ["x].
    Numbered register 1 contains the text deleted by the most recent delete or
 change command, unless the command specified another register or the text is
 less than one line (the small delete register is used then).  An exception is
-made for the delete operator with these movement commands: [%|, |(|, |)|, |`](#%|, |(|, |)|, |`),
-[/|, |?|, |n|, |N|, |{| and |}](#/|, |?|, |n|, |N|, |{| and |}).  Register "1 is always used then (this is Vi
+made for the delete operator with these movement commands: |%|, |(|, |)|, |`|,
+|/|, |?|, [n](undefined#n), [N](undefined#N), |{| and |}|.  Register "1 is always used then (this is Vi
 compatible).  The "- register is used as well if the delete is within a line.
-Note that these characters may be mapped.  E.g. [%](#%) is mapped by the matchit
+Note that these characters may be mapped.  E.g. |%| is mapped by the matchit
 plugin.
    With each successive deletion or change, Vim shifts the previous contents
 of register 1 into register 2, 2 into 3, and so forth, losing the previous
@@ -1247,17 +1247,17 @@ and ":put" commands and with CTRL-R.
 ### <a id="quote_# quote#" class="section-title" href="#quote_# quote#">Note:</a>
 6. Alternate file register "#
 Contains the name of the alternate file for the current window.  It will
-change how the [CTRL-^](#CTRL-^) command works.
+change how the |CTRL-^| command works.
 This register is writable, mainly to allow for restoring it after a plugin has
 changed it.  It accepts buffer number:
     let altbuf = bufnr(@#)
     ...
     let @# = altbuf
-It will give error [E86](#E86) if you pass buffer number and this buffer does not
+It will give error [E86](undefined#E86) if you pass buffer number and this buffer does not
 exist.
 It can also accept a match with an existing buffer name:
     let @# = 'buffer_name'
-Error [E93| if there is more than one buffer matching the given name or |E94](#E93| if there is more than one buffer matching the given name or |E94)
+Error [E93](undefined#E93) if there is more than one buffer matching the given name or [E94](undefined#E94)
 if none of buffers matches the given name.
 
 ### <a id="quote_= quote= @=" class="section-title" href="#quote_= quote= @=">7. Expression register "=</a>
@@ -1266,7 +1266,7 @@ expression in commands which use a register.  The expression register is
 read-write.
 
 When typing the '=' after " or CTRL-R the cursor moves to the command-line,
-where you can enter any expression (see [expression](#expression)).  All normal
+where you can enter any expression (see [expression](undefined#expression)).  All normal
 command-line editing commands are available, including a special history for
 expressions.  When you end the command-line by typing <CR>, Vim computes the
 result of the expression.  If you end it with <Esc>, Vim abandons the
@@ -1285,9 +1285,9 @@ register.
 
 8. Selection registers "* and "+
 Use these registers for storing and retrieving the selected text for the GUI.
-See [quotestar| and |quoteplus](#quotestar| and |quoteplus).  When the clipboard is not available or not
+See [quotestar](undefined#quotestar) and [quoteplus](undefined#quoteplus).  When the clipboard is not available or not
 working, the unnamed register is used instead.  For Unix systems and Mac OS X,
-see [primary-selection](#primary-selection).
+see [primary-selection](undefined#primary-selection).
 
 ### <a id="quote_" class="section-title" href="#quote_">9. Black hole register "_</a>
 When writing to this register, nothing happens.  This can be used to delete
@@ -1298,12 +1298,12 @@ nothing is returned.
 Contains the most recent search-pattern.  This is used for "n" and 'hlsearch'.
 It is writable with `:let`, you can change it to have 'hlsearch' highlight
 other matches without actually searching.  You can't yank or delete into this
-register.  The search direction is available in [v:searchforward](#v:searchforward).
+register.  The search direction is available in |v:searchforward|.
 Note that the value is restored when returning from a function
-[function-search-undo](#function-search-undo).
+[function-search-undo](undefined#function-search-undo).
 
 ### <a id="@/" class="section-title" href="#@/">Note:</a>
-You can write to a register with a `:let` command [:let-@](#:let-@).  Example:
+You can write to a register with a `:let` command |:let-@|.  Example:
 	:let @/ = "the"
 
 If you use a put command without specifying a register, Vim uses the register
@@ -1356,13 +1356,13 @@ gq{motion}		Format the lines that {motion} moves over.
 			length is the screen width (with a maximum width of
 			79).
 			The 'formatoptions' option controls the type of
-			formatting [fo-table](#fo-table).
+			formatting [fo-table](undefined#fo-table).
 			The cursor is left on the first non-blank of the last
 			formatted line.
 			NOTE: The "Q" command formerly performed this
 			function.  If you still want to use "Q" for
 			formatting, use this mapping:
-				:nnoremap Q gq
+```				:nnoremap Q gq
 
 ### <a id="gqgq gqq" class="section-title" href="#gqgq gqq">gqgq</a>
 gqq			Format the current line.  With a count format that
@@ -1370,11 +1370,11 @@ gqq			Format the current line.  With a count format that
 
 ### <a id="v_gq" class="section-title" href="#v_gq">Note:</a>
 {Visual}gq		Format the highlighted text.  (for {Visual} see
-			[Visual-mode](#Visual-mode)).
+			[Visual-mode](undefined#Visual-mode)).
 
 ### <a id="gw" class="section-title" href="#gw">Note:</a>
 gw{motion}		Format the lines that {motion} moves over.  Similar to
-			[gq](#gq) but puts the cursor back at the same position in
+			[gq](undefined#gq) but puts the cursor back at the same position in
 			the text.  However, 'formatprg' and 'formatexpr' are
 			not used.
 
@@ -1383,7 +1383,7 @@ gww			Format the current line as with "gw".
 
 ### <a id="v_gw" class="section-title" href="#v_gw">Note:</a>
 {Visual}gw		Format the highlighted text as with "gw".  (for
-			{Visual} see [Visual-mode](#Visual-mode)).
+			{Visual} see [Visual-mode](undefined#Visual-mode)).
 
 ### <a id="gqap" class="section-title" href="#gqap">Example: To format the current paragraph use:</a>
 	gqap
@@ -1397,7 +1397,7 @@ the first formatted line (as with using a filter command).
 If you want to format the current paragraph and continue where you were, use:
 	gwap
 If you always want to keep paragraphs formatted you may want to add the 'a'
-flag to 'formatoptions'.  See [auto-format](#auto-format).
+flag to 'formatoptions'.  See [auto-format](undefined#auto-format).
 
 If the 'autoindent' option is on, Vim uses the indent of the first line for
 the following lines.
@@ -1414,9 +1414,9 @@ program.
 
 ### <a id="format-formatexpr" class="section-title" href="#format-formatexpr">Note:</a>
 The 'formatexpr' option can be set to a Vim script function that performs
-reformatting of the buffer.  This should usually happen in an [ftplugin](#ftplugin),
+reformatting of the buffer.  This should usually happen in an [ftplugin](undefined#ftplugin),
 since formatting is highly dependent on the type of file.  It makes
-sense to use an [autoload](#autoload) script, so the corresponding script is only loaded
+sense to use an [autoload](undefined#autoload) script, so the corresponding script is only loaded
 when actually needed and the script should be called <filetype>format.vim.
 
 For example, the XML filetype plugin distributed with Vim in the $VIMRUNTIME
@@ -1452,7 +1452,7 @@ Note: this function explicitly returns non-zero when called from insert mode
 (which basically means, text is inserted beyond the 'textwidth' limit).  This
 causes Vim to fall back to reformat the text by using the internal formatter.
 
-However, if the [gq](#gq) command is used to reformat the text, the function
+However, if the [gq](undefined#gq) command is used to reformat the text, the function
 will receive the selected lines, trim trailing whitespace from those lines and
 put them back in place.  If you are going to split single lines into multiple
 lines, be careful not to overwrite anything.
@@ -1467,7 +1467,7 @@ an external command, like "par" (e.g.: "!}par" to format until the end of the
 paragraph) or set 'formatprg' to "par".
 
 ### <a id="format-comments" class="section-title" href="#format-comments">Note:</a>
-An overview of comment formatting is in section [30.6](#30.6) of the user manual.
+An overview of comment formatting is in section |30.6| of the user manual.
 
 Vim can automatically insert and format comments in a special way.  Vim
 recognizes a comment by a specific string at the start of the line (ignoring
@@ -1583,14 +1583,14 @@ Only one alignment per comment part is meant to be used, but an offset number
 will override the "r" and "l" flag.
 
 Enabling 'cindent' will override the alignment flags in many cases.
-Reindenting using a different method like [gq| or |=](#gq| or |=) will not consult
+Reindenting using a different method like [gq](undefined#gq) or |=| will not consult
 alignment flags either. The same behaviour can be defined in those other
 formatting options. One consideration is that 'cindent' has additional options
 for context based indenting of comments but cannot replicate many three piece
 indent alignments.  However, 'indentexpr' has the ability to work better with
 three piece comments.
 
-Other examples: 
+Other examples:
 #### <a id=""b:"	Includes lines starting with "", but not if the "" is" class="section-title" href="#"b:"	Includes lines starting with "", but not if the "" is">```</a>
 		followed by a non-blank.  This avoids a pointer dereference
 ### <a id="like "str" to be recognized as a comment." class="section-title" href="#like "str" to be recognized as a comment.">Note:</a>
@@ -1618,7 +1618,7 @@ r	Automatically insert the current comment leader after hitting
 ### <a id="fo-o" class="section-title" href="#fo-o">Note:</a>
 o	Automatically insert the current comment leader after hitting 'o' or
 	'O' in Normal mode.  In case comment is unwanted in a specific place
-	use CTRL-U to quickly delete it. [i_CTRL-U](#i_CTRL-U)
+	use CTRL-U to quickly delete it. |i_CTRL-U|
 ### <a id="fo-/" class="section-title" href="#fo-/">Note:</a>
 /	When 'o' is included: do not insert the comment leader for a //
 	comment after a statement, only when // is at the start of the line.
@@ -1632,7 +1632,7 @@ w	Trailing white space indicates a paragraph continues in the next line.
 	A line that ends in a non-white character ends a paragraph.
 ### <a id="fo-a" class="section-title" href="#fo-a">Note:</a>
 a	Automatic formatting of paragraphs.  Every time text is inserted or
-	deleted the paragraph will be reformatted.  See [auto-format](#auto-format).
+	deleted the paragraph will be reformatted.  See [auto-format](undefined#auto-format).
 	When the 'c' flag is present this only happens for recognized
 	comments.
 ### <a id="fo-n" class="section-title" href="#fo-n">Note:</a>
@@ -1697,7 +1697,7 @@ j	Where it makes sense, remove a comment leader when joining lines.  For
 		int i;   // the index in the list ~
 ### <a id="fo-p" class="section-title" href="#fo-p">Note:</a>
 p	Don't break lines at single spaces that follow periods.  This is
-	intended to complement 'joinspaces' and [cpo-J](#cpo-J), for prose with
+	intended to complement 'joinspaces' and [cpo-J](undefined#cpo-J), for prose with
 	sentences separated by two spaces.  For example, with 'textwidth' set
 	to 28:
 		Surely you're joking, Mr. Feynman!
@@ -1718,7 +1718,7 @@ value	action	~
 
 Note that when 'textwidth' is 0, Vim does no automatic formatting anyway (but
 does insert comment leaders according to the 'comments' option).  An exception
-is when the 'a' flag is present. [auto-format](#auto-format)
+is when the 'a' flag is present. [auto-format](undefined#auto-format)
 
 Note that when 'paste' is on, Vim does no formatting at all.
 
@@ -1762,8 +1762,8 @@ editing text paragraphs.  A few hints on how to use this:
   using the 'w' flag and adding a space at the end of each line in the
   paragraphs except the last one.
 
-- You can set the 'formatoptions' based on the type of file [filetype](#filetype) or
-  specifically for one file with a [modeline](#modeline).
+- You can set the 'formatoptions' based on the type of file [filetype](undefined#filetype) or
+  specifically for one file with a [modeline](undefined#modeline).
 
 - Set 'formatoptions' to "aw2tq" to make text with indents like this:
 
@@ -1785,7 +1785,7 @@ And a few warnings:
 	:set fo-=a
 
 - When using the 'w' flag (trailing space means paragraph continues) and
-  deleting the last line of a paragraph with [dd](#dd), the paragraph will be
+  deleting the last line of a paragraph with [dd](undefined#dd), the paragraph will be
   joined with the next one.
 
 - Changed text is saved for undo.  Formatting is also a change.  Thus each
@@ -1797,7 +1797,7 @@ And a few warnings:
 ## <a id="sorting" class="section-title" href="#sorting">7. Sorting Text</a> 
 
 Vim has a sorting function and a sorting command.  The sorting function can be
-found here: [sort()|, |uniq()](#sort()|, |uniq()).
+found here: |sort()|, |uniq()|.
 
 ### <a id=":sor :sort" class="section-title" href="#:sor :sort">Note:</a>
 :[range]sor[t][!] [b][f][i][l][n][o][r][u][x] [/{pattern}/]
@@ -1810,11 +1810,11 @@ found here: [sort()|, |uniq()](#sort()|, |uniq()).
 
 			With [l] sort uses the current collation locale.
 			Implementation details: strcoll() is used to compare
-			strings. See [:language](#:language) to check or set the collation
+			strings. See |:language| to check or set the collation
 			locale. Example:
 				:language collate en_US.UTF-8
 				:%sort l
-			[v:collate](#v:collate) can also used to check the current locale.
+			|v:collate| can also used to check the current locale.
 			Sorting using the locale typically ignores case.
 			This does not work properly on Mac.
 

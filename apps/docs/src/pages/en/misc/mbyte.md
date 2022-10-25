@@ -16,11 +16,11 @@ This is about editing text in languages which have many characters that can
 not be represented using one byte (one octet).  Examples are Chinese, Japanese
 and Korean.  Unicode is also covered here.
 
-For an introduction to the most common features, see [usr_45.txt](#usr_45.txt) in the user
+For an introduction to the most common features, see |usr_45.txt| in the user
 manual.
-For changing the language of messages and menus see [mlang.txt](#mlang.txt).
+For changing the language of messages and menus see |mlang.txt|.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="mbyte-first" class="section-title" href="#mbyte-first">Getting Started</a> 
@@ -55,7 +55,7 @@ Vim will give an error message if this doesn't work.  This is a good way to
 experiment and find the locale name you want to use.  But it's always better
 to set the locale in the shell, so that it is used right from the start.
 
-See [mbyte-locale](#mbyte-locale) for details.
+See [[mbyte-locale](/undefined#mbyte-locale)](/undefined) for details.
 
 
 ENCODING
@@ -68,7 +68,7 @@ the buffers, but also in registers, variables, etc.
 
 You can edit files in different encodings than UTF-8.  Nvim
 will convert the file when you read it and convert it back when you write it.
-See 'fileencoding', 'fileencodings' and [++enc](#++enc).
+See 'fileencoding', 'fileencodings' and |++enc|.
 
 
 DISPLAY AND FONTS
@@ -93,7 +93,7 @@ INPUT
 
 There are several ways to enter multibyte characters:
 - Your system IME can be used.
-- Keymaps can be used.  See [mbyte-keymap](#mbyte-keymap).
+- Keymaps can be used.  See [[[mbyte-keymap](/undefined#mbyte-keymap)](/undefined)](/undefined).
 
 The options 'iminsert', 'imsearch' and 'imcmdline' can be used to choose
 the different input methods or disable them temporarily.
@@ -136,13 +136,13 @@ X-windows stuff.  You might have to do some experiments to find out what
 really works.
 
 ### <a id="locale-name" class="section-title" href="#locale-name">Note:</a>
-The (simplified) format of [locale](#locale) name is:
+The (simplified) format of [[[locale](/undefined#locale)](/undefined)](/undefined) name is:
 
 language
 or	language_territory
 or	language_territory.codeset
 
-Territory means the country (or part of it), codeset means the [charset](#charset).  For
+Territory means the country (or part of it), codeset means the [[charset](/undefined#charset)](/undefined).  For
 example, the locale name "ja_JP.eucJP" means:
 ja	the language is Japanese
 JP	the country is Japan
@@ -167,18 +167,18 @@ To start using a locale for the whole system, see the documentation of your
 system.  Mostly you need to set it in a configuration file in "/etc".
 
 To use a locale in a shell, set the $LANG environment value.  When you want to
-use Korean and the [locale](#locale) name is "ko", do this:
+use Korean and the [[[locale](/undefined#locale)](/undefined)](/undefined) name is "ko", do this:
 
 sh:    export LANG=ko
 csh:   setenv LANG ko
 
 You can put this in your ~/.profile or ~/.cshrc file to always use it.
 
-To use a locale in Vim only, use the [:language](#:language) command:
+To use a locale in Vim only, use the |:language| command:
 
 :language ko
 
-Put this in your [init.vim](#init.vim) file to use it always.
+Put this in your |init.vim| file to use it always.
 
 Or specify $LANG when starting Vim:
 
@@ -338,7 +338,7 @@ Vim will automatically convert from one to another encoding in several places:
 - When writing a file and 'fileencoding' is different from "utf-8"
 - When displaying messages and the encoding used for LC_MESSAGES differs from
 "utf-8" (requires a gettext version that supports this).
-- When reading a Vim script where [:scriptencoding](#:scriptencoding) is different from
+- When reading a Vim script where |:scriptencoding| is different from
 "utf-8".
 Most of these require iconv.  Conversion for reading and writing files may
 also be specified with the 'charconvert' option.
@@ -369,24 +369,24 @@ Try getting another iconv() implementation.
 ### <a id="XIM xim x-input-method" class="section-title" href="#XIM xim x-input-method">X Input Method (Xim) Background</a>
 
 XIM is an international input module for X.  There are two kinds of structures,
-Xlib unit type and [IM-server| (Input-Method server) type.  |IM-server](#IM-server| (Input-Method server) type.  |IM-server) type
+Xlib unit type and [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) (Input-Method server) type.  [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type
 is suitable for complex input, such as CJK.
 
 - IM-server
 ### <a id="IM-server" class="section-title" href="#IM-server">Note:</a>
-In [IM-server](#IM-server) type input structures, the input event is handled by either
+In [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type input structures, the input event is handled by either
 of the two ways: FrontEnd system and BackEnd system.  In the FrontEnd
-system, input events are snatched by the [IM-server| first, then |IM-server](#IM-server| first, then |IM-server)
+system, input events are snatched by the [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) first, then [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 give the application the result of input.  On the other hand, the BackEnd
 system works reverse order.  MS-Windows adopt BackEnd system.  In X, most of
-[IM-server](#IM-server)s adopt FrontEnd system.  The demerit of BackEnd system is the
+[[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)s adopt FrontEnd system.  The demerit of BackEnd system is the
 large overhead in communication, but it provides safe synchronization with
 no restrictions on applications.
 
 - Conversion Server
 ### <a id="conversion-server" class="section-title" href="#conversion-server">Note:</a>
 Some system needs additional server: conversion server.  Most of Japanese
-[IM-server](#IM-server)s need it, Kana-Kanji conversion server.  For Chinese inputting,
+[[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)s need it, Kana-Kanji conversion server.  For Chinese inputting,
 it depends on the method of inputting, in some methods, PinYin or ZhuYin to
 HanZi conversion server is needed.  For Korean inputting, if you want to
 input Hanja, Hangul-Hanja conversion server is needed.
@@ -401,7 +401,7 @@ if needed.  There are some Kana-Kanji conversion server: jserver
 http://canna.sourceforge.jp/
 
 There is a good input system: Wnn4.2.  Wnn 4.2 contains,
-xwnmo ([IM-server](#IM-server))
+xwnmo ([[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined))
 jserver (Japanese Kana-Kanji conversion server)
 cserver (Chinese PinYin or ZhuYin to simplified HanZi conversion server)
 tserver (Chinese PinYin or ZhuYin to traditional HanZi conversion server)
@@ -425,18 +425,18 @@ characters.
 
 The first and second areas are defined in international input of X with the
 names of "Preedit Area", "Status Area" respectively.  The third and fourth
-areas are not defined and are left to be managed by the [IM-server](#IM-server).  In the
+areas are not defined and are left to be managed by the [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  In the
 international input, four input styles have been defined using combinations
-of Preedit Area and Status Area: [OnTheSpot|, |OffTheSpot|, |OverTheSpot](#OnTheSpot|, |OffTheSpot|, |OverTheSpot)
-and [Root](#Root).
+of Preedit Area and Status Area: [[OnTheSpot](/undefined#OnTheSpot)](/undefined), [[[[OffTheSpot](/undefined#OffTheSpot)](/undefined)](/undefined)](/undefined), [[[[[[OverTheSpot](/undefined#OverTheSpot)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+and [[[[Root](/undefined#Root)](/undefined)](/undefined)](/undefined).
 
-Currently, GUI Vim supports three styles, [OverTheSpot|, |OffTheSpot](#OverTheSpot|, |OffTheSpot) and
-[Root](#Root).
+Currently, GUI Vim supports three styles, [[[[[[OverTheSpot](/undefined#OverTheSpot)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[OffTheSpot](/undefined#OffTheSpot)](/undefined)](/undefined)](/undefined) and
+[[[[Root](/undefined#Root)](/undefined)](/undefined)](/undefined).
 
 *.  on-the-spot						*OnTheSpot*
 Preedit Area and Status Area are performed by the client application in
 the area of application.  The client application is directed by the
-[IM-server](#IM-server) to display all pre-edit data at the location of text
+[[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) to display all pre-edit data at the location of text
 insertion.  The client registers callbacks invoked by the input method
 during pre-editing.
 *.  over-the-spot					*OverTheSpot*
@@ -463,11 +463,11 @@ Note that Display and Input are independent.  It is possible to see your
 language even though you have no input method for it.  But when your Display
 method doesn't match your Input method, the text will be displayed wrong.
 
-To input your language you should run the [IM-server](#IM-server) which supports your
-language and [conversion-server](#conversion-server) if needed.
+To input your language you should run the [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) which supports your
+language and [[conversion-server](/undefined#conversion-server)](/undefined) if needed.
 
 The next 3 lines should be put in your ~/.Xdefaults file.  They are common for
-all X applications which uses [XIM|.  If you already use |XIM](#XIM|.  If you already use |XIM), you can skip
+all X applications which uses [[[[XIM](/undefined#XIM)](/undefined)](/undefined)](/undefined).  If you already use [[[[XIM](/undefined#XIM)](/undefined)](/undefined)](/undefined), you can skip
 this.
 
 *international: True
@@ -475,36 +475,36 @@ this.
 *.preeditType: your_input_style
 ```
 
-input_server_name	is your [IM-server| name (check your |IM-server](#IM-server| name (check your |IM-server)
+input_server_name	is your [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) name (check your [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 manual).
-your_input_style	is one of [OverTheSpot|, |OffTheSpot|, |Root](#OverTheSpot|, |OffTheSpot|, |Root).  See
-also [xim-input-style](#xim-input-style).
+your_input_style	is one of [[[[[[OverTheSpot](/undefined#OverTheSpot)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[OffTheSpot](/undefined#OffTheSpot)](/undefined)](/undefined)](/undefined), [[[[Root](/undefined#Root)](/undefined)](/undefined)](/undefined).  See
+also [[xim-input-style](/undefined#xim-input-style)](/undefined).
 
 *international may not be necessary if you use X11R6.
 *.inputMethod and *.preeditType are optional if you use X11R6.
 
-For example, when you are using kinput2 as [IM-server](#IM-server), 
+For example, when you are using kinput2 as [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), 
 ```
 *international: True
 *.inputMethod: kinput2
 *.preeditType: OverTheSpot
 ```
 
-When using [OverTheSpot](#OverTheSpot), GUI Vim always connects to the IM Server even in
+When using [[[[[[OverTheSpot](/undefined#OverTheSpot)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), GUI Vim always connects to the IM Server even in
 Normal mode, so you can input your language with commands like "f" and "r".
 But when using one of the other two methods, GUI Vim connects to the IM Server
 only if it is not in Normal mode.
 
-If your IM Server does not support [OverTheSpot](#OverTheSpot), and if you want to use your
+If your IM Server does not support [[[[[[OverTheSpot](/undefined#OverTheSpot)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), and if you want to use your
 language with some Normal mode command like "f" or "r", then you should use a
-localized xterm  or an xterm which supports [XIM](#XIM)
+localized xterm  or an xterm which supports [[[[XIM](/undefined#XIM)](/undefined)](/undefined)](/undefined)
 
 If needed, you can set the XMODIFIERS environment variable:
 
 sh:  export XMODIFIERS="@im=input_server_name"
 csh: setenv XMODIFIERS "@im=input_server_name"
 
-For example, when you are using kinput2 as [IM-server](#IM-server) and sh, 
+For example, when you are using kinput2 as [[[[[[[[[[[[[[[[IM-server](/undefined#IM-server)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and sh, 
 ```
 export XMODIFIERS="@im=kinput2"
 ```
@@ -532,11 +532,11 @@ available keymap files, use this:
 ```	:echo globpath(&rtp, "keymap/*.vim")
 
 In Insert and Command-line mode you can use CTRL-^ to toggle between using the
-keyboard map or not. [i_CTRL-^| |c_CTRL-^](#i_CTRL-^| |c_CTRL-^)
+keyboard map or not. |i_CTRL-^| |c_CTRL-^|
 This flag is remembered for Insert mode with the 'iminsert' option.  When
 leaving and entering Insert mode the previous value is used.  The same value
-is also used for commands that take a single character argument, like [f](#f) and
-[r](#r).
+is also used for commands that take a single character argument, like [[[f](/undefined#f)](/undefined)](/undefined) and
+[[[r](/undefined#r)](/undefined)](/undefined).
 For Command-line mode the flag is NOT remembered.  You are expected to type an
 Ex command first, which is ASCII.
 For typing search patterns the 'imsearch' option is used.  It can be set to
@@ -574,7 +574,7 @@ keyboards and encodings.
 The actual mappings are in the lines below "loadkeymap".  In the example "a"
 is mapped to "A" and "b" to "B".  Thus the first item is mapped to the second
 item.  This is done for each line, until the end of the file.
-These items are exactly the same as what can be used in a [:lmap](#:lmap) command,
+These items are exactly the same as what can be used in a |:lmap| command,
 using "<buffer>" to make the mappings local to the buffer.
 You can check the result with this command:
 :lmap
@@ -589,12 +589,12 @@ Since Vim doesn't know if the next character after a quote is really an "a",
 it will wait for the next character.  To be able to insert a single quote,
 also add this line:
 ''	'
-Since the mapping is defined with [:lmap](#:lmap) the resulting quote will not be
+Since the mapping is defined with |:lmap| the resulting quote will not be
 used for the start of another character defined in the 'keymap'.
-It can be used in a standard [:imap](#:imap) mapping.
+It can be used in a standard |:imap| mapping.
 ### <a id="keymap-accents" class="section-title" href="#keymap-accents">The "accents" keymap uses this.</a>
 
-The first column can also be in [<>](#<>) form:
+The first column can also be in |<>| form:
 <C-c>		Ctrl-C
 <A-c>		Alt-c
 <A-C>		Alt-C
@@ -852,7 +852,7 @@ See the documentation for each option for details.  Example:
 :set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
 
 You might also want to set the font used for the menus.  This only works for
-Motif.  Use the ":hi Menu font={fontname}" command for this. [:highlight](#:highlight)
+Motif.  Use the ":hi Menu font={fontname}" command for this. |:highlight|
 
 
 ### <a id="utf-8-typing" class="section-title" href="#utf-8-typing">Typing Utf-8</a>
@@ -862,7 +862,7 @@ UTF-8.
 
 If your system does not provide support for typing UTF-8, you can use the
 'keymap' feature.  This allows writing a keymap file, which defines a UTF-8
-character as a sequence of ASCII characters.  See [mbyte-keymap](#mbyte-keymap).
+character as a sequence of ASCII characters.  See [[[mbyte-keymap](/undefined#mbyte-keymap)](/undefined)](/undefined).
 
 If everything else fails, you can type any character as four hex bytes:
 
@@ -874,11 +874,11 @@ a zero if necessary.
 
 ### <a id="utf-8-char-arg" class="section-title" href="#utf-8-char-arg">Command Arguments</a>
 
-Commands like [f|, |F|, |t| and |r](#f|, |F|, |t| and |r) take an argument of one character.  For
+Commands like [[[f](/undefined#f)](/undefined)](/undefined), [[F](/undefined#F)](/undefined), [[t](/undefined#t)](/undefined) and [[[r](/undefined#r)](/undefined)](/undefined) take an argument of one character.  For
 UTF-8 this argument may include one or two composing characters.  These need
 to be produced together with the base character, Vim doesn't wait for the next
 character to be typed to find out if it is a composing character or not.
-Using 'keymap' or [:lmap](#:lmap) is a nice way to type these characters.
+Using 'keymap' or |:lmap| is a nice way to type these characters.
 
 The commands that search for a character in a line handle composing characters
 as follows.  When searching for a character without a composing character,

@@ -12,9 +12,9 @@ NVIM REFERENCE MANUAL
 
 ### <a id="if_pyth python Python" class="section-title" href="#if_pyth python Python">The Python Interface to NVim</a>
 
-See [provider-python](#provider-python) for more information.
+See [[provider-python](/undefined#provider-python)](/undefined) for more information.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="python-commands" class="section-title" href="#python-commands">Commands</a> 
@@ -30,12 +30,12 @@ the `:python` command is working:
 {endmarker}
 Execute Python script {script}.  Useful for including
 python code in Vim scripts.  Requires Python, see
-[script-here](#script-here).
+[[script-here](/undefined#script-here)](/undefined).
 
 The {endmarker} below the {script} must NOT be preceded by any white space.
 
 If [endmarker] is omitted from after the "<<", a dot '.' must be used after
-{script}, like for the [:append| and |:insert](#:append| and |:insert) commands.
+{script}, like for the |:append| and |:insert| commands.
 
 Example:
 function! IcecreamInitialize()
@@ -93,13 +93,13 @@ Execute the Python script in {file}.  The whole
 argument is used as a single file name.
 
 Both of these commands do essentially the same thing - they execute a piece of
-Python code, with the "current range" [python-range](#python-range) set to the given line
+Python code, with the "current range" [[[[python-range](/undefined#python-range)](/undefined)](/undefined)](/undefined) set to the given line
 range.
 
 In the case of :python, the code to execute is in the command-line.
 In the case of :pyfile, the code to execute is the contents of the given file.
 
-Python commands cannot be used in the [sandbox](#sandbox).
+Python commands cannot be used in the [[sandbox](/undefined#sandbox)](/undefined).
 
 To pass arguments you need to set sys.argv[] explicitly.  Example: 
 ```
@@ -142,7 +142,7 @@ Note that "EOF" must be at the start of the line.
 ## <a id="python-vim" class="section-title" href="#python-vim">The Vim Module</a> 
 
 Python code gets all of its access to vim (with one exception - see
-[python-output](#python-output) below) via the "vim" module.  The vim module implements two
+[[python-output](/undefined#python-output)](/undefined) below) via the "vim" module.  The vim module implements two
 methods, three constants, and one error object.  You need to import the vim
 module before using it:
 :python import vim
@@ -187,7 +187,7 @@ older.  This only works with Python 2.3 and later:
 
 ### <a id="python-eval" class="section-title" href="#python-eval">vim.eval(str)</a>
 Evaluates the expression str using the vim internal expression
-evaluator (see [expression](#expression)).  Returns the expression result as:
+evaluator (see [[expression](/undefined#expression)](/undefined)).  Returns the expression result as:
 - a string if the Vim expression evaluates to a string or number
 - a list if the Vim expression evaluates to a Vim list
 - a dictionary if the Vim expression evaluates to a Vim dictionary
@@ -199,7 +199,7 @@ Examples:
 # a number.
 
 ### <a id="python-strwidth" class="section-title" href="#python-strwidth">vim.strwidth(str)</a>
-Like [strwidth()](#strwidth()): returns number of display cells str occupies, tab
+Like |strwidth()|: returns number of display cells str occupies, tab
 is counted as one cell.
 
 ### <a id="python-foreach_rtp" class="section-title" href="#python-foreach_rtp">vim.foreach_rtp(callable)</a>
@@ -249,10 +249,10 @@ object supports the following operations:
 :py n = len(vim.windows)	# Number of elements
 :py for w in vim.windows:	# Sequential access
 Note: vim.windows object always accesses current tab page.
-[python-tabpage|.windows objects are bound to parent |python-tabpage](#python-tabpage|.windows objects are bound to parent |python-tabpage)
+[[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).windows objects are bound to parent [[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 object and always use windows from that tab page (or throw vim.error
 in case tab page was deleted). You can keep a reference to both
-without keeping a reference to vim module object or [python-tabpage](#python-tabpage),
+without keeping a reference to vim module object or [[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined),
 they will not lose their properties in this case.
 
 ### <a id="python-tabpages" class="section-title" href="#python-tabpages">vim.tabpages</a>
@@ -276,14 +276,14 @@ vim.current.range	The current line range (RO)	Range
 The last case deserves a little explanation.  When the :python or
 :pyfile command specifies a range, this range of lines becomes the
 "current range".  A range is a bit like a buffer, but with all access
-restricted to a subset of lines.  See [python-range](#python-range) for more details.
+restricted to a subset of lines.  See [[[[python-range](/undefined#python-range)](/undefined)](/undefined)](/undefined) for more details.
 
 Note: When assigning to vim.current.{buffer,window,tabpage} it expects
-valid [python-buffer|, |python-window| or |python-tabpage](#python-buffer|, |python-window| or |python-tabpage) objects
-respectively. Assigning triggers normal (with [autocommand](#autocommand)s)
+valid [[[[[python-buffer](/undefined#python-buffer)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[python-window](/undefined#python-window)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) objects
+respectively. Assigning triggers normal (with [[autocommand](/undefined#autocommand)](/undefined)s)
 switching to given buffer, window or tab page. It is the only way to
 switch UI objects in python: you can't assign to
-[python-tabpage](#python-tabpage).window attribute. To switch without triggering
+[[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).window attribute. To switch without triggering
 autocommands use 
 ```	    py << EOF
 saved_eventignore = vim.options['eventignore']
@@ -297,19 +297,19 @@ EOF
 
 ### <a id="python-vars" class="section-title" href="#python-vars">vim.vars</a>
 ### <a id="python-vvars" class="section-title" href="#python-vvars">vim.vvars</a>
-Dictionary-like objects holding dictionaries with global ([g:](#g:)) and
-vim ([v:](#v:)) variables respectively.
+Dictionary-like objects holding dictionaries with global (|g:|) and
+vim (|v:|) variables respectively.
 
 ### <a id="python-options" class="section-title" href="#python-options">vim.options</a>
 Object partly supporting mapping protocol (supports setting and
 getting items) providing a read-write access to global options.
-Note: unlike [:set](#:set) this provides access only to global options. You
+Note: unlike |:set| this provides access only to global options. You
 cannot use this object to obtain or set local options' values or
 access local-only options in any fashion. Raises KeyError if no global
 option with such name exists (i.e. does not raise KeyError for
-[global-local](#global-local) options and global only options, but does for window-
-and buffer-local ones).  Use [python-buffer](#python-buffer) objects to access to
-buffer-local options and [python-window](#python-window) objects to access to
+[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined) options and global only options, but does for window-
+and buffer-local ones).  Use [[[[[python-buffer](/undefined#python-buffer)](/undefined)](/undefined)](/undefined)](/undefined) objects to access to
+buffer-local options and [[[[[python-window](/undefined#python-window)](/undefined)](/undefined)](/undefined)](/undefined) objects to access to
 window-local options.
 
 Type of this object is available via "Options" attribute of vim
@@ -415,9 +415,9 @@ directories for each {rtp} in 'runtimepath'.
 ## <a id="python-buffer" class="section-title" href="#python-buffer">Buffer Objects</a> 
 
 Buffer objects represent vim buffers.  You can obtain them in a number of ways:
-- via vim.current.buffer ([python-current](#python-current))
-- from indexing vim.buffers ([python-buffers](#python-buffers))
-- from the "buffer" attribute of a window ([python-window](#python-window))
+- via vim.current.buffer ([[[[[python-current](/undefined#python-current)](/undefined)](/undefined)](/undefined)](/undefined))
+- from indexing vim.buffers ([[[python-buffers](/undefined#python-buffers)](/undefined)](/undefined))
+- from the "buffer" attribute of a window ([[[[[python-window](/undefined#python-window)](/undefined)](/undefined)](/undefined)](/undefined))
 
 Buffer objects have two read-only attributes - name - the full file name for
 the buffer, and number - the buffer number.  They also have three methods
@@ -438,18 +438,18 @@ with marks (see below) which use vim line numbers.
 
 The buffer object attributes are:
 b.vars		Dictionary-like object used to access
-[buffer-variable](#buffer-variable)s.
+[[buffer-variable](/undefined#buffer-variable)](/undefined)s.
 b.options	Mapping object (supports item getting, setting and
 deleting) that provides access to buffer-local options
-and buffer-local values of [global-local](#global-local) options. Use
-[python-window](#python-window).options if option is window-local,
+and buffer-local values of [[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined) options. Use
+[[[[[python-window](/undefined#python-window)](/undefined)](/undefined)](/undefined)](/undefined).options if option is window-local,
 this object will raise KeyError. If option is
-[global-local](#global-local) and local value is missing getting it
+[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined) and local value is missing getting it
 will return None.
 b.name		String, RW. Contains buffer name (full path).
-Note: when assigning to b.name [BufFilePre](#BufFilePre) and
-[BufFilePost](#BufFilePost) autocommands are launched.
-b.number	Buffer number. Can be used as [python-buffers](#python-buffers) key.
+Note: when assigning to b.name [[BufFilePre](/undefined#BufFilePre)](/undefined) and
+[[BufFilePost](/undefined#BufFilePost)](/undefined) autocommands are launched.
+b.number	Buffer number. Can be used as [[[python-buffers](/undefined#python-buffers)](/undefined)](/undefined) key.
 Read-only.
 b.valid		True or False. Buffer object becomes invalid when
 corresponding buffer is wiped out.
@@ -464,9 +464,9 @@ for Python's built-in list objects.
 b.append(list, nr)  Idem, below line "nr"
 b.mark(name)	Return a tuple (row,col) representing the position
 of the named mark (can also get the []"<> marks)
-b.range(s,e)	Return a range object (see [python-range](#python-range)) which
+b.range(s,e)	Return a range object (see [[[[python-range](/undefined#python-range)](/undefined)](/undefined)](/undefined)) which
 represents the part of the given buffer between line
-numbers s and e [inclusive](#inclusive).
+numbers s and e [[inclusive](/undefined#inclusive)](/undefined).
 
 Note that when adding a line it must not contain a line break character '\n'.
 A trailing '\n' is allowed and ignored, so that you can do:
@@ -495,8 +495,8 @@ Examples (assume b is the current buffer)
 
 Range objects represent a part of a vim buffer.  You can obtain them in a
 number of ways:
-- via vim.current.range ([python-current](#python-current))
-- from a buffer's range() method ([python-buffer](#python-buffer))
+- via vim.current.range ([[[[[python-current](/undefined#python-current)](/undefined)](/undefined)](/undefined)](/undefined))
+- from a buffer's range() method ([[[[[python-buffer](/undefined#python-buffer)](/undefined)](/undefined)](/undefined)](/undefined))
 
 A range object is almost identical in operation to a buffer object.  However,
 all operations are restricted to the lines within the range (this line range
@@ -526,10 +526,10 @@ vim.command("%d,%dhardcopy!" % (r.start+1,r.end+1))
 ## <a id="python-window" class="section-title" href="#python-window">Window Objects</a> 
 
 Window objects represent vim windows.  You can obtain them in a number of ways:
-- via vim.current.window ([python-current](#python-current))
-- from indexing vim.windows ([python-windows](#python-windows))
-- from indexing "windows" attribute of a tab page ([python-tabpage](#python-tabpage))
-- from the "window" attribute of a tab page ([python-tabpage](#python-tabpage))
+- via vim.current.window ([[[[[python-current](/undefined#python-current)](/undefined)](/undefined)](/undefined)](/undefined))
+- from indexing vim.windows ([[[python-windows](/undefined#python-windows)](/undefined)](/undefined))
+- from indexing "windows" attribute of a tab page ([[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined))
+- from the "window" attribute of a tab page ([[[[[[[[python-tabpage](/undefined#python-tabpage)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined))
 
 You can manipulate window objects only through their attributes.  They have no
 methods, and no sequence or other interface.
@@ -540,15 +540,15 @@ cursor (read-write)	The current cursor position in the window
 This is a tuple, (row,col).
 height (read-write)	The window height, in rows
 width (read-write)	The window width, in columns
-vars (read-only)	The window [w:](#w:) variables. Attribute is
+vars (read-only)	The window |w:| variables. Attribute is
 unassignable, but you can change window
 variables this way
 options (read-only)	The window-local options. Attribute is
 unassignable, but you can change window
 options this way. Provides access only to
 window-local options, for buffer-local use
-[python-buffer](#python-buffer) and for global ones use
-[python-options|. If option is |global-local](#python-options|. If option is |global-local)
+[[[[[python-buffer](/undefined#python-buffer)](/undefined)](/undefined)](/undefined)](/undefined) and for global ones use
+[[python-options](/undefined#python-options)](/undefined). If option is [[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)
 and local value is missing getting it will
 return None.
 number (read-only)	Window number.  The first window has number 1.
@@ -571,17 +571,17 @@ Window object type is available using "Window" attribute of vim module.
 
 Tab page objects represent vim tab pages. You can obtain them in a number of
 ways:
-- via vim.current.tabpage ([python-current](#python-current))
-- from indexing vim.tabpages ([python-tabpages](#python-tabpages))
+- via vim.current.tabpage ([[[[[python-current](/undefined#python-current)](/undefined)](/undefined)](/undefined)](/undefined))
+- from indexing vim.tabpages ([[python-tabpages](/undefined#python-tabpages)](/undefined))
 
 You can use this object to access tab page windows. They have no methods and
 no sequence or other interfaces.
 
 Tab page attributes are:
 number		The tab page number like the one returned by
-[tabpagenr()](#tabpagenr()).
-windows		Like [python-windows](#python-windows), but for current tab page.
-vars		The tab page [t:](#t:) variables.
+|tabpagenr()|.
+windows		Like [[[python-windows](/undefined#python-windows)](/undefined)](/undefined), but for current tab page.
+vars		The tab page |t:| variables.
 window		Current tabpage window.
 valid		True or False. Tab page object becomes invalid when
 corresponding tab page is closed.
@@ -591,9 +591,9 @@ TabPage object type is available using "TabPage" attribute of vim module.
 
 ## <a id="python-pyeval" class="section-title" href="#python-pyeval">Pyeval() and Py3eval() Vim Functions</a> 
 
-To facilitate bi-directional interface, you can use [pyeval()| and |py3eval()](#pyeval()| and |py3eval())
+To facilitate bi-directional interface, you can use |pyeval()| and |py3eval()|
 functions to evaluate Python expressions and pass their values to Vim script.
-[pyxeval()](#pyxeval()) is also available.
+|pyxeval()| is also available.
 
 
 ## <a id="python3" class="section-title" href="#python3">Python 3</a> 

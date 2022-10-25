@@ -16,20 +16,20 @@ This chapter shows you several ways of making corrections and moving text
 around.  It teaches you the three basic ways to change text: operator-motion,
 Visual mode and text objects.
 
-[04.1](#04.1)	Operators and motions
-[04.2](#04.2)	Changing text
-[04.3](#04.3)	Repeating a change
-[04.4](#04.4)	Visual mode
-[04.5](#04.5)	Moving text
-[04.6](#04.6)	Copying text
-[04.7](#04.7)	Using the clipboard
-[04.8](#04.8)	Text objects
-[04.9](#04.9)	Replace mode
-[04.10](#04.10)	Conclusion
+|04.1|	Operators and motions
+|04.2|	Changing text
+|04.3|	Repeating a change
+|04.4|	Visual mode
+|04.5|	Moving text
+|04.6|	Copying text
+|04.7|	Using the clipboard
+|04.8|	Text objects
+|04.9|	Replace mode
+|04.10|	Conclusion
 
-     Next chapter: [usr_05.txt](#usr_05.txt)  Set your settings
- Previous chapter: [usr_03.txt](#usr_03.txt)  Moving around
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_05.txt|  Set your settings
+ Previous chapter: |usr_03.txt|  Moving around
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*04.1*	Operators and Motions</a> 
@@ -44,8 +44,8 @@ cursor winds up.
 command deletes four words.
 
 	To err is human. To really foul up you need a computer. ~
-			 ------------------
-```				 d4w
+			 ------------------>
+				 d4w
 
 	To err is human. you need a computer. ~
 
@@ -170,9 +170,7 @@ line break.
 
 The "." command is one of the simplest yet powerful commands in Vim.  It
 repeats the last change.  For instance, suppose you are editing an HTML file
-and want to delete all the <B> tags.  You position the cursor on the first
-```
-
+and want to delete all the <B> tags.  You position the cursor on the first <
 and delete the <B> with the command "df>".  You then go to the < of the next
 /B> and delete it using the "." command.  The "." command executes the last
 change command (in this case, "df>").  To delete another tag, position the
@@ -236,11 +234,11 @@ selection is extended whole lines at a time.
    For example, select three lines with "Vjj":
 
 			  +------------------------+
-			  [ text more text	   ](# text more text	   )
-		       >> [ more text more text    | ](# more text more text    | )
-	selected lines >> [ text text text	   | ](# text text text	   | ) Vjj
-		       >> [ text more		   ](# text more		   ) V
-			  [ more text more	   ](# more text more	   )
+			  | text more text	   |
+		       >> | more text more text    | |
+	selected lines >> | text text text	   | | Vjj
+		       >> | text more		   | V
+			  | more text more	   |
 			  +------------------------+
 
 
@@ -397,7 +395,7 @@ To put text from the clipboard back into the text:
 	"*p
 
 This only works on versions of Vim that include clipboard support.  More about
-the clipboard can be found in section [09.3| and here: |clipboard](#09.3| and here: |clipboard).
+the clipboard can be found in section |09.3| and here: [clipboard](undefined#clipboard).
 
 
 ## <a id="" class="section-title" href="#">*04.8*	Text Objects</a> 
@@ -453,7 +451,7 @@ times.  For example, start Visual mode with "v" and select a sentence with
 "as".  Now you can repeat "as" to include more sentences.  Finally you use an
 operator to do something with the selected sentences.
 
-You can find a long list of text objects here: [text-objects](#text-objects).
+You can find a long list of text objects here: [text-objects](undefined#text-objects).
 
 
 ## <a id="" class="section-title" href="#">*04.9*	Replace Mode</a> 
@@ -485,7 +483,7 @@ The operators, movement commands and text objects give you the possibility to
 make lots of combinations.  Now that you know how they work, you can use N
 operators with M movement commands to make N * M commands!
 
-You can find a list of operators here: [operator](#operator).
+You can find a list of operators here: [operator](/neovim-docs-web/en/vim/motion#operator).
 
 For example, there are many other ways to delete pieces of text.  Here are a
 few common ones:
@@ -520,7 +518,7 @@ else:
 		line.
 
 
-## <a id="Set your settings" class="section-title" href="#Set your settings">Next Chapter: [Usr_05.Txt](#Usr_05.Txt)</a> 
+## <a id="Set your settings" class="section-title" href="#Set your settings">Next Chapter: |Usr_05.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

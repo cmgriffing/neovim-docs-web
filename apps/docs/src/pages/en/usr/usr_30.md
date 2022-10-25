@@ -16,16 +16,16 @@ Vim has various commands that aid in writing computer programs.  Compile a
 program and directly jump to reported errors.  Automatically set the indent
 for many languages and format comments.
 
-[30.1](#30.1)	Compiling
-[30.2](#30.2)	Indenting C files
-[30.3](#30.3)	Automatic indenting
-[30.4](#30.4)	Other indenting
-[30.5](#30.5)	Tabs and spaces
-[30.6](#30.6)	Formatting comments
+|30.1|	Compiling
+|30.2|	Indenting C files
+|30.3|	Automatic indenting
+|30.4|	Other indenting
+|30.5|	Tabs and spaces
+|30.6|	Formatting comments
 
-     Next chapter: [usr_31.txt](#usr_31.txt)  Exploiting the GUI
- Previous chapter: [usr_29.txt](#usr_29.txt)  Moving through programs
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_31.txt|  Exploiting the GUI
+ Previous chapter: |usr_29.txt|  Moving through programs
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*30.1*	Compiling</a> 
@@ -65,16 +65,16 @@ line 6, the first line with an error.  You did not need to specify the file or
 the line number, Vim knew where to go by looking in the error messages.
 
 		+---------------------------------------------------+
-		[int main()					    ](#int main()					    )
-		[{						    ](#{						    )
-		[	int i=3;				    ](#	int i=3;				    )
-      cursor -> [	do_sub("foo");				    ](#	do_sub("foo");				    )
-		[	++i;					    ](#	++i;					    )
-		[	return (0);				    ](#	return (0);				    )
-		[}						    ](#}						    )
-		[}						    ](#}						    )
-		[ ~						    ](# ~						    )
-		[(3 of 12): too many arguments to function 'do_sub' ](#(3 of 12): too many arguments to function 'do_sub' )
+		|int main()					    |
+		|{						    |
+		|	int i=3;				    |
+      cursor -> |	do_sub("foo");				    |
+		|	++i;					    |
+		|	return (0);				    |
+		|}						    |
+		|}						    |
+		| ~						    |
+		|(3 of 12): too many arguments to function 'do_sub' |
 		+---------------------------------------------------+
 
 The following command goes to where the next error occurs:
@@ -149,7 +149,7 @@ Now the command executed is as follows:
 
 	make main.o
 
-More about these modifiers here: [filename-modifiers](#filename-modifiers).
+More about these modifiers here: [filename-modifiers](undefined#filename-modifiers).
 
 
 OLD ERROR LISTS
@@ -175,7 +175,7 @@ SWITCHING COMPILERS
 You have to tell Vim what format the error messages are that your compiler
 produces.  This is done with the 'errorformat' option.  The syntax of this
 option is quite complicated and it can be made to fit almost any compiler.
-You can find the explanation here: [errorformat](#errorformat).
+You can find the explanation here: [errorformat](undefined#errorformat).
 
 You might be using various different compilers.  Setting the 'makeprg' option,
 and especially the 'errorformat' each time is not easy.  Vim offers a simple
@@ -186,7 +186,7 @@ compiler:
 
 This will find the Vim script for the "msvc" compiler and set the appropriate
 options.
-   You can write your own compiler files.  See [write-compiler-plugin](#write-compiler-plugin).
+   You can write your own compiler files.  See [write-compiler-plugin](/neovim-docs-web/en/usr/usr_41#write-compiler-plugin).
 
 
 OUTPUT REDIRECTION
@@ -280,7 +280,7 @@ Use this command:
 
 	:set cinoptions+={2
 
-There are many of these items.  See [cinoptions-values](#cinoptions-values).
+There are many of these items.  See [cinoptions-values](undefined#cinoptions-values).
 
 
 ## <a id="" class="section-title" href="#">*30.3*	Automatic Indenting</a> 
@@ -336,7 +336,7 @@ You use "~/.config/nvim" for {directory}.  Then the resulting file name is:
 	~/.config/nvim/indent/help.vim ~
 
 Instead of switching the indenting off, you could write your own indent file.
-How to do that is explained here: [indent-expression](#indent-expression).
+How to do that is explained here: [indent-expression](/neovim-docs-web/en/vim/indent#indent-expression).
 
 
 ## <a id="" class="section-title" href="#">*30.4*	Other Indenting</a> 
@@ -419,7 +419,7 @@ run into trouble later.  Other programs won't know what tabstop value you
 used.  They probably use the default value of eight, and your text suddenly
 looks very different.  Also, most printers use a fixed tabstop value of eight.
 Thus it's best to keep 'tabstop' alone.  (If you edit a file which was written
-with a different tabstop setting, see [25.3](#25.3) for how to fix that.)
+with a different tabstop setting, see |25.3| for how to fix that.)
    For indenting lines in a program, using a multiple of eight spaces makes
 you quickly run into the right border of the window.  Using a single space
 doesn't provide enough visual difference.  Many people prefer to use four
@@ -569,7 +569,7 @@ For this to work some flags must be present in 'formatoptions':
 	o	insert the star when using "o" or "O" in Normal mode
 	c	break comment text according to 'textwidth'
 
-See [fo-table](#fo-table) for more flags.
+See [fo-table](undefined#fo-table) for more flags.
 
 
 DEFINING A COMMENT
@@ -639,10 +639,10 @@ would consider text like "*pointer" also to be the middle of a comment.
 special meaning.  It means that after Vim automatically inserted a star,
 typing / will remove the extra space.
 
-For more details see [format-comments](#format-comments).
+For more details see [format-comments](undefined#format-comments).
 
 
-## <a id="Exploiting the GUI" class="section-title" href="#Exploiting the GUI">Next Chapter: [Usr_31.Txt](#Usr_31.Txt)</a> 
+## <a id="Exploiting the GUI" class="section-title" href="#Exploiting the GUI">Next Chapter: |Usr_31.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

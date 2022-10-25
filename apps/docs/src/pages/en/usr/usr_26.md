@@ -16,14 +16,14 @@ An editing task is hardly ever unstructured.  A change often needs to be made
 several times.  In this chapter a number of useful ways to repeat a change
 will be explained.
 
-[26.1](#26.1)	Repeating with Visual mode
-[26.2](#26.2)	Add and subtract
-[26.3](#26.3)	Making a change in many files
-[26.4](#26.4)	Using Vim from a shell script
+|26.1|	Repeating with Visual mode
+|26.2|	Add and subtract
+|26.3|	Making a change in many files
+|26.4|	Using Vim from a shell script
 
-     Next chapter: [usr_27.txt](#usr_27.txt)  Search commands and patterns
- Previous chapter: [usr_25.txt](#usr_25.txt)  Editing formatted text
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_27.txt|  Search commands and patterns
+ Previous chapter: |usr_25.txt|  Editing formatted text
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*26.1*	Repeating With Visual Mode</a> 
@@ -42,8 +42,8 @@ same text.
 			2000		2001 ~
 	income		45,403		66,234 ~
 
-First change "2001" to "2002".  Select the lines in Visual mode, and use: 
-```
+First change "2001" to "2002".  Select the lines in Visual mode, and use:
+
 	:s/2001/2002/g
 
 Now use "gv" to reselect the same text.  It doesn't matter where the cursor
@@ -88,7 +88,7 @@ other numbers.
 
 The CTRL-X command does subtraction in a similar way.
 
-The behavior of CTRL-A and CTRL-X depends on the value of ['nrformats'](#'nrformats'). For
+The behavior of CTRL-A and CTRL-X depends on the value of |'nrformats'|. For
 example, if you use:
 
         :set nrformats+=octal
@@ -103,13 +103,13 @@ Suppose you have a variable called "x_cnt" and you want to change it to
 "x_counter".  This variable is used in several of your C files.  You need to
 change it in all files.  This is how you do it.
    Put all the relevant files in the argument list:
-
+```
 	:args *.c
 ```
 
 This finds all C files and edits the first one.  Now you can perform a
-substitution command on all these files: 
-```
+substitution command on all these files:
+
 	:argdo %s/\<x_cnt\>/x_counter/ge | update
 
 The ":argdo" command takes an argument that is another command.  That command
@@ -143,7 +143,7 @@ instead.  This mode gives you a nice command-line interface that makes it easy
 to put into a batch file.  ("Ex command" is just another name for a
 command-line (:) command.)
    The Ex mode commands you need are as follows:
-
+```
 	%s/-person-/Jones/g
 	write tempfile
 	quit
@@ -213,7 +213,7 @@ want to record the script bit by bit.  If you want to start from scratch and
 start all over, use the "-W" argument.  It overwrites any existing file.
 
 
-## <a id="Search commands and patterns" class="section-title" href="#Search commands and patterns">Next Chapter: [Usr_27.Txt](#Usr_27.Txt)</a> 
+## <a id="Search commands and patterns" class="section-title" href="#Search commands and patterns">Next Chapter: |Usr_27.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

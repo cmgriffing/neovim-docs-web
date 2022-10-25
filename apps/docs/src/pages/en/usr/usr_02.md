@@ -16,18 +16,18 @@ This chapter provides just enough information to edit a file with Vim.  Not
 well or fast, but you can edit.  Take some time to practice with these
 commands, they form the base for what follows.
 
-[02.1](#02.1)	Running Vim for the First Time
-[02.2](#02.2)	Inserting text
-[02.3](#02.3)	Moving around
-[02.4](#02.4)	Deleting characters
-[02.5](#02.5)	Undo and Redo
-[02.6](#02.6)	Other editing commands
-[02.7](#02.7)	Getting out
-[02.8](#02.8)	Finding help
+|02.1|	Running Vim for the First Time
+|02.2|	Inserting text
+|02.3|	Moving around
+|02.4|	Deleting characters
+|02.5|	Undo and Redo
+|02.6|	Other editing commands
+|02.7|	Getting out
+|02.8|	Finding help
 
-     Next chapter: [usr_03.txt](#usr_03.txt)  Moving around
- Previous chapter: [usr_01.txt](#usr_01.txt)  About the manuals
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_03.txt|  Moving around
+ Previous chapter: |usr_01.txt|  About the manuals
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*02.1*	Running Vim for the First Time</a> 
@@ -42,12 +42,12 @@ starts editing a file called file.txt.  Because this is a new file, you get a
 blank window. This is what your screen will look like:
 
 	+---------------------------------------+
-	[#					](##					)
-	[~					](#~					)
-	[~					](#~					)
-	[~					](#~					)
-	[~					](#~					)
-	["file.txt" [New file]			](#"file.txt" [New file]			)
+	|#					|
+	|~					|
+	|~					|
+	|~					|
+	|~					|
+	|"file.txt" [New file]			|
 	+---------------------------------------+
 		('#' is the cursor position.)
 
@@ -92,11 +92,11 @@ you press the <Esc> key to stop Insert mode and go back to Normal mode.  You
 now have two lines of text in your Vim window:
 
 	+---------------------------------------+
-	[A very intelligent turtle		](#A very intelligent turtle		)
-	[Found programming Unix a hurdle	](#Found programming Unix a hurdle	)
-	[~					](#~					)
-	[~					](#~					)
-	[					](#					)
+	|A very intelligent turtle		|
+	|Found programming Unix a hurdle	|
+	|~					|
+	|~					|
+	|					|
 	+---------------------------------------+
 
 
@@ -114,11 +114,11 @@ that start with a colon are finished this way).
 of the window.  This indicates you are in Insert mode.
 
 	+---------------------------------------+
-	[A very intelligent turtle		](#A very intelligent turtle		)
-	[Found programming Unix a hurdle	](#Found programming Unix a hurdle	)
-	[~					](#~					)
-	[~					](#~					)
-	[-- INSERT --				](#-- INSERT --				)
+	|A very intelligent turtle		|
+	|Found programming Unix a hurdle	|
+	|~					|
+	|~					|
+	|-- INSERT --				|
 	+---------------------------------------+
 
 If you press <Esc> to go back to Normal mode the last line will be made blank.
@@ -169,7 +169,7 @@ right and j points down.  In a picture:
 The best way to learn these commands is by using them.  Use the "i" command to
 insert some more lines of text.  Then use the hjkl keys to move around and
 insert a word somewhere.  Don't forget to press <Esc> to go back to Normal
-mode.  [:Tutor](#:Tutor) is also a nice way to learn by doing.
+mode.  |:Tutor| is also a nice way to learn by doing.
 
 For Japanese users, Hiroshi Iwatani suggested using this:
 
@@ -191,11 +191,11 @@ example, and type xxxxxxx (seven x's) to delete "A very ".  The result should
 look like this:
 
 	+---------------------------------------+
-	[intelligent turtle			](#intelligent turtle			)
-	[Found programming Unix a hurdle	](#Found programming Unix a hurdle	)
-	[~					](#~					)
-	[~					](#~					)
-	[					](#					)
+	|intelligent turtle			|
+	|Found programming Unix a hurdle	|
+	|~					|
+	|~					|
+	|					|
 	+---------------------------------------+
 
 Now you can insert new text, for example by typing:
@@ -206,11 +206,11 @@ This begins an insert (the i), inserts the words "A young", and then exits
 insert mode (the final <Esc>).	The result:
 
 	+---------------------------------------+
-	[A young intelligent turtle		](#A young intelligent turtle		)
-	[Found programming Unix a hurdle	](#Found programming Unix a hurdle	)
-	[~					](#~					)
-	[~					](#~					)
-	[					](#					)
+	|A young intelligent turtle		|
+	|Found programming Unix a hurdle	|
+	|~					|
+	|~					|
+	|					|
 	+---------------------------------------+
 
 
@@ -220,11 +220,11 @@ To delete a whole line use the "dd" command.  The following line will
 then move up to fill the gap:
 
 	+---------------------------------------+
-	[Found programming Unix a hurdle	](#Found programming Unix a hurdle	)
-	[~					](#~					)
-	[~					](#~					)
-	[~					](#~					)
-	[					](#					)
+	|Found programming Unix a hurdle	|
+	|~					|
+	|~					|
+	|~					|
+	|					|
 	+---------------------------------------+
 
 
@@ -298,12 +298,12 @@ edited.  Typing this command twice cancels the preceding "U".
 
 The "U" command is a change by itself, which the "u" command undoes and CTRL-R
 redoes.  This might be a bit confusing.  Don't worry, with "u" and CTRL-R you
-can go to any of the situations you had.  More about that in section [32.2](#32.2).
+can go to any of the situations you had.  More about that in section |32.2|.
 
 
 ## <a id="" class="section-title" href="#">*02.6*	Other Editing Commands</a> 
 
-Vim has a large number of commands to change the text.  See [Q_in](#Q_in) and below.
+Vim has a large number of commands to change the text.  See |Q_in| and below.
 Here are a few often used ones.
 
 
@@ -371,7 +371,7 @@ To exit, use the "ZZ" command.  This command writes the file and exits.
 	Unlike many other editors, Vim does not automatically make a backup
 	file.  If you type "ZZ", your changes are committed and there's no
 	turning back.  You can configure the Vim editor to produce backup
-	files; see [07.4](#07.4).
+	files; see |07.4|.
 
 
 DISCARDING CHANGES
@@ -427,7 +427,7 @@ k, and l move left, down, up and right.
 the editor: "ZZ".  This will only close the help window, not exit Vim.
 
 As you read the help text, you will notice some text enclosed in vertical bars
-(for example, [help](#help)).  This indicates a hyperlink.  If you position the
+(for example, [help](undefined#help)).  This indicates a hyperlink.  If you position the
 cursor anywhere between the bars and press CTRL-] (jump to tag), the help
 system takes you to the indicated subject.  (For reasons not discussed here,
 the Vim terminology for a hyperlink is tag.  So CTRL-] jumps to the location
@@ -438,7 +438,7 @@ nicely here.
 ### <a id="At the top of the help screen, there is the notation help.txt." class="section-title" href="#At the top of the help screen, there is the notation help.txt.">Note:</a>
 between "*" characters is used by the help system to define a tag (hyperlink
 destination).
-   See [29.1](#29.1) for details about using tags.
+   See |29.1| for details about using tags.
 
 To get help on a given subject, use the following command:
 
@@ -486,7 +486,7 @@ example, use the following command:
 
 	:help 'number'
 
-The table with all mode prefixes can be found below: [help-summary](#help-summary).
+The table with all mode prefixes can be found below: [help-summary](undefined#help-summary).
 
 Special keys are enclosed in angle brackets.  To find help on the up-arrow key
 in Insert mode, for instance, use this command:
@@ -514,7 +514,7 @@ You can use the error ID at the start to find help about it:
    help to the user documentation, which describes certain commands more from
    a user perspective and less detailed.  E.g. after:
 	:help pattern.txt
-   You can see the user guide topics [03.9| and |usr_27.txt](#03.9| and |usr_27.txt) in the
+   You can see the user guide topics |03.9| and |usr_27.txt| in the
    introduction.
 
 3) Options are enclosed in single apostrophes.  To go to the help topic for the
@@ -601,9 +601,9 @@ You can use the error ID at the start to find help about it:
    talks about the append Vim script function rather than how to append text
    in the current buffer.
 
-14) Mappings are talked about in the help page :h [map.txt](#map.txt). Use
+14) Mappings are talked about in the help page :h |map.txt|. Use
 	:help mapmode-i
-    to find out about the [:imap](#:imap) command.  Also use :map-topic
+    to find out about the |:imap| command.  Also use :map-topic
     to find out about certain subtopics particular for mappings.  e.g:
 	:help :map-local
     for buffer-local mappings or
@@ -622,8 +622,8 @@ You can use the error ID at the start to find help about it:
     and read your way through if you are looking for window handling
     commands.
 
-17) Use [:helpgrep](#:helpgrep) to search in all help pages (and also of any installed
-    plugins).  See [:helpgrep](#:helpgrep) for how to use it.
+17) Use |:helpgrep| to search in all help pages (and also of any installed
+    plugins).  See |:helpgrep| for how to use it.
     To search for a topic:
 	:helpgrep topic
     This takes you to the first match.  To go to the next one:
@@ -634,7 +634,7 @@ You can use the error ID at the start to find help about it:
     Move around to the match you like and press Enter to jump to that help.
 
 18) The user manual.  This describes help topics for beginners in a rather
-    friendly way.  Start at [usr_toc.txt](#usr_toc.txt) to find the table of content (as you
+    friendly way.  Start at |usr_toc.txt| to find the table of content (as you
     might have guessed):
 	:help usr_toc.txt
     Skim over the contents to find interesting topics. The "Digraphs" and
@@ -644,7 +644,7 @@ You can use the error ID at the start to find help about it:
     Also if you want to access a certain chapter in the help, the chapter
     number can be accessed directly like this:
 	:help 10.1
-    which goes to chapter 10.1 in [usr_10.txt](#usr_10.txt) and talks about recording
+    which goes to chapter 10.1 in |usr_10.txt| and talks about recording
     macros.
 
 19) Highlighting groups.  Always start with hl-groupname.  E.g.
@@ -689,10 +689,10 @@ You can use the error ID at the start to find help about it:
     Sometimes, however, those error codes are not described, but rather are
     listed at the Vim command that usually causes this.  So:
 	:help E128
-    takes you to the [:function](#:function) command
+    takes you to the |:function| command
 
 
-## <a id="Moving around" class="section-title" href="#Moving around">Next Chapter: [Usr_03.Txt](#Usr_03.Txt)</a> 
+## <a id="Moving around" class="section-title" href="#Moving around">Next Chapter: |Usr_03.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

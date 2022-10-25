@@ -9,12 +9,12 @@ layout: "@layouts/MainLayout.astro"
 
 LUV REFERENCE MANUAL
 
-
+### <a id="luvref" class="section-title" href="#luvref">Note:</a>
 This file documents the Lua bindings for the LibUV library which is used for
-Nvim's event-loop and is accessible from Lua via [vim.loop| (e.g., |uv.version()](#vim.loop| (e.g., |uv.version())
+Nvim's event-loop and is accessible from Lua via |vim.loop| (e.g., |uv.version()|
 is exposed as `vim.loop.version()`).
 
-For information about this manual, see [luv-credits](#luv-credits).
+For information about this manual, see [luv-credits](/neovim-docs-web/en/misc/luvref#luv-credits).
 
 For further examples, see https://github.com/luvit/luv/tree/master/examples.
 
@@ -33,8 +33,6 @@ libuv documentation page (https://docs.libuv.org/).
 TCP Echo Server Example~
 
 Here is a small example showing a TCP echo server:
-
-
 ```    local uv = vim.loop
 
 local server = uv.new_tcp()
@@ -63,7 +61,7 @@ Module Layout~
 The luv library contains a single Lua module referred to hereafter as `uv` for
 simplicity. This module consists mostly of functions with names corresponding
 to their original libuv versions. For example, the libuv function
-`uv_tcp_bind` has a luv version at [uv.tcp_bind()](#uv.tcp_bind()). Currently, only one
+`uv_tcp_bind` has a luv version at |uv.tcp_bind()|. Currently, only one
 non-function field exists: `uv.constants`, which is a table.
 
 Functions vs Methods~
@@ -93,7 +91,7 @@ Pseudo-Types~
 
 Some unique types are defined. These are not actual types in Lua, but they are
 used here to facilitate documenting consistent behavior:
-- `fail`: an assertable `nil, string, string` tuple (see [luv-error-handling](#luv-error-handling))
+- `fail`: an assertable `nil, string, string` tuple (see [luv-error-handling](/neovim-docs-web/en/misc/luvref#luv-error-handling))
 - `callable`: a `function`; or a `table` or `userdata` with a `__call`
 metamethod
 - `buffer`: a `string` or a sequential `table` of `string`s
@@ -109,33 +107,33 @@ Low-level implementation details and unexposed C functions and types are not
 documented here except for when they are relevant to behavior seen in the Lua
 module.
 
-- [luv-error-handling](#luv-error-handling) — Error handling
-- [luv-version-checking](#luv-version-checking) — Version checking
-- [uv_loop_t](#uv_loop_t) — Event loop
-- [uv_req_t](#uv_req_t) — Base request
-- [uv_handle_t](#uv_handle_t) — Base handle
-- [uv_timer_t](#uv_timer_t) — Timer handle
-- [uv_prepare_t](#uv_prepare_t) — Prepare handle
-- [uv_check_t](#uv_check_t) — Check handle
-- [uv_idle_t](#uv_idle_t) — Idle handle
-- [uv_async_t](#uv_async_t) — Async handle
-- [uv_poll_t](#uv_poll_t) — Poll handle
-- [uv_signal_t](#uv_signal_t) — Signal handle
-- [uv_process_t](#uv_process_t) — Process handle
-- [uv_stream_t](#uv_stream_t) — Stream handle
-- [uv_tcp_t](#uv_tcp_t) — TCP handle
-- [uv_pipe_t](#uv_pipe_t) — Pipe handle
-- [uv_tty_t](#uv_tty_t) — TTY handle
-- [uv_udp_t](#uv_udp_t) — UDP handle
-- [uv_fs_event_t](#uv_fs_event_t) — FS Event handle
-- [uv_fs_poll_t](#uv_fs_poll_t) — FS Poll handle
-- [luv-file-system-operations](#luv-file-system-operations) — File system operations
-- [luv-thread-pool-work-scheduling](#luv-thread-pool-work-scheduling) — Thread pool work scheduling
-- [luv-dns-utility-functions](#luv-dns-utility-functions) — DNS utility functions
-- [luv-threading-and-synchronization-utilities](#luv-threading-and-synchronization-utilities) — Threading and
+- [luv-error-handling](/neovim-docs-web/en/misc/luvref#luv-error-handling) — Error handling
+- [luv-version-checking](/neovim-docs-web/en/misc/luvref#luv-version-checking) — Version checking
+- |uv_loop_t| — Event loop
+- |uv_req_t| — Base request
+- |uv_handle_t| — Base handle
+- |uv_timer_t| — Timer handle
+- |uv_prepare_t| — Prepare handle
+- |uv_check_t| — Check handle
+- |uv_idle_t| — Idle handle
+- |uv_async_t| — Async handle
+- |uv_poll_t| — Poll handle
+- |uv_signal_t| — Signal handle
+- |uv_process_t| — Process handle
+- |uv_stream_t| — Stream handle
+- |uv_tcp_t| — TCP handle
+- |uv_pipe_t| — Pipe handle
+- |uv_tty_t| — TTY handle
+- |uv_udp_t| — UDP handle
+- |uv_fs_event_t| — FS Event handle
+- |uv_fs_poll_t| — FS Poll handle
+- [luv-file-system-operations](undefined#luv-file-system-operations) — File system operations
+- [luv-thread-pool-work-scheduling](/neovim-docs-web/en/misc/luvref#luv-thread-pool-work-scheduling) — Thread pool work scheduling
+- [luv-dns-utility-functions](/neovim-docs-web/en/misc/luvref#luv-dns-utility-functions) — DNS utility functions
+- [luv-threading-and-synchronization-utilities](undefined#luv-threading-and-synchronization-utilities) — Threading and
 synchronization utilities
-- [luv-miscellaneous-utilities](#luv-miscellaneous-utilities) — Miscellaneous utilities
-- [luv-metrics-operations](#luv-metrics-operations) — Metrics operations
+- [luv-miscellaneous-utilities](/neovim-docs-web/en/misc/luvref#luv-miscellaneous-utilities) — Miscellaneous utilities
+- [luv-metrics-operations](/neovim-docs-web/en/misc/luvref#luv-metrics-operations) — Metrics operations
 
 
 ## <a id="luv-error-handling" class="section-title" href="#luv-error-handling">Error Handling</a> 
@@ -211,7 +209,7 @@ depending on the specified mode:
 
 - `"default"`: Runs the event loop until there are no more
 active and referenced handles or requests. Returns `true`
-if [uv.stop()](#uv.stop()) was called and there are still active
+if |uv.stop()| was called and there are still active
 handles or requests. Returns `false` in all other cases.
 
 - `"once"`: Poll for I/O once. Note that this function
@@ -256,8 +254,6 @@ the event loop spends in the event provider. This option
 is necessary to use `metrics_idle_time()`.
 
 An example of a valid call to this function is:
-
-
 ```                    uv.loop_configure("block_signal", "sigprof")
 ```
 
@@ -283,7 +279,7 @@ Returns: `boolean` or `fail`
 
 ### <a id="uv.stop()" class="section-title" href="#uv.stop()">uv.stop()</a>
 
-Stop the event loop, causing [uv.run()](#uv.run()) to end as soon as
+Stop the event loop, causing |uv.run()| to end as soon as
 possible. This will happen not sooner than the next loop
 iteration. If this function was called before blocking for
 I/O, the loop won't block for I/O on this iteration.
@@ -316,7 +312,7 @@ Returns: `integer`
 
 Returns the current timestamp in milliseconds. The timestamp
 is cached at the start of the event loop tick, see
-[uv.update_time()](#uv.update_time()) for details and rationale.
+|uv.update_time()| for details and rationale.
 
 The timestamp increases monotonically from some arbitrary
 point in time. Don't make assumptions about the starting
@@ -324,7 +320,7 @@ point, you will only get disappointed.
 
 Returns: `integer`
 
-Note: Use [uv.hrtime()](#uv.hrtime()) if you need sub-millisecond
+Note: Use |uv.hrtime()| if you need sub-millisecond
 granularity.
 
 ### <a id="uv.update_time()" class="section-title" href="#uv.update_time()">uv.update_time()</a>
@@ -344,14 +340,12 @@ Returns: Nothing.
 
 Parameters:
 - `callback`: `callable`
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Walk the list of handles: `callback` will be executed with
 each handle.
 
 Returns: Nothing.
-
-
 ```                    -- Example usage of uv.walk to close all handles that
 -- aren't already closing.
 uv.walk(function (handle)
@@ -371,10 +365,10 @@ end)
 > method form `req:cancel()`
 
 Parameters:
-- `req`: `userdata` for sub-type of [uv_req_t](#uv_req_t)
+- `req`: `userdata` for sub-type of |uv_req_t|
 
 Cancel a pending request. Fails if the request is executing or
-has finished executing. Only cancellation of [uv_fs_t](#uv_fs_t),
+has finished executing. Only cancellation of |uv_fs_t|,
 `uv_getaddrinfo_t`, `uv_getnameinfo_t` and `uv_work_t`
 requests is currently supported.
 
@@ -385,10 +379,10 @@ Returns: `0` or `fail`
 > method form `req:get_type()`
 
 Parameters:
-- `req`: `userdata` for sub-type of [uv_req_t](#uv_req_t)
+- `req`: `userdata` for sub-type of |uv_req_t|
 
 Returns the name of the struct for a given request (e.g.
-`"fs"` for [uv_fs_t](#uv_fs_t)) and the libuv enum integer for the
+`"fs"` for |uv_fs_t|) and the libuv enum integer for the
 request's type (`uv_req_type`).
 
 Returns: `string, integer`
@@ -404,24 +398,24 @@ defined here work with any handle type.
 > method form `handle:is_active()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Returns `true` if the handle is active, `false` if it's
 inactive. What "active” means depends on the type of handle:
 
-- A [uv_async_t](#uv_async_t) handle is always active and cannot be
-deactivated, except by closing it with [uv.close()](#uv.close()).
+- A |uv_async_t| handle is always active and cannot be
+deactivated, except by closing it with |uv.close()|.
 
-- A [uv_pipe_t|, |uv_tcp_t|, |uv_udp_t](#uv_pipe_t|, |uv_tcp_t|, |uv_udp_t), etc.
+- A |uv_pipe_t|, |uv_tcp_t|, |uv_udp_t|, etc.
 handle - basically any handle that deals with I/O - is
 active when it is doing something that involves I/O, like
 reading, writing, connecting, accepting new connections,
 etc.
 
-- A [uv_check_t|, |uv_idle_t|, |uv_timer_t](#uv_check_t|, |uv_idle_t|, |uv_timer_t),
+- A |uv_check_t|, |uv_idle_t|, |uv_timer_t|,
 etc. handle is active when it has been started with a call
-to [uv.check_start()|, |uv.idle_start()](#uv.check_start()|, |uv.idle_start()),
-[uv.timer_start()](#uv.timer_start()) etc. until it has been stopped with a
+to |uv.check_start()|, |uv.idle_start()|,
+|uv.timer_start()| etc. until it has been stopped with a
 call to its respective stop function.
 
 Returns: `boolean` or `fail`
@@ -431,7 +425,7 @@ Returns: `boolean` or `fail`
 > method form `handle:is_closing()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Returns `true` if the handle is closing or closed, `false`
 otherwise.
@@ -447,7 +441,7 @@ callback.
 > method form `handle:close([callback])`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 - `callback`: `callable` or `nil`
 
 Request handle to be closed. `callback` will be called
@@ -470,7 +464,7 @@ Returns: Nothing.
 > method form `handle:ref()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Reference the given handle. References are idempotent, that
 is, if a handle is already referenced calling this function
@@ -478,14 +472,14 @@ again will have no effect.
 
 Returns: Nothing.
 
-See [luv-reference-counting](#luv-reference-counting).
+See [luv-reference-counting](/neovim-docs-web/en/misc/luvref#luv-reference-counting).
 
 ### <a id="uv.unref()" class="section-title" href="#uv.unref()">uv.unref({handle})</a>
 
 > method form `handle:unref()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Un-reference the given handle. References are idempotent, that
 is, if a handle is not referenced calling this function again
@@ -493,27 +487,27 @@ will have no effect.
 
 Returns: Nothing.
 
-See [luv-reference-counting](#luv-reference-counting).
+See [luv-reference-counting](/neovim-docs-web/en/misc/luvref#luv-reference-counting).
 
 ### <a id="uv.has_ref()" class="section-title" href="#uv.has_ref()">uv.has_ref({handle})</a>
 
 > method form `handle:has_ref()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Returns `true` if the handle referenced, `false` if not.
 
 Returns: `boolean` or `fail`
 
-See [luv-reference-counting](#luv-reference-counting).
+See [luv-reference-counting](/neovim-docs-web/en/misc/luvref#luv-reference-counting).
 
 ### <a id="uv.send_buffer_size()" class="section-title" href="#uv.send_buffer_size()">uv.send_buffer_size({handle} [, {size}])</a>
 
 > method form `handle:send_buffer_size([size])`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 - `size`: `integer` or `nil` (default: `0`)
 
 Gets or sets the size of the send buffer that the operating
@@ -538,7 +532,7 @@ size of the original set value.
 > method form `handle:recv_buffer_size([size])`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 - `size`: `integer` or `nil` (default: `0`)
 
 Gets or sets the size of the receive buffer that the operating
@@ -563,7 +557,7 @@ size of the original set value.
 > method form `handle:fileno()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Gets the platform dependent file descriptor equivalent.
 
@@ -585,10 +579,10 @@ to it may lead to malfunction.
 > method form `handle:get_type()`
 
 Parameters:
-- `handle`: `userdata` for sub-type of [uv_handle_t](#uv_handle_t)
+- `handle`: `userdata` for sub-type of |uv_handle_t|
 
 Returns the name of the struct for a given handle (e.g.
-`"pipe"` for [uv_pipe_t](#uv_pipe_t)) and the libuv enum integer for the
+`"pipe"` for |uv_pipe_t|) and the libuv enum integer for the
 handle's type (`uv_handle_type`).
 
 Returns: `string, integer`
@@ -598,30 +592,28 @@ Returns: `string, integer`
 
 The libuv event loop (if run in the default mode) will run until there are no
 active and referenced handles left. The user can force the loop to exit early
-by unreferencing handles which are active, for example by calling [uv.unref()](#uv.unref())
-after calling [uv.timer_start()](#uv.timer_start()).
+by unreferencing handles which are active, for example by calling |uv.unref()|
+after calling |uv.timer_start()|.
 
 A handle can be referenced or unreferenced, the refcounting scheme doesn't use
 a counter, so both operations are idempotent.
 
-All handles are referenced when active by default, see [uv.is_active()](#uv.is_active()) for a
+All handles are referenced when active by default, see |uv.is_active()| for a
 more detailed explanation on what being active involves.
 
 
 ## <a id="luv-timer-handle uv_timer_t" class="section-title" href="#luv-timer-handle uv_timer_t">`Uv_Timer_T` — Timer Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Timer handles are used to schedule callbacks to be called in the future.
 
 ### <a id="uv.new_timer()" class="section-title" href="#uv.new_timer()">uv.new_timer()</a>
 
-Creates and initializes a new [uv_timer_t](#uv_timer_t). Returns the Lua
+Creates and initializes a new |uv_timer_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_timer_t userdata` or `fail`
-
-
 ```                    -- Creating a simple setTimeout wrapper
 local function setTimeout(timeout, callback)
 local timer = uv.new_timer()
@@ -732,7 +724,7 @@ Parameters:
 - `timer`: `uv_timer_t userdata`
 
 Get the timer due value or 0 if it has expired. The time is
-relative to [uv.now()](#uv.now()).
+relative to |uv.now()|.
 
 Returns: `integer`
 
@@ -741,12 +733,10 @@ Note: New in libuv version 1.40.0.
 
 ## <a id="luv-prepare-handle uv_prepare_t" class="section-title" href="#luv-prepare-handle uv_prepare_t">`Uv_Prepare_T` — Prepare Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Prepare handles will run the given callback once per loop iteration, right
 before polling for I/O.
-
-
 ```    local prepare = uv.new_prepare()
 prepare:start(function()
 print("Before I/O polling")
@@ -756,7 +746,7 @@ end)
 
 ### <a id="uv.new_prepare()" class="section-title" href="#uv.new_prepare()">uv.new_prepare()</a>
 
-Creates and initializes a new [uv_prepare_t](#uv_prepare_t). Returns the Lua
+Creates and initializes a new |uv_prepare_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_prepare_t userdata` or `fail`
@@ -787,12 +777,10 @@ Returns: `0` or `fail`
 
 ## <a id="luv-check-handle uv_check_t" class="section-title" href="#luv-check-handle uv_check_t">`Uv_Check_T` — Check Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Check handles will run the given callback once per loop iteration, right after
 polling for I/O.
-
-
 ```    local check = uv.new_check()
 check:start(function()
 print("After I/O polling")
@@ -802,7 +790,7 @@ end)
 
 ### <a id="uv.new_check()" class="section-title" href="#uv.new_check()">uv.new_check()</a>
 
-Creates and initializes a new [uv_check_t](#uv_check_t). Returns the Lua
+Creates and initializes a new |uv_check_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_check_t userdata` or `fail`
@@ -833,10 +821,10 @@ Returns: `0` or `fail`
 
 ## <a id="luv-idle-handle uv_idle_t" class="section-title" href="#luv-idle-handle uv_idle_t">`Uv_Idle_T` — Idle Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Idle handles will run the given callback once per loop iteration, right before
-the [uv_prepare_t](#uv_prepare_t) handles.
+the |uv_prepare_t| handles.
 
 Note: The notable difference with prepare handles is that when there are
 active idle handles, the loop will perform a zero timeout poll instead of
@@ -844,8 +832,6 @@ blocking for I/O.
 
 WARNING: Despite the name, idle handles will get their callbacks called on
 every loop iteration, not when the loop is actually "idle".
-
-
 ```    local idle = uv.new_idle()
 idle:start(function()
 print("Before I/O polling, no blocking")
@@ -855,7 +841,7 @@ end)
 
 ### <a id="uv.new_idle()" class="section-title" href="#uv.new_idle()">uv.new_idle()</a>
 
-Creates and initializes a new [uv_idle_t](#uv_idle_t). Returns the Lua
+Creates and initializes a new |uv_idle_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_idle_t userdata` or `fail`
@@ -886,12 +872,10 @@ Returns: `0` or `fail`
 
 ## <a id="luv-async-handle uv_async_t" class="section-title" href="#luv-async-handle uv_async_t">`Uv_Async_T` — Async Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Async handles allow the user to "wakeup" the event loop and get a callback
 called from another thread.
-
-
 ```    local async
 async = uv.new_async(function()
 print("async operation ran")
@@ -909,7 +893,7 @@ Parameters:
 - `...`: `threadargs` passed to/from
 `uv.async_send(async, ...)`
 
-Creates and initializes a new [uv_async_t](#uv_async_t). Returns the Lua
+Creates and initializes a new |uv_async_t|. Returns the Lua
 userdata wrapping it. A `nil` callback is allowed.
 
 Returns: `uv_async_t userdata` or `fail`
@@ -942,7 +926,7 @@ callback was called, it will be called again.
 
 ## <a id="luv-poll-handle uv_poll_t" class="section-title" href="#luv-poll-handle uv_poll_t">`Uv_Poll_T` — Poll Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Poll handles are used to watch file descriptors for readability and
 writability, similar to the purpose of poll(2)
@@ -951,7 +935,7 @@ writability, similar to the purpose of poll(2)
 The purpose of poll handles is to enable integrating external libraries that
 rely on the event loop to signal it about the socket status changes, like
 c-ares or libssh2. Using `uv_poll_t` for any other purpose is not recommended;
-[uv_tcp_t|, |uv_udp_t](#uv_tcp_t|, |uv_udp_t), etc. provide an implementation that is faster and more
+|uv_tcp_t|, |uv_udp_t|, etc. provide an implementation that is faster and more
 scalable than what can be achieved with `uv_poll_t`, especially on Windows.
 
 It is possible that poll handles occasionally signal that a file descriptor is
@@ -965,7 +949,7 @@ can cause libuv to busyloop or otherwise malfunction.
 The user should not close a file descriptor while it is being polled by an
 active poll handle. This can cause the handle to report an error, but it might
 also start polling another socket. However the fd can be safely closed
-immediately after a call to [uv.poll_stop()| or |uv.close()](#uv.poll_stop()| or |uv.close()).
+immediately after a call to |uv.poll_stop()| or |uv.close()|.
 
 Note: On windows only sockets can be polled with poll handles. On Unix any
 file descriptor that would be accepted by poll(2) can be used.
@@ -987,7 +971,7 @@ Parameters:
 - `fd`: `integer`
 
 Initialize the handle using a socket descriptor. On Unix this
-is identical to [uv.new_poll()](#uv.new_poll()). On windows it takes a SOCKET
+is identical to |uv.new_poll()|. On windows it takes a SOCKET
 handle.
 
 The socket is set to non-blocking mode.
@@ -1038,7 +1022,7 @@ Returns: `0` or `fail`
 
 ## <a id="luv-signal-handle uv_signal_t" class="section-title" href="#luv-signal-handle uv_signal_t">`Uv_Signal_T` — Signal Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Signal handles implement Unix style signal handling on a per-event loop bases.
 
@@ -1055,7 +1039,7 @@ Windows will unconditionally terminate it.
 resized. SIGWINCH is emulated by libuv when the program uses a uv_tty_t
 handle to write to the console. SIGWINCH may not always be delivered in a
 timely manner; libuv will only detect size changes when the cursor is
-being moved. When a readable [uv_tty_t](#uv_tty_t) handle is used in raw mode,
+being moved. When a readable |uv_tty_t| handle is used in raw mode,
 resizing the console buffer will also trigger a SIGWINCH signal.
 - Watchers for other signals can be successfully created, but these signals
 are never received. These signals are: SIGILL, SIGABRT, SIGFPE, SIGSEGV,
@@ -1074,8 +1058,6 @@ assert().
 pthreads library to manage threads. Installing watchers for those signals
 will lead to unpredictable behavior and is strongly discouraged. Future
 versions of libuv may simply reject them.
-
-
 ```    -- Create a new signal handler
 local signal = uv.new_signal()
 -- Define a handler function
@@ -1088,7 +1070,7 @@ end)
 
 ### <a id="uv.new_signal()" class="section-title" href="#uv.new_signal()">uv.new_signal()</a>
 
-Creates and initializes a new [uv_signal_t](#uv_signal_t). Returns the Lua
+Creates and initializes a new |uv_signal_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_signal_t userdata` or `fail`
@@ -1118,7 +1100,7 @@ Parameters:
 - `callback`: `callable`
 - `signum`: `string`
 
-Same functionality as [uv.signal_start()](#uv.signal_start()) but the signal
+Same functionality as |uv.signal_start()| but the signal
 handler is reset the moment the signal is received.
 
 Returns: `0` or `fail`
@@ -1137,7 +1119,7 @@ Returns: `0` or `fail`
 
 ## <a id="luv-process-handle uv_process_t" class="section-title" href="#luv-process-handle uv_process_t">`Uv_Process_T` — Process Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Process handles will spawn a new process and allow the user to control it and
 establish communication channels with it using streams.
@@ -1177,8 +1159,6 @@ Possible reasons for failing to spawn would include (but not
 be limited to) the file to execute not existing, not having
 permissions to use the setuid or setgid specified, or not
 having enough memory to allocate for the new process.
-
-
 ```                    local stdin = uv.new_pipe()
 local stdout = uv.new_pipe()
 local stderr = uv.new_pipe()
@@ -1255,7 +1235,7 @@ detached state - this will make it a process group leader,
 and will effectively enable the child to keep running
 after the parent exits. Note that the child process will
 still keep the parent's event loop alive unless the parent
-process calls [uv.unref()](#uv.unref()) on the child's process handle.
+process calls |uv.unref()| on the child's process handle.
 - `options.hide` - If true, hide the subprocess console
 window that would normally be created. This option is only
 meaningful on Windows systems. On Unix it is silently
@@ -1265,7 +1245,7 @@ The `options.stdio` entries can take many shapes.
 
 - If they are numbers, then the child process inherits that
 same zero-indexed fd from the parent process.
-- If [uv_stream_t](#uv_stream_t) handles are passed in, those are used as
+- If |uv_stream_t| handles are passed in, those are used as
 a read-write pipe or inherited stream depending if the
 stream has a valid fd.
 - Including `nil` placeholders means to ignore that fd in
@@ -1285,7 +1265,7 @@ Parameters:
 - `signum`: `integer` or `string`
 
 Sends the specified signal to the given process handle. Check
-the documentation on [uv_signal_t](#uv_signal_t) for signal support,
+the documentation on |uv_signal_t| for signal support,
 specially on Windows.
 
 Returns: `0` or `fail`
@@ -1297,7 +1277,7 @@ Parameters:
 - `signum`: `integer` or `string`
 
 Sends the specified signal to the given PID. Check the
-documentation on [uv_signal_t](#uv_signal_t) for signal support, specially
+documentation on |uv_signal_t| for signal support, specially
 on Windows.
 
 Returns: `0` or `fail`
@@ -1316,18 +1296,18 @@ Returns: `integer`
 
 ## <a id="luv-stream-handle uv_stream_t" class="section-title" href="#luv-stream-handle uv_stream_t">`Uv_Stream_T` — Stream Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 Stream handles provide an abstraction of a duplex communication channel.
 `uv_stream_t` is an abstract type, libuv provides 3 stream implementations
-in the form of [uv_tcp_t|, |uv_pipe_t| and |uv_tty_t](#uv_tcp_t|, |uv_pipe_t| and |uv_tty_t).
+in the form of |uv_tcp_t|, |uv_pipe_t| and |uv_tty_t|.
 
 ### <a id="uv.shutdown()" class="section-title" href="#uv.shutdown()">uv.shutdown({stream} [, {callback}])</a>
 
 > method form `stream:shutdown([callback])`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `callback`: `callable` or `nil`
 - `err`: `nil` or `string`
 
@@ -1342,7 +1322,7 @@ Returns: `uv_shutdown_t userdata` or `fail`
 > method form `stream:listen(backlog, callback)`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `backlog`: `integer`
 - `callback`: `callable`
 - `err`: `nil` or `string`
@@ -1359,10 +1339,10 @@ Returns: `0` or `fail`
 > method form `stream:accept(client_stream)`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
-- `client_stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
+- `client_stream`: `userdata` for sub-type of |uv_stream_t|
 
-This call is used in conjunction with [uv.listen()](#uv.listen()) to accept
+This call is used in conjunction with |uv.listen()| to accept
 incoming connections. Call this function after receiving a
 callback to accept the connection.
 
@@ -1372,8 +1352,6 @@ you attempt to use it more than once, it may fail. It is
 suggested to only call this function once per connection call.
 
 Returns: `0` or `fail`
-
-
 ```                    server:listen(128, function (err)
 local client = uv.new_tcp()
 server:accept(client)
@@ -1386,19 +1364,17 @@ end)
 > method form `stream:read_start(callback)`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `callback`: `callable`
 - `err`: `nil` or `string`
 - `data`: `string` or `nil`
 
 Read data from an incoming stream. The callback will be made
 several times until there is no more data to read or
-[uv.read_stop()](#uv.read_stop()) is called. When we've reached EOF, `data`
+|uv.read_stop()| is called. When we've reached EOF, `data`
 will be `nil`.
 
 Returns: `0` or `fail`
-
-
 ```                    stream:read_start(function (err, chunk)
 if err then
 -- handle read error
@@ -1416,7 +1392,7 @@ end)
 > method form `stream:read_stop()`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 
 Stop reading data from the stream. The read callback will no
 longer be called.
@@ -1431,7 +1407,7 @@ Returns: `0` or `fail`
 > method form `stream:write(data, [callback])`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `data`: `buffer`
 - `callback`: `callable` or `nil`
 - `err`: `nil` or `string`
@@ -1452,9 +1428,9 @@ Returns: `uv_write_t userdata` or `fail`
 > method form `stream:write2(data, send_handle, [callback])`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `data`: `buffer`
-- `send_handle`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `send_handle`: `userdata` for sub-type of |uv_stream_t|
 - `callback`: `callable` or `nil`
 - `err`: `nil` or `string`
 
@@ -1472,10 +1448,10 @@ sockets or pipes will be assumed to be servers.
 > method form `stream:try_write(data)`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `data`: `buffer`
 
-Same as [uv.write()](#uv.write()), but won't queue a write request if it
+Same as |uv.write()|, but won't queue a write request if it
 can't be completed immediately.
 
 Will return number of bytes written (can be less than the
@@ -1488,12 +1464,12 @@ Returns: `integer` or `fail`
 > method form `stream:try_write2(data, send_handle)`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `data`: `buffer`
-- `send_handle`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `send_handle`: `userdata` for sub-type of |uv_stream_t|
 
-Like [uv.write2()](#uv.write2()), but with the properties of
-[uv.try_write()](#uv.try_write()). Not supported on Windows, where it returns
+Like |uv.write2()|, but with the properties of
+|uv.try_write()|. Not supported on Windows, where it returns
 `UV_EAGAIN`.
 
 Will return number of bytes written (can be less than the
@@ -1506,7 +1482,7 @@ Returns: `integer` or `fail`
 > method form `stream:is_readable()`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 
 Returns `true` if the stream is readable, `false` otherwise.
 
@@ -1517,7 +1493,7 @@ Returns: `boolean`
 > method form `stream:is_writable()`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 
 Returns `true` if the stream is writable, `false` otherwise.
 
@@ -1528,7 +1504,7 @@ Returns: `boolean`
 > method form `stream:set_blocking(blocking)`
 
 Parameters:
-- `stream`: `userdata` for sub-type of [uv_stream_t](#uv_stream_t)
+- `stream`: `userdata` for sub-type of |uv_stream_t|
 - `blocking`: `boolean`
 
 Enable or disable blocking mode for a stream.
@@ -1542,7 +1518,7 @@ Returns: `0` or `fail`
 
 WARNING: Relying too much on this API is not recommended. It
 is likely to change significantly in the future. Currently
-this only works on Windows and only for [uv_pipe_t](#uv_pipe_t) handles.
+this only works on Windows and only for |uv_pipe_t| handles.
 Also libuv currently makes no ordering guarantee when the
 blocking mode is changed after write requests have already
 been submitted. Therefore it is recommended to set the
@@ -1560,7 +1536,7 @@ Returns: `integer`
 
 ## <a id="luv-tcp-handle uv_tcp_t" class="section-title" href="#luv-tcp-handle uv_tcp_t">`Uv_Tcp_T` — TCP Handle</a> 
 
-> [uv_handle_t| and |uv_stream_t](#uv_handle_t| and |uv_stream_t) functions also apply.
+> |uv_handle_t| and |uv_stream_t| functions also apply.
 
 TCP handles are used to represent both TCP streams and servers.
 
@@ -1569,7 +1545,7 @@ TCP handles are used to represent both TCP streams and servers.
 Parameters:
 - `flags`: `string` or `nil`
 
-Creates and initializes a new [uv_tcp_t](#uv_tcp_t). Returns the Lua
+Creates and initializes a new |uv_tcp_t|. Returns the Lua
 userdata wrapping it. Flags may be a family string: `"unix"`,
 `"inet"`, `"inet6"`, `"ipx"`, `"netlink"`, `"x25"`, `"ax25"`,
 `"atmpvc"`, `"appletalk"`, or `"packet"`.
@@ -1654,13 +1630,13 @@ address and not a domain name. Any `flags` are set with a
 table with field `ipv6only` equal to `true` or `false`.
 
 When the port is already taken, you can expect to see an
-`EADDRINUSE` error from either `uv.tcp_bind()`, [uv.listen()](#uv.listen())
-or [uv.tcp_connect()](#uv.tcp_connect()). That is, a successful call to this
-function does not guarantee that the call to [uv.listen()](#uv.listen()) or
-[uv.tcp_connect()](#uv.tcp_connect()) will succeed as well.
+`EADDRINUSE` error from either `uv.tcp_bind()`, |uv.listen()|
+or |uv.tcp_connect()|. That is, a successful call to this
+function does not guarantee that the call to |uv.listen()| or
+|uv.tcp_connect()| will succeed as well.
 
 Use a port of `0` to let the OS assign an ephemeral port.  You
-can look it up later using [uv.tcp_getsockname()](#uv.tcp_getsockname()).
+can look it up later using |uv.tcp_getsockname()|.
 
 Returns: `0` or `fail`
 
@@ -1706,8 +1682,6 @@ Parameters:
 Establish an IPv4 or IPv6 TCP connection.
 
 Returns: `uv_connect_t userdata` or `fail`
-
-
 ```                    local client = uv.new_tcp()
 client:connect("127.0.0.1", 8080, function (err)
 -- check error and carry on.
@@ -1719,7 +1693,7 @@ end)
 
 > method form `tcp:write_queue_size()`
 
-DEPRECATED: Please use [uv.stream_get_write_queue_size()](#uv.stream_get_write_queue_size())
+DEPRECATED: Please use |uv.stream_get_write_queue_size()|
 instead.
 
 ### <a id="uv.tcp_close_reset()" class="section-title" href="#uv.tcp_close_reset()">uv.tcp_close_reset([{callback}])</a>
@@ -1732,8 +1706,8 @@ Parameters:
 
 Resets a TCP connection by sending a RST packet. This is
 accomplished by setting the SO_LINGER socket option with a
-linger interval of zero and then calling [uv.close()](#uv.close()). Due to
-some platform inconsistencies, mixing of [uv.shutdown()](#uv.shutdown()) and
+linger interval of zero and then calling |uv.close()|. Due to
+some platform inconsistencies, mixing of |uv.shutdown()| and
 `uv.tcp_close_reset()` calls is not allowed.
 
 Returns: `0` or `fail`
@@ -1750,7 +1724,7 @@ Parameters:
 
 Create a pair of connected sockets with the specified
 properties. The resulting handles can be passed to
-[uv.tcp_open()|, used with |uv.spawn()](#uv.tcp_open()|, used with |uv.spawn()), or for any other
+|uv.tcp_open()|, used with |uv.spawn()|, or for any other
 purpose.
 
 When specified as a string, `socktype` must be one of
@@ -1772,8 +1746,6 @@ Equivalent to `socketpair(2)` with a domain of `AF_UNIX`.
 
 Returns: `table` or `fail`
 - `[1, 2]` : `integer` (file descriptor)
-
-
 ```                    -- Simple read/write with tcp
 local fds = uv.socketpair(nil, nil, {nonblock=true}, {nonblock=true})
 
@@ -1793,12 +1765,10 @@ end)
 
 ## <a id="luv-pipe-handle uv_pipe_t" class="section-title" href="#luv-pipe-handle uv_pipe_t">`Uv_Pipe_T` — Pipe Handle</a> 
 
-> [uv_handle_t| and |uv_stream_t](#uv_handle_t| and |uv_stream_t) functions also apply.
+> |uv_handle_t| and |uv_stream_t| functions also apply.
 
 Pipe handles provide an abstraction over local domain sockets on Unix and
 named pipes on Windows.
-
-
 ```    local pipe = uv.new_pipe(false)
 
 pipe:bind('/tmp/sock.test')
@@ -1817,7 +1787,7 @@ end)
 Parameters:
 - `ipc`: `boolean` or `nil` (default: `false`)
 
-Creates and initializes a new [uv_pipe_t](#uv_pipe_t). Returns the Lua
+Creates and initializes a new |uv_pipe_t|. Returns the Lua
 userdata wrapping it. The `ipc` argument is a boolean to
 indicate if this pipe will be used for handle passing between
 processes.
@@ -1832,7 +1802,7 @@ Parameters:
 - `pipe`: `uv_pipe_t userdata`
 - `fd`: `integer`
 
-Open an existing file descriptor or [uv_handle_t](#uv_handle_t) as a
+Open an existing file descriptor or |uv_handle_t| as a
 pipe.
 
 Returns: `0` or `fail`
@@ -1931,7 +1901,7 @@ Parameters:
 
 Used to receive handles over IPC pipes.
 
-First - call [uv.pipe_pending_count()](#uv.pipe_pending_count()), if it's > 0 then
+First - call |uv.pipe_pending_count()|, if it's > 0 then
 initialize a handle of the given type, returned by
 `uv.pipe_pending_type()` and call `uv.accept(pipe, handle)` .
 
@@ -1977,8 +1947,6 @@ Equivalent to `pipe(2)` with the `O_CLOEXEC` flag set.
 Returns: `table` or `fail`
 - `read` : `integer` (file descriptor)
 - `write` : `integer` (file descriptor)
-
-
 ```                    -- Simple read/write with pipe_open
 local fds = uv.pipe({nonblock=true}, {nonblock=true})
 
@@ -1998,11 +1966,9 @@ end)
 
 ## <a id="luv-tty-handle uv_tty_t" class="section-title" href="#luv-tty-handle uv_tty_t">`Uv_Tty_T` — TTY Handle</a> 
 
-> [uv_handle_t| and |uv_stream_t](#uv_handle_t| and |uv_stream_t) functions also apply.
+> |uv_handle_t| and |uv_stream_t| functions also apply.
 
 TTY handles represent a stream for the console.
-
-
 ```    -- Simple echo program
 local stdin = uv.new_tty(0, true)
 local stdout = uv.new_tty(1, false)
@@ -2074,7 +2040,7 @@ default values for the next process to take over.
 
 This function is async signal-safe on Unix platforms but can
 fail with error code `EBUSY` if you call it when execution is
-inside [uv.tty_set_mode()](#uv.tty_set_mode()).
+inside |uv.tty_set_mode()|.
 
 Returns: `0` or `fail`
 
@@ -2120,7 +2086,7 @@ Returns: `string` or `fail`
 
 ## <a id="luv-udp-handle uv_udp_t" class="section-title" href="#luv-udp-handle uv_udp_t">`Uv_Udp_T` — UDP Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 UDP handles encapsulate UDP communication for both clients and servers.
 
@@ -2131,7 +2097,7 @@ Parameters:
 - `family`: `string` or `nil`
 - `mmsgs`: `integer` or `nil` (default: `1`)
 
-Creates and initializes a new [uv_udp_t](#uv_udp_t). Returns the Lua
+Creates and initializes a new |uv_udp_t|. Returns the Lua
 userdata wrapping it. The actual socket is created lazily.
 
 When specified, `family` must be one of `"unix"`, `"inet"`,
@@ -2358,7 +2324,7 @@ Parameters:
 - `err`: `nil` or `string`
 
 Send data over the UDP socket. If the socket has not
-previously been bound with [uv.udp_bind()](#uv.udp_bind()) it will be bound to
+previously been bound with |uv.udp_bind()| it will be bound to
 `0.0.0.0` (the "all interfaces" IPv4 address) and a random
 port number.
 
@@ -2374,7 +2340,7 @@ Parameters:
 - `host`: `string`
 - `port`: `integer`
 
-Same as [uv.udp_send()](#uv.udp_send()), but won't queue a send request if it
+Same as |uv.udp_send()|, but won't queue a send request if it
 can't be completed immediately.
 
 Returns: `integer` or `fail`
@@ -2397,7 +2363,7 @@ Parameters:
 - `mmsg_chunk`: `boolean` or `nil`
 
 Prepare for receiving data. If the socket has not previously
-been bound with [uv.udp_bind()](#uv.udp_bind()) it is bound to `0.0.0.0` (the
+been bound with |uv.udp_bind()| it is bound to `0.0.0.0` (the
 "all interfaces" IPv4 address) and a random port number.
 
 Returns: `0` or `fail`
@@ -2435,7 +2401,7 @@ Returns: `0` or `fail`
 
 ## <a id="luv-fs-event-handle uv_fs_event_t" class="section-title" href="#luv-fs-event-handle uv_fs_event_t">`Uv_Fs_Event_T` — FS Event Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 FS Event handles allow the user to monitor a given path for changes, for
 example, if the file was renamed or there was a generic change in it. This
@@ -2443,7 +2409,7 @@ handle uses the best backend for the job on each platform.
 
 ### <a id="uv.new_fs_event()" class="section-title" href="#uv.new_fs_event()">uv.new_fs_event()</a>
 
-Creates and initializes a new [uv_fs_event_t](#uv_fs_event_t). Returns the Lua
+Creates and initializes a new |uv_fs_event_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_fs_event_t userdata` or `fail`
@@ -2490,15 +2456,15 @@ Returns: `string` or `fail`
 
 ## <a id="luv-fs-poll-handle uv_fs_poll_t" class="section-title" href="#luv-fs-poll-handle uv_fs_poll_t">`Uv_Fs_Poll_T` — FS Poll Handle</a> 
 
-> [uv_handle_t](#uv_handle_t) functions also apply.
+> |uv_handle_t| functions also apply.
 
 FS Poll handles allow the user to monitor a given path for changes. Unlike
-[uv_fs_event_t](#uv_fs_event_t), fs poll handles use `stat` to detect when a file has changed
+|uv_fs_event_t|, fs poll handles use `stat` to detect when a file has changed
 so they can work on file systems where fs event handles can't.
 
 ### <a id="uv.new_fs_poll()" class="section-title" href="#uv.new_fs_poll()">uv.new_fs_poll()</a>
 
-Creates and initializes a new [uv_fs_poll_t](#uv_fs_poll_t). Returns the Lua
+Creates and initializes a new |uv_fs_poll_t|. Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_fs_poll_t userdata` or `fail`
@@ -2556,8 +2522,6 @@ FS call.
 
 Synchronous and asynchronous versions of `readFile` (with naive error
 handling) are implemented below as an example:
-
-
 ```    local function readFileSync(path)
 local fd = assert(uv.fs_open(path, "r", 438))
 local stat = assert(uv.fs_fstat(fd))
@@ -2569,8 +2533,6 @@ end
 local data = readFileSync("main.lua")
 print("synchronous read", data)
 ```
-
-
 
 ```    local function readFile(path, callback)
 uv.fs_open(path, "r", 438, function(err, fd)
@@ -2769,7 +2731,7 @@ Parameters:
 
 Equivalent to `scandir(3)`, with a slightly different API.
 Returns a handle that the user can pass to
-[uv.fs_scandir_next()](#uv.fs_scandir_next()).
+|uv.fs_scandir_next()|.
 
 Note: This function can be used synchronously or
 asynchronously. The request userdata is always synchronously
@@ -2783,12 +2745,12 @@ Returns: `uv_fs_t userdata` or `fail`
 Parameters:
 - `fs`: `uv_fs_t userdata`
 
-Called on a [uv_fs_t| returned by |uv.fs_scandir()](#uv_fs_t| returned by |uv.fs_scandir()) to get the
+Called on a |uv_fs_t| returned by |uv.fs_scandir()| to get the
 next directory entry data as a `name, type` pair. When there
 are no more entries, `nil` is returned.
 
 Note: This function only has a synchronous version. See
-[uv.fs_opendir()](#uv.fs_opendir()) and its related functions for an
+|uv.fs_opendir()| and its related functions for an
 asynchronous version.
 
 Returns: `string, string` or `nil` or `fail`
@@ -2859,7 +2821,7 @@ version)
 
 Equivalent to `lstat(2)`.
 
-Returns (sync version): `table` or `fail` (see [uv.fs_stat()](#uv.fs_stat()))
+Returns (sync version): `table` or `fail` (see |uv.fs_stat()|)
 
 Returns (async version): `uv_fs_t userdata`
 
@@ -3198,9 +3160,9 @@ version)
 - `entries`: `integer` or `nil`
 
 Opens path as a directory stream. Returns a handle that the
-user can pass to [uv.fs_readdir()](#uv.fs_readdir()). The `entries` parameter
+user can pass to |uv.fs_readdir()|. The `entries` parameter
 defines the maximum number of entries that should be returned
-by each call to [uv.fs_readdir()](#uv.fs_readdir()).
+by each call to |uv.fs_readdir()|.
 
 Returns (sync version): `luv_dir_t userdata` or `fail`
 
@@ -3218,10 +3180,10 @@ version)
 - `entries`: `table` or `nil` (see below)
 
 Iterates over the directory stream `luv_dir_t` returned by a
-successful [uv.fs_opendir()](#uv.fs_opendir()) call. A table of data tables is
+successful |uv.fs_opendir()| call. A table of data tables is
 returned where the number of entries `n` is equal to or less
 than the `entries` parameter used in the associated
-[uv.fs_opendir()](#uv.fs_opendir()) call.
+|uv.fs_opendir()| call.
 
 Returns (sync version): `table` or `fail`
 - `[1, 2, 3, ..., n]` : `table`
@@ -3242,7 +3204,7 @@ version)
 - `success`: `boolean` or `nil`
 
 Closes a directory stream returned by a successful
-[uv.fs_opendir()](#uv.fs_opendir()) call.
+|uv.fs_opendir()| call.
 
 Returns (sync version): `boolean` or `fail`
 
@@ -3274,8 +3236,6 @@ Returns `table` or `nil`
 Libuv provides a threadpool which can be used to run user code and get
 notified in the loop thread. This threadpool is internally used to run all
 file system operations, as well as `getaddrinfo` and `getnameinfo` requests.
-
-
 ```    local function work_callback(a, b)
 return a + b
 end
@@ -3583,7 +3543,7 @@ Returns: `table` or `fail`
 
 ### <a id="uv.getpid()" class="section-title" href="#uv.getpid()">uv.getpid()</a>
 
-DEPRECATED: Please use [uv.os_getpid()](#uv.os_getpid()) instead.
+DEPRECATED: Please use |uv.os_getpid()| instead.
 
 ### <a id="uv.getuid()" class="section-title" href="#uv.getuid()">uv.getuid()</a>
 
@@ -3658,7 +3618,7 @@ are no API/ABI stability guarantees.
 
 ### <a id="uv.print_active_handles()" class="section-title" href="#uv.print_active_handles()">uv.print_active_handles()</a>
 
-The same as [uv.print_all_handles()](#uv.print_all_handles()) except only active
+The same as |uv.print_all_handles()| except only active
 handles are printed.
 
 Returns: Nothing.
@@ -3719,7 +3679,7 @@ Parameters:
 Retrieves a network interface identifier suitable for use in
 an IPv6 scoped address. On Windows, returns the numeric
 `ifindex` as a string. On all other platforms,
-[uv.if_indextoname()](#uv.if_indextoname()) is used.
+|uv.if_indextoname()| is used.
 
 Returns: `string` or `fail`
 
@@ -3881,7 +3841,7 @@ Parameters:
 - `errcode`: `integer`
 
 Returns the libuv error message and error name (both in string
-form, see `err` and `name` in [luv-error-handling](#luv-error-handling)) equivalent
+form, see `err` and `name` in [luv-error-handling](/neovim-docs-web/en/misc/luvref#luv-error-handling)) equivalent
 to the given platform dependent error code: POSIX error codes
 on Unix (the ones stored in errno), and Win32 error codes on
 Windows (those returned by GetLastError() or
@@ -3899,7 +3859,7 @@ the kernel’s event provider (e.g. `epoll_wait`). The call is
 thread safe.
 
 The return value is the accumulated time spent idle in the
-kernel’s event provider starting from when the [uv_loop_t](#uv_loop_t) was
+kernel’s event provider starting from when the |uv_loop_t| was
 configured to collect the idle time.
 
 Note: The event loop will not begin accumulating the event

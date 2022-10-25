@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="helphelp" class="section-title" href="#helphelp">Help on help files</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="online-help" class="section-title" href="#online-help">1. Help Commands</a> 
@@ -29,11 +29,11 @@ Help>		or
 			The 'helplang' option is used to select a language, if
 			the main help file is available in several languages.
 
-			Type [gO](#gO) to see the table of contents.
+			Type [gO](undefined#gO) to see the table of contents.
 
 ### <a id="{subject} E149 E661" class="section-title" href="#{subject} E149 E661">Note:</a>
 :h[elp] {subject}	Like ":help", additionally jump to the tag {subject}.
-			For example:  
+			For example:
 ```				:help options
 
 ### <a id="{subject} can include wildcards such as "", "?" and" class="section-title" href="#{subject} can include wildcards such as "", "?" and">Note:</a>
@@ -62,12 +62,12 @@ Help>		or
 			the {subject} is available in several languages.
 			To find a tag in a specific language, append "@ab",
 			where "ab" is the two-letter language code.  See
-			[help-translated](#help-translated).
+			[help-translated](/neovim-docs-web/en/vim/helphelp#help-translated).
 
 			Note that the longer the {subject} you give, the less
 			matches will be found.  You can get an idea how this
 			all works by using commandline completion (type CTRL-D
-			after ":help subject" [c_CTRL-D](#c_CTRL-D)).
+			after ":help subject" |c_CTRL-D|).
 			If there are several matches, you can have them listed
 			by hitting CTRL-D.  Example:
 				:help cont<Ctrl-D>
@@ -83,7 +83,7 @@ Help>		or
 			It is also possible to first do ":help" and then
 			use ":tag {pattern}" in the help window.  The
 			":tnext" command can then be used to jump to other
-			matches, "tselect" to list matches and choose one. 
+			matches, "tselect" to list matches and choose one.
 ```				:help index
 ### <a id=":tselect /.mode" class="section-title" href="#:tselect /.mode">Note:</a>
 
@@ -108,7 +108,7 @@ Help>		or
 
 :h[elp]! [subject]	Like ":help", but in non-English help files prefer to
 			find a tag in a file with the same language as the
-			current file.  See [help-translated](#help-translated).
+			current file.  See [help-translated](/neovim-docs-web/en/vim/helphelp#help-translated).
 
 ### <a id=":helpc :helpclose" class="section-title" href="#:helpc :helpclose">Note:</a>
 :helpc[lose]		Close one help window, if there is one.
@@ -124,24 +124,24 @@ Help>		or
 			The optional [@xx] specifies that only matches in the
 			"xx" language are to be found.
 			You can navigate through the matches with the
-			[quickfix| commands, e.g., |:cnext](#quickfix| commands, e.g., |:cnext) to jump to the
-			next one.  Or use [:cwindow](#:cwindow) to get the list of
+			[quickfix](undefined#quickfix) commands, e.g., |:cnext| to jump to the
+			next one.  Or use |:cwindow| to get the list of
 			matches in the quickfix window.
-			{pattern} is used as a Vim regexp [pattern](#pattern).
+			{pattern} is used as a Vim regexp [pattern](undefined#pattern).
 			'ignorecase' is not used, add "\c" to ignore case.
-			Example for case sensitive search: 
+			Example for case sensitive search:
 ```				:helpgrep Uganda
 			Example for case ignoring search:
 				:helpgrep uganda\c
 			Example for searching in French help:
 				:helpgrep backspace@fr
 			The pattern does not support line breaks, it must
-			match within one line.  You can use [:grep](#:grep) instead,
+			match within one line.  You can use |:grep| instead,
 			but then you need to get the list of help files in a
 			complicated way.
 			Cannot be followed by another command, everything is
 			used as part of the pattern.  But you can use
-			[:execute](#:execute) when needed.
+			|:execute| when needed.
 			Compressed help files will not be searched (Fedora
 			compresses the help files).
 
@@ -163,12 +163,12 @@ Help>		or
 :viu[sage]		Show help on Normal mode commands.  Added to simulate
 			the Nvi command.
 
-When no argument is given to [:help](#:help) the file given with the 'helpfile' option
+When no argument is given to |:help| the file given with the 'helpfile' option
 will be opened.  Otherwise the specified tag is searched for in all "doc/tags"
 files in the directories specified in the 'runtimepath' option.
 
 If you would like to open the help in the current window, see this tip:
-[help-curwin](#help-curwin).
+[help-curwin](/neovim-docs-web/en/vim/tips#help-curwin).
 
 The initial height of the help window can be set with the 'helpheight' option
 (default 20).
@@ -210,12 +210,12 @@ can jump to each one of them:
 3. Use ":tnext" to jump to the next matching tag.
 
 It is possible to add help files for plugins and other items.  You don't need
-to change the distributed help files for that.  See [add-local-help](#add-local-help).
+to change the distributed help files for that.  See [add-local-help](/neovim-docs-web/en/usr/usr_05#add-local-help).
 
-To write a local help file, see [write-local-help](#write-local-help).
+To write a local help file, see [write-local-help](undefined#write-local-help).
 
 Note that the title lines from the local help files are automagically added to
-the "LOCAL ADDITIONS" section in the "help.txt" help file [local-additions](#local-additions).
+the "LOCAL ADDITIONS" section in the "help.txt" help file [local-additions](undefined#local-additions).
 This is done when viewing the file in Vim, the file itself is not changed.  It
 is done by going through all help files and obtaining the first line of each
 file.  The files in $VIMRUNTIME/doc are skipped.
@@ -231,7 +231,7 @@ file.  The files in $VIMRUNTIME/doc are skipped.
 			sub-directories are scanned for a help tag definition
 			in between stars.  The "*.??x" files are for
 			translated docs, they generate the "tags-??" file, see
-			[help-translated](#help-translated).  The generated tags files are
+			[help-translated](/neovim-docs-web/en/vim/helphelp#help-translated).  The generated tags files are
 			sorted.
 			When there are duplicates an error message is given.
 			An existing tags file is silently overwritten.
@@ -279,8 +279,8 @@ set according to the environment.  Vim will first try to find a matching tag
 in the preferred language(s).  English is used when it cannot be found.
 
 To find a tag in a specific language, append "@ab" to a tag, where "ab" is the
-two-letter language code.  Example: 
-```	:he user-manual@it
+two-letter language code.  Example:
+	:he user-manual@it
 	:he user-manual@en
 The first one finds the Italian user manual, even when 'helplang' is empty.
 The second one finds the English user manual, even when 'helplang' is set to
@@ -292,7 +292,7 @@ tag only exists for English "@en" is omitted.  When the first candidate has an
 "@ab" extension and it matches the first language in 'helplang' "@ab" is also
 omitted.
 
-When using [CTRL-]](#CTRL-]) or ":help!" in a non-English help file Vim will try to
+When using |CTRL-]| or ":help!" in a non-English help file Vim will try to
 find the tag in the same language.  If not found then 'helplang' will be used
 to select a language.
 
@@ -313,7 +313,7 @@ Hints for translators:
 - Make a package with all the files and the tags file available for download.
   Users can drop it in one of the "doc" directories and start use it.
   Report this to Bram, so that he can add a link on www.vim.org.
-- Use the [:helptags](#:helptags) command to generate the tags files.  It will find all
+- Use the |:helptags| command to generate the tags files.  It will find all
   languages in the specified directory.
 
 
@@ -331,7 +331,7 @@ The first line in a help file should have the following format:
 The first field is a help tag where ":help plugin_name" will jump to.  The
 remainder of the line, after a Tab, describes the plugin purpose in a short
 way.  This will show up in the "LOCAL ADDITIONS" section of the main help
-file.  Check there that it shows up properly: [local-additions](#local-additions).
+file.  Check there that it shows up properly: [local-additions](undefined#local-additions).
 
 If you want to add a version number or last modification date, put it in the
 second line, right aligned.
@@ -349,7 +349,7 @@ should begin with the name of the Vim plugin.  The tag name is usually right
 aligned on a line.
 
 When referring to an existing help tag and to create a hot-link, place the
-name between two bars ([) eg. |help-writing](#) eg. |help-writing).
+name between two bars (|) eg. [help-writing](/neovim-docs-web/en/vim/helphelp#help-writing).
 
 When referring to a Vim command and to create a hot-link, place the
 name between two backticks, eg. inside `:filetype`.  You will see this is
@@ -378,7 +378,7 @@ To quote a block of ex-commands verbatim, place a greater than (>) character
 at the end of the line before the block and a less than (<) character as the
 first non-blank on a line following the block.  Any line starting in column 1
 also implicitly stops the block of ex-commands before it.  E.g.
-    function Example_Func()
+```    function Example_Func()
 	echo "Example"
     endfunction
 ```

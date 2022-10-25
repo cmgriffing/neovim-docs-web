@@ -20,9 +20,9 @@ Remember that the commands refer to moving the window (the part of the buffer
 that you see) upwards or downwards in the buffer.  When the window moves
 upwards in the buffer, the text in the window moves downwards on your screen.
 
-See section [03.7](#03.7) of the user manual for an introduction.
+See section |03.7| of the user manual for an introduction.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="scroll-down" class="section-title" href="#scroll-down">1. Scrolling Downwards</a> 

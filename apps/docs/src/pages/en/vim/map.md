@@ -12,62 +12,62 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 Key mapping, abbreviations and user-defined commands.
 
-This subject is introduced in sections [05.3|, |24.7| and |40.1](#05.3|, |24.7| and |40.1) of the user
+This subject is introduced in sections |05.3|, |24.7| and |40.1| of the user
 manual.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="key-mapping mapping macro" class="section-title" href="#key-mapping mapping macro">1. Key Mapping</a> 
 
 Key mapping is used to change the meaning of typed keys.  The most common use
-is to define a sequence of commands for a function key.  Example: 
+is to define a sequence of commands for a function key.  Example:
 ```
 	:map <F2> a<C-R>=strftime("%c")<CR><Esc>
 
-This appends the current date and time after the cursor (in <> notation [<>](#<>)).
+This appends the current date and time after the cursor (in <> notation |<>|).
 
 
 ### <a id=":map-commands" class="section-title" href="#:map-commands">1.1 Map Commands</a>
 
 There are commands to enter new mappings, remove mappings and list mappings.
-See [map-overview](#map-overview) for the various forms of "map" and their relationships with
+See [map-overview](undefined#map-overview) for the various forms of "map" and their relationships with
 modes.
 
 {lhs}	means left-hand-side	*{lhs}*
 {rhs}	means right-hand-side	*{rhs}*
 
-:map	{lhs} {rhs}		[mapmode-nvo](#mapmode-nvo)		*:map*
-:nm[ap]	{lhs} {rhs}		[mapmode-n](#mapmode-n)		*:nm* *:nmap*
-:vm[ap]	{lhs} {rhs}		[mapmode-v](#mapmode-v)		*:vm* *:vmap*
-:xm[ap]	{lhs} {rhs}		[mapmode-x](#mapmode-x)		*:xm* *:xmap*
-:smap	{lhs} {rhs}		[mapmode-s](#mapmode-s)		    *:smap*
-:om[ap]	{lhs} {rhs}		[mapmode-o](#mapmode-o)		*:om* *:omap*
-:map!	{lhs} {rhs}		[mapmode-ic](#mapmode-ic)		*:map!*
-:im[ap]	{lhs} {rhs}		[mapmode-i](#mapmode-i)		*:im* *:imap*
-:lm[ap]	{lhs} {rhs}		[mapmode-l](#mapmode-l)		*:lm* *:lma* *:lmap*
-:cm[ap]	{lhs} {rhs}		[mapmode-c](#mapmode-c)		*:cm* *:cmap*
-:tma[p]	{lhs} {rhs}		[mapmode-t](#mapmode-t)		*:tma* *:tmap*
+:map	{lhs} {rhs}		[mapmode-nvo](undefined#mapmode-nvo)		*:map*
+:nm[ap]	{lhs} {rhs}		[mapmode-n](undefined#mapmode-n)		*:nm* *:nmap*
+:vm[ap]	{lhs} {rhs}		[mapmode-v](undefined#mapmode-v)		*:vm* *:vmap*
+:xm[ap]	{lhs} {rhs}		[mapmode-x](undefined#mapmode-x)		*:xm* *:xmap*
+:smap	{lhs} {rhs}		[mapmode-s](undefined#mapmode-s)		    *:smap*
+:om[ap]	{lhs} {rhs}		[mapmode-o](undefined#mapmode-o)		*:om* *:omap*
+:map!	{lhs} {rhs}		[mapmode-ic](undefined#mapmode-ic)		*:map!*
+:im[ap]	{lhs} {rhs}		[mapmode-i](undefined#mapmode-i)		*:im* *:imap*
+:lm[ap]	{lhs} {rhs}		[mapmode-l](undefined#mapmode-l)		*:lm* *:lma* *:lmap*
+:cm[ap]	{lhs} {rhs}		[mapmode-c](undefined#mapmode-c)		*:cm* *:cmap*
+:tma[p]	{lhs} {rhs}		[mapmode-t](undefined#mapmode-t)		*:tma* *:tmap*
 			Map the key sequence {lhs} to {rhs} for the modes
 			where the map command applies.  The result, including
 			{rhs}, is then further scanned for mappings.  This
 			allows for nested and recursive use of mappings.
 			Note: Trailing spaces are included in the {rhs},
 			because space is a valid Normal mode command.
-			See [map-trailing-white](#map-trailing-white).
+			See [map-trailing-white](undefined#map-trailing-white).
 
 ### <a id=":nore :norem" class="section-title" href="#:nore :norem">Note:</a>
-:no[remap]  {lhs} {rhs}		[mapmode-nvo](#mapmode-nvo)	*:no*  *:noremap* *:nor*
-### <a id="[mapmode-n](#mapmode-n)	:nn" class="section-title" href="#[mapmode-n](#mapmode-n)	:nn">:nn[oremap] {lhs} {rhs}</a>
-### <a id="[mapmode-v](#mapmode-v)	:vn" class="section-title" href="#[mapmode-v](#mapmode-v)	:vn">:vn[oremap] {lhs} {rhs}</a>
-### <a id="[mapmode-x](#mapmode-x)	:xn" class="section-title" href="#[mapmode-x](#mapmode-x)	:xn">:xn[oremap] {lhs} {rhs}</a>
-### <a id="[mapmode-s](#mapmode-s)	:snor :snore :snoremap" class="section-title" href="#[mapmode-s](#mapmode-s)	:snor :snore :snoremap">:snor[emap] {lhs} {rhs}</a>
-### <a id="[mapmode-o](#mapmode-o)	:ono :onoremap" class="section-title" href="#[mapmode-o](#mapmode-o)	:ono :onoremap">:ono[remap] {lhs} {rhs}</a>
-### <a id="[mapmode-ic](#mapmode-ic)	:no! :noremap!" class="section-title" href="#[mapmode-ic](#mapmode-ic)	:no! :noremap!">:no[remap]! {lhs} {rhs}</a>
-### <a id="[mapmode-i](#mapmode-i)	:ino :inor :inoremap" class="section-title" href="#[mapmode-i](#mapmode-i)	:ino :inor :inoremap">:ino[remap] {lhs} {rhs}</a>
-### <a id="[mapmode-l](#mapmode-l)	:ln" class="section-title" href="#[mapmode-l](#mapmode-l)	:ln">:ln[oremap] {lhs} {rhs}</a>
-### <a id="[mapmode-c](#mapmode-c)	:cno :cnor :cnoremap" class="section-title" href="#[mapmode-c](#mapmode-c)	:cno :cnor :cnoremap">:cno[remap] {lhs} {rhs}</a>
-### <a id="[mapmode-t](#mapmode-t)	:tno :tnoremap" class="section-title" href="#[mapmode-t](#mapmode-t)	:tno :tnoremap">:tno[remap] {lhs} {rhs}</a>
+:no[remap]  {lhs} {rhs}		[mapmode-nvo](undefined#mapmode-nvo)	*:no*  *:noremap* *:nor*
+### <a id="[mapmode-n](undefined#mapmode-n)	:nn" class="section-title" href="#[mapmode-n](undefined#mapmode-n)	:nn">:nn[oremap] {lhs} {rhs}</a>
+### <a id="[mapmode-v](undefined#mapmode-v)	:vn" class="section-title" href="#[mapmode-v](undefined#mapmode-v)	:vn">:vn[oremap] {lhs} {rhs}</a>
+### <a id="[mapmode-x](undefined#mapmode-x)	:xn" class="section-title" href="#[mapmode-x](undefined#mapmode-x)	:xn">:xn[oremap] {lhs} {rhs}</a>
+### <a id="[mapmode-s](undefined#mapmode-s)	:snor :snore :snoremap" class="section-title" href="#[mapmode-s](undefined#mapmode-s)	:snor :snore :snoremap">:snor[emap] {lhs} {rhs}</a>
+### <a id="[mapmode-o](undefined#mapmode-o)	:ono :onoremap" class="section-title" href="#[mapmode-o](undefined#mapmode-o)	:ono :onoremap">:ono[remap] {lhs} {rhs}</a>
+### <a id="[mapmode-ic](undefined#mapmode-ic)	:no! :noremap!" class="section-title" href="#[mapmode-ic](undefined#mapmode-ic)	:no! :noremap!">:no[remap]! {lhs} {rhs}</a>
+### <a id="[mapmode-i](undefined#mapmode-i)	:ino :inor :inoremap" class="section-title" href="#[mapmode-i](undefined#mapmode-i)	:ino :inor :inoremap">:ino[remap] {lhs} {rhs}</a>
+### <a id="[mapmode-l](undefined#mapmode-l)	:ln" class="section-title" href="#[mapmode-l](undefined#mapmode-l)	:ln">:ln[oremap] {lhs} {rhs}</a>
+### <a id="[mapmode-c](undefined#mapmode-c)	:cno :cnor :cnoremap" class="section-title" href="#[mapmode-c](undefined#mapmode-c)	:cno :cnor :cnoremap">:cno[remap] {lhs} {rhs}</a>
+### <a id="[mapmode-t](undefined#mapmode-t)	:tno :tnoremap" class="section-title" href="#[mapmode-t](undefined#mapmode-t)	:tno :tnoremap">:tno[remap] {lhs} {rhs}</a>
 			Map the key sequence {lhs} to {rhs} for the modes
 			where the map command applies.  Disallow mapping of
 			{rhs}, to avoid nested and recursive mappings.  Often
@@ -76,74 +76,74 @@ modes.
 			always applied even if remapping is disallowed.
 
 
-:unm[ap]  {lhs}			[mapmode-nvo](#mapmode-nvo)		*:unm*  *:unmap*
-:nun[map] {lhs}			[mapmode-n](#mapmode-n)		*:nun*  *:nunmap*
-:vu[nmap] {lhs}			[mapmode-v](#mapmode-v)		*:vu*   *:vunmap*
-:xu[nmap] {lhs}			[mapmode-x](#mapmode-x)		*:xu*   *:xunmap*
-:sunm[ap] {lhs}			[mapmode-s](#mapmode-s)		*:sunm* *:sunmap*
-:ou[nmap] {lhs}			[mapmode-o](#mapmode-o)		*:ou*   *:ounmap*
-:unm[ap]! {lhs}			[mapmode-ic](#mapmode-ic)		*:unm!* *:unmap!*
-:iu[nmap] {lhs}			[mapmode-i](#mapmode-i)		*:iu*   *:iunmap*
-:lu[nmap] {lhs}			[mapmode-l](#mapmode-l)		*:lu*   *:lunmap*
-:cu[nmap] {lhs}			[mapmode-c](#mapmode-c)		*:cu*   *:cun* *:cunmap*
-:tunma[p] {lhs}			[mapmode-t](#mapmode-t)		*:tunma* *:tunmap*
+:unm[ap]  {lhs}			[mapmode-nvo](undefined#mapmode-nvo)		*:unm*  *:unmap*
+:nun[map] {lhs}			[mapmode-n](undefined#mapmode-n)		*:nun*  *:nunmap*
+:vu[nmap] {lhs}			[mapmode-v](undefined#mapmode-v)		*:vu*   *:vunmap*
+:xu[nmap] {lhs}			[mapmode-x](undefined#mapmode-x)		*:xu*   *:xunmap*
+:sunm[ap] {lhs}			[mapmode-s](undefined#mapmode-s)		*:sunm* *:sunmap*
+:ou[nmap] {lhs}			[mapmode-o](undefined#mapmode-o)		*:ou*   *:ounmap*
+:unm[ap]! {lhs}			[mapmode-ic](undefined#mapmode-ic)		*:unm!* *:unmap!*
+:iu[nmap] {lhs}			[mapmode-i](undefined#mapmode-i)		*:iu*   *:iunmap*
+:lu[nmap] {lhs}			[mapmode-l](undefined#mapmode-l)		*:lu*   *:lunmap*
+:cu[nmap] {lhs}			[mapmode-c](undefined#mapmode-c)		*:cu*   *:cun* *:cunmap*
+:tunma[p] {lhs}			[mapmode-t](undefined#mapmode-t)		*:tunma* *:tunmap*
 			Remove the mapping of {lhs} for the modes where the
 			map command applies.  The mapping may remain defined
 			for other modes where it applies.
 			It also works when {lhs} matches the {rhs} of a
 			mapping. This is for when an abbreviation applied.
 			Note: Trailing spaces are included in the {lhs}.
-			See [map-trailing-white](#map-trailing-white).
+			See [map-trailing-white](undefined#map-trailing-white).
 
-:mapc[lear]			[mapmode-nvo](#mapmode-nvo)		*:mapc*   *:mapclear*
-:nmapc[lear]			[mapmode-n](#mapmode-n)		*:nmapc*  *:nmapclear*
-:vmapc[lear]			[mapmode-v](#mapmode-v)		*:vmapc*  *:vmapclear*
-:xmapc[lear]			[mapmode-x](#mapmode-x)		*:xmapc*  *:xmapclear*
-:smapc[lear]			[mapmode-s](#mapmode-s)		*:smapc*  *:smapclear*
-:omapc[lear]			[mapmode-o](#mapmode-o)		*:omapc*  *:omapclear*
-:mapc[lear]!			[mapmode-ic](#mapmode-ic)		*:mapc!*  *:mapclear!*
-:imapc[lear]			[mapmode-i](#mapmode-i)		*:imapc*  *:imapclear*
-:lmapc[lear]			[mapmode-l](#mapmode-l)		*:lmapc*  *:lmapclear*
-:cmapc[lear]			[mapmode-c](#mapmode-c)		*:cmapc*  *:cmapclear*
-:tmapc[lear]			[mapmode-t](#mapmode-t)		*:tmapc*  *:tmapclear*
+:mapc[lear]			[mapmode-nvo](undefined#mapmode-nvo)		*:mapc*   *:mapclear*
+:nmapc[lear]			[mapmode-n](undefined#mapmode-n)		*:nmapc*  *:nmapclear*
+:vmapc[lear]			[mapmode-v](undefined#mapmode-v)		*:vmapc*  *:vmapclear*
+:xmapc[lear]			[mapmode-x](undefined#mapmode-x)		*:xmapc*  *:xmapclear*
+:smapc[lear]			[mapmode-s](undefined#mapmode-s)		*:smapc*  *:smapclear*
+:omapc[lear]			[mapmode-o](undefined#mapmode-o)		*:omapc*  *:omapclear*
+:mapc[lear]!			[mapmode-ic](undefined#mapmode-ic)		*:mapc!*  *:mapclear!*
+:imapc[lear]			[mapmode-i](undefined#mapmode-i)		*:imapc*  *:imapclear*
+:lmapc[lear]			[mapmode-l](undefined#mapmode-l)		*:lmapc*  *:lmapclear*
+:cmapc[lear]			[mapmode-c](undefined#mapmode-c)		*:cmapc*  *:cmapclear*
+:tmapc[lear]			[mapmode-t](undefined#mapmode-t)		*:tmapc*  *:tmapclear*
 			Remove ALL mappings for the modes where the map
 			command applies.
 			Use the <buffer> argument to remove buffer-local
-			mappings [:map-<buffer>](#:map-<buffer>)
-			Warning: This also removes the [default-mappings](#default-mappings).
+			mappings |:map-<buffer>|
+			Warning: This also removes the [default-mappings](undefined#default-mappings).
 
-:map				[mapmode-nvo](#mapmode-nvo)
-:nm[ap]				[mapmode-n](#mapmode-n)
-:vm[ap]				[mapmode-v](#mapmode-v)
-:xm[ap]				[mapmode-x](#mapmode-x)
-:sm[ap]				[mapmode-s](#mapmode-s)
-:om[ap]				[mapmode-o](#mapmode-o)
-:map!				[mapmode-ic](#mapmode-ic)
-:im[ap]				[mapmode-i](#mapmode-i)
-:lm[ap]				[mapmode-l](#mapmode-l)
-:cm[ap]				[mapmode-c](#mapmode-c)
-:tma[p]				[mapmode-t](#mapmode-t)
+:map				[mapmode-nvo](undefined#mapmode-nvo)
+:nm[ap]				[mapmode-n](undefined#mapmode-n)
+:vm[ap]				[mapmode-v](undefined#mapmode-v)
+:xm[ap]				[mapmode-x](undefined#mapmode-x)
+:sm[ap]				[mapmode-s](undefined#mapmode-s)
+:om[ap]				[mapmode-o](undefined#mapmode-o)
+:map!				[mapmode-ic](undefined#mapmode-ic)
+:im[ap]				[mapmode-i](undefined#mapmode-i)
+:lm[ap]				[mapmode-l](undefined#mapmode-l)
+:cm[ap]				[mapmode-c](undefined#mapmode-c)
+:tma[p]				[mapmode-t](undefined#mapmode-t)
 			List all key mappings for the modes where the map
 			command applies.  Note that ":map" and ":map!" are
 			used most often, because they include the other modes.
 
-:map    {lhs}			[mapmode-nvo](#mapmode-nvo)		*:map_l*
-:nm[ap] {lhs}			[mapmode-n](#mapmode-n)		*:nmap_l*
-:vm[ap] {lhs}			[mapmode-v](#mapmode-v)		*:vmap_l*
-:xm[ap] {lhs}			[mapmode-x](#mapmode-x)		*:xmap_l*
-:sm[ap] {lhs}			[mapmode-s](#mapmode-s)		*:smap_l*
-:om[ap] {lhs}			[mapmode-o](#mapmode-o)		*:omap_l*
-:map!   {lhs}			[mapmode-ic](#mapmode-ic)		*:map_l!*
-:im[ap] {lhs}			[mapmode-i](#mapmode-i)		*:imap_l*
-:lm[ap] {lhs}			[mapmode-l](#mapmode-l)		*:lmap_l*
-:cm[ap] {lhs}			[mapmode-c](#mapmode-c)		*:cmap_l*
-:tma[p] {lhs}			[mapmode-t](#mapmode-t)		*:tmap_l*
+:map    {lhs}			[mapmode-nvo](undefined#mapmode-nvo)		*:map_l*
+:nm[ap] {lhs}			[mapmode-n](undefined#mapmode-n)		*:nmap_l*
+:vm[ap] {lhs}			[mapmode-v](undefined#mapmode-v)		*:vmap_l*
+:xm[ap] {lhs}			[mapmode-x](undefined#mapmode-x)		*:xmap_l*
+:sm[ap] {lhs}			[mapmode-s](undefined#mapmode-s)		*:smap_l*
+:om[ap] {lhs}			[mapmode-o](undefined#mapmode-o)		*:omap_l*
+:map!   {lhs}			[mapmode-ic](undefined#mapmode-ic)		*:map_l!*
+:im[ap] {lhs}			[mapmode-i](undefined#mapmode-i)		*:imap_l*
+:lm[ap] {lhs}			[mapmode-l](undefined#mapmode-l)		*:lmap_l*
+:cm[ap] {lhs}			[mapmode-c](undefined#mapmode-c)		*:cmap_l*
+:tma[p] {lhs}			[mapmode-t](undefined#mapmode-t)		*:tmap_l*
 			List the key mappings for the key sequences starting
 			with {lhs} in the modes where the map command applies.
 
 These commands are used to map a key or key sequence to a string of
 characters.  You can use this to put command sequences under function keys,
-translate one key into another, etc.  See [:mkexrc](#:mkexrc) for how to save and
+translate one key into another, etc.  See |:mkexrc| for how to save and
 restore the current mappings.
 
 ### <a id="map-ambiguous" class="section-title" href="#map-ambiguous">Note:</a>
@@ -197,7 +197,7 @@ The "<buffer>" argument can also be used to clear mappings:
 	:mapclear <buffer>
 Local mappings are also cleared when a buffer is deleted, but not when it is
 unloaded.  Just like local option values.
-Also see [map-precedence](#map-precedence).
+Also see [map-precedence](undefined#map-precedence).
 
 ### <a id=":map-<nowait> :map-nowait" class="section-title" href="#:map-<nowait> :map-nowait">Note:</a>
 When defining a buffer-local mapping for "," there may be a global mapping
@@ -247,7 +247,7 @@ Example of what will fail:
 	:map ,w  /[#&!]<CR>
 	:map <buffer> <unique> ,w  /[.,;]<CR>
 If you want to map a key and then have it do what it was originally mapped to,
-have a look at [maparg()](#maparg()).
+have a look at |maparg()|.
 
 ### <a id=":map-<expr> :map-expression" class="section-title" href="#:map-<expr> :map-expression">Note:</a>
 If the first argument to one of these commands is "<expr>" and it is used to
@@ -260,7 +260,7 @@ Using a script-local function is preferred, to avoid polluting the global
 namespace.  Use <SID> in the RHS so that the script that the mapping was
 defined in can be found.
 
-For abbreviations [v:char](#v:char) is set to the character that was typed to trigger
+For abbreviations |v:char| is set to the character that was typed to trigger
 the abbreviation.  You can use this to decide how to expand the {lhs}.  You
 should not either insert or change the v:char.
 
@@ -287,13 +287,13 @@ expression-mapped:
 Be very careful about side effects!  The expression is evaluated while
 obtaining characters, you may very well make the command dysfunctional.
 Therefore the following is blocked for <expr> mappings:
-- Changing the buffer text [textlock](#textlock).
+- Changing the buffer text [textlock](/neovim-docs-web/en/vim/eval#textlock).
 - Editing another buffer.
-- The [:normal](#:normal) command.
+- The |:normal| command.
 - Moving the cursor is allowed, but it is restored afterwards.
 - If the cmdline is changed, the old text and cursor position are restored.
 If you want the mapping to do any of these let the returned characters do
-that. (Or use a [<Cmd>](#<Cmd>) mapping instead.)
+that. (Or use a |<Cmd>| mapping instead.)
 
 You can use getchar(), it consumes typeahead if there is any. E.g., if you
 have these mappings:
@@ -336,17 +336,17 @@ Example:
 This is more flexible than `:<C-U>` in visual and operator-pending mode, or
 `<C-O>:` in insert-mode, because the commands are executed directly in the
 current mode (instead of always going to normal-mode).  Visual-mode is
-preserved, so tricks with [gv](#gv) are not needed.  Commands can be invoked
+preserved, so tricks with [gv](undefined#gv) are not needed.  Commands can be invoked
 directly in cmdline-mode (which would otherwise require timer hacks).
 
-Unlike <expr> mappings, there are no special restrictions on the <Cmd
-```command: it is executed as if an (unrestricted) [autocommand](#autocommand) was invoked
+Unlike <expr> mappings, there are no special restrictions on the <Cmd>
+command: it is executed as if an (unrestricted) [autocommand](undefined#autocommand) was invoked
 or an async event event was processed.
 
 Note:
 - Because <Cmd> avoids mode-changes (unlike ":") it does not trigger
-  [CmdlineEnter| and |CmdlineLeave](#CmdlineEnter| and |CmdlineLeave) events. This helps performance.
-- For the same reason, [keycodes](#keycodes) like <C-R><C-W> are interpreted as plain,
+  [CmdlineEnter](undefined#CmdlineEnter) and [CmdlineLeave](undefined#CmdlineLeave) events. This helps performance.
+- For the same reason, [keycodes](undefined#keycodes) like <C-R><C-W> are interpreted as plain,
   unmapped keys.
 - The command is not echo'ed, no need for <silent>.
 - The {rhs} is not subject to abbreviations nor to other mappings, even if the
@@ -356,7 +356,7 @@ Note:
 
 ### <a id="E5520" class="section-title" href="#E5520">Note:</a>
 Cmd> commands must terminate, that is, they must be followed by <CR> in the
-{rhs} of the mapping definition.  [Command-line](#Command-line) mode is never entered.
+{rhs} of the mapping definition.  [Command-line](undefined#Command-line) mode is never entered.
 
 
 ### <a id=":map-modes" class="section-title" href="#:map-modes">1.3 Mapping and Modes</a>
@@ -367,10 +367,10 @@ There are seven sets of mappings
 - For Visual mode: When typing commands while the Visual area is highlighted.
 - For Select mode: like Visual mode but typing text replaces the selection.
 - For Operator-pending mode: When an operator is pending (after "d", "y", "c",
-  etc.).  See below: [omap-info](#omap-info).
+  etc.).  See below: [omap-info](undefined#omap-info).
 - For Insert mode.  These are also used in Replace mode.
 - For Command-line mode: When entering a ":" or "/" command.
-- For Terminal mode: When typing in a [:terminal](#:terminal) buffer.
+- For Terminal mode: When typing in a |:terminal| buffer.
 
 Special case: While typing a count for a command in Normal mode, mapping zero
 is disabled.  This makes it possible to map zero without making it impossible
@@ -393,19 +393,19 @@ Overview of which map command works in which mode.  More details below.
 
 Same information in a table:
 ### <a id="map-table" class="section-title" href="#map-table">Note:</a>
-         Mode  [ Norm | Ins | Cmd | Vis | Sel | Opr | Term | Lang ](# Norm | Ins | Cmd | Vis | Sel | Opr | Term | Lang ) ~
+         Mode  | Norm | Ins | Cmd | Vis | Sel | Opr | Term | Lang | ~
 Command        +------+-----+-----+-----+-----+-----+------+------+ ~
-[nore]map      [ yes  |  -  |  -  | yes | yes | yes |  -   |  -   ](# yes  |  -  |  -  | yes | yes | yes |  -   |  -   )
-n[nore]map     [ yes  |  -  |  -  |  -  |  -  |  -  |  -   |  -   ](# yes  |  -  |  -  |  -  |  -  |  -  |  -   |  -   )
-[nore]map!     [  -   | yes | yes |  -  |  -  |  -  |  -   |  -   ](#  -   | yes | yes |  -  |  -  |  -  |  -   |  -   )
-i[nore]map     [  -   | yes |  -  |  -  |  -  |  -  |  -   |  -   ](#  -   | yes |  -  |  -  |  -  |  -  |  -   |  -   )
-c[nore]map     [  -   |  -  | yes |  -  |  -  |  -  |  -   |  -   ](#  -   |  -  | yes |  -  |  -  |  -  |  -   |  -   )
-v[nore]map     [  -   |  -  |  -  | yes | yes |  -  |  -   |  -   ](#  -   |  -  |  -  | yes | yes |  -  |  -   |  -   )
-x[nore]map     [  -   |  -  |  -  | yes |  -  |  -  |  -   |  -   ](#  -   |  -  |  -  | yes |  -  |  -  |  -   |  -   )
-s[nore]map     [  -   |  -  |  -  |  -  | yes |  -  |  -   |  -   ](#  -   |  -  |  -  |  -  | yes |  -  |  -   |  -   )
-o[nore]map     [  -   |  -  |  -  |  -  |  -  | yes |  -   |  -   ](#  -   |  -  |  -  |  -  |  -  | yes |  -   |  -   )
-t[nore]map     [  -   |  -  |  -  |  -  |  -  |  -  | yes  |  -   ](#  -   |  -  |  -  |  -  |  -  |  -  | yes  |  -   )
-l[nore]map     [  -   | yes | yes |  -  |  -  |  -  |  -   | yes  ](#  -   | yes | yes |  -  |  -  |  -  |  -   | yes  )
+[nore]map      | yes  |  -  |  -  | yes | yes | yes |  -   |  -   |
+n[nore]map     | yes  |  -  |  -  |  -  |  -  |  -  |  -   |  -   |
+[nore]map!     |  -   | yes | yes |  -  |  -  |  -  |  -   |  -   |
+i[nore]map     |  -   | yes |  -  |  -  |  -  |  -  |  -   |  -   |
+c[nore]map     |  -   |  -  | yes |  -  |  -  |  -  |  -   |  -   |
+v[nore]map     |  -   |  -  |  -  | yes | yes |  -  |  -   |  -   |
+x[nore]map     |  -   |  -  |  -  | yes |  -  |  -  |  -   |  -   |
+s[nore]map     |  -   |  -  |  -  |  -  | yes |  -  |  -   |  -   |
+o[nore]map     |  -   |  -  |  -  |  -  |  -  | yes |  -   |  -   |
+t[nore]map     |  -   |  -  |  -  |  -  |  -  |  -  | yes  |  -   |
+l[nore]map     |  -   | yes | yes |  -  |  -  |  -  |  -   | yes  |
 
 
     COMMANDS				      MODES ~
@@ -419,7 +419,7 @@ l[nore]map     [  -   | yes | yes |  -  |  -  |  -  |  -   | yes  ](#  -   | yes
 ### <a id="mapmode-x mapmode-s" class="section-title" href="#mapmode-x mapmode-s">Note:</a>
 Some commands work both in Visual and Select mode, some in only one.  Note
 that quite often "Visual" is mentioned where both Visual and Select mode
-apply. [Select-mode-mapping](#Select-mode-mapping)
+apply. [Select-mode-mapping](undefined#Select-mode-mapping)
 NOTE: Mapping a printable character in Select mode may confuse the user.  It's
 better to explicitly use :xmap and :smap for printable characters.  Or use
 :sunmap after defining the mapping.
@@ -440,7 +440,7 @@ Some commands work both in Insert mode and Command-line mode, some not:
 :cmap  :cnoremap  :cunmap  :cmapclear	     -	       yes	   -
 :lmap  :lnoremap  :lunmap  :lmapclear	    yes*       yes*	  yes*
 
-* If 'iminsert' is 1, see [language-mapping](#language-mapping) below.
+* If 'iminsert' is 1, see [language-mapping](undefined#language-mapping) below.
 
 The original Vi did not have separate mappings for
 Normal/Visual/Operator-pending mode and for Insert/Command-line mode.
@@ -451,7 +451,7 @@ several modes.  In Vim you can use the ":nmap", ":vmap", ":omap", ":cmap" and
 ### <a id="omap-info" class="section-title" href="#omap-info">Note:</a>
 Operator-pending mappings can be used to define a movement command that can be
 used with any operator.  Simple example:
-	:omap { w
+```	:omap { w
 makes "y{" work like "yw" and "d{" like "dw".
 
 To ignore the starting cursor position and select different text, you can have
@@ -483,9 +483,9 @@ Generally: Whenever a character is to be typed that is part of the text in the
 buffer, not a Vim command character.  "Lang-Arg" isn't really another mode,
 it's just used here for this situation.
    The simplest way to load a set of related language mappings is by using the
-'keymap' option.  See [45.5](#45.5).
+'keymap' option.  See |45.5|.
    In Insert mode and in Command-line mode the mappings can be disabled with
-the CTRL-^ command [i_CTRL-^| |c_CTRL-^](#i_CTRL-^| |c_CTRL-^). These commands change the value of
+the CTRL-^ command |i_CTRL-^| |c_CTRL-^|. These commands change the value of
 the 'iminsert' option.  When starting to enter a normal command line (not a
 search pattern) the mappings are disabled until a CTRL-^ is typed.  The state
 last used is remembered for Insert mode and Search patterns separately.  The
@@ -524,11 +524,11 @@ Everything from the first non-blank after {lhs} up to the end of the line
 with a space.
 
 Note: When using mappings for Visual mode, you can use the "'<" mark, which
-is the start of the last selected Visual area in the current buffer ['<](#'<).
+is the start of the last selected Visual area in the current buffer |'<|.
 
-The [:filter](#:filter) command can be used to select what mappings to list.  The
+The |:filter| command can be used to select what mappings to list.  The
 pattern is matched against the {lhs} and {rhs} in the raw form.  If a
-description was added using [nvim_set_keymap()| or |nvim_buf_set_keymap()](#nvim_set_keymap()| or |nvim_buf_set_keymap())
+description was added using |nvim_set_keymap()| or |nvim_buf_set_keymap()|
 then the pattern is also matched against it.
 
 ### <a id=":map-verbose" class="section-title" href="#:map-verbose">Note:</a>
@@ -539,7 +539,7 @@ last defined.  Example:
 ### <a id="<C-W>" class="section-title" href="#<C-W>">	n</a>
 		Last set from ~/.config/nvim/init.vim
 
-See [:verbose-cmd](#:verbose-cmd) for more information.
+See |:verbose-cmd| for more information.
 
 
 ### <a id=":map-special-keys" class="section-title" href="#:map-special-keys">1.5 Mapping Special Keys</a>
@@ -548,12 +548,12 @@ There are two ways to map a special key:
 1. The Vi-compatible method: Map the key code.  Often this is a sequence that
    starts with <Esc>.  To enter a mapping like this you type ":map " and then
    you have to type CTRL-V before hitting the function key.  Note that when
-   the key code for the key is in the [terminfo](#terminfo) entry, it will automatically
+   the key code for the key is in the [terminfo](undefined#terminfo) entry, it will automatically
    be translated into the internal code and become the second way of mapping.
 2. The second method is to use the internal code for the function key.  To
    enter such a mapping type CTRL-K and then hit the function key, or use
    the form "#1", "#2", .. "#9", "#0", "<Up>", "<S-Down>", "<S-F7>", etc.
-   (see table of keys [key-notation](#key-notation), all keys from <Up> can be used).  The
+   (see table of keys [key-notation](undefined#key-notation), all keys from <Up> can be used).  The
    first ten function keys can be defined in two ways: Just the number, like
    "#2", and with "<F>", like "<F2>".  Both stand for function key 2.  "#0"
    refers to function key 10.
@@ -572,7 +572,7 @@ script file.
 ### <a id="map_backslash map-backslash" class="section-title" href="#map_backslash map-backslash">Note:</a>
 Note that only CTRL-V is mentioned here as a special character for mappings
 and abbreviations.  When 'cpoptions' does not contain 'B', a backslash can
-also be used like CTRL-V.  The <> notation can be fully used then [<>](#<>).  But
+also be used like CTRL-V.  The <> notation can be fully used then |<>|.  But
 you cannot use "<C-V>" like CTRL-V to escape the special meaning of what
 follows.
 
@@ -592,13 +592,13 @@ To include a space in {lhs} precede it with a CTRL-V (type two CTRL-Vs for
 each space).
 ### <a id="map_space_in_rhs map-space_in_rhs" class="section-title" href="#map_space_in_rhs map-space_in_rhs">Note:</a>
 If you want a {rhs} that starts with a space, use "<Space>".  To be fully Vi
-compatible (but unreadable) don't use the [<>](#<>) notation, precede {rhs} with a
+compatible (but unreadable) don't use the |<>| notation, precede {rhs} with a
 single CTRL-V (you have to type CTRL-V two times).
 ### <a id="map_empty_rhs map-empty-rhs" class="section-title" href="#map_empty_rhs map-empty-rhs">Note:</a>
 You can create an empty {rhs} by typing nothing after a single CTRL-V (you
 have to type CTRL-V two times).  Unfortunately, you cannot do this in a vimrc
 file.
-							[<Nop>](#<Nop>)
+							|<Nop>|
 An easier way to get a mapping that doesn't produce anything, is to use
 "<Nop>" for the {rhs}.  For example, to disable function key 8:
 	:map  <F8>  <Nop>
@@ -608,7 +608,7 @@ An easier way to get a mapping that doesn't produce anything, is to use
 ### <a id="map-multibyte" class="section-title" href="#map-multibyte">Note:</a>
 It is possible to map multibyte characters, but only the whole character.  You
 cannot map the first byte only.  This was done to prevent problems in this
-scenario: 
+scenario:
 ```	:set encoding=latin1
 	:imap <M-C> foo
 	:set encoding=utf-8
@@ -650,16 +650,16 @@ underscore.
 
 ### <a id="map-<SID>" class="section-title" href="#map-<SID>">Note:</a>
 In a script the special key name "<SID>" can be used to define a mapping
-that's local to the script.  See [<SID>](#<SID>) for details.
+that's local to the script.  See |<SID>| for details.
 
 ### <a id="<Plug>" class="section-title" href="#<Plug>">Note:</a>
 The special key name "<Plug>" can be used for an internal mapping, which is
 not to be matched with any key sequence.  This is useful in plugins
-[using-<Plug>](#using-<Plug>).
+|using-<Plug>|.
 
 ### <a id="<Char> <Char->" class="section-title" href="#<Char> <Char->">Note:</a>
-To map a character by its decimal, octal or hexadecimal number the <Char
-```construct can be used:
+To map a character by its decimal, octal or hexadecimal number the <Char>
+construct can be used:
 	<Char-123>	character 123
 	<Char-033>	character 27
 	<Char-0x7f>	character 127
@@ -678,8 +678,8 @@ command, you will have to do something special to include  a '|' in {rhs}.
 There are three methods:
    use	     works when			   example	~
    <Bar>     always			   :map _l :!ls <Bar> more^M
-   \[	     'b' is not in 'cpoptions'	   :map _l :!ls \](#	     'b' is not in 'cpoptions'	   :map _l :!ls \) more^M
-   ^V[	     always			   :map _l :!ls ^V](#	     always			   :map _l :!ls ^V) more^M
+   \|	     'b' is not in 'cpoptions'	   :map _l :!ls \| more^M
+   ^V|	     always			   :map _l :!ls ^V| more^M
 
 (here ^V stands for CTRL-V; to get one CTRL-V you have to type it twice; you
 cannot use the <> notation "<C-V>" here).
@@ -693,7 +693,7 @@ illogical when compared to other commands.
 ### <a id="map_return map-return" class="section-title" href="#map_return map-return">Note:</a>
 When you have a mapping that contains an Ex command, you need to put a line
 terminator after it to have it executed.  The use of <CR> is recommended for
-this (see [<>](#<>)).  Example:
+this (see |<>|).  Example:
    :map  _ls  :!ls -l %:S<CR>:echo "the end"<CR>
 
 To avoid mapping of the characters you type in insert or Command-line mode,
@@ -718,13 +718,13 @@ suggestions:
 - Function keys <F2>, <F3>, etc..  Also the shifted function keys <S-F1>,
   <S-F2>, etc.  Note that <F1> is already used for the help command.
 - Meta-keys (with the ALT key pressed).  Depending on your keyboard accented
-  characters may be used as well. [:map-alt-keys](#:map-alt-keys)
+  characters may be used as well. |:map-alt-keys|
 - Use the '_' or ',' character and then any other character.  The "_" and ","
-  commands do exist in Vim (see [_| and |,](#_| and |,)), but you probably never use them.
+  commands do exist in Vim (see |_| and |,|), but you probably never use them.
 - Use a key that is a synonym for another command.  For example: CTRL-P and
   CTRL-N.  Use an extra character to allow more mappings.
 - The key defined by <Leader> and one or more other keys.  This is especially
-  useful in scripts. [mapleader](#mapleader)
+  useful in scripts. [mapleader](undefined#mapleader)
 
 See the file "index" for keys that are not used and thus can be mapped without
 losing any builtin function.  You can also use ":help {key}^D" to find out if
@@ -750,7 +750,7 @@ typed before the {lhs}.  For example, with this mapping:
 Typing 2<F4> will result in "23w". Thus not moving 2 * 3 words but 23 words.
 If you want to multiply counts use the expression register:
    :map <F4>  @='3w'<CR>
-The part between quotes is the expression being executed. [@=](#@=)
+The part between quotes is the expression being executed. |@=|
 
 
 ### <a id="map-typing" class="section-title" href="#map-typing">1.9 Using Mappings</a>
@@ -767,7 +767,7 @@ you type slowly, or your system is slow, reset the 'timeout' option.  Then you
 might want to set the 'ttimeout' option.
 
 ### <a id="map-precedence" class="section-title" href="#map-precedence">Note:</a>
-Buffer-local mappings (defined using [:map-<buffer>](#:map-<buffer>)) take precedence over
+Buffer-local mappings (defined using |:map-<buffer>|) take precedence over
 global mappings.  When a buffer-local mapping is the same as a global mapping,
 Vim will use the buffer-local mapping.  In addition, Vim will use a complete
 mapping immediately if it was defined with <nowait>, even if a longer mapping
@@ -840,7 +840,7 @@ in the original Vi, you would get back the text before the first undo).
 
 ### <a id=":map-alt-keys" class="section-title" href="#:map-alt-keys">1.10 Mapping Alt-Keys</a>
 
-In the GUI Nvim handles the [ALT](#ALT) key itself, thus mapping keys with ALT
+In the GUI Nvim handles the [ALT](undefined#ALT) key itself, thus mapping keys with ALT
 should always work.  But in a terminal Nvim gets a sequence of bytes and has
 to figure out whether ALT was pressed.  Terminals may use ESC to indicate that
 ALT was pressed.  If ESC is followed by a {key} within 'ttimeoutlen'
@@ -853,7 +853,7 @@ otherwise it is interpreted as two key presses:
 
 An operator is used before a {motion} command.  To define your own operator
 you must create a mapping that first sets the 'operatorfunc' option and then
-invoke the [g@](#g@) operator.  After the user types the {motion} command the
+invoke the |g@| operator.  After the user types the {motion} command the
 specified function will be called.
 
 ### <a id="g@ E774 E775" class="section-title" href="#g@ E774 E775">Note:</a>
@@ -862,10 +862,10 @@ g@{motion}		Call the function set by the 'operatorfunc' option.
 			moved over by {motion}, the '] mark on the last
 			character of the text.
 			The function is called with one String argument:
-			    "line"	{motion} was [linewise](#linewise)
-			    "char"	{motion} was [charwise](#charwise)
-			    "block"	{motion} was [blockwise-visual](#blockwise-visual)
-			The type can be forced, see [forced-motion](#forced-motion).
+			    "line"	{motion} was [linewise](undefined#linewise)
+			    "char"	{motion} was [charwise](undefined#charwise)
+			    "block"	{motion} was [blockwise-visual](undefined#blockwise-visual)
+			The type can be forced, see [forced-motion](undefined#forced-motion).
 
 Here is an example that counts the number of spaces with <F4>:
 
@@ -965,7 +965,7 @@ which is used to expand an abbreviation without inserting any extra
 characters.
 
 Example:
-   :ab hh	hello
+```   :ab hh	hello
 	    "hh<Space>" is expanded to "hello<Space>"
 	    "hh<C-]>" is expanded to "hello"
 
@@ -1027,7 +1027,7 @@ Abbreviations are disabled if the 'paste' option is on.
 
 ### <a id=":abbreviate-local :abbreviate-<buffer>" class="section-title" href="#:abbreviate-local :abbreviate-<buffer>">Note:</a>
 Just like mappings, abbreviations can be local to a buffer.  This is mostly
-used in a [filetype-plugin](#filetype-plugin) file.  Example for a C plugin file:
+used in a [filetype-plugin](/neovim-docs-web/en/usr/usr_43#filetype-plugin) file.  Example for a C plugin file:
 	:abb <buffer> FF  for (i = 0; i < ; ++i)
 ```
 
@@ -1036,17 +1036,17 @@ used in a [filetype-plugin](#filetype-plugin) file.  Example for a C plugin file
 			column indicates the mode where the abbreviation is
 			used: 'i' for insert mode, 'c' for Command-line
 			mode, '!' for both.  These are the same as for
-			mappings, see [map-listing](#map-listing).
+			mappings, see [map-listing](undefined#map-listing).
 
 ### <a id=":abbreviate-verbose" class="section-title" href="#:abbreviate-verbose">Note:</a>
 When 'verbose' is non-zero, listing an abbreviation will also display where it
-was last defined.  Example: 
-```
+was last defined.  Example:
+
 	:verbose abbreviate
 	!  teh		 the
 		Last set from /home/abcd/vim/abbr.vim
 
-See [:verbose-cmd](#:verbose-cmd) for more information.
+See |:verbose-cmd| for more information.
 
 :ab[breviate] {lhs}	list the abbreviations that start with {lhs}
 			You may need to insert a CTRL-V (type it twice) to
@@ -1057,8 +1057,8 @@ See [:verbose-cmd](#:verbose-cmd) for more information.
 			add abbreviation for {lhs} to {rhs}.  If {lhs} already
 			existed it is replaced with the new {rhs}.  {rhs} may
 			contain spaces.
-			See [:map-<expr>](#:map-<expr>) for the optional <expr> argument.
-			See [:map-<buffer>](#:map-<buffer>) for the optional <buffer> argument.
+			See |:map-<expr>| for the optional <expr> argument.
+			See |:map-<buffer>| for the optional <buffer> argument.
 
 ### <a id=":una :unabbreviate" class="section-title" href="#:una :unabbreviate">Note:</a>
 :una[bbreviate] [<buffer>] {lhs}
@@ -1198,7 +1198,7 @@ use this function:
 The "<SNR>" will be shown when listing functions and mappings.  This is useful
 to find out what they are defined to.
 
-The [:scriptnames](#:scriptnames) command can be used to see which scripts have been sourced
+The |:scriptnames| command can be used to see which scripts have been sourced
 and what their <SNR> number is.
 
 
@@ -1209,7 +1209,7 @@ just like a built-in command (it can have a range or arguments, arguments can
 be completed as filenames or buffer names, etc), except that when the command
 is executed, it is transformed into a normal Ex command and then executed.
 
-For starters: See section [40.2](#40.2) in the user manual.
+For starters: See section |40.2| in the user manual.
 
 ### <a id="E183 E841 user-cmd-ambiguous" class="section-title" href="#E183 E841 user-cmd-ambiguous">Note:</a>
 All user defined commands must start with an uppercase letter, to avoid
@@ -1229,7 +1229,7 @@ an abbreviation is not unique, an error will be issued.  Furthermore, a
 built-in command will always take precedence.
 
 Example:
-	:command Rename ...
+```	:command Rename ...
 	:command Renumber ...
 	:Rena				" Means "Rename"
 	:Renu				" Means "Renumber"
@@ -1248,7 +1248,7 @@ scripts.
 			    b	Command is local to current buffer
 			(see below for details on attributes)
 			The list can be filtered on command name with
-			[:filter](#:filter), e.g., to list all commands with "Pyth" in
+			|:filter|, e.g., to list all commands with "Pyth" in
 			the name:
 				filter Pyth command
 
@@ -1263,7 +1263,7 @@ last defined and any completion argument. Example:
 	TOhtml	    0	 %		 :call Convert2HTML(<line1>, <line2>) ~
 	    Last set from /usr/share/vim/vim-7.0/plugin/tohtml.vim ~
 
-See [:verbose-cmd](#:verbose-cmd) for more information.
+See |:verbose-cmd| for more information.
 
 ### <a id="E174 E182" class="section-title" href="#E174 E182">Note:</a>
 :com[mand][!] [{attr}...] {cmd} {repl}
@@ -1349,8 +1349,8 @@ completion can be enabled:
 	-complete=event		autocommand events
 	-complete=expression	Vim expression
 	-complete=file		file and directory names
-	-complete=file_in_path	file and directory names in ['path'](#'path')
-	-complete=filetype	filetype names ['filetype'](#'filetype')
+	-complete=file_in_path	file and directory names in |'path'|
+	-complete=filetype	filetype names |'filetype'|
 	-complete=function	function name
 	-complete=help		help subjects
 	-complete=highlight	highlight groups
@@ -1360,13 +1360,13 @@ completion can be enabled:
 	-complete=mapclear	buffer argument
 	-complete=mapping	mapping name
 	-complete=menu		menus
-	-complete=messages	[:messages](#:messages) suboptions
+	-complete=messages	|:messages| suboptions
 	-complete=option	options
-	-complete=packadd	optional package [pack-add](#pack-add) names
+	-complete=packadd	optional package [pack-add](undefined#pack-add) names
 	-complete=shellcmd	Shell command
-	-complete=sign		[:sign](#:sign) suboptions
-	-complete=syntax	syntax file names ['syntax'](#'syntax')
-	-complete=syntime	[:syntime](#:syntime) suboptions
+	-complete=sign		|:sign| suboptions
+	-complete=syntax	syntax file names |'syntax'|
+	-complete=syntime	|:syntime| suboptions
 	-complete=tag		tags
 	-complete=tag_listfiles	tags, file names are shown when CTRL-D is hit
 	-complete=user		user names
@@ -1432,19 +1432,19 @@ Range handling ~
 By default, user-defined commands do not accept a line number range.  However,
 it is possible to specify that the command does take a range (the -range
 attribute), or that it takes an arbitrary count value, either in the line
-number position (-range=N, like the [:split](#:split) command) or as a "count"
-argument (-count=N, like the [:Next](#:Next) command).  The count will then be
-available in the argument with [<count>](#<count>).
+number position (-range=N, like the |:split| command) or as a "count"
+argument (-count=N, like the |:Next| command).  The count will then be
+available in the argument with |<count>|.
 
 Possible attributes are:
 
 	-range	    Range allowed, default is current line
 	-range=%    Range allowed, default is whole file (1,$)
 	-range=N    A count (default N) which is specified in the line
-		    number position (like [:split](#:split)); allows for zero line
+		    number position (like |:split|); allows for zero line
 		    number.
 	-count=N    A count (default N) which is specified either in the line
-		    number position, or as an initial argument (like [:Next](#:Next)).
+		    number position, or as an initial argument (like |:Next|).
 		    Specifying -count (without a default) acts like -count=0
 
 Note that -range=N and -count=N are mutually exclusive - only one should be
@@ -1469,17 +1469,17 @@ Possible values are (second column is the short name used in listing):
 Incremental preview ~
 ### <a id=":command-preview {nvim-api}" class="section-title" href="#:command-preview {nvim-api}">Note:</a>
 Commands can show an 'inccommand' (as-you-type) preview by defining a preview
-handler (only from Lua, see [nvim_create_user_command()](#nvim_create_user_command())).
+handler (only from Lua, see |nvim_create_user_command()|).
 
 Before the preview callback is executed, Nvim will temporarily disable
 'cursorline' and 'cursorcolumn' to avoid highlighting issues.
 
-The preview callback must be a Lua function with this signature: 
+The preview callback must be a Lua function with this signature:
 ```
     function cmdpreview(opts, ns, buf)
 ```
 
-where "opts" has the same form as that given to [nvim_create_user_command()](#nvim_create_user_command())
+where "opts" has the same form as that given to |nvim_create_user_command()|
 callbacks, "ns" is the preview namespace id for highlights, and "buf" is the
 buffer that your preview routine will directly modify to show the previewed
 results (for "inccommand=split", or nil for  "inccommand=nosplit").
@@ -1487,13 +1487,13 @@ results (for "inccommand=split", or nil for  "inccommand=nosplit").
 Your command preview routine must implement this protocol:
 
 1. Modify the target buffers as required for the preview (see
-   [nvim_buf_set_text()| and |nvim_buf_set_lines()](#nvim_buf_set_text()| and |nvim_buf_set_lines())).
+   |nvim_buf_set_text()| and |nvim_buf_set_lines()|).
 2. If preview buffer is provided, add necessary text to the preview buffer.
 3. Add required highlights to the target buffers. If preview buffer is
    provided, add required highlights to the preview buffer as well. All
    highlights must be added to the preview namespace which is provided as an
-   argument to the preview callback (see [nvim_buf_add_highlight()](#nvim_buf_add_highlight()) and
-   [nvim_buf_set_extmark()](#nvim_buf_set_extmark()) for help on how to add highlights to a namespace).
+   argument to the preview callback (see |nvim_buf_add_highlight()| and
+   |nvim_buf_set_extmark()| for help on how to add highlights to a namespace).
 4. Return an integer (0, 1, 2) which controls how Nvim behaves as follows:
    0: No preview is shown.
    1: Preview is shown without preview window (even with "inccommand=split").
@@ -1505,7 +1505,6 @@ preview and clears all highlights in the preview namespace.
 
 Here's an example of a command to trim trailing whitespace from lines that
 supports incremental command preview:
-
 ```	-- If invoked as a preview callback, performs 'inccommand' preview by
 	-- highlighting trailing whitespace in the current buffer.
 	local function trim_space_preview(opts, preview_ns, preview_buf)
@@ -1532,7 +1531,7 @@ supports incremental command preview:
 	      -- Add lines and set highlights in the preview buffer
 	      -- if inccommand=split
 	      if preview_buf then
-	        local prefix = string.format('[%d](#%d) ', line1 + i - 1)
+	        local prefix = string.format('|%d| ', line1 + i - 1)
 
 	        vim.api.nvim_buf_set_lines(
 	          preview_buf,
@@ -1632,14 +1631,14 @@ The valid escape sequences are
 		expands to nothing.
 ### <a id="<mods> <q-mods> :command-modifiers" class="section-title" href="#<mods> <q-mods> :command-modifiers">Note:</a>
 	<mods>  The command modifiers, if specified. Otherwise, expands to
-		nothing. Supported modifiers are [:aboveleft|, |:belowright](#:aboveleft|, |:belowright),
-		[:botright|, |:browse|, |:confirm|, |:hide|, |:horizontal](#:botright|, |:browse|, |:confirm|, |:hide|, |:horizontal),
-		[:keepalt|, |:keepjumps|, |:keepmarks|, |:keeppatterns](#:keepalt|, |:keepjumps|, |:keepmarks|, |:keeppatterns),
-		[:leftabove|, |:lockmarks|, |:noautocmd|, |:noswapfile](#:leftabove|, |:lockmarks|, |:noautocmd|, |:noswapfile)
-		[:rightbelow|, |:sandbox|, |:silent|, |:tab|, |:topleft](#:rightbelow|, |:sandbox|, |:silent|, |:tab|, |:topleft),
-		[:unsilent|, |:verbose|, and |:vertical](#:unsilent|, |:verbose|, and |:vertical).
-		Note that [:filter](#:filter) is not supported.
-		Examples: 
+		nothing. Supported modifiers are |:aboveleft|, |:belowright|,
+		|:botright|, |:browse|, |:confirm|, |:hide|, |:horizontal|,
+		|:keepalt|, |:keepjumps|, |:keepmarks|, |:keeppatterns|,
+		|:leftabove|, |:lockmarks|, |:noautocmd|, |:noswapfile|
+		|:rightbelow|, |:sandbox|, |:silent|, |:tab|, |:topleft|,
+		|:unsilent|, |:verbose|, and |:vertical|.
+		Note that |:filter| is not supported.
+		Examples:
 ```		    command! -nargs=+ -complete=file MyEdit
 				\ for f in expand(<q-args>, 0, 1) |
 				\ exe '<mods> split ' .. f |
@@ -1656,8 +1655,8 @@ The valid escape sequences are
 
 ### <a id="<reg> <register>" class="section-title" href="#<reg> <register>">Note:</a>
 	<reg>	(See the '-register' attribute) The optional register,
-		if specified.  Otherwise, expands to nothing.  <register
-```		is a synonym for this.
+		if specified.  Otherwise, expands to nothing.  <register>
+		is a synonym for this.
 ### <a id="<args>" class="section-title" href="#<args>">Note:</a>
 	<args>	The command arguments, exactly as supplied (but as
 		noted above, any count or register can consume some
@@ -1672,7 +1671,7 @@ If the first two characters of an escape sequence are "q-" (for example,
 q-args>) then the value is quoted in such a way as to make it a valid value
 for use in an expression.  This uses the argument as one single value.
 When there is no argument <q-args> is an empty string.  See the
-[q-args-example](#q-args-example) below.
+[q-args-example](undefined#q-args-example) below.
 ### <a id="<f-args>" class="section-title" href="#<f-args>">Note:</a>
 To allow commands to pass their arguments on to a user-defined function, there
 is a special form <f-args> ("function args").  This splits the command
@@ -1682,7 +1681,7 @@ See the Mycmd example below.  If no arguments are given <f-args> is removed.
    To embed whitespace into an argument of <f-args>, prepend a backslash.
 f-args> replaces every pair of backslashes (\\) with one backslash.  A
 backslash followed by a character other than white space or a backslash
-remains unmodified.  Also see [f-args-example](#f-args-example) below.  Overview:
+remains unmodified.  Also see [f-args-example](undefined#f-args-example) below.  Overview:
 
 	command		   <f-args> ~
 	XX ab		   "ab"
@@ -1698,7 +1697,7 @@ remains unmodified.  Also see [f-args-example](#f-args-example) below.  Overview
 
 
 Examples for user commands:
-
+```
    " Delete everything after here to the end
    :com Ddel +,$d
 
@@ -1708,7 +1707,7 @@ Examples for user commands:
    " Replace a range with the contents of a file
    " (Enter this all as one line)
    :com -range -nargs=1 -complete=file
-	 Replace <line1>-pu_[<line1>,<line2>d|r <args>](#<line1>,<line2>d|r <args>)<line1>d
+	 Replace <line1>-pu_|<line1>,<line2>d|r <args>|<line1>d
 
    " Count the number of lines in the range
    :com! -range -nargs=0 Lines  echo <line2> - <line1> + 1 "lines"
@@ -1747,7 +1746,7 @@ This will invoke:
 When defining a user command in a script, it will be able to call functions
 local to the script and use mappings local to the script.  When the user
 invokes the user command, it will run in the context of the script it was
-defined in.  This matters if [<SID>](#<SID>) is used in a command.
+defined in.  This matters if |<SID>| is used in a command.
 
  vim:tw=78:ts=8:noet:ft=help:norl:
 

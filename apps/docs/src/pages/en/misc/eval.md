@@ -12,9 +12,9 @@ VIM REFERENCE MANUAL	  by Bram Moolenaar
 
 ### <a id="expression expr E15 eval" class="section-title" href="#expression expr E15 eval">Expression evaluation</a>
 
-Using expressions is introduced in chapter 41 of the user manual [usr_41.txt](#usr_41.txt).
+Using expressions is introduced in chapter 41 of the user manual |usr_41.txt|.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="variables" class="section-title" href="#variables">1. Variables</a> 
@@ -24,32 +24,32 @@ Type [gO](#gO) to see the table of contents.
 There are seven types of variables:
 
 ### <a id="Number Integer" class="section-title" href="#Number Integer">Note:</a>
-Number		A 32 or 64 bit signed number.  [expr-number](#expr-number)
-The number of bits is available in [v:numbersize](#v:numbersize).
+Number		A 32 or 64 bit signed number.  [[[expr-number](/undefined#expr-number)](/undefined)](/undefined)
+The number of bits is available in |v:numbersize|.
 Examples:  -123  0x10  0177  0o177  0b1011
 
-### <a id="A floating point number. [floating-point-format](#floating-point-format) Float" class="section-title" href="#A floating point number. [floating-point-format](#floating-point-format) Float">Float</a>
+### <a id="A floating point number. [[[floating-point-format](/undefined#floating-point-format)](/undefined)](/undefined) Float" class="section-title" href="#A floating point number. [[[floating-point-format](/undefined#floating-point-format)](/undefined)](/undefined) Float">Float</a>
 Examples: 123.456  1.15e-6  -1.1e3
 
 String		A NUL terminated string of 8-bit unsigned characters (bytes).
-[expr-string](#expr-string) Examples: "ab\txx\"--"  'x-z''a,c'
+[[[expr-string](/undefined#expr-string)](/undefined)](/undefined) Examples: "ab\txx\"--"  'x-z''a,c'
 
-Funcref		A reference to a function [Funcref](#Funcref).
+Funcref		A reference to a function [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 Example: function("strlen")
 It can be bound to a dictionary and arguments, it then works
 like a Partial.
 Example: function("Callback", [arg], myDict)
 
-List		An ordered sequence of items, see [List](#List) for details.
+List		An ordered sequence of items, see [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) for details.
 Example: [1, 2, ['a', 'b']]
 
 Dictionary	An associative, unordered array: Each entry has a key and a
-value. [Dictionary](#Dictionary)
+value. [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Examples:
 {"blue": "#0000ff", "red": "#ff0000"}
 #{blue: "#0000ff", red: "#ff0000"}
 
-Blob		Binary Large Object. Stores any sequence of bytes.  See [Blob](#Blob)
+Blob		Binary Large Object. Stores any sequence of bytes.  See [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 for details.
 Example: 0zFF00ED015DAF
 0z is an empty Blob.
@@ -82,11 +82,11 @@ To force conversion from String to Number, add zero to it:
 64 ~
 
 To avoid a leading zero to cause octal conversion, or for using a different
-base, use [str2nr()](#str2nr()).
+base, use |str2nr()|.
 
 ### <a id="TRUE FALSE Boolean" class="section-title" href="#TRUE FALSE Boolean">Note:</a>
 For boolean operators Numbers are used.  Zero is FALSE, non-zero is TRUE.
-You can also use [v:false| and |v:true](#v:false| and |v:true).
+You can also use |v:false| and |v:true|.
 When TRUE is returned from a function it is the Number one, FALSE is the
 number zero.
 
@@ -102,15 +102,15 @@ To test for a non-empty string, use empty():
 ```
 
 ### <a id="non-zero-arg" class="section-title" href="#non-zero-arg">Note:</a>
-Function arguments often behave slightly different from [TRUE](#TRUE): If the
-argument is present and it evaluates to a non-zero Number, [v:true](#v:true) or a
+Function arguments often behave slightly different from [[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined): If the
+argument is present and it evaluates to a non-zero Number, |v:true| or a
 non-empty String, then the value is considered to be TRUE.
 Note that " " and "0" are also non-empty strings, thus considered to be TRUE.
 A List, Dictionary or Float is not a Number or String, thus evaluate to FALSE.
 
 ### <a id="E745 E728 E703 E729 E730 E731" class="section-title" href="#E745 E728 E703 E729 E730 E731">Note:</a>
 ### <a id="E974 E975 E976" class="section-title" href="#E974 E975 E976">Note:</a>
-[List|, |Dictionary|, |Funcref|, and |Blob](#List|, |Dictionary|, |Funcref|, and |Blob) types are not automatically
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), and [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) types are not automatically
 converted.
 
 ### <a id="E805 E806 E808" class="section-title" href="#E805 E806 E808">Note:</a>
@@ -127,8 +127,8 @@ You will not get an error if you try to change the type of a variable.
 
 1.2 Function references ~
 ### <a id="Funcref E695 E718" class="section-title" href="#Funcref E695 E718">Note:</a>
-A Funcref variable is obtained with the [function()| function, the |funcref()](#function()| function, the |funcref())
-function or created with the lambda expression [expr-lambda](#expr-lambda).  It can be used
+A Funcref variable is obtained with the |function()| function, the |funcref()|
+function or created with the lambda expression [[expr-lambda](/undefined#expr-lambda)](/undefined).  It can be used
 in an expression in the place of a function name, before the parenthesis
 around the arguments, to invoke the function it refers to.  Example: 
 ```
@@ -146,16 +146,16 @@ Dictionary entry.  Example:
 :endfunction
 
 The key of the Dictionary can start with a lower case letter.  The actual
-function name is not used here.  Also see [numbered-function](#numbered-function).
+function name is not used here.  Also see [[[numbered-function](/undefined#numbered-function)](/undefined)](/undefined).
 
-A Funcref can also be used with the [:call](#:call) command:
+A Funcref can also be used with the |:call| command:
 :call Fn()
 :call dict.init()
 
-The name of the referenced function can be obtained with [string()](#string()).
+The name of the referenced function can be obtained with |string()|.
 :let func = string(Fn)
 
-You can use [call()](#call()) to invoke a Funcref and use a list variable for the
+You can use |call()| to invoke a Funcref and use a list variable for the
 arguments:
 :let r = call(Fn, mylist)
 ```
@@ -231,7 +231,7 @@ A negative index is counted from the end.  Index -1 refers to the last item in
 the List, -2 to the last but one item, etc. 
 ```	:let last = mylist[-1]		" get the last item: "four"
 
-To avoid an error for an invalid index use the [get()](#get()) function.  When an item
+To avoid an error for an invalid index use the |get()| function.  When an item
 is not available it returns zero or the default value you specify:
 :echo get(mylist, idx)
 :echo get(mylist, idx, "NONE")
@@ -244,7 +244,7 @@ Two lists can be concatenated with the "+" operator:
 :let mylist += [7, 8]
 
 To prepend or append an item turn the item into a list by putting [] around
-it.  To change a list in-place see [list-modification](#list-modification) below.
+it.  To change a list in-place see [[list-modification](/undefined#list-modification)](/undefined) below.
 
 
 Sublist ~
@@ -284,7 +284,7 @@ change "bb":
 :echo bb
 [1, 2, 3, 4]
 
-Making a copy of a list is done with the [copy()](#copy()) function.  Using [:] also
+Making a copy of a list is done with the |copy()| function.  Using [:] also
 works, as explained above.  This creates a shallow copy of the list: Changing
 a list item in the list will also change the item in the copied list:
 :let aa = [[1, 'a'], 2, 3]
@@ -296,7 +296,7 @@ a list item in the list will also change the item in the copied list:
 :echo bb
 [[1, aaa], 2, 3]
 
-To make a completely independent list use [deepcopy()](#deepcopy()).  This also makes a
+To make a completely independent list use |deepcopy()|.  This also makes a
 copy of the values in the list, recursively.  Up to a hundred levels deep.
 
 The operator "is" can be used to check if two variables refer to the same
@@ -352,7 +352,7 @@ empty list then.
 
 List modification ~
 ### <a id="list-modification" class="section-title" href="#list-modification">Note:</a>
-To change a specific item of a list use [:let](#:let) this way:
+To change a specific item of a list use |:let| this way:
 :let list[4] = "four"
 :let listlist[0][3] = item
 
@@ -381,7 +381,7 @@ Changing the order of items in a list:
 
 For loop ~
 
-The [:for| loop executes commands for each item in a |List|, |String| or |Blob](#:for| loop executes commands for each item in a |List|, |String| or |Blob).
+The |:for| loop executes commands for each item in a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[String](/undefined#String)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 A variable is set to each item in sequence.  Example with a List:
 :for item in mylist
 :   call Doit(item)
@@ -395,16 +395,16 @@ This works like:
 :   let index = index + 1
 :endwhile
 
-If all you want to do is modify each item in the list then the [map()](#map())
+If all you want to do is modify each item in the list then the |map()|
 function will be a simpler method than a for loop.
 
-Just like the [:let| command, |:for](#:let| command, |:for) also accepts a list of variables.  This
+Just like the |:let| command, |:for| also accepts a list of variables.  This
 requires the argument to be a List of Lists.
 :for [lnum, col] in [[1, 3], [2, 8], [3, 0]]
 :   call Doit(lnum, col)
 :endfor
 
-This works like a [:let](#:let) command is done for each list item.  Again, the types
+This works like a |:let| command is done for each list item.  Again, the types
 must remain the same to avoid an error.
 
 It is also possible to put remaining items in a List variable:
@@ -489,7 +489,7 @@ The normal way to access an entry is by putting the key in square brackets:
 You can add new entries to an existing Dictionary this way, unlike Lists.
 
 For keys that consist entirely of letters, digits and underscore the following
-form can be used [expr-entry](#expr-entry):
+form can be used [[[[expr-entry](/undefined#expr-entry)](/undefined)](/undefined)](/undefined):
 :let val = mydict.one
 :let mydict.four = 4
 
@@ -501,9 +501,9 @@ key lookup can be repeated:
 Dictionary to List conversion ~
 
 You may want to loop over the entries in a dictionary.  For this you need to
-turn the Dictionary into a List and pass it to [:for](#:for).
+turn the Dictionary into a List and pass it to |:for|.
 
-Most often you want to loop over the keys, using the [keys()](#keys()) function:
+Most often you want to loop over the keys, using the |keys()| function:
 :for key in keys(mydict)
 :   echo key .. ': ' .. mydict[key]
 :endfor
@@ -511,12 +511,12 @@ Most often you want to loop over the keys, using the [keys()](#keys()) function:
 The List of keys is unsorted.  You may want to sort them first:
 :for key in sort(keys(mydict))
 
-To loop over the values use the [values()](#values()) function:
+To loop over the values use the |values()| function:
 :for v in values(mydict)
 :   echo "value: " .. v
 :endfor
 
-If you want both the key and the value use the [items()](#items()) function.  It returns
+If you want both the key and the value use the |items()| function.  It returns
 a List in which each item is a List with two items, the key and the value:
 :for [key, value] in items(mydict)
 :   echo key .. ': ' .. value
@@ -525,7 +525,7 @@ a List in which each item is a List with two items, the key and the value:
 
 Dictionary identity ~
 ### <a id="dict-identity" class="section-title" href="#dict-identity">Note:</a>
-Just like Lists you need to use [copy()| and |deepcopy()](#copy()| and |deepcopy()) to make a copy of a
+Just like Lists you need to use |copy()| and |deepcopy()| to make a copy of a
 Dictionary.  Otherwise, assignment results in referring to the same
 Dictionary:
 :let onedict = {'a': 1, 'b': 2}
@@ -535,23 +535,23 @@ Dictionary:
 11
 
 Two Dictionaries compare equal if all the key-value pairs compare equal.  For
-more info see [list-identity](#list-identity).
+more info see [[list-identity](/undefined#list-identity)](/undefined).
 
 
 Dictionary modification ~
 ### <a id="dict-modification" class="section-title" href="#dict-modification">Note:</a>
 To change an already existing entry of a Dictionary, or to add a new entry,
-use [:let](#:let) this way:
+use |:let| this way:
 :let dict[4] = "four"
 :let dict['one'] = item
 
-Removing an entry from a Dictionary is done with [remove()| or |:unlet](#remove()| or |:unlet).
+Removing an entry from a Dictionary is done with |remove()| or |:unlet|.
 Three ways to remove the entry with key "aaa" from dict:
 :let i = remove(dict, 'aaa')
 :unlet dict.aaa
 :unlet dict['aaa']
 
-Merging a Dictionary with another is done with [extend()](#extend()):
+Merging a Dictionary with another is done with |extend()|:
 :call extend(adict, bdict)
 This extends adict with all entries from bdict.  Duplicate keys cause entries
 in adict to be overwritten.  An optional third argument can change this.
@@ -559,7 +559,7 @@ Note that the order of entries in a Dictionary is irrelevant, thus don't
 expect ":echo adict" to show the items from bdict after the older entries in
 adict.
 
-Weeding out entries from a Dictionary can be done with [filter()](#filter()):
+Weeding out entries from a Dictionary can be done with |filter()|:
 :call filter(dict, 'v:val =~ "x"')
 This removes all entries from "dict" with a value not matching 'x'.
 This can also be used to remove all entries:
@@ -577,7 +577,7 @@ special way with a dictionary.  Example:
 :echo mydict.len()
 
 This is like a method in object oriented programming.  The entry in the
-Dictionary is a [Funcref](#Funcref).  The local variable "self" refers to the dictionary
+Dictionary is a [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  The local variable "self" refers to the dictionary
 the function was invoked from.
 
 It is also possible to add a function without the "dict" attribute as a
@@ -592,9 +592,9 @@ assigned to a Dictionary in this way:
 :endfunction
 :echo mydict.len()
 
-The function will then get a number and the value of dict.len is a [Funcref](#Funcref)
+The function will then get a number and the value of dict.len is a [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 that references this function.  The function can only be used through a
-[Funcref|.  It will automatically be deleted when there is no |Funcref](#Funcref|.  It will automatically be deleted when there is no |Funcref)
+[[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  It will automatically be deleted when there is no [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 remaining that refers to it.
 
 It is not necessary to use the "dict" attribute for a numbered function.
@@ -622,19 +622,19 @@ Functions that can be used with a Dictionary:
 A Blob is a binary object.  It can be used to read an image from a file and
 send it over a channel, for example.
 
-A Blob mostly behaves like a [List](#List) of numbers, where each number has the
+A Blob mostly behaves like a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) of numbers, where each number has the
 value of an 8-bit byte, from 0 to 255.
 
 
 Blob creation ~
 
-A Blob can be created with a [blob-literal](#blob-literal):
+A Blob can be created with a [[blob-literal](/undefined#blob-literal)](/undefined):
 :let b = 0zFF00ED015DAF
 Dots can be inserted between bytes (pair of hex characters) for readability,
 they don't change the value:
 :let b = 0zFF00.ED01.5DAF
 
-A blob can be read from a file with [readfile()](#readfile()) passing the {type} argument
+A blob can be read from a file with |readfile()| passing the {type} argument
 set to "B", for example:
 :let b = readfile('image.png', 'B')
 
@@ -651,7 +651,7 @@ A negative index is counted from the end.  Index -1 refers to the last byte in
 the Blob, -2 to the last but one byte, etc.
 :let last = myblob[-1]		" get the last byte: 0x33
 
-To avoid an error for an invalid index use the [get()](#get()) function.  When an item
+To avoid an error for an invalid index use the |get()| function.  When an item
 is not available it returns -1 or the default value you specify:
 :echo get(myblob, idx)
 :echo get(myblob, idx, 999)
@@ -659,7 +659,7 @@ is not available it returns -1 or the default value you specify:
 
 Blob iteration ~
 
-The [:for](#:for) loop executes commands for each byte of a Blob.  The loop variable is
+The |:for| loop executes commands for each byte of a Blob.  The loop variable is
 set to each byte in the Blob.  Example:
 :for byte in 0z112233
 :   call Doit(byte)
@@ -673,7 +673,7 @@ Two blobs can be concatenated with the "+" operator:
 :let longblob = myblob + 0z4455
 :let myblob += 0z6677
 
-To change a blob in-place see [blob-modification](#blob-modification) below.
+To change a blob in-place see [[blob-modification](/undefined#blob-modification)](/undefined) below.
 
 
 Part of a blob ~
@@ -701,7 +701,7 @@ length minus one is used:
 
 Blob modification ~
 ### <a id="blob-modification" class="section-title" href="#blob-modification">Note:</a>
-To change a specific byte of a blob use [:let](#:let) this way:
+To change a specific byte of a blob use |:let| this way:
 :let blob[4] = 0x44
 
 When the index is just one beyond the end of the Blob, it is appended. Any
@@ -716,7 +716,7 @@ To change part of a blob you can specify the first and last byte to be
 modified.  The value must have the same number of bytes in the range:
 :let blob[3:5] = 0z334455
 
-You can also use the functions [add()|, |remove()| and |insert()](#add()|, |remove()| and |insert()).
+You can also use the functions |add()|, |remove()| and |insert()|.
 
 
 Blob identity ~
@@ -729,7 +729,7 @@ if blob is otherblob
 When variable "aa" is a Blob and you assign it to another variable "bb", both
 variables refer to the same Blob.  Then the "is" operator returns true.
 
-When making a copy using [:] or [copy()](#copy()) the values are the same, but the
+When making a copy using [:] or |copy()| the values are the same, but the
 identity is different:
 :let blob = 0z112233
 :let blob2 = blob
@@ -743,22 +743,22 @@ identity is different:
 :echo blob is blob3
 0
 
-Making a copy of a Blob is done with the [copy()](#copy()) function.  Using [:] also
+Making a copy of a Blob is done with the |copy()| function.  Using [:] also
 works, as explained above.
 
 
 1.6 More about variables ~
 ### <a id="more-variables" class="section-title" href="#more-variables">Note:</a>
-If you need to know the type of a variable or expression, use the [type()](#type())
+If you need to know the type of a variable or expression, use the |type()|
 function.
 
 When the '!' flag is included in the 'shada' option, global variables that
 start with an uppercase letter, and don't contain a lowercase letter, are
-stored in the shada file [shada-file](#shada-file).
+stored in the shada file [[shada-file](/undefined#shada-file)](/undefined).
 
 When the 'sessionoptions' option contains "global", global variables that
 start with an uppercase letter and contain at least one lowercase letter are
-stored in the session file [session-file](#session-file).
+stored in the session file [[session-file](/undefined#session-file)](/undefined).
 
 variable name		can be stored where ~
 my_var_6		not
@@ -767,23 +767,23 @@ MY_VAR_6		shada file
 
 
 It's possible to form a variable name with curly braces, see
-[curly-braces-names](#curly-braces-names).
+[[[[curly-braces-names](/undefined#curly-braces-names)](/undefined)](/undefined)](/undefined).
 
 
 ## <a id="expression-syntax" class="section-title" href="#expression-syntax">2. Expression Syntax</a> 
 
 Expression syntax summary, from least to most significant:
 
-[expr1](#expr1)	expr2
+[[[[[[expr1](/undefined#expr1)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	expr2
 expr2 ? expr1 : expr1	if-then-else
 
-[expr2](#expr2)	expr3
-expr3 || expr3 ...	logical OR
+[[expr2](/undefined#expr2)](/undefined)	expr3
+expr3 [[gO](/undefined#gO)](/undefined) expr3 ...	logical OR
 
-[expr3](#expr3)	expr4
+[[expr3](/undefined#expr3)](/undefined)	expr4
 expr4 && expr4 ...	logical AND
 
-[expr4](#expr4)	expr5
+[[[[expr4](/undefined#expr4)](/undefined)](/undefined)](/undefined)	expr5
 expr5 == expr5		equal
 expr5 != expr5		not equal
 expr5 >	 expr5		greater than
@@ -798,39 +798,39 @@ expr5 ==# expr5		equal, match case
 etc.			As above, append ? for ignoring case, # for
 matching case
 
-expr5 is expr5		same [List|, |Dictionary| or |Blob](#List|, |Dictionary| or |Blob) instance
-expr5 isnot expr5	different [List|, |Dictionary| or |Blob](#List|, |Dictionary| or |Blob)
+expr5 is expr5		same [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) instance
+expr5 isnot expr5	different [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 instance
 
-[expr5](#expr5)	expr6
+[[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	expr6
 expr6 +	 expr6 ...	number addition, list or blob concatenation
 expr6 -	 expr6 ...	number subtraction
 expr6 .	 expr6 ...	string concatenation
 expr6 .. expr6 ...	string concatenation
 
-[expr6](#expr6)	expr7
+[[expr6](/undefined#expr6)](/undefined)	expr7
 expr7 *	 expr7 ...	number multiplication
 expr7 /	 expr7 ...	number division
 expr7 %	 expr7 ...	number modulo
 
-[expr7](#expr7)	expr8
+[[[[[[expr7](/undefined#expr7)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	expr8
 ! expr7			logical NOT
 - expr7			unary minus
 + expr7			unary plus
 
-[expr8](#expr8)	expr9
-expr8[expr1]		byte of a String or item of a [List](#List)
-expr8[expr1 : expr1]	substring of a String or sublist of a [List](#List)
-expr8.name		entry in a [Dictionary](#Dictionary)
-expr8(expr1, ...)	function call with [Funcref](#Funcref) variable
-expr8->name(expr1, ...)	[method](#method) call
+[[expr8](/undefined#expr8)](/undefined)	expr9
+expr8[expr1]		byte of a String or item of a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+expr8[expr1 : expr1]	substring of a String or sublist of a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+expr8.name		entry in a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+expr8(expr1, ...)	function call with [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) variable
+expr8->name(expr1, ...)	[[method](/undefined#method)](/undefined) call
 
-[expr9](#expr9)	number			number constant
+[[[expr9](/undefined#expr9)](/undefined)](/undefined)	number			number constant
 "string"		string constant, backslash is special
 'string'		string constant, ' is doubled
-[expr1, ...]		[List](#List)
-{expr1: expr1, ...}	[Dictionary](#Dictionary)
-#{key: expr1, ...}	[Dictionary](#Dictionary)
+[expr1, ...]		[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+{expr1: expr1, ...}	[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+#{key: expr1, ...}	[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 &option			option value
 (expr1)			nested expression
 variable		internal variable
@@ -844,7 +844,7 @@ func{ti}on(expr1, ...)	function call with curly braces
 
 "..." indicates that the operations in this level can be concatenated.
 Example:
-&nu || &list && &shell == "csh"
+&nu [[gO](/undefined#gO)](/undefined) &list && &shell == "csh"
 
 All expressions within one level are parsed from left to right.
 
@@ -855,7 +855,7 @@ All expressions within one level are parsed from left to right.
 expr2 ? expr1 : expr1
 
 The expression before the '?' is evaluated to a number.  If it evaluates to
-[TRUE](#TRUE), the result is the value of the expression between the '?' and ':',
+[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), the result is the value of the expression between the '?' and ':',
 otherwise the result is the value of the expression after the ':'.
 Example:
 :echo lnum == 1 ? "top" : lnum
@@ -865,7 +865,7 @@ other two expressions can, thus allow for recursive use of ?:.
 Example:
 :echo lnum == 1 ? "top" : lnum == 1000 ? "last" : lnum
 
-To keep this readable, using [line-continuation](#line-continuation) is suggested:
+To keep this readable, using [[line-continuation](/undefined#line-continuation)](/undefined) is suggested:
 :echo lnum == 1
 :\	? "top"
 :\	: lnum == 1000
@@ -879,35 +879,35 @@ use in a variable such as "a:1".
 ### <a id="expr2 expr3" class="section-title" href="#expr2 expr3">expr2 and expr3</a>
 ---------------
 
-### <a id="expr-barbar" class="section-title" href="#expr-barbar">expr3 || expr3 ..	logical OR</a>
+### <a id="expr-barbar" class="section-title" href="#expr-barbar">expr3 [[gO](/undefined#gO)](/undefined) expr3 ..	logical OR</a>
 ### <a id="expr-&&" class="section-title" href="#expr-&&">expr4 && expr4 ..	logical AND</a>
 
-The "||" and "&&" operators take one argument on each side.  The arguments
+The "[[gO](/undefined#gO)](/undefined)" and "&&" operators take one argument on each side.  The arguments
 are (converted to) Numbers.  The result is:
 
 input			 output ~
-n1	n2		n1 || n2	n1 && n2 ~
-[FALSE|	|FALSE|		|FALSE|		|FALSE](#FALSE|	|FALSE|		|FALSE|		|FALSE)
-[FALSE|	|TRUE|		|TRUE|		|FALSE](#FALSE|	|TRUE|		|TRUE|		|FALSE)
-[TRUE|	|FALSE|		|TRUE|		|FALSE](#TRUE|	|FALSE|		|TRUE|		|FALSE)
-[TRUE|	|TRUE|		|TRUE|		|TRUE](#TRUE|	|TRUE|		|TRUE|		|TRUE)
+n1	n2		n1 [[gO](/undefined#gO)](/undefined) n2	n1 && n2 ~
+[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		[[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 The operators can be concatenated, for example:
 
-&nu || &list && &shell == "csh"
+&nu [[gO](/undefined#gO)](/undefined) &list && &shell == "csh"
 
-Note that "&&" takes precedence over "||", so this has the meaning of:
+Note that "&&" takes precedence over "[[gO](/undefined#gO)](/undefined)", so this has the meaning of:
 
-&nu || (&list && &shell == "csh")
+&nu [[gO](/undefined#gO)](/undefined) (&list && &shell == "csh")
 
 Once the result is known, the expression "short-circuits", that is, further
 arguments are not evaluated.  This is like what happens in C.  For example:
 
 let a = 1
-echo a || b
+echo a [[gO](/undefined#gO)](/undefined) b
 
-This is valid even if there is no variable called "b" because "a" is [TRUE](#TRUE),
-so the result must be [TRUE](#TRUE).  Similarly below:
+This is valid even if there is no variable called "b" because "a" is [[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined),
+so the result must be [[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Similarly below:
 
 echo exists("b") && b == "yes"
 
@@ -949,32 +949,32 @@ Examples:
 "abc" == "Abc"	  evaluates to 1 if 'ignorecase' is set, 0 otherwise
 
 ### <a id="E691 E692" class="section-title" href="#E691 E692">Note:</a>
-A [List| can only be compared with a |List](#List| can only be compared with a |List) and only "equal", "not equal",
+A [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) can only be compared with a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and only "equal", "not equal",
 "is" and "isnot" can be used.  This compares the values of the list,
 recursively.  Ignoring case means case is ignored when comparing item values.
 
 ### <a id="E735 E736" class="section-title" href="#E735 E736">Note:</a>
-A [Dictionary| can only be compared with a |Dictionary](#Dictionary| can only be compared with a |Dictionary) and only "equal", "not
+A [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) can only be compared with a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and only "equal", "not
 equal", "is" and "isnot" can be used.  This compares the key/values of the
-[Dictionary](#Dictionary) recursively.  Ignoring case means case is ignored when comparing
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) recursively.  Ignoring case means case is ignored when comparing
 item values.
 
 ### <a id="E694" class="section-title" href="#E694">Note:</a>
-A [Funcref| can only be compared with a |Funcref](#Funcref| can only be compared with a |Funcref) and only "equal", "not
+A [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) can only be compared with a [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and only "equal", "not
 equal", "is" and "isnot" can be used.  Case is never ignored.  Whether
 arguments or a Dictionary are bound (with a partial) matters.  The
 Dictionaries must also be equal (or the same, in case of "is") and the
 arguments must be equal (or the same).
 
 To compare Funcrefs to see if they refer to the same function, ignoring bound
-Dictionary and arguments, use [get()](#get()) to get the function name:
+Dictionary and arguments, use |get()| to get the function name:
 if get(Part1, 'name') == get(Part2, 'name')
 " Part1 and Part2 refer to the same function
 
-Using "is" or "isnot" with a [List|, |Dictionary| or |Blob](#List|, |Dictionary| or |Blob) checks whether
-the expressions are referring to the same [List|, |Dictionary| or |Blob](#List|, |Dictionary| or |Blob)
-instance.  A copy of a [List| is different from the original |List](#List| is different from the original |List).  When
-using "is" without a [List|, |Dictionary| or |Blob](#List|, |Dictionary| or |Blob), it is equivalent to
+Using "is" or "isnot" with a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) checks whether
+the expressions are referring to the same [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+instance.  A copy of a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) is different from the original [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  When
+using "is" without a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), it is equivalent to
 using "equal", using "isnot" is equivalent to using "not equal".  Except that
 a different type means the values are different:
 echo 4 == '4'
@@ -1007,11 +1007,11 @@ When using the operators with a trailing '?', or the short version and
 'smartcase' is not used.
 
 The "=~" and "!~" operators match the lefthand argument with the righthand
-argument, which is used as a pattern.  See [pattern](#pattern) for what a pattern is.
+argument, which is used as a pattern.  See [[pattern](/undefined#pattern)](/undefined) for what a pattern is.
 This matching is always done like 'magic' was set and 'cpoptions' is empty, no
 matter what the actual value of 'magic' or 'cpoptions' is.  This makes scripts
 portable.  To avoid backslashes in the regexp pattern to be doubled, use a
-single-quote string, see [literal-string](#literal-string).
+single-quote string, see [[[literal-string](/undefined#literal-string)](/undefined)](/undefined).
 Since a string is considered to be a single line, a multi-line pattern
 (containing \n, backslash-n) will not match.  However, a literal NL character
 can be matched like an ordinary character.  Examples:
@@ -1021,23 +1021,23 @@ can be matched like an ordinary character.  Examples:
 
 ### <a id="expr5 expr6" class="section-title" href="#expr5 expr6">expr5 and expr6</a>
 ---------------
-### <a id="Number addition, [List| or |Blob](#List| or |Blob) concatenation	expr-+" class="section-title" href="#Number addition, [List| or |Blob](#List| or |Blob) concatenation	expr-+">expr6 + expr6</a>
+### <a id="Number addition, [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) concatenation	expr-+" class="section-title" href="#Number addition, [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) concatenation	expr-+">expr6 + expr6</a>
 expr6 - expr6   Number subtraction				*expr--*
 expr6 . expr6   String concatenation				*expr-.*
 expr6 .. expr6  String concatenation				*expr-..*
 
-For [Lists](#Lists) only "+" is possible and then both expr6 must be a list.  The
+For [[Lists](/undefined#Lists)](/undefined) only "+" is possible and then both expr6 must be a list.  The
 result is a new list with the two lists Concatenated.
 
 For String concatenation ".." is preferred, since "." is ambiguous, it is also
-used for [Dict](#Dict) member access and floating point numbers.
+used for [[[Dict](/undefined#Dict)](/undefined)](/undefined) member access and floating point numbers.
 
 expr7 * expr7  Number multiplication				*expr-star*
 expr7 / expr7  Number division					*expr-/*
 expr7 % expr7  Number modulo					*expr-%*
 
 For all, except "." and "..", Strings are converted to Numbers.
-For bitwise operators see [and()|, |or()| and |xor()](#and()|, |or()| and |xor()).
+For bitwise operators see |and()|, |or()| and |xor()|.
 
 Note the difference between "+" and ".":
 "123" + "456" = 579
@@ -1068,7 +1068,7 @@ When 64-bit Number support is enabled:
 
 When the righthand side of '%' is zero, the result is 0.
 
-None of these work for [Funcref](#Funcref)s.
+None of these work for [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)s.
 
 . and % do not work for Float. *E804*
 
@@ -1079,7 +1079,7 @@ None of these work for [Funcref](#Funcref)s.
 - expr7			unary minus		*expr-unary--*
 + expr7			unary plus		*expr-unary-+*
 
-For '!' [TRUE| becomes |FALSE|, |FALSE| becomes |TRUE](#TRUE| becomes |FALSE|, |FALSE| becomes |TRUE) (one).
+For '!' [[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) becomes [[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), [[[[[[[[[[[FALSE](/undefined#FALSE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) becomes [[[[[[[[[[[[[[[TRUE](/undefined#TRUE)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) (one).
 For '-' the sign of the number is changed.
 For '+' the number is unchanged.  Note: "++" has no effect.
 
@@ -1093,7 +1093,7 @@ These three can be repeated and mixed.  Examples:
 
 ### <a id="expr8" class="section-title" href="#expr8">expr8</a>
 -----
-This expression is either [expr9](#expr9) or a sequence of the alternatives below,
+This expression is either [[[expr9](/undefined#expr9)](/undefined)](/undefined) or a sequence of the alternatives below,
 in any order.  E.g., these are all possible:
 expr8[expr1].name
 expr8.name[expr1]
@@ -1102,7 +1102,7 @@ expr8->(expr1, ...)[expr1]
 Evaluation is always from left to right.
 
 
-### <a id="item of String or [List](#List)	expr-[] E111" class="section-title" href="#item of String or [List](#List)	expr-[] E111">expr8[expr1]</a>
+### <a id="item of String or [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	expr-[] E111" class="section-title" href="#item of String or [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)	expr-[] E111">expr8[expr1]</a>
 ### <a id="subscript" class="section-title" href="#subscript">Note:</a>
 In legacy Vim script:
 If expr8 is a Number or String this results in a String that contains the
@@ -1122,24 +1122,24 @@ If the length of the String is less than the index, the result is an empty
 String.  A negative index always results in an empty string (reason: backward
 compatibility).  Use [-1:] to get the last byte.
 
-If expr8 is a [List| then it results the item at index expr1.  See |list-index](#List| then it results the item at index expr1.  See |list-index)
+If expr8 is a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) then it results the item at index expr1.  See [[list-index](/undefined#list-index)](/undefined)
 for possible index values.  If the index is out of range this results in an
 error.  Example:
 :let item = mylist[-1]		" get last item
 
-Generally, if a [List](#List) index is equal to or higher than the length of the
-[List|, or more negative than the length of the |List](#List|, or more negative than the length of the |List), this results in an
+Generally, if a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) index is equal to or higher than the length of the
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), or more negative than the length of the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), this results in an
 error.
 
 
-### <a id="expr-[:] substring" class="section-title" href="#expr-[:] substring">expr8[expr1a : expr1b]	substring or [sublist](#sublist)</a>
+### <a id="expr-[:] substring" class="section-title" href="#expr-[:] substring">expr8[expr1a : expr1b]	substring or [[[sublist](/undefined#sublist)](/undefined)](/undefined)</a>
 
 If expr8 is a String this results in the substring with the bytes or
 characters from expr1a to and including expr1b.  expr8 is used as a String,
 expr1a and expr1b are used as a Number.
 
 In legacy Vim script the indexes are byte indexes.  This doesn't recognize
-multibyte encodings, see [byteidx()](#byteidx()) for computing the indexes.  If expr8 is
+multibyte encodings, see |byteidx()| for computing the indexes.  If expr8 is
 a Number it is first converted to a String.
 
 If expr1a is omitted zero is used.  If expr1b is omitted the length of the
@@ -1160,20 +1160,20 @@ Examples:
 ```
 
 ### <a id="slice" class="section-title" href="#slice">Note:</a>
-If expr8 is a [List| this results in a new |List](#List| this results in a new |List) with the items indicated by
+If expr8 is a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) this results in a new [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) with the items indicated by
 the indexes expr1a and expr1b.  This works like with a String, as explained
-just above. Also see [sublist](#sublist) below.  Examples: 
+just above. Also see [[[sublist](/undefined#sublist)](/undefined)](/undefined) below.  Examples: 
 ```	:let l = mylist[:3]		" first four items
 :let l = mylist[4:4]		" List with one item
 :let l = mylist[:]		" shallow copy of a List
 
-If expr8 is a [Blob| this results in a new |Blob](#Blob| this results in a new |Blob) with the bytes in the
+If expr8 is a [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) this results in a new [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) with the bytes in the
 indexes expr1a and expr1b, inclusive.  Examples:
 :let b = 0zDEADBEEF
 :let bs = b[1:2]		" 0zADBE
 :let bs = b[]			" copy of 0zDEADBEEF
 
-Using expr8[expr1] or expr8[expr1a : expr1b] on a [Funcref](#Funcref) results in an
+Using expr8[expr1] or expr8[expr1a : expr1b] on a [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) results in an
 error.
 
 Watch out for confusion between a namespace and a variable followed by a colon
@@ -1182,10 +1182,10 @@ mylist[n:]     " uses variable n
 mylist[s:]     " uses namespace s:, error!
 
 
-expr8.name		entry in a [Dictionary](#Dictionary)		*expr-entry*
+expr8.name		entry in a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)		*expr-entry*
 
-If expr8 is a [Dictionary](#Dictionary) and it is followed by a dot, then the following
-name will be used as a key in the [Dictionary](#Dictionary).  This is just like:
+If expr8 is a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and it is followed by a dot, then the following
+name will be used as a key in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  This is just like:
 expr8[name].
 
 The name must consist of alphanumeric characters, just like a variable name,
@@ -1203,9 +1203,9 @@ Note that the dot is also used for String concatenation.  To avoid confusion
 always put spaces around the dot for String concatenation.
 
 
-expr8(expr1, ...)	[Funcref](#Funcref) function call
+expr8(expr1, ...)	[[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) function call
 
-When expr8 is a [Funcref](#Funcref) type variable, invoke the function it refers to.
+When expr8 is a [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type variable, invoke the function it refers to.
 
 
 ### <a id="method ->" class="section-title" href="#method ->">expr8->name([args])	method call</a>
@@ -1225,7 +1225,7 @@ Example of using a lambda:
 ```	GetPercentage()->{x -> x * 100}()->printf('%d%%')
 ```
 
-When using -> the [expr7](#expr7) operators will be applied first, thus: 
+When using -> the [[[[[[expr7](/undefined#expr7)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) operators will be applied first, thus: 
 ```	-1.234->string()
 Is equivalent to:
 (-1.234)->string()
@@ -1304,8 +1304,8 @@ The precision and range of floating points numbers depends on what "double"
 means in the library Vim was compiled with.  There is no way to change this at
 runtime.
 
-The default for displaying a [Float](#Float) is to use 6 decimal places, like using
-printf("%g", f).  You can select something else when using the [printf()](#printf())
+The default for displaying a [[[Float](/undefined#Float)](/undefined)](/undefined) is to use 6 decimal places, like using
+printf("%g", f).  You can select something else when using the |printf()|
 function.  Example: 
 ```	:echo printf('%.15e', atan(1))
 7.853981633974483e-01
@@ -1385,7 +1385,7 @@ Examples:
 echo "tabstop is " .. &tabstop
 if &expandtab
 
-Any option name can be used here.  See [options](#options).  When using the local value
+Any option name can be used here.  See [[options](/undefined#options)](/undefined).  When using the local value
 and there is no buffer-local or window-local value, the global value is used
 anyway.
 
@@ -1396,11 +1396,11 @@ anyway.
 
 The result is the contents of the named register, as a single string.
 Newlines are inserted where required.  To get the contents of the unnamed
-register use @" or @@.  See [registers](#registers) for an explanation of the available
+register use @" or @@.  See [[[registers](/undefined#registers)](/undefined)](/undefined) for an explanation of the available
 registers.
 
 When using the '=' register you get the expression itself, not what it
-evaluates to.  Use [eval()](#eval()) to evaluate it.
+evaluates to.  Use |eval()| to evaluate it.
 
 
 ### <a id="expr-nesting E110" class="section-title" href="#expr-nesting E110">nesting</a>
@@ -1437,13 +1437,13 @@ variable (if your shell supports it).
 ### <a id="expr-variable" class="section-title" href="#expr-variable">internal variable</a>
 -----------------
 variable		internal variable
-See below [internal-variables](#internal-variables).
+See below [[[internal-variables](/undefined#internal-variables)](/undefined)](/undefined).
 
 
 ### <a id="expr-function E116 E118 E119 E120" class="section-title" href="#expr-function E116 E118 E119 E120">function call</a>
 -------------
 function(expr1, ...)	function call
-See below [functions](#functions).
+See below [[functions](/undefined#functions)](/undefined).
 
 
 ### <a id="expr-lambda lambda" class="section-title" href="#expr-lambda lambda">lambda expression</a>
@@ -1451,10 +1451,10 @@ See below [functions](#functions).
 {args -> expr1}		lambda expression
 
 A lambda expression creates a new unnamed function which returns the result of
-evaluating [expr1|.  Lambda expressions differ from |user-function](#expr1|.  Lambda expressions differ from |user-function)s in
+evaluating [[[[[[expr1](/undefined#expr1)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Lambda expressions differ from [[[user-function](/undefined#user-function)](/undefined)](/undefined)s in
 the following ways:
 
-1. The body of the lambda expression is an [expr1| and not a sequence of |Ex](#expr1| and not a sequence of |Ex)
+1. The body of the lambda expression is an [[[[[[expr1](/undefined#expr1)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and not a sequence of [[Ex](/undefined#Ex)](/undefined)
 commands.
 2. The prefix "a:" should not be used for arguments.  E.g.:
 :let F = {arg1, arg2 -> arg1 - arg2}
@@ -1478,12 +1478,12 @@ the function returns:
 :echo Bar(6)
 5
 Note that the variables must exist in the outer scope before the lambda is
-defined for this to work.  See also [:func-closure](#:func-closure).
+defined for this to work.  See also |:func-closure|.
 
 Lambda and closure support can be checked with:
 if has('lambda')
 
-Examples for using a lambda expression with [sort()|, |map()| and |filter()](#sort()|, |map()| and |filter()):
+Examples for using a lambda expression with |sort()|, |map()| and |filter()|:
 :echo map([1, 2, 3], {idx, val -> val + 1})
 [2, 3, 4]
 :echo sort([3,7,2,1,4], {a, b -> a - b})
@@ -1513,18 +1513,18 @@ Notice how execute() is used to execute an Ex command.  That's ugly though.
 Lambda expressions have internal names like '<lambda>42'.  If you get an error
 for a lambda expression, you can find what it is with the following command:
 :function <lambda>42
-See also: [numbered-function](#numbered-function)
+See also: [[[numbered-function](/undefined#numbered-function)](/undefined)](/undefined)
 
 
 ## <a id="internal-variables E461" class="section-title" href="#internal-variables E461">3. Internal Variable</a> 
 
 An internal variable name can be made up of letters, digits and '_'.  But it
 cannot start with a digit.  It's also possible to use curly braces, see
-[curly-braces-names](#curly-braces-names).
+[[[[curly-braces-names](/undefined#curly-braces-names)](/undefined)](/undefined)](/undefined).
 
-An internal variable is created with the ":let" command [:let](#:let).
+An internal variable is created with the ":let" command |:let|.
 An internal variable is explicitly destroyed with the ":unlet" command
-[:unlet](#:unlet).
+|:unlet|.
 Using a name that is not an internal variable or refers to a variable that has
 been destroyed results in an error.
 
@@ -1533,16 +1533,16 @@ There are several name spaces for variables.  Which one is to be used is
 specified by what is prepended:
 
 (nothing) In a function: local to a function; otherwise: global
-[buffer-variable](#buffer-variable)    b:	  Local to the current buffer.
-[window-variable](#window-variable)    w:	  Local to the current window.
-[tabpage-variable](#tabpage-variable)   t:	  Local to the current tab page.
-[global-variable](#global-variable)    g:	  Global.
-[local-variable](#local-variable)     l:	  Local to a function.
-[script-variable|    s:	  Local to a |:source](#script-variable|    s:	  Local to a |:source)'ed Vim script.
-[function-argument](#function-argument)  a:	  Function argument (only inside a function).
-[vim-variable](#vim-variable)       v:	  Global, predefined by Vim.
+[[buffer-variable](/undefined#buffer-variable)](/undefined)    b:	  Local to the current buffer.
+[[window-variable](/undefined#window-variable)](/undefined)    w:	  Local to the current window.
+[[tabpage-variable](/undefined#tabpage-variable)](/undefined)   t:	  Local to the current tab page.
+[[global-variable](/undefined#global-variable)](/undefined)    g:	  Global.
+[[local-variable](/undefined#local-variable)](/undefined)     l:	  Local to a function.
+[[script-variable](/undefined#script-variable)](/undefined)    s:	  Local to a |:source|'ed Vim script.
+[[function-argument](/undefined#function-argument)](/undefined)  a:	  Function argument (only inside a function).
+[[vim-variable](/undefined#vim-variable)](/undefined)       v:	  Global, predefined by Vim.
 
-The scope name by itself can be used as a [Dictionary](#Dictionary).  For example, to
+The scope name by itself can be used as a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  For example, to
 delete all script-local variables:
 :for k in keys(s:)
 :    unlet s:[k]
@@ -1553,7 +1553,7 @@ delete all script-local variables:
 A variable name that is preceded with "b:" is local to the current buffer.
 Thus you can have several "b:foo" variables, one for each buffer.
 This kind of variable is deleted when the buffer is wiped out or deleted with
-[:bdelete](#:bdelete).
+|:bdelete|.
 
 One local buffer variable is predefined:
 ### <a id="b:changedtick changetick" class="section-title" href="#b:changedtick changetick">Note:</a>
@@ -1662,7 +1662,7 @@ echo "script executed " .. s:counter .. " times now"
 endif
 
 Note that this means that filetype plugins don't get a different set of script
-variables for each buffer.  Use local buffer variables instead [b:var](#b:var).
+variables for each buffer.  Use local buffer variables instead |b:var|.
 
 
 ### <a id="vim-variable v:var v:" class="section-title" href="#vim-variable v:var v:">Predefined Vim Variables</a>
@@ -1672,11 +1672,11 @@ Some variables can be set by the user, but the type cannot be changed.
 ### <a id="v:argv argv-variable" class="section-title" href="#v:argv argv-variable">Note:</a>
 v:argv		The command line arguments Vim was invoked with.  This is a
 list of strings.  The first item is the Vim command.
-See [v:progpath](#v:progpath) for the command with full path.
+See |v:progpath| for the command with full path.
 
 ### <a id="v:beval_col beval_col-variable" class="section-title" href="#v:beval_col beval_col-variable">Note:</a>
 v:beval_col	The number of the column, over which the mouse pointer is.
-This is the byte index in the [v:beval_lnum](#v:beval_lnum) line.
+This is the byte index in the |v:beval_lnum| line.
 Only valid while evaluating the 'balloonexpr' option.
 
 ### <a id="v:beval_bufnr beval_bufnr-variable" class="section-title" href="#v:beval_bufnr beval_bufnr-variable">Note:</a>
@@ -1693,7 +1693,7 @@ it is useful for debugging a C program.  'iskeyword' applies,
 but a dot and "->" before the position is included.  When on a
 ']' the text before it is used, including the matching '[' and
 word before it.  When on a Visual area within one line the
-highlighted text is used.  Also see [<cexpr>](#<cexpr>).
+highlighted text is used.  Also see |<cexpr>|.
 Only valid while evaluating the 'balloonexpr' option.
 
 ### <a id="v:beval_winnr beval_winnr-variable" class="section-title" href="#v:beval_winnr beval_winnr-variable">Note:</a>
@@ -1703,13 +1703,13 @@ window has number zero (unlike most other places where a
 window gets a number).
 
 ### <a id="v:beval_winid beval_winid-variable" class="section-title" href="#v:beval_winid beval_winid-variable">Note:</a>
-v:beval_winid	The [window-ID](#window-ID) of the window, over which the mouse pointer
+v:beval_winid	The [[[[window-ID](/undefined#window-ID)](/undefined)](/undefined)](/undefined) of the window, over which the mouse pointer
 is.  Otherwise like v:beval_winnr.
 
 ### <a id="v:char char-variable" class="section-title" href="#v:char char-variable">Note:</a>
 v:char		Argument for evaluating 'formatexpr' and used for the typed
-character when using <expr> in an abbreviation [:map-<expr>](#:map-<expr>).
-It is also used by the [InsertCharPre| and |InsertEnter](#InsertCharPre| and |InsertEnter) events.
+character when using <expr> in an abbreviation |:map-<expr>|.
+It is also used by the [[InsertCharPre](/undefined#InsertCharPre)](/undefined) and [[[InsertEnter](/undefined#InsertEnter)](/undefined)](/undefined) events.
 
 ### <a id="v:charconvert_from charconvert_from-variable" class="section-title" href="#v:charconvert_from charconvert_from-variable">Note:</a>
 v:charconvert_from
@@ -1739,23 +1739,23 @@ v:collate	The current locale setting for collation order of the runtime
 environment.  This allows Vim scripts to be aware of the
 current locale encoding.  Technical: it's the value of
 LC_COLLATE.  When not using a locale the value is "C".
-This variable can not be set directly, use the [:language](#:language)
+This variable can not be set directly, use the |:language|
 command.
-See [multi-lang](#multi-lang).
+See [[[[[multi-lang](/undefined#multi-lang)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="v:cmdbang cmdbang-variable" class="section-title" href="#v:cmdbang cmdbang-variable">Note:</a>
 v:cmdbang	Set like v:cmdarg for a file read/write command.  When a "!"
 was used the value is 1, otherwise it is 0.  Note that this
-can only be used in autocommands.  For user commands [<bang>](#<bang>)
+can only be used in autocommands.  For user commands |<bang>|
 can be used.
 
 ### <a id="v:completed_item completed_item-variable" class="section-title" href="#v:completed_item completed_item-variable">Note:</a>
 v:completed_item
-Dictionary containing the most recent [complete-items](#complete-items) after
-[CompleteDone](#CompleteDone).  Empty if the completion failed, or after
+Dictionary containing the most recent [[complete-items](/undefined#complete-items)](/undefined) after
+[[[CompleteDone](/undefined#CompleteDone)](/undefined)](/undefined).  Empty if the completion failed, or after
 leaving and re-entering insert mode.
 Note: Plugins can modify the value to emulate the builtin
-[CompleteDone](#CompleteDone) event behavior.
+[[[CompleteDone](/undefined#CompleteDone)](/undefined)](/undefined) event behavior.
 
 ### <a id="v:count count-variable" class="section-title" href="#v:count count-variable">Note:</a>
 v:count		The count given for the last Normal mode command.  Can be used
@@ -1776,9 +1776,9 @@ v:ctype		The current locale setting for characters of the runtime
 environment.  This allows Vim scripts to be aware of the
 current locale encoding.  Technical: it's the value of
 LC_CTYPE.  When not using a locale the value is "C".
-This variable can not be set directly, use the [:language](#:language)
+This variable can not be set directly, use the |:language|
 command.
-See [multi-lang](#multi-lang).
+See [[[[[multi-lang](/undefined#multi-lang)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="v:dying dying-variable" class="section-title" href="#v:dying dying-variable">Note:</a>
 v:dying		Normally zero.  When a deadly signal is caught it's set to
@@ -1786,19 +1786,19 @@ one.  When multiple signals are caught the number increases.
 Can be used in an autocommand to check if Vim didn't
 terminate normally. {only works on Unix}
 Example:
-:au VimLeave * if v:dying [ echo "\nAAAAaaaarrrggghhhh!!!\n" ](# echo "\nAAAAaaaarrrggghhhh!!!\n" ) endif
+:au VimLeave * if v:dying | echo "\nAAAAaaaarrrggghhhh!!!\n" | endif
 Note: if another deadly signal is caught when v:dying is one,
 VimLeave autocommands will not be executed.
 
 ### <a id="v:exiting exiting-variable" class="section-title" href="#v:exiting exiting-variable">Note:</a>
-v:exiting	Exit code, or [v:null| before invoking the |VimLeavePre](#v:null| before invoking the |VimLeavePre)
-and [VimLeave| autocmds.  See |:q|, |:x| and |:cquit](#VimLeave| autocmds.  See |:q|, |:x| and |:cquit).
+v:exiting	Exit code, or |v:null| before invoking the [[VimLeavePre](/undefined#VimLeavePre)](/undefined)
+and [[VimLeave](/undefined#VimLeave)](/undefined) autocmds.  See |:q|, |:x| and |:cquit|.
 Example:
 ### <a id=":au VimLeave  echo "Exit value is " .. v:exiting" class="section-title" href="#:au VimLeave  echo "Exit value is " .. v:exiting">Note:</a>
 
 ### <a id="v:echospace echospace-variable" class="section-title" href="#v:echospace echospace-variable">Note:</a>
 v:echospace	Number of screen cells that can be used for an `:echo` message
-in the last screen line before causing the [hit-enter-prompt](#hit-enter-prompt).
+in the last screen line before causing the [[hit-enter-prompt](/undefined#hit-enter-prompt)](/undefined).
 Depends on 'showcmd', 'ruler' and 'columns'.  You need to
 check 'cmdheight' for whether there are full-width lines
 available above the last line.
@@ -1814,7 +1814,7 @@ Example:
 ```
 
 ### <a id="v:errors errors-variable assert-return" class="section-title" href="#v:errors errors-variable assert-return">Note:</a>
-v:errors	Errors found by assert functions, such as [assert_true()](#assert_true()).
+v:errors	Errors found by assert functions, such as |assert_true()|.
 This is a list of strings.
 The assert functions append an item when an assert fails.
 The return value indicates this: a one is returned if an item
@@ -1825,56 +1825,56 @@ If v:errors is set to anything but a list it is made an empty
 list by the assert function.
 
 ### <a id="v:event event-variable" class="section-title" href="#v:event event-variable">Note:</a>
-v:event		Dictionary of event data for the current [autocommand](#autocommand).  Valid
+v:event		Dictionary of event data for the current [[autocommand](/undefined#autocommand)](/undefined).  Valid
 only during the event lifetime; storing or passing v:event is
 invalid!  Copy it instead:
 ### <a id="au TextYankPost  let g:foo = deepcopy(v:event)" class="section-title" href="#au TextYankPost  let g:foo = deepcopy(v:event)">Note:</a>
 Keys vary by event; see the documentation for the specific
-event, e.g. [DirChanged| or |TextYankPost](#DirChanged| or |TextYankPost).
+event, e.g. [[[DirChanged](/undefined#DirChanged)](/undefined)](/undefined) or [[[TextYankPost](/undefined#TextYankPost)](/undefined)](/undefined).
 KEY		DESCRIPTION ~
 abort		Whether the event triggered during
-an aborting condition (e.g. [c_Esc](#c_Esc) or
-[c_CTRL-C| for |CmdlineLeave](#c_CTRL-C| for |CmdlineLeave)).
-chan		[channel-id](#channel-id) or 0 for "internal".
+an aborting condition (e.g. |c_Esc| or
+|c_CTRL-C| for [[CmdlineLeave](/undefined#CmdlineLeave)](/undefined)).
+chan		[[[channel-id](/undefined#channel-id)](/undefined)](/undefined) or 0 for "internal".
 cmdlevel	Level of cmdline.
-cmdtype		Type of cmdline, [cmdline-char](#cmdline-char).
+cmdtype		Type of cmdline, [[cmdline-char](/undefined#cmdline-char)](/undefined).
 cwd		Current working directory.
-inclusive	Motion is [inclusive](#inclusive), else exclusive.
+inclusive	Motion is [[inclusive](/undefined#inclusive)](/undefined), else exclusive.
 scope		Event-specific scope name.
-operator	Current [operator](#operator).  Also set for Ex
-commands (unlike [v:operator](#v:operator)). For
-example if [TextYankPost](#TextYankPost) is triggered
-by the [:yank](#:yank) Ex command then
+operator	Current [[operator](/undefined#operator)](/undefined).  Also set for Ex
+commands (unlike |v:operator|). For
+example if [[[TextYankPost](/undefined#TextYankPost)](/undefined)](/undefined) is triggered
+by the |:yank| Ex command then
 `v:event.operator` is "y".
 regcontents	Text stored in the register as a
-[readfile()](#readfile())-style list of lines.
+|readfile()|-style list of lines.
 regname		Requested register (e.g "x" for "xyy)
 or the empty string for an unnamed
 operation.
 regtype		Type of register as returned by
-[getregtype()](#getregtype()).
+|getregtype()|.
 visual		Selection is visual (as opposed to,
 e.g., via motion).
 completed_item    Current selected complete item on
-[CompleteChanged](#CompleteChanged), Is `{}` when no complete
+[[[[[[[CompleteChanged](/undefined#CompleteChanged)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), Is `{}` when no complete
 item selected.
-height 		Height of popup menu on [CompleteChanged](#CompleteChanged)
-width   	width of popup menu on [CompleteChanged](#CompleteChanged)
-row  	 	Row count of popup menu on [CompleteChanged](#CompleteChanged),
+height 		Height of popup menu on [[[[[[[CompleteChanged](/undefined#CompleteChanged)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+width   	width of popup menu on [[[[[[[CompleteChanged](/undefined#CompleteChanged)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+row  	 	Row count of popup menu on [[[[[[[CompleteChanged](/undefined#CompleteChanged)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined),
 relative to screen.
-col  	 	Col count of popup menu on [CompleteChanged](#CompleteChanged),
+col  	 	Col count of popup menu on [[[[[[[CompleteChanged](/undefined#CompleteChanged)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined),
 relative to screen.
 size 		Total number of completion items on
-[CompleteChanged](#CompleteChanged).
-scrollbar 	Is [v:true](#v:true) if popup menu have scrollbar, or
-[v:false](#v:false) if not.
-changed_window 	Is [v:true](#v:true) if the the event fired
-while changing window (or tab) on [DirChanged](#DirChanged).
-status		Job status or exit code, -1 means "unknown". [TermClose](#TermClose)
+[[[[[[[CompleteChanged](/undefined#CompleteChanged)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+scrollbar 	Is |v:true| if popup menu have scrollbar, or
+|v:false| if not.
+changed_window 	Is |v:true| if the the event fired
+while changing window (or tab) on [[[DirChanged](/undefined#DirChanged)](/undefined)](/undefined).
+status		Job status or exit code, -1 means "unknown". [[TermClose](/undefined#TermClose)](/undefined)
 
 ### <a id="v:exception exception-variable" class="section-title" href="#v:exception exception-variable">Note:</a>
 v:exception	The value of the exception most recently caught and not
-finished.  See also [v:throwpoint| and |throw-variables](#v:throwpoint| and |throw-variables).
+finished.  See also |v:throwpoint| and [[[[throw-variables](/undefined#throw-variables)](/undefined)](/undefined)](/undefined).
 Example:
 :try
 :  throw "oops"
@@ -1885,13 +1885,13 @@ Output: "caught oops".
 
 ### <a id="v:false false-variable" class="section-title" href="#v:false false-variable">Note:</a>
 v:false		Special value used to put "false" in JSON and msgpack.  See
-[json_encode()](#json_encode()).  This value is converted to "v:false" when used
-as a String (e.g. in [expr5](#expr5) with string concatenation
-operator) and to zero when used as a Number (e.g. in [expr5](#expr5)
-or [expr7](#expr7) when used with numeric operators). Read-only.
+|json_encode()|.  This value is converted to "v:false" when used
+as a String (e.g. in [[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) with string concatenation
+operator) and to zero when used as a Number (e.g. in [[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+or [[[[[[expr7](/undefined#expr7)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when used with numeric operators). Read-only.
 
 ### <a id="v:fcs_reason fcs_reason-variable" class="section-title" href="#v:fcs_reason fcs_reason-variable">Note:</a>
-v:fcs_reason	The reason why the [FileChangedShell](#FileChangedShell) event was triggered.
+v:fcs_reason	The reason why the [[[FileChangedShell](/undefined#FileChangedShell)](/undefined)](/undefined) event was triggered.
 Can be used in an autocommand to decide what to do and/or what
 to set v:fcs_choice to.  Possible values:
 deleted		file no longer exists
@@ -1902,7 +1902,7 @@ mode		mode of file changed
 time		only file timestamp changed
 
 ### <a id="v:fcs_choice fcs_choice-variable" class="section-title" href="#v:fcs_choice fcs_choice-variable">Note:</a>
-v:fcs_choice	What should happen after a [FileChangedShell](#FileChangedShell) event was
+v:fcs_choice	What should happen after a [[[FileChangedShell](/undefined#FileChangedShell)](/undefined)](/undefined) event was
 triggered.  Can be used in an autocommand to tell Vim what to
 do with the affected buffer:
 reload		Reload the buffer (does not work if
@@ -1932,7 +1932,7 @@ option		used for ~
 'diffexpr'	original file
 'patchexpr'	original file
 'printexpr'	file to be printed
-And set to the swap file name for [SwapExists](#SwapExists).
+And set to the swap file name for [[[[[SwapExists](/undefined#SwapExists)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="v:fname_out fname_out-variable" class="section-title" href="#v:fname_out fname_out-variable">Note:</a>
 v:fname_out	The name of the output file.  Only valid while
@@ -1957,39 +1957,39 @@ evaluating 'patchexpr'.
 ### <a id="v:folddashes folddashes-variable" class="section-title" href="#v:folddashes folddashes-variable">Note:</a>
 v:folddashes	Used for 'foldtext': dashes representing foldlevel of a closed
 fold.
-Read-only in the [sandbox|. |fold-foldtext](#sandbox|. |fold-foldtext)
+Read-only in the [[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined). [[[[[fold-foldtext](/undefined#fold-foldtext)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="v:foldlevel foldlevel-variable" class="section-title" href="#v:foldlevel foldlevel-variable">Note:</a>
 v:foldlevel	Used for 'foldtext': foldlevel of closed fold.
-Read-only in the [sandbox|. |fold-foldtext](#sandbox|. |fold-foldtext)
+Read-only in the [[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined). [[[[[fold-foldtext](/undefined#fold-foldtext)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="v:foldend foldend-variable" class="section-title" href="#v:foldend foldend-variable">Note:</a>
 v:foldend	Used for 'foldtext': last line of closed fold.
-Read-only in the [sandbox|. |fold-foldtext](#sandbox|. |fold-foldtext)
+Read-only in the [[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined). [[[[[fold-foldtext](/undefined#fold-foldtext)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="v:foldstart foldstart-variable" class="section-title" href="#v:foldstart foldstart-variable">Note:</a>
 v:foldstart	Used for 'foldtext': first line of closed fold.
-Read-only in the [sandbox|. |fold-foldtext](#sandbox|. |fold-foldtext)
+Read-only in the [[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined). [[[[[fold-foldtext](/undefined#fold-foldtext)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="v:hlsearch hlsearch-variable" class="section-title" href="#v:hlsearch hlsearch-variable">Note:</a>
 v:hlsearch	Variable that indicates whether search highlighting is on.
 Setting it makes sense only if 'hlsearch' is enabled. Setting
-this variable to zero acts like the [:nohlsearch](#:nohlsearch) command,
+this variable to zero acts like the |:nohlsearch| command,
 setting it to one acts like
 let &hlsearch = &hlsearch
 Note that the value is restored when returning from a
-function. [function-search-undo](#function-search-undo).
+function. [[[function-search-undo](/undefined#function-search-undo)](/undefined)](/undefined).
 
 ### <a id="v:insertmode insertmode-variable" class="section-title" href="#v:insertmode insertmode-variable">Note:</a>
-v:insertmode	Used for the [InsertEnter| and |InsertChange](#InsertEnter| and |InsertChange) autocommand
+v:insertmode	Used for the [[[InsertEnter](/undefined#InsertEnter)](/undefined)](/undefined) and [[InsertChange](/undefined#InsertChange)](/undefined) autocommand
 events.  Values:
 i	Insert mode
 r	Replace mode
 v	Virtual Replace mode
 
 ### <a id="v:key key-variable" class="section-title" href="#v:key key-variable">Note:</a>
-v:key		Key of the current item of a [Dictionary](#Dictionary).  Only valid while
-evaluating the expression used with [map()| and |filter()](#map()| and |filter()).
+v:key		Key of the current item of a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Only valid while
+evaluating the expression used with |map()| and |filter()|.
 Read-only.
 
 ### <a id="v:lang lang-variable" class="section-title" href="#v:lang lang-variable">Note:</a>
@@ -1997,61 +1997,61 @@ v:lang		The current locale setting for messages of the runtime
 environment.  This allows Vim scripts to be aware of the
 current language.  Technical: it's the value of LC_MESSAGES.
 The value is system dependent.
-This variable can not be set directly, use the [:language](#:language)
+This variable can not be set directly, use the |:language|
 command.
-It can be different from [v:ctype](#v:ctype) when messages are desired
+It can be different from |v:ctype| when messages are desired
 in a different language than what is used for character
-encoding.  See [multi-lang](#multi-lang).
+encoding.  See [[[[[multi-lang](/undefined#multi-lang)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="v:lc_time lc_time-variable" class="section-title" href="#v:lc_time lc_time-variable">Note:</a>
 v:lc_time	The current locale setting for time messages of the runtime
 environment.  This allows Vim scripts to be aware of the
 current language.  Technical: it's the value of LC_TIME.
-This variable can not be set directly, use the [:language](#:language)
-command.  See [multi-lang](#multi-lang).
+This variable can not be set directly, use the |:language|
+command.  See [[[[[multi-lang](/undefined#multi-lang)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="v:lnum lnum-variable" class="section-title" href="#v:lnum lnum-variable">Note:</a>
-v:lnum		Line number for the 'foldexpr' [fold-expr](#fold-expr), 'formatexpr' and
+v:lnum		Line number for the 'foldexpr' [[fold-expr](/undefined#fold-expr)](/undefined), 'formatexpr' and
 'indentexpr' expressions, tab page number for 'guitablabel'
 and 'guitabtooltip'.  Only valid while one of these
 expressions is being evaluated.  Read-only when in the
-[sandbox](#sandbox).
+[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="v:lua lua-variable" class="section-title" href="#v:lua lua-variable">Note:</a>
 v:lua		Prefix for calling Lua functions from expressions.
-See [v:lua-call](#v:lua-call) for more information.
+See |v:lua-call| for more information.
 
 ### <a id="v:mouse_win mouse_win-variable" class="section-title" href="#v:mouse_win mouse_win-variable">Note:</a>
-v:mouse_win	Window number for a mouse click obtained with [getchar()](#getchar()).
-First window has number 1, like with [winnr()](#winnr()).  The value is
+v:mouse_win	Window number for a mouse click obtained with |getchar()|.
+First window has number 1, like with |winnr()|.  The value is
 zero when there was no mouse button click.
 
 ### <a id="v:mouse_winid mouse_winid-variable" class="section-title" href="#v:mouse_winid mouse_winid-variable">Note:</a>
-v:mouse_winid	[window-ID| for a mouse click obtained with |getchar()](#window-ID| for a mouse click obtained with |getchar()).
+v:mouse_winid	[[[[window-ID](/undefined#window-ID)](/undefined)](/undefined)](/undefined) for a mouse click obtained with |getchar()|.
 The value is zero when there was no mouse button click.
 
 ### <a id="v:mouse_lnum mouse_lnum-variable" class="section-title" href="#v:mouse_lnum mouse_lnum-variable">Note:</a>
-v:mouse_lnum	Line number for a mouse click obtained with [getchar()](#getchar()).
+v:mouse_lnum	Line number for a mouse click obtained with |getchar()|.
 This is the text line number, not the screen line number.  The
 value is zero when there was no mouse button click.
 
 ### <a id="v:mouse_col mouse_col-variable" class="section-title" href="#v:mouse_col mouse_col-variable">Note:</a>
-v:mouse_col	Column number for a mouse click obtained with [getchar()](#getchar()).
-This is the screen column number, like with [virtcol()](#virtcol()).  The
+v:mouse_col	Column number for a mouse click obtained with |getchar()|.
+This is the screen column number, like with |virtcol()|.  The
 value is zero when there was no mouse button click.
 
 ### <a id="v:msgpack_types msgpack_types-variable" class="section-title" href="#v:msgpack_types msgpack_types-variable">Note:</a>
-v:msgpack_types	Dictionary containing msgpack types used by [msgpackparse()](#msgpackparse())
-and [msgpackdump()](#msgpackdump()). All types inside dictionary are fixed
+v:msgpack_types	Dictionary containing msgpack types used by |msgpackparse()|
+and |msgpackdump()|. All types inside dictionary are fixed
 (not editable) empty lists. To check whether some list is one
-of msgpack types, use [is](#is) operator.
+of msgpack types, use [[is](/undefined#is)](/undefined) operator.
 
 ### <a id="v:null null-variable" class="section-title" href="#v:null null-variable">Note:</a>
 v:null		Special value used to put "null" in JSON and NIL in msgpack.
-See [json_encode()](#json_encode()).  This value is converted to "v:null" when
-used as a String (e.g. in [expr5](#expr5) with string concatenation
-operator) and to zero when used as a Number (e.g. in [expr5](#expr5)
-or [expr7](#expr7) when used with numeric operators). Read-only.
+See |json_encode()|.  This value is converted to "v:null" when
+used as a String (e.g. in [[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) with string concatenation
+operator) and to zero when used as a Number (e.g. in [[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+or [[[[[[expr7](/undefined#expr7)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when used with numeric operators). Read-only.
 In some places `v:null` can be used for a List, Dict, etc.
 that is not set.  That is slightly different than an empty
 List, Dict, etc.
@@ -2067,54 +2067,54 @@ v:numbersize	Number of bits in a Number.  This is normally 64, but on some
 systems it may be 32.
 
 ### <a id="v:oldfiles oldfiles-variable" class="section-title" href="#v:oldfiles oldfiles-variable">Note:</a>
-v:oldfiles	List of file names that is loaded from the [shada](#shada) file on
+v:oldfiles	List of file names that is loaded from the [[[[shada](/undefined#shada)](/undefined)](/undefined)](/undefined) file on
 startup.  These are the files that Vim remembers marks for.
 The length of the List is limited by the ' argument of the
 'shada' option (default is 100).
-When the [shada](#shada) file is not used the List is empty.
-Also see [:oldfiles| and |c_#<](#:oldfiles| and |c_#<).
+When the [[[[shada](/undefined#shada)](/undefined)](/undefined)](/undefined) file is not used the List is empty.
+Also see |:oldfiles| and |c_#<|.
 The List can be modified, but this has no effect on what is
-stored in the [shada](#shada) file later.  If you use values other
+stored in the [[[[shada](/undefined#shada)](/undefined)](/undefined)](/undefined) file later.  If you use values other
 than String this will cause trouble.
 
 ### <a id="v:option_new" class="section-title" href="#v:option_new">Note:</a>
-v:option_new    New value of the option. Valid while executing an [OptionSet](#OptionSet)
+v:option_new    New value of the option. Valid while executing an [[[[[[[OptionSet](/undefined#OptionSet)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 autocommand.
 ### <a id="v:option_old" class="section-title" href="#v:option_old">Note:</a>
-v:option_old    Old value of the option. Valid while executing an [OptionSet](#OptionSet)
+v:option_old    Old value of the option. Valid while executing an [[[[[[[OptionSet](/undefined#OptionSet)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 autocommand. Depending on the command used for setting and the
 kind of option this is either the local old value or the
 global old value.
 ### <a id="v:option_oldlocal" class="section-title" href="#v:option_oldlocal">Note:</a>
 v:option_oldlocal
 Old local value of the option. Valid while executing an
-[OptionSet](#OptionSet) autocommand.
+[[[[[[[OptionSet](/undefined#OptionSet)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) autocommand.
 ### <a id="v:option_oldglobal" class="section-title" href="#v:option_oldglobal">Note:</a>
 v:option_oldglobal
 Old global value of the option. Valid while executing an
-[OptionSet](#OptionSet) autocommand.
+[[[[[[[OptionSet](/undefined#OptionSet)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) autocommand.
 ### <a id="v:option_type" class="section-title" href="#v:option_type">Note:</a>
 v:option_type   Scope of the set command. Valid while executing an
-[OptionSet](#OptionSet) autocommand. Can be either "global" or "local"
+[[[[[[[OptionSet](/undefined#OptionSet)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) autocommand. Can be either "global" or "local"
 ### <a id="v:option_command" class="section-title" href="#v:option_command">Note:</a>
 v:option_command
 Command used to set the option. Valid while executing an
-[OptionSet](#OptionSet) autocommand.
+[[[[[[[OptionSet](/undefined#OptionSet)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) autocommand.
 value		option was set via   ~
-"setlocal"	[:setlocal](#:setlocal) or ":let l:xxx"
-"setglobal"	[:setglobal](#:setglobal) or ":let g:xxx"
-"set"		[:set| or |:let](#:set| or |:let)
-"modeline"	[modeline](#modeline)
+"setlocal"	|:setlocal| or ":let l:xxx"
+"setglobal"	|:setglobal| or ":let g:xxx"
+"set"		|:set| or |:let|
+"modeline"	[[modeline](/undefined#modeline)](/undefined)
 ### <a id="v:operator operator-variable" class="section-title" href="#v:operator operator-variable">Note:</a>
 v:operator	The last operator given in Normal mode.  This is a single
 character except for commands starting with <g> or <z>,
 in which case it is two characters.  Best used alongside
-[v:prevcount| and |v:register](#v:prevcount| and |v:register).  Useful if you want to cancel
+|v:prevcount| and |v:register|.  Useful if you want to cancel
 Operator-pending mode and then use the operator, e.g.:
 :omap O <Esc>:call MyMotion(v:operator)<CR>
 The value remains set until another operator is entered, thus
 don't expect it to be empty.
-v:operator is not set for [:delete|, |:yank](#:delete|, |:yank) or other Ex
+v:operator is not set for |:delete|, |:yank| or other Ex
 commands.
 Read-only.
 
@@ -2128,7 +2128,7 @@ Read-only.
 
 ### <a id="v:profiling profiling-variable" class="section-title" href="#v:profiling profiling-variable">Note:</a>
 v:profiling	Normally zero.  Set to one after using ":profile start".
-See [profiling](#profiling).
+See [[profiling](/undefined#profiling)](/undefined).
 
 ### <a id="v:progname progname-variable" class="section-title" href="#v:progname progname-variable">Note:</a>
 v:progname	The name by which Nvim was invoked (with path removed).
@@ -2146,7 +2146,7 @@ register).  Or for the currently executing normal mode mapping
 If none is supplied it is the default register '"', unless
 'clipboard' contains "unnamed" or "unnamedplus", then it is
 ### <a id="'' or '+'." class="section-title" href="#'' or '+'.">Note:</a>
-Also see [getreg()| and |setreg()](#getreg()| and |setreg())
+Also see |getreg()| and |setreg()|
 
 ### <a id="v:scrollstart scrollstart-variable" class="section-title" href="#v:scrollstart scrollstart-variable">Note:</a>
 v:scrollstart	String describing the script or function that caused the
@@ -2158,15 +2158,15 @@ hit-enter prompt.
 
 ### <a id="v:servername servername-variable" class="section-title" href="#v:servername servername-variable">Note:</a>
 v:servername	Primary listen-address of Nvim, the first item returned by
-[serverlist()](#serverlist()). Usually this is the named pipe created by Nvim
-at [startup| or given by |--listen](#startup| or given by |--listen) (or the deprecated
-[$NVIM_LISTEN_ADDRESS](#$NVIM_LISTEN_ADDRESS) env var).
+|serverlist()|. Usually this is the named pipe created by Nvim
+at [[startup](/undefined#startup)](/undefined) or given by [[--listen](/undefined#--listen)](/undefined) (or the deprecated
+|$NVIM_LISTEN_ADDRESS| env var).
 
-See also [serverstart()| |serverstop()](#serverstart()| |serverstop()).
+See also |serverstart()| |serverstop()|.
 Read-only.
 
 ### <a id="$NVIM" class="section-title" href="#$NVIM">Note:</a>
-$NVIM is set by [terminal| and |jobstart()](#terminal| and |jobstart()), and is thus
+$NVIM is set by [[terminal](/undefined#terminal)](/undefined) and |jobstart()|, and is thus
 a hint that the current environment is a subprocess of Nvim.
 Example:
 if $NVIM
@@ -2178,9 +2178,9 @@ Note the contents of $NVIM may change in the future.
 ### <a id="v:searchforward searchforward-variable" class="section-title" href="#v:searchforward searchforward-variable">v:searchforward</a>
 Search direction:  1 after a forward search, 0 after a
 backward search.  It is reset to forward when directly setting
-the last search pattern, see [quote/](#quote/).
+the last search pattern, see |quote/|.
 Note that the value is restored when returning from a
-function. [function-search-undo](#function-search-undo).
+function. [[[function-search-undo](/undefined#function-search-undo)](/undefined)](/undefined).
 Read-write.
 
 ### <a id="v:shell_error shell_error-variable" class="section-title" href="#v:shell_error shell_error-variable">Note:</a>
@@ -2201,19 +2201,19 @@ v:statusmsg	Last given status message.
 Modifiable (can be set).
 
 ### <a id="v:stderr stderr-variable" class="section-title" href="#v:stderr stderr-variable">Note:</a>
-v:stderr	[channel-id](#channel-id) corresponding to stderr. The value is always 2;
+v:stderr	[[[channel-id](/undefined#channel-id)](/undefined)](/undefined) corresponding to stderr. The value is always 2;
 use this variable to make your code more descriptive.
-Unlike stdin and stdout (see [stdioopen()](#stdioopen())), stderr is always
+Unlike stdin and stdout (see |stdioopen()|), stderr is always
 open for writing. Example: 
 ```			:call chansend(v:stderr, "error: toaster empty\n")
 ```
 
 ### <a id="v:swapname swapname-variable" class="section-title" href="#v:swapname swapname-variable">Note:</a>
-v:swapname	Only valid when executing [SwapExists](#SwapExists) autocommands: Name of
+v:swapname	Only valid when executing [[[[[SwapExists](/undefined#SwapExists)](/undefined)](/undefined)](/undefined)](/undefined) autocommands: Name of
 the swap file found.  Read-only.
 
 ### <a id="v:swapchoice swapchoice-variable" class="section-title" href="#v:swapchoice swapchoice-variable">Note:</a>
-v:swapchoice	[SwapExists](#SwapExists) autocommands can set this to the selected choice
+v:swapchoice	[[[[[SwapExists](/undefined#SwapExists)](/undefined)](/undefined)](/undefined)](/undefined) autocommands can set this to the selected choice
 for handling an existing swap file:
 'o'	Open read-only
 'e'	Edit anyway
@@ -2227,27 +2227,27 @@ no SwapExists autocommand.  The default is empty.
 
 ### <a id="v:swapcommand swapcommand-variable" class="section-title" href="#v:swapcommand swapcommand-variable">Note:</a>
 v:swapcommand	Normal mode command to be executed after a file has been
-opened.  Can be used for a [SwapExists](#SwapExists) autocommand to have
+opened.  Can be used for a [[[[[SwapExists](/undefined#SwapExists)](/undefined)](/undefined)](/undefined)](/undefined) autocommand to have
 another Vim open the file and jump to the right place.  For
 example, when jumping to a tag the value is ":tag tagname\r".
 For ":edit +cmd file" the value is ":cmd\r".
 
 ### <a id="v:t_TYPE v:t_bool t_bool-variable" class="section-title" href="#v:t_TYPE v:t_bool t_bool-variable">Note:</a>
-v:t_bool	Value of [Boolean| type.  Read-only.  See: |type()](#Boolean| type.  Read-only.  See: |type())
+v:t_bool	Value of [[Boolean](/undefined#Boolean)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_dict t_dict-variable" class="section-title" href="#v:t_dict t_dict-variable">Note:</a>
-v:t_dict	Value of [Dictionary| type.  Read-only.  See: |type()](#Dictionary| type.  Read-only.  See: |type())
+v:t_dict	Value of [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_float t_float-variable" class="section-title" href="#v:t_float t_float-variable">Note:</a>
-v:t_float	Value of [Float| type.  Read-only.  See: |type()](#Float| type.  Read-only.  See: |type())
+v:t_float	Value of [[[Float](/undefined#Float)](/undefined)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_func t_func-variable" class="section-title" href="#v:t_func t_func-variable">Note:</a>
-v:t_func	Value of [Funcref| type.  Read-only.  See: |type()](#Funcref| type.  Read-only.  See: |type())
+v:t_func	Value of [[[[[[[[[[[[[[[Funcref](/undefined#Funcref)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_list t_list-variable" class="section-title" href="#v:t_list t_list-variable">Note:</a>
-v:t_list	Value of [List| type.  Read-only.  See: |type()](#List| type.  Read-only.  See: |type())
+v:t_list	Value of [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_number t_number-variable" class="section-title" href="#v:t_number t_number-variable">Note:</a>
-v:t_number	Value of [Number| type.  Read-only.  See: |type()](#Number| type.  Read-only.  See: |type())
+v:t_number	Value of [[Number](/undefined#Number)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_string t_string-variable" class="section-title" href="#v:t_string t_string-variable">Note:</a>
-v:t_string	Value of [String| type.  Read-only.  See: |type()](#String| type.  Read-only.  See: |type())
+v:t_string	Value of [[[[[String](/undefined#String)](/undefined)](/undefined)](/undefined)](/undefined) type.  Read-only.  See: |type()|
 ### <a id="v:t_blob t_blob-variable" class="section-title" href="#v:t_blob t_blob-variable">Note:</a>
-v:t_blob	Value of [Blob| type.  Read-only.  See: |type()](#Blob| type.  Read-only.  See: |type())
+v:t_blob	Value of [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) type.  Read-only.  See: |type()|
 
 ### <a id="v:termresponse termresponse-variable" class="section-title" href="#v:termresponse termresponse-variable">Note:</a>
 v:termresponse	The escape sequence returned by the terminal for the DA
@@ -2268,13 +2268,13 @@ v:testing	Must be set before using `test_garbagecollect_now()`.
 
 ### <a id="v:this_session this_session-variable" class="section-title" href="#v:this_session this_session-variable">Note:</a>
 v:this_session	Full filename of the last loaded or saved session file.
-Empty when no session file has been saved.  See [:mksession](#:mksession).
+Empty when no session file has been saved.  See |:mksession|.
 Modifiable (can be set).
 
 ### <a id="v:throwpoint throwpoint-variable" class="section-title" href="#v:throwpoint throwpoint-variable">Note:</a>
 v:throwpoint	The point where the exception most recently caught and not
 finished was thrown.  Not set when commands are typed.  See
-also [v:exception| and |throw-variables](#v:exception| and |throw-variables).
+also |v:exception| and [[[[throw-variables](/undefined#throw-variables)](/undefined)](/undefined)](/undefined).
 Example: 
 ```	:try
 :  throw "oops"
@@ -2285,27 +2285,27 @@ Output: "Exception from test.vim, line 2"
 
 ### <a id="v:true true-variable" class="section-title" href="#v:true true-variable">Note:</a>
 v:true		Special value used to put "true" in JSON and msgpack.  See
-[json_encode()](#json_encode()).  This value is converted to "v:true" when used
-as a String (e.g. in [expr5](#expr5) with string concatenation
-operator) and to one when used as a Number (e.g. in [expr5](#expr5) or
-[expr7](#expr7) when used with numeric operators). Read-only.
+|json_encode()|.  This value is converted to "v:true" when used
+as a String (e.g. in [[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) with string concatenation
+operator) and to one when used as a Number (e.g. in [[[[[[[[expr5](/undefined#expr5)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or
+[[[[[[expr7](/undefined#expr7)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when used with numeric operators). Read-only.
 
 ### <a id="v:val val-variable" class="section-title" href="#v:val val-variable">Note:</a>
-v:val		Value of the current item of a [List| or |Dictionary](#List| or |Dictionary).  Only
-valid while evaluating the expression used with [map()](#map()) and
-[filter()](#filter()).  Read-only.
+v:val		Value of the current item of a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Only
+valid while evaluating the expression used with |map()| and
+|filter()|.  Read-only.
 
 ### <a id="v:version version-variable" class="section-title" href="#v:version version-variable">Note:</a>
 v:version	Vim version number: major version times 100 plus minor
 version.  Vim 5.0 is 500, Vim 5.1 is 501.
 Read-only.
-Use [has()](#has()) to check the Nvim (not Vim) version:
+Use |has()| to check the Nvim (not Vim) version:
 :if has("nvim-0.2.1")
 ```
 
 
 ### <a id="v:vim_did_enter vim_did_enter-variable" class="section-title" href="#v:vim_did_enter vim_did_enter-variable">Note:</a>
-v:vim_did_enter	0 during startup, 1 just before [VimEnter](#VimEnter).
+v:vim_did_enter	0 during startup, 1 just before [[VimEnter](/undefined#VimEnter)](/undefined).
 Read-only.
 
 ### <a id="v:warningmsg warningmsg-variable" class="section-title" href="#v:warningmsg warningmsg-variable">Note:</a>
@@ -2315,19 +2315,19 @@ Modifiable (can be set).
 ### <a id="v:windowid windowid-variable" class="section-title" href="#v:windowid windowid-variable">Note:</a>
 v:windowid	Application-specific window "handle" which may be set by any
 attached UI. Defaults to zero.
-Note: For Nvim [windows| use |winnr()| or |win_getid()](#windows| use |winnr()| or |win_getid()), see
-[window-ID](#window-ID).
+Note: For Nvim [[windows](/undefined#windows)](/undefined) use |winnr()| or |win_getid()|, see
+[[[[window-ID](/undefined#window-ID)](/undefined)](/undefined)](/undefined).
 
 
 ## <a id="vim-function functions" class="section-title" href="#vim-function functions">4. Builtin Functions</a> 
 
 The Vimscript subsystem (referred to as "eval" internally) provides builtin
-functions.  Scripts can also define [user-function](#user-function)s.
+functions.  Scripts can also define [[[user-function](/undefined#user-function)](/undefined)](/undefined)s.
 
-See [function-list](#function-list) to browse functions by topic.
+See [[function-list](/undefined#function-list)](/undefined) to browse functions by topic.
 
 The alphabetic list of all builtin functions and details are in a separate
-help file: [builtin-functions](#builtin-functions).
+help file: [[builtin-functions](/undefined#builtin-functions)](/undefined).
 
 
 ## <a id="user-function" class="section-title" href="#user-function">5. Defining Functions</a> 
@@ -2336,7 +2336,7 @@ New functions can be defined.  These can be called just like builtin
 functions.  The function takes arguments, executes a sequence of Ex commands
 and can return a value.
 
-You can find most information about defining functions in [userfunc.txt](#userfunc.txt).
+You can find most information about defining functions in |userfunc.txt|.
 
 
 ## <a id="curly-braces-names" class="section-title" href="#curly-braces-names">6. Curly Braces Names</a> 
@@ -2398,17 +2398,17 @@ Set a list item to the result of the expression
 {expr1}.  {var-name} must refer to a list and {idx}
 must be a valid index in that list.  For nested list
 the index can be repeated.
-This cannot be used to add an item to a [List](#List).
+This cannot be used to add an item to a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 This cannot be used to set a byte in a String.  You
 can do that like this:
 :let var = var[0:2] .. 'X' .. var[4:]
-When {var-name} is a [Blob](#Blob) then {idx} can be the
+When {var-name} is a [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) then {idx} can be the
 length of the blob, in which case one byte is
 appended.
 
 ### <a id="E711 E719" class="section-title" href="#E711 E719">Note:</a>
 ### <a id="E708 E709 E710" class="section-title" href="#E708 E709 E710">:let {var-name}[{idx1}:{idx2}] = {expr1}</a>
-Set a sequence of items in a [List](#List) to the result of
+Set a sequence of items in a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) to the result of
 the expression {expr1}, which must be a list with the
 correct number of items.
 {idx1} can be omitted, zero is used instead.
@@ -2441,7 +2441,7 @@ works like "=".
 Write the result of the expression {expr1} in register
 {reg-name}.  {reg-name} must be a single letter, and
 must be the name of a writable register (see
-[registers](#registers)).  "@@" can be used for the unnamed
+[[[registers](/undefined#registers)](/undefined)](/undefined)).  "@@" can be used for the unnamed
 register, "@/" for the search pattern.
 If the result of {expr1} ends in a <CR> or <NL>, the
 register will be linewise, otherwise it will be set to
@@ -2460,14 +2460,14 @@ Set option {option-name} to the result of the
 expression {expr1}.  A String or Number value is
 always converted to the type of the option.
 For an option local to a window or buffer the effect
-is just like using the [:set](#:set) command: both the local
+is just like using the |:set| command: both the local
 value and the global value are changed.
 Example:
 :let &path = &path .. ',/usr/local/include'
 
 :let &{option-name} .= {expr1}
 For a string option: Append {expr1} to the value.
-Does not insert a comma like [:set+=](#:set+=).
+Does not insert a comma like |:set+=|.
 
 :let &{option-name} += {expr1}
 :let &{option-name} -= {expr1}
@@ -2479,21 +2479,21 @@ For a number or boolean option: Add or subtract
 :let &l:{option-name} += {expr1}
 :let &l:{option-name} -= {expr1}
 Like above, but only set the local value of an option
-(if there is one).  Works like [:setlocal](#:setlocal).
+(if there is one).  Works like |:setlocal|.
 
 :let &g:{option-name} = {expr1}
 :let &g:{option-name} .= {expr1}
 :let &g:{option-name} += {expr1}
 :let &g:{option-name} -= {expr1}
 Like above, but only set the global value of an option
-(if there is one).  Works like [:setglobal](#:setglobal).
+(if there is one).  Works like |:setglobal|.
 
 ### <a id=":let-unpack E687 E688" class="section-title" href="#:let-unpack E687 E688">:let [{name1}, {name2}, ...] = {expr1}</a>
-{expr1} must evaluate to a [List](#List).  The first item in
+{expr1} must evaluate to a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  The first item in
 the list is assigned to {name1}, the second item to
 {name2}, etc.
 The number of names must match the number of items in
-the [List](#List).
+the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 Each name can be one of the items of the ":let"
 command as mentioned above.
 Example:
@@ -2511,10 +2511,10 @@ The result is [0, 2].
 :let [{name1}, {name2}, ...] += {expr1}
 :let [{name1}, {name2}, ...] -= {expr1}
 Like above, but append/add/subtract the value for each
-[List](#List) item.
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) item.
 
 ### <a id="E452" class="section-title" href="#E452">:let [{name}, ..., ; {lastname}] = {expr1}</a>
-Like [:let-unpack| above, but the |List](#:let-unpack| above, but the |List) may have more
+Like |:let-unpack| above, but the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) may have more
 items than there are names.  A list of the remaining
 items is assigned to {lastname}.  If there are no
 remaining items {lastname} is set to an empty list.
@@ -2526,7 +2526,7 @@ Example:
 :let [{name}, ..., ; {lastname}] += {expr1}
 :let [{name}, ..., ; {lastname}] -= {expr1}
 Like above, but append/add/subtract the value for each
-[List](#List) item.
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) item.
 
 ### <a id=":let=<< :let-heredoc" class="section-title" href="#:let=<< :let-heredoc">Note:</a>
 ### <a id="E990 E991 E172 E221" class="section-title" href="#E990 E991 E172 E221">Note:</a>
@@ -2534,10 +2534,10 @@ Like above, but append/add/subtract the value for each
 text...
 text...
 {endmarker}
-Set internal variable {var-name} to a [List](#List)
+Set internal variable {var-name} to a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 containing the lines of text bounded by the string
 {endmarker}. The lines of text is used as a
-[literal-string](#literal-string).
+[[[literal-string](/undefined#literal-string)](/undefined)](/undefined).
 {endmarker} must not contain white space.
 {endmarker} cannot start with a lower case character.
 The last line should end only with the {endmarker}
@@ -2612,13 +2612,13 @@ variable is indicated before the value:
 ### <a id=":unlet :unl E108 E795" class="section-title" href="#:unlet :unl E108 E795">:unl[et][!] {name} ...</a>
 Remove the internal variable {name}.  Several variable
 names can be given, they are all removed.  The name
-may also be a [List| or |Dictionary](#List| or |Dictionary) item.
+may also be a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) item.
 With [!] no error message is given for non-existing
 variables.
-One or more items from a [List](#List) can be removed: 
+One or more items from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) can be removed: 
 ```				:unlet list[3]	  " remove fourth item
 :unlet list[3:]   " remove fourth item to last
-One item from a [Dictionary](#Dictionary) can be removed at a time:
+One item from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) can be removed at a time:
 :unlet dict['two']
 :unlet dict.two
 This is especially useful to clean up used global
@@ -2639,9 +2639,9 @@ variable, it is made empty.
 :cons[t] {var-name} = {expr1}
 :cons[t] [{name1}, {name2}, ...] = {expr1}
 :cons[t] [{name}, ..., ; {lastname}] = {expr1}
-Similar to [:let](#:let), but additionally lock the variable
+Similar to |:let|, but additionally lock the variable
 after setting the value.  This is the same as locking
-the variable with [:lockvar| just after |:let](#:lockvar| just after |:let), thus:
+the variable with |:lockvar| just after |:let|, thus:
 :const x = 1
 is equivalent to:
 :let x = 1
@@ -2657,7 +2657,7 @@ const lconst = [0, lvar]
 let lconst[0] = 2  " Error!
 let lconst[1][0] = 'b'  " OK
 ### <a id="E995" class="section-title" href="#E995">Note:</a>
-[:const](#:const) does not allow to for changing a variable.
+|:const| does not allow to for changing a variable.
 :let x = 1
 :const x = 2  " Error!
 ### <a id="E996" class="section-title" href="#E996">Note:</a>
@@ -2668,7 +2668,7 @@ be locked.
 :cons[t]
 :cons[t] {var-name}
 If no argument is given or only {var-name} is given,
-the behavior is the same as [:let](#:let).
+the behavior is the same as |:let|.
 
 ### <a id=":lockvar :lockv" class="section-title" href="#:lockvar :lockv">:lockv[ar][!] [depth] {name} ...</a>
 Lock the internal variable {name}.  Locking means that
@@ -2684,28 +2684,28 @@ If you try to lock or unlock a built-in variable you
 will get an error message "E940: Cannot lock or unlock
 variable {name}".
 
-[depth] is relevant when locking a [List](#List) or
-[Dictionary](#Dictionary).  It specifies how deep the locking goes:
-1	Lock the [List| or |Dictionary](#List| or |Dictionary) itself,
+[depth] is relevant when locking a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  It specifies how deep the locking goes:
+1	Lock the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) itself,
 cannot add or remove items, but can
 still change their values.
 2	Also lock the values, cannot change
-the items.  If an item is a [List](#List) or
-[Dictionary](#Dictionary), cannot add or remove
+the items.  If an item is a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), cannot add or remove
 items, but can still change the
 values.
-3	Like 2 but for the [List](#List) /
-[Dictionary| in the |List](#Dictionary| in the |List) /
-[Dictionary](#Dictionary), one level deeper.
-The default [depth] is 2, thus when {name} is a [List](#List)
-or [Dictionary](#Dictionary) the values cannot be changed.
+3	Like 2 but for the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) /
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) /
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), one level deeper.
+The default [depth] is 2, thus when {name} is a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+or [[[[[[[[[[[[[[[[[[[[[[[[[[[[[Dictionary](/undefined#Dictionary)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) the values cannot be changed.
 ### <a id="E743" class="section-title" href="#E743">Note:</a>
 For unlimited depth use [!] and omit [depth].
 However, there is a maximum depth of 100 to catch
 loops.
 
-Note that when two variables refer to the same [List](#List)
-and you lock one of them, the [List](#List) will also be
+Note that when two variables refer to the same [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+and you lock one of them, the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) will also be
 locked when used through the other variable.
 Example:
 :let l = [0, 1, 2, 3]
@@ -2713,12 +2713,12 @@ Example:
 :lockvar l
 :let cl[1] = 99		" won't work!
 You may want to make a copy of a list to avoid this.
-See [deepcopy()](#deepcopy()).
+See |deepcopy()|.
 
 
 ### <a id=":unlockvar :unlo" class="section-title" href="#:unlockvar :unlo">:unlo[ckvar][!] [depth] {name} ...</a>
 Unlock the internal variable {name}.  Does the
-opposite of [:lockvar](#:lockvar).
+opposite of |:lockvar|.
 
 ### <a id=":if :end :endif :en E171 E579 E580" class="section-title" href="#:if :end :endif :en E171 E579 E580">:if {expr1}</a>
 :en[dif]		Execute the commands until the next matching `:else`
@@ -2781,8 +2781,8 @@ properly inside a `:while` and `:for` loop.
 ### <a id=":for E690 E732" class="section-title" href="#:for E690 E732">:for {var} in {object}</a>
 ### <a id=":endfo :endfor" class="section-title" href="#:endfo :endfor">:endfo[r]</a>
 Repeat the commands between `:for` and `:endfor` for
-each item in {object}.  {object} can be a [List](#List),
-a [Blob| or a |String](#Blob| or a |String).
+each item in {object}.  {object} can be a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined),
+a [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or a [[[[[String](/undefined#String)](/undefined)](/undefined)](/undefined)](/undefined).
 
 Variable {var} is set to the value of each item.
 
@@ -2793,24 +2793,24 @@ are used.  Make a copy if this is unwanted:
 ```				:for item in copy(mylist)
 ```
 
-When {object} is a [List](#List) and not making a copy, Vim
-stores a reference to the next item in the [List](#List)
+When {object} is a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and not making a copy, Vim
+stores a reference to the next item in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 before executing the commands with the current item.
 Thus the current item can be removed without effect.
 Removing any later item means it will not be found.
 Thus the following example works (an inefficient way
-to make a [List](#List) empty): 
+to make a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) empty): 
 ```				for item in mylist
 call remove(mylist, 0)
 endfor
-Note that reordering the [List](#List) (e.g., with sort() or
+Note that reordering the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) (e.g., with sort() or
 reverse()) may have unexpected effects.
 
-When {object} is a [Blob](#Blob), Vim always makes a copy to
-iterate over.  Unlike with [List](#List), modifying the
-[Blob](#Blob) does not affect the iteration.
+When {object} is a [[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), Vim always makes a copy to
+iterate over.  Unlike with [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), modifying the
+[[[[[[[[[[[[[[[[[[Blob](/undefined#Blob)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) does not affect the iteration.
 
-When {object} is a [String](#String) each item is a string with
+When {object} is a [[[[[String](/undefined#String)](/undefined)](/undefined)](/undefined)](/undefined) each item is a string with
 one character, plus any combining characters.
 
 :for [{var1}, {var2}, ...] in {listlist}
@@ -2860,7 +2860,7 @@ a corresponding `:finally` etc.  Then the script
 processing is terminated.  Whether a function
 definition has an "abort" argument does not matter.
 Example: 
-```		try [ call Unknown() | finally | echomsg "cleanup" ](# call Unknown() | finally | echomsg "cleanup" ) endtry
+```		try | call Unknown() | finally | echomsg "cleanup" | endtry
 echomsg "not reached"
 ```
 
@@ -2879,8 +2879,8 @@ and {errmsg} is the message that is displayed if the
 error exception is not caught, always beginning with
 the error number.
 Examples: 
-```		try [ sleep 100 | catch /^Vim:Interrupt$/ ](# sleep 100 | catch /^Vim:Interrupt$/ ) endtry
-try [ edit | catch /^Vim(edit):E\d\+/ | echo "error" ](# edit | catch /^Vim(edit):E\d\+/ | echo "error" ) endtry
+```		try | sleep 100 | catch /^Vim:Interrupt$/ | endtry
+try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry
 ```
 
 ### <a id=":cat :catch E603 E604 E605" class="section-title" href="#:cat :catch E603 E604 E605">Note:</a>
@@ -2907,7 +2907,7 @@ Another character can be used instead of / around the
 meaning (e.g., '|' or '"') and doesn't occur inside
 {pattern}.
 Information about the exception is available in
-[v:exception|.  Also see |throw-variables](#v:exception|.  Also see |throw-variables).
+|v:exception|.  Also see [[[[throw-variables](/undefined#throw-variables)](/undefined)](/undefined)](/undefined).
 NOTE: It is not reliable to ":catch" the TEXT of
 an error message because it may vary in different
 locales.
@@ -2937,7 +2937,7 @@ script), until a matching `:catch` has been found.
 If the exception is not caught, the command processing
 is terminated.
 Example: 
-```		:try [ throw "oops" | catch /^oo/ | echo "caught" ](# throw "oops" | catch /^oo/ | echo "caught" ) endtry
+```		:try | throw "oops" | catch /^oo/ | echo "caught" | endtry
 Note that "catch" may need to be on a separate line
 for when an error causes the parsing to skip the whole
 line and not see the "|" that separates the commands.
@@ -2945,7 +2945,7 @@ line and not see the "|" that separates the commands.
 ### <a id=":ec :echo" class="section-title" href="#:ec :echo">Note:</a>
 :ec[ho] {expr1} ..	Echoes each {expr1}, with a space in between.  The
 first {expr1} starts on a new line.
-Also see [:comment](#:comment).
+Also see |:comment|.
 Use "\n" to start a new line.  Use "\r" to move the
 cursor to the first column.
 Uses the highlighting set by the `:echohl` command.
@@ -2960,12 +2960,12 @@ quite often.  To avoid that a command from before the
 `:echo` causes a redraw afterwards (redraws are often
 postponed until you type something), force a redraw
 with the `:redraw` command.  Example:
-:new [ redraw ](# redraw ) echo "there is a new window"
+:new | redraw | echo "there is a new window"
 ### <a id=":echo-self-refer" class="section-title" href="#:echo-self-refer">Note:</a>
 When printing nested containers echo prints second
 occurrence of the self-referencing container using
-"[...@level]" (self-referencing [List](#List)) or
-"{...@level}" (self-referencing [Dict](#Dict)):
+"[...@level]" (self-referencing [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[List](/undefined#List)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)) or
+"{...@level}" (self-referencing [[[Dict](/undefined#Dict)](/undefined)](/undefined)):
 :let l = []
 :call add(l, l)
 :let l2 = []
@@ -2977,7 +2977,7 @@ level.
 
 ### <a id=":echon" class="section-title" href="#:echon">Note:</a>
 :echon {expr1} ..	Echoes each {expr1}, without anything added.  Also see
-[:comment](#:comment).
+|:comment|.
 Uses the highlighting set by the `:echohl` command.
 Cannot be followed by a comment.
 Example:
@@ -2988,7 +2988,7 @@ Note the difference between using `:echo`, which is a
 Vim command, and `:!echo`, which is an external shell
 command: 
 ```		:!echo %		--> filename
-The arguments of ":!" are expanded, see [:_%](#:_%).
+The arguments of ":!" are expanded, see |:_%|.
 :!echo "%"		--> filename or "filename"
 Like the previous example.  Whether you see the double
 quotes or not depends on your 'shell'.
@@ -3003,13 +3003,13 @@ This calls the expand() function to expand the '%'.
 :echoh[l] {name}	Use the highlight group {name} for the following
 `:echo`, `:echon` and `:echomsg` commands.  Also used
 for the `input()` prompt.  Example:
-:echohl WarningMsg [ echo "Don't panic!" ](# echo "Don't panic!" ) echohl None
+:echohl WarningMsg | echo "Don't panic!" | echohl None
 Don't forget to set the group back to "None",
 otherwise all following echo's will be highlighted.
 
 ### <a id=":echom :echomsg" class="section-title" href="#:echom :echomsg">Note:</a>
 :echom[sg] {expr1} ..	Echo the expression(s) as a true message, saving the
-message in the [message-history](#message-history).
+message in the [[[message-history](/undefined#message-history)](/undefined)](/undefined).
 Spaces are placed between the arguments as with the
 `:echo` command.  But unprintable characters are
 displayed, not interpreted.
@@ -3021,16 +3021,16 @@ String, string() is used to turn it into a string.
 Uses the highlighting set by the `:echohl` command.
 Example:
 :echomsg "It's a Zizzer Zazzer Zuzz, as you can plainly see."
-See [:echo-redraw](#:echo-redraw) to avoid the message disappearing
+See |:echo-redraw| to avoid the message disappearing
 when the screen is redrawn.
 ### <a id=":echoe :echoerr" class="section-title" href="#:echoe :echoerr">Note:</a>
 :echoe[rr] {expr1} ..	Echo the expression(s) as an error message, saving the
-message in the [message-history](#message-history).  When used in a
+message in the [[[message-history](/undefined#message-history)](/undefined)](/undefined).  When used in a
 script or function the line number will be added.
 Spaces are placed between the arguments as with the
 `:echomsg` command.  When used inside a try conditional,
 the message is raised as an error exception instead
-(see [try-echoerr](#try-echoerr)).
+(see [[try-echoerr](/undefined#try-echoerr)](/undefined)).
 Example:
 :echoerr "This script just failed!"
 If you just want a highlighted message use `:echohl`.
@@ -3078,11 +3078,11 @@ that don't accept a '|'.  Example:
 control characters in a Vim script for a ":normal"
 command:
 :execute "normal ixxx\<Esc>"
-This has an <Esc> character, see [expr-string](#expr-string).
+This has an <Esc> character, see [[[expr-string](/undefined#expr-string)](/undefined)](/undefined).
 
 Be careful to correctly escape special characters in
-file names.  The [fnameescape()](#fnameescape()) function can be used
-for Vim commands, [shellescape()| for |:!](#shellescape()| for |:!) commands.
+file names.  The |fnameescape()| function can be used
+for Vim commands, |shellescape()| for |:!| commands.
 Examples:
 :execute "e " .. fnameescape(filename)
 :execute "!ls " .. shellescape(filename, 1)
@@ -3106,7 +3106,7 @@ gives an error for finding an ":endwhile":
 
 It is allowed to have a "while" or "if" command
 completely in the executed string: 
-```		:execute 'while i < 5 [ echo i | let i = i + 1 ](# echo i | let i = i + 1 ) endwhile'
+```		:execute 'while i < 5 | echo i | let i = i + 1 | endwhile'
 ```
 
 
@@ -3124,8 +3124,8 @@ The Vim script language comprises an exception handling feature.  This section
 explains how it can be used in a Vim script.
 
 Exceptions may be raised by Vim on an error or on interrupt, see
-[catch-errors| and |catch-interrupt](#catch-errors| and |catch-interrupt).  You can also explicitly throw an
-exception by using the ":throw" command, see [throw-catch](#throw-catch).
+[[[[catch-errors](/undefined#catch-errors)](/undefined)](/undefined)](/undefined) and [[catch-interrupt](/undefined#catch-interrupt)](/undefined).  You can also explicitly throw an
+exception by using the ":throw" command, see [[[[throw-catch](/undefined#throw-catch)](/undefined)](/undefined)](/undefined).
 
 
 ### <a id="try-conditionals" class="section-title" href="#try-conditionals">Try Conditionals</a>
@@ -3133,9 +3133,9 @@ exception by using the ":throw" command, see [throw-catch](#throw-catch).
 Exceptions can be caught or can cause cleanup code to be executed.  You can
 use a try conditional to specify catch clauses (that catch exceptions) and/or
 a finally clause (to be executed for cleanup).
-A try conditional begins with a [:try](#:try) command and ends at the matching
-[:endtry| command.  In between, you can use a |:catch](#:endtry| command.  In between, you can use a |:catch) command to start
-a catch clause, or a [:finally](#:finally) command to start a finally clause.  There may
+A try conditional begins with a |:try| command and ends at the matching
+|:endtry| command.  In between, you can use a |:catch| command to start
+a catch clause, or a |:finally| command to start a finally clause.  There may
 be none or multiple catch clauses, but there is at most one finally clause,
 which must not be followed by any catch clauses.  The lines before the catch
 clauses and the finally clause is called a try block.
@@ -3178,20 +3178,20 @@ that try conditional and none of the catch clauses is executed.  Only the
 finally clause, if present, is taken.  The exception pends during execution of
 the finally clause.  It is resumed at the ":endtry", so that commands after
 the ":endtry" are not executed and the exception might be caught elsewhere,
-see [try-nesting](#try-nesting).
+see [[[[try-nesting](/undefined#try-nesting)](/undefined)](/undefined)](/undefined).
 When during execution of a catch clause another exception is thrown, the
 remaining lines in that catch clause are not executed.  The new exception is
 not matched against the patterns in any of the ":catch" commands of the same
 try conditional and none of its catch clauses is taken.  If there is, however,
 a finally clause, it is executed, and the exception pends during its
 execution.  The commands following the ":endtry" are not executed.  The new
-exception might, however, be caught elsewhere, see [try-nesting](#try-nesting).
+exception might, however, be caught elsewhere, see [[[[try-nesting](/undefined#try-nesting)](/undefined)](/undefined)](/undefined).
 When during execution of the finally clause (if present) an exception is
 thrown, the remaining lines in the finally clause are skipped.  If the finally
 clause has been taken because of an exception from the try block or one of the
 catch clauses, the original (pending) exception is discarded.  The commands
 following the ":endtry" are not executed, and the exception from the finally
-clause is propagated and can be caught elsewhere, see [try-nesting](#try-nesting).
+clause is propagated and can be caught elsewhere, see [[[[try-nesting](/undefined#try-nesting)](/undefined)](/undefined)](/undefined).
 
 The finally clause is also executed, when a ":break" or ":continue" for
 a ":while" loop enclosing the complete try conditional is executed from the
@@ -3209,7 +3209,7 @@ clause has been taken because of an exception or an earlier ":break",
 ":continue", ":return", or ":finish" from the try block or a catch clause,
 this pending exception or command is discarded.
 
-For examples see [throw-catch| and |try-finally](#throw-catch| and |try-finally).
+For examples see [[[[throw-catch](/undefined#throw-catch)](/undefined)](/undefined)](/undefined) and [[try-finally](/undefined#try-finally)](/undefined).
 
 
 ### <a id="try-nesting" class="section-title" href="#try-nesting">Nesting	of Try Conditionals</a>
@@ -3233,7 +3233,7 @@ thrown by a ":throw" command.  For uncaught error and interrupt exceptions
 implicitly raised by Vim, the error message(s) or interrupt message are shown
 as usual.
 
-For examples see [throw-catch](#throw-catch).
+For examples see [[[[throw-catch](/undefined#throw-catch)](/undefined)](/undefined)](/undefined).
 
 
 ### <a id="except-examine" class="section-title" href="#except-examine">Examining Exception Handling Code</a>
@@ -3243,12 +3243,12 @@ Exception handling code can get tricky.  If you are in doubt what happens, set
 script file.  Then you see when an exception is thrown, discarded, caught, or
 finished.  When using a verbosity level of at least 14, things pending in
 a finally clause are also shown.  This information is also given in debug mode
-(see [debug-scripts](#debug-scripts)).
+(see [[[debug-scripts](/undefined#debug-scripts)](/undefined)](/undefined)).
 
 
 ### <a id="throw-catch" class="section-title" href="#throw-catch">Throwing and Catching Exceptions</a>
 
-You can throw any number or string as an exception.  Use the [:throw](#:throw) command
+You can throw any number or string as an exception.  Use the |:throw| command
 and pass the value to be thrown as argument:
 :throw 4711
 :throw "string"
@@ -3297,8 +3297,8 @@ Example:
 Here neither of "then" or "else" is displayed.
 
 ### <a id="catch-order" class="section-title" href="#catch-order">Note:</a>
-Exceptions can be caught by a try conditional with one or more [:catch](#:catch)
-commands, see [try-conditionals](#try-conditionals).   The values to be caught by each ":catch"
+Exceptions can be caught by a try conditional with one or more |:catch|
+commands, see [[try-conditionals](/undefined#try-conditionals)](/undefined).   The values to be caught by each ":catch"
 command can be specified as a pattern argument.  The subsequent catch clause
 gets executed when a matching exception is caught.
 Example:
@@ -3331,13 +3331,13 @@ never taken.
 
 ### <a id="throw-variables" class="section-title" href="#throw-variables">Note:</a>
 If you catch an exception by a general pattern, you may access the exact value
-in the variable [v:exception](#v:exception):
+in the variable |v:exception|:
 
 :  catch /^\d\+$/
 :    echo "Number thrown.  Value is" v:exception
 
 You may also be interested where an exception was thrown.  This is stored in
-[v:throwpoint](#v:throwpoint).  Note that "v:exception" and "v:throwpoint" are valid for the
+|v:throwpoint|.  Note that "v:exception" and "v:throwpoint" are valid for the
 exception most recently caught as long it is not finished.
 Example:
 
@@ -3383,7 +3383,7 @@ number in the script or function where it has been used:
 :function! LineNumber()
 ### <a id="return substitute(v:throwpoint, '.\D\(\d\+\).', '\1', "")" class="section-title" href="#return substitute(v:throwpoint, '.\D\(\d\+\).', '\1', "")">	:</a>
 :endfunction
-:command! LineNumber try [ throw "" | catch | echo LineNumber() ](# throw "" | catch | echo LineNumber() ) endtry
+:command! LineNumber try | throw "" | catch | echo LineNumber() | endtry
 ```
 
 ### <a id="try-nested" class="section-title" href="#try-nested">Note:</a>
@@ -3448,7 +3448,7 @@ Note that this method cannot be used to "rethrow" Vim error or interrupt
 exceptions, because it is not possible to fake Vim internal exceptions.
 Trying so causes an error exception.  You should throw your own exception
 denoting the situation.  If you want to cause a Vim error exception containing
-the original error exception value, you can use the [:echoerr](#:echoerr) command:
+the original error exception value, you can use the |:echoerr| command:
 
 :try
 :  try
@@ -3559,7 +3559,7 @@ working correctly:
 
 If you need to put commands that could fail into a finally clause, you should
 think about catching or ignoring the errors in these commands, see
-[catch-errors| and |ignore-errors](#catch-errors| and |ignore-errors).
+[[[[catch-errors](/undefined#catch-errors)](/undefined)](/undefined)](/undefined) and [[ignore-errors](/undefined#ignore-errors)](/undefined).
 
 
 ### <a id="catch-errors" class="section-title" href="#catch-errors">Catching Errors</a>
@@ -3567,7 +3567,7 @@ think about catching or ignoring the errors in these commands, see
 If you want to catch specific errors, you just have to put the code to be
 watched in a try block and add a catch clause for the error message.  The
 presence of the try conditional causes all errors to be converted to an
-exception.  No message is displayed and [v:errmsg](#v:errmsg) is not set then.  To find
+exception.  No message is displayed and |v:errmsg| is not set then.  To find
 the right pattern for the ":catch" command, you have to know how the format of
 the error exception is.
 Error exceptions have the following format:
@@ -3623,7 +3623,7 @@ produce multiple error messages, here:
 E121: Undefined variable: novar
 E15: Invalid expression:  novar
 Only the first is used for the exception value, since it is the most specific
-one (see [except-several-errors](#except-several-errors)).  So you can catch it by
+one (see [[except-several-errors](/undefined#except-several-errors)](/undefined)).  So you can catch it by
 :catch /^Vim(\a\+):E121:/
 
 You can catch all errors related to the name "nofunc" by
@@ -3640,7 +3640,7 @@ You can catch all Vim errors by the pattern
 NOTE: You should never catch the error message text itself: 
 ```	:catch /No such variable/
 only works in the English locale, but not when the user has selected
-a different language by the [:language](#:language) command.  It is however helpful to
+a different language by the |:language| command.  It is however helpful to
 cite the message text in a comment:
 :catch /^Vim(\a\+):E108:/   " No such variable
 
@@ -3720,8 +3720,8 @@ You can interrupt a task here by pressing CTRL-C; the script then asks for
 a new command.  If you press CTRL-C at the prompt, the script is terminated.
 
 For testing what happens when CTRL-C would be pressed on a specific line in
-your script, use the debug mode and execute the [>quit| or |>interrupt](#>quit| or |>interrupt)
-command on that line.  See [debug-scripts](#debug-scripts).
+your script, use the debug mode and execute the |>quit| or |>interrupt|
+command on that line.  See [[[debug-scripts](/undefined#debug-scripts)](/undefined)](/undefined).
 
 
 ### <a id="catch-all" class="section-title" href="#catch-all">Catching All</a>
@@ -3733,7 +3733,7 @@ The commands
 :catch
 
 catch everything, error exceptions, interrupt exceptions and exceptions
-explicitly thrown by the [:throw](#:throw) command.  This is useful at the top level of
+explicitly thrown by the |:throw| command.  This is useful at the top level of
 a script in order to catch unexpected things.
 Example:
 
@@ -3943,7 +3943,7 @@ it in parentheses, for instance throw the string "EXCEPT:IO:WRITEERR(myfile)"
 for an error when writing "myfile".
 With the appropriate patterns in the ":catch" command, you can catch for
 base classes or derived classes of your hierarchy.  Additional information in
-parentheses can be cut out from [v:exception](#v:exception) with the ":substitute" command.
+parentheses can be cut out from |v:exception| with the ":substitute" command.
 Example:
 
 :function! CheckRange(a, func)
@@ -4007,7 +4007,7 @@ The exceptions raised by Vim itself (on error or when pressing CTRL-C) use
 a flat hierarchy:  they are all in the "Vim" class.  You cannot throw yourself
 exceptions with the "Vim" prefix; they are reserved for Vim.
 Vim error exceptions are parameterized with the name of the command that
-failed, if known.  See [catch-errors](#catch-errors).
+failed, if known.  See [[[[catch-errors](/undefined#catch-errors)](/undefined)](/undefined)](/undefined).
 
 
 PECULIARITIES
@@ -4041,8 +4041,8 @@ conditional of a new script, you might change the control flow of the existing
 script on error.  You get the immediate abortion on error and can catch the
 error in the new script.  If however the sourced script suppresses error
 messages by using the ":silent!" command (checking for errors by testing
-[v:errmsg](#v:errmsg) if appropriate), its execution path is not changed.  The error is
-not converted to an exception.  (See [:silent](#:silent).)  So the only remaining cause
+|v:errmsg| if appropriate), its execution path is not changed.  The error is
+not converted to an exception.  (See |:silent|.)  So the only remaining cause
 where this happens is for scripts that don't care about errors and produce
 error messages.  You probably won't want to use such code from your new
 scripts.
@@ -4080,7 +4080,7 @@ The ":try", ":catch", ":finally", and ":endtry" commands can be put on
 a single line, but then syntax errors may make it difficult to recognize the
 "catch" line, thus you better avoid this.
 Example:
-:try [ unlet! foo # | catch ](# unlet! foo # | catch ) endtry
+:try | unlet! foo # | catch | endtry
 raises an error exception for the trailing characters after the ":unlet!"
 argument, but does not see the ":catch" and ":endtry" commands, so that the
 error exception is discarded and the "E488: Trailing characters" message gets
@@ -4109,12 +4109,12 @@ Vim(unlet):E488: Trailing characters
 This is done because the syntax error might change the execution path in a way
 not intended by the user.  Example:
 try
-try [ unlet novar # | catch | echo v:exception ](# unlet novar # | catch | echo v:exception ) endtry
+try | unlet novar # | catch | echo v:exception | endtry
 catch /.*/
 echo "outer catch:" v:exception
 endtry
 This displays "outer catch: Vim(unlet):E488: Trailing characters", and then
-a "E600: Missing :endtry" error message is given, see [except-single-line](#except-single-line).
+a "E600: Missing :endtry" error message is given, see [[except-single-line](/undefined#except-single-line)](/undefined).
 
 
 ## <a id="eval-examples" class="section-title" href="#eval-examples">9. Examples</a> 
@@ -4184,7 +4184,7 @@ The input is in the variable "line", the results in the variables "file",
 
 getting the scriptnames in a Dictionary ~
 ### <a id="scriptnames-dictionary" class="section-title" href="#scriptnames-dictionary">Note:</a>
-The [:scriptnames](#:scriptnames) command can be used to get a list of all script files that
+The |:scriptnames| command can be used to get a list of all script files that
 have been sourced.  There is no equivalent function or variable for this
 (because it's rarely needed).  In case you need to manipulate the list this
 code can be used:
@@ -4218,14 +4218,14 @@ The 'foldexpr', 'formatexpr', 'includeexpr', 'indentexpr', 'statusline' and
 protected from these expressions having nasty side effects.  This gives some
 safety for when these options are set from a modeline.  It is also used when
 the command from a tags file is executed and for CTRL-R = in the command line.
-The sandbox is also used for the [:sandbox](#:sandbox) command.
+The sandbox is also used for the |:sandbox| command.
 
 ### <a id="E48" class="section-title" href="#E48">Note:</a>
 These items are not allowed in the sandbox:
 - changing the buffer text
 - defining or changing mapping, autocommands, user commands
-- setting certain options (see [option-summary](#option-summary))
-### <a id="E794" class="section-title" href="#E794">	- setting certain v: variables (see [v:var](#v:var))</a>
+- setting certain options (see [[option-summary](/undefined#option-summary)](/undefined))
+### <a id="E794" class="section-title" href="#E794">	- setting certain v: variables (see |v:var|)</a>
 - executing a shell command
 - reading or writing a file
 - jumping to another buffer or editing a file
@@ -4269,7 +4269,7 @@ This is not allowed when the textlock is active:
 
 ## <a id="expr-highlight" class="section-title" href="#expr-highlight">Command-Line Expressions Highlighting</a> 
 
-Expressions entered by the user in [i_CTRL-R_=|, |c_CTRL-\_e|, |quote=](#i_CTRL-R_=|, |c_CTRL-\_e|, |quote=) are
+Expressions entered by the user in |i_CTRL-R_=|, |c_CTRL-\_e|, |quote=| are
 highlighted by the built-in expressions parser.  It uses highlight groups
 described in the table below, which may be overridden by colorschemes.
 ### <a id="hl-NvimInvalid" class="section-title" href="#hl-NvimInvalid">Note:</a>
@@ -4284,83 +4284,83 @@ Group                              Default link            Colored expression ~
 *hl-NvimInternalError*               None, red/red           Parser bug
 
 *hl-NvimAssignment*                  Operator                Generic assignment
-*hl-NvimPlainAssignment*             NvimAssignment          `=` in [:let](#:let)
+*hl-NvimPlainAssignment*             NvimAssignment          `=` in |:let|
 *hl-NvimAugmentedAssignment*         NvimAssignment          Generic, `+=`/`-=`/`.=`
-*hl-NvimAssignmentWithAddition*      NvimAugmentedAssignment `+=` in [:let+=](#:let+=)
-*hl-NvimAssignmentWithSubtraction*   NvimAugmentedAssignment `-=` in [:let-=](#:let-=)
-*hl-NvimAssignmentWithConcatenation* NvimAugmentedAssignment `.=` in [:let.=](#:let.=)
+*hl-NvimAssignmentWithAddition*      NvimAugmentedAssignment `+=` in |:let+=|
+*hl-NvimAssignmentWithSubtraction*   NvimAugmentedAssignment `-=` in |:let-=|
+*hl-NvimAssignmentWithConcatenation* NvimAugmentedAssignment `.=` in |:let.=|
 
 *hl-NvimOperator*                    Operator                Generic operator
 
 *hl-NvimUnaryOperator*               NvimOperator            Generic unary op
-*hl-NvimUnaryPlus*                   NvimUnaryOperator       [expr-unary-+](#expr-unary-+)
-*hl-NvimUnaryMinus*                  NvimUnaryOperator       [expr-unary--](#expr-unary--)
-*hl-NvimNot*                         NvimUnaryOperator       [expr-!](#expr-!)
+*hl-NvimUnaryPlus*                   NvimUnaryOperator       |expr-unary-+|
+*hl-NvimUnaryMinus*                  NvimUnaryOperator       [[expr-unary--](/undefined#expr-unary--)](/undefined)
+*hl-NvimNot*                         NvimUnaryOperator       |expr-!|
 
 *hl-NvimBinaryOperator*              NvimOperator            Generic binary op
-*hl-NvimComparison*                  NvimBinaryOperator      Any [expr4](#expr4) operator
-*hl-NvimComparisonModifier*          NvimComparison          `#`/`?` near [expr4](#expr4) op
-*hl-NvimBinaryPlus*                  NvimBinaryOperator      [expr-+](#expr-+)
-*hl-NvimBinaryMinus*                 NvimBinaryOperator      [expr--](#expr--)
-*hl-NvimConcat*                      NvimBinaryOperator      [expr-.](#expr-.)
-*hl-NvimConcatOrSubscript*           NvimConcat              [expr-.| or |expr-entry](#expr-.| or |expr-entry)
-*hl-NvimOr*                          NvimBinaryOperator      [expr-barbar](#expr-barbar)
-*hl-NvimAnd*                         NvimBinaryOperator      [expr-&&](#expr-&&)
-*hl-NvimMultiplication*              NvimBinaryOperator      [expr-star](#expr-star)
-*hl-NvimDivision*                    NvimBinaryOperator      [expr-/](#expr-/)
-*hl-NvimMod*                         NvimBinaryOperator      [expr-%](#expr-%)
+*hl-NvimComparison*                  NvimBinaryOperator      Any [[[[expr4](/undefined#expr4)](/undefined)](/undefined)](/undefined) operator
+*hl-NvimComparisonModifier*          NvimComparison          `#`/`?` near [[[[expr4](/undefined#expr4)](/undefined)](/undefined)](/undefined) op
+*hl-NvimBinaryPlus*                  NvimBinaryOperator      |expr-+|
+*hl-NvimBinaryMinus*                 NvimBinaryOperator      [[expr--](/undefined#expr--)](/undefined)
+*hl-NvimConcat*                      NvimBinaryOperator      |expr-.|
+*hl-NvimConcatOrSubscript*           NvimConcat              |expr-.| or [[[[expr-entry](/undefined#expr-entry)](/undefined)](/undefined)](/undefined)
+*hl-NvimOr*                          NvimBinaryOperator      [[expr-barbar](/undefined#expr-barbar)](/undefined)
+*hl-NvimAnd*                         NvimBinaryOperator      |expr-&&|
+*hl-NvimMultiplication*              NvimBinaryOperator      [[expr-star](/undefined#expr-star)](/undefined)
+*hl-NvimDivision*                    NvimBinaryOperator      |expr-/|
+*hl-NvimMod*                         NvimBinaryOperator      |expr-%|
 
-*hl-NvimTernary*                     NvimOperator            `?` in [expr1](#expr1)
-*hl-NvimTernaryColon*                NvimTernary             `:` in [expr1](#expr1)
+*hl-NvimTernary*                     NvimOperator            `?` in [[[[[[expr1](/undefined#expr1)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+*hl-NvimTernaryColon*                NvimTernary             `:` in [[[[[[expr1](/undefined#expr1)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 *hl-NvimParenthesis*                 Delimiter               Generic bracket
-*hl-NvimLambda*                      NvimParenthesis         `{`/`}` in [lambda](#lambda)
-*hl-NvimNestingParenthesis*          NvimParenthesis         `(`/`)` in [expr-nesting](#expr-nesting)
-*hl-NvimCallingParenthesis*          NvimParenthesis         `(`/`)` in [expr-function](#expr-function)
+*hl-NvimLambda*                      NvimParenthesis         `{`/`}` in [[[lambda](/undefined#lambda)](/undefined)](/undefined)
+*hl-NvimNestingParenthesis*          NvimParenthesis         `(`/`)` in [[expr-nesting](/undefined#expr-nesting)](/undefined)
+*hl-NvimCallingParenthesis*          NvimParenthesis         `(`/`)` in [[[expr-function](/undefined#expr-function)](/undefined)](/undefined)
 
 *hl-NvimSubscript*                   NvimParenthesis         Generic subscript
-*hl-NvimSubscriptBracket*            NvimSubscript           `[`/`]` in [expr-[]](#expr-[])
-*hl-NvimSubscriptColon*              NvimSubscript           `:` in [expr-[:]](#expr-[:])
+*hl-NvimSubscriptBracket*            NvimSubscript           `[`/`]` in |expr-[]|
+*hl-NvimSubscriptColon*              NvimSubscript           `:` in |expr-[:]|
 *hl-NvimCurly*                       NvimSubscript           `{`/`}` in
-[curly-braces-names](#curly-braces-names)
+[[[[curly-braces-names](/undefined#curly-braces-names)](/undefined)](/undefined)](/undefined)
 
 *hl-NvimContainer*                   NvimParenthesis         Generic container
-*hl-NvimDict*                        NvimContainer           `{`/`}` in [dict](#dict) literal
-*hl-NvimList*                        NvimContainer           `[`/`]` in [list](#list) literal
+*hl-NvimDict*                        NvimContainer           `{`/`}` in [[[[dict](/undefined#dict)](/undefined)](/undefined)](/undefined) literal
+*hl-NvimList*                        NvimContainer           `[`/`]` in [[[list](/undefined#list)](/undefined)](/undefined) literal
 
 *hl-NvimIdentifier*                  Identifier              Generic identifier
 *hl-NvimIdentifierScope*             NvimIdentifier          Namespace: letter
 before `:` in
-[internal-variables](#internal-variables)
+[[[internal-variables](/undefined#internal-variables)](/undefined)](/undefined)
 *hl-NvimIdentifierScopeDelimiter*    NvimIdentifier          `:` after namespace
 letter
 *hl-NvimIdentifierName*              NvimIdentifier          Rest of the ident
 *hl-NvimIdentifierKey*               NvimIdentifier          Identifier after
-[expr-entry](#expr-entry)
+[[[[expr-entry](/undefined#expr-entry)](/undefined)](/undefined)](/undefined)
 
-*hl-NvimColon*                       Delimiter               `:` in [dict](#dict) literal
-*hl-NvimComma*                       Delimiter               `,` in [dict| or |list](#dict| or |list)
+*hl-NvimColon*                       Delimiter               `:` in [[[[dict](/undefined#dict)](/undefined)](/undefined)](/undefined) literal
+*hl-NvimComma*                       Delimiter               `,` in [[[[dict](/undefined#dict)](/undefined)](/undefined)](/undefined) or [[[list](/undefined#list)](/undefined)](/undefined)
 literal or
-[expr-function](#expr-function)
-*hl-NvimArrow*                       Delimiter               `->` in [lambda](#lambda)
+[[[expr-function](/undefined#expr-function)](/undefined)](/undefined)
+*hl-NvimArrow*                       Delimiter               `->` in [[[lambda](/undefined#lambda)](/undefined)](/undefined)
 
-*hl-NvimRegister*                    SpecialChar             [expr-register](#expr-register)
+*hl-NvimRegister*                    SpecialChar             [[expr-register](/undefined#expr-register)](/undefined)
 *hl-NvimNumber*                      Number                  Non-prefix digits
 in integer
-[expr-number](#expr-number)
-*hl-NvimNumberPrefix*                Type                    `0` for [octal-number](#octal-number)
-`0x` for [hex-number](#hex-number)
-`0b` for [binary-number](#binary-number)
+[[[expr-number](/undefined#expr-number)](/undefined)](/undefined)
+*hl-NvimNumberPrefix*                Type                    `0` for [[octal-number](/undefined#octal-number)](/undefined)
+`0x` for [[hex-number](/undefined#hex-number)](/undefined)
+`0b` for [[binary-number](/undefined#binary-number)](/undefined)
 *hl-NvimFloat*                       NvimNumber              Floating-point
 number
 
-*hl-NvimOptionSigil*                 Type                    `&` in [expr-option](#expr-option)
+*hl-NvimOptionSigil*                 Type                    `&` in [[expr-option](/undefined#expr-option)](/undefined)
 *hl-NvimOptionScope*                 NvimIdentifierScope     Option scope if any
 *hl-NvimOptionScopeDelimiter*        NvimIdentifierScopeDelimiter
 `:` after option scope
 *hl-NvimOptionName*                  NvimIdentifier          Option name
 
-*hl-NvimEnvironmentSigil*            NvimOptionSigil         `$` in [expr-env](#expr-env)
+*hl-NvimEnvironmentSigil*            NvimOptionSigil         `$` in [[expr-env](/undefined#expr-env)](/undefined)
 *hl-NvimEnvironmentName*             NvimIdentifier          Env variable name
 
 *hl-NvimString*                      String                  Generic string
@@ -4370,19 +4370,19 @@ literal body
 *hl-NvimStringSpecial*               SpecialChar             Generic string
 non-literal body
 
-*hl-NvimSingleQuote*                 NvimStringQuote         `'` in [expr-'](#expr-')
+*hl-NvimSingleQuote*                 NvimStringQuote         `'` in |expr-'|
 *hl-NvimSingleQuotedBody*            NvimStringBody          Literal part of
-[expr-'](#expr-') string body
-*hl-NvimSingleQuotedQuote*           NvimStringSpecial       `''` inside [expr-'](#expr-')
+|expr-'| string body
+*hl-NvimSingleQuotedQuote*           NvimStringSpecial       `''` inside |expr-'|
 string body
 
-*hl-NvimDoubleQuote*                 NvimStringQuote         `"` in [expr-quote](#expr-quote)
+*hl-NvimDoubleQuote*                 NvimStringQuote         `"` in [[[[[expr-quote](/undefined#expr-quote)](/undefined)](/undefined)](/undefined)](/undefined)
 *hl-NvimDoubleQuotedBody*            NvimStringBody          Literal part of
-[expr-quote](#expr-quote) body
-*hl-NvimDoubleQuotedEscape*          NvimStringSpecial       Valid [expr-quote](#expr-quote)
+[[[[[expr-quote](/undefined#expr-quote)](/undefined)](/undefined)](/undefined)](/undefined) body
+*hl-NvimDoubleQuotedEscape*          NvimStringSpecial       Valid [[[[[expr-quote](/undefined#expr-quote)](/undefined)](/undefined)](/undefined)](/undefined)
 escape sequence
 *hl-NvimDoubleQuotedUnknownEscape*   NvimInvalidValue        Unrecognized
-[expr-quote](#expr-quote) escape
+[[[[[expr-quote](/undefined#expr-quote)](/undefined)](/undefined)](/undefined)](/undefined) escape
 sequence
 
 vim:tw=78:ts=8:noet:ft=help:norl:

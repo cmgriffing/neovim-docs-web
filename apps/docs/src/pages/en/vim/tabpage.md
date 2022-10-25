@@ -16,7 +16,7 @@ The commands which have been added to use multiple tab pages are explained
 here.  Additionally, there are explanations for commands that work differently
 when used in combination with more than one tab page.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="tab-page-intro" class="section-title" href="#tab-page-intro">1. Introduction</a> 
@@ -29,8 +29,8 @@ Usually you will see a list of labels at the top of the Vim window, one for
 each tab page.  With the mouse you can click on the label to jump to that tab
 page.  There are other ways to move between tab pages, see below.
 
-Most commands work only in the current tab page.  That includes the [CTRL-W](#CTRL-W)
-commands, [:windo|, |:all| and |:ball| (when not using the |:tab](#:windo|, |:all| and |:ball| (when not using the |:tab) modifier).
+Most commands work only in the current tab page.  That includes the [CTRL-W](/neovim-docs-web/en/vim/index#CTRL-W)
+commands, |:windo|, |:all| and |:ball| (when not using the |:tab| modifier).
 The commands that are aware of other tab pages than the current one are
 mentioned below.
 
@@ -44,7 +44,7 @@ close the tab page.
 OPENING A NEW TAB PAGE:
 
 When starting Vim "vim -p filename ..." opens each file argument in a separate
-tab page (up to 'tabpagemax').  See [-p](#-p)
+tab page (up to 'tabpagemax').  See [-p](undefined#-p)
 
 A double click with the mouse in the non-GUI tab pages line opens a new, empty
 tab page.  It is placed left of the position of the click.  The first click
@@ -54,9 +54,9 @@ This also works in a few GUI versions, esp. Win32.  But only when clicking
 right of the labels.
 
 In the GUI tab pages line you can use the right mouse button to open menu.
-[tabline-menu](#tabline-menu).
+[tabline-menu](undefined#tabline-menu).
 
-For the related autocommands see [tabnew-autocmd](#tabnew-autocmd).
+For the related autocommands see [tabnew-autocmd](undefined#tabnew-autocmd).
 
 ### <a id=":tabe :tabedit :tabnew" class="section-title" href="#:tabe :tabedit :tabnew">:[count]tabe[dit]</a>
 :[count]tabnew
@@ -74,17 +74,17 @@ For the related autocommands see [tabnew-autocmd](#tabnew-autocmd).
 
 :[count]tabe[dit] [++opt] [+cmd] {file}
 :[count]tabnew [++opt] [+cmd] {file}
-		Open a new tab page and edit {file}, like with [:edit](#:edit).
-		For [count] see [:tabnew](#:tabnew) above.
+		Open a new tab page and edit {file}, like with |:edit|.
+		For [count] see |:tabnew| above.
 
 ### <a id=":tabf :tabfind" class="section-title" href="#:tabf :tabfind">:[count]tabf[ind] [++opt] [+cmd] {file}</a>
 		Open a new tab page and edit {file} in 'path', like with
-		[:find|.  For [count] see |:tabnew](#:find|.  For [count] see |:tabnew) above.
+		|:find|.  For [count] see |:tabnew| above.
 
 ### <a id=":tab" class="section-title" href="#:tab">:[count]tab {cmd}</a>
 		Execute {cmd} and when it opens a new window open a new tab
-		page instead.  Doesn't work for [:diffsplit|, |:diffpatch](#:diffsplit|, |:diffpatch),
-		[:execute| and |:normal](#:execute| and |:normal).
+		page instead.  Doesn't work for |:diffsplit|, |:diffpatch|,
+		|:execute| and |:normal|.
 		If [count] is given the new tab page appears after the tab
 		page [count] otherwise the new tab page will appear after the
 		current one.
@@ -102,11 +102,11 @@ For the related autocommands see [tabnew-autocmd](#tabnew-autocmd).
 				    " one
 
 CTRL-W gf	Open a new tab page and edit the file name under the cursor.
-		See [CTRL-W_gf](#CTRL-W_gf).
+		See |CTRL-W_gf|.
 
 CTRL-W gF	Open a new tab page and edit the file name under the cursor
 		and jump to the line number following the file name.
-		See [CTRL-W_gF](#CTRL-W_gF).
+		See |CTRL-W_gF|.
 
 CLOSING A TAB PAGE:
 
@@ -114,7 +114,7 @@ Closing the last window of a tab page closes the tab page too, unless there is
 only one tab page.
 
 Using the mouse: If the tab page line is displayed you can click in the "X" at
-the top right to close the current tab page.  A custom ['tabline'](#'tabline') may show
+the top right to close the current tab page.  A custom |'tabline'| may show
 something else.
 
 ### <a id=":tabc :tabclose" class="section-title" href="#:tabc :tabclose">Note:</a>
@@ -176,7 +176,7 @@ SWITCHING TO ANOTHER TAB PAGE:
 
 Using the mouse: If the tab page line is displayed you can click in a tab page
 label to switch to that tab page.  Click where there is no label to go to the
-next tab page.  ['tabline'](#'tabline')
+next tab page.  |'tabline'|
 
 ### <a id=":tabn :tabnext gt" class="section-title" href="#:tabn :tabnext gt">:tabn[ext]</a>
 ### <a id="CTRL-<PageDown> <C-PageDown>" class="section-title" href="#CTRL-<PageDown> <C-PageDown>">C-PageDown></a>
@@ -213,7 +213,7 @@ gT		Go to the previous tab page.  Wraps around from the first one
 {count}<C-PageUp>
 {count}gT	Go {count} tab pages back.  Wraps around from the first one
 		to the last one.  Note that the use of {count} is different
-		from [:tabnext](#:tabnext), where it is used as the tab page number.
+		from |:tabnext|, where it is used as the tab page number.
 
 ### <a id=":tabfir :tabfirst :tabr :tabrewind" class="section-title" href="#:tabfir :tabfirst :tabr :tabrewind">:tabr[ewind]</a>
 :tabfir[st]	Go to the first tab page.
@@ -271,7 +271,7 @@ REORDERING TAB PAGES:
 
 Note that although it is possible to move a tab behind the N-th one by using
 :Ntabmove. And move it by N places by using :+Ntabmove. For clarification what
-+N means in this context see [[range]](#[range]).
++N means in this context see |[range]|.
 
 
 LOOPING OVER TAB PAGES:
@@ -293,8 +293,8 @@ LOOPING OVER TAB PAGES:
 		current tab page.
 		{cmd} can contain '|' to concatenate several commands.
 		{cmd} must not open or close tab pages or reorder them.
-		Also see [:windo|, |:argdo|, |:bufdo|, |:cdo|, |:ldo|, |:cfdo](#:windo|, |:argdo|, |:bufdo|, |:cdo|, |:ldo|, |:cfdo)
-		and [:lfdo](#:lfdo).
+		Also see |:windo|, |:argdo|, |:bufdo|, |:cdo|, |:ldo|, |:cfdo|
+		and |:lfdo|.
 
 
 ## <a id="tab-page-other" class="section-title" href="#tab-page-other">3. Other Items</a> 
@@ -314,7 +314,7 @@ Diff mode works per tab page.  You can see the diffs between several files
 within one tab page.  Other tab pages can show differences between other
 files.
 
-Variables local to a tab page start with "t:". [tabpage-variable](#tabpage-variable)
+Variables local to a tab page start with "t:". [tabpage-variable](undefined#tabpage-variable)
 
 Currently there is only one option local to a tab page: 'cmdheight'.
 
@@ -339,7 +339,7 @@ When switching to another tab page the order is:
 	TabEnter
 	BufEnter
 
-When entering a new tab page ([:tabnew](#:tabnew)), TabNew is triggered before TabEnter
+When entering a new tab page (|:tabnew|), TabNew is triggered before TabEnter
 and after WinEnter.
 
 
@@ -353,7 +353,7 @@ tab page labels to appear: never, when there is more than one tab page or
 always.
 
 The highlighting of the tab pages line is set with the groups TabLine
-TabLineSel and TabLineFill.  [hl-TabLine| |hl-TabLineSel| |hl-TabLineFill](#hl-TabLine| |hl-TabLineSel| |hl-TabLineFill)
+TabLineSel and TabLineFill.  [hl-TabLine](undefined#hl-TabLine) [hl-TabLineSel](undefined#hl-TabLineSel) [hl-TabLineFill](undefined#hl-TabLineFill)
 
 A "+" will be shown for a tab page that has a modified window.  The number of
 windows in a tabpage is also shown.  Thus "3+" means three windows and one of
@@ -363,8 +363,8 @@ The 'tabline' option allows you to define your preferred way to tab pages
 labels.  This isn't easy, thus an example will be given here.
 
 For basics see the 'statusline' option.  The same items can be used in the
-'tabline' option.  Additionally, the [tabpagebuflist()|, |tabpagenr()](#tabpagebuflist()|, |tabpagenr()) and
-[tabpagewinnr()](#tabpagewinnr()) functions are useful.
+'tabline' option.  Additionally, the |tabpagebuflist()|, |tabpagenr()| and
+|tabpagewinnr()| functions are useful.
 
 Since the number of tab labels will vary, you need to use an expression for
 the whole option.  Something like:
@@ -430,7 +430,7 @@ usually is longer.  Only supported on some systems though.
 
 See the 'statusline' option for the format of the value.
 
-The "%N" item can be used for the current tab page number.  The [v:lnum](#v:lnum)
+The "%N" item can be used for the current tab page number.  The |v:lnum|
 variable is also set to this number when the option is evaluated.
 The items that use a file name refer to the current window of the tab page.
 
@@ -477,7 +477,7 @@ you get an error message for the function not being known.
 If you want to fall back to the default label, return an empty string.
 
 If you want to show something specific for a tab page, you might want to use a
-tab page local variable. [t:var](#t:var)
+tab page local variable. |t:var|
 
 
  vim:tw=78:ts=8:noet:ft=help:norl:

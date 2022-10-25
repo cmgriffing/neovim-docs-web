@@ -17,9 +17,9 @@ Command-line mode is used to enter Ex commands (":"), search patterns
 ("/" and "?"), and filter commands ("!").
 
 Basic command line editing is explained in chapter 20 of the user manual
-[usr_20.txt](#usr_20.txt).
+|usr_20.txt|.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="cmdline-editing" class="section-title" href="#cmdline-editing">1. Command-Line Editing</a> 
@@ -36,7 +36,7 @@ other special keys, you can use ":cnoremap" to define another key for them.
 	:cnoremap <C-B> <Left>
 	:cnoremap <Esc>b <S-Left>
 	:cnoremap <Esc>f <S-Right>
-(<> notation [<>](#<>); type all this literally)
+(<> notation |<>|; type all this literally)
 
 ### <a id="cmdline-too-long" class="section-title" href="#cmdline-too-long">Note:</a>
 When the command line is getting longer than what fits on the screen, only the
@@ -50,7 +50,7 @@ history tables:
 - one for ':' commands
 - one for search strings
 - one for expressions
-- one for input lines, typed for the [input()](#input()) function.
+- one for input lines, typed for the |input()| function.
 - one for debug mode commands
 These are completely separate.  Each history can only be accessed when
 entering the same type of line.
@@ -66,16 +66,16 @@ Notes:
   remembered (to avoid that long mappings trash the history).
 
 There is an automatic completion of names on the command-line; see
-[cmdline-completion](#cmdline-completion).
+[cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion).
 
 ### <a id="c_CTRL-V" class="section-title" href="#c_CTRL-V">Note:</a>
 CTRL-V		Insert next non-digit literally.  Up to three digits form the
 		decimal value of a single byte.  The non-digit and the three
 		digits are not considered for mapping.  This works the same
-		way as in Insert mode (see above, [i_CTRL-V](#i_CTRL-V)).
+		way as in Insert mode (see above, |i_CTRL-V|).
 		For special keys, the CTRL modifier may be included into the
 		key to produce a control character.  If there is no control
-		character for the key then its [key-notation](#key-notation) is inserted.
+		character for the key then its [key-notation](undefined#key-notation) is inserted.
 		Note: Under Windows CTRL-V is often mapped to paste text.
 		Use CTRL-Q instead then.
 ### <a id="c_CTRL-Q" class="section-title" href="#c_CTRL-Q">Note:</a>
@@ -115,7 +115,7 @@ BS>		Delete the character in front of the cursor.
 Del>		Delete the character under the cursor (at end of line:
 		character before the cursor).
 ### <a id="c_CTRL-W" class="section-title" href="#c_CTRL-W">Note:</a>
-CTRL-W		Delete the [word](#word) before the cursor.  This depends on the
+CTRL-W		Delete the [word](undefined#word) before the cursor.  This depends on the
 		'iskeyword' option.
 ### <a id="c_CTRL-U" class="section-title" href="#c_CTRL-U">Note:</a>
 CTRL-U		Remove all characters between the cursor position and
@@ -130,7 +130,7 @@ Insert>	Toggle between insert and overstrike.
 
 ### <a id="c_digraph" class="section-title" href="#c_digraph">{char1} <BS> {char2}	or</a>
 ### <a id="c_CTRL-K" class="section-title" href="#c_CTRL-K">CTRL-K {char1} {char2}</a>
-		enter digraph (see [digraphs](#digraphs)).  When {char1} is a special
+		enter digraph (see [digraphs](undefined#digraphs)).  When {char1} is a special
 		key, the code for that key is inserted in <> form.
 
 ### <a id="c_CTRL-R c_<C-R>" class="section-title" href="#c_CTRL-R c_<C-R>">CTRL-R {register}</a>
@@ -158,11 +158,11 @@ Insert>	Toggle between insert and overstrike.
 			'.'	the last inserted text
 ### <a id="c_CTRL-R_=" class="section-title" href="#c_CTRL-R_=">Note:</a>
 			'='	the expression register: you are prompted to
-				enter an expression (see [expression](#expression))
+				enter an expression (see [expression](undefined#expression))
 				(doesn't work at the expression prompt; some
 				things such as changing the buffer or current
 				window are not allowed to avoid side effects)
-				When the result is a [List](#List) the items are used
+				When the result is a [List](undefined#List) the items are used
 				as lines.  They can have line breaks inside
 				too.
 				When the result is a Float it's automatically
@@ -170,10 +170,10 @@ Insert>	Toggle between insert and overstrike.
 				Note that when you only want to move the
 				cursor and not insert anything, you must make
 				sure the expression evaluates to an empty
-				string.  E.g.: 
+				string.  E.g.:
 ```					<C-R><C-R>=setcmdpos(2)[-1]<CR>
-		See [registers](#registers) about registers.
-		Implementation detail: When using the [expression](#expression) register
+		See [registers](undefined#registers) about registers.
+		Implementation detail: When using the [expression](undefined#expression) register
 		and invoking setcmdpos(), this sets the position before
 		inserting the resulting string.  Use CTRL-R CTRL-R to set the
 		position afterwards.
@@ -186,9 +186,9 @@ Insert>	Toggle between insert and overstrike.
 		Insert the object under the cursor:
 			CTRL-F	the Filename under the cursor
 			CTRL-P	the Filename under the cursor, expanded with
-				'path' as in [gf](#gf)
+				'path' as in [gf](undefined#gf)
 			CTRL-W	the Word under the cursor
-			CTRL-A	the WORD under the cursor; see [WORD](#WORD)
+			CTRL-A	the WORD under the cursor; see [WORD](undefined#WORD)
 			CTRL-L	the line under the cursor
 
 		When 'incsearch' is set the cursor position at the end of the
@@ -200,7 +200,7 @@ Insert>	Toggle between insert and overstrike.
 CTRL-R CTRL-R {register CTRL-F CTRL-P CTRL-W CTRL-A CTRL-L}
 CTRL-R CTRL-O {register CTRL-F CTRL-P CTRL-W CTRL-A CTRL-L}
 		Insert register or object under the cursor.  Works like
-		[c_CTRL-R](#c_CTRL-R) but inserts the text literally.  For example, if
+		|c_CTRL-R| but inserts the text literally.  For example, if
 		register a contains "xy^Hz" (where ^H is a backspace),
 		"CTRL-R a" will insert "xz" while "CTRL-R CTRL-R a" will
 		insert "xy^Hz".
@@ -209,14 +209,14 @@ CTRL-R CTRL-O {register CTRL-F CTRL-P CTRL-W CTRL-A CTRL-L}
 		Evaluate {expr} and replace the whole command line with the
 		result.  You will be prompted for the expression, type <Enter>
 		to finish it.  It's most useful in mappings though.  See
-		[expression](#expression).
-		See [c_CTRL-R_=](#c_CTRL-R_=) for inserting the result of an expression.
-		Useful functions are [getcmdtype()|, |getcmdline()](#getcmdtype()|, |getcmdline()) and
-		[getcmdpos()](#getcmdpos()).
+		[expression](undefined#expression).
+		See |c_CTRL-R_=| for inserting the result of an expression.
+		Useful functions are |getcmdtype()|, |getcmdline()| and
+		|getcmdpos()|.
 		The cursor position is unchanged, except when the cursor was
 		at the end of the line, then it stays at the end.
-		[setcmdpos()](#setcmdpos()) can be used to set the cursor position.
-		The [sandbox](#sandbox) is used for evaluating the expression to avoid
+		|setcmdpos()| can be used to set the cursor position.
+		The [sandbox](undefined#sandbox) is used for evaluating the expression to avoid
 		nasty side effects.
 		Example:
 			:cmap <F7> <C-\>eAppendSome()<CR>
@@ -247,7 +247,7 @@ Esc>		When typed and 'x' not present in 'cpoptions', quit
 		Note: If your <Esc> key is hard to hit on your keyboard, train
 		yourself to use CTRL-[.
 ### <a id="c_META c_ALT" class="section-title" href="#c_META c_ALT">Note:</a>
-		ALT ([META](#META)) may act like <Esc> if the chord is not mapped.
+		ALT ([META](undefined#META)) may act like <Esc> if the chord is not mapped.
 		For example <A-x> acts like <Esc>x if <A-x> does not have a
 		command-line mode mapping.
 ### <a id="c_CTRL-C" class="section-title" href="#c_CTRL-C">Note:</a>
@@ -267,13 +267,13 @@ S-Up> or <PageUp>
 S-Down> or <PageDown>
 		recall more recent command-line from history
 
-CTRL-D		command-line completion (see [cmdline-completion](#cmdline-completion))
+CTRL-D		command-line completion (see [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion))
 'wildchar' option
-		command-line completion (see [cmdline-completion](#cmdline-completion))
-CTRL-N		command-line completion (see [cmdline-completion](#cmdline-completion))
-CTRL-P		command-line completion (see [cmdline-completion](#cmdline-completion))
-CTRL-A		command-line completion (see [cmdline-completion](#cmdline-completion))
-CTRL-L		command-line completion (see [cmdline-completion](#cmdline-completion))
+		command-line completion (see [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion))
+CTRL-N		command-line completion (see [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion))
+CTRL-P		command-line completion (see [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion))
+CTRL-A		command-line completion (see [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion))
+CTRL-L		command-line completion (see [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion))
 
 ### <a id="c_CTRL-_" class="section-title" href="#c_CTRL-_">Note:</a>
 CTRL-_		Switch between Hebrew and English keyboard mode, which is
@@ -281,10 +281,10 @@ CTRL-_		Switch between Hebrew and English keyboard mode, which is
 		This is useful when Hebrew text entry is required in the
 		command-line, searches, abbreviations, etc.  Applies only if
 		the 'allowrevins' option is set.
-		See [rileft.txt](#rileft.txt).
+		See |rileft.txt|.
 
 ### <a id="c_CTRL-^" class="section-title" href="#c_CTRL-^">Note:</a>
-CTRL-^		Toggle the use of language [:lmap](#:lmap) mappings and/or Input
+CTRL-^		Toggle the use of language |:lmap| mappings and/or Input
 		Method.
 		When typing a pattern for a search command and 'imsearch' is
 		not -1, VAL is the value of 'imsearch', otherwise VAL is the
@@ -310,7 +310,7 @@ CTRL-^		Toggle the use of language [:lmap](#:lmap) mappings and/or Input
 ### <a id="c_CTRL-]" class="section-title" href="#c_CTRL-]">Note:</a>
 CTRL-]		Trigger abbreviation, without inserting a character.
 
-For Emacs-style editing on the command-line see [emacs-keys](#emacs-keys).
+For Emacs-style editing on the command-line see [emacs-keys](undefined#emacs-keys).
 
 The <Up> and <Down> keys take the current command-line as a search string.
 The beginning of the next/previous command-lines are compared with this
@@ -349,12 +349,12 @@ terminals)
 			:history / 6,12
 ```
 
-		List the penultimate entry from all histories: 
+		List the penultimate entry from all histories:
 ```			:history all -2
 ```
 
-		List the most recent two entries from all histories: 
-```			:history all -2,
+		List the most recent two entries from all histories:
+			:history all -2,
 
 ### <a id=":keepp :keeppatterns" class="section-title" href="#:keepp :keeppatterns">:keepp[atterns] {command}</a>
 		Execute {command}, without adding anything to the search
@@ -384,7 +384,7 @@ These are the commands that can be used:
 ### <a id="c_CTRL-D" class="section-title" href="#c_CTRL-D">Note:</a>
 CTRL-D		List names that match the pattern in front of the cursor.
 		When showing file names, directories are highlighted (see
-		[highlight-groups](#highlight-groups)).  Names where 'suffixes' matches are moved
+		[highlight-groups](undefined#highlight-groups)).  Names where 'suffixes' matches are moved
 		to the end.
 		The 'wildoptions' option can be set to "tagfile" to list the
 		file of matching tags.
@@ -428,13 +428,13 @@ CTRL-L		A match is done on the pattern in front of the cursor.  If
 ### <a id="c_CTRL-G /_CTRL-G" class="section-title" href="#c_CTRL-G /_CTRL-G">Note:</a>
 CTRL-G		When 'incsearch' is set, entering a search pattern for "/" or
 		"?" and the current match is displayed then CTRL-G will move
-		to the next match (does not take [search-offset](#search-offset) into account)
+		to the next match (does not take [search-offset](undefined#search-offset) into account)
 		Use CTRL-T to move to the previous match.  Hint: on a regular
 		keyboard T is above G.
 ### <a id="c_CTRL-T /_CTRL-T" class="section-title" href="#c_CTRL-T /_CTRL-T">Note:</a>
 CTRL-T		When 'incsearch' is set, entering a search pattern for "/" or
 		"?" and the current match is displayed then CTRL-T will move
-		to the previous match (does not take [search-offset](#search-offset) into
+		to the previous match (does not take [search-offset](undefined#search-offset) into
 		account).
 		Use CTRL-G to move to the next match.  Hint: on a regular
 		keyboard T is above G.
@@ -598,7 +598,7 @@ followed by another Vim command:
     :windo
     :write !
     :[range]!
-    a user defined command without the "-bar" argument [:command](#:command)
+    a user defined command without the "-bar" argument |:command|
 
 Note that this is confusing (inherited from Vi): With ":g" the '|' is included
 in the command, with ":s" it is not.
@@ -609,14 +609,14 @@ Example (append the output of "ls" and jump to the first line):
 
 There is one exception: When the 'b' flag is present in 'cpoptions', with the
 ":map" and ":abbr" commands and friends CTRL-V needs to be used instead of
-'\'.  You can also use "<Bar>" instead.  See also [map_bar](#map_bar).
+'\'.  You can also use "<Bar>" instead.  See also |map_bar|.
 
 Examples:
 	:!ls | wc		view the output of two commands
 	:r !ls | wc		insert the same output in the text
 	:%g/foo/p|>		moves all matching lines one shiftwidth
 	:%s/foo/bar/|>		moves one line one shiftwidth
-	:map q 10^V[		map "q" to "10](#		map "q" to "10)"
+	:map q 10^V|		map "q" to "10|"
 	:map q 10\| map \ l	map "q" to "10\" and map "\" to "l"
 					(when 'b' is present in 'cpoptions')
 
@@ -643,7 +643,7 @@ A colon is allowed between the range and the command name.  It is ignored
 
 When the character '%' or '#' is used where a file name is expected, they are
 expanded to the current and alternate file name (see the chapter "editing
-files" [:_%| |:_#](#:_%| |:_#)).
+files" |:_%| |:_#|).
 
 Trailing spaces in filenames will be ignored, unless escaped with a backslash
 or CTRL-V.  Note that the ":next" command uses spaces to separate file names.
@@ -654,7 +654,7 @@ starts editing the three files "foo bar", "goes to" and "school ".
 When you want to use the special characters '"' or '|' in a command, or want
 to use '%' or '#' in a file name, precede them with a backslash.  The
 backslash is not required in a range and in the ":substitute" command.
-See also [`=](#`=).
+See also |`=|.
 
 ### <a id=":_!" class="section-title" href="#:_!">Note:</a>
 The '!' (bang) character after an Ex command makes the command behave in a
@@ -673,13 +673,13 @@ Some Ex commands accept a line range in front of them.  This is noted as
 [range].  It consists of one or more line specifiers, separated with ',' or
 ';'.
 
-The basics are explained in section [10.3](#10.3) of the user manual.
+The basics are explained in section |10.3| of the user manual.
 
 ### <a id=":, :;" class="section-title" href="#:, :;">Note:</a>
 When separated with ';' the cursor position will be set to that line
 before interpreting the next line specifier.  This doesn't happen for ','.
 Examples:
-   4,/this line/
+```   4,/this line/
 	from line 4 till match with "this line" after the cursor line.
    5;/that line/
 	from line 5 till match with "that line" after line 5.
@@ -725,8 +725,8 @@ Examples:
 
 The {number} must be between 0 and the number of lines in the file.  When
 using a 0 (zero) this is interpreted as a 1 by most commands.  Commands that
-use it as a count do use it as a zero ([:tag|, |:pop](#:tag|, |:pop), etc).  Some commands
-interpret the zero as "before the first line" ([:read](#:read), search pattern, etc).
+use it as a count do use it as a zero (|:tag|, |:pop|, etc).  Some commands
+interpret the zero as "before the first line" (|:read|, search pattern, etc).
 
 Examples:
 	.+3		three lines below the cursor
@@ -751,7 +751,7 @@ Examples:
 Folds and Range
 
 When folds are active the line numbers are rounded off to include the whole
-closed fold.  See [fold-behavior](#fold-behavior).
+closed fold.  See [fold-behavior](/neovim-docs-web/en/vim/fold#fold-behavior).
 
 
 ### <a id="E493" class="section-title" href="#E493">Reverse Range</a>
@@ -793,11 +793,11 @@ Visual Mode and Range
 These flags are supported by a selection of Ex commands.  They print the line
 that the cursor ends up after executing the command:
 
-	l	output like for [:list](#:list)
+	l	output like for |:list|
 	#	add line number
-	p	output like for [:print](#:print)
+	p	output like for |:print|
 
-The flags can be combined, thus "l#" uses both a line number and [:list](#:list) style
+The flags can be combined, thus "l#" uses both a line number and |:list| style
 output.
 
 
@@ -806,15 +806,15 @@ output.
 Note: These are special characters in the executed command line.  If you want
 to insert special things while typing you can use the CTRL-R command.  For
 example, "%" stands for the current file name, while CTRL-R % inserts the
-current file name right away.  See [c_CTRL-R](#c_CTRL-R).
+current file name right away.  See |c_CTRL-R|.
 
 Note:  If you want to avoid the effects of special characters in a Vim script
-you may want to use [fnameescape()|.  Also see |`=](#fnameescape()|.  Also see |`=).
+you may want to use |fnameescape()|.  Also see |`=|.
 
 
 In Ex commands, at places where a file name can be used, the following
 characters have a special meaning.  These can also be used in the expression
-function [expand()](#expand()).
+function |expand()|.
 ### <a id=":_% c_%" class="section-title" href="#:_% c_%">	%	Is replaced with the current file name.</a>
 ### <a id=":_# c_#" class="section-title" href="#:_# c_#">	#	Is replaced with the alternate file name.</a>
 		This is remembered for every window.
@@ -824,12 +824,12 @@ function [expand()](#expand()).
 		concatenated, separated by spaces.  Each space in a name
 		is preceded with a backslash.
 ### <a id=":_#< c_#<" class="section-title" href="#:_#< c_#<">	#<n	(where n is a number > 0) is replaced with old</a>
-		file name n.  See [:oldfiles| or |v:oldfiles](#:oldfiles| or |v:oldfiles) to get the
+		file name n.  See |:oldfiles| or |v:oldfiles| to get the
 		number.							*E809*
 
 Note that these, except "#<n", give the file name as it was typed.  If an
 absolute path is needed (when using the file name from a different directory),
-you need to add ":p".  See [filename-modifiers](#filename-modifiers).
+you need to add ":p".  See [filename-modifiers](undefined#filename-modifiers).
 
 The "#<n" item returns an absolute path, but it will start with "~/" for files
 below your home directory.
@@ -837,7 +837,7 @@ below your home directory.
 Note that backslashes are inserted before spaces, so that the command will
 correctly interpret the file name.  But this doesn't happen for shell
 commands.  For those you probably have to use quotes (this fails for files
-that contain a quote and wildcards): 
+that contain a quote and wildcards):
 ```	:!ls "%"
 	:r !spell "%"
 
@@ -848,23 +848,23 @@ it, no matter how many backslashes.
 	   #			alternate.file
 	   \#			#
 	   \\#			\#
-Also see [`=](#`=).
+Also see |`=|.
 
 ### <a id="E499 E500" class="section-title" href="#E499 E500">Note:</a>
 Note: these are typed literally, they are not special keys!
 ### <a id=":<cword> <cword>" class="section-title" href="#:<cword> <cword>">Note:</a>
-	<cword>    is replaced with the word under the cursor (like [star](#star))
+	<cword>    is replaced with the word under the cursor (like [star](undefined#star))
 ### <a id=":<cWORD> <cWORD>" class="section-title" href="#:<cWORD> <cWORD>">Note:</a>
-	<cWORD>    is replaced with the WORD under the cursor (see [WORD](#WORD))
+	<cWORD>    is replaced with the WORD under the cursor (see [WORD](undefined#WORD))
 ### <a id=":<cexpr> <cexpr>" class="section-title" href="#:<cexpr> <cexpr>">Note:</a>
 	<cexpr>    is replaced with the word under the cursor, including more
 		   to form a C expression.  E.g., when the cursor is on "arg"
 		   of "ptr->arg" then the result is "ptr->arg"; when the
 		   cursor is on "]" of "list[idx]" then the result is
-		   "list[idx]".  This is used for [v:beval_text](#v:beval_text).
+		   "list[idx]".  This is used for |v:beval_text|.
 ### <a id=":<cfile> <cfile>" class="section-title" href="#:<cfile> <cfile>">Note:</a>
 	<cfile>    is replaced with the path name under the cursor (like what
-		   [gf](#gf) uses)
+		   [gf](undefined#gf) uses)
 ### <a id=":<afile> <afile>" class="section-title" href="#:<afile> <afile>">Note:</a>
 	<afile>    When executing autocommands, is replaced with the file name
 		   of the buffer being manipulated, or the file for a read or
@@ -917,7 +917,7 @@ Note: these are typed literally, they are not special keys!
 *:_%:* *::8* *::p* *::.* *::~* *::h* *::t* *::r* *::e* *::s* *::gs* *::S*
 ### <a id="%:8 %:p %:. %:~ %:h %:t %:r %:e %:s %:gs %:S" class="section-title" href="#%:8 %:p %:. %:~ %:h %:t %:r %:e %:s %:gs %:S">Note:</a>
 The file name modifiers can be used after "%", "#", "#n", "<cfile>", "<sfile>",
-"<afile>" or "<abuf>".  They are also used with the [fnamemodify()](#fnamemodify()) function.
+"<afile>" or "<abuf>".  They are also used with the |fnamemodify()| function.
 These modifiers can be given, in this order:
 	:p	Make file name a full path.  Must be the first modifier.  Also
 		changes "~/" (and "~user/" for Unix) to the path for the home
@@ -959,7 +959,7 @@ These modifiers can be given, in this order:
 		one) as much as possible are included.
 	:s?pat?sub?
 		Substitute the first occurrence of "pat" with "sub".  This
-		works like the [:s](#:s) command.  "pat" is a regular expression.
+		works like the |:s| command.  "pat" is a regular expression.
 		Any character can be used for '?', but it must not occur in
 		"pat" or "sub".
 		After this, the previous modifiers can be used again.  For
@@ -968,7 +968,7 @@ These modifiers can be given, in this order:
 		Substitute all occurrences of "pat" with "sub".  Otherwise
 		this works like ":s".
 	:S	Escape special characters for use with a shell command (see
-		[shellescape()](#shellescape())). Must be the last one. Examples:
+		|shellescape()|). Must be the last one. Examples:
 		    :!dir <cfile>:S
 		    :call system('chmod +w -- ' . expand('%:S'))
 
@@ -1006,8 +1006,8 @@ Examples, when the file name is "src/version.c.gz":
 If a "<" is appended to "%", "#", "#n" or "CTRL-V p" the extension of the file
 name is removed (everything after and including the last '.' in the file
 name).  This is included for backwards compatibility with version 3.0, the
-":r" form is preferred.  Examples: 
-```
+":r" form is preferred.  Examples:
+
 	%		current file name
 	%<		current file name without extension
 	#		alternate file name for current window
@@ -1015,7 +1015,7 @@ name).  This is included for backwards compatibility with version 3.0, the
 	#31		alternate file number 31
 	#31<		idem, without extension
 	<cword>		word under the cursor
-	<cWORD>		WORD under the cursor (see [WORD](#WORD))
+	<cWORD>		WORD under the cursor (see [WORD](undefined#WORD))
 	<cfile>		path name under the cursor
 	<cfile><	idem, without extension
 
@@ -1033,7 +1033,7 @@ Examples: (alternate file name is "?readme?")
 ### <a id=":e {files matching "?readme?."}" class="section-title" href="#:e {files matching "?readme?."}">	:e #.*</a>
 	:cd <cfile>	:cd {file name under cursor}
 	:cd <cfile>*	:cd {file name under cursor plus "*" and then expanded}
-Also see [`=](#`=).
+Also see |`=|.
 
 When the expanded argument contains a "!" and it is used for a shell command
 (":!cmd", ":r !cmd" or ":w !cmd"), the "!" is escaped with a backslash to
@@ -1060,7 +1060,7 @@ for the file "$home" in the root directory.  A few examples:
 	/\$home		file "$home" in root directory
 	\\$home		file "\\", followed by expanded $home
 
-Also see [`=](#`=).
+Also see |`=|.
 
 
 ## <a id="cmdline-window cmdwin" class="section-title" href="#cmdline-window cmdwin">7. Command-Line Window</a> <span id="command-line-window"></span>
@@ -1082,7 +1082,7 @@ There are two ways to open the command-line window:
 When the window opens it is filled with the command-line history.  The last
 line contains the command as typed so far.  The left column will show a
 character that indicates the type of command-line being edited, see
-[cmdwin-char](#cmdwin-char).
+[cmdwin-char](undefined#cmdwin-char).
 
 Vim will be in Normal mode when the editor is opened.
 
@@ -1132,7 +1132,7 @@ other than the one that is executed with <CR> are lost.
 
 If you would like to execute the command under the cursor and then have the
 command-line window open again, you may find this mapping useful:
-
+```
 	:autocmd CmdwinEnter * map <buffer> <F5> <CR>q:
 
 
@@ -1169,25 +1169,25 @@ another window, or drag statuslines of other windows.  You can drag the
 statusline of the command-line window itself and the statusline above it.
 Thus you can resize the command-line window, but not others.
 
-The [getcmdwintype()](#getcmdwintype()) function returns the type of the command-line being
-edited as described in [cmdwin-char](#cmdwin-char).
+The |getcmdwintype()| function returns the type of the command-line being
+edited as described in [cmdwin-char](undefined#cmdwin-char).
 
 Nvim defines this default CmdWinEnter autocmd in the "nvim_cmdwin" group:
     autocmd CmdWinEnter [:>] syntax sync minlines=1 maxlines=1
 ```
 
-You can disable this in your config with "autocmd! nvim_cmdwin". [default-autocmds](#default-autocmds)
+You can disable this in your config with "autocmd! nvim_cmdwin". [default-autocmds](undefined#default-autocmds)
 
 
 AUTOCOMMANDS
 
-Two autocommand events are used: [CmdwinEnter| and |CmdwinLeave](#CmdwinEnter| and |CmdwinLeave).  You can use
+Two autocommand events are used: [CmdwinEnter](undefined#CmdwinEnter) and [CmdwinLeave](undefined#CmdwinLeave).  You can use
 the Cmdwin events to do settings specifically for the command-line window.
 Be careful not to cause side effects!
 Example:
 	:au CmdwinEnter :  let b:cpt_save = &cpt | set cpt=.
 	:au CmdwinLeave :  let &cpt = b:cpt_save
-This sets 'complete' to use completion in the current window for [i_CTRL-N](#i_CTRL-N).
+This sets 'complete' to use completion in the current window for |i_CTRL-N|.
 Another example:
 	:au CmdwinEnter [/?]  startinsert
 This will make Vim start in Insert mode in the command-line window.
@@ -1195,12 +1195,12 @@ This will make Vim start in Insert mode in the command-line window.
 ### <a id="cmdline-char cmdwin-char" class="section-title" href="#cmdline-char cmdwin-char">Note:</a>
 The character used for the pattern indicates the type of command-line:
 	:	normal Ex command
-	>	debug mode command [debug-mode](#debug-mode)
+	>	debug mode command [debug-mode](undefined#debug-mode)
 	/	forward search string
 	?	backward search string
-	=	expression for "= [expr-register](#expr-register)
-	@	string for [input()](#input())
-	-	text for [:insert| or |:append](#:insert| or |:append)
+	=	expression for "= [expr-register](undefined#expr-register)
+	@	string for |input()|
+	-	text for |:insert| or |:append|
 
  vim:tw=78:ts=8:noet:ft=help:norl:
 

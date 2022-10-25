@@ -17,40 +17,42 @@ Most of this file is about Insert and Replace mode.  At the end are a few
 commands for inserting text in other ways.
 
 An overview of the most often used commands can be found in chapter 24 of the
-user manual [usr_24.txt](#usr_24.txt).
+user manual |usr_24.txt|.
 
 Also see 'virtualedit', for moving the cursor to positions where there is no
 character.  Useful for editing a table.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="ins-special-keys" class="section-title" href="#ins-special-keys">1. Special Keys</a> 
 
 In Insert and Replace mode, the following characters have a special meaning;
 other characters are inserted directly.  To insert one of these special
-characters into the buffer, precede it with CTRL-V.  To insert a <Nul
-```character use "CTRL-V CTRL-@" or "CTRL-V 000".  On some systems, you have to
+characters into the buffer, precede it with CTRL-V.  To insert a <Nul>
+character use "CTRL-V CTRL-@" or "CTRL-V 000".  On some systems, you have to
 use "CTRL-V 003" to insert a CTRL-C.  Note: When CTRL-V is mapped you can
-often use CTRL-Q instead [i_CTRL-Q](#i_CTRL-Q).
+often use CTRL-Q instead |i_CTRL-Q|.
 
 If you are working in a special language mode when inserting text, see the
-'langmap' option, ['langmap'](#'langmap'), on how to avoid switching this mode on and off
+'langmap' option, |'langmap'|, on how to avoid switching this mode on and off
 all the time.
 
 char		action	~
------------------------------------------------------------------------
-### <a id="i_CTRL-[ i_<Esc>" class="section-title" href="#i_CTRL-[ i_<Esc>">Note:</a>
+
+
+## <a id="" class="section-title" href="#">*I_CTRL-[* *I_<Esc>*</a> 
+
 Esc> or CTRL-[	End insert or Replace mode, go back to Normal mode.  Finish
 		abbreviation.
 		Note: If your <Esc> key is hard to hit, try CTRL-[ instead.
 ### <a id="i_META i_ALT" class="section-title" href="#i_META i_ALT">Note:</a>
-		ALT ([META](#META)) may act like <Esc> if the chord is not mapped.
+		ALT ([META](undefined#META)) may act like <Esc> if the chord is not mapped.
 		For example <A-x> acts like <Esc>x if <A-x> does not have an
 		insert-mode mapping.
 ### <a id="i_CTRL-C" class="section-title" href="#i_CTRL-C">Note:</a>
 CTRL-C		Quit insert mode, go back to Normal mode.  Do not check for
-		abbreviations.  Does not trigger the [InsertLeave](#InsertLeave) autocommand
+		abbreviations.  Does not trigger the [InsertLeave](undefined#InsertLeave) autocommand
 		event.
 
 ### <a id="i_CTRL-@" class="section-title" href="#i_CTRL-@">Note:</a>
@@ -60,7 +62,7 @@ CTRL-@		Insert previously inserted text and stop insert.
 CTRL-A		Insert previously inserted text.
 
 ### <a id="i_CTRL-H i_<BS> i_BS" class="section-title" href="#i_CTRL-H i_<BS> i_BS">Note:</a>
-BS> or CTRL-H	Delete the character before the cursor (see [i_backspacing](#i_backspacing)
+BS> or CTRL-H	Delete the character before the cursor (see |i_backspacing|
 		about joining lines).
 ### <a id="i_<Del> i_DEL" class="section-title" href="#i_<Del> i_DEL">Note:</a>
 Del>		Delete the character under the cursor.  If the cursor is at
@@ -68,12 +70,12 @@ Del>		Delete the character under the cursor.  If the cursor is at
 		"eol" (the default), delete the <EOL>; the next line is
 		appended after the current one.
 ### <a id="i_CTRL-W" class="section-title" href="#i_CTRL-W">Note:</a>
-CTRL-W		Delete the word before the cursor (see [i_backspacing](#i_backspacing) about
+CTRL-W		Delete the word before the cursor (see |i_backspacing| about
 		joining lines).  See the section "word motions",
-		[word-motions](#word-motions), for the definition of a word.
+		[word-motions](/neovim-docs-web/en/vim/motion#word-motions), for the definition of a word.
 ### <a id="i_CTRL-W-default" class="section-title" href="#i_CTRL-W-default">Note:</a>
 		By default, sets a new undo point before deleting.
-		[default-mappings](#default-mappings)
+		[default-mappings](undefined#default-mappings)
 ### <a id="i_CTRL-U" class="section-title" href="#i_CTRL-U">Note:</a>
 CTRL-U		Delete all entered characters before the cursor in the current
 		line.  If there are no newly entered characters and
@@ -81,30 +83,30 @@ CTRL-U		Delete all entered characters before the cursor in the current
 		cursor in the current line.
 		If C-indenting is enabled the indent will be adjusted if the
 		line becomes blank.
-		See [i_backspacing](#i_backspacing) about joining lines.
+		See |i_backspacing| about joining lines.
 ### <a id="i_CTRL-U-default" class="section-title" href="#i_CTRL-U-default">Note:</a>
 		By default, sets a new undo point before deleting.
-		[default-mappings](#default-mappings)
+		[default-mappings](undefined#default-mappings)
 ### <a id="i_CTRL-I i_<Tab> i_Tab" class="section-title" href="#i_CTRL-I i_<Tab> i_Tab">Note:</a>
 Tab> or CTRL-I Insert a tab.  If the 'expandtab' option is on, the
 		equivalent number of spaces is inserted (use CTRL-V <Tab> to
 		avoid the expansion; use CTRL-Q <Tab> if CTRL-V is mapped
-		[i_CTRL-Q](#i_CTRL-Q)).  See also the 'smarttab' option and
-		[ins-expandtab](#ins-expandtab).
+		|i_CTRL-Q|).  See also the 'smarttab' option and
+		[ins-expandtab](undefined#ins-expandtab).
 ### <a id="i_CTRL-J i_<NL>" class="section-title" href="#i_CTRL-J i_<NL>">Note:</a>
 NL> or CTRL-J	Begin new line.
 ### <a id="i_CTRL-M i_<CR>" class="section-title" href="#i_CTRL-M i_<CR>">Note:</a>
 CR> or CTRL-M	Begin new line.
 ### <a id="i_CTRL-K" class="section-title" href="#i_CTRL-K">Note:</a>
 CTRL-K {char1} [char2]
-		Enter digraph (see [digraphs](#digraphs)).  When {char1} is a special
+		Enter digraph (see [digraphs](undefined#digraphs)).  When {char1} is a special
 		key, the code for that key is inserted in <> form.  For
 		example, the string "<S-Space>" can be entered by typing
 		<C-K><S-Space> (two keys).  Neither char is considered for
 		mapping.
 
-CTRL-N		Find next keyword (see [i_CTRL-N](#i_CTRL-N)).
-CTRL-P		Find previous keyword (see [i_CTRL-P](#i_CTRL-P)).
+CTRL-N		Find next keyword (see |i_CTRL-N|).
+CTRL-P		Find previous keyword (see |i_CTRL-P|).
 
 ### <a id="i_CTRL-R" class="section-title" href="#i_CTRL-R">CTRL-R {register}</a>
 		Insert the contents of a register.  Between typing CTRL-R and
@@ -128,20 +130,20 @@ CTRL-P		Find previous keyword (see [i_CTRL-P](#i_CTRL-P)).
 			'-'	the last small (less than a line) delete
 ### <a id="i_CTRL-R_=" class="section-title" href="#i_CTRL-R_=">Note:</a>
 			'='	the expression register: you are prompted to
-				enter an expression (see [expression](#expression))
+				enter an expression (see [expression](undefined#expression))
 				Note that 0x80 (128 decimal) is used for
 				special keys.  E.g., you can use this to move
 				the cursor up:
 					CTRL-R ="\<Up>"
 				Use CTRL-R CTRL-R to insert text literally.
-				When the result is a [List](#List) the items are used
+				When the result is a [List](undefined#List) the items are used
 				as lines.  They can have line breaks inside
 				too.
 				When the result is a Float it's automatically
 				converted to a String.
 				When append() or setline() is invoked the undo
 				sequence will be broken.
-		See [registers](#registers) about registers.
+		See [registers](undefined#registers) about registers.
 
 ### <a id="i_CTRL-R_CTRL-R" class="section-title" href="#i_CTRL-R_CTRL-R">CTRL-R CTRL-R {register}</a>
 		Insert the contents of a register.  Works like using a single
@@ -160,7 +162,7 @@ CTRL-P		Find previous keyword (see [i_CTRL-P](#i_CTRL-P)).
 ### <a id="i_CTRL-R_CTRL-O" class="section-title" href="#i_CTRL-R_CTRL-O">CTRL-R CTRL-O {register}</a>
 		Insert the contents of a register literally and don't
 		auto-indent.  Does the same as pasting with the mouse
-		[<MiddleMouse>](#<MiddleMouse>). When the register is linewise this will
+		|<MiddleMouse>|. When the register is linewise this will
 		insert the text above the current line, like with `P`.
 		Does not replace characters!
 		The '.' register (last inserted text) is still inserted as
@@ -171,7 +173,7 @@ CTRL-P		Find previous keyword (see [i_CTRL-P](#i_CTRL-P)).
 
 ### <a id="i_CTRL-R_CTRL-P" class="section-title" href="#i_CTRL-R_CTRL-P">CTRL-R CTRL-P {register}</a>
 		Insert the contents of a register literally and fix the
-		indent, like [[<MiddleMouse>](#[<MiddleMouse>).
+		indent, like |[<MiddleMouse>|.
 		Does not replace characters!
 		The '.' register (last inserted text) is still inserted as
 		typed.
@@ -197,14 +199,14 @@ CTRL-D		Delete one shiftwidth of indent at the start of the current
 ### <a id="i_CTRL-V" class="section-title" href="#i_CTRL-V">Note:</a>
 CTRL-V		Insert next non-digit literally.  It's also possible to enter
 		the decimal, octal or hexadecimal value of a character
-		[i_CTRL-V_digit](#i_CTRL-V_digit).
+		|i_CTRL-V_digit|.
 		The characters typed right after CTRL-V are not considered for
 		mapping.
 		For special keys, the CTRL modifier may be included into the
 		key to produce a control character.  If there is no control
-		character for the key then its [key-notation](#key-notation) is inserted.
+		character for the key then its [key-notation](undefined#key-notation) is inserted.
 		Note: When CTRL-V is mapped (e.g., to paste text) you can
-		often use CTRL-Q instead [i_CTRL-Q](#i_CTRL-Q).
+		often use CTRL-Q instead |i_CTRL-Q|.
 
 ### <a id="i_CTRL-Q" class="section-title" href="#i_CTRL-Q">Note:</a>
 CTRL-Q		Same as CTRL-V.
@@ -217,7 +219,7 @@ CTRL-SHIFT-Q	Works just like CTRL-V, but do not try to include the CTRL
 
 CTRL-X		Enter CTRL-X mode.  This is a sub-mode where commands can
 		be given to complete words or scroll the window.  See
-		[i_CTRL-X| and |ins-completion](#i_CTRL-X| and |ins-completion).
+		|i_CTRL-X| and [ins-completion](/neovim-docs-web/en/vim/insert#ins-completion).
 
 ### <a id="i_CTRL-E" class="section-title" href="#i_CTRL-E">Note:</a>
 CTRL-E		Insert the character which is below the cursor.
@@ -237,12 +239,12 @@ CTRL-_		Switch between languages, as follows:
 
 		This command is only available when the 'allowrevins' option
 		is set.
-		Please refer to [rileft.txt](#rileft.txt) for more information about
+		Please refer to |rileft.txt| for more information about
 		right-to-left mode.
 
 ### <a id="i_CTRL-^" class="section-title" href="#i_CTRL-^">Note:</a>
 CTRL-^		Toggle the use of typing language characters.
-		When language [:lmap](#:lmap) mappings are defined:
+		When language |:lmap| mappings are defined:
 		- If 'iminsert' is 1 (langmap mappings used) it becomes 0 (no
 		  langmap mappings used).
 		- If 'iminsert' has another value it becomes 1, thus langmap
@@ -263,9 +265,10 @@ CTRL-]		Trigger abbreviation, without inserting a character.
 
 ### <a id="i_<Insert>" class="section-title" href="#i_<Insert>">Note:</a>
 Insert>	Toggle between Insert and Replace mode.
------------------------------------------------------------------------
 
-### <a id="i_backspacing" class="section-title" href="#i_backspacing">Note:</a>
+
+## <a id="" class="section-title" href="#"> I Backspacing</a> 
+
 The effect of the <BS>, CTRL-W, and CTRL-U depend on the 'backspace' option
 (unless 'revins' is set).  This is a comma-separated list of items:
 
@@ -279,7 +282,7 @@ When 'backspace' is empty, Vi compatible backspacing is used.  You cannot
 backspace over autoindent, before column 1 or before where insert started.
 
 For backwards compatibility the values "0", "1", "2" and "3" are also allowed,
-see ['backspace'](#'backspace').
+see |'backspace'|.
 
 If the 'backspace' option does contain "eol" and the cursor is in column 1
 when one of the three keys is used, the current line is joined with the
@@ -313,18 +316,18 @@ Also see 'fileformat'.
 
 ### <a id="i_CTRL-X insert_expand" class="section-title" href="#i_CTRL-X insert_expand">Note:</a>
 CTRL-X enters a sub-mode where several commands can be used.  Most of these
-commands do keyword completion; see [ins-completion](#ins-completion).
+commands do keyword completion; see [ins-completion](/neovim-docs-web/en/vim/insert#ins-completion).
 
 Two commands can be used to scroll the window up or down, without exiting
 insert mode:
 
 ### <a id="i_CTRL-X_CTRL-E" class="section-title" href="#i_CTRL-X_CTRL-E">Note:</a>
 CTRL-X CTRL-E		scroll window one line up.
-			When doing completion look here: [complete_CTRL-E](#complete_CTRL-E)
+			When doing completion look here: |complete_CTRL-E|
 
 ### <a id="i_CTRL-X_CTRL-Y" class="section-title" href="#i_CTRL-X_CTRL-Y">Note:</a>
 CTRL-X CTRL-Y		scroll window one line down.
-			When doing completion look here: [complete_CTRL-Y](#complete_CTRL-Y)
+			When doing completion look here: |complete_CTRL-Y|
 
 After CTRL-X is pressed, each CTRL-E (CTRL-Y) scrolls the window up (down) by
 one line unless that would cause the cursor to move from its current position
@@ -345,8 +348,10 @@ be undone separately.  Only the last change can be redone and always behaves
 like an "i" command.
 
 char		action	~
------------------------------------------------------------------------
-Up>		cursor one line up			     *i_<Up>*
+
+
+## <a id="cursor one line up" class="section-title" href="#cursor one line up">Up></a> 
+
 Down>		cursor one line down			     *i_<Down>*
 ### <a id="i_CTRL-G_<Up>" class="section-title" href="#i_CTRL-G_<Up>">CTRL-G <Up>	cursor one line up, insert start column</a>
 ### <a id="i_CTRL-G_k" class="section-title" href="#i_CTRL-G_k">CTRL-G k	cursor one line up, insert start column</a>
@@ -383,9 +388,10 @@ CTRL-O		execute one command, return to Insert mode   *i_CTRL-O*
 ### <a id="i_CTRL-G_U" class="section-title" href="#i_CTRL-G_U">CTRL-G U	don't start a new undo block with the next</a>
 		left/right cursor movement, if the cursor
 		stays within the same line
------------------------------------------------------------------------
 
-The CTRL-O command sometimes has a side effect: If the cursor was beyond the
+
+## <a id="" class="section-title" href="#">The CTRL-O Command Sometimes Has a Side Effect: if the Cursor Was Beyond The</a> 
+
 end of the line, it will be put on the last character in the line.  In
 mappings it's often better to use <Esc> (first put an "x" in the text, <Esc>
 will then always put the cursor on it).  Or use CTRL-\ CTRL-O, but then
@@ -432,19 +438,19 @@ An example for using CTRL-G U:
 	inoremap ( ()<C-G>U<Left>
 
 This makes it possible to use the cursor keys in Insert mode, without starting
-a new undo block and therefore using [.](#.) (redo) will work as expected.  Also
+a new undo block and therefore using |.| (redo) will work as expected.  Also
 entering a text like (with the "(" mapping from above):
 
    Lorem ipsum (dolor
 
-will be repeatable by using [.](#.) to the expected
+will be repeatable by using |.| to the expected
 
    Lorem ipsum (dolor)
 
 
 Using CTRL-O splits undo: the text typed before and after it is undone
 separately.  If you want to avoid this (e.g., in a mapping) you might be able
-to use CTRL-R = [i_CTRL-R](#i_CTRL-R).  E.g., to call a function:
+to use CTRL-R = |i_CTRL-R|.  E.g., to call a function:
 	:imap <F2> <C-R>=MyFunc()<CR>
 
 When the 'whichwrap' option is set appropriately, the <Left> and <Right>
@@ -460,7 +466,7 @@ result is:
    static int i;
 	  int j;
 When inserting the same text in front of the column in every line, use the
-Visual blockwise command "I" [v_b_I](#v_b_I).
+Visual blockwise command "I" |v_b_I|.
 
 
 ## <a id="ins-textwidth" class="section-title" href="#ins-textwidth">3. 'textwidth' and 'wrapmargin' Options</a> 
@@ -507,14 +513,14 @@ If you want to format a block of text, you can use the "gq" operator.  Type
 many cases, the command "gq}" will do what you want (format until the end of
 paragraph).  Alternatively, you can use "gqap", which will format the whole
 paragraph, no matter where the cursor currently is.  Or you can use Visual
-mode: hit "v", move to the end of the block, and type "gq".  See also [gq](#gq).
+mode: hit "v", move to the end of the block, and type "gq".  See also [gq](undefined#gq).
 
 
 ## <a id="" class="section-title" href="#">4. 'expandtab', 'smarttab' and 'softtabstop' Options	*Ins-Expandtab*</a> 
 
 If the 'expandtab' option is on, spaces will be used to fill the amount of
 whitespace of the tab.  If you want to enter a real <Tab>, type CTRL-V first
-(use CTRL-Q when CTRL-V is mapped [i_CTRL-Q](#i_CTRL-Q)).
+(use CTRL-Q when CTRL-V is mapped |i_CTRL-Q|).
 The 'expandtab' option is off by default.  Note that in Replace mode, a single
 character is replaced with several spaces.  The result of this is that the
 number of characters in the line increases.  Backspacing will delete one
@@ -599,7 +605,7 @@ In 'list' mode, Virtual Replace mode acts as if it was not in 'list' mode,
 unless "L" is in 'cpoptions'.
 
 Note that the only situations for which characters beyond the cursor should
-appear to move are in List mode ['list'](#'list'), and occasionally when 'wrap' is set
+appear to move are in List mode |'list'|, and occasionally when 'wrap' is set
 (and the line changes length to become shorter or wider than the width of the
 screen).  In other cases spaces may be inserted to avoid following characters
 to move.
@@ -616,21 +622,21 @@ complicated keywords (e.g., function names with capitals and underscores).
 
 Completion can be done for:
 
-1. Whole lines						[i_CTRL-X_CTRL-L](#i_CTRL-X_CTRL-L)
-2. keywords in the current file				[i_CTRL-X_CTRL-N](#i_CTRL-X_CTRL-N)
-3. keywords in 'dictionary'				[i_CTRL-X_CTRL-K](#i_CTRL-X_CTRL-K)
-4. keywords in 'thesaurus', thesaurus-style		[i_CTRL-X_CTRL-T](#i_CTRL-X_CTRL-T)
-5. keywords in the current and included files		[i_CTRL-X_CTRL-I](#i_CTRL-X_CTRL-I)
-6. tags							[i_CTRL-X_CTRL-]](#i_CTRL-X_CTRL-])
-7. file names						[i_CTRL-X_CTRL-F](#i_CTRL-X_CTRL-F)
-8. definitions or macros				[i_CTRL-X_CTRL-D](#i_CTRL-X_CTRL-D)
-9. Vim command-line					[i_CTRL-X_CTRL-V](#i_CTRL-X_CTRL-V)
-10. User defined completion				[i_CTRL-X_CTRL-U](#i_CTRL-X_CTRL-U)
-11. omni completion					[i_CTRL-X_CTRL-O](#i_CTRL-X_CTRL-O)
-12. Spelling suggestions				[i_CTRL-X_s](#i_CTRL-X_s)
-13. keywords in 'complete'				[i_CTRL-N| |i_CTRL-P](#i_CTRL-N| |i_CTRL-P)
+1. Whole lines						|i_CTRL-X_CTRL-L|
+2. keywords in the current file				|i_CTRL-X_CTRL-N|
+3. keywords in 'dictionary'				|i_CTRL-X_CTRL-K|
+4. keywords in 'thesaurus', thesaurus-style		|i_CTRL-X_CTRL-T|
+5. keywords in the current and included files		|i_CTRL-X_CTRL-I|
+6. tags							|i_CTRL-X_CTRL-]|
+7. file names						|i_CTRL-X_CTRL-F|
+8. definitions or macros				|i_CTRL-X_CTRL-D|
+9. Vim command-line					|i_CTRL-X_CTRL-V|
+10. User defined completion				|i_CTRL-X_CTRL-U|
+11. omni completion					|i_CTRL-X_CTRL-O|
+12. Spelling suggestions				|i_CTRL-X_s|
+13. keywords in 'complete'				|i_CTRL-N| |i_CTRL-P|
 
-Additionally, [i_CTRL-X_CTRL-Z](#i_CTRL-X_CTRL-Z) stops completion without changing the text.
+Additionally, |i_CTRL-X_CTRL-Z| stops completion without changing the text.
 
 All these, except CTRL-N and CTRL-P, are done in CTRL-X mode.  This is a
 sub-mode of Insert and Replace modes.  You enter CTRL-X mode by typing CTRL-X
@@ -638,7 +644,7 @@ and one of the CTRL-X commands.  You exit CTRL-X mode by typing a key that is
 not a valid CTRL-X mode command.  Valid keys are the CTRL-X command itself,
 CTRL-N (next), and CTRL-P (previous).
 
-To get the current completion information, [complete_info()](#complete_info()) can be used.
+To get the current completion information, |complete_info()| can be used.
 Also see the 'infercase' option if you want to adjust the case of the match.
 
 ### <a id="complete_CTRL-E" class="section-title" href="#complete_CTRL-E">Note:</a>
@@ -652,7 +658,7 @@ space, Enter, or some other unprintable character will leave completion mode
 and insert that typed character.
 
 When the popup menu is displayed there are a few more special keys, see
-[popupmenu-keys](#popupmenu-keys).
+[popupmenu-keys](undefined#popupmenu-keys).
 
 Note: The keys that are valid in CTRL-X mode are not mapped.  This allows for
 `:map <C-F> <C-X><C-F>` to work.  The key that ends CTRL-X mode (any key that
@@ -666,13 +672,13 @@ will generate an E565 error.
 
 The following mappings are suggested to make typing the completion commands
 a bit easier (although they will hide other commands):
-    :inoremap <C-]> <C-X><C-]>
+```    :inoremap <C-]> <C-X><C-]>
     :inoremap <C-F> <C-X><C-F>
     :inoremap <C-D> <C-X><C-D>
     :inoremap <C-L> <C-X><C-L>
 
 As a special case, typing CTRL-R to perform register insertion (see
-[i_CTRL-R](#i_CTRL-R)) will not exit CTRL-X mode.  This is primarily to allow the use of
+|i_CTRL-R|) will not exit CTRL-X mode.  This is primarily to allow the use of
 the '=' register to call some function to determine the next operation.  If
 the contents of the register (or result of the '=' register evaluation) are
 not valid CTRL-X mode keys, then CTRL-X mode will be exited as if those keys
@@ -856,7 +862,7 @@ Unpack thesaurus_pkg.zip, put the thesaurus.txt file somewhere, e.g.
 
 If the 'thesaurusfunc' option is set, then the user specified function is
 invoked to get the list of completion matches and the 'thesaurus' option is
-not used. See [complete-functions](#complete-functions) for an explanation of how the function is
+not used. See [complete-functions](undefined#complete-functions) for an explanation of how the function is
 invoked and what it should return.
 
 Here is an example that uses the "aiksaurus" command (provided by Magnus
@@ -918,7 +924,7 @@ CTRL-X CTRL-]		Search for the first tag that starts with the same
 			inserted in front of the cursor.  Alphabetic
 			characters and characters in 'iskeyword' are used
 			to decide which characters are included in the tag
-			name (same as for a keyword).  See also [CTRL-]](#CTRL-]).
+			name (same as for a keyword).  See also |CTRL-]|.
 			The 'showfulltag' option can be used to add context
 			from around the tag definition.
 	CTRL-]	or
@@ -982,7 +988,7 @@ a Vim script.
 CTRL-X CTRL-V		Guess what kind of item is in front of the cursor and
 			find the first match for it.
 			Note: When CTRL-V is mapped you can often use CTRL-Q
-			instead of [i_CTRL-Q](#i_CTRL-Q).
+			instead of |i_CTRL-Q|.
 	CTRL-V	or
 	CTRL-N		Search forwards for next match.  This match replaces
 			the previous one.
@@ -999,7 +1005,7 @@ CTRL-X CTRL-V		Guess what kind of item is in front of the cursor and
 
 Completion is done by a function that can be defined by the user with the
 'completefunc' option.  See below for how the function is called and an
-example [complete-functions](#complete-functions).
+example [complete-functions](undefined#complete-functions).
 
 ### <a id="i_CTRL-X_CTRL-U" class="section-title" href="#i_CTRL-X_CTRL-U">Note:</a>
 CTRL-X CTRL-U		Guess what kind of item is in front of the cursor and
@@ -1017,8 +1023,8 @@ CTRL-X CTRL-U		Guess what kind of item is in front of the cursor and
 Completion is done by a function that can be defined by the user with the
 'omnifunc' option.  This is to be used for filetype-specific completion.
 
-See below for how the function is called and an example [complete-functions](#complete-functions).
-For remarks about specific filetypes see [compl-omni-filetypes](#compl-omni-filetypes).
+See below for how the function is called and an example [complete-functions](undefined#complete-functions).
+For remarks about specific filetypes see [compl-omni-filetypes](undefined#compl-omni-filetypes).
 More completion scripts will appear, check www.vim.org.  Currently there is a
 first version for C++.
 
@@ -1131,8 +1137,8 @@ that contains the List.  The Dict can have these items:
 			leading text is changed.
 Other items are ignored.
 
-For acting upon end of completion, see the [CompleteDonePre](#CompleteDonePre) and
-[CompleteDone](#CompleteDone) autocommand event.
+For acting upon end of completion, see the [CompleteDonePre](undefined#CompleteDonePre) and
+[CompleteDone](undefined#CompleteDone) autocommand event.
 
 For example, the function can contain this:
 	let matches = ... list of words ...
@@ -1162,7 +1168,7 @@ items:
 	empty		when non-zero this match will be added even when it is
 			an empty string
 	user_data 	custom data which is associated with the item and
-			available in [v:completed_item](#v:completed_item); it can be any type;
+			available in |v:completed_item|; it can be any type;
 			defaults to an empty string
 
 All of these except "icase", "equal", "dup" and "empty" must be a string.  If
@@ -1187,16 +1193,16 @@ Currently these types can be used:
 	t	typedef
 	d	#define or macro
 
-When searching for matches takes some time call [complete_add()](#complete_add()) to add each
+When searching for matches takes some time call |complete_add()| to add each
 match to the total list.  These matches should then not appear in the returned
-list!  Call [complete_check()](#complete_check()) now and then to allow the user to press a key
+list!  Call |complete_check()| now and then to allow the user to press a key
 while still searching for matches.  Stop searching when it returns non-zero.
 
 ### <a id="E840" class="section-title" href="#E840">Note:</a>
 The function is allowed to move the cursor, it is restored afterwards.
 The function is not allowed to move to another window or delete text.
 
-An example that completes the names of the months: 
+An example that completes the names of the months:
 ```	fun! CompleteMonths(findstart, base)
 	  if a:findstart
 	    " locate the start of the word
@@ -1220,7 +1226,7 @@ An example that completes the names of the months:
 	set completefunc=CompleteMonths
 ```
 
-The same, but now pretending searching for matches is slow: 
+The same, but now pretending searching for matches is slow:
 ```	fun! CompleteMonths(findstart, base)
 	  if a:findstart
 	    " locate the start of the word
@@ -1279,7 +1285,7 @@ state.  This doesn't change the list of matches.
 
 When you are back at the original text then you are in the third state.  To
 get there right away you can use a mapping that uses CTRL-P right after
-starting the completion: 
+starting the completion:
 ```	:imap <F7> <C-N><C-P>
 ```
 
@@ -1324,14 +1330,14 @@ something else then <Enter> inserts a line break.
 
 
 The colors of the menu can be changed with these highlight groups:
-Pmenu		normal item  [hl-Pmenu](#hl-Pmenu)
-PmenuSel	selected item  [hl-PmenuSel](#hl-PmenuSel)
-PmenuSbar	scrollbar  [hl-PmenuSbar](#hl-PmenuSbar)
-PmenuThumb	thumb of the scrollbar  [hl-PmenuThumb](#hl-PmenuThumb)
+Pmenu		normal item  [hl-Pmenu](undefined#hl-Pmenu)
+PmenuSel	selected item  [hl-PmenuSel](undefined#hl-PmenuSel)
+PmenuSbar	scrollbar  [hl-PmenuSbar](undefined#hl-PmenuSbar)
+PmenuThumb	thumb of the scrollbar  [hl-PmenuThumb](undefined#hl-PmenuThumb)
 
 There are no special mappings for when the popup menu is visible.  However,
-you can use an Insert mode mapping that checks the [pumvisible()](#pumvisible()) function to
-do something different.  Example: 
+you can use an Insert mode mapping that checks the |pumvisible()| function to
+do something different.  Example:
 ```	:inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>Down>"<CR>
 
 You can use of <expr> in mapping to have the popup menu used when typing a
@@ -1344,7 +1350,7 @@ character and some condition is met.  For example, for typing a dot:
 	    return '.'
 	endfunc
 
-See [:map-<expr>](#:map-<expr>) for more info.
+See |:map-<expr>| for more info.
 
 
 ### <a id="compl-omni-filetypes" class="section-title" href="#compl-omni-filetypes">Filetype-Specific Remarks for Omni Completion</a>
@@ -1408,15 +1414,15 @@ other versions of HTML. Features:
 - complete values of "class" and "id" attributes with data obtained from
   <style> tag and included CSS files
 - when completing value of "style" attribute or working inside of "style" tag
-  switch to [ft-css-omni](#ft-css-omni) completion
+  switch to [ft-css-omni](undefined#ft-css-omni) completion
 - when completing values of events attributes or working inside of "script"
-  tag switch to [ft-javascript-omni](#ft-javascript-omni) completion
+  tag switch to [ft-javascript-omni](undefined#ft-javascript-omni) completion
 - when used after "</" CTRL-X CTRL-O will close the last opened tag
 
 Note: When used first time completion menu will be shown with little delay
 - this is time needed for loading of data file.
 Note: Completion may fail in badly formatted documents. In such case try to
-run [:make](#:make) command to detect formatting problems.
+run |:make| command to detect formatting problems.
 
 
 ### <a id="html-flavor" class="section-title" href="#html-flavor">HTML flavor</a>
@@ -1429,11 +1435,11 @@ When doing completion outside of any other tag you will have possibility to
 choose DOCTYPE and the appropriate data file will be loaded and used for all
 next completions.
 
-More about format of data file in [xml-omni-datafile](#xml-omni-datafile). Some of the data files
-may be found on the Vim website ([www](#www)).
+More about format of data file in [xml-omni-datafile](undefined#xml-omni-datafile). Some of the data files
+may be found on the Vim website ([www](undefined#www)).
 
 Note that b:html_omni_flavor may point to a file with any XML data.  This
-makes possible to mix PHP ([ft-php-omni](#ft-php-omni)) completion with any XML dialect
+makes possible to mix PHP ([ft-php-omni](undefined#ft-php-omni)) completion with any XML dialect
 (assuming you have data file for it).  Without setting that variable XHTML 1.0
 Strict will be used.
 
@@ -1518,7 +1524,7 @@ original HTML files completion of tags (and only tags) isn't context aware.
 
 ### <a id="ft-ruby-omni" class="section-title" href="#ft-ruby-omni">RUBY</a>
 
-NOTE: [compl-omni| for Ruby code requires |provider-ruby](#compl-omni| for Ruby code requires |provider-ruby) to be installed.
+NOTE: [compl-omni](undefined#compl-omni) for Ruby code requires [provider-ruby](/neovim-docs-web/en/neovim/provider#provider-ruby) to be installed.
 
 Ruby completion will parse your buffer on demand in order to provide a list of
 completions.  These completions will be drawn from modules loaded by "require"
@@ -1540,7 +1546,7 @@ The completions provided by CTRL-X CTRL-O are sensitive to the context:
 Notes:
  - Vim will load/evaluate code in order to provide completions.  This may
    cause some code execution, which may be a concern. This is no longer
-   enabled by default, to enable this feature add 
+   enabled by default, to enable this feature add
 ```     let g:rubycomplete_buffer_loading = 1
 - In context 1 above, Vim can parse the entire buffer to add a list of
    classes to the completion results. This feature is turned off by default,
@@ -1569,7 +1575,7 @@ minimal language-sensitive completion.
 To enable syntax code completion you can run:
     setlocal omnifunc=syntaxcomplete#Complete
 
-You can automate this by placing the following in your [init.vim](#init.vim) (after any
+You can automate this by placing the following in your |init.vim| (after any
 ":filetype" command):
     if has("autocmd") && exists("+omnifunc")
 	autocmd Filetype *
@@ -1609,8 +1615,8 @@ a regex string:
     let g:omni_syntax_group_include_php = 'phpFunctions,phpMethods'
 ```
 
-The basic form of this variable is: 
-```    let g:omni_syntax_group_include_{filetype} = 'regex,comma,separated'
+The basic form of this variable is:
+    let g:omni_syntax_group_include_{filetype} = 'regex,comma,separated'
 
 The PHP language has an enormous number of items which it knows how to syntax
 highlight.  These items will be available within the omni completion list.
@@ -1680,7 +1686,7 @@ From within a plugin, you would typically assign the output to a List:
 Completion for the SQL language includes statements, functions, keywords.
 It will also dynamically complete tables, procedures, views and column lists
 with data pulled directly from within a database.  For detailed instructions
-and a tutorial see [omni-sql-completion](#omni-sql-completion).
+and a tutorial see [omni-sql-completion](/neovim-docs-web/en/misc/ft_sql#omni-sql-completion).
 
 The SQL completion plugin can be used in conjunction with other completion
 plugins.  For example, the PHP filetype has its own completion plugin.
@@ -1692,14 +1698,14 @@ PHP code and SQL code at the same time.
 ### <a id="ft-xml-omni" class="section-title" href="#ft-xml-omni">XML</a>
 
 Vim 7 provides a mechanism for context aware completion of XML files.  It
-depends on a special [xml-omni-datafile| and two commands: |:XMLns](#xml-omni-datafile| and two commands: |:XMLns) and
-[:XMLent](#:XMLent).  Features are:
+depends on a special [xml-omni-datafile](undefined#xml-omni-datafile) and two commands: |:XMLns| and
+|:XMLent|.  Features are:
 
 - after "<" complete the tag name, depending on context
 - inside of a tag complete proper attributes
 - when an attribute has a limited number of possible values help to complete
   them
-- complete names of entities (defined in [xml-omni-datafile](#xml-omni-datafile) and in the
+- complete names of entities (defined in [xml-omni-datafile](undefined#xml-omni-datafile) and in the
   current file with "<!ENTITY" declarations)
 - when used after "</" CTRL-X CTRL-O will close the last opened tag
 
@@ -1717,14 +1723,14 @@ a compound from two parts:
 
 1. "g:xmldata_"  general prefix, constant for all data files
 2. "xhtml10s"    the name of the file and the name of the described XML
-		 dialect; it will be used as an argument for the [:XMLns](#:XMLns)
+		 dialect; it will be used as an argument for the |:XMLns|
 		 command
 
 Part two must be exactly the same as name of file.
 
-The variable is a [Dictionary](#Dictionary).  Keys are tag names and each value is a two
-element [List](#List).  The first element of the List is also a List with the names
-of possible children.  The second element is a [Dictionary](#Dictionary) with the names of
+The variable is a [Dictionary](undefined#Dictionary).  Keys are tag names and each value is a two
+element [List](undefined#List).  The first element of the List is also a List with the names
+of possible children.  The second element is a [Dictionary](undefined#Dictionary) with the names of
 attributes as keys and the possible values of attributes as values.  Example:
 
     let g:xmldata_crippled = {
@@ -1778,7 +1784,7 @@ variables/functions and can be used for personal editing functions.
 
 ### <a id="dtd2vim" class="section-title" href="#dtd2vim">DTD -> Vim</a>
 
-On [www| is the script |dtd2vim](#www| is the script |dtd2vim) which parses DTD and creates an XML data file
+On [www](undefined#www) is the script [dtd2vim](undefined#dtd2vim) which parses DTD and creates an XML data file
 for Vim XML omni completion.
 
     dtd2vim: https://www.vim.org/scripts/script.php?script_id=1462
@@ -1795,7 +1801,7 @@ Commands
 
 Vim has to know which data file should be used and with which namespace.  For
 loading of the data file and connecting data with the proper namespace use
-[:XMLns](#:XMLns) command.  The first (obligatory) argument is the name of the data
+|:XMLns| command.  The first (obligatory) argument is the name of the data
 (xhtml10s, xsl).  The second argument is the code of namespace (h, xsl).  When
 used without a second argument the dialect will be used as default - without
 namespace declaration.  For example to use XML completion in .xsl files:
@@ -1826,7 +1832,7 @@ Will complete to an appropriate XHTML tag, and in this situation:
 Will complete to an appropriate XSL tag.
 
 
-The script xmlcomplete.vim, provided through the [autoload](#autoload) mechanism,
+The script xmlcomplete.vim, provided through the [autoload](undefined#autoload) mechanism,
 has the xmlcomplete#GetLastOpenTag() function which can be used in XML files
 to get the name of the last open tag (b:unaryTagsStack has to be defined):
 
@@ -1845,11 +1851,11 @@ a			Append text after the cursor [count] times.  If the
 
 ### <a id="A" class="section-title" href="#A">Note:</a>
 A			Append text at the end of the line [count] times.
-			For using "A" in Visual block mode see [v_b_A](#v_b_A).
+			For using "A" in Visual block mode see |v_b_A|.
 
 ### <a id="i insert <Insert>" class="section-title" href="#i insert <Insert>">insert>	or</a>
 i			Insert text before the cursor [count] times.
-			When using CTRL-O in Insert mode [i_CTRL-O](#i_CTRL-O) the count
+			When using CTRL-O in Insert mode |i_CTRL-O| the count
 			is not supported.
 
 ### <a id="I" class="section-title" href="#I">Note:</a>
@@ -1858,7 +1864,7 @@ I			Insert text before the first non-blank in the line
 			When the 'H' flag is present in 'cpoptions' and the
 			line only contains blanks, insert start just before
 			the last blank.
-			For using "I" in Visual block mode see [v_b_I](#v_b_I).
+			For using "I" in Visual block mode see |v_b_I|.
 
 ### <a id="gI" class="section-title" href="#gI">Note:</a>
 gI			Insert text in column 1 [count] times.
@@ -1866,11 +1872,11 @@ gI			Insert text in column 1 [count] times.
 ### <a id="gi" class="section-title" href="#gi">Note:</a>
 gi			Insert text in the same position as where Insert mode
 			was stopped last time in the current buffer.
-			This uses the ['^](#'^) mark.  It's different from "`^i"
+			This uses the |'^| mark.  It's different from "`^i"
 			when the mark is past the end of the line.
 			The position is corrected for inserted/deleted lines,
 			but NOT for inserted/deleted characters.
-			When the [:keepjumps| command modifier is used the |'^](#:keepjumps| command modifier is used the |'^)
+			When the |:keepjumps| command modifier is used the |'^|
 			mark won't be changed.
 
 ### <a id="o" class="section-title" href="#o">Note:</a>
@@ -1882,7 +1888,7 @@ O			Begin a new line above the cursor and insert text,
 			repeat [count] times.
 
 These commands are used to start inserting text.  You can end insert mode with
-Esc>.  See [mode-ins-repl](#mode-ins-repl) for the other special characters in Insert mode.
+Esc>.  See [mode-ins-repl](undefined#mode-ins-repl) for the other special characters in Insert mode.
 The effect of [count] takes place after Insert mode is exited.
 
 When 'autoindent' is on, the indent for a new line is obtained from the
@@ -1914,19 +1920,19 @@ too long when appending characters a line break is automatically inserted.
 
 These two commands will keep on asking for lines, until you type a line
 containing only a ".".  Watch out for lines starting with a backslash, see
-[line-continuation](#line-continuation).
+[line-continuation](undefined#line-continuation).
 
-When in Ex mode (see [-e](#-e)) a backslash at the end of the line can be used to
+When in Ex mode (see [-e](undefined#-e)) a backslash at the end of the line can be used to
 insert a NUL character.  To be able to have a line ending in a backslash use
 two backslashes.  This means that the number of backslashes is halved, but
 only at the end of the line.
 
-NOTE: These commands cannot be used with [:global| or |:vglobal](#:global| or |:vglobal).
+NOTE: These commands cannot be used with |:global| or |:vglobal|.
 ":append" and ":insert" don't work properly in between ":if" and
 ":endif", ":for" and ":endfor", ":while" and ":endwhile".
 
 ### <a id=":start :startinsert" class="section-title" href="#:start :startinsert">Note:</a>
-:star[tinsert][!]	Start Insert mode (or [Terminal-mode| in a |terminal](#Terminal-mode| in a |terminal)
+:star[tinsert][!]	Start Insert mode (or [Terminal-mode](undefined#Terminal-mode) in a [terminal](undefined#terminal)
 			buffer) just after executing this command.
 			Works like typing "i" in Normal mode.  When the ! is
 			included it works like "A", append to the line.
@@ -1934,13 +1940,13 @@ NOTE: These commands cannot be used with [:global| or |:vglobal](#:global| or |:
 			Note that when using this command in a function or
 			script, the insertion only starts after the function
 			or script is finished.
-			This command does not work from [:normal](#:normal).
+			This command does not work from |:normal|.
 
 ### <a id=":stopi :stopinsert" class="section-title" href="#:stopi :stopinsert">Note:</a>
-:stopi[nsert]		Stop Insert mode or [Terminal-mode](#Terminal-mode) as soon as
+:stopi[nsert]		Stop Insert mode or [Terminal-mode](undefined#Terminal-mode) as soon as
 			possible.  Works like typing <Esc> in Insert mode.
 			Can be used in an autocommand, example:
-				:au BufEnter scratch stopinsert
+```				:au BufEnter scratch stopinsert
 ```
 
 ### <a id="replacing-ex :startreplace" class="section-title" href="#replacing-ex :startreplace">Note:</a>
@@ -1954,8 +1960,8 @@ NOTE: These commands cannot be used with [:global| or |:vglobal](#:global| or |:
 			the function or script is finished.
 
 ### <a id=":startgreplace" class="section-title" href="#:startgreplace">Note:</a>
-:startg[replace][!]	Just like [:startreplace](#:startreplace), but use Virtual Replace
-			mode, like with [gR](#gR).
+:startg[replace][!]	Just like |:startreplace|, but use Virtual Replace
+			mode, like with [gR](undefined#gR).
 
 
 ## <a id="inserting-file" class="section-title" href="#inserting-file">10. Inserting a File</a> 
@@ -1964,12 +1970,12 @@ NOTE: These commands cannot be used with [:global| or |:vglobal](#:global| or |:
 :r[ead] [++opt] [name]
 			Insert the file [name] (default: current file) below
 			the cursor.
-			See [++opt](#++opt) for the possible values of [++opt].
+			See |++opt| for the possible values of [++opt].
 
 :{range}r[ead] [++opt] [name]
 			Insert the file [name] (default: current file) below
 			the specified line.
-			See [++opt](#++opt) for the possible values of [++opt].
+			See |++opt| for the possible values of [++opt].
 
 ### <a id=":r! :read!" class="section-title" href="#:r! :read!">Note:</a>
 :[range]r[ead] [++opt] !{cmd}
@@ -1979,8 +1985,8 @@ NOTE: These commands cannot be used with [:global| or |:vglobal](#:global| or |:
 			read into the buffer.  'shellredir' is used to save
 			the output of the command, which can be set to include
 			stderr or not.  {cmd} is executed like with ":!{cmd}",
-			any '!' is replaced with the previous command [:!](#:!).
-			See [++opt](#++opt) for the possible values of [++opt].
+			any '!' is replaced with the previous command |:!|.
+			See |++opt| for the possible values of [++opt].
 
 These commands insert the contents of a file, or the output of a command,
 into the buffer.  They can be undone.  They cannot be repeated with the "."
@@ -2016,10 +2022,10 @@ at the end of the file is ignored.
 
 If 'fileformat' is "mac", a <NL> in the file is internally represented by a
 CR>.  This is to avoid confusion with a <NL> which is used to represent a
-NUL>.  See [CR-used-for-NL](#CR-used-for-NL).
+NUL>.  See [CR-used-for-NL](undefined#CR-used-for-NL).
 
 If the 'fileformats' option is not empty Vim tries to recognize the type of
-EOL> (see [file-formats](#file-formats)).  However, the 'fileformat' option will not be
+EOL> (see [file-formats](undefined#file-formats)).  However, the 'fileformat' option will not be
 changed, the detected format is only used while reading the file.
 A similar thing happens with 'fileencodings'.
 

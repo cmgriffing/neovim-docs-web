@@ -16,14 +16,14 @@ The messages in Vim can be given in several languages.  This chapter explains
 how to change which one is used.  Also, the different ways to work with files
 in various languages is explained.
 
-[45.1](#45.1)	Language for Messages
-[45.2](#45.2)	Language for Menus
-[45.3](#45.3)	Using another encoding
-[45.4](#45.4)	Editing files with a different encoding
-[45.5](#45.5)	Entering language text
+|45.1|	Language for Messages
+|45.2|	Language for Menus
+|45.3|	Using another encoding
+|45.4|	Editing files with a different encoding
+|45.5|	Entering language text
 
-Previous chapter: [usr_44.txt](#usr_44.txt)  Your own syntax highlighted
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+Previous chapter: |usr_44.txt|  Your own syntax highlighted
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*45.1*	Language for Messages</a> 
@@ -31,8 +31,8 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 When you start Vim, it checks the environment to find out what language you
 are using.  Mostly this should work fine, and you get the messages in your
 language (if they are available).  To see what the current language is, use
-this command: 
-```
+this command:
+
 	:language
 
 If it replies with "C", this means the default is being used, which is
@@ -65,7 +65,7 @@ should give you a hint where it is found on your system.
 matter, and the '-' and '_' characters are easily confused.
 
 You can also set the language separately for messages, edited text and the
-time format.  See [:language](#:language).
+time format.  See |:language|.
 
 
 DO-IT-YOURSELF MESSAGE TRANSLATION
@@ -222,7 +222,7 @@ actually view a file that way, if you have lots of time at hand.
 	Note:
 	Since 'encoding' is used for all text inside Vim, changing it makes
 	all non-ASCII text invalid.  You will notice this when using registers
-	and the [shada-file](#shada-file) (e.g., a remembered search pattern).  It's
+	and the [shada-file](undefined#shada-file) (e.g., a remembered search pattern).  It's
 	recommended to set 'encoding' in your vimrc file, and leave it alone.
 
 
@@ -260,10 +260,10 @@ encodings you want Vim to try.  Only when a value is found to be invalid will
 the next one be used.  Putting "latin1" first doesn't work, because it is
 never illegal.  An example, to fall back to Japanese when the file doesn't
 have a BOM and isn't utf-8:
-
+```
 	:set fileencodings=ucs-bom,utf-8,sjis
 
-See [encoding-values](#encoding-values) for suggested values.  Other values may work as well.
+See [encoding-values](undefined#encoding-values) for suggested values.  Other values may work as well.
 This depends on the conversion available.
 
 
@@ -297,7 +297,7 @@ Computer keyboards don't have much more than a hundred keys.  Some languages
 have thousands of characters, Unicode has over hundred thousand.  So how do
 you type these characters?
    First of all, when you don't use too many of the special characters, you
-can use digraphs.  This was already explained in [24.9](#24.9).
+can use digraphs.  This was already explained in |24.9|.
    When you use a language that uses many more characters than keys on your
 keyboard, you will want to use an Input Method (IM).  This requires learning
 the translation from typed keys to resulting character.  When you need an IM
@@ -362,7 +362,7 @@ an underscore.  Examples:
 	keymap/hebrew_utf-8.vim ~
 
 The contents of the file should be self-explanatory.  Look at a few of the
-keymaps that are distributed with Vim.  For the details, see [mbyte-keymap](#mbyte-keymap).
+keymaps that are distributed with Vim.  For the details, see [mbyte-keymap](/neovim-docs-web/en/vim/mbyte#mbyte-keymap).
 
 
 LAST RESORT
@@ -375,10 +375,10 @@ If all other methods fail, you can enter any character with CTRL-V:
 	16-bit     CTRL-V u 013b	hexadecimal 0000-ffff
 	31-bit	   CTRL-V U 001303a4	hexadecimal 00000000-7fffffff
 
-Don't type the spaces.  See [i_CTRL-V_digit](#i_CTRL-V_digit) for the details.
+Don't type the spaces.  See |i_CTRL-V_digit| for the details.
 
 
-## <a id="vim:tw&#x3D;78:ts&#x3D;8:noet:ft&#x3D;help:norl:" class="section-title" href="#vim:tw&#x3D;78:ts&#x3D;8:noet:ft&#x3D;help:norl:">Copyright: See [Manual-Copyright](#Manual-Copyright)</a> 
+## <a id="vim:tw&#x3D;78:ts&#x3D;8:noet:ft&#x3D;help:norl:" class="section-title" href="#vim:tw&#x3D;78:ts&#x3D;8:noet:ft&#x3D;help:norl:">Copyright: See [Manual-Copyright](undefined#Manual-Copyright)</a> 
 
 
 

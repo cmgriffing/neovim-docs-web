@@ -16,15 +16,15 @@ Vim has a few generic features that makes it easier to enter commands.  Colon
 commands can be abbreviated, edited and repeated.  Completion is available for
 nearly everything.
 
-[20.1](#20.1)	Command line editing
-[20.2](#20.2)	Command line abbreviations
-[20.3](#20.3)	Command line completion
-[20.4](#20.4)	Command line history
-[20.5](#20.5)	Command line window
+|20.1|	Command line editing
+|20.2|	Command line abbreviations
+|20.3|	Command line completion
+|20.4|	Command line history
+|20.5|	Command line window
 
-     Next chapter: [usr_21.txt](#usr_21.txt)  Go away and come back
- Previous chapter: [usr_12.txt](#usr_12.txt)  Clever tricks
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_21.txt|  Go away and come back
+ Previous chapter: |usr_12.txt|  Clever tricks
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*20.1*	Command Line Editing</a> 
@@ -160,7 +160,7 @@ two commands do the same thing:
 	:set autoindent
 	:set ai
 
-You can find the full list of long and short names here: [option-list](#option-list).
+You can find the full list of long and short names here: [option-list](undefined#option-list).
 
 
 ## <a id="" class="section-title" href="#">*20.3*	Command Line Completion</a> 
@@ -287,7 +287,7 @@ Use the 'suffixes' option to specify files that are less important and appear
 at the end of the list of files.
 The 'wildignore' option specifies files that are not listed at all.
 
-More about all of this here: [cmdline-completion](#cmdline-completion)
+More about all of this here: [cmdline-completion](/neovim-docs-web/en/vim/cmdline#cmdline-completion)
 
 
 ## <a id="" class="section-title" href="#">*20.4*	Command Line History</a> 
@@ -300,7 +300,7 @@ There are actually five histories.  The ones we will mention here are for ":"
 commands and for "/" and "?" search commands.  The "/" and "?" commands share
 the same history, because they are both search commands.  The three other
 histories are for expressions, debug mode commands and input lines for the
-input() function.  [cmdline-history](#cmdline-history)
+input() function.  [cmdline-history](undefined#cmdline-history)
 
 Suppose you have done a ":set" command, typed ten more colon commands and then
 want to repeat that ":set" command again.  You could press ":" and then ten
@@ -347,18 +347,18 @@ Vim now opens a (small) window at the bottom.  It contains the command line
 history, and an empty line at the end:
 
 	+-------------------------------------+
-	[other window			      ](#other window			      )
-	[~				      ](#~				      )
-	[file.txt=============================](#file.txt=============================)
-	[:e c				      ](#:e c				      )
-	[:e config.h.in			      ](#:e config.h.in			      )
-	[:set path=.,/usr/include,,	      ](#:set path=.,/usr/include,,	      )
-	[:set iskeyword=@,48-57,_,192-255     ](#:set iskeyword=@,48-57,_,192-255     )
-	[:set is			      ](#:set is			      )
-	[:q				      ](#:q				      )
-	[:				      ](#:				      )
-	[command-line=========================](#command-line=========================)
-	[				      ](#				      )
+	|other window			      |
+	|~				      |
+	|file.txt=============================|
+	|:e c				      |
+	|:e config.h.in			      |
+	|:set path=.,/usr/include,,	      |
+	|:set iskeyword=@,48-57,_,192-255     |
+	|:set is			      |
+	|:q				      |
+	|:				      |
+	|command-line=========================|
+	|				      |
 	+-------------------------------------+
 
 You are now in Normal mode.  You can use the "hjkl" keys to move around.  For
@@ -385,7 +385,7 @@ While typing that search command you can't open another command line window,
 there can be only one.
 
 
-## <a id="Go away and come back" class="section-title" href="#Go away and come back">Next Chapter: [Usr_21.Txt](#Usr_21.Txt)</a> 
+## <a id="Go away and come back" class="section-title" href="#Go away and come back">Next Chapter: |Usr_21.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

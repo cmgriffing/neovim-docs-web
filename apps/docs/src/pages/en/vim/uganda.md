@@ -14,7 +14,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 SUMMARY
 ### <a id="iccf ICCF" class="section-title" href="#iccf ICCF">Note:</a>
 Vim is Charityware.  You can use and copy it as much as you like, but you are
-encouraged to make a donation for needy children in Uganda.  Please see [kcc](#kcc)
+encouraged to make a donation for needy children in Uganda.  Please see [kcc](undefined#kcc)
 below or visit the ICCF web site, available at these URLs:
 
 	https://iccf-holland.org/
@@ -22,10 +22,10 @@ below or visit the ICCF web site, available at these URLs:
 	https://www.iccf.nl/
 
 You can also sponsor the development of Vim.  Vim sponsors can vote for
-features.  See [sponsor](#sponsor).  The money goes to Uganda anyway.
+features.  See [sponsor](undefined#sponsor).  The money goes to Uganda anyway.
 
 The Open Publication License applies to the Vim documentation, see
-[manual-copyright](#manual-copyright).
+[manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright).
 
 === begin of license ===
 
@@ -116,7 +116,7 @@ Note:
   file and consider helping needy children in Uganda.
 
 - If you want to support further Vim development consider becoming a
-  [sponsor](#sponsor).  The money goes to Uganda anyway.
+  [sponsor](undefined#sponsor).  The money goes to Uganda anyway.
 
 - According to Richard Stallman the Vim license is GNU GPL compatible.
   A few minor changes have been made since he checked it, but that should not
@@ -214,7 +214,7 @@ The address of the centre is:
 
 ### <a id="iccf-donations" class="section-title" href="#iccf-donations">Sending money:</a>
 
-Check the ICCF web site for the latest information!  See [iccf](#iccf) for the URL.
+Check the ICCF web site for the latest information!  See [iccf](undefined#iccf) for the URL.
 
 
 USA:		The methods mentioned below can be used.

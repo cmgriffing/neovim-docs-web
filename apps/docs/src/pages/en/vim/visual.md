@@ -15,9 +15,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 Visual mode is a flexible and easy way to select a piece of text for an
 operator.  It is the only way to select a block of text.
 
-This is introduced in section [04.4](#04.4) of the user manual.
+This is introduced in section |04.4| of the user manual.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="visual-use" class="section-title" href="#visual-use">1. Using Visual Mode</a> 
@@ -31,7 +31,7 @@ Using Visual mode consists of three parts:
 3. Type an operator command.
    The highlighted characters will be operated upon.
 
-The [hl-Visual](#hl-Visual) group determines the highlighting of the visual selection.
+The [hl-Visual](undefined#hl-Visual) group determines the highlighting of the visual selection.
 The 'virtualedit' option can be used to allow positioning the cursor to
 positions where there is no actual character.
 
@@ -83,7 +83,7 @@ does a jump to another buffer while in Visual mode, the highlighting stops
 and no text is affected.  Also when you hit "v" in charwise Visual mode,
 "CTRL-V" in blockwise Visual mode or "V" in linewise Visual mode.  If you hit
 CTRL-Z the highlighting stops and the editor is suspended or a new shell is
-started [CTRL-Z](#CTRL-Z).
+started [CTRL-Z](undefined#CTRL-Z).
 
 	      new mode after typing:		*v_v* *v_CTRL-V* *v_V*
 old mode	     "v"	      "CTRL-V"		     "V"	~
@@ -114,7 +114,7 @@ gn			Search forward for the last used search pattern, like
 			on the previous search command.
 
 ### <a id="gN v_gN" class="section-title" href="#gN v_gN">Note:</a>
-gN			Like [gn](#gn) but searches backward, like with `N`.
+gN			Like [gn](undefined#gn) but searches backward, like with `N`.
 
 ### <a id="<LeftMouse>" class="section-title" href="#<LeftMouse>">Note:</a>
 LeftMouse>		Set the current cursor position.  If Visual mode is
@@ -162,12 +162,12 @@ one of the last commands to extend the highlighted text, the area will be
 extended to the rightmost column of the longest line.
 
 If you want to highlight exactly the same area as the last time, you can use
-"gv" [gv| |v_gv](#gv| |v_gv).
+"gv" [gv](undefined#gv) |v_gv|.
 
 ### <a id="v_<Esc>" class="section-title" href="#v_<Esc>">Note:</a>
 Esc>			In Visual mode: Stop Visual mode.
 ### <a id="v_META v_ALT" class="section-title" href="#v_META v_ALT">Note:</a>
-		ALT ([META](#META)) may act like <Esc> if the chord is not mapped.
+		ALT ([META](undefined#META)) may act like <Esc> if the chord is not mapped.
 		For example <A-x> acts like <Esc>x if <A-x> does not have a
 		visual-mode mapping.
 
@@ -214,63 +214,63 @@ the end in another.  You can then use <RightMouse> (or <S-LeftMouse> when
 ## <a id="visual-operators" class="section-title" href="#visual-operators">4. Operating on the Visual Area</a> 
 
 The operators that can be used are:
-	~	switch case					[v_~](#v_~)
-	d	delete						[v_d](#v_d)
-	c	change (4)					[v_c](#v_c)
-	y	yank						[v_y](#v_y)
-	>	shift right (4)					[v_>](#v_>)
-	<	shift left (4)					[v_<](#v_<)
-	!	filter through external command (1)		[v_!](#v_!)
-	=	filter through 'equalprg' option command (1)	[v_=](#v_=)
-	gq	format lines to 'textwidth' length (1)		[v_gq](#v_gq)
+	~	switch case					|v_~|
+	d	delete						|v_d|
+	c	change (4)					|v_c|
+	y	yank						|v_y|
+	>	shift right (4)					|v_>|
+	<	shift left (4)					|v_<|
+	!	filter through external command (1)		|v_!|
+	=	filter through 'equalprg' option command (1)	|v_=|
+	gq	format lines to 'textwidth' length (1)		|v_gq|
 
 The objects that can be used are:
-	aw	a word (with white space)			[v_aw](#v_aw)
-	iw	inner word					[v_iw](#v_iw)
-	aW	a WORD (with white space)			[v_aW](#v_aW)
-	iW	inner WORD					[v_iW](#v_iW)
-	as	a sentence (with white space)			[v_as](#v_as)
-	is	inner sentence					[v_is](#v_is)
-	ap	a paragraph (with white space)			[v_ap](#v_ap)
-	ip	inner paragraph					[v_ip](#v_ip)
-	ab	a () block (with parentheses)			[v_ab](#v_ab)
-	ib	inner () block					[v_ib](#v_ib)
-	aB	a {} block (with braces)			[v_aB](#v_aB)
-	iB	inner {} block					[v_iB](#v_iB)
-	at	a <tag> </tag> block (with tags)		[v_at](#v_at)
-	it	inner <tag> </tag> block			[v_it](#v_it)
-	a<	a <> block (with <>)				[v_a<](#v_a<)
-	i<	inner <> block					[v_i<](#v_i<)
-	a[	a [] block (with [])				[v_a[](#v_a[)
-	i[	inner [] block					[v_i[](#v_i[)
-	a"	a double quoted string (with quotes)		[v_aquote](#v_aquote)
-	i"	inner double quoted string			[v_iquote](#v_iquote)
-	a'	a single quoted string (with quotes)		[v_a'](#v_a')
-	i'	inner simple quoted string			[v_i'](#v_i')
-	a`	a string in backticks (with backticks)		[v_a`](#v_a`)
-	i`	inner string in backticks			[v_i`](#v_i`)
+	aw	a word (with white space)			|v_aw|
+	iw	inner word					|v_iw|
+	aW	a WORD (with white space)			|v_aW|
+	iW	inner WORD					|v_iW|
+	as	a sentence (with white space)			|v_as|
+	is	inner sentence					|v_is|
+	ap	a paragraph (with white space)			|v_ap|
+	ip	inner paragraph					|v_ip|
+	ab	a () block (with parentheses)			|v_ab|
+	ib	inner () block					|v_ib|
+	aB	a {} block (with braces)			|v_aB|
+	iB	inner {} block					|v_iB|
+	at	a <tag> </tag> block (with tags)		|v_at|
+	it	inner <tag> </tag> block			|v_it|
+	a<	a <> block (with <>)				|v_a<|
+	i<	inner <> block					|v_i<|
+	a[	a [] block (with [])				|v_a[|
+	i[	inner [] block					|v_i[|
+	a"	a double quoted string (with quotes)		|v_aquote|
+	i"	inner double quoted string			|v_iquote|
+	a'	a single quoted string (with quotes)		|v_a'|
+	i'	inner simple quoted string			|v_i'|
+	a`	a string in backticks (with backticks)		|v_a`|
+	i`	inner string in backticks			|v_i`|
 
 Additionally the following commands can be used:
-	:	start Ex command for highlighted lines (1)	[v_:](#v_:)
-	r	change (4)					[v_r](#v_r)
-	s	change						[v_s](#v_s)
-	C	change (2)(4)					[v_C](#v_C)
-	S	change (2)					[v_S](#v_S)
-	R	change (2)					[v_R](#v_R)
-	x	delete						[v_x](#v_x)
-	D	delete (3)					[v_D](#v_D)
-	X	delete (2)					[v_X](#v_X)
-	Y	yank (2)					[v_Y](#v_Y)
-	p	put						[v_p](#v_p)
-	P	put without overwriting registers		[v_P](#v_P)
-	J	join (1)					[v_J](#v_J)
-	U	make uppercase					[v_U](#v_U)
-	u	make lowercase					[v_u](#v_u)
-	^]	find tag					[v_CTRL-]](#v_CTRL-])
-	I	block insert					[v_b_I](#v_b_I)
-	A	block append					[v_b_A](#v_b_A)
+	:	start Ex command for highlighted lines (1)	|v_:|
+	r	change (4)					|v_r|
+	s	change						|v_s|
+	C	change (2)(4)					|v_C|
+	S	change (2)					|v_S|
+	R	change (2)					|v_R|
+	x	delete						|v_x|
+	D	delete (3)					|v_D|
+	X	delete (2)					|v_X|
+	Y	yank (2)					|v_Y|
+	p	put						|v_p|
+	P	put without overwriting registers		|v_P|
+	J	join (1)					|v_J|
+	U	make uppercase					|v_U|
+	u	make lowercase					|v_u|
+	^]	find tag					|v_CTRL-]|
+	I	block insert					|v_b_I|
+	A	block append					|v_b_A|
 
-(1): Always whole lines, see [:visual_example](#:visual_example).
+(1): Always whole lines, see |:visual_example|.
 (2): Whole lines when not using CTRL-V.
 (3): Whole lines when not using CTRL-V, delete until the end of the line when
      using CTRL-V.
@@ -278,9 +278,9 @@ Additionally the following commands can be used:
 
 Note that the ":vmap" command can be used to specifically map keys in Visual
 mode.  For example, if you would like the "/" command not to extend the Visual
-area, but instead take the highlighted text and search for that: 
-```	:vmap / y/<C-R>"<CR>
-(In the <> notation [<>](#<>), when typing it you should type it literally; you
+area, but instead take the highlighted text and search for that:
+	:vmap / y/<C-R>"<CR>
+(In the <> notation |<>|, when typing it you should type it literally; you
 need to remove the 'B' flag from 'cpoptions'.)
 
 If you want to give a register name using the """ command, do this just before
@@ -293,7 +293,7 @@ operator character: "v{move-around}3>" (move lines 3 indents to the right).
 The {move-around} is any sequence of movement commands.  Note the difference
 with {motion}, which is only ONE movement command.
 
-Another way to operate on the Visual area is using the [/\%V](#/\%V) item in a
+Another way to operate on the Visual area is using the |/\%V| item in a
 pattern.  For example, to replace all '(' in the Visual area with '#':
 
 	:'<,'>s/\%V(/#/g
@@ -312,7 +312,7 @@ With a blockwise selection, I{string}<ESC> will insert {string} at the start
 of block on every line of the block, provided that the line extends into the
 block.  Thus lines that are short will remain unmodified.  TABs are split to
 retain visual columns.  Works only for adding text to a line, not for
-deletions.  See [v_b_I_example](#v_b_I_example).
+deletions.  See |v_b_I_example|.
 
 ### <a id="v_b_A" class="section-title" href="#v_b_A">Visual-block Append</a>
 With a blockwise selection, A{string}<ESC> will append {string} to the end of
@@ -324,7 +324,7 @@ block RHS is not straight, due to different line lengths:
 2. Block was created with <C-v>{move-around}
     In this case the string is appended to the end of the block on each line,
     and whitespace is inserted to pad to the end-of-block column.
-See [v_b_A_example](#v_b_A_example).
+See |v_b_A_example|.
 Note: "I" and "A" behave differently for lines that don't extend into the
 selected block.  This was done intentionally, so that you can do it the way
 you want.
@@ -346,14 +346,14 @@ The block is shifted by 'shiftwidth'.  The RHS of the block is irrelevant.  The
 LHS of the block determines the point from which to apply a right shift, and
 padding includes TABs optimally according to 'ts' and 'et'.  The LHS of the
 block determines the point up to which to shift left.
-See [v_b_>_example](#v_b_>_example).
-See [v_b_<_example](#v_b_<_example).
+See |v_b_>_example|.
+See |v_b_<_example|.
 
 ### <a id="v_b_r" class="section-title" href="#v_b_r">Visual-block Replace</a>
 Every screen char in the highlighted region is replaced with the same char, ie
 TABs are split and the virtual whitespace is replaced, maintaining screen
 layout.
-See [v_b_r_example](#v_b_r_example).
+See |v_b_r_example|.
 
 
 ## <a id="visual-repeat" class="section-title" href="#visual-repeat">6. Repeating</a> 
@@ -382,7 +382,7 @@ it.  In a future release ":" may work on partial lines.
 Here is an example, to replace the selected text with the output of "date":
 	:vmap _a <Esc>`>a<CR><Esc>`<i<CR><Esc>!!date<CR>kJJ
 
-(In the <> notation [<>](#<>), when typing it you should type it literally; you
+(In the <> notation |<>|, when typing it you should type it literally; you
 need to remove the 'B' flag from 'cpoptions')
 
 What this does is:
@@ -399,7 +399,7 @@ Here is an idea for a mapping that makes it possible to do a search for the
 selected text:
 	:vmap X y/<C-R>"<CR>
 
-(In the <> notation [<>](#<>), when typing it you should type it literally; you
+(In the <> notation |<>|, when typing it you should type it literally; you
 need to remove the 'B' flag from 'cpoptions')
 
 Note that special characters (like '.' and '*') will cause problems.
@@ -499,13 +499,13 @@ a line.
 
 ### <a id="Select-mode-mapping" class="section-title" href="#Select-mode-mapping">Mappings and menus in Select mode.</a>
 
-When mappings and menus are defined with the [:vmap| or |:vmenu](#:vmap| or |:vmenu) command they
+When mappings and menus are defined with the |:vmap| or |:vmenu| command they
 work both in Visual mode and in Select mode.  When these are used in Select
 mode Vim automatically switches to Visual mode, so that the same behavior as
-in Visual mode is effective.  If you don't want this use [:xmap| or |:smap](#:xmap| or |:smap).
+in Visual mode is effective.  If you don't want this use |:xmap| or |:smap|.
 
 One particular edge case:
-  	:vnoremap <C-K> <Esc>
+```  	:vnoremap <C-K> <Esc>
 This ends Visual mode when in Visual mode, but in Select mode it does not
 work, because Select mode is restored after executing the mapped keys.  You
 need to use:
@@ -514,7 +514,7 @@ need to use:
 
 Users will expect printable characters to replace the selected area.
 Therefore avoid mapping printable characters in Select mode.  Or use
-[:sunmap|  after |:map| and |:vmap](#:sunmap|  after |:map| and |:vmap) to remove it for Select mode.
+|:sunmap|  after |:map| and |:vmap| to remove it for Select mode.
 
 After the mapping or menu finishes, the selection is enabled again and Select
 mode entered, unless the selected area was deleted, another buffer became

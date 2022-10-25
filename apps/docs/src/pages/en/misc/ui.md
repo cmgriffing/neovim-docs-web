@@ -12,7 +12,7 @@ NVIM REFERENCE MANUAL
 
 ### <a id="UI ui" class="section-title" href="#UI ui">Nvim UI protocol</a>
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="ui-events" class="section-title" href="#ui-events">UI Events</a> 
@@ -24,9 +24,9 @@ have some elements ("widgets") presented by the UI itself rather than by Nvim
 ("externalized").
 
 ### <a id="ui-option" class="section-title" href="#ui-option">Note:</a>
-Call [nvim_ui_attach()](#nvim_ui_attach()) to tell Nvim that your program wants to draw the Nvim
+Call |nvim_ui_attach()| to tell Nvim that your program wants to draw the Nvim
 screen grid with a size of width × height cells. This is typically done by an
-embedder at startup (see [ui-startup](#ui-startup)), but UIs can also connect to a running
+embedder at startup (see [[ui-startup](/undefined#ui-startup)](/undefined)), but UIs can also connect to a running
 Nvim instance and invoke nvim_ui_attach(). The `options` parameter is a map
 with these (optional) keys:
 
@@ -38,37 +38,37 @@ with these (optional) keys:
 ### <a id="ui-override" class="section-title" href="#ui-override">Note:</a>
 - `override`		Decides how UI capabilities are resolved.
 - true:	Enable requested UI capabilities, even if not
-supported by all connected UIs (including [TUI](#TUI)).
+supported by all connected UIs (including [[TUI](/undefined#TUI)](/undefined)).
 - false: (default) Disable UI capabilities not
 supported by all connected UIs (including TUI).
 
 ### <a id="ui-ext-options" class="section-title" href="#ui-ext-options">Note:</a>
-- `ext_cmdline`		Externalize the cmdline. [ui-cmdline](#ui-cmdline)
-- `ext_hlstate`		Detailed highlight state. [ui-hlstate](#ui-hlstate)
+- `ext_cmdline`		Externalize the cmdline. [[[[[ui-cmdline](/undefined#ui-cmdline)](/undefined)](/undefined)](/undefined)](/undefined)
+- `ext_hlstate`		Detailed highlight state. [[[ui-hlstate](/undefined#ui-hlstate)](/undefined)](/undefined)
 Sets `ext_linegrid` implicitly.
-- `ext_linegrid`	Line-based grid events. [ui-linegrid](#ui-linegrid)
-Deactivates [ui-grid-old](#ui-grid-old) implicitly.
-- `ext_messages`	Externalize messages. [ui-messages](#ui-messages)
+- `ext_linegrid`	Line-based grid events. [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+Deactivates [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) implicitly.
+- `ext_messages`	Externalize messages. [[[[ui-messages](/undefined#ui-messages)](/undefined)](/undefined)](/undefined)
 Sets `ext_linegrid` and `ext_cmdline` implicitly.
-- `ext_multigrid`	Per-window grid events. [ui-multigrid](#ui-multigrid)
+- `ext_multigrid`	Per-window grid events. [[[[ui-multigrid](/undefined#ui-multigrid)](/undefined)](/undefined)](/undefined)
 Sets `ext_linegrid` implicitly.
-- `ext_popupmenu`	Externalize [popupmenu-completion](#popupmenu-completion) and
-'wildmenu'. [ui-popupmenu](#ui-popupmenu)
-- `ext_tabline`		Externalize the tabline. [ui-tabline](#ui-tabline)
+- `ext_popupmenu`	Externalize [[[[popupmenu-completion](/undefined#popupmenu-completion)](/undefined)](/undefined)](/undefined) and
+'wildmenu'. [[[[ui-popupmenu](/undefined#ui-popupmenu)](/undefined)](/undefined)](/undefined)
+- `ext_tabline`		Externalize the tabline. [[ui-tabline](/undefined#ui-tabline)](/undefined)
 - `ext_termcolors`	Use external default colors.
 - `term_name`		Sets the name of the terminal 'term'.
 - `term_colors`		Sets the number of supported colors 't_Co'.
 - `term_background`	Sets the default value of 'background'.
 - `stdin_fd`		Read buffer from `fd` as if it was a stdin pipe
-This option can only used by [--embed](#--embed) ui,
-see [ui-startup-stdin](#ui-startup-stdin).
+This option can only used by [[[--embed](/undefined#--embed)](/undefined)](/undefined) ui,
+see [[ui-startup-stdin](/undefined#ui-startup-stdin)](/undefined).
 
-Specifying an unknown option is an error; UIs can check the [api-metadata](#api-metadata)
+Specifying an unknown option is an error; UIs can check the [[api-metadata](/undefined#api-metadata)](/undefined)
 `ui_options` key for supported options.
 
 By default Nvim requires all connected UIs to support the same capabilities,
 thus the active capabilities are the intersection of those requested. UIs may
-specify [ui-override](#ui-override) to invert this behavior (useful for debugging). The
+specify [[ui-override](/undefined#ui-override)](/undefined) to invert this behavior (useful for debugging). The
 "option_set" event announces which capabilities are active.
 
 Nvim sends RPC notifications to all attached UIs, with method name "redraw"
@@ -107,47 +107,47 @@ batch. The user should only see the final state (when "flush" is sent), not
 any intermediate state while processing part of the batch array, nor after
 a batch not ending with "flush".
 
-By default, Nvim sends [ui-global| and |ui-grid-old](#ui-global| and |ui-grid-old) events (for backwards
+By default, Nvim sends [[ui-global](/undefined#ui-global)](/undefined) and [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) events (for backwards
 compatibility); these suffice to implement a terminal-like interface. However
-the new [ui-linegrid](#ui-linegrid) represents text more efficiently (especially highlighted
+the new [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) represents text more efficiently (especially highlighted
 text), and allows UI capabilities requiring multiple grids. New UIs should
-implement [ui-linegrid| instead of |ui-grid-old](#ui-linegrid| instead of |ui-grid-old).
+implement [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) instead of [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 Nvim optionally sends various screen elements "semantically" as structured
-events instead of raw grid-lines, as specified by [ui-ext-options](#ui-ext-options). The UI
+events instead of raw grid-lines, as specified by [[[ui-ext-options](/undefined#ui-ext-options)](/undefined)](/undefined). The UI
 must present such elements itself, Nvim will not draw them on the grid.
 
 Future versions of Nvim may add new update kinds and may append new parameters
 to existing update kinds. Clients must be prepared to ignore such extensions,
-for forward-compatibility. [api-contract](#api-contract)
+for forward-compatibility. [[api-contract](/undefined#api-contract)](/undefined)
 
 
 ## <a id="ui-startup" class="section-title" href="#ui-startup">UI Startup</a> 
 
-UI embedders (clients that start Nvim with [--embed](#--embed) and later call
-[nvim_ui_attach()|) must start Nvim without |--headless](#nvim_ui_attach()|) must start Nvim without |--headless):
+UI embedders (clients that start Nvim with [[[--embed](/undefined#--embed)](/undefined)](/undefined) and later call
+|nvim_ui_attach()|) must start Nvim without [[--headless](/undefined#--headless)](/undefined):
 nvim --embed
 Nvim will pause before loading startup files and reading buffers, so the UI
 has a chance to invoke requests and do early initialization. Startup will
-continue as soon as the UI invokes [nvim_ui_attach()](#nvim_ui_attach()).
+continue as soon as the UI invokes |nvim_ui_attach()|.
 
-A simple UI only needs to do a single [nvim_ui_attach()](#nvim_ui_attach()) request and then
+A simple UI only needs to do a single |nvim_ui_attach()| request and then
 prepare to handle any UI event. A more featureful UI, which might need
 additional configuration of the Nvim process, should use the following startup
 procedure:
 
-1. Invoke [nvim_get_api_info()](#nvim_get_api_info()), if needed to setup the client library and/or
+1. Invoke |nvim_get_api_info()|, if needed to setup the client library and/or
 to get the list of supported UI extensions.
 
 2. Do any configuration that should be happen before user config is loaded.
 Buffers and windows are not available at this point, but this could be used
-to set [g:](#g:) variables visible to init.vim
+to set |g:| variables visible to init.vim
 
 3. If the UI wants to do additional setup after user config is loaded,
 register a VimEnter autocmd:
 ### <a id="nvim_command("autocmd VimEnter  call rpcrequest(1, 'vimenter')")" class="section-title" href="#nvim_command("autocmd VimEnter  call rpcrequest(1, 'vimenter')")">Note:</a>
 
-4. Now invoke [nvim_ui_attach()](#nvim_ui_attach()). The UI must handle user input by now:
+4. Now invoke |nvim_ui_attach()|. The UI must handle user input by now:
 sourcing init.vim and loading buffers might lead to blocking prompts.
 
 5. If step 3 was used, Nvim will send a blocking "vimenter" request to the UI.
@@ -156,7 +156,7 @@ entering normal mode, for example reading variables set by init.vim.
 
 ### <a id="ui-startup-stdin" class="section-title" href="#ui-startup-stdin">Note:</a>
 An UI can support the native read from stdin feature as invoked with
-`command [ nvim -` for the builtin TUI. |--](# nvim -` for the builtin TUI. |--)
+`command | nvim -` for the builtin TUI. [[--](/undefined#--)](/undefined)
 The embedding process can detect that its stdin is open to a file which
 not is a terminal, just like nvim does. It then needs to forward this fd
 to Nvim. As fd=0 is already is used to send rpc data from the embedder to
@@ -189,7 +189,7 @@ Each mode property map may contain these keys:
 KEY		DESCRIPTION ~
 `cursor_shape`:	"block", "horizontal", "vertical"
 `cell_percentage`: Cell % occupied by the cursor.
-`blinkwait`, `blinkon`, `blinkoff`: See [cursor-blinking](#cursor-blinking).
+`blinkwait`, `blinkon`, `blinkoff`: See [[cursor-blinking](/undefined#cursor-blinking)](/undefined).
 `attr_id`:	Cursor attribute id (defined by `hl_attr_define`).
 When attr_id is 0, the background and foreground
 colors should be swapped.
@@ -219,7 +219,7 @@ UI-related option changed, where `name` is one of:
 - 'pumblend'
 - 'showtabline'
 - 'termguicolors'
-- "ext_*" (all [ui-ext-options](#ui-ext-options))
+- "ext_*" (all [[[ui-ext-options](/undefined#ui-ext-options)](/undefined)](/undefined))
 
 Triggered when the UI first connects to Nvim, and whenever an option
 is changed by the user or a plugin.
@@ -230,7 +230,7 @@ value, the "mouse_on" and "mouse_off" UI events directly indicate if
 mouse support is active. Some options like 'ambiwidth' have already
 taken effect on the grid, where appropriate empty cells are added,
 however a UI might still use such options when rendering raw text
-sent from Nvim, like for [ui-cmdline](#ui-cmdline).
+sent from Nvim, like for [[[[[ui-cmdline](/undefined#ui-cmdline)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ["mode_change", mode, mode_idx] ~
 Editor mode changed.  The `mode` parameter is a string representing
@@ -253,7 +253,7 @@ Indicates to the UI that it must stop rendering the cursor. This event
 is misnamed and does not actually have anything to do with busyness.
 
 ["suspend"] ~
-[:suspend| command or |CTRL-Z](#:suspend| command or |CTRL-Z) mapping is used. A terminal client (or
+|:suspend| command or [[CTRL-Z](/undefined#CTRL-Z)](/undefined) mapping is used. A terminal client (or
 another client where it makes sense) could suspend itself.  Other
 clients can safely ignore it.
 
@@ -272,17 +272,17 @@ to the user.
 
 ## <a id="ui-linegrid" class="section-title" href="#ui-linegrid">Grid Events (Line-Based)</a> 
 
-Activated by the `ext_linegrid` [ui-option](#ui-option). Recommended for all new UIs.
-Deactivates [ui-grid-old](#ui-grid-old) implicitly.
+Activated by the `ext_linegrid` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined). Recommended for all new UIs.
+Deactivates [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) implicitly.
 
-The biggest change compared to [ui-grid-old](#ui-grid-old) is to use a single `grid_line`
+The biggest change compared to [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) is to use a single `grid_line`
 event to update the contents of a screen line (whereas the old protocol used
 a combination of cursor, highlight and text events)
 
 Most of these events take a `grid` index as first parameter.  Grid 1 is the
 global grid used by default for the entire editor screen state. The
 `ext_linegrid` capability by itself will never cause any additional grids to
-be created; to enable per-window grids, activate [ui-multigrid](#ui-multigrid).
+be created; to enable per-window grids, activate [[[[ui-multigrid](/undefined#ui-multigrid)](/undefined)](/undefined)](/undefined).
 
 Highlight attribute groups are predefined. UIs should maintain a table to map
 numerical highlight ids to the actual attributes.
@@ -303,7 +303,7 @@ on 'background'. By setting the `ext_termcolors` option, instead
 implementation, where using the terminal builtin ("ANSI") defaults
 are expected.
 
-Note: Unlike the corresponding [ui-grid-old](#ui-grid-old) events, the screen is not
+Note: Unlike the corresponding [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) events, the screen is not
 always cleared after sending this event. The UI must repaint the
 screen with changed background color itself.
 
@@ -339,7 +339,7 @@ are true.
 
 Highlights are always transmitted both for both the RGB format and as
 terminal 256-color codes, as the `rgb_attr` and `cterm_attr` parameters
-respectively. The [ui-rgb](#ui-rgb) option has no effect effect anymore.
+respectively. The [[ui-rgb](/undefined#ui-rgb)](/undefined) option has no effect effect anymore.
 Most external UIs will only need to store and use the `rgb_attr`
 attributes.
 
@@ -352,15 +352,15 @@ affected by redefined ids, so UIs do not need to keep track of this
 themselves.
 
 `info` is an empty array by default, and will be used by the
-[ui-hlstate](#ui-hlstate) extension explained below.
+[[[ui-hlstate](/undefined#ui-hlstate)](/undefined)](/undefined) extension explained below.
 
 ["hl_group_set", name, hl_id] ~
 The bulitin highlight group `name` was set to use the attributes `hl_id`
 defined by a previous `hl_attr_define` call. This event is not needed
 to render the grids which use attribute ids directly, but is useful
 for an UI who want to render its own elements with consistent
-highlighting. For instance an UI using [ui-popupmenu](#ui-popupmenu) events, might
-use the [hl-Pmenu](#hl-Pmenu) family of builtin highlights.
+highlighting. For instance an UI using [[[[ui-popupmenu](/undefined#ui-popupmenu)](/undefined)](/undefined)](/undefined) events, might
+use the [[hl-Pmenu](/undefined#hl-Pmenu)](/undefined) family of builtin highlights.
 
 ### <a id="ui-event-grid_line" class="section-title" href="#ui-event-grid_line">Note:</a>
 ["grid_line", grid, row, col_start, cells] ~
@@ -396,7 +396,7 @@ indicates the visible cursor position.
 
 ["grid_scroll", grid, top, bot, left, right, rows, cols] ~
 Scroll a region of `grid`. This is semantically unrelated to editor
-[scrolling](#scrolling), rather this is an optimized way to say "copy these screen
+[[scrolling](/undefined#scrolling)](/undefined), rather this is an optimized way to say "copy these screen
 cells".
 
 The following diagrams show what happens per scroll direction.
@@ -407,13 +407,13 @@ Note that dst and src share a common region.
 If `rows` is bigger than 0, move a rectangle in the SR up, this can
 happen while scrolling down.
 +-------------------------+
-[ (clipped above SR)      ](# (clipped above SR)      )            ^
-[=========================| dst_top    ](#=========================| dst_top    )
-[ dst (still in SR)       |            ](# dst (still in SR)       |            )
+| (clipped above SR)      |            ^
+|=========================| dst_top    |
+| dst (still in SR)       |            |
 +-------------------------+ src_top    |
-[ src (moved up) and dst  |            ](# src (moved up) and dst  |            )
-[-------------------------| dst_bot    ](#-------------------------| dst_bot    )
-[ src (invalid)           |            ](# src (invalid)           |            )
+| src (moved up) and dst  |            |
+[[[-------------------------](/undefined#-------------------------)](/undefined)](/undefined) dst_bot    |
+| src (invalid)           |            |
 +=========================+ src_bot
 ```
 
@@ -421,32 +421,32 @@ If `rows` is less than zero, move a rectangle in the SR down, this can
 happen while scrolling up.
 
 ```		+=========================+ src_top
-[ src (invalid)           |            ](# src (invalid)           |            )
-[------------------------ | dst_top    ](#------------------------ | dst_top    )
-[ src (moved down) and dst|            ](# src (moved down) and dst|            )
+| src (invalid)           |            |
+|------------------------ | dst_top    |
+| src (moved down) and dst|            |
 +-------------------------+ src_bot    |
-[ dst (still in SR)       |            ](# dst (still in SR)       |            )
-[=========================| dst_bot    ](#=========================| dst_bot    )
-[ (clipped below SR)      ](# (clipped below SR)      )            v
+| dst (still in SR)       |            |
+|=========================| dst_bot    |
+| (clipped below SR)      |            v
 +-------------------------+
 ```
 
 `cols` is always zero in this version of Nvim, and reserved for future
 use. 
 
-Note when updating code from [ui-grid-old](#ui-grid-old) events: ranges are
+Note when updating code from [[[[[[[[ui-grid-old](/undefined#ui-grid-old)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) events: ranges are
 end-exclusive, which is consistent with API conventions, but different
 from `set_scroll_region` which was end-inclusive.
 
-The scrolled-in area will be filled using [ui-event-grid_line](#ui-event-grid_line) directly
+The scrolled-in area will be filled using |ui-event-grid_line| directly
 after the scroll event. The UI thus doesn't need to clear this area as
 part of handling the scroll event.
 
 
 ## <a id="ui-grid-old" class="section-title" href="#ui-grid-old">Grid Events (Cell-Based)</a> 
 
-This is the legacy representation of the screen grid, emitted if [ui-linegrid](#ui-linegrid)
-is not active. New UIs should implement [ui-linegrid](#ui-linegrid) instead.
+This is the legacy representation of the screen grid, emitted if [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+is not active. New UIs should implement [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) instead.
 
 ["resize", width, height] ~
 The grid is resized to `width` and `height` cells.
@@ -512,13 +512,13 @@ If count is bigger than 0, move a rectangle in the SR up, this can
 happen while scrolling down.
 
 ```		+-------------------------+
-[ (clipped above SR)      ](# (clipped above SR)      )            ^
-[=========================| dst_top    ](#=========================| dst_top    )
-[ dst (still in SR)       |            ](# dst (still in SR)       |            )
+| (clipped above SR)      |            ^
+|=========================| dst_top    |
+| dst (still in SR)       |            |
 +-------------------------+ src_top    |
-[ src (moved up) and dst  |            ](# src (moved up) and dst  |            )
-[-------------------------| dst_bot    ](#-------------------------| dst_bot    )
-[ src (cleared)           |            ](# src (cleared)           |            )
+| src (moved up) and dst  |            |
+[[[-------------------------](/undefined#-------------------------)](/undefined)](/undefined) dst_bot    |
+| src (cleared)           |            |
 +=========================+ src_bot
 ```
 
@@ -526,46 +526,46 @@ If count is less than zero, move a rectangle in the SR down, this can
 happen while scrolling up.
 
 ```		+=========================+ src_top
-[ src (cleared)           |            ](# src (cleared)           |            )
-[------------------------ | dst_top    ](#------------------------ | dst_top    )
-[ src (moved down) and dst|            ](# src (moved down) and dst|            )
+| src (cleared)           |            |
+|------------------------ | dst_top    |
+| src (moved down) and dst|            |
 +-------------------------+ src_bot    |
-[ dst (still in SR)       |            ](# dst (still in SR)       |            )
-[=========================| dst_bot    ](#=========================| dst_bot    )
-[ (clipped below SR)      ](# (clipped below SR)      )            v
+| dst (still in SR)       |            |
+|=========================| dst_bot    |
+| (clipped below SR)      |            v
 +-------------------------+
 ```
 
 
 ## <a id="ui-hlstate" class="section-title" href="#ui-hlstate">Detailed Highlight State Extension</a> 
 
-Activated by the `ext_hlstate` [ui-option](#ui-option).
-Activates [ui-linegrid](#ui-linegrid) implicitly.
+Activated by the `ext_hlstate` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+Activates [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) implicitly.
 
 By default Nvim will only describe grid cells using the final calculated
-highlight attributes, as described by the dict keys in [ui-event-highlight_set](#ui-event-highlight_set).
+highlight attributes, as described by the dict keys in |ui-event-highlight_set|.
 The `ext_hlstate` extension allows to the UI to also receive a semantic
 description of the highlights active in a cell. In this mode highlights will be
-predefined in a table, see [ui-event-hl_attr_define| and |ui-event-grid_line](#ui-event-hl_attr_define| and |ui-event-grid_line).
+predefined in a table, see |ui-event-hl_attr_define| and |ui-event-grid_line|.
 The `info` parameter in `hl_attr_define` will contain a semantic description
 of the highlights. As highlight groups can be combined, this will be an array
 of items, with the item with highest priority last. Each item is a dictionary
 with the following possible keys:
 
 `kind`:	always present. One of the following values:
-"ui":       Builtin UI highlight. [highlight-groups](#highlight-groups)
+"ui":       Builtin UI highlight. [[[highlight-groups](/undefined#highlight-groups)](/undefined)](/undefined)
 "syntax":   Highlight applied to a buffer by a syntax declaration or
 other runtime/plugin functionality such as
-[nvim_buf_add_highlight()](#nvim_buf_add_highlight())
-"terminal": highlight from a process running in a [terminal-emulator](#terminal-emulator).
+|nvim_buf_add_highlight()|
+"terminal": highlight from a process running in a [[terminal-emulator](/undefined#terminal-emulator)](/undefined).
 Contains no further semantic information.
-`ui_name`:	Highlight name from [highlight-groups](#highlight-groups). Only for "ui" kind.
-`hi_name`:	Name of the final [:highlight](#:highlight) group where the used
+`ui_name`:	Highlight name from [[[highlight-groups](/undefined#highlight-groups)](/undefined)](/undefined). Only for "ui" kind.
+`hi_name`:	Name of the final |:highlight| group where the used
 attributes are defined.
 `id`:	Unique numeric id representing this item.
 
 Note: "ui" items will have both `ui_name` and `hi_name` present. These can
-differ, because the builtin group was linked to another group [:hi-link](#:hi-link) , or
+differ, because the builtin group was linked to another group |:hi-link| , or
 because 'winhighlight' was used. UI items will be transmitted, even if the
 highlight group is cleared, so `ui_name` can always be used to reliably identify
 screen elements, even if no attributes have been applied.
@@ -573,12 +573,12 @@ screen elements, even if no attributes have been applied.
 
 ## <a id="ui-multigrid" class="section-title" href="#ui-multigrid">Multigrid Events</a> 
 
-Activated by the `ext_multigrid` [ui-option](#ui-option).
-Activates [ui-linegrid](#ui-linegrid) implicitly.
+Activated by the `ext_multigrid` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+Activates [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) implicitly.
 
-See [ui-linegrid](#ui-linegrid) for grid events.
-See [nvim_ui_try_resize_grid()](#nvim_ui_try_resize_grid()) to request changing the grid size.
-See [nvim_input_mouse()](#nvim_input_mouse()) for sending mouse events to Nvim.
+See [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) for grid events.
+See |nvim_ui_try_resize_grid()| to request changing the grid size.
+See |nvim_input_mouse()| for sending mouse events to Nvim.
 
 The multigrid extension gives UIs more control over how windows are displayed:
 - UIs receive updates on a separate grid for each window.
@@ -587,7 +587,7 @@ occupies on the global layout. So the UI could use a different font size
 per-window. Or reserve space around the border of the window for its own
 elements, such as scrollbars from the UI toolkit.
 - A dedicated grid is used for messages, which may scroll over the window
-area. (Alternatively [ui-messages](#ui-messages) can be used).
+area. (Alternatively [[[[ui-messages](/undefined#ui-messages)](/undefined)](/undefined)](/undefined) can be used).
 
 By default, the grid size is handled by Nvim and set to the outer grid size
 (i.e. the size of the window frame in Nvim) whenever the split is created.
@@ -608,7 +608,7 @@ again.
 Display or reconfigure floating window `win`. The window should be
 displayed above another grid `anchor_grid` at the specified position
 `anchor_row` and `anchor_col`. For the meaning of `anchor` and more
-details of positioning, see [nvim_open_win()](#nvim_open_win()).
+details of positioning, see |nvim_open_win()|.
 
 ["win_external_pos", grid, win] ~
 Display or reconfigure external window `win`. The window should be
@@ -625,11 +625,11 @@ Close the window.
 Display messages on `grid`.  The grid will be displayed at `row` on
 the default grid (grid=1), covering the full column width. `scrolled`
 indicates whether the message area has been scrolled to cover other
-grids. It can be useful to draw a separator then [msgsep](#msgsep). The Builtin
+grids. It can be useful to draw a separator then [[msgsep](/undefined#msgsep)](/undefined). The Builtin
 TUI draws a full line filled with `sep_char` ('fillchars' msgsep
-field) and [hl-MsgSeparator](#hl-MsgSeparator) highlight.
+field) and [[hl-MsgSeparator](/undefined#hl-MsgSeparator)](/undefined) highlight.
 
-When [ui-messages](#ui-messages) is active, no message grid is used, and this event
+When [[[[ui-messages](/undefined#ui-messages)](/undefined)](/undefined)](/undefined) is active, no message grid is used, and this event
 will not be sent.
 
 ["win_viewport", grid, win, topline, botline, curline, curcol] ~
@@ -645,19 +645,19 @@ window. Only emitted if the mark has the `ui_watched` attribute.
 
 ## <a id="ui-popupmenu" class="section-title" href="#ui-popupmenu">Popupmenu Events</a> 
 
-Activated by the `ext_popupmenu` [ui-option](#ui-option).
+Activated by the `ext_popupmenu` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
-This UI extension delegates presentation of the [popupmenu-completion](#popupmenu-completion) and
+This UI extension delegates presentation of the [[[[popupmenu-completion](/undefined#popupmenu-completion)](/undefined)](/undefined)](/undefined) and
 command-line 'wildmenu'.
 
 ["popupmenu_show", items, selected, row, col, grid] ~
-Show [popupmenu-completion](#popupmenu-completion). `items` is an array of completion items
+Show [[[[popupmenu-completion](/undefined#popupmenu-completion)](/undefined)](/undefined)](/undefined). `items` is an array of completion items
 to show; each item is an array of the form [word, kind, menu, info] as
-defined at [complete-items](#complete-items), except that `word` is replaced by `abbr`
+defined at [[complete-items](/undefined#complete-items)](/undefined), except that `word` is replaced by `abbr`
 if present.  `selected` is the initially-selected item, a zero-based
 index into the array of items (-1 if no item is selected). `row` and
 `col` give the anchor position, where the first character of the
-completed word will be. When [ui-multigrid](#ui-multigrid) is used, `grid` is the
+completed word will be. When [[[[ui-multigrid](/undefined#ui-multigrid)](/undefined)](/undefined)](/undefined) is used, `grid` is the
 grid for the anchor position. When `ext_cmdline` is active, `grid` is
 set to -1 to indicate the popupmenu should be anchored to the external
 cmdline. Then `col` will be a byte position in the cmdline text.
@@ -673,7 +673,7 @@ Hide the popupmenu.
 
 ## <a id="ui-tabline" class="section-title" href="#ui-tabline">Tabline Events</a> 
 
-Activated by the `ext_tabline` [ui-option](#ui-option).
+Activated by the `ext_tabline` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ["tabline_update", curtab, tabs, curbuf, buffers] ~
 Tabline was updated. UIs should present this data in a custom tabline
@@ -686,10 +686,10 @@ buffers:  List of Dicts [{ "buffer": buffer handle, "name": String}, ...]
 
 ## <a id="ui-cmdline" class="section-title" href="#ui-cmdline">Cmdline Events</a> 
 
-Activated by the `ext_cmdline` [ui-option](#ui-option).
+Activated by the `ext_cmdline` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
-This UI extension delegates presentation of the [cmdline](#cmdline) (except 'wildmenu').
-For command-line 'wildmenu' UI events, activate [ui-popupmenu](#ui-popupmenu).
+This UI extension delegates presentation of the [[cmdline](/undefined#cmdline)](/undefined) (except 'wildmenu').
+For command-line 'wildmenu' UI events, activate [[[[ui-popupmenu](/undefined#ui-popupmenu)](/undefined)](/undefined)](/undefined).
 
 ["cmdline_show", content, pos, firstc, prompt, indent, level] ~
 content: List of [attrs, string]
@@ -699,19 +699,19 @@ Triggered when the cmdline is displayed or changed.
 The `content` is the full content that should be displayed in the
 cmdline, and the `pos` is the position of the cursor that in the
 cmdline. The content is divided into chunks with different highlight
-attributes represented as a dict (see [ui-event-highlight_set](#ui-event-highlight_set)).
+attributes represented as a dict (see |ui-event-highlight_set|).
 
 `firstc` and `prompt` are text, that if non-empty should be
 displayed in front of the command line. `firstc` always indicates
 built-in command lines such as `:` (ex command) and `/` `?` (search),
-while `prompt` is an [input()](#input()) prompt. `indent` tells how many spaces
+while `prompt` is an |input()| prompt. `indent` tells how many spaces
 the content should be indented.
 
 The Nvim command line can be invoked recursively, for instance by
 typing `<c-r>=` at the command line prompt. The `level` field is used
 to distinguish different command lines active at the same time. The
 first invoked command line has level 1, the next recursively-invoked
-prompt has level 2. A command line invoked from the [cmdline-window](#cmdline-window)
+prompt has level 2. A command line invoked from the [[cmdline-window](/undefined#cmdline-window)](/undefined)
 has a higher level than than the edited command line.
 
 ["cmdline_pos", pos, level] ~
@@ -719,7 +719,7 @@ Change the cursor position in the cmdline.
 
 ["cmdline_special_char", c, shift, level] ~
 Display a special char in the cmdline at the cursor position. This is
-typically used to indicate a pending state, e.g. after [c_CTRL-V](#c_CTRL-V). If
+typically used to indicate a pending state, e.g. after |c_CTRL-V|. If
 `shift` is true the text after the cursor should be shifted, otherwise
 it should overwrite the char at the cursor.
 
@@ -730,7 +730,7 @@ Hide the cmdline.
 
 ["cmdline_block_show", lines] ~
 Show a block of context to the current command line. For example if
-the user defines a [:function](#:function) interactively: 
+the user defines a |:function| interactively: 
 ```	    :function Foo()
 :  echo "foo"
 :
@@ -748,15 +748,15 @@ Hide the block.
 
 ## <a id="ui-messages" class="section-title" href="#ui-messages">Message/Dialog Events</a> 
 
-Activated by the `ext_messages` [ui-option](#ui-option).
-Activates [ui-linegrid| and |ui-cmdline](#ui-linegrid| and |ui-cmdline) implicitly.
+Activated by the `ext_messages` [[[[[[[[ui-option](/undefined#ui-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+Activates [[[[[[[[[[ui-linegrid](/undefined#ui-linegrid)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and [[[[[ui-cmdline](/undefined#ui-cmdline)](/undefined)](/undefined)](/undefined)](/undefined) implicitly.
 
 This UI extension delegates presentation of messages and dialogs. Messages
 that would otherwise render in the message/cmdline screen space, are emitted
 as UI events.
 
 Nvim will not allocate screen space for the cmdline or messages, and
-'cmdheight' will be forced zero. Cmdline state is emitted as [ui-cmdline](#ui-cmdline)
+'cmdheight' will be forced zero. Cmdline state is emitted as [[[[[ui-cmdline](/undefined#ui-cmdline)](/undefined)](/undefined)](/undefined)](/undefined)
 events, which the UI must handle.
 
 ["msg_show", kind, content, replace_last] ~
@@ -764,19 +764,19 @@ Display a message to the user.
 
 kind
 Name indicating the message kind:
-"" (empty)	Unknown (consider a feature-request: [bugs](#bugs))
-"confirm"	[confirm()| or |:confirm](#confirm()| or |:confirm) dialog
-"confirm_sub"	[:substitute| confirm dialog |:s_c](#:substitute| confirm dialog |:s_c)
-"emsg"		Error ([errors|, internal error, |:throw](#errors|, internal error, |:throw), …)
-"echo"		[:echo](#:echo) message
-"echomsg"	[:echomsg](#:echomsg) message
-"echoerr"	[:echoerr](#:echoerr) message
-"lua_error"	Error in [:lua](#:lua) code
-"rpc_error"	Error response from [rpcrequest()](#rpcrequest())
-"return_prompt"	[press-enter](#press-enter) prompt after a multiple messages
+"" (empty)	Unknown (consider a feature-request: [[bugs](/undefined#bugs)](/undefined))
+"confirm"	|confirm()| or |:confirm| dialog
+"confirm_sub"	|:substitute| confirm dialog |:s_c|
+"emsg"		Error ([[errors](/undefined#errors)](/undefined), internal error, |:throw|, …)
+"echo"		|:echo| message
+"echomsg"	|:echomsg| message
+"echoerr"	|:echoerr| message
+"lua_error"	Error in |:lua| code
+"rpc_error"	Error response from |rpcrequest()|
+"return_prompt"	[[press-enter](/undefined#press-enter)](/undefined) prompt after a multiple messages
 "quickfix"	Quickfix navigation message
 "search_count"	Search count message ("S" flag of 'shortmess')
-"wmsg"		Warning ("search hit BOTTOM", [W10](#W10), …)
+"wmsg"		Warning ("search hit BOTTOM", [[W10](/undefined#W10)](/undefined), …)
 New kinds may be added in the future; clients should treat unknown
 kinds as the empty kind.
 
@@ -798,7 +798,7 @@ Clear all messages currently displayed by "msg_show". (Messages sent
 by other "msg_" events below will not be affected).
 
 ["msg_showmode", content] ~
-Shows 'showmode' and [recording](#recording) messages. `content` has the same
+Shows 'showmode' and [[recording](/undefined#recording)](/undefined) messages. `content` has the same
 format as in "msg_show". This event is sent with empty `content` to
 hide the last message.
 
@@ -812,7 +812,7 @@ statusline. `content` has the same format as in "msg_show". This event is
 sent with empty `content` to hide the last message.
 
 ["msg_history_show", entries] ~
-Sent when [:messages](#:messages) command is invoked. History is sent as a list of
+Sent when |:messages| command is invoked. History is sent as a list of
 entries, where each entry is a `[kind, content]` tuple.
 
 

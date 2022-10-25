@@ -148,7 +148,7 @@ Visual mode.						[Visual-mode](#Visual-mode)
 	give a command to do something with it.  This is an (easy to use)
 	alternative to first giving the operator and then moving to the end of
 	the text to be operated upon.
-	[v| and |V| are used to start Visual mode.  |v](#v| and |V| are used to start Visual mode.  |v) works on characters
+	[v| and [[[V](/undefined#V)](/undefined)](/undefined) are used to start Visual mode.  |v](#v| and [[[V](/undefined#V)](/undefined)](/undefined) are used to start Visual mode.  |v) works on characters
 	and [V](#V) on lines.  Move the cursor to extend the Visual area.  It is
 	shown highlighted on the screen.  By typing "o" the other end of the
 	Visual area can be moved.  The Visual area can be affected by an

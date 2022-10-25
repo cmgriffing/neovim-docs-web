@@ -8,13 +8,13 @@ layout: "@layouts/MainLayout.astro"
 ## <a id="Last change: 2020 Jan 07" class="section-title" href="#Last change: 2020 Jan 07">*Pi_Tar.Txt*	for Vim Version 8.2.</a> 
 
 +====================+
-		       [ Tar File Interface ](# Tar File Interface )
+		       | Tar File Interface |
 		       +====================+
 
-Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
-```	  (remove NOSPAM from Campbell's email first)
+Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM>
+	  (remove NOSPAM from Campbell's email first)
 ### <a id="tar-copyright" class="section-title" href="#tar-copyright">Copyright 2005-2017:</a>
-	The VIM LICENSE (see [copyright](#copyright)) applies to the files in this
+	The VIM LICENSE (see [copyright](undefined#copyright)) applies to the files in this
 	package, including tarPlugin.vim, tar.vim, and pi_tar.txt.  Like
 	anything else that's except use "tar.vim" instead of "VIM".  Like
 	anything else that's free, tar.vim and its associated files are
@@ -27,10 +27,10 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
 
 ## <a id="tar tar-contents" class="section-title" href="#tar tar-contents">1. Contents</a> 
 
-1. Contents..................................................[tar-contents](#tar-contents)
-   2. Usage.....................................................[tar-usage](#tar-usage)
-   3. Options...................................................[tar-options](#tar-options)
-   4. History...................................................[tar-history](#tar-history)
+1. Contents..................................................[tar-contents](undefined#tar-contents)
+   2. Usage.....................................................[tar-usage](undefined#tar-usage)
+   3. Options...................................................[tar-options](/neovim-docs-web/en/pi/pi_tar#tar-options)
+   4. History...................................................[tar-history](/neovim-docs-web/en/pi/pi_tar#tar-history)
 
 
 ## <a id="tar-usage tar-manual" class="section-title" href="#tar-usage tar-manual">2. Usage</a> 
@@ -47,12 +47,12 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
    :Vimuntar [vimhome]
 
 	This command copies, if necessary, the tarball to the .vim or vimfiles
-	directory using the first writable directory in the ['runtimepath'](#'runtimepath')
+	directory using the first writable directory in the |'runtimepath'|
 	when no [vimhome] is specified.  Otherwise, the [vimhome] argument
 	allows the user to specify that directory, instead.
 
 	The copy is done using the command in *g:tar_copycmd* , which is
-		cp   for cygwin, unix, macunix
+```		cp   for cygwin, unix, macunix
 		copy for windows (32, 95, 64, 16)
 	The extraction is done with the command specified with
 	*g:tar_extractcmd* , which by default is
@@ -78,7 +78,7 @@ Author:  Charles E. Campbell  <NcampObell@SdrPchip.AorgM-NOSPAM
 
    If for some reason you do not wish to use vim to examine tar'd files,
    you may put the following two variables into your <.vimrc> to prevent
-   the tar plugin from loading: 
+   the tar plugin from loading:
 ```
 	let g:loaded_tarPlugin= 1
 	let g:loaded_tar      = 1
@@ -116,7 +116,7 @@ v31	Apr 02, 2017	* (klartext) reported that browsing encrypted
 				  files in a zip archive created unencrypted
 				  swap files.  I am applying a similar fix
 				  used on zip.vim to tar.vim: new buffers
-				  are opened with [:noswapfile](#:noswapfile).
+				  are opened with |:noswapfile|.
 ### <a id="May 16, 2017	 When the mouse option isn't empty, the" class="section-title" href="#May 16, 2017	 When the mouse option isn't empty, the">Note:</a>
 				  leftmouse can be used to select a file
 				  in the tar-file listing.
@@ -128,7 +128,7 @@ v31	Apr 02, 2017	* (klartext) reported that browsing encrypted
 	v28	Jun 23, 2011	* a few more decompression options (tbz tb2 txz)
 	v27	May 31, 2011	* moved cygwin detection before g:tar_copycmd
 				  handling
-### <a id=" inserted additional [:keepj](#:keepj) modifiers" class="section-title" href="# inserted additional [:keepj](#:keepj) modifiers">Note:</a>
+### <a id=" inserted additional |:keepj| modifiers" class="section-title" href="# inserted additional |:keepj| modifiers">Note:</a>
 ### <a id=" changed silent" class="section-title" href="# changed silent">Note:</a>
 	v26	Aug 09, 2010	* uses buffer-local instead of window variables
 				  to hold tarfile name

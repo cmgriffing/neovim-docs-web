@@ -17,19 +17,19 @@ goes into making changes that are repeated or can affect a large amount of
 text.  The Visual mode allows doing various things with blocks of text.  Use
 an external program to do really complicated things.
 
-[10.1](#10.1)	Record and playback commands
-[10.2](#10.2)	Substitution
-[10.3](#10.3)	Command ranges
-[10.4](#10.4)	The global command
-[10.5](#10.5)	Visual block mode
-[10.6](#10.6)	Reading and writing part of a file
-[10.7](#10.7)	Formatting text
-[10.8](#10.8)	Changing case
-[10.9](#10.9)	Using an external program
+|10.1|	Record and playback commands
+|10.2|	Substitution
+|10.3|	Command ranges
+|10.4|	The global command
+|10.5|	Visual block mode
+|10.6|	Reading and writing part of a file
+|10.7|	Formatting text
+|10.8|	Changing case
+|10.9|	Using an external program
 
-     Next chapter: [usr_11.txt](#usr_11.txt)  Recovering from a crash
- Previous chapter: [usr_09.txt](#usr_09.txt)  Using the GUI
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_11.txt|  Recovering from a crash
+ Previous chapter: |usr_09.txt|  Using the GUI
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*10.1*	Record and Playback Commands</a> 
@@ -76,8 +76,8 @@ execute the following commands:
 Now that you have done the work once, you can repeat the change by typing the
 command "@a" three times.
    The "@a" command can be preceded by a count, which will cause the macro to
-be executed that number of times.  In this case you would type: 
-```
+be executed that number of times.  In this case you would type:
+
 	3@a
 
 
@@ -153,7 +153,7 @@ lines, in the order you yanked them.
 
 The ":substitute" command enables you to perform string replacements on a
 whole range of lines.  The general form of this command is as follows:
-
+```
 	:[range]substitute/from/to/[flags]
 
 This command changes the "from" string to the "to" string in the lines
@@ -170,7 +170,7 @@ in all lines with the following command:
 
 The "%" before the command specifies the command works on all lines.  Without
 a range, ":s" only works on the current line.  More about ranges in the next
-section [10.3](#10.3).
+section |10.3|.
 
 By default, the ":substitute" command changes only the first occurrence on
 each line.  For example, the preceding command changes the line:
@@ -361,7 +361,7 @@ matched text with other text, the command {command} is executed.
 
 	Note:
 	The command executed for ":global" must be one that starts with a
-	colon.  Normal mode commands can not be used directly.  The [:normal](#:normal)
+	colon.  Normal mode commands can not be used directly.  The |:normal|
 	command can do this for you.
 
 Suppose you want to change "foobar" to "barfoo", but only in C++ style
@@ -825,7 +825,7 @@ has written.  To tell Vim to redraw the screen:
 	CTRL-L
 
 
-## <a id="Recovering from a crash" class="section-title" href="#Recovering from a crash">Next Chapter: [Usr_11.Txt](#Usr_11.Txt)</a> 
+## <a id="Recovering from a crash" class="section-title" href="#Recovering from a crash">Next Chapter: |Usr_11.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

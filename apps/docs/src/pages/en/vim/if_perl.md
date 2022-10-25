@@ -11,9 +11,9 @@ VIM REFERENCE MANUAL    by Jacques Germishuys
 
 ### <a id="if_perl perl" class="section-title" href="#if_perl perl">The perl Interface to Vim</a>
 
-See [provider-perl](#provider-perl) for more information.
+See [provider-perl](/neovim-docs-web/en/neovim/provider#provider-perl) for more information.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="perl-commands" class="section-title" href="#perl-commands">1. Commands</a> 
@@ -22,7 +22,7 @@ See [provider-perl](#provider-perl) for more information.
 :[range]perl {stmt}
 			Execute perl statement {stmt}.  The current package is
 			"main".  A simple check if the `:perl` command is
-			working: 
+			working:
 ```				:perl print "Hello"
 
 :[range]perl << [endmarker]
@@ -33,10 +33,10 @@ See [provider-perl](#provider-perl) for more information.
 			any white space.
 
 			If [endmarker] is omitted, it defaults to a dot '.'
-			like for the [:append| and |:insert](#:append| and |:insert) commands.
+			like for the |:append| and |:insert| commands.
 
 			Useful for including perl code in Vim scripts.
-			Requires perl, see [script-here](#script-here).
+			Requires perl, see [script-here](undefined#script-here).
 
 Example:
 	function! MyVimMethod()
@@ -64,7 +64,6 @@ To see what version of perl you have:
 			The default for [range] is the whole file: "1,$".
 
 Examples:
-
 ```	:perldo $_ = reverse($_);
 	:perldo $_ = "".$linenr." => $line";
 
@@ -97,7 +96,7 @@ perl code, with the "current range" set to the given line range.
 In the case of :perl, the code to execute is in the command-line.
 In the case of :perlfile, the code to execute is the contents of the given file.
 
-perl commands cannot be used in the [sandbox](#sandbox).
+perl commands cannot be used in the [sandbox](undefined#sandbox).
 
 To pass arguments you need to set @ARGV explicitly.  Example:
 
@@ -160,7 +159,7 @@ VIM::Msg({msg})
 ### <a id="perl-SetOption" class="section-title" href="#perl-SetOption">Note:</a>
 VIM::SetOption({arg})	Sets a vim option.  {arg} can be any argument that the
 			":set" command accepts.  Note that this means that no
-			spaces are allowed in the argument!  See [:set](#:set).
+			spaces are allowed in the argument!  See |:set|.
 
 ### <a id="perl-Buffers" class="section-title" href="#perl-Buffers">Note:</a>
 VIM::Buffers([{bn}...])	With no arguments, returns a list of all the buffers
@@ -168,8 +167,8 @@ VIM::Buffers([{bn}...])	With no arguments, returns a list of all the buffers
 			in a scalar context.  For a list of buffer names or
 			numbers {bn}, returns a list of the buffers matching
 			{bn}, using the same rules as Vim's internal
-			[bufname()](#bufname()) function.
-			WARNING: the list becomes invalid when [:bwipe](#:bwipe) is
+			|bufname()| function.
+			WARNING: the list becomes invalid when |:bwipe| is
 			used.
 
 ### <a id="perl-Windows" class="section-title" href="#perl-Windows">Note:</a>
@@ -191,10 +190,10 @@ VIM::Eval({expr})	Evaluates {expr} and returns (success, value) in list
 			{expr}; success=0 indicates a failure to evaluate
 			the expression.  '@x' returns the contents of register
 			x, '&x' returns the value of option x, 'x' returns the
-			value of internal [variables](#variables) x, and '$x' is equivalent
-			to perl's $ENV{x}.  All [functions](#functions) accessible from
+			value of internal [variables](/neovim-docs-web/en/vim/eval#variables) x, and '$x' is equivalent
+			to perl's $ENV{x}.  All [functions](undefined#functions) accessible from
 			the command-line are valid for {expr}.
-			A [List](#List) is turned into a string by joining the items
+			A [List](undefined#List) is turned into a string by joining the items
 			and inserting line breaks.
 
 ### <a id="perl-Blob" class="section-title" href="#perl-Blob">Note:</a>

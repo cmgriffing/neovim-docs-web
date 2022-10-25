@@ -13,9 +13,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 ### <a id="debug-vim" class="section-title" href="#debug-vim">Debugging Vim</a>
 
 This is for debugging Vim itself, when it doesn't work properly.
-For debugging Vim scripts, functions, etc. see [debug-scripts](#debug-scripts)
+For debugging Vim scripts, functions, etc. see [debug-scripts](/neovim-docs-web/en/vim/repeat#debug-scripts)
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="debug-gcc gdb" class="section-title" href="#debug-gcc gdb">1. Location of a Crash, Using Gcc and Gdb</a> 
@@ -28,8 +28,8 @@ This also applies when using the MingW tools.
    this, which you can uncomment).  Also make sure "strip" is disabled (do not
    install it, or use the line "STRIP = /bin/true").
 
-2. Execute these commands (replace "11" with the test that fails): 
-```	cd testdir
+2. Execute these commands (replace "11" with the test that fails):
+	cd testdir
 	gdb ../vim
 	run -u unix.vim -U NONE -s dotest.in test11.in
 
@@ -81,14 +81,14 @@ then the PDB was built with the EXE.
 If you have Visual Studio, use that instead of the VC Toolkit and WinDbg.
 
 For other compilers, you should always use the corresponding debugger: gdb
-(see above [debug-gcc](#debug-gcc)) for the Cygwin and MinGW compilers.
+(see above [debug-gcc](undefined#debug-gcc)) for the Cygwin and MinGW compilers.
 
 
 ### <a id="debug-vs2005" class="section-title" href="#debug-vs2005">Note:</a>
 3.2 Debugging Vim crashes with Visual Studio 2005/Visual C++ 2005 Express ~
 
 First launch vim.exe or gvim.exe and then launch Visual Studio.  (If you don't
-have Visual Studio, follow the instructions at [get-ms-debuggers](#get-ms-debuggers) to obtain a
+have Visual Studio, follow the instructions at [get-ms-debuggers](undefined#get-ms-debuggers) to obtain a
 free copy of Visual C++ 2005 Express Edition.)
 
 On the Tools menu, click Attach to Process.  Choose the Vim process.
@@ -115,13 +115,13 @@ If you have a non-free version of Visual Studio, you can save a minidump via
 the Debug menu and send it with the bug report.  A minidump is a small file
 (<100KB), which contains information about the state of your process.
 Visual C++ 2005 Express Edition cannot save minidumps and it cannot be
-installed as a just-in-time debugger. Use WinDbg, [debug-windbg](#debug-windbg), if you
+installed as a just-in-time debugger. Use WinDbg, [debug-windbg](undefined#debug-windbg), if you
 need to save minidumps or you want a just-in-time (postmortem) debugger.
 
 ### <a id="debug-windbg" class="section-title" href="#debug-windbg">Note:</a>
 3.3 Debugging Vim crashes with WinDbg ~
 
-See [get-ms-debuggers](#get-ms-debuggers) to obtain a copy of WinDbg.
+See [get-ms-debuggers](undefined#get-ms-debuggers) to obtain a copy of WinDbg.
 
 As with the Visual Studio IDE, you can attach WinDbg to a running Vim process.
 You can also have your system automatically invoke WinDbg as a postmortem
@@ -142,7 +142,7 @@ your Vim process. Simply reproduce the crash and WinDbg will launch
 automatically. As above, set the Symbol File Path and the Source File Path.
 
 To save a minidump, type the following at the WinDbg command line:
-        .dump vim.dmp
+```        .dump vim.dmp
 ```
 
 ### <a id="debug-minidump" class="section-title" href="#debug-minidump">Note:</a>
@@ -152,10 +152,10 @@ If you have a minidump file, you can open it in Visual Studio or in WinDbg.
 
 In Visual Studio 2005: on the File menu, choose Open, then Project/Solution.
 Navigate to the .dmp file and open it. Now press F5 to invoke the debugger.
-Follow the instructions in [debug-vs2005](#debug-vs2005) to set the Symbol File Path.
+Follow the instructions in [debug-vs2005](undefined#debug-vs2005) to set the Symbol File Path.
 
 In WinDbg: choose Open Crash Dump on the File menu. Follow the instructions in
-[debug-windbg](#debug-windbg) to set the Symbol File Path.
+[debug-windbg](undefined#debug-windbg) to set the Symbol File Path.
 
 ### <a id="get-ms-debuggers" class="section-title" href="#get-ms-debuggers">Note:</a>
 3.5 Obtaining Microsoft Debugging Tools ~

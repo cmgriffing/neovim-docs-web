@@ -17,25 +17,25 @@ shell script, you often use the same option settings and mappings.  You
 quickly get tired of manually setting these each time.  This chapter explains
 how to do it automatically.
 
-[43.1](#43.1)	Plugins for a filetype
-[43.2](#43.2)	Adding a filetype
+|43.1|	Plugins for a filetype
+|43.2|	Adding a filetype
 
-     Next chapter: [usr_44.txt](#usr_44.txt)  Your own syntax highlighted
- Previous chapter: [usr_42.txt](#usr_42.txt)  Add new menus
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_44.txt|  Your own syntax highlighted
+ Previous chapter: |usr_42.txt|  Add new menus
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="filetype-plugin" class="section-title" href="#filetype-plugin">*43.1*	Plugins for a Filetype</a> 
 
 How to start using filetype plugins has already been discussed here:
-[add-filetype-plugin](#add-filetype-plugin).  But you probably are not satisfied with the default
+[add-filetype-plugin](undefined#add-filetype-plugin).  But you probably are not satisfied with the default
 settings, because they have been kept minimal.  Suppose that for C files you
 want to set the 'softtabstop' option to 4 and define a mapping to insert a
 three-line comment.  You do this with only two steps:
 
 ### <a id="your-runtime-dir" class="section-title" href="#your-runtime-dir">Note:</a>
 1. Create your own runtime directory.  On Unix this usually is 
-   "~/.config/nvim".  In this directory create the "ftplugin" directory: 
+   "~/.config/nvim".  In this directory create the "ftplugin" directory:
 ```
 	mkdir -p ~/.config/nvim/ftplugin
 ```
@@ -47,7 +47,7 @@ three-line comment.  You do this with only two steps:
 
   You would normally use the first directory name (before the first comma).
    You might want to prepend a directory name to the 'runtimepath' option in
-   your [init.vim](#init.vim) file if you don't like the default value.
+   your |init.vim| file if you don't like the default value.
 
 2. Create the file "~/.config/nvim/ftplugin/c.vim", with the contents:
 
@@ -65,7 +65,7 @@ default value or the value from the last ":set" command.
 Likewise, the mapping for "\c" will disappear when editing another buffer.
 The ":map <buffer>" command creates a mapping that is local to the current
 buffer.  This works with any mapping command: ":map!", ":vmap", etc.  The
-[<LocalLeader>](#<LocalLeader>) in the mapping is replaced with the value of the
+|<LocalLeader>| in the mapping is replaced with the value of the
 "maplocalleader" variable.
 
 The line to set b:undo_ftplugin is for when the filetype is set to another
@@ -78,17 +78,17 @@ You can find examples for filetype plugins in this directory:
 	$VIMRUNTIME/ftplugin/
 
 More details about writing a filetype plugin can be found here:
-[write-plugin](#write-plugin).
+[write-plugin](/neovim-docs-web/en/usr/usr_41#write-plugin).
 
 
 ## <a id="" class="section-title" href="#">*43.2*	Adding a Filetype</a> 
 
 If you are using a type of file that is not recognized by Vim, this is how to
 get it recognized.  You need a runtime directory of your own.  See
-[your-runtime-dir](#your-runtime-dir) above.
+[your-runtime-dir](undefined#your-runtime-dir) above.
 
 Create a file "filetype.vim" which contains an autocommand for your filetype.
-(Autocommands were explained in section [40.3](#40.3).)  Example:
+(Autocommands were explained in section |40.3|.)  Example:
 
 	augroup filetypedetect
 	au BufNewFile,BufRead *.xyz	setf xyz
@@ -102,7 +102,7 @@ unless it was set already.  This will make sure that 'filetype' isn't set
 twice.
 
 You can use many different patterns to match the name of your file.  Directory
-names can also be included.  See [autocmd-pattern](#autocmd-pattern).  For example, the files
+names can also be included.  See [autocmd-pattern](undefined#autocmd-pattern).  For example, the files
 under "/usr/share/scripts/" are all "ruby" files, but don't have the expected
 file name extension.  Adding this to the example above:
 
@@ -180,7 +180,7 @@ If this is not sufficient for you, add an autocommand that matches all files
 and sources a script or executes a function to check the contents of the file.
 
 
-## <a id="Your own syntax highlighted" class="section-title" href="#Your own syntax highlighted">Next Chapter: [Usr_44.Txt](#Usr_44.Txt)</a> 
+## <a id="Your own syntax highlighted" class="section-title" href="#Your own syntax highlighted">Next Chapter: |Usr_44.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

@@ -8,19 +8,24 @@ export function parseTextContents(
   pageTitle: string,
   textContent: string,
   shouldTrimStart = false
-): HelpPage {
+): {
+  page: HelpPage;
+  anchors: string[];
+} {
+  const anchors: string[] = [];
+
   // convert split sections to explicit string from regex
   let scrubbedContent = textContent.replace(
-    new RegExp("^=+$", "gm"),
+    new RegExp("^[=,-]+$", "gm"),
     SECTION_SPLITTER
   );
 
-  scrubbedContent = scrubContent(scrubbedContent);
+  // scrubbedContent = scrubContent(scrubbedContent);
 
   // split sections
   const rawSections = scrubbedContent
     .split(SECTION_SPLITTER)
-    .map((section) => section.trim());
+    .map((section) => scrubContent(section.trim()));
 
   const sections: HelpSection[] = rawSections.map((section, index) => {
     const lines: string[] = section.split("\n");
@@ -94,6 +99,18 @@ export function parseTextContents(
       return `${headerHashes} <a id="${rawDetailAnchor}" class="section-title" href="#${rawDetailAnchor}">${detail}</a>`;
     });
 
+    // console.log({ pageTitle });
+
+    // if (pageTitle) {
+    //   console.log();
+    // }
+
+    anchors.push(anchor);
+
+    if (extraAnchor) {
+      anchors.push(extraAnchor);
+    }
+
     return {
       title: Case.title(title),
       anchor,
@@ -103,9 +120,12 @@ export function parseTextContents(
   });
 
   return {
-    title: Case.title(pageTitle),
-    slug: Case.kebab(pageTitle),
-    sections,
+    page: {
+      title: Case.title(pageTitle),
+      slug: Case.kebab(pageTitle),
+      sections,
+    },
+    anchors,
   };
 }
 
@@ -117,15 +137,12 @@ function scrubContent(content: string) {
   // newContent = newContent.replace(new RegExp("^<", "gm"), "\n```\n");
 
   newContent = newContent.replace(
-    new RegExp(">\\n([.\\S\\s]+?)\\s*?<$", "gm"),
+    new RegExp("\\s+?>\\n([.\\S\\s]+?)\\s*?<$", "gm"),
     "\n```$1\n```\n"
   );
 
-  newContent = newContent.replace(new RegExp("\\s+>$", "gm"), "");
+  newContent = newContent.replace(new RegExp("\\s+?>$", "gm"), "");
   newContent = newContent.replace(new RegExp("^<", "gm"), "");
-
-  // links
-  newContent = newContent.replace(new RegExp("\\|(.+)\\|", "gm"), "[$1](#$1)");
 
   return newContent;
 }

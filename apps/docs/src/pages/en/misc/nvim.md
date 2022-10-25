@@ -14,21 +14,21 @@ NVIM REFERENCE MANUAL
 
 Nvim is based on Vim by Bram Moolenaar.
 
-If you already use Vim see [nvim-from-vim](#nvim-from-vim) for a quickstart.
+If you already use Vim see [[nvim-from-vim](/undefined#nvim-from-vim)](/undefined) for a quickstart.
 If you are new to Vim, try the 30-minute tutorial:
 
 :Tutor<Enter>
 
 Nvim is emphatically a fork of Vim, not a clone: compatibility with Vim
 (especially editor and Vimscript features) is maintained where possible. See
-[vim-differences](#vim-differences) for the complete reference of differences from Vim.
+[[[vim-differences](/undefined#vim-differences)](/undefined)](/undefined) for the complete reference of differences from Vim.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="nvim-from-vim" class="section-title" href="#nvim-from-vim">Transitioning From Vim</a> 
 
-1. To start the transition, create your [init.vim](#init.vim) (user config) file:
+1. To start the transition, create your |init.vim| (user config) file:
 
 :call mkdir(stdpath('config'), 'p')
 :exe 'edit '.stdpath('config').'/init.vim'
@@ -41,13 +41,13 @@ source ~/.vimrc
 
 3. Restart Nvim, your existing Vim config will be loaded.
 
-See [provider-python| and |provider-clipboard](#provider-python| and |provider-clipboard) for additional software you
+See [[provider-python](/undefined#provider-python)](/undefined) and [[provider-clipboard](/undefined#provider-clipboard)](/undefined) for additional software you
 might need to use some features.
 
 Your Vim configuration might not be entirely Nvim-compatible (see
-[vim-differences|). For example the |'ttymouse'](#vim-differences|). For example the |'ttymouse') option was removed from Nvim,
+[[[vim-differences](/undefined#vim-differences)](/undefined)](/undefined)). For example the |'ttymouse'| option was removed from Nvim,
 because mouse support is always enabled if possible. If you use the same
-[vimrc| for Vim and Nvim you could guard |'ttymouse'](#vimrc| for Vim and Nvim you could guard |'ttymouse') in your configuration
+[[vimrc](/undefined#vimrc)](/undefined) for Vim and Nvim you could guard |'ttymouse'| in your configuration
 like so:
 if !has('nvim')
 set ttymouse=xterm2
@@ -58,16 +58,16 @@ if has('nvim')
 tnoremap <Esc> <C-\><C-n>
 endif
 
-For a more granular approach use [exists()](#exists()):
+For a more granular approach use |exists()|:
 if exists(':tnoremap')
 tnoremap <Esc> <C-\><C-n>
 endif
 
-Now you should be able to explore Nvim more comfortably. Check [nvim-features](#nvim-features)
+Now you should be able to explore Nvim more comfortably. Check [[nvim-features](/undefined#nvim-features)](/undefined)
 for more information.
 
 ### <a id="portable-config" class="section-title" href="#portable-config">Note:</a>
-Because Nvim follows the XDG [base-directories](#base-directories) standard, configuration on
+Because Nvim follows the XDG [[base-directories](/undefined#base-directories)](/undefined) standard, configuration on
 Windows is stored in ~/AppData instead of ~/.config. But you can still share
 the same Nvim configuration on all of your machines, by creating
 ~/AppData/Local/nvim/init.vim containing just this line:

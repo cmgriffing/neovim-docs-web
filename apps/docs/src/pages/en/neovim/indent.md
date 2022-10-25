@@ -25,7 +25,7 @@ programming languages including Java and C++ follow very closely the
 formatting conventions established with C.  These options affect only the
 indent and do not perform other formatting.  There are additional options that
 affect other kinds of formatting as well as indenting, see [format-comments](#format-comments),
-[fo-table|, |gq| and |formatting](#fo-table|, |gq| and |formatting) for the main ones.
+[fo-table|, [[[gq](/undefined#gq)](/undefined)](/undefined) and |formatting](#fo-table|, [[[gq](/undefined#gq)](/undefined)](/undefined) and |formatting) for the main ones.
 
 There are in fact four main methods available for indentation, each one
 overrides the previous if it is enabled, or non-empty for 'indentexpr':

@@ -17,20 +17,20 @@ and avoid typing mistakes.  Use Insert mode completion to repeat previously
 typed words.  Abbreviate long words to short ones.  Type characters that
 aren't on your keyboard.
 
-[24.1](#24.1)	Making corrections
-[24.2](#24.2)	Showing matches
-[24.3](#24.3)	Completion
-[24.4](#24.4)	Repeating an insert
-[24.5](#24.5)	Copying from another line
-[24.6](#24.6)	Inserting a register
-[24.7](#24.7)	Abbreviations
-[24.8](#24.8)	Entering special characters
-[24.9](#24.9)	Digraphs
-[24.10](#24.10)	Normal mode commands
+|24.1|	Making corrections
+|24.2|	Showing matches
+|24.3|	Completion
+|24.4|	Repeating an insert
+|24.5|	Copying from another line
+|24.6|	Inserting a register
+|24.7|	Abbreviations
+|24.8|	Entering special characters
+|24.9|	Digraphs
+|24.10|	Normal mode commands
 
-     Next chapter: [usr_25.txt](#usr_25.txt)  Editing formatted text
- Previous chapter: [usr_23.txt](#usr_23.txt)  Editing other files
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_25.txt|  Editing formatted text
+ Previous chapter: |usr_23.txt|  Editing other files
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*24.1*	Making Corrections</a> 
@@ -98,7 +98,7 @@ leave Insert mode.  The extra typing doesn't matter then.
 	<PageDown>	a whole screenful down
 	<C-End>		to end of the file
 
-There are a few more, see [ins-special-special](#ins-special-special).
+There are a few more, see [ins-special-special](/neovim-docs-web/en/vim/insert#ins-special-special).
 
 
 ## <a id="" class="section-title" href="#">*24.2*	Showing Matches</a> 
@@ -200,7 +200,7 @@ with a certain type of item:
 
 After each of them CTRL-N can be used to find the next match, CTRL-P to find
 the previous match.
-   More information for each of these commands here: [ins-completion](#ins-completion).
+   More information for each of these commands here: [ins-completion](/neovim-docs-web/en/vim/insert#ins-completion).
 
 
 COMPLETING FILE NAMES
@@ -267,8 +267,8 @@ Or:
 	filetype plugin indent on
 
 For C code you need to create a tags file and set the 'tags' option.  That is
-explained [ft-c-omni](#ft-c-omni).  For other filetypes you may need to do something
-similar, look below [compl-omni-filetypes](#compl-omni-filetypes).  It only works for specific
+explained [ft-c-omni](undefined#ft-c-omni).  For other filetypes you may need to do something
+similar, look below [compl-omni-filetypes](undefined#compl-omni-filetypes).  It only works for specific
 filetypes.  Check the value of the 'omnifunc' option to find out if it would
 work.
 
@@ -583,9 +583,9 @@ character with a decimal number.  This defines the same digraph:
 
 	:digraph a" 228
 
-More information about digraphs here: [digraphs](#digraphs)
+More information about digraphs here: [digraphs](undefined#digraphs)
    Another way to insert special characters is with a keymap.  More about that
-here: [45.5](#45.5)
+here: |45.5|
 
 
 ## <a id="" class="section-title" href="#">*24.10*	Normal Mode Commands</a> 
@@ -607,7 +607,7 @@ register or a count.  A more complicated example:
 This deletes up to the third word into register g.
 
 
-## <a id="Editing formatted text" class="section-title" href="#Editing formatted text">Next Chapter: [Usr_25.Txt](#Usr_25.Txt)</a> 
+## <a id="Editing formatted text" class="section-title" href="#Editing formatted text">Next Chapter: |Usr_25.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

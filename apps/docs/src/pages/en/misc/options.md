@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL	  by Bram Moolenaar
 
 ### <a id="options" class="section-title" href="#options">Options</a>
 
-For an overview of options see quickref.txt [option-list](#option-list).
+For an overview of options see quickref.txt [[option-list](/undefined#option-list)](/undefined).
 
 Vim has a number of internal variables and switches which can be set to
 achieve special effects.  These options come in three forms:
@@ -20,7 +20,7 @@ boolean		can only be on or off		*boolean* *toggle*
 number		has a numeric value
 string		has a string value
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="set-option E764" class="section-title" href="#set-option E764">1. Setting Options</a> 
@@ -65,11 +65,11 @@ Set string or number option to {value}.
 For numeric options the value can be given in decimal,
 hex (preceded with 0x) or octal (preceded with '0').
 The old value can be inserted by typing 'wildchar' (by
-default this is a <Tab>).  See [cmdline-completion](#cmdline-completion).
+default this is a <Tab>).  See [[[[[[cmdline-completion](/undefined#cmdline-completion)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 White space between {option} and '=' is allowed and
 will be ignored.  White space between '=' and {value}
 is not allowed.
-See [option-backslash](#option-backslash) for using white space and
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) for using white space and
 backslashes in {value}.
 
 ### <a id=":set+=" class="section-title" href="#:set+=">:se[t] {option}+={value}</a>
@@ -80,14 +80,14 @@ value was empty.
 If the option is a list of flags, superfluous flags
 are removed.  When adding a flag that was already
 present the option value doesn't change.
-Also see [:set-args](#:set-args) above.
+Also see |:set-args| above.
 
 ### <a id=":set^=" class="section-title" href="#:set^=">:se[t] {option}^={value}</a>
 Multiply the {value} to a number option, or prepend
 the {value} to a string option.  When the option is a
 comma-separated list, a comma is added, unless the
 value was empty.
-Also see [:set-args](#:set-args) above.
+Also see |:set-args| above.
 
 ### <a id=":set-=" class="section-title" href="#:set-=">:se[t] {option}-={value}</a>
 Subtract the {value} from a number option, or remove
@@ -99,7 +99,7 @@ becomes empty.
 When the option is a list of flags, {value} must be
 exactly as they appear in the option.  Remove flags
 one by one to avoid problems.
-Also see [:set-args](#:set-args) above.
+Also see |:set-args| above.
 
 The {option} arguments to ":set" may be repeated.  For example: 
 ```	:set ai nosi sw=3 ts=3
@@ -121,12 +121,12 @@ When the option was set while executing a function, user command or
 autocommand, the script in which it was defined is reported.
 A few special texts:
 Last set from modeline line 1 ~
-Option was set in a [modeline](#modeline).
+Option was set in a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 Last set from --cmd argument ~
-Option was set with command line argument [--cmd](#--cmd) or +.
+Option was set with command line argument [[--cmd](/undefined#--cmd)](/undefined) or +.
 Last set from -c argument ~
-Option was set with command line argument [-c|, +, |-S](#-c|, +, |-S) or
-[-q](#-q).
+Option was set with command line argument [[-c](/undefined#-c)](/undefined), +, [[-S](/undefined#-S)](/undefined) or
+[[[-q](/undefined#-q)](/undefined)](/undefined).
 Last set from environment variable ~
 Option was set from $VIMINIT.
 Last set from error handler ~
@@ -143,7 +143,7 @@ A few examples:
 :set tags=tags\\\ file	    results in "tags\ file"
 
 The "|" character separates a ":set" command from a following command.  To
-include the "[" in the option value, use "\](#" in the option value, use "\)" instead.  This example sets the
+include the "|" in the option value, use "\|" instead.  This example sets the
 'titlestring' option to "hi|there":
 :set titlestring=hi\|there
 This sets the 'titlestring' option to "hi" and 'iconstring' to "there":
@@ -242,7 +242,7 @@ global value.  Note that if you do this next:
 You will get back the 'list' value as it was the last time you edited "one".
 The options local to a window are remembered for each buffer.  This also
 happens when the buffer is not loaded, but they are lost when the buffer is
-wiped out [:bwipe](#:bwipe).
+wiped out |:bwipe|.
 
 ### <a id=":setl :setlocal" class="section-title" href="#:setl :setlocal">Note:</a>
 :setl[ocal][!] ...	Like ":set" but set only the value local to the
@@ -263,7 +263,7 @@ shown (but that might change in the future).
 :setl[ocal] {option}<	Set the local value of {option} to its global value by
 copying the value.
 
-:se[t] {option}<	For [global-local](#global-local) options: Remove the local value of
+:se[t] {option}<	For [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) options: Remove the local value of
 {option}, so that the global value will be used.
 
 ### <a id=":setg :setglobal" class="section-title" href="#:setg :setglobal">Note:</a>
@@ -318,7 +318,7 @@ value to the local value, it doesn't switch back to using the global value
 This will make the local value of 'path' empty, so that the global value is
 used.  Thus it does the same as: 
 ```	:setlocal path=
-Note: In the future more global options can be made [global-local](#global-local).  Using
+Note: In the future more global options can be made [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  Using
 ":setlocal" on a global option might work differently then.
 
 
@@ -349,7 +349,7 @@ settings and syntax files to be loaded.
 When the optional FALLBACK argument is present, a
 later :setfiletype command will override the
 'filetype'.  This is to be used for filetype
-detections that are just a guess.  [did_filetype()](#did_filetype())
+detections that are just a guess.  |did_filetype()|
 will return false after this command.
 
 ### <a id="option-window optwin" class="section-title" href="#option-window optwin">Note:</a>
@@ -406,25 +406,25 @@ Besides changing options with the ":set" command, there are three alternatives
 to set options automatically for one or more files:
 
 1. When starting Vim initializations are read from various places.  See
-[initialization](#initialization).  Most of them are performed for all editing sessions,
+[[initialization](/undefined#initialization)](/undefined).  Most of them are performed for all editing sessions,
 and some of them depend on the directory where Vim is started.
-You can create an initialization file with [:mkvimrc|, |:mkview](#:mkvimrc|, |:mkview) and
-[:mksession](#:mksession).
+You can create an initialization file with |:mkvimrc|, |:mkview| and
+|:mksession|.
 2. If you start editing a new file, the automatic commands are executed.
 This can be used to set options for files matching a particular pattern and
-many other things.  See [autocommand](#autocommand).
+many other things.  See [[autocommand](/undefined#autocommand)](/undefined).
 3. If you start editing a new file, and the 'modeline' option is on, a
 number of lines at the beginning and end of the file are checked for
 modelines.  This is explained here.
 
 ### <a id="modeline vim: vi: ex: E520" class="section-title" href="#modeline vim: vi: ex: E520">Note:</a>
 There are two forms of modelines.  The first form:
-[text{white}]{vi:[vim:](#vim:)ex:}[white]{options}
+[text{white}]{vi:|vim:|ex:}[white]{options}
 
 [text{white}]		empty or any text followed by at least one blank
 character (<Space> or <Tab>); "ex:" always requires at
 least one blank character
-{vi:[vim:](#vim:)ex:}		the string "vi:", "vim:" or "ex:"
+{vi:|vim:|ex:}		the string "vi:", "vim:" or "ex:"
 [white]			optional white space
 {options}		a list of option settings, separated with white space
 or ':', where each part between ':' is the argument
@@ -436,12 +436,12 @@ vim: tw=77 ~
 
 The second form (this is compatible with some versions of Vi):
 
-[text{white}]{vi:[vim:|Vim:](#vim:|Vim:)ex:}[white]se[t] {options}:[text]
+[text{white}]{vi:|vim:|Vim:|ex:}[white]se[t] {options}:[text]
 
 [text{white}]		empty or any text followed by at least one blank
 character (<Space> or <Tab>); "ex:" always requires at
 least one blank character
-{vi:[vim:|Vim:](#vim:|Vim:)ex:}	the string "vi:", "vim:", "Vim:" or "ex:"
+{vi:|vim:|Vim:|ex:}	the string "vi:", "vim:", "Vim:" or "ex:"
 [white]			optional white space
 se[t]			the string "set " or "se " (note the space); When
 "Vim" is used it must be "set".
@@ -454,7 +454,7 @@ Examples:
 ### <a id="/ vim: set ai tw=75: / ~" class="section-title" href="#/ vim: set ai tw=75: / ~">Note:</a>
 ### <a id="/ Vim: set ai tw=75: / ~" class="section-title" href="#/ Vim: set ai tw=75: / ~">Note:</a>
 
-The white space before {vi:[vim:|Vim:](#vim:|Vim:)ex:} is required.  This minimizes the
+The white space before {vi:|vim:|Vim:|ex:} is required.  This minimizes the
 chance that a normal word like "lex:" is caught.  There is one exception:
 "vi:" and "vim:" can also be at the start of the line (for compatibility with
 version 3.0).  Using "ex:" at the start of the line will be ignored (this
@@ -517,7 +517,7 @@ before the ':' is removed.  Thus to include "\:" you have to specify "\\:".
 No other commands than "set" are supported, for security reasons (somebody
 might create a Trojan horse text file with modelines).  And not all options
 can be set.  For some options a flag is set, so that when the value is used
-the [sandbox](#sandbox) is effective.  Some options can only be set from the modeline
+the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) is effective.  Some options can only be set from the modeline
 when 'modelineexpr' is set (the default is off).
 
 Still, there is always a small risk that a modeline causes trouble.  E.g.,
@@ -528,7 +528,7 @@ this, for example.
 Hint: If you would like to do something else than setting an option, you could
 define an autocommand that checks the file for a specific string.  For
 example:
-au BufReadPost * if getline(1) =~ "VAR" [ call SetVar() ](# call SetVar() ) endif
+au BufReadPost * if getline(1) =~ "VAR" | call SetVar() | endif
 And define a function SetVar() that does something with the line containing
 "VAR".
 
@@ -580,7 +580,7 @@ if exists('+foo')
 ```
 
 ### <a id="E355" class="section-title" href="#E355">Note:</a>
-A jump table for the options with a short description can be found at [Q_op](#Q_op).
+A jump table for the options with a short description can be found at |Q_op|.
 
 ### <a id="'aleph' 'al' aleph Aleph" class="section-title" href="#'aleph' 'al' aleph Aleph">Note:</a>
 'aleph' 'al'		number	(default 224)
@@ -590,7 +590,7 @@ routine that maps the keyboard in Hebrew mode, both in Insert mode
 (when hkmap is set) and on the command-line (when hitting CTRL-_)
 outputs the Hebrew characters in the range [aleph..aleph+26].
 aleph=128 applies to PC code, and aleph=224 applies to ISO 8859-8.
-See [rileft.txt](#rileft.txt).
+See |rileft.txt|.
 
 ### <a id="'allowrevins' 'ari' 'noallowrevins' 'noari'" class="section-title" href="#'allowrevins' 'ari' 'noallowrevins' 'noari'">Note:</a>
 'allowrevins' 'ari'	boolean	(default off)
@@ -617,7 +617,7 @@ contains a character that would be double width.  These errors may
 also be given when calling setcellwidths().
 
 The values are overruled for characters specified with
-[setcellwidths()](#setcellwidths()).
+|setcellwidths()|.
 
 There are a number of CJK fonts for which the width of glyphs for
 those characters are solely based on how many octets they take in
@@ -660,7 +660,7 @@ Resetting this option will:
 - Disable the use of 'keymap' (without changing its value).
 Note that 'arabicshape' and 'delcombine' are not reset (it is a global
 option).
-Also see [arabic.txt](#arabic.txt).
+Also see |arabic.txt|.
 
 ### <a id="'arabicshape' 'arshape'" class="section-title" href="#'arabicshape' 'arshape'">Note:</a>
 ### <a id="'noarabicshape' 'noarshape'" class="section-title" href="#'noarabicshape' 'noarshape'">Note:</a>
@@ -677,7 +677,7 @@ c) the enabling of the required combining of some characters
 When disabled the display shows each character's true stand-alone
 form.
 Arabic is a complex language which requires other settings, for
-further details see [arabic.txt](#arabic.txt).
+further details see |arabic.txt|.
 
 ### <a id="'autoindent' 'ai' 'noautoindent' 'noai'" class="section-title" href="#'autoindent' 'ai' 'noautoindent' 'noai'">Note:</a>
 'autoindent' 'ai'	boolean	(default on)
@@ -701,12 +701,12 @@ deleted indent; Vi puts the cursor somewhere in the deleted indent}.
 
 ### <a id="'autoread' 'ar' 'noautoread' 'noar'" class="section-title" href="#'autoread' 'ar' 'noautoread' 'noar'">Note:</a>
 'autoread' 'ar'		boolean	(default on)
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 When a file has been detected to have been changed outside of Vim and
 it has not been changed inside of Vim, automatically read it again.
 When the file has been deleted this is not done, so you have the text
 from before it was deleted.  When it appears again then it is read.
-[timestamp](#timestamp)
+[[timestamp](/undefined#timestamp)](/undefined)
 If this option has a local value, use this command to switch back to
 using the global value:
 :set autoread
@@ -740,12 +740,12 @@ been set.
 'background' 'bg'	string	(default "dark")
 global
 When set to "dark" or "light", adjusts the default color groups for
-that background type.  The [TUI](#TUI) or other UI sets this on startup
-(triggering [OptionSet](#OptionSet)) if it can detect the background color.
+that background type.  The [[[[[TUI](/undefined#TUI)](/undefined)](/undefined)](/undefined)](/undefined) or other UI sets this on startup
+(triggering [[OptionSet](/undefined#OptionSet)](/undefined)) if it can detect the background color.
 
 This option does NOT change the background color, it tells Nvim what
 the "inherited" (terminal/GUI) background looks like.
-See [:hi-normal](#:hi-normal) if you want to set the background color explicitly.
+See |:hi-normal| if you want to set the background color explicitly.
 ### <a id="g:colors_name" class="section-title" href="#g:colors_name">Note:</a>
 When a color scheme is loaded (the "g:colors_name" variable is set)
 setting 'background' will cause the color scheme to be reloaded.  If
@@ -799,14 +799,14 @@ backup file, but you do want a backup while the file is being
 written, reset this option and set the 'writebackup' option (this is
 the default).  If you do not want a backup file at all reset both
 options (use this if your file system is almost full).  See the
-[backup-table](#backup-table) for more explanations.
+[[[backup-table](/undefined#backup-table)](/undefined)](/undefined) for more explanations.
 When the 'backupskip' pattern matches, a backup is not made anyway.
 When 'patchmode' is set, the backup may be renamed to become the
 oldest version of a file.
 
 ### <a id="'backupcopy' 'bkc'" class="section-title" href="#'backupcopy' 'bkc'">Note:</a>
 'backupcopy' 'bkc'	string	(default: "auto")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 When writing a file and a backup is made, this option tells how it's
 done.  This is a comma-separated list of words.
 
@@ -897,9 +897,9 @@ On Win32, it is also possible to end with "\\".  However, When a
 separating comma is following, you must use "//", since "\\" will
 include the comma in the file name. Therefore it is recommended to
 use '//', instead of '\\'.
-- Environment variables are expanded [:set_env](#:set_env).
+- Environment variables are expanded |:set_env|.
 - Careful with '\' characters, type one before a space, type two to
-get one in the option (see [option-backslash](#option-backslash)), for example:
+get one in the option (see [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)), for example:
 :set bdir=c:\\tmp,\ dir\\,with\\,commas,\\\ dir\ with\ spaces
 - For backwards compatibility with Vim version 3.0 a '>' at the start
 of the option is removed.
@@ -908,10 +908,10 @@ If you want to hide your backup files on Unix, consider this value:
 :set backupdir=./.backup,~/.backup,.,/tmp
 You must create a ".backup" directory in each directory and in your
 home directory for this to work properly.
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 directories from the list.  This avoids problems when a future version
 uses another default.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'backupext' 'bex' E589" class="section-title" href="#'backupext' 'bex' E589">Note:</a>
@@ -938,8 +938,8 @@ global
 A list of file patterns.  When one of the patterns matches with the
 name of the file which is written, no backup file is created.  Both
 the specified file name and the full path name of the file are used.
-The pattern is used like with [:autocmd|, see |autocmd-pattern](#:autocmd|, see |autocmd-pattern).
-Watch out for special characters, see [option-backslash](#option-backslash).
+The pattern is used like with |:autocmd|, see [[[autocmd-pattern](/undefined#autocmd-pattern)](/undefined)](/undefined).
+Watch out for special characters, see [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 When $TMPDIR, $TMP or $TEMP is not defined, it is not used for the
 ### <a id=""/tmp/" is only used for Unix." class="section-title" href="#"/tmp/" is only used for Unix.">	default value.</a>
 
@@ -954,7 +954,7 @@ $HOME you must expand it explicitly, e.g.:
 
 Note that the default also makes sure that "crontab -e" works (when a
 backup would be made by renaming the original file crontab won't see
-the newly created file).  Also see 'backupcopy' and [crontab](#crontab).
+the newly created file).  Also see 'backupcopy' and [[crontab](/undefined#crontab)](/undefined).
 
 ### <a id="'belloff' 'bo'" class="section-title" href="#'belloff' 'bo'">Note:</a>
 'belloff' 'bo'		string	(default "all")
@@ -969,24 +969,24 @@ all	    All events.
 backspace   When hitting <BS> or <Del> and deleting results in an
 error.
 cursor	    Fail to move around using the cursor keys or
-<PageUp>/<PageDown> in [Insert-mode](#Insert-mode).
-complete    Error occurred when using [i_CTRL-X_CTRL-K](#i_CTRL-X_CTRL-K) or
-[i_CTRL-X_CTRL-T](#i_CTRL-X_CTRL-T).
-copy	    Cannot copy char from insert mode using [i_CTRL-Y](#i_CTRL-Y) or
-[i_CTRL-E](#i_CTRL-E).
+<PageUp>/<PageDown> in [[[Insert-mode](/undefined#Insert-mode)](/undefined)](/undefined).
+complete    Error occurred when using |i_CTRL-X_CTRL-K| or
+|i_CTRL-X_CTRL-T|.
+copy	    Cannot copy char from insert mode using |i_CTRL-Y| or
+|i_CTRL-E|.
 ctrlg	    Unknown Char after <C-G> in Insert mode.
 error	    Other Error occurred (e.g. try to join last line)
-(mostly used in [Normal-mode| or |Cmdline-mode](#Normal-mode| or |Cmdline-mode)).
-esc	    hitting <Esc> in [Normal-mode](#Normal-mode).
+(mostly used in [[[Normal-mode](/undefined#Normal-mode)](/undefined)](/undefined) or [[Cmdline-mode](/undefined#Cmdline-mode)](/undefined)).
+esc	    hitting <Esc> in [[[Normal-mode](/undefined#Normal-mode)](/undefined)](/undefined).
 hangul	    Ignored.
 lang	    Calling the beep module for Lua/Mzscheme/TCL.
-mess	    No output available for [g<](#g<).
+mess	    No output available for |g<|.
 showmatch   Error occurred for 'showmatch' function.
-operator    Empty region error [cpo-E](#cpo-E).
-register    Unknown register after <C-R> in [Insert-mode](#Insert-mode).
-shell	    Bell from shell output [:!](#:!).
+operator    Empty region error [[cpo-E](/undefined#cpo-E)](/undefined).
+register    Unknown register after <C-R> in [[[Insert-mode](/undefined#Insert-mode)](/undefined)](/undefined).
+shell	    Bell from shell output |:!|.
 spell	    Error happened on spell suggest.
-wildmode    More matches in [cmdline-completion](#cmdline-completion) available
+wildmode    More matches in [[[[[[cmdline-completion](/undefined#cmdline-completion)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) available
 (depends on the 'wildmode' setting).
 
 This is most useful to fine tune when in Insert mode the bell should
@@ -998,7 +998,7 @@ indicate that an error occurred. It can be silenced by adding the
 'binary' 'bin'		boolean	(default off)
 local to buffer
 This option should be set before editing a binary file.  You can also
-use the [-b](#-b) Vim argument.  When this option is switched on a few
+use the [[-b](/undefined#-b)](/undefined) Vim argument.  When this option is switched on a few
 options will be changed (also when it already was on):
 'textwidth'  will be set to 0
 'wrapmargin' will be set to 0
@@ -1016,7 +1016,7 @@ on, settings from autocommands may change the settings again (e.g.,
 The previous values of these options are remembered and restored when
 'bin' is switched from on to off.  Each buffer has its own set of
 saved option values.
-To edit a file with 'binary' set you can use the [++bin](#++bin) argument.
+To edit a file with 'binary' set you can use the |++bin| argument.
 This avoids you have to do ":set bin", which would have effect for all
 files you edit.
 When writing a file the <EOL> for the last line is only written if
@@ -1099,19 +1099,19 @@ displayed in a window:
 hide		hide the buffer (don't unload it), even if 'hidden' is
 not set
 unload	unload the buffer, even if 'hidden' is set; the
-[:hide](#:hide) command will also unload the buffer
+|:hide| command will also unload the buffer
 delete	delete the buffer from the buffer list, even if
-'hidden' is set; the [:hide](#:hide) command will also delete
-the buffer, making it behave like [:bdelete](#:bdelete)
+'hidden' is set; the |:hide| command will also delete
+the buffer, making it behave like |:bdelete|
 wipe		wipe the buffer from the buffer list, even if
-'hidden' is set; the [:hide](#:hide) command will also wipe
-out the buffer, making it behave like [:bwipeout](#:bwipeout)
+'hidden' is set; the |:hide| command will also wipe
+out the buffer, making it behave like |:bwipeout|
 
 CAREFUL: when "unload", "delete" or "wipe" is used changes in a buffer
 are lost without a warning.  Also, these values may break autocommands
 that switch between buffers temporarily.
 This option is used together with 'buftype' and 'swapfile' to specify
-special kinds of buffers.   See [special-buffers](#special-buffers).
+special kinds of buffers.   See [[[[special-buffers](/undefined#special-buffers)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'buflisted' 'bl' 'nobuflisted' 'nobl' E85" class="section-title" href="#'buflisted' 'bl' 'nobuflisted' 'nobl' E85">Note:</a>
 'buflisted' 'bl'	boolean (default: on)
@@ -1127,48 +1127,48 @@ But not when moving to a buffer with ":buffer".
 local to buffer
 The value of this option specifies the type of a buffer:
 <empty>	normal buffer
-acwrite	buffer will always be written with [BufWriteCmd](#BufWriteCmd)s
+acwrite	buffer will always be written with [[[BufWriteCmd](/undefined#BufWriteCmd)](/undefined)](/undefined)s
 help		help buffer (do not set this manually)
 nofile	buffer is not related to a file, will not be written
 nowrite	buffer will not be written
-quickfix	list of errors [:cwindow| or locations |:lwindow](#:cwindow| or locations |:lwindow)
-terminal	[terminal-emulator](#terminal-emulator) buffer
+quickfix	list of errors |:cwindow| or locations |:lwindow|
+terminal	[[terminal-emulator](/undefined#terminal-emulator)](/undefined) buffer
 prompt	buffer where only the last line can be edited, meant
-to be used by a plugin, see [prompt-buffer](#prompt-buffer)
+to be used by a plugin, see [[prompt-buffer](/undefined#prompt-buffer)](/undefined)
 
 This option is used together with 'bufhidden' and 'swapfile' to
-specify special kinds of buffers.   See [special-buffers](#special-buffers).
-Also see [win_gettype()](#win_gettype()), which returns the type of the window.
+specify special kinds of buffers.   See [[[[special-buffers](/undefined#special-buffers)](/undefined)](/undefined)](/undefined).
+Also see |win_gettype()|, which returns the type of the window.
 
 Be careful with changing this option, it can have many side effects!
 One such effect is that Vim will not check the timestamp of the file,
 if the file is changed by another program this will not be noticed.
 
 A "quickfix" buffer is only used for the error list and the location
-list.  This value is set by the [:cwindow| and |:lwindow](#:cwindow| and |:lwindow) commands and
+list.  This value is set by the |:cwindow| and |:lwindow| commands and
 you are not supposed to change it.
 
 "nofile" and "nowrite" buffers are similar:
 both:		The buffer is not to be written to disk, ":w" doesn't
 work (":w filename" does work though).
-both:		The buffer is never considered to be ['modified'](#'modified').
+both:		The buffer is never considered to be |'modified'|.
 There is no warning when the changes will be lost, for
 example when you quit Vim.
 both:		A swap file is only created when using too much memory
 (when 'swapfile' has been reset there is never a swap
 file).
 nofile only:	The buffer name is fixed, it is not handled like a
-file name.  It is not modified in response to a [:cd](#:cd)
+file name.  It is not modified in response to a |:cd|
 command.
 both:		When using ":e bufname" and already editing "bufname"
 the buffer is made empty and autocommands are
-triggered as usual for [:edit](#:edit).
+triggered as usual for |:edit|.
 ### <a id="E676" class="section-title" href="#E676">Note:</a>
 "acwrite" implies that the buffer name is not related to a file, like
 "nofile", but it will be written.  Thus, in contrast to "nofile" and
 "nowrite", ":w" does work and a modified buffer can't be abandoned
-without saving.  For writing there must be matching [BufWriteCmd](#BufWriteCmd),
-[FileWriteCmd| or |FileAppendCmd](#FileWriteCmd| or |FileAppendCmd) autocommands.
+without saving.  For writing there must be matching [[[BufWriteCmd](/undefined#BufWriteCmd)](/undefined)](/undefined),
+[[FileWriteCmd](/undefined#FileWriteCmd)](/undefined) or [[FileAppendCmd](/undefined#FileAppendCmd)](/undefined) autocommands.
 
 ### <a id="'casemap' 'cmp'" class="section-title" href="#'casemap' 'cmp'">Note:</a>
 'casemap' 'cmp'		string	(default: "internal,keepascii")
@@ -1186,8 +1186,8 @@ This probably only matters for Turkish.
 ### <a id="'cdhome' 'cdh'" class="section-title" href="#'cdhome' 'cdh'">Note:</a>
 'cdhome' 'cdh'		boolean	(default: off)
 global
-When on, [:cd|, |:tcd| and |:lcd](#:cd|, |:tcd| and |:lcd) without an argument changes the
-current working directory to the [$HOME](#$HOME) directory like in Unix.
+When on, |:cd|, |:tcd| and |:lcd| without an argument changes the
+current working directory to the |$HOME| directory like in Unix.
 When off, those commands just print the current directory name.
 On Unix this option has no effect.
 
@@ -1195,18 +1195,18 @@ On Unix this option has no effect.
 'cdpath' 'cd'		string	(default: equivalent to $CDPATH or ",,")
 global
 This is a list of directories which will be searched when using the
-[:cd|, |:tcd| and |:lcd](#:cd|, |:tcd| and |:lcd) commands, provided that the directory being
+|:cd|, |:tcd| and |:lcd| commands, provided that the directory being
 searched for has a relative path, not an absolute part starting with
 "/", "./" or "../", the 'cdpath' option is not used then.
 The 'cdpath' option's value has the same form and semantics as
-['path'|.  Also see |file-searching](#'path'|.  Also see |file-searching).
+|'path'|.  Also see [[[[file-searching](/undefined#file-searching)](/undefined)](/undefined)](/undefined).
 The default value is taken from $CDPATH, with a "," prepended to look
 in the current directory first.
 If the default value taken from $CDPATH is not what you want, include
 a modified version of the following command in your vimrc file to
 override it:
 :let &cdpath = ',' .. substitute(substitute($CDPATH, '[, ]', '\\\0', 'g'), ':', ',', 'g')
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 (parts of 'cdpath' can be passed to the shell to expand file names).
 
@@ -1219,14 +1219,14 @@ The key can be specified as a single character, but it is difficult to
 type.  The preferred way is to use the <> notation.  Examples:
 :exe "set cedit=\<C-Y>"
 :exe "set cedit=\<Esc>"
-[Nvi](#Nvi) also has this option, but it only uses the first character.
-See [cmdwin](#cmdwin).
+[[Nvi](/undefined#Nvi)](/undefined) also has this option, but it only uses the first character.
+See [[[cmdwin](/undefined#cmdwin)](/undefined)](/undefined).
 
 ### <a id="'channel'" class="section-title" href="#'channel'">Note:</a>
 'channel'		number (default: 0)
 local to buffer
-[channel](#channel) connected to the buffer, or 0 if no channel is connected.
-In a [:terminal](#:terminal) buffer this is the terminal channel.
+[[channel](/undefined#channel)](/undefined) connected to the buffer, or 0 if no channel is connected.
+In a |:terminal| buffer this is the terminal channel.
 Read-only.
 
 ### <a id="'charconvert' 'ccv' E202 E214 E513" class="section-title" href="#'charconvert' 'ccv' E202 E214 E513">Note:</a>
@@ -1238,11 +1238,11 @@ different encoding from what is desired.
 'charconvert' is not used when the internal iconv() function is
 supported and is able to do the conversion.  Using iconv() is
 preferred, because it is much faster.
-'charconvert' is not used when reading stdin [--](#--), because there is no
+'charconvert' is not used when reading stdin [[--](/undefined#--)](/undefined), because there is no
 file to convert from.  You will have to save the text in a file first.
 The expression must return zero, false or an empty string for success,
 non-zero or true for failure.
-See [encoding-names](#encoding-names) for possible encoding names.
+See [[[[encoding-names](/undefined#encoding-names)](/undefined)](/undefined)](/undefined) for possible encoding names.
 Additionally, names given in 'fileencodings' and 'fileencoding' are
 used.
 Conversion between "latin1", "unicode", "ucs-2", "ucs-4" and "utf-8"
@@ -1262,7 +1262,7 @@ v:charconvert_to	name of the desired encoding
 v:fname_in		name of the input file
 v:fname_out		name of the output file
 Note that v:fname_in and v:fname_out will never be the same.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'cindent' 'cin' 'nocindent' 'nocin'" class="section-title" href="#'cindent' 'cin' 'nocindent' 'nocin'">Note:</a>
@@ -1275,7 +1275,7 @@ If 'indentexpr' is not empty, it overrules 'cindent'.
 If 'lisp' is not on and both 'indentexpr' and 'equalprg' are empty,
 the "=" operator indents using this algorithm rather than calling an
 external program.
-See [C-indenting](#C-indenting).
+See [[[[[[[C-indenting](/undefined#C-indenting)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 When you don't like the way 'cindent' works, try the 'smartindent'
 option or 'indentexpr'.
 This option is not used when 'paste' is set.
@@ -1286,15 +1286,15 @@ local to buffer
 A list of keys that, when typed in Insert mode, cause reindenting of
 the current line.  Only used if 'cindent' is on and 'indentexpr' is
 empty.
-For the format of this option see [cinkeys-format](#cinkeys-format).
-See [C-indenting](#C-indenting).
+For the format of this option see [[cinkeys-format](/undefined#cinkeys-format)](/undefined).
+See [[[[[[[C-indenting](/undefined#C-indenting)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'cinoptions' 'cino'" class="section-title" href="#'cinoptions' 'cino'">Note:</a>
 'cinoptions' 'cino'	string	(default "")
 local to buffer
 The 'cinoptions' affect the way 'cindent' reindents lines in a C
-program.  See [cinoptions-values](#cinoptions-values) for the values of this option, and
-[C-indenting](#C-indenting) for info on C indenting in general.
+program.  See [[cinoptions-values](/undefined#cinoptions-values)](/undefined) for the values of this option, and
+[[[[[[[C-indenting](/undefined#C-indenting)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) for info on C indenting in general.
 
 
 ### <a id="'cinwords' 'cinw'" class="section-title" href="#'cinwords' 'cinw'">Note:</a>
@@ -1310,7 +1310,7 @@ matter, include the keyword both the uppercase and lowercase:
 ### <a id="'cinscopedecls' 'cinsd'" class="section-title" href="#'cinscopedecls' 'cinsd'">Note:</a>
 'cinscopedecls' 'cinsd'	string	(default "public,protected,private")
 local to buffer
-Keywords that are interpreted as a C++ scope declaration by [cino-g](#cino-g).
+Keywords that are interpreted as a C++ scope declaration by [[cino-g](/undefined#cino-g)](/undefined).
 Useful e.g. for working with the Qt framework that defines additional
 scope declarations "signals", "public slots" and "private slots":
 set cinscopedecls+=signals,public\ slots,private\ slots
@@ -1329,23 +1329,23 @@ register is explicitly specified, it will always be
 used regardless of whether "unnamed" is in 'clipboard'
 or not.  The clipboard register can always be
 ### <a id="explicitly accessed using the " notation." class="section-title" href="#explicitly accessed using the " notation.">Note:</a>
-[clipboard](#clipboard).
+[[[[clipboard](/undefined#clipboard)](/undefined)](/undefined)](/undefined).
 
 ### <a id="clipboard-unnamedplus" class="section-title" href="#clipboard-unnamedplus">Note:</a>
 unnamedplus	A variant of the "unnamed" flag which uses the
-clipboard register '+' ([quoteplus](#quoteplus)) instead of
+clipboard register '+' ([[quoteplus](/undefined#quoteplus)](/undefined)) instead of
 ### <a id="register '' for all yank, delete, change and put" class="section-title" href="#register '' for all yank, delete, change and put">Note:</a>
 operations which would normally go to the unnamed
 register.  When "unnamed" is also included to the
 option, yank and delete operations (but not put)
 will additionally copy the text into register
-### <a id="''. See [clipboard](#clipboard)." class="section-title" href="#''. See [clipboard](#clipboard).">Note:</a>
+### <a id="''. See [[[[clipboard](/undefined#clipboard)](/undefined)](/undefined)](/undefined)." class="section-title" href="#''. See [[[[clipboard](/undefined#clipboard)](/undefined)](/undefined)](/undefined).">Note:</a>
 
 ### <a id="'cmdheight' 'ch'" class="section-title" href="#'cmdheight' 'ch'">Note:</a>
 'cmdheight' 'ch'	number	(default 1)
 global or local to tab page
 Number of screen lines to use for the command-line.  Helps avoiding
-[hit-enter](#hit-enter) prompts.
+[[[[hit-enter](/undefined#hit-enter)](/undefined)](/undefined)](/undefined) prompts.
 The value of this option is stored with the tab page, so that each tab
 page can have a different value.
 
@@ -1362,13 +1362,13 @@ plugins, will not be displayed.
 ### <a id="'cmdwinheight' 'cwh'" class="section-title" href="#'cmdwinheight' 'cwh'">Note:</a>
 'cmdwinheight' 'cwh'	number	(default 7)
 global
-Number of screen lines to use for the command-line window. [cmdwin](#cmdwin)
+Number of screen lines to use for the command-line window. [[[cmdwin](/undefined#cmdwin)](/undefined)](/undefined)
 
 ### <a id="'colorcolumn' 'cc'" class="section-title" href="#'colorcolumn' 'cc'">Note:</a>
 'colorcolumn' 'cc'	string	(default "")
 local to window
 'colorcolumn' is a comma-separated list of screen columns that are
-highlighted with ColorColumn [hl-ColorColumn](#hl-ColorColumn).  Useful to align
+highlighted with ColorColumn [[hl-ColorColumn](/undefined#hl-ColorColumn)](/undefined).  Useful to align
 text.  Will make screen redrawing slower.
 The screen column can be an absolute number, or a number preceded with
 '+' or '-', which is added to or subtracted from 'textwidth'.
@@ -1388,7 +1388,7 @@ Number of columns of the screen.  Normally this is set by the terminal
 initialization and does not have to be set by hand.
 When Vim is running in the GUI or in a resizable window, setting this
 option will cause the window size to be changed.  When you only want
-to use the size for the GUI, put the command in your [ginit.vim](#ginit.vim) file.
+to use the size for the GUI, put the command in your |ginit.vim| file.
 When you set this option and Vim is unable to change the physical
 number of columns of the display, the display may be messed up.  For
 the GUI it is always possible and Vim limits the number of columns to
@@ -1402,7 +1402,7 @@ Minimum value is 12, maximum value is 10000.
 ### <a id=""s1:/,mb:,ex:/,://,b:#,:%,:XCOMM,n:>,fb:-")" class="section-title" href="#"s1:/,mb:,ex:/,://,b:#,:%,:XCOMM,n:>,fb:-")">Note:</a>
 local to buffer
 A comma-separated list of strings that can start a comment line.  See
-[format-comments|.  See |option-backslash](#format-comments|.  See |option-backslash) about using backslashes to
+[[format-comments](/undefined#format-comments)](/undefined).  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about using backslashes to
 insert a space.
 
 ### <a id="'commentstring' 'cms' E537" class="section-title" href="#'commentstring' 'cms' E537">Note:</a>
@@ -1410,14 +1410,14 @@ insert a space.
 local to buffer
 A template for a comment.  The "%s" in the value is replaced with the
 comment text.  Currently only used to add markers for folding, see
-[fold-marker](#fold-marker).
+[[[[fold-marker](/undefined#fold-marker)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'complete' 'cpt' E535" class="section-title" href="#'complete' 'cpt' E535">Note:</a>
 'complete' 'cpt'	string	(default: ".,w,b,u,t")
 local to buffer
-This option specifies how keyword completion [ins-completion](#ins-completion) works
+This option specifies how keyword completion [[[[[ins-completion](/undefined#ins-completion)](/undefined)](/undefined)](/undefined)](/undefined) works
 when CTRL-P or CTRL-N are used.  It is also used for whole-line
-completion [i_CTRL-X_CTRL-L](#i_CTRL-X_CTRL-L).  It indicates the type of completion
+completion |i_CTRL-X_CTRL-L|.  It indicates the type of completion
 and the places to scan.  It is a comma-separated list of flags:
 .	scan the current buffer ('wrapscan' is ignored)
 w	scan buffers from other windows
@@ -1425,7 +1425,7 @@ b	scan other loaded buffers that are in the buffer list
 u	scan the unloaded buffers that are in the buffer list
 U	scan the buffers that are not in the buffer list
 k	scan the files given with the 'dictionary' option
-kspell  use the currently active spell checking [spell](#spell)
+kspell  use the currently active spell checking [[[[[spell](/undefined#spell)](/undefined)](/undefined)](/undefined)](/undefined)
 k{dict}	scan the file {dict}.  Several "k" flags can be given,
 patterns are valid too.  For example:
 ### <a id=":set cpt=k/usr/dict/,k~/spanish" class="section-title" href="#:set cpt=k/usr/dict/,k~/spanish">Note:</a>
@@ -1434,27 +1434,27 @@ s{tsr}	scan the file {tsr}.  Several "s" flags can be given, patterns
 are valid too.
 i	scan current and included files
 d	scan current and included files for defined name or macro
-[i_CTRL-X_CTRL-D](#i_CTRL-X_CTRL-D)
+|i_CTRL-X_CTRL-D|
 ]	tag completion
 t	same as "]"
 
-Unloaded buffers are not loaded, thus their autocmds [:autocmd](#:autocmd) are
+Unloaded buffers are not loaded, thus their autocmds |:autocmd| are
 not executed, this may lead to unexpected completions from some files
 (gzipped files for example).  Unloaded buffers are not scanned for
 whole-line completion.
 
 As you can see, CTRL-N and CTRL-P can be used to do any 'iskeyword'-
-based expansion (e.g., dictionary [i_CTRL-X_CTRL-K](#i_CTRL-X_CTRL-K), included patterns
-[i_CTRL-X_CTRL-I|, tags |i_CTRL-X_CTRL-]](#i_CTRL-X_CTRL-I|, tags |i_CTRL-X_CTRL-]) and normal expansions).
+based expansion (e.g., dictionary |i_CTRL-X_CTRL-K|, included patterns
+|i_CTRL-X_CTRL-I|, tags |i_CTRL-X_CTRL-]| and normal expansions).
 
 ### <a id="'completefunc' 'cfu'" class="section-title" href="#'completefunc' 'cfu'">Note:</a>
 'completefunc' 'cfu'	string	(default: empty)
 local to buffer
 This option specifies a function to be used for Insert mode completion
-with CTRL-X CTRL-U. [i_CTRL-X_CTRL-U](#i_CTRL-X_CTRL-U)
-See [complete-functions](#complete-functions) for an explanation of how the function is
+with CTRL-X CTRL-U. |i_CTRL-X_CTRL-U|
+See [[[complete-functions](/undefined#complete-functions)](/undefined)](/undefined) for an explanation of how the function is
 invoked and what it should return.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'completeslash' 'csl'" class="section-title" href="#'completeslash' 'csl'">Note:</a>
@@ -1476,11 +1476,11 @@ command line completion the global value is used.
 'completeopt' 'cot'	string	(default: "menu,preview")
 global
 A comma-separated list of options for Insert mode completion
-[ins-completion](#ins-completion).  The supported values are:
+[[[[[ins-completion](/undefined#ins-completion)](/undefined)](/undefined)](/undefined)](/undefined).  The supported values are:
 
 menu	    Use a popup menu to show the possible completions.  The
 menu is only shown when there is more than one match and
-sufficient colors are available.  [ins-completion-menu](#ins-completion-menu)
+sufficient colors are available.  [[[[[[ins-completion-menu](/undefined#ins-completion-menu)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 menuone  Use the popup menu also when there is only one match.
 Useful when there is additional information about the
@@ -1528,19 +1528,19 @@ displayed.  E.g., when moving vertically it may change column.
 ### <a id="'conceallevel' 'cole'" class="section-title" href="#'conceallevel' 'cole'">Note:</a>
 'conceallevel' 'cole'	number (default 0)
 local to window
-Determine how text with the "conceal" syntax attribute [:syn-conceal](#:syn-conceal)
+Determine how text with the "conceal" syntax attribute |:syn-conceal|
 is shown:
 
 Value		Effect ~
 0		Text is shown normally
 1		Each block of concealed text is replaced with one
 character.  If the syntax item does not have a custom
-replacement character defined (see [:syn-cchar](#:syn-cchar)) the
+replacement character defined (see |:syn-cchar|) the
 character defined in 'listchars' is used.
 It is highlighted with the "Conceal" highlight group.
 2		Concealed text is completely hidden unless it has a
 custom replacement character defined (see
-[:syn-cchar](#:syn-cchar)).
+|:syn-cchar|).
 3		Concealed text is completely hidden.
 
 Note: in the cursor line concealed text is not hidden, so that you can
@@ -1553,18 +1553,18 @@ global
 When 'confirm' is on, certain operations that would normally
 fail because of unsaved changes to a buffer, e.g. ":q" and ":e",
 instead raise a dialog asking if you wish to save the current
-file(s).  You can still use a ! to unconditionally [abandon](#abandon) a buffer.
+file(s).  You can still use a ! to unconditionally [[[[abandon](/undefined#abandon)](/undefined)](/undefined)](/undefined) a buffer.
 If 'confirm' is off you can still activate confirmation for one
-command only (this is most useful in mappings) with the [:confirm](#:confirm)
+command only (this is most useful in mappings) with the |:confirm|
 command.
-Also see the [confirm()](#confirm()) function and the 'v' flag in 'guioptions'.
+Also see the |confirm()| function and the 'v' flag in 'guioptions'.
 
 ### <a id="'copyindent' 'ci' 'nocopyindent' 'noci'" class="section-title" href="#'copyindent' 'ci' 'nocopyindent' 'noci'">Note:</a>
 'copyindent' 'ci'	boolean	(default off)
 local to buffer
 Copy the structure of the existing lines indent when autoindenting a
 new line.  Normally the new indent is reconstructed by a series of
-tabs followed by spaces as required (unless ['expandtab'](#'expandtab') is enabled,
+tabs followed by spaces as required (unless |'expandtab'| is enabled,
 in which case only spaces are used).  Enabling this option makes the
 new line copy whatever characters were used for indenting on the
 existing line.  'expandtab' has no effect on these characters, a Tab
@@ -1581,7 +1581,7 @@ not being Vi-compatible is mostly or sometimes preferred.
 'cpoptions' stands for "compatible-options".
 Commas can be added for readability.
 To avoid problems with flags that are added in the future, use the
-"+=" and "-=" feature of ":set" [add-option-flags](#add-option-flags).
+"+=" and "-=" feature of ":set" [[[[add-option-flags](/undefined#add-option-flags)](/undefined)](/undefined)](/undefined).
 
 contains	behavior	~
 ### <a id="cpo-a" class="section-title" href="#cpo-a">Note:</a>
@@ -1599,7 +1599,7 @@ the text after the '|' is interpreted as the next
 command.  Use a CTRL-V instead of a backslash to
 include the '|' in the mapping.  Applies to all
 mapping, abbreviation, menu and autocmd commands.
-See also [map_bar](#map_bar).
+See also |map_bar|.
 ### <a id="cpo-B" class="section-title" href="#cpo-B">Note:</a>
 B	A backslash has no special meaning in mappings,
 abbreviations, user commands and the "to" part of the
@@ -1617,15 +1617,15 @@ one character from the cursor position.  With 'c'
 "/abab", without 'c' there are five matches.
 ### <a id="cpo-C" class="section-title" href="#cpo-C">Note:</a>
 C	Do not concatenate sourced lines that start with a
-backslash.  See [line-continuation](#line-continuation).
+backslash.  See [[line-continuation](/undefined#line-continuation)](/undefined).
 ### <a id="cpo-d" class="section-title" href="#cpo-d">Note:</a>
 d	Using "./" in the 'tags' option doesn't mean to use
 the tags file relative to the current file, but the
 tags file in the current directory.
 ### <a id="cpo-D" class="section-title" href="#cpo-D">Note:</a>
 D	Can't use CTRL-K to enter a digraph after Normal mode
-commands with a character argument, like [r|, |f](#r|, |f) and
-[t](#t).
+commands with a character argument, like [[r](/undefined#r)](/undefined), [[f](/undefined#f)](/undefined) and
+[[[t](/undefined#t)](/undefined)](/undefined).
 ### <a id="cpo-e" class="section-title" href="#cpo-e">Note:</a>
 e	When executing a register with ":@r", always add a
 <CR> to the last line, also when the register is not
@@ -1646,7 +1646,7 @@ if the current buffer doesn't have a file name yet.
 F	When included, a ":write" command with a file name
 argument will set the file name for the current
 buffer, if the current buffer doesn't have a file name
-yet.  Also see [cpo-P](#cpo-P).
+yet.  Also see [[cpo-P](/undefined#cpo-P)](/undefined).
 ### <a id="cpo-i" class="section-title" href="#cpo-i">Note:</a>
 i	When included, interrupting the reading of a file will
 leave it modified.
@@ -1654,7 +1654,7 @@ leave it modified.
 I	When moving the cursor up or down just after inserting
 indent for 'autoindent', do not delete the indent.
 ### <a id="cpo-J" class="section-title" href="#cpo-J">Note:</a>
-J	A [sentence](#sentence) has to be followed by two spaces after
+J	A [[sentence](/undefined#sentence)](/undefined) has to be followed by two spaces after
 the '.', '!' or '?'.  A <Tab> is not recognized as
 white space.
 ### <a id="cpo-K" class="section-title" href="#cpo-K">Note:</a>
@@ -1666,18 +1666,18 @@ read.  It enables cancelling the mapping by typing
 ### <a id="cpo-l" class="section-title" href="#cpo-l">Note:</a>
 l	Backslash in a [] range in a search pattern is taken
 literally, only "\]", "\^", "\-" and "\\" are special.
-See [/[]](#/[])
+See |/[]|
 'l' included: "/[ \t]"  finds <Space>, '\' and 't'
 'l' excluded: "/[ \t]"  finds <Space> and <Tab>
 ### <a id="cpo-L" class="section-title" href="#cpo-L">Note:</a>
 L	When the 'list' option is set, 'wrapmargin',
 'textwidth', 'softtabstop' and Virtual Replace mode
-(see [gR](#gR)) count a <Tab> as two characters, instead of
+(see [[gR](/undefined#gR)](/undefined)) count a <Tab> as two characters, instead of
 the normal behavior of a <Tab>.
 ### <a id="cpo-m" class="section-title" href="#cpo-m">Note:</a>
 m	When included, a showmatch will always wait half a
 second.  When not included, a showmatch will wait half
-a second or until a character is typed.  ['showmatch'](#'showmatch')
+a second or until a character is typed.  |'showmatch'|
 ### <a id="cpo-M" class="section-title" href="#cpo-M">Note:</a>
 M	When excluded, "%" matching will take backslashes into
 account.  Thus in "( \( )" and "\( ( \)" the outer
@@ -1702,7 +1702,7 @@ slightly better algorithm is used.
 P	When included, a ":write" command that appends to a
 file will set the file name for the current buffer, if
 the current buffer doesn't have a file name yet and
-the 'F' flag is also included [cpo-F](#cpo-F).
+the 'F' flag is also included [[cpo-F](/undefined#cpo-F)](/undefined).
 ### <a id="cpo-q" class="section-title" href="#cpo-q">Note:</a>
 q	When joining multiple lines leave the cursor at the
 position where it would be when joining two lines.
@@ -1711,7 +1711,7 @@ r	Redo ("." command) uses "/" to repeat a search
 command, instead of the actually used search string.
 ### <a id="cpo-R" class="section-title" href="#cpo-R">Note:</a>
 R	Remove marks from filtered lines.  Without this flag
-marks are kept like [:keepmarks](#:keepmarks) was used.
+marks are kept like |:keepmarks| was used.
 ### <a id="cpo-s" class="section-title" href="#cpo-s">Note:</a>
 s	Set buffer options when entering the buffer for the
 first time.  This is like it is in Vim version 3.0.
@@ -1736,7 +1736,7 @@ t	Search pattern for the tag command is remembered for
 the history for search pattern, but doesn't change the
 last used search pattern.
 ### <a id="cpo-u" class="section-title" href="#cpo-u">Note:</a>
-u	Undo is Vi compatible.  See [undo-two-ways](#undo-two-ways).
+u	Undo is Vi compatible.  See [[[undo-two-ways](/undefined#undo-two-ways)](/undefined)](/undefined).
 ### <a id="cpo-v" class="section-title" href="#cpo-v">Note:</a>
 v	Backspaced characters remain visible on the screen in
 Insert mode.  Without this flag the characters are
@@ -1749,7 +1749,7 @@ overwrites a readonly file, if possible.
 ### <a id="cpo-x" class="section-title" href="#cpo-x">Note:</a>
 x	<Esc> on the command-line executes the command-line.
 The default in Vim is to abandon the command-line,
-because <Esc> normally aborts a command.  [c_<Esc>](#c_<Esc>)
+because <Esc> normally aborts a command.  |c_<Esc>|
 ### <a id="cpo-X" class="section-title" href="#cpo-X">Note:</a>
 X	When using a count with "R" the replaced text is
 deleted only once.  Also when repeating "R" with "."
@@ -1797,13 +1797,13 @@ itself may still be different from its file.
 >	When appending to a register, put a line break before
 the appended text.
 ### <a id="cpo-;" class="section-title" href="#cpo-;">Note:</a>
-;	When using [,| or |;| to repeat the last |t](#,| or |;| to repeat the last |t) search
+;	When using |,| or |;| to repeat the last [[[t](/undefined#t)](/undefined)](/undefined) search
 and the cursor is right in front of the searched
 character, the cursor won't move. When not included,
 the cursor would skip over it and jump to the
 following occurrence.
 ### <a id="cpo-_" class="section-title" href="#cpo-_">Note:</a>
-_	When using [cw](#cw) on a word, do not include the
+_	When using [[cw](/undefined#cw)](/undefined) on a word, do not include the
 whitespace following the word in the motion.
 
 ### <a id="'cursorbind' 'crb' 'nocursorbind' 'nocrb'" class="section-title" href="#'cursorbind' 'crb' 'nocursorbind' 'nocrb'">Note:</a>
@@ -1822,7 +1822,7 @@ taken into account.
 'cursorcolumn' 'cuc'	boolean	(default off)
 local to window
 Highlight the screen column of the cursor with CursorColumn
-[hl-CursorColumn](#hl-CursorColumn).  Useful to align text.  Will make screen redrawing
+[[hl-CursorColumn](/undefined#hl-CursorColumn)](/undefined).  Useful to align text.  Will make screen redrawing
 slower.
 If you only want the highlighting in the current window you can use
 these autocommands:
@@ -1834,7 +1834,7 @@ these autocommands:
 ### <a id="'cursorline' 'cul' 'nocursorline' 'nocul'" class="section-title" href="#'cursorline' 'cul' 'nocursorline' 'nocul'">Note:</a>
 'cursorline' 'cul'	boolean	(default off)
 local to window
-Highlight the text line of the cursor with CursorLine [hl-CursorLine](#hl-CursorLine).
+Highlight the text line of the cursor with CursorLine [[[[hl-CursorLine](/undefined#hl-CursorLine)](/undefined)](/undefined)](/undefined).
 Useful to easily spot the cursor.  Will make screen redrawing slower.
 When Visual mode is active the highlighting isn't used to make it
 easier to see the selected text.
@@ -1846,11 +1846,11 @@ local to window
 Comma-separated list of settings for how 'cursorline' is displayed.
 Valid values:
 "line"		Highlight the text line of the cursor with
-CursorLine [hl-CursorLine](#hl-CursorLine).
+CursorLine [[[[hl-CursorLine](/undefined#hl-CursorLine)](/undefined)](/undefined)](/undefined).
 "screenline"	Highlight only the screen line of the cursor with
-CursorLine [hl-CursorLine](#hl-CursorLine).
+CursorLine [[[[hl-CursorLine](/undefined#hl-CursorLine)](/undefined)](/undefined)](/undefined).
 "number"	Highlight the line number of the cursor with
-CursorLineNr [hl-CursorLineNr](#hl-CursorLineNr).
+CursorLineNr [[[[hl-CursorLineNr](/undefined#hl-CursorLineNr)](/undefined)](/undefined)](/undefined).
 
 Special value:
 "both"		Alias for the values "line,number".
@@ -1865,7 +1865,7 @@ These values can be used:
 msg	Error messages that would otherwise be omitted will be given
 anyway.
 throw	Error messages that would otherwise be omitted will be given
-anyway and also throw an exception and set [v:errmsg](#v:errmsg).
+anyway and also throw an exception and set |v:errmsg|.
 beep	A message will be given when otherwise only a beep would be
 produced.
 The values can be combined, separated by a comma.
@@ -1874,13 +1874,13 @@ The values can be combined, separated by a comma.
 
 ### <a id="'define' 'def'" class="section-title" href="#'define' 'def'">Note:</a>
 ### <a id="string	(default "^\s#\sdefine")" class="section-title" href="#string	(default "^\s#\sdefine")">'define' 'def'</a>
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Pattern to be used to find a macro definition.  It is a search
 pattern, just like for the "/" command.  This option is used for the
-commands like "[i" and "[d" [include-search](#include-search).  The 'isident' option is
+commands like "[i" and "[d" [[include-search](/undefined#include-search)](/undefined).  The 'isident' option is
 used to recognize the defined name after the match:
 {match with 'define'}{non-ID chars}{defined name}{non-ID char}
-See [option-backslash](#option-backslash) about inserting backslashes to include a space
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about inserting backslashes to include a space
 or backslash.
 The default value is for C programs.  For C++ this value would be
 useful, to include const type declarations: 
@@ -1912,26 +1912,26 @@ to remove only the combining ones.
 
 ### <a id="'dictionary' 'dict'" class="section-title" href="#'dictionary' 'dict'">Note:</a>
 'dictionary' 'dict'	string	(default "")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 List of file names, separated by commas, that are used to lookup words
-for keyword completion commands [i_CTRL-X_CTRL-K](#i_CTRL-X_CTRL-K).  Each file should
+for keyword completion commands |i_CTRL-X_CTRL-K|.  Each file should
 contain a list of words.  This can be one word per line, or several
 words per line, separated by non-keyword characters (white space is
 preferred).  Maximum line length is 510 bytes.
 
 When this option is empty or an entry "spell" is present, and spell
 checking is enabled, words in the word lists for the currently active
-'spelllang' are used. See [spell](#spell).
+'spelllang' are used. See [[[[[spell](/undefined#spell)](/undefined)](/undefined)](/undefined)](/undefined).
 
 To include a comma in a file name precede it with a backslash.  Spaces
 after a comma are ignored, otherwise spaces are included in the file
-name.  See [option-backslash](#option-backslash) about using backslashes.
-This has nothing to do with the [Dictionary](#Dictionary) variable type.
+name.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about using backslashes.
+This has nothing to do with the [[Dictionary](/undefined#Dictionary)](/undefined) variable type.
 Where to find a list of words?
 - BSD/macOS include the "/usr/share/dict/words" file.
 - Try "apt install spell" to get the "/usr/share/dict/words" file on
 apt-managed systems (Debian/Ubuntu).
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 directories from the list.  This avoids problems when a future version
 uses another default.
 Backticks cannot be used in this option for security reasons.
@@ -1940,14 +1940,14 @@ Backticks cannot be used in this option for security reasons.
 'diff'			boolean	(default off)
 local to window
 Join the current window in the group of windows that shows differences
-between files.  See [diff-mode](#diff-mode).
+between files.  See [[[diff-mode](/undefined#diff-mode)](/undefined)](/undefined).
 
 ### <a id="'dex' 'diffexpr'" class="section-title" href="#'dex' 'diffexpr'">Note:</a>
 'diffexpr' 'dex'	string	(default "")
 global
 Expression which is evaluated to obtain a diff file (either ed-style
-or unified-style) from two versions of a file.  See [diff-diffexpr](#diff-diffexpr).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+or unified-style) from two versions of a file.  See [[diff-diffexpr](/undefined#diff-diffexpr)](/undefined).
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'dip' 'diffopt'" class="section-title" href="#'dip' 'diffopt'">Note:</a>
@@ -1968,7 +1968,7 @@ When omitted a context of six lines is used.
 When using zero the context is actually one,
 since folds require a line in between, also
 for a deleted line.
-See [fold-diff](#fold-diff).
+See [[[fold-diff](/undefined#fold-diff)](/undefined)](/undefined).
 
 iblank		Ignore changes where lines are all blank.  Adds
 the "-B" flag to the "diff" command if
@@ -2053,7 +2053,7 @@ Examples:
 'digraph' 'dg'		boolean	(default off)
 global
 Enable the entering of digraphs in Insert mode with {char1} <BS
-```	{char2}.  See [digraphs](#digraphs).
+```	{char2}.  See [[digraphs](/undefined#digraphs)](/undefined).
 
 ### <a id="'directory' 'dir'" class="section-title" href="#'directory' 'dir'">Note:</a>
 'directory' 'dir'	string	(default "$XDG_STATE_HOME/nvim/swap//")
@@ -2065,7 +2065,7 @@ Possible items:
 possible.  If it is not possible in any directory, but last 
 directory listed in the option does not exist, it is created.
 - Empty means that no swap file will be used (recovery is
-impossible!) and no [E303](#E303) error will be given.
+impossible!) and no [[E303](/undefined#E303)](/undefined) error will be given.
 - A directory "." means to put the swap file in the same directory as
 the edited file.  On Unix, a dot is prepended to the file name, so
 it doesn't show in a directory listing.  On MS-Windows the "hidden"
@@ -2087,9 +2087,9 @@ of the directory name.  To have a space at the start of a directory
 name, precede it with a backslash.
 - To include a comma in a directory name precede it with a backslash.
 - A directory name may end in an ':' or '/'.
-- Environment variables are expanded [:set_env](#:set_env).
+- Environment variables are expanded |:set_env|.
 - Careful with '\' characters, type one before a space, type two to
-get one in the option (see [option-backslash](#option-backslash)), for example:
+get one in the option (see [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)), for example:
 :set dir=c:\\tmp,\ dir\\,with\\,commas,\\\ dir\ with\ spaces
 - For backwards compatibility with Vim version 3.0 a '>' at the start
 of the option is removed.
@@ -2101,10 +2101,10 @@ choice than "/tmp".  But others on the computer may be able to see the
 files, and it can contain a lot of files, your swap files get lost in
 the crowd.  That is why a "tmp" directory in your home directory is
 tried first.
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 directories from the list.  This avoids problems when a future version
 uses another default.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'display' 'dy'" class="section-title" href="#'display' 'dy'">Note:</a>
@@ -2120,13 +2120,13 @@ truncate	Like "lastline", but "@@@" is displayed in the first
 column of the last screen line.  Overrules "lastline".
 uhex		Show unprintable characters hexadecimal as <xx>
 instead of using ^C and ~C.
-msgsep		Obsolete flag. Allowed but takes no effect. [msgsep](#msgsep)
+msgsep		Obsolete flag. Allowed but takes no effect. [[msgsep](/undefined#msgsep)](/undefined)
 
 When neither "lastline" nor "truncate" is included, a last line that
 doesn't fit is replaced with "@" lines.
 
 The "@" character can be changed by setting the "lastline" item in
-'fillchars'.  The character is highlighted with [hl-NonText](#hl-NonText).
+'fillchars'.  The character is highlighted with [[[[[hl-NonText](/undefined#hl-NonText)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'eadirection' 'ead'" class="section-title" href="#'eadirection' 'ead'">Note:</a>
 'eadirection' 'ead'	string	(default "both")
@@ -2143,11 +2143,11 @@ When on all Unicode emoji characters are considered to be full width.
 This excludes "text emoji" characters, which are normally displayed as
 single width.  Unfortunately there is no good specification for this
 and it has been determined on trial-and-error basis.  Use the
-[setcellwidths()](#setcellwidths()) function to change the behavior.
+|setcellwidths()| function to change the behavior.
 
 ### <a id="'encoding' 'enc' E543" class="section-title" href="#'encoding' 'enc' E543">Note:</a>
 'encoding' 'enc'
-String-encoding used internally and for [RPC](#RPC) communication.
+String-encoding used internally and for [[RPC](/undefined#RPC)](/undefined) communication.
 Always UTF-8.
 
 See 'fileencoding' to control file-content encoding.
@@ -2187,13 +2187,13 @@ the future).
 
 ### <a id="'equalprg' 'ep'" class="section-title" href="#'equalprg' 'ep'">Note:</a>
 'equalprg' 'ep'		string	(default "")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 External program to use for "=" command.  When this option is empty
 the internal formatting functions are used; either 'lisp', 'cindent'
 or 'indentexpr'.
-Environment variables are expanded [:set_env|.  See |option-backslash](#:set_env|.  See |option-backslash)
+Environment variables are expanded |:set_env|.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 about including spaces and backslashes.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'errorbells' 'eb' 'noerrorbells' 'noeb'" class="section-title" href="#'errorbells' 'eb' 'noerrorbells' 'noeb'">Note:</a>
@@ -2208,20 +2208,20 @@ or do nothing. See 'belloff' to finetune when to ring the bell.
 ### <a id="'errorfile' 'ef'" class="section-title" href="#'errorfile' 'ef'">Note:</a>
 'errorfile' 'ef'	string	(default: "errors.err")
 global
-Name of the errorfile for the QuickFix mode (see [:cf](#:cf)).
+Name of the errorfile for the QuickFix mode (see |:cf|).
 When the "-q" command-line argument is used, 'errorfile' is set to the
-following argument.  See [-q](#-q).
+following argument.  See [[[-q](/undefined#-q)](/undefined)](/undefined).
 NOT used for the ":make" command.  See 'makeef' for that.
-Environment variables are expanded [:set_env](#:set_env).
-See [option-backslash](#option-backslash) about including spaces and backslashes.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+Environment variables are expanded |:set_env|.
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'errorformat' 'efm'" class="section-title" href="#'errorformat' 'efm'">Note:</a>
 'errorformat' 'efm'	string	(default is very long)
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Scanf-like description of the format for the lines in the error file
-(see [errorformat](#errorformat)).
+(see [[[errorformat](/undefined#errorformat)](/undefined)](/undefined)).
 
 ### <a id="'eventignore' 'ei'" class="section-title" href="#'eventignore' 'ei'">Note:</a>
 'eventignore' 'ei'	string	(default "")
@@ -2239,7 +2239,7 @@ local to buffer
 In Insert mode: Use the appropriate number of spaces to insert a
 <Tab>.  Spaces are used in indents with the '>' and '<' commands and
 when 'autoindent' is on.  To insert a real tab when 'expandtab' is
-on, use CTRL-V<Tab>.  See also [:retab| and |ins-expandtab](#:retab| and |ins-expandtab).
+on, use CTRL-V<Tab>.  See also |:retab| and [[[[ins-expandtab](/undefined#ins-expandtab)](/undefined)](/undefined)](/undefined).
 This option is reset when the 'paste' option is set and restored when
 the 'paste' option is reset.
 
@@ -2257,13 +2257,13 @@ encoding (no conversion when reading or writing a file).
 WARNING: Conversion to a non-Unicode encoding can cause loss of
 information!
 
-See [encoding-names](#encoding-names) for the possible values.  Additionally, values may be
+See [[[[encoding-names](/undefined#encoding-names)](/undefined)](/undefined)](/undefined) for the possible values.  Additionally, values may be
 specified that can be handled by the converter, see
-[mbyte-conversion](#mbyte-conversion).
+[[mbyte-conversion](/undefined#mbyte-conversion)](/undefined).
 
 When reading a file 'fileencoding' will be set from 'fileencodings'.
 To read a file in a certain encoding it won't work by setting
-'fileencoding', use the [++enc](#++enc) argument.  One exception: when
+'fileencoding', use the |++enc| argument.  One exception: when
 'fileencodings' is empty the value of 'fileencoding' is used.
 For a new file the global value of 'fileencoding' is used.
 
@@ -2271,7 +2271,7 @@ Prepending "8bit-" and "2byte-" has no meaning here, they are ignored.
 When the option is set, the value is converted to lowercase.  Thus
 you can set it with uppercase values too.  '_' characters are
 replaced with '-'.  If a name is recognized from the list at
-[encoding-names](#encoding-names), it is replaced by the standard name.  For example
+[[[[encoding-names](/undefined#encoding-names)](/undefined)](/undefined)](/undefined), it is replaced by the standard name.  For example
 "ISO8859-2" becomes "iso-8859-2".
 
 When this option is set, after starting to edit a file, the 'modified'
@@ -2294,7 +2294,7 @@ in the list is tried.  When an encoding is found that works,
 'fileencoding' is set to it.  If all fail, 'fileencoding' is set to
 an empty string, which means that UTF-8 is used.
 WARNING: Conversion can cause loss of information! You can use
-the [++bad](#++bad) argument to specify what is done with characters
+the |++bad| argument to specify what is done with characters
 that can't be converted.
 For an empty file or a file with only ASCII characters most encodings
 will work and the first entry of 'fileencodings' will be used (except
@@ -2305,7 +2305,7 @@ preferred encoding is to be used.  Example:
 \ set fenc=iso-2022-jp | endif
 This sets 'fileencoding' to "iso-2022-jp" if the file does not contain
 non-blank characters.
-When the [++enc](#++enc) argument is used then the value of 'fileencodings' is
+When the |++enc| argument is used then the value of 'fileencodings' is
 not used.
 Note that 'fileencodings' is not used for a new file, the global value
 of 'fileencoding' is used instead.  You can set it with:
@@ -2322,7 +2322,7 @@ The special value "default" can be used for the encoding from the
 environment.  It is useful when your environment uses a non-latin1
 encoding, such as Russian.
 When a file contains an illegal UTF-8 byte sequence it won't be
-recognized as "utf-8".  You can use the [8g8](#8g8) command to find the
+recognized as "utf-8".  You can use the [[8g8](/undefined#8g8)](/undefined) command to find the
 illegal byte sequence.
 WRONG VALUES:			WHAT'S WRONG:
 latin1,utf-8		"latin1" will always be used
@@ -2344,7 +2344,7 @@ dos	    <CR><NL>
 unix    <NL>
 mac	    <CR>
 When "dos" is used, CTRL-Z at the end of a file is ignored.
-See [file-formats| and |file-read](#file-formats| and |file-read).
+See [[[file-formats](/undefined#file-formats)](/undefined)](/undefined) and [[file-read](/undefined#file-read)](/undefined).
 For the character encoding of the file see 'fileencoding'.
 When 'binary' is set, the value of 'fileformat' is ignored, file I/O
 works like it was set to "unix".
@@ -2403,7 +2403,7 @@ format will be used.
 is done.  This is based on the first <NL> in the file: If there is a
 <CR> in front of it, Dos format is used, otherwise Unix format is
 used.
-Also see [file-formats](#file-formats).
+Also see [[[file-formats](/undefined#file-formats)](/undefined)](/undefined).
 
 ### <a id="'fileignorecase' 'fic' 'nofileignorecase' 'nofic'" class="section-title" href="#'fileignorecase' 'fic' 'nofileignorecase' 'nofic'">Note:</a>
 'fileignorecase' 'fic'	boolean	(default on for systems where case in file
@@ -2421,12 +2421,12 @@ executed.  Thus the value of 'filetype' is used in place of the file
 name.
 Otherwise this option does not always reflect the current file type.
 This option is normally set when the file type is detected.  To enable
-this use the ":filetype on" command. [:filetype](#:filetype)
+this use the ":filetype on" command. |:filetype|
 Setting this option to a different value is most useful in a modeline,
 for a file for which the file type is not automatically recognized.
 Example, for in an IDL file:
 ### <a id="/ vim: set filetype=idl : / ~" class="section-title" href="#/ vim: set filetype=idl : / ~">Note:</a>
-[FileType| |filetypes](#FileType| |filetypes)
+[[FileType](/undefined#FileType)](/undefined) [[filetypes](/undefined#filetypes)](/undefined)
 When a dot appears in the value then this separates two filetype
 names.  Example:
 ### <a id="/ vim: set filetype=c.doxygen : / ~" class="section-title" href="#/ vim: set filetype=c.doxygen : / ~">Note:</a>
@@ -2439,7 +2439,7 @@ Only normal file name characters can be used, "/\*?[|<>" are illegal.
 
 ### <a id="'fillchars' 'fcs'" class="section-title" href="#'fillchars' 'fcs'">Note:</a>
 'fillchars' 'fcs'	string	(default "")
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Characters to fill the statuslines, vertical separators and special
 lines in the window.
 It is a comma-separated list of items.  Each item has a name, a colon
@@ -2449,10 +2449,10 @@ item		default		Used for ~
 stl		' ' or '^'	statusline of the current window
 stlnc		' ' or '='	statusline of the non-current windows
 wbr		' '		window bar
-horiz		'─' or '-'	horizontal separators [:split](#:split)
+horiz		'─' or '-'	horizontal separators |:split|
 horizup	'┴' or '-'	upwards facing horizontal separator
 horizdown	'┬' or '-'	downwards facing horizontal separator
-vert		'│' or '['	vertical separators |:vsplit](#'	vertical separators |:vsplit)
+vert		'│' or '|'	vertical separators |:vsplit|
 vertleft	'┤' or '|'	left facing vertical separator
 vertright	'├' or '|'	right facing vertical separator
 verthoriz	'┼' or '+'	overlapping vertical and horizontal
@@ -2489,20 +2489,20 @@ characters are not supported.
 
 The highlighting used for these items:
 item		highlight group ~
-stl		StatusLine		[hl-StatusLine](#hl-StatusLine)
-stlnc		StatusLineNC		[hl-StatusLineNC](#hl-StatusLineNC)
-wbr		WinBar			[hl-WinBar| or |hl-WinBarNC](#hl-WinBar| or |hl-WinBarNC)
-horiz		WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-horizup	WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-horizdown	WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-vert		WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-vertleft	WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-vertright	WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-verthoriz	WinSeparator		[hl-WinSeparator](#hl-WinSeparator)
-fold		Folded			[hl-Folded](#hl-Folded)
-diff		DiffDelete		[hl-DiffDelete](#hl-DiffDelete)
-eob		EndOfBuffer		[hl-EndOfBuffer](#hl-EndOfBuffer)
-lastline	NonText			[hl-NonText](#hl-NonText)
+stl		StatusLine		[[hl-StatusLine](/undefined#hl-StatusLine)](/undefined)
+stlnc		StatusLineNC		[[hl-StatusLineNC](/undefined#hl-StatusLineNC)](/undefined)
+wbr		WinBar			[[hl-WinBar](/undefined#hl-WinBar)](/undefined) or [[hl-WinBarNC](/undefined#hl-WinBarNC)](/undefined)
+horiz		WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+horizup	WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+horizdown	WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+vert		WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+vertleft	WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+vertright	WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+verthoriz	WinSeparator		[[[[[[[[hl-WinSeparator](/undefined#hl-WinSeparator)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+fold		Folded			[[hl-Folded](/undefined#hl-Folded)](/undefined)
+diff		DiffDelete		[[hl-DiffDelete](/undefined#hl-DiffDelete)](/undefined)
+eob		EndOfBuffer		[[hl-EndOfBuffer](/undefined#hl-EndOfBuffer)](/undefined)
+lastline	NonText			[[[[[hl-NonText](/undefined#hl-NonText)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="'fixendofline' 'fixeol' 'nofixendofline' 'nofixeol'" class="section-title" href="#'fixendofline' 'fixeol' 'nofixendofline' 'nofixeol'">Note:</a>
 'fixendofline' 'fixeol'	boolean	(default on)
@@ -2530,7 +2530,7 @@ When and how to draw the foldcolumn. Valid values are:
 selected level
 0:            to disable foldcolumn
 "[1-9]":      to display a fixed number of columns
-See [folding](#folding).
+See [[[folding](/undefined#folding)](/undefined)](/undefined).
 
 ### <a id="'foldenable' 'fen' 'nofoldenable' 'nofen'" class="section-title" href="#'foldenable' 'fen' 'nofoldenable' 'nofen'">Note:</a>
 'foldenable' 'fen'	boolean (default on)
@@ -2538,24 +2538,24 @@ local to window
 When off, all folds are open.  This option can be used to quickly
 switch between showing all text unfolded and viewing the text with
 folds (including manually opened or closed folds).  It can be toggled
-with the [zi](#zi) command.  The 'foldcolumn' will remain blank when
+with the [[zi](/undefined#zi)](/undefined) command.  The 'foldcolumn' will remain blank when
 'foldenable' is off.
 This option is set by commands that create a new fold or close a fold.
-See [folding](#folding).
+See [[[folding](/undefined#folding)](/undefined)](/undefined).
 
 ### <a id="'foldexpr' 'fde'" class="section-title" href="#'foldexpr' 'fde'">Note:</a>
 'foldexpr' 'fde'	string (default: "0")
 local to window
 The expression used for when 'foldmethod' is "expr".  It is evaluated
-for each line to obtain its fold level.  See [fold-expr](#fold-expr).
+for each line to obtain its fold level.  See [[[fold-expr](/undefined#fold-expr)](/undefined)](/undefined).
 
-The expression will be evaluated in the [sandbox](#sandbox) if set from a
-modeline, see [sandbox-option](#sandbox-option).
-This option can't be set from a [modeline](#modeline) when the 'diff' option is
+The expression will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) if set from a
+modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+This option can't be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when the 'diff' option is
 on or the 'modelineexpr' option is off.
 
 It is not allowed to change text or jump to another window while
-evaluating 'foldexpr' [textlock](#textlock).
+evaluating 'foldexpr' [[[[[[textlock](/undefined#textlock)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'foldignore' 'fdi'" class="section-title" href="#'foldignore' 'fdi'">Note:</a>
 'foldignore' 'fdi'	string (default: "#")
@@ -2563,7 +2563,7 @@ local to window
 Used only when 'foldmethod' is "indent".  Lines starting with
 characters in 'foldignore' will get their fold level from surrounding
 lines.  White space is skipped before checking for this character.
-The default "#" works well for C programs.  See [fold-indent](#fold-indent).
+The default "#" works well for C programs.  See [[[fold-indent](/undefined#fold-indent)](/undefined)](/undefined).
 
 ### <a id="'foldlevel' 'fdl'" class="section-title" href="#'foldlevel' 'fdl'">Note:</a>
 'foldlevel' 'fdl'	number (default: 0)
@@ -2571,8 +2571,8 @@ local to window
 Sets the fold level: Folds with a higher level will be closed.
 Setting this option to zero will close all folds.  Higher numbers will
 close fewer folds.
-This option is set by commands like [zm|, |zM| and |zR](#zm|, |zM| and |zR).
-See [fold-foldlevel](#fold-foldlevel).
+This option is set by commands like [[zm](/undefined#zm)](/undefined), [[zM](/undefined#zM)](/undefined) and [[zR](/undefined#zR)](/undefined).
+See [[fold-foldlevel](/undefined#fold-foldlevel)](/undefined).
 
 ### <a id="'foldlevelstart' 'fdls'" class="section-title" href="#'foldlevelstart' 'fdls'">Note:</a>
 'foldlevelstart' 'fdls'	number (default: -1)
@@ -2581,7 +2581,7 @@ Sets 'foldlevel' when starting to edit another buffer in a window.
 Useful to always start editing with all folds closed (value zero),
 some folds closed (one) or no folds closed (99).
 This is done before reading any modeline, thus a setting in a modeline
-overrules this option.  Starting to edit a file for [diff-mode](#diff-mode) also
+overrules this option.  Starting to edit a file for [[[diff-mode](/undefined#diff-mode)](/undefined)](/undefined) also
 ignores this option and closes all folds.
 It is also done before BufReadPre autocommands, to allow an autocmd to
 overrule the 'foldlevel' value for specific files.
@@ -2593,18 +2593,18 @@ local to window
 The start and end marker used when 'foldmethod' is "marker".  There
 must be one comma, which separates the start and end marker.  The
 marker is a literal string (a regular expression would be too slow).
-See [fold-marker](#fold-marker).
+See [[[[fold-marker](/undefined#fold-marker)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'foldmethod' 'fdm'" class="section-title" href="#'foldmethod' 'fdm'">Note:</a>
 'foldmethod' 'fdm'	string (default: "manual")
 local to window
 The kind of folding used for the current window.  Possible values:
-[fold-manual](#fold-manual)	manual	    Folds are created manually.
-[fold-indent](#fold-indent)	indent	    Lines with equal indent form a fold.
-[fold-expr](#fold-expr)	expr	    'foldexpr' gives the fold level of a line.
-[fold-marker](#fold-marker)	marker	    Markers are used to specify folds.
-[fold-syntax](#fold-syntax)	syntax	    Syntax highlighting items specify folds.
-[fold-diff](#fold-diff)	diff	    Fold text that is not changed.
+[[fold-manual](/undefined#fold-manual)](/undefined)	manual	    Folds are created manually.
+[[[fold-indent](/undefined#fold-indent)](/undefined)](/undefined)	indent	    Lines with equal indent form a fold.
+[[[fold-expr](/undefined#fold-expr)](/undefined)](/undefined)	expr	    'foldexpr' gives the fold level of a line.
+[[[[fold-marker](/undefined#fold-marker)](/undefined)](/undefined)](/undefined)	marker	    Markers are used to specify folds.
+[[fold-syntax](/undefined#fold-syntax)](/undefined)	syntax	    Syntax highlighting items specify folds.
+[[[fold-diff](/undefined#fold-diff)](/undefined)](/undefined)	diff	    Fold text that is not changed.
 
 ### <a id="'foldminlines' 'fml'" class="section-title" href="#'foldminlines' 'fml'">Note:</a>
 'foldminlines' 'fml'	number (default: 1)
@@ -2632,7 +2632,7 @@ Specifies for which type of commands folds will be opened, if the
 command moves the cursor into a closed fold.  It is a comma-separated
 list of items.
 NOTE: When the command is part of a mapping this option is not used.
-Add the [zv](#zv) command to the mapping to get the same effect.
+Add the [[zv](/undefined#zv)](/undefined) command to the mapping to get the same effect.
 (rationale: the mapping may want to control opening folds itself)
 
 item		commands ~
@@ -2646,7 +2646,7 @@ percent		"%"
 quickfix	":cn", ":crew", ":make", etc.
 search		search for a pattern: "/", "n", "*", "gd", etc.
 (not for a search pattern in a ":" command)
-Also for [[s| and |]s](#[s| and |]s).
+Also for |[s| and |]s|.
 tag		jumping to a tag: ":ta", CTRL-T, etc.
 undo		undo or redo: "u" and CTRL-R
 When a movement command is used for an operator (e.g., "dl" or "y%")
@@ -2656,32 +2656,32 @@ Note that vertical movements are not here, because it would make it
 very difficult to move onto a closed fold.
 In insert mode the folds containing the cursor will always be open
 when text is inserted.
-To close folds you can re-apply 'foldlevel' with the [zx](#zx) command or
+To close folds you can re-apply 'foldlevel' with the [[zx](/undefined#zx)](/undefined) command or
 set the 'foldclose' option to "all".
 
 ### <a id="'foldtext' 'fdt'" class="section-title" href="#'foldtext' 'fdt'">Note:</a>
 'foldtext' 'fdt'	string (default: "foldtext()")
 local to window
 An expression which is used to specify the text displayed for a closed
-fold.  See [fold-foldtext](#fold-foldtext).
+fold.  See [[fold-foldtext](/undefined#fold-foldtext)](/undefined).
 
-The expression will be evaluated in the [sandbox](#sandbox) if set from a
-modeline, see [sandbox-option](#sandbox-option).
+The expression will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) if set from a
+modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 It is not allowed to change text or jump to another window while
-evaluating 'foldtext' [textlock](#textlock).
+evaluating 'foldtext' [[[[[[textlock](/undefined#textlock)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'formatexpr' 'fex'" class="section-title" href="#'formatexpr' 'fex'">Note:</a>
 'formatexpr' 'fex'	string (default "")
 local to buffer
-Expression which is evaluated to format a range of lines for the [gq](#gq)
+Expression which is evaluated to format a range of lines for the [[[gq](/undefined#gq)](/undefined)](/undefined)
 operator or automatic formatting (see 'formatoptions').  When this
 option is empty 'formatprg' is used.
 
-The [v:lnum](#v:lnum)  variable holds the first line to be formatted.
-The [v:count](#v:count) variable holds the number of lines to be formatted.
-The [v:char](#v:char)  variable holds the character that is going to be
+The |v:lnum|  variable holds the first line to be formatted.
+The |v:count| variable holds the number of lines to be formatted.
+The |v:char|  variable holds the character that is going to be
 inserted if the expression is being evaluated due to
 automatic formatting.  This can be empty.  Don't insert
 it yet!
@@ -2689,19 +2689,19 @@ it yet!
 Example:
 :set formatexpr=mylang#Format()
 This will invoke the mylang#Format() function in the
-autoload/mylang.vim file in 'runtimepath'. [autoload](#autoload)
+autoload/mylang.vim file in 'runtimepath'. [[autoload](/undefined#autoload)](/undefined)
 
 The expression is also evaluated when 'textwidth' is set and adding
 text beyond that limit.  This happens under the same conditions as
 when internal formatting is used.  Make sure the cursor is kept in the
-same spot relative to the text then!  The [mode()](#mode()) function will
+same spot relative to the text then!  The |mode()| function will
 return "i" or "R" in this situation.
 
 When the expression evaluates to non-zero Vim will fall back to using
 the internal format mechanism.
 
-The expression will be evaluated in the [sandbox](#sandbox) when set from a
-modeline, see [sandbox-option](#sandbox-option).  That stops the option from working,
+The expression will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when set from a
+modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  That stops the option from working,
 since changing the buffer text is not allowed.
 This option cannot be set in a modeline when 'modelineexpr' is off.
 NOTE: This option is set to "" when 'compatible' is set.
@@ -2712,7 +2712,7 @@ local to buffer
 A pattern that is used to recognize a list header.  This is used for
 the "n" flag in 'formatoptions'.
 The pattern must match exactly the text that will be the indent for
-the line below it.  You can use [/\ze](#/\ze) to mark the end of the match
+the line below it.  You can use |/\ze| to mark the end of the match
 while still checking more characters.  There must be a character
 following the pattern, when it matches the whole line it is handled
 like there is no match.
@@ -2723,43 +2723,43 @@ character and white space.
 'formatoptions' 'fo'	string (default: "tcqj")
 local to buffer
 This is a sequence of letters which describes how automatic
-formatting is to be done.  See [fo-table](#fo-table).  When the 'paste' option is
+formatting is to be done.  See [[fo-table](/undefined#fo-table)](/undefined).  When the 'paste' option is
 on, no formatting is done (like 'formatoptions' is empty).  Commas can
 be inserted for readability.
 To avoid problems with flags that are added in the future, use the
-"+=" and "-=" feature of ":set" [add-option-flags](#add-option-flags).
+"+=" and "-=" feature of ":set" [[[[add-option-flags](/undefined#add-option-flags)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'formatprg' 'fp'" class="section-title" href="#'formatprg' 'fp'">Note:</a>
 'formatprg' 'fp'	string (default "")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 The name of an external program that will be used to format the lines
-selected with the [gq](#gq) operator.  The program must take the input on
+selected with the [[[gq](/undefined#gq)](/undefined)](/undefined) operator.  The program must take the input on
 stdin and produce the output on stdout.  The Unix program "fmt" is
 such a program.
 If the 'formatexpr' option is not empty it will be used instead.
 Otherwise, if 'formatprg' option is an empty string, the internal
-format function will be used [C-indenting](#C-indenting).
-Environment variables are expanded [:set_env|.  See |option-backslash](#:set_env|.  See |option-backslash)
+format function will be used [[[[[[[C-indenting](/undefined#C-indenting)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+Environment variables are expanded |:set_env|.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 about including spaces and backslashes.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'fsync' 'fs' 'nofsync' 'nofs'" class="section-title" href="#'fsync' 'fs' 'nofsync' 'nofs'">Note:</a>
 'fsync' 'fs'		boolean	(default off)
 global
 When on, the OS function fsync() will be called after saving a file
-([:write|, |writefile()|, …), |swap-file| and |shada-file](#:write|, |writefile()|, …), |swap-file| and |shada-file). This
+(|:write|, |writefile()|, …), [[[swap-file](/undefined#swap-file)](/undefined)](/undefined) and [[[shada-file](/undefined#shada-file)](/undefined)](/undefined). This
 flushes the file to disk, ensuring that it is safely written.
 Slow on some systems: writing buffers, quitting Nvim, and other
 operations may sometimes take a few seconds.
 
 Files are ALWAYS flushed ('fsync' is ignored) when:
-- [CursorHold](#CursorHold) event is triggered
-- [:preserve](#:preserve) is called
+- [[[CursorHold](/undefined#CursorHold)](/undefined)](/undefined) event is triggered
+- |:preserve| is called
 - system signals low battery life
 - Nvim exits abnormally
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'gdefault' 'gd' 'nogdefault' 'nogd'" class="section-title" href="#'gdefault' 'gd' 'nogdefault' 'nogd'">Note:</a>
@@ -2768,7 +2768,7 @@ global
 When on, the ":substitute" flag 'g' is default on.  This means that
 all matches in a line are substituted instead of one.  When a 'g' flag
 is given to a ":substitute" command, this will toggle the substitution
-of all or one match.  See [complex-change](#complex-change).
+of all or one match.  See [[complex-change](/undefined#complex-change)](/undefined).
 
 command		'gdefault' on	'gdefault' off	~
 :s///		  subst. all	  subst. one
@@ -2784,33 +2784,33 @@ has the opposite effect of that it normally does.
 global
 Format to recognize for the ":grep" command output.
 This is a scanf-like string that uses the same format as the
-'errorformat' option: see [errorformat](#errorformat).
+'errorformat' option: see [[[errorformat](/undefined#errorformat)](/undefined)](/undefined).
 
 ### <a id="'grepprg' 'gp'" class="section-title" href="#'grepprg' 'gp'">Note:</a>
 'grepprg' 'gp'		string	(default "grep -n ",
 ### <a id="Unix: "grep -n $ /dev/null")" class="section-title" href="#Unix: "grep -n $ /dev/null")">Note:</a>
-global or local to buffer [global-local](#global-local)
-Program to use for the [:grep](#:grep) command.  This option may contain '%'
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+Program to use for the |:grep| command.  This option may contain '%'
 and '#' characters, which are expanded like when used in a command-
 ### <a id="The placeholder "$" is allowed to specify where the arguments" class="section-title" href="#The placeholder "$" is allowed to specify where the arguments">	line.</a>
-will be included.  Environment variables are expanded [:set_env](#:set_env).  See
-[option-backslash](#option-backslash) about including spaces and backslashes.
+will be included.  Environment variables are expanded |:set_env|.  See
+[[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
 When your "grep" accepts the "-H" argument, use this to make ":grep"
 also work well with a single file:
 :set grepprg=grep\ -nH
-Special value: When 'grepprg' is set to "internal" the [:grep](#:grep) command
-works like [:vimgrep|, |:lgrep| like |:lvimgrep|, |:grepadd](#:vimgrep|, |:lgrep| like |:lvimgrep|, |:grepadd) like
-[:vimgrepadd| and |:lgrepadd| like |:lvimgrepadd](#:vimgrepadd| and |:lgrepadd| like |:lvimgrepadd).
-See also the section [:make_makeprg](#:make_makeprg), since most of the comments there
+Special value: When 'grepprg' is set to "internal" the |:grep| command
+works like |:vimgrep|, |:lgrep| like |:lvimgrep|, |:grepadd| like
+|:vimgrepadd| and |:lgrepadd| like |:lvimgrepadd|.
+See also the section |:make_makeprg|, since most of the comments there
 apply equally to 'grepprg'.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'guicursor' 'gcr' E545 E546 E548 E549" class="section-title" href="#'guicursor' 'gcr' E545 E546 E548 E549">Note:</a>
 'guicursor' 'gcr'	string	(default "n-v-c-sm:block,i-ci-ve:ver25,r-cr-o:hor20")
 global
 Configures the cursor style for each mode. Works in the GUI and many
-terminals.  See [tui-cursor-shape](#tui-cursor-shape).
+terminals.  See [[tui-cursor-shape](/undefined#tui-cursor-shape)](/undefined).
 
 To disable cursor-styling, reset the option:
 :set guicursor=
@@ -2855,15 +2855,15 @@ the numbers is zero, there is no blinking. E.g.:
 {group-name}
 Highlight group that decides the color and font of the
 cursor.
-In the [TUI](#TUI):
-- [inverse](#inverse)/reverse and no group-name are interpreted
+In the [[[[[TUI](/undefined#TUI)](/undefined)](/undefined)](/undefined)](/undefined):
+- [[inverse](/undefined#inverse)](/undefined)/reverse and no group-name are interpreted
 as "host-terminal default cursor colors" which
 typically means "inverted bg and fg colors".
-- [ctermfg| and |guifg](#ctermfg| and |guifg) are ignored.
+- [[ctermfg](/undefined#ctermfg)](/undefined) and [[[guifg](/undefined#guifg)](/undefined)](/undefined) are ignored.
 {group-name}/{group-name}
 Two highlight group names, the first is used when
 no language mappings are used, the other when they
-are. [language-mapping](#language-mapping)
+are. [[language-mapping](/undefined#language-mapping)](/undefined)
 
 Examples of parts:
 n-c-v:block-nCursor	In Normal, Command-line and Visual mode, use a
@@ -2906,7 +2906,7 @@ The first valid font is used.
 Spaces after a comma are ignored.  To include a comma in a font name
 precede it with a backslash.  Setting an option requires an extra
 backslash before a space and a backslash.  See also
-[option-backslash](#option-backslash).  For example: 
+[[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  For example: 
 ```	    :set guifont=Screen15,\ 7x13,font\\,with\\,commas
 will make Vim try to use the font "Screen15" first, and if it fails it
 will try to use "7x13" and then "font,with,commas" instead.
@@ -2973,7 +2973,7 @@ This option only has an effect in the GUI version of Vim.  It is a
 sequence of letters which describes what components and options of the
 GUI should be used.
 To avoid problems with flags that are added in the future, use the
-"+=" and "-=" feature of ":set" [add-option-flags](#add-option-flags).
+"+=" and "-=" feature of ":set" [[[[add-option-flags](/undefined#add-option-flags)](/undefined)](/undefined)](/undefined).
 
 Valid letters are as follows:
 ### <a id="guioptions_a 'go-a'" class="section-title" href="#guioptions_a 'go-a'">Note:</a>
@@ -3022,7 +3022,7 @@ Mac OS/X and MS-Windows.
 ### <a id="'go-M'" class="section-title" href="#'go-M'">Note:</a>
 'M'	The system menu "$VIMRUNTIME/menu.vim" is not sourced.  Note
 that this flag must be added in the vimrc file, before
-switching on syntax or filetype recognition (when the [gvimrc](#gvimrc)
+switching on syntax or filetype recognition (when the [[[[gvimrc](/undefined#gvimrc)](/undefined)](/undefined)](/undefined)
 file is sourced the system menu has already been loaded; the
 `:syntax on` and `:filetype on` commands load the menu too).
 ### <a id="'go-g'" class="section-title" href="#'go-g'">Note:</a>
@@ -3043,13 +3043,13 @@ split window.
 ### <a id="'go-b'" class="section-title" href="#'go-b'">Note:</a>
 'b'	Bottom (horizontal) scrollbar is present.  Its size depends on
 the longest visible line, or on the cursor line if the 'h'
-flag is included. [gui-horiz-scroll](#gui-horiz-scroll)
+flag is included. [[[gui-horiz-scroll](/undefined#gui-horiz-scroll)](/undefined)](/undefined)
 ### <a id="'go-h'" class="section-title" href="#'go-h'">Note:</a>
 'h'	Limit horizontal scrollbar size to the length of the cursor
-line.  Reduces computations. [gui-horiz-scroll](#gui-horiz-scroll)
+line.  Reduces computations. [[[gui-horiz-scroll](/undefined#gui-horiz-scroll)](/undefined)](/undefined)
 
 And yes, you may even have scrollbars on the left AND the right if
-you really want to :-).  See [gui-scrollbars](#gui-scrollbars) for more information.
+you really want to :-).  See [[gui-scrollbars](/undefined#gui-scrollbars)](/undefined) for more information.
 
 ### <a id="'go-v'" class="section-title" href="#'go-v'">Note:</a>
 'v'	Use a vertical button layout for dialogs.  When not included,
@@ -3059,7 +3059,7 @@ vertical layout is used anyway.  Not supported in GTK 3.
 'p'	Use Pointer callbacks for X11 GUI.  This is required for some
 window managers.  If the cursor is not blinking or hollow at
 the right moment, try adding this flag.  This must be done
-before starting the GUI.  Set it in your [gvimrc](#gvimrc).  Adding or
+before starting the GUI.  Set it in your [[[[gvimrc](/undefined#gvimrc)](/undefined)](/undefined)](/undefined).  Adding or
 removing it after the GUI has started has no effect.
 ### <a id="'go-k'" class="section-title" href="#'go-k'">Note:</a>
 'k'	Keep the GUI window size when adding/removing a scrollbar, or
@@ -3074,12 +3074,12 @@ removing GUI components.
 global
 When non-empty describes the text to use in a label of the GUI tab
 pages line.  When empty and when the result is empty Vim will use a
-default label.  See [setting-guitablabel](#setting-guitablabel) for more info.
+default label.  See [[setting-guitablabel](/undefined#setting-guitablabel)](/undefined) for more info.
 
 The format of this option is like that of 'statusline'.
 'guitabtooltip' is used for the tooltip, see below.
-The expression will be evaluated in the [sandbox](#sandbox) when set from a
-modeline, see [sandbox-option](#sandbox-option).
+The expression will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when set from a
+modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 Only used when the GUI tab pages line is displayed.  'e' must be
@@ -3092,7 +3092,7 @@ global
 When non-empty describes the text to use in a tooltip for the GUI tab
 pages line.  When empty Vim will use a default tooltip.
 This option is otherwise just like 'guitablabel' above.
-You can include a line break.  Simplest method is to use [:let](#:let): 
+You can include a line break.  Simplest method is to use |:let|: 
 ```		:let &guitabtooltip = "line one\nline two"
 ```
 
@@ -3104,11 +3104,11 @@ global
 Name of the main help file.  All distributed help files should be
 placed together in one directory.  Additionally, all "doc" directories
 in 'runtimepath' will be used.
-Environment variables are expanded [:set_env](#:set_env).  For example:
+Environment variables are expanded |:set_env|.  For example:
 "$VIMRUNTIME/doc/help.txt".  If $VIMRUNTIME is not set, $VIM is also
-tried.  Also see [$VIMRUNTIME| and |option-backslash](#$VIMRUNTIME| and |option-backslash) about including
+tried.  Also see |$VIMRUNTIME| and [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including
 spaces and backslashes.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'helpheight' 'hh'" class="section-title" href="#'helpheight' 'hh'">Note:</a>
@@ -3132,16 +3132,16 @@ Example:
 ```		:set helplang=de,it
 This will first search German, then Italian and finally English help
 files.
-When using [CTRL-]](#CTRL-]) and ":help!" in a non-English help file Vim will
+When using |CTRL-]| and ":help!" in a non-English help file Vim will
 try to find the tag in the current language before using this option.
-See [help-translated](#help-translated).
+See [[help-translated](/undefined#help-translated)](/undefined).
 
 ### <a id="'hidden' 'hid' 'nohidden' 'nohid'" class="section-title" href="#'hidden' 'hid' 'nohidden' 'nohid'">Note:</a>
 'hidden' 'hid'		boolean	(default on)
 global
 When off a buffer is unloaded (including loss of undo information)
-when it is [abandon](#abandon)ed.  When on a buffer becomes hidden when it is
-[abandon](#abandon)ed.  A buffer displayed in another window does not become
+when it is [[[[abandon](/undefined#abandon)](/undefined)](/undefined)](/undefined)ed.  When on a buffer becomes hidden when it is
+[[[[abandon](/undefined#abandon)](/undefined)](/undefined)](/undefined)ed.  A buffer displayed in another window does not become
 hidden, of course.
 
 Commands that move through the buffer list sometimes hide a buffer
@@ -3149,17 +3149,17 @@ although the 'hidden' option is off when these three are true:
 - the buffer is modified
 - 'autowrite' is off or writing is not possible
 - the '!' flag was used
-Also see [windows](#windows).
+Also see [[windows](/undefined#windows)](/undefined).
 
 To hide a specific buffer use the 'bufhidden' option.
-'hidden' is set for one command with ":hide {command}" [:hide](#:hide).
+'hidden' is set for one command with ":hide {command}" |:hide|.
 
 ### <a id="'history' 'hi'" class="section-title" href="#'history' 'hi'">Note:</a>
 'history' 'hi'		number	(default: 10000)
 global
 A history of ":" commands, and a history of previous search patterns
 is remembered.  This option decides how many entries may be stored in
-each of these histories (see [cmdline-editing](#cmdline-editing)).
+each of these histories (see [[cmdline-editing](/undefined#cmdline-editing)](/undefined)).
 The maximum value is 10000.
 
 ### <a id="'hkmap' 'hk' 'nohkmap' 'nohk'" class="section-title" href="#'hkmap' 'hk' 'nohkmap' 'nohk'">Note:</a>
@@ -3167,28 +3167,28 @@ The maximum value is 10000.
 global
 When on, the keyboard is mapped for the Hebrew character set.
 Normally you would set 'allowrevins' and use CTRL-_ in insert mode to
-toggle this option.  See [rileft.txt](#rileft.txt).
+toggle this option.  See |rileft.txt|.
 
 ### <a id="'hkmapp' 'hkp' 'nohkmapp' 'nohkp'" class="section-title" href="#'hkmapp' 'hkp' 'nohkmapp' 'nohkp'">Note:</a>
 'hkmapp' 'hkp'		boolean (default off)
 global
 When on, phonetic keyboard mapping is used.  'hkmap' must also be on.
 This is useful if you have a non-Hebrew keyboard.
-See [rileft.txt](#rileft.txt).
+See |rileft.txt|.
 
 ### <a id="'hlsearch' 'hls' 'nohlsearch' 'nohls'" class="section-title" href="#'hlsearch' 'hls' 'nohlsearch' 'nohls'">Note:</a>
 'hlsearch' 'hls'	boolean	(default on)
 global
 When there is a previous search pattern, highlight all its matches.
-The [hl-Search](#hl-Search) highlight group determines the highlighting for all
-matches not under the cursor while the [hl-CurSearch](#hl-CurSearch) highlight group
+The [[[hl-Search](/undefined#hl-Search)](/undefined)](/undefined) highlight group determines the highlighting for all
+matches not under the cursor while the [[[hl-CurSearch](/undefined#hl-CurSearch)](/undefined)](/undefined) highlight group
 (if defined) determines the highlighting for the match under the
-cursor. If [hl-CurSearch| is not defined, then |hl-Search](#hl-CurSearch| is not defined, then |hl-Search) is used for
+cursor. If [[[hl-CurSearch](/undefined#hl-CurSearch)](/undefined)](/undefined) is not defined, then [[[hl-Search](/undefined#hl-Search)](/undefined)](/undefined) is used for
 both. Note that only the matching text is highlighted, any offsets
 are not applied.
-See also: 'incsearch' and [:match](#:match).
+See also: 'incsearch' and |:match|.
 When you get bored looking at the highlighted matches, you can turn it
-off with [:nohlsearch](#:nohlsearch).  This does not change the option value, as
+off with |:nohlsearch|.  This does not change the option value, as
 soon as you use a search command, the highlighting comes back.
 'redrawtime' specifies the maximum time spent on finding matches.
 When the search pattern can match an end-of-line, Vim will try to
@@ -3197,7 +3197,7 @@ search starts.  This will be the first line in the window or the first
 line below a closed fold.  A match in a previous line which is not
 drawn may not continue in a newly drawn line.
 You can specify whether the highlight status is restored on startup
-with the 'h' flag in 'shada' [shada-h](#shada-h).
+with the 'h' flag in 'shada' [[shada-h](/undefined#shada-h)](/undefined).
 
 ### <a id="'icon' 'noicon'" class="section-title" href="#'icon' 'noicon'">Note:</a>
 'icon'			boolean	(default off, on when title can be restored)
@@ -3226,7 +3226,7 @@ Ignore case in search patterns.  Also used when searching in the tags
 file.
 Also see 'smartcase' and 'tagcase'.
 Can be overruled by using "\c" or "\C" in the pattern, see
-[/ignorecase](#/ignorecase).
+|/ignorecase|.
 
 ### <a id="'imcmdline' 'imc' 'noimcmdline' 'noimc'" class="section-title" href="#'imcmdline' 'imc' 'noimcmdline' 'noimc'">Note:</a>
 'imcmdline' 'imc'	boolean (default off)
@@ -3259,7 +3259,7 @@ this can be used:
 This makes :lmap and IM turn off automatically when leaving Insert
 mode.
 Note that this option changes when using CTRL-^ in Insert mode
-[i_CTRL-^](#i_CTRL-^).
+|i_CTRL-^|.
 The value is set to 1 when setting 'keymap' to a valid keymap name.
 It is also used for the argument of commands like "r" and "f".
 
@@ -3274,7 +3274,7 @@ entering a search pattern.  Valid values:
 1	:lmap is ON and IM is off
 2	:lmap is off and IM is ON
 Note that this option changes when using CTRL-^ in Command-line mode
-[c_CTRL-^](#c_CTRL-^).
+|c_CTRL-^|.
 The value is set to 1 when it is not -1 and setting the 'keymap'
 option to a valid keymap name.
 
@@ -3282,8 +3282,8 @@ option to a valid keymap name.
 'inccommand' 'icm'	string	(default "nosplit")
 global
 
-When nonempty, shows the effects of [:substitute|, |:smagic](#:substitute|, |:smagic),
-[:snomagic| and user commands with the |:command-preview](#:snomagic| and user commands with the |:command-preview) flag as you
+When nonempty, shows the effects of |:substitute|, |:smagic|,
+|:snomagic| and user commands with the |:command-preview| flag as you
 type.
 
 Possible values:
@@ -3294,13 +3294,13 @@ results in a preview window.
 
 If the preview for built-in commands is too slow (exceeds
 'redrawtime') then 'inccommand' is automatically disabled until
-[Command-line-mode](#Command-line-mode) is done.
+[[Command-line-mode](/undefined#Command-line-mode)](/undefined) is done.
 
 ### <a id="'include' 'inc'" class="section-title" href="#'include' 'inc'">Note:</a>
 ### <a id="string	(default "^\s#\sinclude")" class="section-title" href="#string	(default "^\s#\sinclude")">'include' 'inc'</a>
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Pattern to be used to find an include command.  It is a search
-pattern, just like for the "/" command (See [pattern](#pattern)).  The default
+pattern, just like for the "/" command (See [[[[[[[pattern](/undefined#pattern)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)).  The default
 value is for C programs.  This option is used for the commands "[i",
 "]I", "[d", etc.
 Normally the 'isfname' option is used to recognize the file name that
@@ -3309,7 +3309,7 @@ then the text matched from "\zs" to the end, or until "\ze" if it
 appears, is used as the file name.  Use this to include characters
 that are not in 'isfname', such as a space.  You can then use
 'includeexpr' to process the matched text.
-See [option-backslash](#option-backslash) about including spaces and backslashes.
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
 
 ### <a id="'includeexpr' 'inex'" class="section-title" href="#'includeexpr' 'inex'">Note:</a>
 'includeexpr' 'inex'	string	(default "")
@@ -3319,16 +3319,16 @@ option to a file name.  Mostly useful to change "." to "/" for Java:
 :set includeexpr=substitute(v:fname,'\\.','/','g')
 The "v:fname" variable will be set to the file name that was detected.
 
-Also used for the [gf](#gf) command if an unmodified file name can't be
+Also used for the [[[gf](/undefined#gf)](/undefined)](/undefined) command if an unmodified file name can't be
 found.  Allows doing "gf" on the name after an 'include' statement.
-Also used for [<cfile>](#<cfile>).
+Also used for |<cfile>|.
 
-The expression will be evaluated in the [sandbox](#sandbox) when set from a
-modeline, see [sandbox-option](#sandbox-option).
+The expression will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when set from a
+modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 It is not allowed to change text or jump to another window while
-evaluating 'includeexpr' [textlock](#textlock).
+evaluating 'includeexpr' [[[[[[textlock](/undefined#textlock)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'incsearch' 'is' 'noincsearch' 'nois'" class="section-title" href="#'incsearch' 'is' 'noincsearch' 'nois'">Note:</a>
 'incsearch' 'is'	boolean	(default on)
@@ -3342,11 +3342,11 @@ original position when no match is found and when pressing <Esc>.  You
 still need to finish the search command with <Enter> to move the
 cursor to the match.
 You can use the CTRL-G and CTRL-T keys to move to the next and
-previous match. [c_CTRL-G| |c_CTRL-T](#c_CTRL-G| |c_CTRL-T)
+previous match. |c_CTRL-G| |c_CTRL-T|
 Vim only searches for about half a second.  With a complicated
 pattern and/or a lot of text the match may not be found.  This is to
 avoid that Vim hangs while you are typing the pattern.
-The [hl-IncSearch](#hl-IncSearch) highlight group determines the highlighting.
+The [[hl-IncSearch](/undefined#hl-IncSearch)](/undefined) highlight group determines the highlighting.
 When 'hlsearch' is on, all matched strings are highlighted too while
 typing a search command. See also: 'hlsearch'.
 If you don't want to turn 'hlsearch' on, but want to highlight all
@@ -3370,20 +3370,20 @@ match, excluding the characters that were already typed.
 'indentexpr' 'inde'	string	(default "")
 local to buffer
 Expression which is evaluated to obtain the proper indent for a line.
-It is used when a new line is created, for the [=](#=) operator and
+It is used when a new line is created, for the |=| operator and
 in Insert mode as specified with the 'indentkeys' option.
 When this option is not empty, it overrules the 'cindent' and
 'smartindent' indenting.  When 'lisp' is set, this option is
 is only used when 'lispoptions' contains "expr:1".
 When 'paste' is set this option is not used for indenting.
-The expression is evaluated with [v:lnum](#v:lnum) set to the line number for
+The expression is evaluated with |v:lnum| set to the line number for
 which the indent is to be computed.  The cursor is also in this line
 when the expression is evaluated (but it may be moved around).
 The expression must return the number of spaces worth of indent.  It
 can return "-1" to keep the current indent (this means 'autoindent' is
 used for the indent).
-Functions useful for computing the indent are [indent()|, |cindent()](#indent()|, |cindent())
-and [lispindent()](#lispindent()).
+Functions useful for computing the indent are |indent()|, |cindent()|
+and |lispindent()|.
 The evaluation of the expression must not have side effects!  It must
 not change the text, jump to another window, etc.  Afterwards the
 cursor position is always restored, thus the cursor may be moved.
@@ -3391,14 +3391,14 @@ Normally this option would be set to call a function:
 ```		:set indentexpr=GetMyIndent()
 Error messages will be suppressed, unless the 'debug' option contains
 "msg".
-See [indent-expression](#indent-expression).
+See [[[[indent-expression](/undefined#indent-expression)](/undefined)](/undefined)](/undefined).
 
-The expression will be evaluated in the [sandbox](#sandbox) when set from a
-modeline, see [sandbox-option](#sandbox-option).
+The expression will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when set from a
+modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 It is not allowed to change text or jump to another window while
-evaluating 'indentexpr' [textlock](#textlock).
+evaluating 'indentexpr' [[[[[[textlock](/undefined#textlock)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 
 ### <a id="'indentkeys' 'indk'" class="section-title" href="#'indentkeys' 'indk'">Note:</a>
@@ -3406,13 +3406,13 @@ evaluating 'indentexpr' [textlock](#textlock).
 local to buffer
 A list of keys that, when typed in Insert mode, cause reindenting of
 the current line.  Only happens if 'indentexpr' isn't empty.
-The format is identical to 'cinkeys', see [indentkeys-format](#indentkeys-format).
-See [C-indenting| and |indent-expression](#C-indenting| and |indent-expression).
+The format is identical to 'cinkeys', see [[indentkeys-format](/undefined#indentkeys-format)](/undefined).
+See [[[[[[[C-indenting](/undefined#C-indenting)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and [[[[indent-expression](/undefined#indent-expression)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'infercase' 'inf' 'noinfercase' 'noinf'" class="section-title" href="#'infercase' 'inf' 'noinfercase' 'noinf'">Note:</a>
 'infercase' 'inf'	boolean	(default off)
 local to buffer
-When doing keyword completion in insert mode [ins-completion](#ins-completion), and
+When doing keyword completion in insert mode [[[[[ins-completion](/undefined#ins-completion)](/undefined)](/undefined)](/undefined)](/undefined), and
 'ignorecase' is also on, the case of the match is adjusted depending
 on the typed text.  If the typed text contains a lowercase letter
 where the match has an upper case letter, the completed part is made
@@ -3428,7 +3428,7 @@ otherwise: "@,48-57,/,.,-,_,+,,,#,$,%,~,=")
 global
 The characters specified by this option are included in file names and
 path names.  Filenames are used for commands like "gf", "[i" and in
-the tags file.  It is also used for "\f" in a [pattern](#pattern).
+the tags file.  It is also used for "\f" in a [[[[[[[pattern](/undefined#pattern)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 Multi-byte characters 256 and above are always included, only the
 characters up to 255 are specified with this option.
 For UTF-8 the characters 0xa0 to 0xff are included as well.
@@ -3470,7 +3470,7 @@ expected.  Example:
 A comma can be excluded by prepending a '^'.  Example:
 " -~,^,,9"	All characters from space to '~', excluding
 comma, plus <Tab>.
-See [option-backslash](#option-backslash) about including spaces and backslashes.
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
 
 ### <a id="'isident' 'isi'" class="section-title" href="#'isident' 'isi'">Note:</a>
 'isident' 'isi'		string	(default for Windows:
@@ -3480,7 +3480,7 @@ global
 The characters given by this option are included in identifiers.
 Identifiers are used in recognizing environment variables and after a
 match of the 'define' option.  It is also used for "\i" in a
-[pattern](#pattern).  See 'isfname' for a description of the format of this
+[[[[[[[pattern](/undefined#pattern)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  See 'isfname' for a description of the format of this
 option.  For '@' only characters up to 255 are used.
 Careful: If you change this option, it might break expanding
 environment variables.  E.g., when '/' is included and Vim tries to
@@ -3491,7 +3491,7 @@ change 'iskeyword' instead.
 'iskeyword' 'isk'	string (default: @,48-57,_,192-255)
 local to buffer
 Keywords are used in searching and recognizing with many commands:
-"w", "*", "[i", etc.  It is also used for "\k" in a [pattern](#pattern).  See
+"w", "*", "[i", etc.  It is also used for "\k" in a [[[[[[[pattern](/undefined#pattern)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  See
 'isfname' for a description of the format of this option.  For '@'
 characters above 255 check the "word" character class (any character
 that is not white space or punctuation).
@@ -3501,13 +3501,13 @@ For a help file it is set to all non-blank printable characters except
 command).
 When the 'lisp' option is on the '-' character is always included.
 This option also influences syntax highlighting, unless the syntax
-uses [:syn-iskeyword](#:syn-iskeyword).
+uses |:syn-iskeyword|.
 
 ### <a id="'isprint' 'isp'" class="section-title" href="#'isprint' 'isp'">Note:</a>
 'isprint' 'isp'	string	(default: "@,161-255")
 global
 The characters given by this option are displayed directly on the
-screen.  It is also used for "\p" in a [pattern](#pattern).  The characters from
+screen.  It is also used for "\p" in a [[[[[[[pattern](/undefined#pattern)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  The characters from
 space (ASCII 32) to '~' (ASCII 126) are always displayed directly,
 even when they are not included in 'isprint' or excluded.  See
 'isfname' for a description of the format of this option.
@@ -3517,14 +3517,14 @@ Non-printable characters are displayed with two characters:
 32 - 126	always single characters
 127		"^?"
 128 - 159	"~@" - "~_"
-160 - 254	"[ " - "](# " - ")~"
+160 - 254	"| " - "|~"
 255		"~?"
 Illegal bytes from 128 to 255 (invalid UTF-8) are
 displayed as <xx>, with the hexadecimal value of the byte.
 When 'display' contains "uhex" all unprintable characters are
 displayed as <xx>.
 The SpecialKey highlighting will be used for unprintable characters.
-[hl-SpecialKey](#hl-SpecialKey)
+[[hl-SpecialKey](/undefined#hl-SpecialKey)](/undefined)
 
 Multi-byte characters 256 and above are always included, only the
 characters up to 255 are specified with this option.  When a character
@@ -3536,17 +3536,17 @@ There is no option to specify these characters.
 ### <a id="'jumpoptions' 'jop'" class="section-title" href="#'jumpoptions' 'jop'">Note:</a>
 'jumpoptions' 'jop'	string	(default "")
 global
-List of words that change the behavior of the [jumplist](#jumplist).
+List of words that change the behavior of the [[[jumplist](/undefined#jumplist)](/undefined)](/undefined).
 stack         Make the jumplist behave like the tagstack or like a
 web browser.  Relative location of entries in the
 jumplist is preserved at the cost of discarding
 subsequent entries when navigating backwards in the
 jumplist and then jumping to a location.
-[jumplist-stack](#jumplist-stack)
+[[jumplist-stack](/undefined#jumplist-stack)](/undefined)
 
-view          When moving through the jumplist, [changelist](#changelist),
-[alternate-file| or using |mark-motions](#alternate-file| or using |mark-motions) try to
-restore the [mark-view](#mark-view) in which the action occurred.
+view          When moving through the jumplist, [[[changelist](/undefined#changelist)](/undefined)](/undefined),
+[[alternate-file](/undefined#alternate-file)](/undefined) or using [[mark-motions](/undefined#mark-motions)](/undefined) try to
+restore the [[mark-view](/undefined#mark-view)](/undefined) in which the action occurred.
 
 ### <a id="'joinspaces' 'js' 'nojoinspaces' 'nojs'" class="section-title" href="#'joinspaces' 'js' 'nojoinspaces' 'nojs'">Note:</a>
 'joinspaces' 'js'	boolean	(default off)
@@ -3557,7 +3557,7 @@ Otherwise only one space is inserted.
 ### <a id="'keymap' 'kmp' E544" class="section-title" href="#'keymap' 'kmp' E544">Note:</a>
 'keymap' 'kmp'		string	(default "")
 local to buffer
-Name of a keyboard mapping.  See [mbyte-keymap](#mbyte-keymap).
+Name of a keyboard mapping.  See [[[mbyte-keymap](/undefined#mbyte-keymap)](/undefined)](/undefined).
 Setting this option to a valid keymap name has the side effect of
 setting 'iminsert' to one, so that the keymap becomes effective.
 'imsearch' is also set to one, unless it was -1
@@ -3574,24 +3574,24 @@ present in 'selectmode').
 stopsel	Using a not-shifted special key stops selection.
 Special keys in this context are the cursor keys, <End>, <Home>,
 <PageUp> and <PageDown>.
-The 'keymodel' option is set by the [:behave](#:behave) command.
+The 'keymodel' option is set by the |:behave| command.
 
 ### <a id="'keywordprg' 'kp'" class="section-title" href="#'keywordprg' 'kp'">Note:</a>
 'keywordprg' 'kp'	string	(default ":Man", Windows: ":help")
-global or local to buffer [global-local](#global-local)
-Program to use for the [K](#K) command.  Environment variables are
-expanded [:set_env](#:set_env).  ":help" may be used to access the Vim internal
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+Program to use for the [[K](/undefined#K)](/undefined) command.  Environment variables are
+expanded |:set_env|.  ":help" may be used to access the Vim internal
 help.  (Note that previously setting the global option to the empty
 value did this, which is now deprecated.)
 When the first character is ":", the command is invoked as a Vim
 Ex command prefixed with [count].
 When "man" or "man -s" is used, Vim will automatically translate
 a [count] for the "K" command to a section number.
-See [option-backslash](#option-backslash) about including spaces and backslashes.
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
 Example:
 :set keywordprg=man\ -s
 :set keywordprg=:Man
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'langmap' 'lmap' E357 E358" class="section-title" href="#'langmap' 'lmap' E357 E358">Note:</a>
@@ -3607,7 +3607,7 @@ This is the opposite of the 'keymap' option, where characters are
 mapped in Insert mode.
 Also consider setting 'langremap' to off, to prevent 'langmap' from
 applying to characters resulting from a mapping.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="greek" class="section-title" href="#greek">	Example (for Greek, in UTF-8):</a>
@@ -3647,7 +3647,7 @@ from the "lang" directory in 'runtimepath':
 (without the spaces).  For example, to always use the Dutch menus, no
 matter what $LANG is set to:
 :set langmenu=nl_NL.ISO_8859-1
-When 'langmenu' is empty, [v:lang](#v:lang) is used.
+When 'langmenu' is empty, |v:lang| is used.
 Only normal file name characters can be used, "/\*?[|<>" are illegal.
 If your $LANG is set to a non-English language but you do want to use
 the English menus:
@@ -3677,7 +3677,7 @@ status line:
 2: always
 3: always and ONLY the last window
 The screen looks nicer with a status line if you have several
-windows, but it takes another screen line. [status-line](#status-line)
+windows, but it takes another screen line. [[[[[status-line](/undefined#status-line)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="'lazyredraw' 'lz' 'nolazyredraw' 'nolz'" class="section-title" href="#'lazyredraw' 'lz' 'nolazyredraw' 'nolz'">Note:</a>
 'lazyredraw' 'lz'	boolean	(default off)
@@ -3685,7 +3685,7 @@ global
 When this option is set, the screen will not be redrawn while
 executing macros, registers and other commands that have not been
 typed.  Also, updating the window title is postponed.  To force an
-update use [:redraw](#:redraw).
+update use |:redraw|.
 This may occasionally cause display errors.  It is only meant to be set
 temporarily when performing an operation where redrawing may cause
 flickering or cause a slow down.
@@ -3711,7 +3711,7 @@ Normally you don't need to set this.  It is done automatically by the
 terminal initialization code.
 When Vim is running in the GUI or in a resizable window, setting this
 option will cause the window size to be changed.  When you only want
-to use the size for the GUI, put the command in your [gvimrc](#gvimrc) file.
+to use the size for the GUI, put the command in your [[[[gvimrc](/undefined#gvimrc)](/undefined)](/undefined)](/undefined) file.
 Vim limits the number of lines to what fits on the screen.  You can
 use this command to get the tallest window possible:
 :set lines=999
@@ -3746,7 +3746,7 @@ This option is not used when 'paste' is set.
 'lispoptions' 'lop'	string	(default "")
 local to buffer
 Comma-separated list of items that influence the Lisp indenting when
-enabled with the ['lisp'](#'lisp') option.  Currently only one item is
+enabled with the |'lisp'| option.  Currently only one item is
 supported:
 expr:1	use 'indentexpr' for Lisp indenting when it is set
 expr:0	do not use 'indentexpr' for Lisp indenting (default)
@@ -3755,9 +3755,9 @@ lines, otherwise the first line is not indented (Vi-compatible).
 
 ### <a id="'lispwords' 'lw'" class="section-title" href="#'lispwords' 'lw'">Note:</a>
 'lispwords' 'lw'	string	(default is very long)
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Comma-separated list of words that influence the Lisp indenting when
-enabled with the ['lisp'](#'lisp') option.
+enabled with the |'lisp'| option.
 
 ### <a id="'list' 'nolist'" class="section-title" href="#'list' 'nolist'">Note:</a>
 'list'			boolean	(default off)
@@ -3779,8 +3779,8 @@ changing the way tabs are displayed.
 
 ### <a id="'listchars' 'lcs'" class="section-title" href="#'listchars' 'lcs'">Note:</a>
 'listchars' 'lcs'	string	(default: "tab:> ,trail:-,nbsp:+")
-global or local to window [global-local](#global-local)
-Strings to use in 'list' mode and for the [:list](#:list) command.  It is a
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+Strings to use in 'list' mode and for the |:list| command.  It is a
 comma-separated list of string settings.
 
 ### <a id="lcs-eol" class="section-title" href="#lcs-eol">Note:</a>
@@ -3827,8 +3827,8 @@ combine it with "tab:", for example:
 :set listchars+=tab:>-,lead:.
 ### <a id="lcs-leadmultispace" class="section-title" href="#lcs-leadmultispace">Note:</a>
 leadmultispace:c...
-Like the [lcs-multispace](#lcs-multispace) value, but for leading
-spaces only.  Also overrides [lcs-lead](#lcs-lead) for leading
+Like the [[lcs-multispace](/undefined#lcs-multispace)](/undefined) value, but for leading
+spaces only.  Also overrides [[lcs-lead](/undefined#lcs-lead)](/undefined) for leading
 multiple spaces.
 `:set listchars=leadmultispace:---+` shows ten
 consecutive leading spaces as:
@@ -3871,48 +3871,48 @@ Examples:
 :set lcs=extends:>,precedes:
 ```
 
-[hl-NonText](#hl-NonText) highlighting will be used for "eol", "extends" and
-"precedes". [hl-Whitespace](#hl-Whitespace) for "nbsp", "space", "tab", "multispace",
+[[[[[hl-NonText](/undefined#hl-NonText)](/undefined)](/undefined)](/undefined)](/undefined) highlighting will be used for "eol", "extends" and
+"precedes". [[hl-Whitespace](/undefined#hl-Whitespace)](/undefined) for "nbsp", "space", "tab", "multispace",
 "lead" and "trail".
 
 ### <a id="'lpl' 'nolpl' 'loadplugins' 'noloadplugins'" class="section-title" href="#'lpl' 'nolpl' 'loadplugins' 'noloadplugins'">Note:</a>
 'loadplugins' 'lpl'	boolean	(default on)
 global
-When on the plugin scripts are loaded when starting up [load-plugins](#load-plugins).
-This option can be reset in your [vimrc](#vimrc) file to disable the loading
+When on the plugin scripts are loaded when starting up [[load-plugins](/undefined#load-plugins)](/undefined).
+This option can be reset in your [[vimrc](/undefined#vimrc)](/undefined) file to disable the loading
 of plugins.
 Note that using the "-u NONE" and "--noplugin" command line arguments
-reset this option. [-u| |--noplugin](#-u| |--noplugin)
+reset this option. [[-u](/undefined#-u)](/undefined) [[--noplugin](/undefined#--noplugin)](/undefined)
 
 ### <a id="'magic' 'nomagic'" class="section-title" href="#'magic' 'nomagic'">Note:</a>
 'magic'			boolean	(default on)
 global
 Changes the special characters that can be used in search patterns.
-See [pattern](#pattern).
+See [[[[[[[pattern](/undefined#pattern)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 WARNING: Switching this option off most likely breaks plugins!  That
 is because many patterns assume it's on and will fail when it's off.
 Only switch it off when working with old Vi scripts.  In any other
 situation write patterns that work when 'magic' is on.  Include "\M"
-when you want to [/\M](#/\M).
+when you want to |/\M|.
 
 ### <a id="'makeef' 'mef'" class="section-title" href="#'makeef' 'mef'">Note:</a>
 'makeef' 'mef'		string	(default: "")
 global
-Name of the errorfile for the [:make| command (see |:make_makeprg](#:make| command (see |:make_makeprg))
-and the [:grep](#:grep) command.
+Name of the errorfile for the |:make| command (see |:make_makeprg|)
+and the |:grep| command.
 When it is empty, an internally generated temp file will be used.
 When "##" is included, it is replaced by a number to make the name
 unique.  This makes sure that the ":make" command doesn't overwrite an
 existing file.
 NOT used for the ":cf" command.  See 'errorfile' for that.
-Environment variables are expanded [:set_env](#:set_env).
-See [option-backslash](#option-backslash) about including spaces and backslashes.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+Environment variables are expanded |:set_env|.
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'makeencoding' 'menc'" class="section-title" href="#'makeencoding' 'menc'">Note:</a>
 'makeencoding' 'menc'	string	(default "")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Encoding used for reading the output of external commands.  When empty,
 encoding is not converted.
 This is used for `:make`, `:lmake`, `:grep`, `:lgrep`, `:grepadd`,
@@ -3927,12 +3927,12 @@ setting to the system locale encoding.  Example:
 
 ### <a id="'makeprg' 'mp'" class="section-title" href="#'makeprg' 'mp'">Note:</a>
 'makeprg' 'mp'		string	(default "make")
-global or local to buffer [global-local](#global-local)
-Program to use for the ":make" command.  See [:make_makeprg](#:make_makeprg).
-This option may contain '%' and '#' characters (see  [:_%| and |:_#](#:_%| and |:_#)),
-which are expanded to the current and alternate file name.  Use [::S](#::S)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+Program to use for the ":make" command.  See |:make_makeprg|.
+This option may contain '%' and '#' characters (see  |:_%| and |:_#|),
+which are expanded to the current and alternate file name.  Use |::S|
 to escape file names in case they contain special characters.
-Environment variables are expanded [:set_env|.  See |option-backslash](#:set_env|.  See |option-backslash)
+Environment variables are expanded |:set_env|.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 about including spaces and backslashes.
 Note that a '|' must be escaped twice: once for ":set" and once for
 the interpretation of a command.  When you use a filter called
@@ -3941,13 +3941,13 @@ the interpretation of a command.  When you use a filter called
 The placeholder "$*" can be given (even multiple times) to specify
 where the arguments will be included, for example:
 ### <a id=":set makeprg=latex\ \\\\nonstopmode\ \\\\input\\{$}" class="section-title" href="#:set makeprg=latex\ \\\\nonstopmode\ \\\\input\\{$}">Note:</a>
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'matchpairs' 'mps'" class="section-title" href="#'matchpairs' 'mps'">Note:</a>
 'matchpairs' 'mps'	string	(default "(:),{:},[:]")
 local to buffer
-Characters that form pairs.  The [%](#%) command jumps from one to the
+Characters that form pairs.  The |%| command jumps from one to the
 other.
 Only character pairs are allowed that are different, thus you cannot
 jump between two double quotes.
@@ -3961,7 +3961,7 @@ assignment, useful for languages like C and Java:
 :au FileType c,cpp,java set mps+==:;
 
 For a more advanced way of using "%", see the matchit.vim plugin in
-the $VIMRUNTIME/plugin directory. [add-local-help](#add-local-help)
+the $VIMRUNTIME/plugin directory. [[add-local-help](/undefined#add-local-help)](/undefined)
 
 ### <a id="'matchtime' 'mat'" class="section-title" href="#'matchtime' 'mat'">Note:</a>
 'matchtime' 'mat'	number	(default 5)
@@ -3978,8 +3978,8 @@ catches endless recursion.  When using a recursive function with
 more depth, set 'maxfuncdepth' to a bigger number.  But this will use
 more memory, there is the danger of failing when memory is exhausted.
 Increasing this limit above 200 also changes the maximum for Ex
-command recursion, see [E169](#E169).
-See also [:function](#:function).
+command recursion, see [[E169](/undefined#E169)](/undefined).
+See also |:function|.
 
 ### <a id="'maxmapdepth' 'mmd' E223" class="section-title" href="#'maxmapdepth' 'mmd' E223">Note:</a>
 'maxmapdepth' 'mmd'	number	(default 1000)
@@ -3988,7 +3988,7 @@ Maximum number of times a mapping is done without resulting in a
 character to be used.  This normally catches endless mappings, like
 ":map x y" with ":map y x".  It still does not catch ":map g wg",
 because the 'w' is used before the next mapping is done.  See also
-[key-mapping](#key-mapping).
+[[key-mapping](/undefined#key-mapping)](/undefined).
 
 ### <a id="'maxmempattern' 'mmp'" class="section-title" href="#'maxmempattern' 'mmp'">Note:</a>
 'maxmempattern' 'mmp'	number	(default 1000)
@@ -4016,7 +4016,7 @@ option has no direct effect, the menu must be refreshed first.
 ### <a id="'mkspellmem' 'msm'" class="section-title" href="#'mkspellmem' 'msm'">Note:</a>
 'mkspellmem' 'msm'	string	(default "460000,2000,500")
 global
-Parameters for [:mkspell](#:mkspell).  This tunes when to start compressing the
+Parameters for |:mkspell|.  This tunes when to start compressing the
 word tree.  Compression can be slow when there are many words, but
 it's needed to avoid running out of memory.  The amount of memory used
 per word depends very much on how similar the words are, that's why
@@ -4046,25 +4046,25 @@ The languages for which these numbers are important are Italian and
 Hungarian.  The default works for when you have about 512 Mbyte.  If
 you have 1 Gbyte you could use:
 :set mkspellmem=900000,3000,800
-If you have less than 512 Mbyte [:mkspell](#:mkspell) may fail for some
+If you have less than 512 Mbyte |:mkspell| may fail for some
 languages, no matter what you set 'mkspellmem' to.
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox).
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'modeline' 'ml' 'nomodeline' 'noml'" class="section-title" href="#'modeline' 'ml' 'nomodeline' 'noml'">Note:</a>
 'modeline' 'ml'		boolean	(default: on (off for root))
 local to buffer
 If 'modeline' is on 'modelines' gives the number of lines that is
 checked for set commands.  If 'modeline' is off or 'modelines' is zero
-no lines are checked.  See [modeline](#modeline).
+no lines are checked.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'modelineexpr' 'mle' 'nomodelineexpr' 'nomle'" class="section-title" href="#'modelineexpr' 'mle' 'nomodelineexpr' 'nomle'">Note:</a>
 'modelineexpr' 'mle'	boolean (default: off)
 global
 When on allow some options that are an expression to be set in the
 modeline.  Check the option for whether it is affected by
-'modelineexpr'.  Also see [modeline](#modeline).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+'modelineexpr'.  Also see [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'modelines' 'mls'" class="section-title" href="#'modelines' 'mls'">Note:</a>
@@ -4072,14 +4072,14 @@ security reasons.
 global
 If 'modeline' is on 'modelines' gives the number of lines that is
 checked for set commands.  If 'modeline' is off or 'modelines' is zero
-no lines are checked.  See [modeline](#modeline).
+no lines are checked.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'modifiable' 'ma' 'nomodifiable' 'noma' E21" class="section-title" href="#'modifiable' 'ma' 'nomodifiable' 'noma' E21">Note:</a>
 'modifiable' 'ma'	boolean	(default on)
 local to buffer
 When off the buffer contents cannot be changed.  The 'fileformat' and
 'fileencoding' options also can't be changed.
-Can be reset on startup with the [-M](#-M) command line argument.
+Can be reset on startup with the [[[-M](/undefined#-M)](/undefined)](/undefined) command line argument.
 
 ### <a id="'modified' 'mod' 'nomodified' 'nomod'" class="section-title" href="#'modified' 'mod' 'nomodified' 'nomod'">Note:</a>
 'modified' 'mod'	boolean	(default off)
@@ -4087,7 +4087,7 @@ local to buffer
 When on, the buffer is considered to be modified.  This option is set
 when:
 1. A change was made to the text since it was last written.  Using the
-[undo](#undo) command to go back to the original text will reset the
+[[undo](/undefined#undo)](/undefined) command to go back to the original text will reset the
 option.  But undoing changes that were made before writing the
 buffer will set the option again, since the text is different from
 when it was written.
@@ -4099,7 +4099,7 @@ reset.
 Similarly for 'eol' and 'bomb'.
 This option is not set when a change is made to the buffer as the
 result of a BufNewFile, BufRead/BufReadPost, BufWritePost,
-FileAppendPost or VimLeave autocommand event.  See [gzip-example](#gzip-example) for
+FileAppendPost or VimLeave autocommand event.  See [[gzip-example](/undefined#gzip-example)](/undefined) for
 an explanation.
 When 'buftype' is "nowrite" or "nofile" this option may be set, but
 will be ignored.
@@ -4110,7 +4110,7 @@ when using "rA" on an "A".
 'more'			boolean	(default: on)
 global
 When on, listings pause when the whole screen is filled.  You will get
-the [more-prompt](#more-prompt).  When this option is off there are no pauses, the
+the [[[more-prompt](/undefined#more-prompt)](/undefined)](/undefined).  When this option is off there are no pauses, the
 listing continues until finished.
 
 ### <a id="'mouse'" class="section-title" href="#'mouse'">Note:</a>
@@ -4132,19 +4132,19 @@ i	Insert mode
 c	Command-line mode
 h	all previous modes when editing a help file
 a	all previous modes
-r	for [hit-enter| and |more-prompt](#hit-enter| and |more-prompt) prompt
+r	for [[[[hit-enter](/undefined#hit-enter)](/undefined)](/undefined)](/undefined) and [[[more-prompt](/undefined#more-prompt)](/undefined)](/undefined) prompt
 
 Left-click anywhere in a text buffer to place the cursor there.  This
-works with operators too, e.g. type [d](#d) then left-click to delete text
+works with operators too, e.g. type [[d](/undefined#d)](/undefined) then left-click to delete text
 from the current cursor position to the position where you clicked.
 
-Drag the [status-line](#status-line) or vertical separator of a window to resize it.
+Drag the [[[[[status-line](/undefined#status-line)](/undefined)](/undefined)](/undefined)](/undefined) or vertical separator of a window to resize it.
 
 If enabled for "v" (Visual mode) then double-click selects word-wise,
 triple-click makes it line-wise, and quadruple-click makes it
 rectangular block-wise.
 
-For scrolling with a mouse wheel see [scroll-mouse-wheel](#scroll-mouse-wheel).
+For scrolling with a mouse wheel see [[scroll-mouse-wheel](/undefined#scroll-mouse-wheel)](/undefined).
 
 Note: When enabling the mouse in a terminal, copy/paste will use the
 "* register if possible. See also 'clipboard'.
@@ -4213,10 +4213,10 @@ right drag	    extend selection	-
 middle click	    paste		paste
 
 In the "popup" model the right mouse button produces a pop-up menu.
-Nvim creates a default [popup-menu](#popup-menu) but you can redefine it.
+Nvim creates a default [[[popup-menu](/undefined#popup-menu)](/undefined)](/undefined) but you can redefine it.
 
 Note that you can further refine the meaning of buttons with mappings.
-See [mouse-overview](#mouse-overview).  But mappings are NOT used for modeless selection.
+See [[mouse-overview](/undefined#mouse-overview)](/undefined).  But mappings are NOT used for modeless selection.
 
 Example: 
 ```	   :map <S-LeftMouse>     <RightMouse>
@@ -4238,7 +4238,7 @@ the "g" key before using the mouse:
 "g<LeftMouse>"  is "<C-LeftMouse>	(jump to tag under mouse click)
 "g<RightMouse>" is "<C-RightMouse>	("CTRL-T")
 
-The 'mousemodel' option is set by the [:behave](#:behave) command.
+The 'mousemodel' option is set by the |:behave| command.
 
 ### <a id="'mousemoveevent' 'mousemev'" class="section-title" href="#'mousemoveevent' 'mousemev'">Note:</a>
 'mousemoveevent' 'mousemev'  boolean	(default off)
@@ -4343,7 +4343,7 @@ second click to be recognized as a multi click.
 local to buffer
 This defines what bases Vim will consider for numbers when using the
 CTRL-A and CTRL-X commands for adding to and subtracting from a number
-respectively; see [CTRL-A](#CTRL-A) for more info on these commands.
+respectively; see [[CTRL-A](/undefined#CTRL-A)](/undefined) for more info on these commands.
 alpha	If included, single alphabetical characters will be
 incremented or decremented.  This is useful for a list with a
 letter index a), b), etc.		*octal-nrformats*
@@ -4377,8 +4377,8 @@ line numbers.
 Use the 'numberwidth' option to adjust the room for the line number.
 When a long, wrapped line doesn't start with the first character, '-'
 characters are put before the number.
-For highlighting see [hl-LineNr|, |hl-CursorLineNr](#hl-LineNr|, |hl-CursorLineNr), and the
-[:sign-define](#:sign-define) "numhl" argument.
+For highlighting see [[[hl-LineNr](/undefined#hl-LineNr)](/undefined)](/undefined), [[[[hl-CursorLineNr](/undefined#hl-CursorLineNr)](/undefined)](/undefined)](/undefined), and the
+|:sign-define| "numhl" argument.
 ### <a id="number_relativenumber" class="section-title" href="#number_relativenumber">Note:</a>
 The 'relativenumber' option changes the displayed number to be
 relative to the cursor.  Together with 'number' there are these
@@ -4387,10 +4387,10 @@ four combinations (cursor in line 3):
 'nonu'          'nu'            'nonu'          'nu'
 'nornu'         'nornu'         'rnu'           'rnu'
 
-[apple          |  1 apple      |  2 apple      ](#apple          |  1 apple      |  2 apple      )  2 apple
-[pear           |  2 pear       |  1 pear       ](#pear           |  2 pear       |  1 pear       )  1 pear
-[nobody         |  3 nobody     |  0 nobody     ](#nobody         |  3 nobody     |  0 nobody     )3   nobody
-[there          |  4 there      |  1 there      ](#there          |  4 there      |  1 there      )  1 there
+|apple          |  1 apple      |  2 apple      |  2 apple
+|pear           |  2 pear       |  1 pear       |  1 pear
+|nobody         |  3 nobody     |  0 nobody     |3   nobody
+|there          |  4 there      |  1 there      |  1 there
 
 ### <a id="'numberwidth' 'nuw'" class="section-title" href="#'numberwidth' 'nuw'">Note:</a>
 'numberwidth' 'nuw'	number	(default: 4)
@@ -4410,12 +4410,12 @@ The minimum value is 1, the maximum value is 20.
 'omnifunc' 'ofu'	string	(default: empty)
 local to buffer
 This option specifies a function to be used for Insert mode omni
-completion with CTRL-X CTRL-O. [i_CTRL-X_CTRL-O](#i_CTRL-X_CTRL-O)
-See [complete-functions](#complete-functions) for an explanation of how the function is
+completion with CTRL-X CTRL-O. |i_CTRL-X_CTRL-O|
+See [[[complete-functions](/undefined#complete-functions)](/undefined)](/undefined) for an explanation of how the function is
 invoked and what it should return.
 This option is usually set by a filetype plugin:
-[:filetype-plugin-on](#:filetype-plugin-on)
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+|:filetype-plugin-on|
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 
@@ -4433,29 +4433,29 @@ result in editing a device.
 ### <a id="'operatorfunc' 'opfunc'" class="section-title" href="#'operatorfunc' 'opfunc'">Note:</a>
 'operatorfunc' 'opfunc'	string	(default: empty)
 global
-This option specifies a function to be called by the [g@](#g@) operator.
-See [:map-operator](#:map-operator) for more info and an example.  The value can be
-the name of a function, a [lambda| or a |Funcref](#lambda| or a |Funcref). See
-[option-value-function](#option-value-function) for more information.
+This option specifies a function to be called by the |g@| operator.
+See |:map-operator| for more info and an example.  The value can be
+the name of a function, a [[[lambda](/undefined#lambda)](/undefined)](/undefined) or a [[[Funcref](/undefined#Funcref)](/undefined)](/undefined). See
+[[[option-value-function](/undefined#option-value-function)](/undefined)](/undefined) for more information.
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'packpath' 'pp'" class="section-title" href="#'packpath' 'pp'">Note:</a>
 'packpath' 'pp'		string	(default: see 'runtimepath')
-Directories used to find packages.  See [packages| and |rtp-packages](#packages| and |rtp-packages).
+Directories used to find packages.  See [[packages](/undefined#packages)](/undefined) and [[rtp-packages](/undefined#rtp-packages)](/undefined).
 
 
 ### <a id="'paragraphs' 'para'" class="section-title" href="#'paragraphs' 'para'">Note:</a>
 'paragraphs' 'para'	string	(default "IPLPPPQPP TPHPLIPpLpItpplpipbp")
 global
 Specifies the nroff macros that separate paragraphs.  These are pairs
-of two letters (see [object-motions](#object-motions)).
+of two letters (see [[[object-motions](/undefined#object-motions)](/undefined)](/undefined)).
 
 ### <a id="'paste' 'nopaste'" class="section-title" href="#'paste' 'nopaste'">Note:</a>
 'paste'			boolean	(default off)
 global
-This option is obsolete; [bracketed-paste-mode](#bracketed-paste-mode) is built-in.
+This option is obsolete; [[bracketed-paste-mode](/undefined#bracketed-paste-mode)](/undefined) is built-in.
 
 Put Vim in Paste mode.  This is useful if you want to cut or copy
 some text from one window and paste it in Vim.  This will avoid
@@ -4527,7 +4527,7 @@ When the value has several bytes 'ttimeoutlen' applies.
 'patchexpr' 'pex'	string	(default "")
 global
 Expression which is evaluated to apply a patch to a file and generate
-the resulting new version of the file.  See [diff-patchexpr](#diff-patchexpr).
+the resulting new version of the file.  See [[diff-patchexpr](/undefined#diff-patchexpr)](/undefined).
 
 ### <a id="'patchmode' 'pm' E205 E206" class="section-title" href="#'patchmode' 'pm' E205 E206">Note:</a>
 'patchmode' 'pm'	string	(default "")
@@ -4552,9 +4552,9 @@ Only normal file name characters can be used, "/\*?[|<>" are illegal.
 ### <a id="'path' 'pa' E343 E345 E347 E854" class="section-title" href="#'path' 'pa' E343 E345 E347 E854">Note:</a>
 'path' 'pa'		string	(default on Unix: ".,/usr/include,,"
 other systems: ".,,")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 This is a list of directories which will be searched when using the
-[gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind](#gf|, [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind) and other commands,
+[[[gf](/undefined#gf)](/undefined)](/undefined), [f, ]f, ^Wf, |:find|, |:sfind|, |:tabfind| and other commands,
 provided that the file being searched for has a relative path (not
 starting with "/", "./" or "../").  The directories in the 'path'
 option may be relative or absolute.
@@ -4573,11 +4573,11 @@ backslash:
 commas:
 :set path=,,
 - A directory name may end in a ':' or '/'.
-- Environment variables are expanded [:set_env](#:set_env).
-- When using [netrw.vim](#netrw.vim) URLs can be used.  For example, adding
+- Environment variables are expanded |:set_env|.
+- When using |netrw.vim| URLs can be used.  For example, adding
 "https://www.vim.org" will make ":find index.html" work.
 - Search upwards and downwards in a directory tree using "*", "**" and
-";".  See [file-searching](#file-searching) for info and syntax.
+";".  See [[[[file-searching](/undefined#file-searching)](/undefined)](/undefined)](/undefined) for info and syntax.
 - Careful with '\' characters, type two to get one in the option:
 :set path=.,c:\\include
 Or just use '/' instead:
@@ -4587,8 +4587,8 @@ the file!
 The maximum length is limited.  How much depends on the system, mostly
 it is something like 256 or 1024 characters.
 You can check if all the include files are found, using the value of
-'path', see [:checkpath](#:checkpath).
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+'path', see |:checkpath|.
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 directories from the list.  This avoids problems when a future version
 uses another default.  To remove the current directory use:
 :set path-=
@@ -4606,7 +4606,7 @@ this doesn't work when $INCL contains a comma or white space.
 local to buffer
 When changing the indent of the current line, preserve as much of the
 indent structure as possible.  Normally the indent is replaced by a
-series of tabs followed by spaces as required (unless ['expandtab'](#'expandtab') is
+series of tabs followed by spaces as required (unless |'expandtab'| is
 enabled, in which case only spaces are used).  Enabling this option
 means the indent will preserve as many existing characters as possible
 for indenting, and only add additional tabs or spaces as required.
@@ -4615,13 +4615,13 @@ a Tab.
 NOTE: When using ">>" multiple times the resulting indent is a mix of
 tabs and spaces.  You might not like this.
 Also see 'copyindent'.
-Use [:retab](#:retab) to clean up white space.
+Use |:retab| to clean up white space.
 
 ### <a id="'previewheight' 'pvh'" class="section-title" href="#'previewheight' 'pvh'">Note:</a>
 'previewheight' 'pvh'	number (default 12)
 global
-Default height for a preview window.  Used for [:ptag](#:ptag) and associated
-commands.  Used for [CTRL-W_}](#CTRL-W_}) when no count is given.
+Default height for a preview window.  Used for |:ptag| and associated
+commands.  Used for |CTRL-W_}| when no count is given.
 
 ### <a id="'previewwindow' 'nopreviewwindow'" class="section-title" href="#'previewwindow' 'nopreviewwindow'">Note:</a>
 ### <a id="'pvw' 'nopvw' E590" class="section-title" href="#'pvw' 'nopvw' E590">Note:</a>
@@ -4629,69 +4629,69 @@ commands.  Used for [CTRL-W_}](#CTRL-W_}) when no count is given.
 local to window
 Identifies the preview window.  Only one window can have this option
 set.  It's normally not set directly, but by using one of the commands
-[:ptag|, |:pedit](#:ptag|, |:pedit), etc.
+|:ptag|, |:pedit|, etc.
 
 ### <a id="'printdevice' 'pdev'" class="section-title" href="#'printdevice' 'pdev'">Note:</a>
 'printdevice' 'pdev'	string	(default empty)
 global
-The name of the printer to be used for [:hardcopy](#:hardcopy).
-See [pdev-option](#pdev-option).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+The name of the printer to be used for |:hardcopy|.
+See [[pdev-option](/undefined#pdev-option)](/undefined).
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'printencoding' 'penc'" class="section-title" href="#'printencoding' 'penc'">Note:</a>
 'printencoding' 'penc'	string	(default empty, except for some systems)
 global
 Sets the character encoding used when printing.
-See [penc-option](#penc-option).
+See [[penc-option](/undefined#penc-option)](/undefined).
 
 ### <a id="'printexpr' 'pexpr'" class="section-title" href="#'printexpr' 'pexpr'">Note:</a>
 'printexpr' 'pexpr'	string	(default: see below)
 global
-Expression used to print the PostScript produced with [:hardcopy](#:hardcopy).
-See [pexpr-option](#pexpr-option).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+Expression used to print the PostScript produced with |:hardcopy|.
+See [[pexpr-option](/undefined#pexpr-option)](/undefined).
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'printfont' 'pfn'" class="section-title" href="#'printfont' 'pfn'">Note:</a>
 'printfont' 'pfn'	string	(default "courier")
 global
-The name of the font that will be used for [:hardcopy](#:hardcopy).
-See [pfn-option](#pfn-option).
+The name of the font that will be used for |:hardcopy|.
+See [[pfn-option](/undefined#pfn-option)](/undefined).
 
 ### <a id="'printheader' 'pheader'" class="section-title" href="#'printheader' 'pheader'">Note:</a>
 'printheader' 'pheader'  string  (default "%<%f%h%m%=Page %N")
 global
-The format of the header produced in [:hardcopy](#:hardcopy) output.
-See [pheader-option](#pheader-option).
+The format of the header produced in |:hardcopy| output.
+See [[pheader-option](/undefined#pheader-option)](/undefined).
 
 ### <a id="'printmbcharset' 'pmbcs'" class="section-title" href="#'printmbcharset' 'pmbcs'">Note:</a>
 'printmbcharset' 'pmbcs'  string (default "")
 global
-The CJK character set to be used for CJK output from [:hardcopy](#:hardcopy).
-See [pmbcs-option](#pmbcs-option).
+The CJK character set to be used for CJK output from |:hardcopy|.
+See [[pmbcs-option](/undefined#pmbcs-option)](/undefined).
 
 ### <a id="'printmbfont' 'pmbfn'" class="section-title" href="#'printmbfont' 'pmbfn'">Note:</a>
 'printmbfont' 'pmbfn'	string (default "")
 global
-List of font names to be used for CJK output from [:hardcopy](#:hardcopy).
-See [pmbfn-option](#pmbfn-option).
+List of font names to be used for CJK output from |:hardcopy|.
+See [[pmbfn-option](/undefined#pmbfn-option)](/undefined).
 
 ### <a id="'printoptions' 'popt'" class="section-title" href="#'printoptions' 'popt'">Note:</a>
 'printoptions' 'popt' string (default "")
 global
-List of items that control the format of the output of [:hardcopy](#:hardcopy).
-See [popt-option](#popt-option).
+List of items that control the format of the output of |:hardcopy|.
+See [[popt-option](/undefined#popt-option)](/undefined).
 
 ### <a id="'pumblend' 'pb'" class="section-title" href="#'pumblend' 'pb'">Note:</a>
 'pumblend' 'pb'		number	(default 0)
 global
-Enables pseudo-transparency for the [popup-menu](#popup-menu). Valid values are in
+Enables pseudo-transparency for the [[[popup-menu](/undefined#popup-menu)](/undefined)](/undefined). Valid values are in
 the range of 0 for fully opaque popupmenu (disabled) to 100 for fully
 transparent background. Values between 0-30 are typically most useful.
 
 It is possible to override the level for individual highlights within
-the popupmenu using [highlight-blend](#highlight-blend). For instance, to enable
+the popupmenu using [[highlight-blend](/undefined#highlight-blend)](/undefined). For instance, to enable
 transparency but force the current selected element to be fully opaque:
 
 :set pumblend=15
@@ -4704,12 +4704,12 @@ UI-dependent. Works best with RGB colors. 'termguicolors'
 'pumheight' 'ph'	number	(default 0)
 global
 Maximum number of items to show in the popup menu
-([ins-completion-menu](#ins-completion-menu)). Zero means "use available screen space".
+([[[[[[ins-completion-menu](/undefined#ins-completion-menu)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)). Zero means "use available screen space".
 
 ### <a id="'pumwidth' 'pw'" class="section-title" href="#'pumwidth' 'pw'">Note:</a>
 'pumwidth' 'pw'		number	(default 15)
 global
-Minimum width for the popup menu ([ins-completion-menu](#ins-completion-menu)).  If the
+Minimum width for the popup menu ([[[[[[ins-completion-menu](/undefined#ins-completion-menu)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)).  If the
 cursor column + 'pumwidth' exceeds screen width, the popup menu is
 nudged to fit on the screen.
 
@@ -4717,10 +4717,10 @@ nudged to fit on the screen.
 'pyxversion' 'pyx'	number	(default 3)
 global
 Specifies the python version used for pyx* functions and commands
-[python_x](#python_x).  As only Python 3 is supported, this always has the value
+|python_x|.  As only Python 3 is supported, this always has the value
 `3`. Setting any other value is an error.
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'quickfixtextfunc' 'qftf'" class="section-title" href="#'quickfixtextfunc' 'qftf'">Note:</a>
@@ -4730,19 +4730,19 @@ This option specifies a function to be used to get the text to display
 in the quickfix and location list windows.  This can be used to
 customize the information displayed in the quickfix or location window
 for each entry in the corresponding quickfix or location list.  See
-[quickfix-window-function](#quickfix-window-function) for an explanation of how to write the
+[[quickfix-window-function](/undefined#quickfix-window-function)](/undefined) for an explanation of how to write the
 function and an example.  The value can be the name of a function, a
-[lambda| or a |Funcref|. See |option-value-function](#lambda| or a |Funcref|. See |option-value-function) for more
+[[[lambda](/undefined#lambda)](/undefined)](/undefined) or a [[[Funcref](/undefined#Funcref)](/undefined)](/undefined). See [[[option-value-function](/undefined#option-value-function)](/undefined)](/undefined) for more
 information.
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'quoteescape' 'qe'" class="section-title" href="#'quoteescape' 'qe'">Note:</a>
 'quoteescape' 'qe'	string	(default "\")
 local to buffer
 The characters that are used to escape quotes in a string.  Used for
-objects like a', a" and a` [a'](#a').
+objects like a', a" and a` |a'|.
 When one of the characters in this option is found inside a string,
 the following character will be skipped.  The default value makes the
 text "foo\"bar\\" considered to be one string.
@@ -4792,19 +4792,19 @@ they are unchanged from the already displayed state.
 'redrawtime' 'rdt'	number	(default 2000)
 global
 Time in milliseconds for redrawing the display.  Applies to
-'hlsearch', 'inccommand', [:match](#:match) highlighting and syntax
+'hlsearch', 'inccommand', |:match| highlighting and syntax
 highlighting.
 When redrawing takes more than this many milliseconds no further
 matches will be highlighted.
 For syntax highlighting the time applies per window.  When over the
-limit syntax highlighting is disabled until [CTRL-L](#CTRL-L) is used.
+limit syntax highlighting is disabled until [[CTRL-L](/undefined#CTRL-L)](/undefined) is used.
 This is used to avoid that Vim hangs when using a very complicated
 pattern.
 
 ### <a id="'regexpengine' 're'" class="section-title" href="#'regexpengine' 're'">Note:</a>
 'regexpengine' 're'	number	(default 0)
 global
-This selects the default regexp engine. [two-engines](#two-engines)
+This selects the default regexp engine. [[two-engines](/undefined#two-engines)](/undefined)
 The possible values are:
 0	automatic selection
 1	old engine
@@ -4821,7 +4821,7 @@ a complex pattern with long text.
 'relativenumber' 'rnu'	boolean	(default off)
 local to window
 Show the line number relative to the line with the cursor in front of
-each line. Relative line numbers help you use the [count](#count) you can
+each line. Relative line numbers help you use the [[count](/undefined#count)](/undefined) you can
 precede some vertical motion commands (e.g. j k + -) with, without
 having to calculate it yourself. Especially useful in combination with
 other commands (e.g. y d c < > gq gw =).
@@ -4831,11 +4831,11 @@ The 'numberwidth' option can be used to set the room used for the line
 number.
 When a long, wrapped line doesn't start with the first character, '-'
 characters are put before the number.
-See [hl-LineNr|  and |hl-CursorLineNr](#hl-LineNr|  and |hl-CursorLineNr) for the highlighting used for
+See [[[hl-LineNr](/undefined#hl-LineNr)](/undefined)](/undefined)  and [[[[hl-CursorLineNr](/undefined#hl-CursorLineNr)](/undefined)](/undefined)](/undefined) for the highlighting used for
 the number.
 
 The number in front of the cursor line also depends on the value of
-'number', see [number_relativenumber](#number_relativenumber) for all combinations of the two
+'number', see |number_relativenumber| for all combinations of the two
 options.
 
 ### <a id="'report'" class="section-title" href="#'report'">Note:</a>
@@ -4851,7 +4851,7 @@ instead of the number of lines.
 'revins' 'ri'		boolean	(default off)
 global
 Inserting characters in Insert mode will work backwards.  See "typing
-backwards" [ins-reverse](#ins-reverse).  This option can be toggled with the CTRL-_
+backwards" [[ins-reverse](/undefined#ins-reverse)](/undefined).  This option can be toggled with the CTRL-_
 command in Insert mode, when 'allowrevins' is set.
 This option is reset when 'paste' is set and restored when 'paste' is
 reset.
@@ -4867,7 +4867,7 @@ This option is per window, so it is possible to edit mixed files
 simultaneously, or to view the same file in both ways (this is
 useful whenever you have a mixed text file with both right-to-left
 and left-to-right strings so that both sets are displayed properly
-in different windows).  Also see [rileft.txt](#rileft.txt).
+in different windows).  Also see |rileft.txt|.
 
 ### <a id="'rightleftcmd' 'rlc'" class="section-title" href="#'rightleftcmd' 'rlc'">Note:</a>
 'rightleftcmd' 'rlc'	string	(default "search")
@@ -4906,7 +4906,7 @@ For an empty buffer the line number will also be zero: "0,0-1".
 This option is reset when 'paste' is set and restored when 'paste' is
 reset.
 If you don't want to see the ruler all the time but want to know where
-you are, use "g CTRL-G" [g_CTRL-G](#g_CTRL-G).
+you are, use "g CTRL-G" |g_CTRL-G|.
 
 ### <a id="'rulerformat' 'ruf'" class="section-title" href="#'rulerformat' 'ruf'">Note:</a>
 'rulerformat' 'ruf'	string	(default empty)
@@ -4942,37 +4942,37 @@ $XDG_CONFIG_DIRS[1]/nvim/after,
 $XDG_CONFIG_HOME/nvim/after")
 global
 List of directories to be searched for these runtime files:
-filetype.lua	filetypes [new-filetype](#new-filetype)
-autoload/	automatically loaded scripts [autoload-functions](#autoload-functions)
-colors/	color scheme files [:colorscheme](#:colorscheme)
-compiler/	compiler files [:compiler](#:compiler)
-doc/		documentation [write-local-help](#write-local-help)
-ftplugin/	filetype plugins [write-filetype-plugin](#write-filetype-plugin)
-indent/	indent scripts [indent-expression](#indent-expression)
-keymap/	key mapping files [mbyte-keymap](#mbyte-keymap)
-lang/		menu translations [:menutrans](#:menutrans)
-lua/		[Lua](#Lua) plugins
-menu.vim	GUI menus [menu.vim](#menu.vim)
-pack/		packages [:packadd](#:packadd)
-parser/	[treesitter](#treesitter) syntax parsers
-plugin/	plugin scripts [write-plugin](#write-plugin)
-print/	files for printing [postscript-print-encoding](#postscript-print-encoding)
-query/	[treesitter](#treesitter) queries
-rplugin/	[remote-plugin](#remote-plugin) scripts
-spell/	spell checking files [spell](#spell)
-syntax/	syntax files [mysyntaxfile](#mysyntaxfile)
-tutor/	tutorial files [:Tutor](#:Tutor)
+filetype.lua	filetypes [[new-filetype](/undefined#new-filetype)](/undefined)
+autoload/	automatically loaded scripts [[autoload-functions](/undefined#autoload-functions)](/undefined)
+colors/	color scheme files |:colorscheme|
+compiler/	compiler files |:compiler|
+doc/		documentation [[write-local-help](/undefined#write-local-help)](/undefined)
+ftplugin/	filetype plugins [[write-filetype-plugin](/undefined#write-filetype-plugin)](/undefined)
+indent/	indent scripts [[[[indent-expression](/undefined#indent-expression)](/undefined)](/undefined)](/undefined)
+keymap/	key mapping files [[[mbyte-keymap](/undefined#mbyte-keymap)](/undefined)](/undefined)
+lang/		menu translations |:menutrans|
+lua/		[[Lua](/undefined#Lua)](/undefined) plugins
+menu.vim	GUI menus |menu.vim|
+pack/		packages |:packadd|
+parser/	[[[treesitter](/undefined#treesitter)](/undefined)](/undefined) syntax parsers
+plugin/	plugin scripts [[write-plugin](/undefined#write-plugin)](/undefined)
+print/	files for printing [[postscript-print-encoding](/undefined#postscript-print-encoding)](/undefined)
+query/	[[[treesitter](/undefined#treesitter)](/undefined)](/undefined) queries
+rplugin/	[[remote-plugin](/undefined#remote-plugin)](/undefined) scripts
+spell/	spell checking files [[[[[spell](/undefined#spell)](/undefined)](/undefined)](/undefined)](/undefined)
+syntax/	syntax files [[mysyntaxfile](/undefined#mysyntaxfile)](/undefined)
+tutor/	tutorial files |:Tutor|
 
-And any other file searched for with the [:runtime](#:runtime) command.
+And any other file searched for with the |:runtime| command.
 
 Defaults are setup to search these locations:
 1. Your home directory, for personal preferences.
-Given by `stdpath("config")`.  [$XDG_CONFIG_HOME](#$XDG_CONFIG_HOME)
+Given by `stdpath("config")`.  |$XDG_CONFIG_HOME|
 2. Directories which must contain configuration files according to 
-[xdg](#xdg) ($XDG_CONFIG_DIRS, defaults to /etc/xdg).  This also contains
+[[xdg](/undefined#xdg)](/undefined) ($XDG_CONFIG_DIRS, defaults to /etc/xdg).  This also contains
 preferences from system administrator.
 3. Data home directory, for plugins installed by user.
-Given by `stdpath("data")/site`.  [$XDG_DATA_HOME](#$XDG_DATA_HOME)
+Given by `stdpath("data")/site`.  |$XDG_DATA_HOME|
 4. nvim/site subdirectories for each directory in $XDG_DATA_DIRS.
 This is for plugins which were installed by system administrator,
 but are not part of the Nvim distribution. XDG_DATA_DIRS defaults
@@ -4980,7 +4980,7 @@ to /usr/local/share/:/usr/share/, so system administrators are
 expected to install site plugins to /usr/share/nvim/site.
 5. Session state directory, for state data such as swap, backupdir,
 viewdir, undodir, etc.
-Given by `stdpath("state")`.  [$XDG_STATE_HOME](#$XDG_STATE_HOME)
+Given by `stdpath("state")`.  |$XDG_STATE_HOME|
 6. $VIMRUNTIME, for files distributed with Nvim.
 ### <a id="after-directory" class="section-title" href="#after-directory">Note:</a>
 7, 8, 9, 10. In after/ subdirectories of 1, 2, 3 and 4, with reverse
@@ -4988,16 +4988,16 @@ ordering.  This is for preferences to overrule or add to the
 distributed defaults or system-wide settings (rarely needed).
 
 ### <a id="packages-runtimepath" class="section-title" href="#packages-runtimepath">Note:</a>
-"start" packages will also be searched ([runtime-search-path](#runtime-search-path)) for
+"start" packages will also be searched ([[runtime-search-path](/undefined#runtime-search-path)](/undefined)) for
 runtime files after these, though such packages are not explicitly
 reported in &runtimepath. But "opt" packages are explicitly added to
-&runtimepath by [:packadd](#:packadd).
+&runtimepath by |:packadd|.
 
 Note that, unlike 'path', no wildcards like "**" are allowed.  Normal
 wildcards are allowed, but can significantly slow down searching for
 runtime files.  For speed, use as few items as possible and avoid
 wildcards.
-See [:runtime](#:runtime).
+See |:runtime|.
 Example: 
 ```		:set runtimepath=~/vimruntime,/mygroup/vim,$VIMRUNTIME
 This will use the directory "~/vimruntime" first (containing your
@@ -5007,14 +5007,14 @@ You can put a directory before $VIMRUNTIME to find files which replace
 distributed runtime files.  You can put a directory after $VIMRUNTIME
 to find files which add to distributed runtime files.
 
-With [--clean](#--clean) the home directory entries are not included.
+With [[[--clean](/undefined#--clean)](/undefined)](/undefined) the home directory entries are not included.
 
 ### <a id="'scroll' 'scr'" class="section-title" href="#'scroll' 'scr'">Note:</a>
 'scroll' 'scr'		number	(default: half the window height)
 local to window
 Number of lines to scroll with CTRL-U and CTRL-D commands.  Will be
 set to half the number of lines in the window when the window size
-changes.  This may happen when enabling the [status-line](#status-line) or
+changes.  This may happen when enabling the [[[[[status-line](/undefined#status-line)](/undefined)](/undefined)](/undefined)](/undefined) or
 'tabline' option after setting the 'scroll' option.
 If you give a count to the CTRL-U or CTRL-D command it will
 be used as the new value for 'scroll'.  Reset to half the window
@@ -5026,16 +5026,16 @@ local to buffer
 Maximum number of lines kept beyond the visible screen. Lines at the
 top are deleted if new lines exceed this limit.
 Minimum is 1, maximum is 100000.
-Only in [terminal](#terminal) buffers.
+Only in [[terminal](/undefined#terminal)](/undefined) buffers.
 
 ### <a id="'scrollbind' 'scb' 'noscrollbind' 'noscb'" class="section-title" href="#'scrollbind' 'scb' 'noscrollbind' 'noscb'">Note:</a>
 'scrollbind' 'scb'	boolean  (default off)
 local to window
-See also [scroll-binding](#scroll-binding).  When this option is set, the current
+See also [[[scroll-binding](/undefined#scroll-binding)](/undefined)](/undefined).  When this option is set, the current
 window scrolls as other scrollbind windows (windows that also have
 this option set) scroll.  This option is useful for viewing the
 differences between two versions of a file, see 'diff'.
-See ['scrollopt'](#'scrollopt') for options that determine how this option should be
+See |'scrollopt'| for options that determine how this option should be
 interpreted.
 This option is mostly reset when splitting a window to edit another
 file.  This means that ":split | edit file" results in two windows
@@ -5053,7 +5053,7 @@ height.
 
 ### <a id="'scrolloff' 'so'" class="section-title" href="#'scrolloff' 'so'">Note:</a>
 'scrolloff' 'so'	number	(default 0)
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Minimal number of screen lines to keep above and below the cursor.
 This will make some context visible around where you are working.  If
 you set it to a very large value (999) the cursor line will always be
@@ -5094,7 +5094,7 @@ new relative offset will be used.
 scrolled to keep the same relative offset.  When
 going back to the other window, it still uses the
 same relative offset.
-Also see [scroll-binding](#scroll-binding).
+Also see [[[scroll-binding](/undefined#scroll-binding)](/undefined)](/undefined).
 When 'diff' mode is active there always is vertical scroll binding,
 even when "ver" isn't there.
 
@@ -5102,7 +5102,7 @@ even when "ver" isn't there.
 'sections' 'sect'	string	(default "SHNHH HUnhsh")
 global
 Specifies the nroff macros that separate sections.  These are pairs of
-two letters (See [object-motions](#object-motions)).  The default makes a section start
+two letters (See [[[object-motions](/undefined#object-motions)](/undefined)](/undefined)).  The default makes a section start
 at the nroff macros ".SH", ".NH", ".H", ".HU", ".nh" and ".sh".
 
 ### <a id="'secure' 'nosecure' E523" class="section-title" href="#'secure' 'nosecure' E523">Note:</a>
@@ -5114,8 +5114,8 @@ displayed.  Switch it off only if you know that you will not run into
 problems, or when the 'exrc' option is off.  On Unix this option is
 only used if the ".nvimrc" or ".exrc" is not owned by you.  This can be
 dangerous if the systems allows users to do a "chown".  You better set
-'secure' at the end of your [init.vim](#init.vim) then.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+'secure' at the end of your |init.vim| then.
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'selection' 'sel'" class="section-title" href="#'selection' 'sel'">Note:</a>
@@ -5139,7 +5139,7 @@ Note that when "exclusive" is used and selecting from the end
 backwards, you cannot include the last character of a line, when
 starting in Normal mode and 'virtualedit' empty.
 
-The 'selection' option is set by the [:behave](#:behave) command.
+The 'selection' option is set by the |:behave| command.
 
 ### <a id="'selectmode' 'slm'" class="section-title" href="#'selectmode' 'slm'">Note:</a>
 'selectmode' 'slm'	string	(default "")
@@ -5150,14 +5150,14 @@ Possible values:
 mouse	when using the mouse
 key		when using shifted special keys
 cmd		when using "v", "V" or CTRL-V
-See [Select-mode](#Select-mode).
-The 'selectmode' option is set by the [:behave](#:behave) command.
+See [[Select-mode](/undefined#Select-mode)](/undefined).
+The 'selectmode' option is set by the |:behave| command.
 
 ### <a id="'sessionoptions' 'ssop'" class="section-title" href="#'sessionoptions' 'ssop'">Note:</a>
 'sessionoptions' 'ssop'	string	(default: "blank,buffers,curdir,folds,
 help,tabpages,winsize,terminal")
 global
-Changes the effect of the [:mksession](#:mksession) command.  It is a comma-
+Changes the effect of the |:mksession| command.  It is a comma-
 separated list of words.  Each word enables saving and restoring
 something:
 word		save and restore ~
@@ -5187,8 +5187,8 @@ terminal	include terminal windows where the command can be
 restored
 winpos	position of the whole Vim window
 winsize	window sizes
-slash	[deprecated](#deprecated) Always enabled. Uses "/" in filenames.
-unix		[deprecated](#deprecated) Always enabled. Uses "\n" line endings.
+slash	[[[[[deprecated](/undefined#deprecated)](/undefined)](/undefined)](/undefined)](/undefined) Always enabled. Uses "/" in filenames.
+unix		[[[[[deprecated](/undefined#deprecated)](/undefined)](/undefined)](/undefined)](/undefined) Always enabled. Uses "\n" line endings.
 
 Don't include both "curdir" and "sesdir". When neither is included
 filenames are stored as absolute paths.
@@ -5200,7 +5200,7 @@ Win32:  !,'100,<50,s10,h,rA:,rB:
 others: !,'100,<50,s10,h)
 global
 When non-empty, the shada file is read upon startup and written
-when exiting Vim (see [shada-file](#shada-file)).  The string should be a comma-
+when exiting Vim (see [[[shada-file](/undefined#shada-file)](/undefined)](/undefined)).  The string should be a comma-
 separated list of parameters, each consisting of a single character
 identifying the particular parameter, followed by a number or string
 which specifies the value of that parameter.  If a particular
@@ -5225,7 +5225,7 @@ started with a file name argument, the buffer list is not
 restored.  If Vim is started without a file name argument, the
 buffer list is restored from the shada file.  Quickfix 
 ('buftype'), unlisted ('buflisted'), unnamed and buffers on 
-removable media ([shada-r](#shada-r)) are not saved.
+removable media ([[shada-r](/undefined#shada-r)](/undefined)) are not saved.
 When followed by a number, the number specifies the maximum
 number of buffers that are stored.  Without a number all
 buffers are stored.
@@ -5233,8 +5233,8 @@ buffers are stored.
 '	Maximum number of previously edited files for which the marks
 are remembered.  This parameter must always be included when
 'shada' is non-empty.
-Including this item also means that the [jumplist](#jumplist) and the
-[changelist](#changelist) are stored in the shada file.
+Including this item also means that the [[[jumplist](/undefined#jumplist)](/undefined)](/undefined) and the
+[[[changelist](/undefined#changelist)](/undefined)](/undefined) are stored in the shada file.
 ### <a id="shada-/" class="section-title" href="#shada-/">Note:</a>
 /	Maximum number of items in the search pattern history to be
 saved.  If non-zero, then the previous search and substitute
@@ -5259,7 +5259,7 @@ to UTF-8 as well.
 f	Whether file marks need to be stored.  If zero, file marks ('0
 to '9, 'A to 'Z) are not stored.  When not present or when
 non-zero, they are all stored.  '0 is used for the current
-cursor position (when exiting or when doing [:wshada](#:wshada)).
+cursor position (when exiting or when doing |:wshada|).
 ### <a id="shada-h" class="section-title" href="#shada-h">Note:</a>
 h	Disable the effect of 'hlsearch' when loading the shada
 file.  When not included, it depends on whether ":nohlsearch"
@@ -5305,20 +5305,20 @@ previous search and substitute patterns.
 no %		The buffer list will not be saved nor read back.
 no h		'hlsearch' highlighting will be restored.
 
-When setting 'shada' from an empty value you can use [:rshada](#:rshada) to
+When setting 'shada' from an empty value you can use |:rshada| to
 load the contents of the file, this is not done automatically.
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shadafile' 'sdf'" class="section-title" href="#'shadafile' 'sdf'">Note:</a>
 'shadafile' 'sdf'	string	(default: "")
 global
-When non-empty, overrides the file name used for [shada](#shada) (viminfo).
+When non-empty, overrides the file name used for [[[shada](/undefined#shada)](/undefined)](/undefined) (viminfo).
 When equal to "NONE" no shada file will be read or written.
-This option can be set with the [-i| command line flag.  The |--clean](#-i| command line flag.  The |--clean)
+This option can be set with the [[-i](/undefined#-i)](/undefined) command line flag.  The [[[--clean](/undefined#--clean)](/undefined)](/undefined)
 command line flag sets it to "NONE".
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shell' 'sh' E91" class="section-title" href="#'shell' 'sh' E91">Note:</a>
@@ -5328,14 +5328,14 @@ Name of the shell to use for ! and :! commands.  When changing the
 value also check these options: 'shellpipe', 'shellslash'
 'shellredir', 'shellquote', 'shellxquote' and 'shellcmdflag'.
 It is allowed to give an argument to the command, e.g.  "csh -f".
-See [option-backslash](#option-backslash) about including spaces and backslashes.
-Environment variables are expanded [:set_env](#:set_env).
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
+Environment variables are expanded |:set_env|.
 
 If the name of the shell contains a space, you need to enclose it in
 quotes.  Example with quotes: 
 ```		:set shell=\"c:\program\ files\unix\sh.exe\"\ -f
 Note the backslash before each quote (to avoid starting a comment) and 
-each space (to avoid ending the option value), so better use [:let-&](#:let-&) 
+each space (to avoid ending the option value), so better use |:let-&| 
 like this:
 :let &shell='"C:\Program Files\unix\sh.exe" -f'
 Also note that the "-f" is not inside the quotes, because it is not 
@@ -5357,8 +5357,8 @@ anything else means backslash and next character literally:
 'a"b', '"a\b"' is the same as "a\b" again.
 4. Outside of quotes backslash always means itself, it cannot be used 
 to escape quote: 'a\"b"' is the same as "a\b".
-Note that such processing is done after [:set](#:set) did its own round of 
-unescaping, so to keep yourself sane use [:let-&](#:let-&) like shown above.
+Note that such processing is done after |:set| did its own round of 
+unescaping, so to keep yourself sane use |:let-&| like shown above.
 ### <a id="shell-powershell" class="section-title" href="#shell-powershell">Note:</a>
 To use PowerShell:
 let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
@@ -5367,7 +5367,7 @@ let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 set shellquote= shellxquote=
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shellcmdflag' 'shcf'" class="section-title" href="#'shellcmdflag' 'shcf'">Note:</a>
@@ -5379,18 +5379,18 @@ default is set according to the value of 'shell', to reduce the need
 to set this option by the user.
 On Unix it can have more than one flag.  Each white space separated
 part is passed as an argument to the shell command.
-See [option-backslash](#option-backslash) about including spaces and backslashes.
-See [shell-unquoting](#shell-unquoting) which talks about separating this option into 
+See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes.
+See [[shell-unquoting](/undefined#shell-unquoting)](/undefined) which talks about separating this option into 
 multiple arguments.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shellpipe' 'sp'" class="section-title" href="#'shellpipe' 'sp'">Note:</a>
-'shellpipe' 'sp'	string	(default ">", ">%s 2>&1", "[ tee", "](# tee", ")& tee" or
+'shellpipe' 'sp'	string	(default ">", ">%s 2>&1", "| tee", "|& tee" or
 "2>&1| tee")
 global
 String to be used to put the output of the ":make" command in the
-error file.  See also [:make_makeprg|.  See |option-backslash](#:make_makeprg|.  See |option-backslash) about
+error file.  See also |:make_makeprg|.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about
 including spaces and backslashes.
 The name of the temporary file can be represented by "%s" if necessary
 (the file name is appended automatically if no %s appears in the value
@@ -5415,7 +5415,7 @@ want to include the 'makeef', set 'shellpipe' to a single space.
 Don't forget to precede the space with a backslash: ":set sp=\ ".
 In the future pipes may be used for filtering and this option will
 become obsolete (at least for Unix).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shellquote' 'shq'" class="section-title" href="#'shellquote' 'shq'">Note:</a>
@@ -5431,14 +5431,14 @@ third-party shells on Windows systems, such as the MKS Korn Shell
 or bash, where it should be "\"".  The default is adjusted according
 the value of 'shell', to reduce the need to set this option by the
 user.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shellredir' 'srr'" class="section-title" href="#'shellredir' 'srr'">Note:</a>
 'shellredir' 'srr'	string	(default ">", ">&" or ">%s 2>&1")
 global
 String to be used to put the output of a filter command in a temporary
-file.  See also [:!|.  See |option-backslash](#:!|.  See |option-backslash) about including spaces
+file.  See also |:!|.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces
 and backslashes.
 The name of the temporary file can be represented by "%s" if necessary
 (the file name is appended automatically if no %s appears in the value
@@ -5456,7 +5456,7 @@ there, the 'shellredir' option changes automatically unless it was
 explicitly set before.
 In the future pipes may be used for filtering and this option will
 become obsolete (at least for Unix).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shellslash' 'ssl' 'noshellslash' 'nossl'" class="section-title" href="#'shellslash' 'ssl' 'noshellslash' 'nossl'">Note:</a>
@@ -5484,10 +5484,10 @@ The advantage of using a pipe is that nobody can read the temp file
 and the 'shell' command does not need to support redirection.
 The advantage of using a temp file is that the file type and encoding
 can be detected.
-The [FilterReadPre|, |FilterReadPost| and |FilterWritePre](#FilterReadPre|, |FilterReadPost| and |FilterWritePre),
-[FilterWritePost](#FilterWritePost) autocommands event are not triggered when
+The [[FilterReadPre](/undefined#FilterReadPre)](/undefined), [[FilterReadPost](/undefined#FilterReadPost)](/undefined) and [[FilterWritePre](/undefined#FilterWritePre)](/undefined),
+[[FilterWritePost](/undefined#FilterWritePost)](/undefined) autocommands event are not triggered when
 'shelltemp' is off.
-[system()](#system()) does not respect this option, it always uses pipes.
+|system()| does not respect this option, it always uses pipes.
 
 ### <a id="'shellxescape' 'sxe'" class="section-title" href="#'shellxescape' 'sxe'">Note:</a>
 'shellxescape' 'sxe'	string	(default: "")
@@ -5506,7 +5506,7 @@ to set both options.
 When the value is '(' then ')' is appended. When the value is '"('
 then ')"' is appended.
 When the value is '(' then also see 'shellxescape'.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'shiftround' 'sr' 'noshiftround' 'nosr'" class="section-title" href="#'shiftround' 'sr' 'noshiftround' 'nosr'">Note:</a>
@@ -5522,14 +5522,14 @@ a multiple of 'shiftwidth' (this is Vi compatible).
 'shiftwidth' 'sw'	number	(default 8)
 local to buffer
 Number of spaces to use for each step of (auto)indent.  Used for
-['cindent'|, |>>|, |<<](#'cindent'|, |>>|, |<<), etc.
-When zero the 'ts' value will be used.  Use the [shiftwidth()](#shiftwidth())
+|'cindent'|, |>>|, |<<|, etc.
+When zero the 'ts' value will be used.  Use the |shiftwidth()|
 function to get the effective shiftwidth value.
 
 ### <a id="'shortmess' 'shm'" class="section-title" href="#'shortmess' 'shm'">Note:</a>
 'shortmess' 'shm'	string	(default "filnxtToOF")
 global
-This option helps to avoid all the [hit-enter](#hit-enter) prompts caused by file
+This option helps to avoid all the [[[[hit-enter](/undefined#hit-enter)](/undefined)](/undefined)](/undefined) prompts caused by file
 messages, for example  with CTRL-G, and to avoid some other messages.
 It is a list of flags:
 flag	meaning when present	~
@@ -5561,8 +5561,8 @@ Ignored in Ex mode.
 W	don't give "written" or "[w]" when writing a file
 A	don't give the "ATTENTION" message when an existing swap file
 is found.
-I	don't give the intro message when starting Vim [:intro](#:intro).
-c	don't give [ins-completion-menu](#ins-completion-menu) messages.  For example,
+I	don't give the intro message when starting Vim |:intro|.
+c	don't give [[[[[[ins-completion-menu](/undefined#ins-completion-menu)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) messages.  For example,
 "-- XXX completion (YYY)", "match 1 of 2", "The only match",
 "Pattern not found", "Back at original", etc.
 C	don't give messages while scanning for ins-completion items,
@@ -5584,7 +5584,7 @@ shm=at	Abbreviation, and truncate message when necessary.
 
 ### <a id="'showbreak' 'sbr' E595" class="section-title" href="#'showbreak' 'sbr' E595">Note:</a>
 'showbreak' 'sbr'	string	(default "")
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 String to put at the start of lines that have been wrapped.  Useful
 values are "> " or "+++ ": 
 ```		:set showbreak=>\ 
@@ -5594,7 +5594,7 @@ this:
 Only printable single-cell characters are allowed, excluding <Tab> and
 comma (in a future version the comma might be used to separate the
 part that is shown at the end and at the start of a line).
-The [hl-NonText](#hl-NonText) highlight group determines the highlighting.
+The [[[[[hl-NonText](/undefined#hl-NonText)](/undefined)](/undefined)](/undefined)](/undefined) highlight group determines the highlighting.
 Note that tabs after the showbreak will be displayed differently.
 If you want the 'showbreak' to appear in between line numbers, add the
 "n" flag to 'cpoptions'.
@@ -5620,7 +5620,7 @@ means two characters and six bytes.
 ### <a id="'showfulltag' 'sft' 'noshowfulltag' 'nosft'" class="section-title" href="#'showfulltag' 'sft' 'noshowfulltag' 'nosft'">Note:</a>
 'showfulltag' 'sft'	boolean (default off)
 global
-When completing a word in insert mode (see [ins-completion](#ins-completion)) from the
+When completing a word in insert mode (see [[[[[ins-completion](/undefined#ins-completion)](/undefined)](/undefined)](/undefined)](/undefined)) from the
 tags file, show both the tag name and a tidied-up form of the search
 pattern (if there is one) as possible matches.  Thus, if you have
 matched a C function, you can see a template for what arguments are
@@ -5647,14 +5647,14 @@ The 'matchpairs' option can be used to specify the characters to show
 matches for.  'rightleft' and 'revins' are used to look for opposite
 matches.
 Also see the matchparen plugin for highlighting the match when moving
-around [pi_paren.txt](#pi_paren.txt).
+around |pi_paren.txt|.
 Note: Use of the short form is rated PG.
 
 ### <a id="'showmode' 'smd' 'noshowmode' 'nosmd'" class="section-title" href="#'showmode' 'smd' 'noshowmode' 'nosmd'">Note:</a>
 'showmode' 'smd'	boolean	(default: on)
 global
 If in Insert, Replace or Visual mode put a message on the last line.
-The [hl-ModeMsg](#hl-ModeMsg) highlight group determines the highlighting.
+The [[hl-ModeMsg](/undefined#hl-ModeMsg)](/undefined) highlight group determines the highlighting.
 The option has no effect when 'cmdheight' is zero.
 
 ### <a id="'showtabline' 'stal'" class="section-title" href="#'showtabline' 'stal'">Note:</a>
@@ -5667,7 +5667,7 @@ will be displayed:
 2: always
 This is both for the GUI and non-GUI implementation of the tab pages
 line.
-See [tab-page](#tab-page) for more information about tab pages.
+See [[tab-page](/undefined#tab-page)](/undefined) for more information about tab pages.
 
 ### <a id="'sidescroll' 'ss'" class="section-title" href="#'sidescroll' 'ss'">Note:</a>
 'sidescroll' 'ss'	number	(default 1)
@@ -5680,10 +5680,10 @@ for "zh" and "zl" commands.
 
 ### <a id="'sidescrolloff' 'siso'" class="section-title" href="#'sidescrolloff' 'siso'">Note:</a>
 'sidescrolloff' 'siso'	number (default 0)
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 The minimal number of screen columns to keep to the left and to the
 right of the cursor if 'nowrap' is set.  Setting this option to a
-value greater than 0 while having ['sidescroll'](#'sidescroll') also at a non-zero
+value greater than 0 while having |'sidescroll'| also at a non-zero
 value makes some context visible in the line you are scrolling in
 horizontally (except at beginning of the line).  Setting this option
 to a large value (like 999) has the effect of keeping the cursor
@@ -5748,7 +5748,7 @@ local to buffer
 Do smart autoindenting when starting a new line.  Works for C-like
 programs, but can also be used for other languages.  'cindent' does
 something like this, works better in most cases, but is more strict,
-see [C-indenting](#C-indenting).  When 'cindent' is on or 'indentexpr' is set,
+see [[[[[[[C-indenting](/undefined#C-indenting)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).  When 'cindent' is on or 'indentexpr' is set,
 setting 'si' has no effect.  'indentexpr' is a more advanced
 alternative.
 Normally 'autoindent' should also be on when using 'smartindent'.
@@ -5776,9 +5776,9 @@ When on, a <Tab> in front of a line inserts blanks according to
 line.
 When off, a <Tab> always inserts blanks according to 'tabstop' or
 'softtabstop'.  'shiftwidth' is only used for shifting text left or
-right [shift-left-right](#shift-left-right).
+right [[shift-left-right](/undefined#shift-left-right)](/undefined).
 What gets inserted (a <Tab> or spaces) depends on the 'expandtab'
-option.  Also see [ins-expandtab](#ins-expandtab).  When 'expandtab' is not set, the
+option.  Also see [[[[ins-expandtab](/undefined#ins-expandtab)](/undefined)](/undefined)](/undefined).  When 'expandtab' is not set, the
 number of spaces is minimized by using <Tab>s.
 This option is reset when 'paste' is set and restored when 'paste' is
 reset.
@@ -5796,18 +5796,18 @@ When 'sts' is zero, this feature is off.
 When 'sts' is negative, the value of 'shiftwidth' is used.
 'softtabstop' is set to 0 when the 'paste' option is set and restored
 when 'paste' is reset.
-See also [ins-expandtab](#ins-expandtab).  When 'expandtab' is not set, the number of
+See also [[[[ins-expandtab](/undefined#ins-expandtab)](/undefined)](/undefined)](/undefined).  When 'expandtab' is not set, the number of
 spaces is minimized by using <Tab>s.
 The 'L' flag in 'cpoptions' changes how tabs are used when 'list' is
 set.
 
-The value of 'softtabstop' will be ignored if ['varsofttabstop'](#'varsofttabstop') is set
+The value of 'softtabstop' will be ignored if |'varsofttabstop'| is set
 to anything other than an empty string.
 
 ### <a id="'spell' 'nospell'" class="section-title" href="#'spell' 'nospell'">Note:</a>
 'spell'			boolean	(default off)
 local to window
-When on spell checking will be done.  See [spell](#spell).
+When on spell checking will be done.  See [[[[[spell](/undefined#spell)](/undefined)](/undefined)](/undefined)](/undefined).
 The languages are specified with 'spelllang'.
 
 ### <a id="'spellcapcheck' 'spc'" class="section-title" href="#'spellcapcheck' 'spc'">Note:</a>
@@ -5815,23 +5815,23 @@ The languages are specified with 'spelllang'.
 local to buffer
 Pattern to locate the end of a sentence.  The following word will be
 checked to start with a capital letter.  If not then it is highlighted
-with SpellCap [hl-SpellCap](#hl-SpellCap) (unless the word is also badly spelled).
+with SpellCap [[hl-SpellCap](/undefined#hl-SpellCap)](/undefined) (unless the word is also badly spelled).
 When this check is not wanted make this option empty.
 Only used when 'spell' is set.
-Be careful with special characters, see [option-backslash](#option-backslash) about
+Be careful with special characters, see [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about
 including spaces and backslashes.
 To set this option automatically depending on the language, see
-[set-spc-auto](#set-spc-auto).
+[[[set-spc-auto](/undefined#set-spc-auto)](/undefined)](/undefined).
 
 ### <a id="'spellfile' 'spf'" class="section-title" href="#'spellfile' 'spf'">Note:</a>
 'spellfile' 'spf'	string	(default empty)
 local to buffer
-Name of the word list file where words are added for the [zg| and |zw](#zg| and |zw)
+Name of the word list file where words are added for the [[[zg](/undefined#zg)](/undefined)](/undefined) and [[[zw](/undefined#zw)](/undefined)](/undefined)
 commands.  It must end in ".{encoding}.add".  You need to include the
 path, otherwise the file is placed in the current directory.
 ### <a id="E765" class="section-title" href="#E765">Note:</a>
 It may also be a comma-separated list of names.  A count before the
-[zg| and |zw](#zg| and |zw) commands can be used to access each.  This allows using
+[[[zg](/undefined#zg)](/undefined)](/undefined) and [[[zw](/undefined#zw)](/undefined)](/undefined) commands can be used to access each.  This allows using
 a personal word list file and a project word list file.
 When a word is added while this option is empty Vim will set it for
 you: Using the first directory in 'runtimepath' that is writable.  If
@@ -5844,7 +5844,7 @@ Normally one file is used for all regions, but you can add the region
 name if you want to.  However, it will then only be used when
 'spellfile' is set to it, for entries in 'spelllang' only files
 without region name will be found.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'spelllang' 'spl'" class="section-title" href="#'spelllang' 'spl'">Note:</a>
@@ -5876,16 +5876,16 @@ first "_xx" in the name is removed and used as the region name
 (_xx is an underscore, two letters and followed by a non-letter).
 This is mainly for testing purposes.  You must make sure the correct
 encoding is used, Vim doesn't check it.
-How the related spell files are found is explained here: [spell-load](#spell-load).
+How the related spell files are found is explained here: [[spell-load](/undefined#spell-load)](/undefined).
 
-If the [spellfile.vim](#spellfile.vim) plugin is active and you use a language name
+If the |spellfile.vim| plugin is active and you use a language name
 for which Vim cannot find the .spl file in 'runtimepath' the plugin
 will ask you if you want to download the file.
 
 After this option has been set successfully, Vim will source the files
 "spell/LANG.vim" in 'runtimepath'.  "LANG" is the value of 'spelllang'
 up to the first character that is not an ASCII letter or number and
-not a dash.  Also see [set-spc-auto](#set-spc-auto).
+not a dash.  Also see [[[set-spc-auto](/undefined#set-spc-auto)](/undefined)](/undefined).
 
 ### <a id="'spelloptions' 'spo'" class="section-title" href="#'spelloptions' 'spo'">Note:</a>
 'spelloptions' 'spo'	string	(default "")
@@ -5903,8 +5903,8 @@ this case.
 ### <a id="'spellsuggest' 'sps'" class="section-title" href="#'spellsuggest' 'sps'">Note:</a>
 'spellsuggest' 'sps'	string	(default "best")
 global
-Methods used for spelling suggestions.  Both for the [z=](#z=) command and
-the [spellsuggest()](#spellsuggest()) function.  This is a comma-separated list of
+Methods used for spelling suggestions.  Both for the |z=| command and
+the |spellsuggest()| function.  This is a comma-separated list of
 items:
 
 best		Internal method that works best for English.  Finds
@@ -5922,8 +5922,8 @@ fast		Internal method that only checks for simple changes:
 character inserts/deletes/swaps.  Works well for
 simple typing mistakes.
 
-{number}	The maximum number of suggestions listed for [z=](#z=).
-Not used for [spellsuggest()](#spellsuggest()).  The number of
+{number}	The maximum number of suggestions listed for |z=|.
+Not used for |spellsuggest()|.  The number of
 suggestions is never more than the value of 'lines'
 minus two.
 
@@ -5948,14 +5948,14 @@ mistake.
 The file is used for all languages.
 
 expr:{expr}	Evaluate expression {expr}.  Use a function to avoid
-trouble with spaces.  [v:val](#v:val) holds the badly spelled
+trouble with spaces.  |v:val| holds the badly spelled
 word.  The expression must evaluate to a List of
 Lists, each with a suggestion and a score.
 Example:
 [['the', 33], ['that', 44]] ~
-Set 'verbose' and use [z=](#z=) to see the scores that the
+Set 'verbose' and use |z=| to see the scores that the
 internal methods use.  A lower score is better.
-This may invoke [spellsuggest()](#spellsuggest()) if you temporarily
+This may invoke |spellsuggest()| if you temporarily
 set 'spellsuggest' to exclude the "expr:" part.
 Errors are silently ignored, unless you set the
 'verbose' option to a non-zero value.
@@ -5965,7 +5965,7 @@ appear several times in any order.  Example:
 :set sps=file:~/.config/nvim/sugg,best,expr:MySuggest()
 ```
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 
@@ -5973,7 +5973,7 @@ security reasons.
 'splitbelow' 'sb'	boolean	(default off)
 global
 When on, splitting a window will put the new window below the current
-one. [:split](#:split)
+one. |:split|
 
 ### <a id="'splitkeep' 'spk'" class="section-title" href="#'splitkeep' 'spk'">Note:</a>
 'splitkeep' 'spk'	string	(default "cursor")
@@ -5995,7 +5995,7 @@ be kept on the same screen line when 'wrap' is enabled.
 'splitright' 'spr'	boolean	(default off)
 global
 When on, splitting a window will put the new window right of the
-current one. [:vsplit](#:vsplit)
+current one. |:vsplit|
 
 ### <a id="'startofline' 'sol' 'nostartofline' 'nosol'" class="section-title" href="#'startofline' 'sol' 'nostartofline' 'nosol'">Note:</a>
 'startofline' 'sol'	boolean	(default off)
@@ -6012,9 +6012,9 @@ where it was the last time the buffer was edited.
 
 ### <a id="'statusline' 'stl' E540 E542" class="section-title" href="#'statusline' 'stl' E540 E542">Note:</a>
 'statusline' 'stl'	string	(default empty)
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 When non-empty, this option determines the content of the status line.
-Also see [status-line](#status-line).
+Also see [[[[[status-line](/undefined#status-line)](/undefined)](/undefined)](/undefined)](/undefined).
 
 The option consists of printf style '%' items interspersed with
 normal text.  Each status line item is of the form:
@@ -6025,7 +6025,7 @@ be given as "%%".
 When the option starts with "%!" then it is used as an expression,
 evaluated and the result is used as the option value.  Example: 
 ```		:set statusline=%!MyStatusLine()
-The *g:statusline_winid* variable will be set to the [window-ID](#window-ID) of the
+The *g:statusline_winid* variable will be set to the [[[window-ID](/undefined#window-ID)](/undefined)](/undefined) of the
 window that the status line belongs to.
 The result can contain %{} items that will be evaluated too.
 Note that the "%!" expression is evaluated in the context of the
@@ -6036,7 +6036,7 @@ When there is error while evaluating the option then it will be made
 empty to avoid further errors.  Otherwise screen updating would loop.
 
 Note that the only effect of 'ruler' when this option is set (and
-'laststatus' is 2 or 3) is controlling the output of [CTRL-G](#CTRL-G).
+'laststatus' is 2 or 3) is controlling the output of [[[CTRL-G](/undefined#CTRL-G)](/undefined)](/undefined).
 
 field	    meaning ~
 -	    Left justify the item.  The default is right justified
@@ -6074,7 +6074,7 @@ W F   Preview window flag, text is ",PRV".
 y F   Type of file in the buffer, e.g., "[vim]".  See 'filetype'.
 Y F   Type of file in the buffer, e.g., ",VIM".  See 'filetype'.
 q S   "[Quickfix List]", "[Location List]" or empty.
-k S   Value of "b:keymap_name" or 'keymap' when [:lmap](#:lmap) mappings are
+k S   Value of "b:keymap_name" or 'keymap' when |:lmap| mappings are
 being used: "<keymap>"
 n N   Buffer number.
 b N   Value of character under cursor.
@@ -6088,7 +6088,7 @@ L N   Number of lines in buffer.
 c N   Column number (byte index).
 v N   Virtual column number (screen column).
 V N   Virtual column number as -{num}.  Not displayed if equal to 'c'.
-p N   Percentage through file in lines as in [CTRL-G](#CTRL-G).
+p N   Percentage through file in lines as in [[[CTRL-G](/undefined#CTRL-G)](/undefined)](/undefined).
 P S   Percentage through file of displayed window.  This is like the
 percentage described for 'ruler'.  Always 3 in length, unless
 translated.
@@ -6097,7 +6097,7 @@ Empty if the argument file count is zero or one.
 { NF  Evaluate expression between '%{' and '}' and substitute result.
 Note that there is no '%' before the closing '}'.  The
 expression cannot contain a '}' character, call a function to
-work around that.  See [stl-%{](#stl-%{) below.
+work around that.  See |stl-%{| below.
 {% -  This is almost same as { except the result of the expression is
 re-evaluated as a statusline format string.  Thus if the
 return value of expr contains % items they will get expanded.
@@ -6137,7 +6137,7 @@ for other mouse buttons
 modifier was pressed, "c" for control, "a" for alt and "m" 
 for meta; currently if modifier is not pressed string 
 contains space instead, but one should not rely on presence 
-of spaces or specific order of modifiers: use [stridx()](#stridx()) to 
+of spaces or specific order of modifiers: use |stridx()| to 
 test whether some modifier is present; string is guaranteed 
 to contain only ASCII letters and spaces, one letter per 
 modifier; "?" modifier may also be present, but its presence 
@@ -6157,7 +6157,7 @@ windows.
 ### <a id="minwid field, e.g. %1." class="section-title" href="#minwid field, e.g. %1.">Note:</a>
 The difference between User{N} and StatusLine  will be applied
 to StatusLineNC for the statusline of non-current windows.
-The number N must be between 1 and 9.  See [hl-User1..9](#hl-User1..9)
+The number N must be between 1 and 9.  See |hl-User1..9|
 
 When displaying a flag, Vim removes the leading comma, if any, when
 that flag comes right after plaintext.  This will make a nice display
@@ -6175,15 +6175,15 @@ While evaluating %{} the current buffer and current window will be set
 temporarily to that of the window (and buffer) whose statusline is
 currently being drawn.  The expression will evaluate in this context.
 The variable "g:actual_curbuf" is set to the `bufnr()` number of the
-real current buffer and "g:actual_curwin" to the [window-ID](#window-ID) of the
+real current buffer and "g:actual_curwin" to the [[[window-ID](/undefined#window-ID)](/undefined)](/undefined) of the
 real current window.  These values are strings.
 
-The 'statusline' option will be evaluated in the [sandbox](#sandbox) if set from
-a modeline, see [sandbox-option](#sandbox-option).
+The 'statusline' option will be evaluated in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) if set from
+a modeline, see [[[[[[[[sandbox-option](/undefined#sandbox-option)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 It is not allowed to change text or jump to another window while
-evaluating 'statusline' [textlock](#textlock).
+evaluating 'statusline' [[[[[[textlock](/undefined#textlock)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 If the statusline is not updated when you want it (e.g., after setting
 a variable that's used in an expression), you can force an update by
@@ -6207,13 +6207,13 @@ Display byte count and byte value, modified flag in red.
 :hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
 Display a ,GZ flag if a compressed file is loaded
 :set statusline=...%r%{VarExists('b:gzflag','\ [GZ]')}%h...
-In the [:autocmd](#:autocmd)'s:
+In the |:autocmd|'s:
 :let b:gzflag = 1
 And:
 :unlet b:gzflag
 And define this function:
 :function VarExists(var, val)
-:    if exists(a:var) [ return a:val | else | return '' ](# return a:val | else | return '' ) endif
+:    if exists(a:var) | return a:val | else | return '' | endif
 :endfunction
 ```
 
@@ -6221,13 +6221,13 @@ And define this function:
 'suffixes' 'su'		string	(default ".bak,~,.o,.h,.info,.swp,.obj")
 global
 Files with these suffixes get a lower priority when multiple files
-match a wildcard.  See [suffixes](#suffixes).  Commas can be used to separate the
+match a wildcard.  See [[suffixes](/undefined#suffixes)](/undefined).  Commas can be used to separate the
 suffixes.  Spaces after the comma are ignored.  A dot is also seen as
 the start of a suffix.  To avoid a dot or comma being recognized as a
-separator, precede it with a backslash (see [option-backslash](#option-backslash) about
+separator, precede it with a backslash (see [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about
 including spaces and backslashes).
 See 'wildignore' for completely ignoring files.
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 suffixes from the list.  This avoids problems when a future version
 uses another default.
 
@@ -6248,37 +6248,37 @@ confidential information that even root must not be able to access.
 Careful: All text will be in memory:
 - Don't use this for big files.
 - Recovery will be impossible!
-A swapfile will only be present when ['updatecount'](#'updatecount') is non-zero and
+A swapfile will only be present when |'updatecount'| is non-zero and
 'swapfile' is set.
 When 'swapfile' is reset, the swap file for the current buffer is
 immediately deleted.  When 'swapfile' is set, and 'updatecount' is
 non-zero, a swap file is immediately created.
-Also see [swap-file](#swap-file).
+Also see [[[swap-file](/undefined#swap-file)](/undefined)](/undefined).
 If you want to open a new buffer without creating a swap file for it,
-use the [:noswapfile](#:noswapfile) modifier.
+use the |:noswapfile| modifier.
 See 'directory' for where the swap file is created.
 
 This option is used together with 'bufhidden' and 'buftype' to
-specify special kinds of buffers.   See [special-buffers](#special-buffers).
+specify special kinds of buffers.   See [[[[special-buffers](/undefined#special-buffers)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'switchbuf' 'swb'" class="section-title" href="#'switchbuf' 'swb'">Note:</a>
 'switchbuf' 'swb'	string	(default "uselast")
 global
 This option controls the behavior when switching between buffers.
-Mostly for [quickfix](#quickfix) commands some values are also used for other
+Mostly for [[[[[quickfix](/undefined#quickfix)](/undefined)](/undefined)](/undefined)](/undefined) commands some values are also used for other
 commands, as mentioned below.
 Possible values (comma-separated list):
 useopen	If included, jump to the first open window that
 contains the specified buffer (if there is one).
 Otherwise: Do not examine other windows.
-This setting is checked with [quickfix](#quickfix) commands, when
+This setting is checked with [[[[[quickfix](/undefined#quickfix)](/undefined)](/undefined)](/undefined)](/undefined) commands, when
 jumping to errors (":cc", ":cn", "cp", etc.).  It is
 also used in all buffer related split commands, for
 example ":sbuffer", ":sbnext", or ":sbrewind".
 usetab	Like "useopen", but also consider windows in other tab
 pages.
 split	If included, split the current window before loading
-a buffer for a [quickfix](#quickfix) command that display errors.
+a buffer for a [[[[[quickfix](/undefined#quickfix)](/undefined)](/undefined)](/undefined)](/undefined) command that display errors.
 Otherwise: do not split, use current window (when used
 in the quickfix window: the previously used window or
 split if there is no other window).
@@ -6286,7 +6286,7 @@ vsplit	Just like "split" but split vertically.
 newtab	Like "split", but open a new tab page.  Overrules
 "split" when both are present.
 uselast	If included, jump to the previously used window when
-jumping to errors with [quickfix](#quickfix) commands.
+jumping to errors with [[[[[quickfix](/undefined#quickfix)](/undefined)](/undefined)](/undefined)](/undefined) commands.
 
 ### <a id="'synmaxcol' 'smc'" class="section-title" href="#'synmaxcol' 'smc'">Note:</a>
 'synmaxcol' 'smc'	number	(default 3000)
@@ -6330,7 +6330,7 @@ Only normal file name characters can be used, "/\*?[|<>" are illegal.
 global
 When non-empty, this option determines the content of the tab pages
 line at the top of the Vim window.  When empty Vim will use a default
-tab pages line.  See [setting-tabline](#setting-tabline) for more info.
+tab pages line.  See [[setting-tabline](/undefined#setting-tabline)](/undefined) for more info.
 
 The tab pages line only appears as specified with the 'showtabline'
 option and only when there is no GUI tab line.  When 'e' is in
@@ -6338,12 +6338,12 @@ option and only when there is no GUI tab line.  When 'e' is in
 instead.  Note that the two tab pages lines are very different.
 
 The value is evaluated like with 'statusline'.  You can use
-[tabpagenr()|, |tabpagewinnr()| and |tabpagebuflist()](#tabpagenr()|, |tabpagewinnr()| and |tabpagebuflist()) to figure out
+|tabpagenr()|, |tabpagewinnr()| and |tabpagebuflist()| to figure out
 the text to be displayed.  Use "%1T" for the first label, "%2T" for
 the second one, etc.  Use "%X" items for closing labels.
 
 When changing something that is used in 'tabline' that does not
-trigger it to be updated, use [:redrawtabline](#:redrawtabline).
+trigger it to be updated, use |:redrawtabline|.
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 Keep in mind that only one of the tab pages is the current one, others
@@ -6353,15 +6353,15 @@ are invisible and you can't jump to their windows.
 ### <a id="'tabpagemax' 'tpm'" class="section-title" href="#'tabpagemax' 'tpm'">Note:</a>
 'tabpagemax' 'tpm'	number	(default 50)
 global
-Maximum number of tab pages to be opened by the [-p](#-p) command line
-argument or the ":tab all" command. [tabpage](#tabpage)
+Maximum number of tab pages to be opened by the [[-p](/undefined#-p)](/undefined) command line
+argument or the ":tab all" command. [[tabpage](/undefined#tabpage)](/undefined)
 
 
 ### <a id="'tabstop' 'ts'" class="section-title" href="#'tabstop' 'ts'">Note:</a>
 'tabstop' 'ts'		number	(default 8)
 local to buffer
 Number of spaces that a <Tab> in the file counts for.  Also see
-the [:retab](#:retab) command, and the 'softtabstop' option.
+the |:retab| command, and the 'softtabstop' option.
 
 Note: Setting 'tabstop' to any other value than 8 can make your file
 appear wrong in many places, e.g., when printing it.
@@ -6376,7 +6376,7 @@ behave like a tab appears every 4 (or 3) characters.
 'expandtab'.  This way you will always insert spaces.  The
 formatting will never be messed up when 'tabstop' is changed.
 3. Set 'tabstop' and 'shiftwidth' to whatever you prefer and use a
-[modeline](#modeline) to set these values when editing the file again.  Only
+[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) to set these values when editing the file again.  Only
 works when using Vim to edit the file.
 4. Always set 'tabstop' and 'shiftwidth' to the same value, and
 'noexpandtab'.  This should then work (for initial indents only)
@@ -6385,13 +6385,13 @@ tabs after the first non-blank inserted as spaces if you do this
 though.  Otherwise aligned comments will be wrong when 'tabstop' is
 changed.
 
-The value of 'tabstop' will be ignored if ['vartabstop'](#'vartabstop') is set to
+The value of 'tabstop' will be ignored if |'vartabstop'| is set to
 anything other than an empty string.
 
 ### <a id="'tagbsearch' 'tbs' 'notagbsearch' 'notbs'" class="section-title" href="#'tagbsearch' 'tbs' 'notagbsearch' 'notbs'">Note:</a>
 'tagbsearch' 'tbs'	boolean	(default on)
 global
-When searching for a tag (e.g., for the [:ta](#:ta) command), Vim can either
+When searching for a tag (e.g., for the |:ta| command), Vim can either
 use a binary search or a linear search in a tags file.  Binary
 searching makes searching for a tag a LOT faster, but a linear search
 will find more tags if the tags file wasn't properly sorted.
@@ -6442,7 +6442,7 @@ command-line completion and ":help").
 
 ### <a id="'tagcase' 'tc'" class="section-title" href="#'tagcase' 'tc'">Note:</a>
 'tagcase' 'tc'		string	(default "followic")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 This option specifies how case is handled when searching the tags
 file:
 followic	Follow the 'ignorecase' option
@@ -6456,7 +6456,7 @@ smart	Ignore case unless an upper case letter is used
 local to buffer
 This option specifies a function to be used to perform tag searches.
 The function gets the tag pattern and should return a List of matching
-tags.  See [tag-function](#tag-function) for an explanation of how to write the
+tags.  See [[tag-function](/undefined#tag-function)](/undefined) for an explanation of how to write the
 function and an example.
 
 ### <a id="'taglength' 'tl'" class="section-title" href="#'taglength' 'tl'">Note:</a>
@@ -6472,29 +6472,29 @@ tags file are relative to the directory where the tags file is.
 
 ### <a id="'tags' 'tag' E433" class="section-title" href="#'tags' 'tag' E433">Note:</a>
 'tags' 'tag'		string	(default "./tags;,tags")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Filenames for the tag command, separated by spaces or commas.  To
 include a space or comma in a file name, precede it with a backslash
-(see [option-backslash](#option-backslash) about including spaces and backslashes).
+(see [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about including spaces and backslashes).
 When a file name starts with "./", the '.' is replaced with the path
 of the current file.  But only when the 'd' flag is not included in
-'cpoptions'.  Environment variables are expanded [:set_env](#:set_env).  Also see
-[tags-option](#tags-option).
+'cpoptions'.  Environment variables are expanded |:set_env|.  Also see
+[[tags-option](/undefined#tags-option)](/undefined).
 "*", "**" and other wildcards can be used to search for tags files in
-a directory tree.  See [file-searching](#file-searching).  E.g., "/lib/**/tags" will
+a directory tree.  See [[[[file-searching](/undefined#file-searching)](/undefined)](/undefined)](/undefined).  E.g., "/lib/**/tags" will
 find all files named "tags" below "/lib".  The filename itself cannot
 ### <a id="E.g., "/lib//tags?" will find" class="section-title" href="#E.g., "/lib//tags?" will find">	contain wildcards, it is used as-is.</a>
 files called "tags?".
-The [tagfiles()](#tagfiles()) function can be used to get a list of the file names
+The |tagfiles()| function can be used to get a list of the file names
 actually used.
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 file names from the list.  This avoids problems when a future version
 uses another default.
 
 ### <a id="'tagstack' 'tgst' 'notagstack' 'notgst'" class="section-title" href="#'tagstack' 'tgst' 'notagstack' 'notgst'">Note:</a>
 'tagstack' 'tgst'	boolean	(default on)
 global
-When on, the [tagstack](#tagstack) is used normally.  When off, a ":tag" or
+When on, the [[tagstack](/undefined#tagstack)](/undefined) is used normally.  When off, a ":tag" or
 ":tselect" command with an argument will not push the tag onto the
 tagstack.  A following ":tag" without an argument, a ":pop" command or
 any other command that uses the tagstack will use the unmodified
@@ -6513,13 +6513,13 @@ Setting this option implies that 'rightleft' will not be set when
 'arabic' is set and the value of 'arabicshape' will be ignored.
 Note that setting 'termbidi' has the immediate effect that
 'arabicshape' is ignored, but 'rightleft' isn't changed automatically.
-For further details see [arabic.txt](#arabic.txt).
+For further details see |arabic.txt|.
 
 ### <a id="'termguicolors' 'tgc' 'notermguicolors' 'notgc'" class="section-title" href="#'termguicolors' 'tgc' 'notermguicolors' 'notgc'">Note:</a>
 'termguicolors' 'tgc'	boolean (default off)
 global
-Enables 24-bit RGB color in the [TUI|.  Uses "gui" |:highlight](#TUI|.  Uses "gui" |:highlight)
-attributes instead of "cterm" attributes. [guifg](#guifg)
+Enables 24-bit RGB color in the [[[[[TUI](/undefined#TUI)](/undefined)](/undefined)](/undefined)](/undefined).  Uses "gui" |:highlight|
+attributes instead of "cterm" attributes. [[[guifg](/undefined#guifg)](/undefined)](/undefined)
 Requires an ISO-8613-3 compatible terminal.
 
 ### <a id="'termpastefilter' 'tpf'" class="section-title" href="#'termpastefilter' 'tpf'">Note:</a>
@@ -6554,34 +6554,34 @@ this.
 'textwidth' is set to 0 when the 'paste' option is set and restored
 when 'paste' is reset.
 When 'textwidth' is zero, 'wrapmargin' may be used.  See also
-'formatoptions' and [ins-textwidth](#ins-textwidth).
+'formatoptions' and [[[ins-textwidth](/undefined#ins-textwidth)](/undefined)](/undefined).
 When 'formatexpr' is set it will be used to break the line.
 
 ### <a id="'thesaurus' 'tsr'" class="section-title" href="#'thesaurus' 'tsr'">Note:</a>
 'thesaurus' 'tsr'	string	(default "")
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 List of file names, separated by commas, that are used to lookup words
-for thesaurus completion commands [i_CTRL-X_CTRL-T](#i_CTRL-X_CTRL-T).  See
-[compl-thesaurus](#compl-thesaurus).
+for thesaurus completion commands |i_CTRL-X_CTRL-T|.  See
+[[compl-thesaurus](/undefined#compl-thesaurus)](/undefined).
 
 This option is not used if 'thesaurusfunc' is set, either for the
 buffer or globally.
 
 To include a comma in a file name precede it with a backslash.  Spaces
 after a comma are ignored, otherwise spaces are included in the file
-name.  See [option-backslash](#option-backslash) about using backslashes.  The use of
-[:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing directories
+name.  See [[[[[[[[[[[[[[[[[[[[[[[[[[[option-backslash](/undefined#option-backslash)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) about using backslashes.  The use of
+|:set+=| and |:set-=| is preferred when adding or removing directories
 from the list.  This avoids problems when a future version uses
 another default.  Backticks cannot be used in this option for security
 reasons.
 
 ### <a id="'thesaurusfunc' 'tsrfu'" class="section-title" href="#'thesaurusfunc' 'tsrfu'">Note:</a>
 'thesaurusfunc' 'tsrfu'	string	(default: empty)
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 This option specifies a function to be used for thesaurus completion
-with CTRL-X CTRL-T. [i_CTRL-X_CTRL-T| See |compl-thesaurusfunc](#i_CTRL-X_CTRL-T| See |compl-thesaurusfunc).
+with CTRL-X CTRL-T. |i_CTRL-X_CTRL-T| See [[compl-thesaurusfunc](/undefined#compl-thesaurusfunc)](/undefined).
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'tildeop' 'top' 'notildeop' 'notop'" class="section-title" href="#'tildeop' 'top' 'notildeop' 'notop'">Note:</a>
@@ -6601,7 +6601,7 @@ for any key that can follow <c-f> in a mapping.
 'ttimeout'		boolean (default on)
 global
 This option and 'ttimeoutlen' determine the behavior when part of a
-key code sequence has been received by the [TUI](#TUI).
+key code sequence has been received by the [[[[[TUI](/undefined#TUI)](/undefined)](/undefined)](/undefined)](/undefined).
 
 For example if <Esc> (the \x1b byte) is received and 'ttimeout' is
 set, Nvim waits 'ttimeoutlen' milliseconds for the terminal to
@@ -6637,7 +6637,7 @@ filename	the name of the file being edited
 =		indicates the file is read-only
 =+		indicates the file is read-only and modified
 (path)		is the path of the file being edited
-- NVIM		the server name [v:servername](#v:servername) or "NVIM"
+- NVIM		the server name |v:servername| or "NVIM"
 
 ### <a id="'titlelen'" class="section-title" href="#'titlelen'">Note:</a>
 'titlelen'		number	(default 85)
@@ -6657,7 +6657,7 @@ values from 1 to 30000 percent can be used.
 global
 If not empty, this option will be used to set the window title when
 exiting.  Only if 'title' is enabled.
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 ### <a id="'titlestring'" class="section-title" href="#'titlestring'">Note:</a>
 'titlestring'		string	(default "")
@@ -6698,8 +6698,8 @@ the list.
 When reading all entries are tried to find an undo file.  The first
 undo file that exists is used.  When it cannot be read an error is
 given, no further entry is used.
-See [undo-persistence](#undo-persistence).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+See [[[undo-persistence](/undefined#undo-persistence)](/undefined)](/undefined).
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 Note that unlike 'directory' and 'backupdir', 'undodir' always acts as
@@ -6713,14 +6713,14 @@ When on, Vim automatically saves undo history to an undo file when
 writing a buffer to a file, and restores undo history from the same
 file on buffer read.
 The directory where the undo file is stored is specified by 'undodir'.
-For more information about this feature see [undo-persistence](#undo-persistence).
+For more information about this feature see [[[undo-persistence](/undefined#undo-persistence)](/undefined)](/undefined).
 The undo file is not read when 'undoreload' causes the buffer from
 before a reload to be saved for undo.
 When 'undofile' is turned off the undo file is NOT deleted.
 
 ### <a id="'undolevels' 'ul'" class="section-title" href="#'undolevels' 'ul'">Note:</a>
 'undolevels' 'ul'	number	(default 1000)
-global or local to buffer [global-local](#global-local)
+global or local to buffer [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 Maximum number of changes that can be undone.  Since undo information
 is kept in memory, higher numbers will cause more memory to be used.
 Nevertheless, a single change can already use a large amount of memory.
@@ -6729,7 +6729,7 @@ itself:
 set ul=0
 But you can also get Vi compatibility by including the 'u' flag in
 'cpoptions', and still be able to use CTRL-R to repeat undo.
-Also see [undo-two-ways](#undo-two-ways).
+Also see [[[undo-two-ways](/undefined#undo-two-ways)](/undefined)](/undefined).
 Set to -1 for no undo at all.  You might want to do this only for the
 current buffer:
 setlocal ul=-1
@@ -6737,14 +6737,14 @@ This helps when you run out of memory for a single change.
 
 The local value is set to -123456 when the global value is to be used.
 
-Also see [clear-undo](#clear-undo).
+Also see [[clear-undo](/undefined#clear-undo)](/undefined).
 
 ### <a id="'undoreload' 'ur'" class="section-title" href="#'undoreload' 'ur'">Note:</a>
 'undoreload' 'ur'	number	(default 10000)
 global
 Save the whole buffer for undo when reloading it.  This applies to the
 ":e!" command and reloading for when the buffer changed outside of
-Vim. [FileChangedShell](#FileChangedShell)
+Vim. [[FileChangedShell](/undefined#FileChangedShell)](/undefined)
 The save only happens when this option is negative or when the number
 of lines is smaller than the value of this option.
 Set this option to zero to disable undo for a reload.
@@ -6759,22 +6759,22 @@ this option to a lower value if you run out of memory.
 global
 After typing this many characters the swap file will be written to
 disk.  When zero, no swap file will be created at all (see chapter on
-recovery [crash-recovery](#crash-recovery)).  'updatecount' is set to zero by starting
-Vim with the "-n" option, see [startup](#startup).  When editing in readonly
+recovery [[[crash-recovery](/undefined#crash-recovery)](/undefined)](/undefined)).  'updatecount' is set to zero by starting
+Vim with the "-n" option, see [[startup](/undefined#startup)](/undefined).  When editing in readonly
 mode this option will be initialized to 10000.
-The swapfile can be disabled per buffer with ['swapfile'](#'swapfile').
+The swapfile can be disabled per buffer with |'swapfile'|.
 When 'updatecount' is set from zero to non-zero, swap files are
 created for all buffers that have 'swapfile' set.  When 'updatecount'
 is set to zero, existing swap files are not deleted.
-This option has no meaning in buffers where ['buftype'](#'buftype') is "nofile"
+This option has no meaning in buffers where |'buftype'| is "nofile"
 or "nowrite".
 
 ### <a id="'updatetime' 'ut'" class="section-title" href="#'updatetime' 'ut'">Note:</a>
 'updatetime' 'ut'	number	(default 4000)
 global
 If this many milliseconds nothing is typed the swap file will be
-written to disk (see [crash-recovery](#crash-recovery)).  Also used for the
-[CursorHold](#CursorHold) autocommand event.
+written to disk (see [[[crash-recovery](/undefined#crash-recovery)](/undefined)](/undefined)).  Also used for the
+[[[CursorHold](/undefined#CursorHold)](/undefined)](/undefined) autocommand event.
 
 ### <a id="'varsofttabstop' 'vsts'" class="section-title" href="#'varsofttabstop' 'vsts'">Note:</a>
 'varsofttabstop' 'vsts'	string	(default "")
@@ -6792,7 +6792,7 @@ to use the following:
 This will set soft tabstops with 8 and 8 + 32 spaces, and 8 more
 for every column thereafter.
 
-Note that the value of ['softtabstop'](#'softtabstop') will be ignored while
+Note that the value of |'softtabstop'| will be ignored while
 'varsofttabstop' is set.
 
 ### <a id="'vartabstop' 'vts'" class="section-title" href="#'vartabstop' 'vts'">Note:</a>
@@ -6805,13 +6805,13 @@ final value applying to all subsequent tabs. For example:
 This will make the first tab 4 spaces wide, the second 20 spaces,
 the third 10 spaces, and all following tabs 8 spaces.
 
-Note that the value of ['tabstop'](#'tabstop') will be ignored while 'vartabstop'
+Note that the value of |'tabstop'| will be ignored while 'vartabstop'
 is set.
 
 ### <a id="'verbose' 'vbs'" class="section-title" href="#'verbose' 'vbs'">Note:</a>
 'verbose' 'vbs'		number	(default 0)
 global
-Sets the verbosity level.  Also set by [-V| and |:verbose](#-V| and |:verbose).
+Sets the verbosity level.  Also set by [[-V](/undefined#-V)](/undefined) and |:verbose|.
 
 Tracing of options in Lua scripts is activated at level 1; Lua scripts
 are not traced with verbose=0, for performance.
@@ -6822,7 +6822,7 @@ messages:
 Level   Messages ~
 ----------------------------------------------------------------------
 1	Lua assignments to options, mappings, etc.
-2	When a file is ":source"'ed, or [shada](#shada) file is read or written.
+2	When a file is ":source"'ed, or [[[shada](/undefined#shada)](/undefined)](/undefined) file is read or written.
 3	UI info, terminal capabilities.
 4	Shell commands.
 5	Every searched tags file and include file.
@@ -6845,35 +6845,35 @@ When the file exists messages are appended.
 Writing to the file ends when Vim exits or when 'verbosefile' is made
 empty.  Writes are buffered, thus may not show up for some time.
 Setting 'verbosefile' to a new value is like making it empty first.
-The difference with [:redir](#:redir) is that verbose messages are not
+The difference with |:redir| is that verbose messages are not
 displayed when 'verbosefile' is set.
 
 ### <a id="'viewdir' 'vdir'" class="section-title" href="#'viewdir' 'vdir'">Note:</a>
 'viewdir' 'vdir'	string	(default: "$XDG_STATE_HOME/nvim/view//")
 global
-Name of the directory where to store files for [:mkview](#:mkview).
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+Name of the directory where to store files for |:mkview|.
+This option cannot be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or in the [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[sandbox](/undefined#sandbox)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined), for
 security reasons.
 
 ### <a id="'viewoptions' 'vop'" class="section-title" href="#'viewoptions' 'vop'">Note:</a>
 'viewoptions' 'vop'	string	(default: "folds,cursor,curdir")
 global
-Changes the effect of the [:mkview](#:mkview) command.  It is a comma-separated
+Changes the effect of the |:mkview| command.  It is a comma-separated
 list of words.  Each word enables saving and restoring something:
 word		save and restore ~
 cursor	cursor position in file and in window
-curdir	local current directory, if set with [:lcd](#:lcd)
+curdir	local current directory, if set with |:lcd|
 folds	manually created folds, opened/closed folds and local
 fold options
 options	options and mappings local to a window or buffer (not
 global values for local options)
 localoptions same as "options"
-slash	[deprecated](#deprecated) Always enabled. Uses "/" in filenames.
-unix		[deprecated](#deprecated) Always enabled. Uses "\n" line endings.
+slash	[[[[[deprecated](/undefined#deprecated)](/undefined)](/undefined)](/undefined)](/undefined) Always enabled. Uses "/" in filenames.
+unix		[[[[[deprecated](/undefined#deprecated)](/undefined)](/undefined)](/undefined)](/undefined) Always enabled. Uses "\n" line endings.
 
 ### <a id="'virtualedit' 've'" class="section-title" href="#'virtualedit' 've'">Note:</a>
 'virtualedit' 've'	string	(default "")
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 A comma-separated list of these words:
 block	Allow virtual editing in Visual block mode.
 insert	Allow virtual editing in Insert mode.
@@ -6892,7 +6892,7 @@ editing a table.
 after the last character of the line.  This makes some commands more
 consistent.  Previously the cursor was always past the end of the line
 if the line was empty.  But it is far from Vi compatible.  It may also
-break some plugins or Vim scripts.  For example because [l](#l) can move
+break some plugins or Vim scripts.  For example because [[l](/undefined#l)](/undefined) can move
 the cursor after the last character.  Use with care!
 Using the `$` command will move to the last character in the line, not
 past it.  This may actually move the cursor to the left!
@@ -6947,7 +6947,7 @@ makes "dl", "cl", "yl" etc. work normally.
 global
 Character you have to type to start wildcard expansion in the
 command-line, as specified with 'wildmode'.
-More info here: [cmdline-completion](#cmdline-completion).
+More info here: [[[[[[cmdline-completion](/undefined#cmdline-completion)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 The character is not recognized when used inside a macro.  See
 'wildcharm' for that.
 Some keys will not work, such as CTRL-C, <CR> and Enter.
@@ -6961,7 +6961,7 @@ Although 'wc' is a number option, you can set it to a special key:
 global
 'wildcharm' works exactly like 'wildchar', except that it is
 recognized when used inside a macro.  You can find "spare" command-line
-keys suitable for this option by looking at [ex-edit-index](#ex-edit-index).  Normally
+keys suitable for this option by looking at [[ex-edit-index](/undefined#ex-edit-index)](/undefined).  Normally
 you'll never actually type 'wildcharm', just use it in mappings that
 automatically invoke completion mode, e.g.: 
 ```		:set wcm=<C-Z>
@@ -6972,14 +6972,14 @@ Then after typing :ss you can use CTRL-P & CTRL-N.
 'wildignore' 'wig'	string	(default "")
 global
 A list of file patterns.  A file that matches with one of these
-patterns is ignored when expanding [wildcards](#wildcards), completing file or
-directory names, and influences the result of [expand()|, |glob()](#expand()|, |glob()) and
-[globpath()](#globpath()) unless a flag is passed to disable this.
-The pattern is used like with [:autocmd|, see |autocmd-pattern](#:autocmd|, see |autocmd-pattern).
+patterns is ignored when expanding [[wildcards](/undefined#wildcards)](/undefined), completing file or
+directory names, and influences the result of |expand()|, |glob()| and
+|globpath()| unless a flag is passed to disable this.
+The pattern is used like with |:autocmd|, see [[[autocmd-pattern](/undefined#autocmd-pattern)](/undefined)](/undefined).
 Also see 'suffixes'.
 Example:
 ### <a id=":set wildignore=.o,.obj" class="section-title" href="#:set wildignore=.o,.obj">Note:</a>
-The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of |:set+=| and |:set-=| is preferred when adding or removing
 a pattern from the list.  This avoids problems when a future version
 uses another default.
 
@@ -7006,7 +7006,7 @@ line, if there is one).
 Keys that show the previous/next match, such as <Tab> or
 CTRL-P/CTRL-N, cause the highlight to move to the appropriate match.
 'wildmode' must specify "full": "longest" and "list" do not start
-'wildmenu' mode. You can check the current mode with [wildmenumode()](#wildmenumode()).
+'wildmenu' mode. You can check the current mode with |wildmenumode()|.
 The menu is cancelled when a key is hit that is not used for selecting
 a completion.
 
@@ -7030,7 +7030,7 @@ a different match, use this:
 :cnoremap <Right> <Space><BS><Right>
 ```
 
-[hl-WildMenu](#hl-WildMenu) highlights the current match.
+[[hl-WildMenu](/undefined#hl-WildMenu)](/undefined) highlights the current match.
 
 ### <a id="'wildmode' 'wim'" class="section-title" href="#'wildmode' 'wim'">Note:</a>
 'wildmode' 'wim'	string	(default: "full")
@@ -7077,15 +7077,15 @@ List all matches and complete each full match
 List all matches without completing, then each full match
 :set wildmode=longest,list
 Complete longest common string, then list alternatives.
-More info here: [cmdline-completion](#cmdline-completion).
+More info here: [[[[[[cmdline-completion](/undefined#cmdline-completion)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="'wildoptions' 'wop'" class="section-title" href="#'wildoptions' 'wop'">Note:</a>
 'wildoptions' 'wop'	string	(default "pum,tagfile")
 global
-A list of words that change how [cmdline-completion](#cmdline-completion) is done.
+A list of words that change how [[[[[[cmdline-completion](/undefined#cmdline-completion)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) is done.
 The following values are supported:
 pum		Display the completion matches using the popup menu
-in the same style as the [ins-completion-menu](#ins-completion-menu).
+in the same style as the [[[[[[ins-completion-menu](/undefined#ins-completion-menu)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 tagfile	When using CTRL-D to list matching tags, the kind of
 tag and the file of the tag is listed.	Only one match
 is displayed per line.  Often used tag kinds are:
@@ -7113,14 +7113,14 @@ This option is not used for <F10>; on Win32.
 
 ### <a id="'winbar' 'wbr'" class="section-title" href="#'winbar' 'wbr'">Note:</a>
 'winbar' 'wbr'		string (default empty)
-global or local to window [global-local](#global-local)
+global or local to window [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[global-local](/undefined#global-local)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 When non-empty, this option enables the window bar and determines its
 contents. The window bar is a bar that's shown at the top of every
 window with it enabled. The value of 'winbar' is evaluated like with
 'statusline'.
 
 When changing something that is used in 'winbar' that does not trigger
-it to be updated, use [:redrawstatus](#:redrawstatus).
+it to be updated, use |:redrawstatus|.
 
 Floating windows do not use the global value of 'winbar'. The
 window-local value of 'winbar' must be set for a floating window to
@@ -7140,7 +7140,7 @@ UI-dependent. Works best with RGB colors. 'termguicolors'
 ### <a id="'window' 'wi'" class="section-title" href="#'window' 'wi'">Note:</a>
 'window' 'wi'		number  (default screen height - 1)
 global
-Window height used for [CTRL-F| and |CTRL-B](#CTRL-F| and |CTRL-B) when there is only one
+Window height used for [[CTRL-F](/undefined#CTRL-F)](/undefined) and [[CTRL-B](/undefined#CTRL-B)](/undefined) when there is only one
 window and the value is smaller than 'lines' minus one.  The screen
 will scroll 'window' minus two lines, with a minimum of one.
 When 'window' is equal to 'lines' minus one CTRL-F and CTRL-B scroll
@@ -7162,7 +7162,7 @@ Set it to 999 to make the current window fill most of the screen.
 Other windows will be only 'winminheight' high.  This has the drawback
 that ":all" will create only two windows.  To avoid "vim -o 1 2 3 4"
 to create only two windows, set the option after startup is done,
-using the [VimEnter](#VimEnter) event:
+using the [[VimEnter](/undefined#VimEnter)](/undefined) event:
 ### <a id="au VimEnter  set winheight=999" class="section-title" href="#au VimEnter  set winheight=999">Note:</a>
 Minimum value is 1.
 The height is not adjusted after one of the commands that change the
@@ -7174,12 +7174,12 @@ the minimal height for other windows.
 'winhighlight' 'winhl'	string (default empty)
 local to window
 Window-local highlights.  Comma-delimited list of highlight
-[group-name](#group-name) pairs "{hl-from}:{hl-to},..." where each {hl-from} is
-a [highlight-groups](#highlight-groups) item to be overridden by {hl-to} group in
+[[group-name](/undefined#group-name)](/undefined) pairs "{hl-from}:{hl-to},..." where each {hl-from} is
+a [[highlight-groups](/undefined#highlight-groups)](/undefined) item to be overridden by {hl-to} group in
 the window.
 
 Note: highlight namespaces take precedence over 'winhighlight'.
-See [nvim_win_set_hl_ns()| and |nvim_set_hl()](#nvim_win_set_hl_ns()| and |nvim_set_hl()).
+See |nvim_win_set_hl_ns()| and |nvim_set_hl()|.
 
 Highlights of vertical separators are determined by the window to the
 left of the separator.  The 'tabline' highlight of a tabpage is
@@ -7195,15 +7195,15 @@ set winhighlight=Normal:MyNormal,NormalNC:MyNormalNC
 'winfixheight' 'wfh'	boolean	(default off)
 local to window
 Keep the window height when windows are opened or closed and
-'equalalways' is set.  Also for [CTRL-W_=](#CTRL-W_=).  Set by default for the
-[preview-window| and |quickfix-window](#preview-window| and |quickfix-window).
+'equalalways' is set.  Also for |CTRL-W_=|.  Set by default for the
+[[preview-window](/undefined#preview-window)](/undefined) and [[quickfix-window](/undefined#quickfix-window)](/undefined).
 The height may be changed anyway when running out of room.
 
 ### <a id="'winfixwidth' 'wfw' 'nowinfixwidth' 'nowfw'" class="section-title" href="#'winfixwidth' 'wfw' 'nowinfixwidth' 'nowfw'">Note:</a>
 'winfixwidth' 'wfw'	boolean	(default off)
 local to window
 Keep the window width when windows are opened or closed and
-'equalalways' is set.  Also for [CTRL-W_=](#CTRL-W_=).
+'equalalways' is set.  Also for |CTRL-W_=|.
 The width may be changed anyway when running out of room.
 
 ### <a id="'winminheight' 'wmh'" class="section-title" href="#'winminheight' 'wmh'">Note:</a>
@@ -7261,8 +7261,8 @@ The line will be broken in the middle of a word if necessary.  See
 To make scrolling horizontally a bit more useful, try this:
 :set sidescroll=5
 :set listchars+=precedes:<,extends:>
-See 'sidescroll', 'listchars' and [wrap-off](#wrap-off).
-This option can't be set from a [modeline](#modeline) when the 'diff' option is
+See 'sidescroll', 'listchars' and [[wrap-off](/undefined#wrap-off)](/undefined).
+This option can't be set from a [[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[[modeline](/undefined#modeline)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) when the 'diff' option is
 on.
 
 ### <a id="'wrapmargin' 'wm'" class="section-title" href="#'wrapmargin' 'wm'">Note:</a>
@@ -7274,20 +7274,20 @@ and inserting continues on the next line.
 Options that add a margin, such as 'number' and 'foldcolumn', cause
 the text width to be further reduced.
 When 'textwidth' is non-zero, this option is not used.
-See also 'formatoptions' and [ins-textwidth](#ins-textwidth).
+See also 'formatoptions' and [[[ins-textwidth](/undefined#ins-textwidth)](/undefined)](/undefined).
 
 ### <a id="'wrapscan' 'ws' 'nowrapscan' 'nows'" class="section-title" href="#'wrapscan' 'ws' 'nowrapscan' 'nows'">Note:</a>
 'wrapscan' 'ws'		boolean	(default on)			*E384* *E385*
 global
-Searches wrap around the end of the file.  Also applies to []s](#]s) and
-[[s](#[s), searching for spelling mistakes.
+Searches wrap around the end of the file.  Also applies to |]s| and
+|[s|, searching for spelling mistakes.
 
 ### <a id="'write' 'nowrite'" class="section-title" href="#'write' 'nowrite'">Note:</a>
 'write'			boolean	(default on)
 global
 Allows writing files.  When not set, writing a file is not allowed.
 Can be used for a view-only mode, where modifications to the text are
-still allowed.  Can be reset with the [-m| or |-M](#-m| or |-M) command line
+still allowed.  Can be reset with the [[-m](/undefined#-m)](/undefined) or [[[-M](/undefined#-M)](/undefined)](/undefined) command line
 argument.  Filtering text is still possible, even though this requires
 writing a temporary file.
 
@@ -7307,7 +7307,7 @@ your buffer correctly and then, for whatever reason, Vim exits, you
 lose both the original file and what you were writing.  Only reset
 this option if your file system is almost full and it makes the write
 fail (and make sure not to exit Vim until the write was successful).
-See [backup-table](#backup-table) for another explanation.
+See [[[backup-table](/undefined#backup-table)](/undefined)](/undefined) for another explanation.
 When the 'backupskip' pattern matches, a backup is not made anyway.
 Depending on 'backupcopy' the backup is a new file or the original
 file renamed (and a new file is written).

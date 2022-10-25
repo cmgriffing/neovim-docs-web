@@ -12,23 +12,23 @@ VIM USER MANUAL - by Bram Moolenaar
 			 Search commands and patterns
 
 
-In chapter 3 a few simple search patterns were mentioned [03.9](#03.9).  Vim can do
+In chapter 3 a few simple search patterns were mentioned |03.9|.  Vim can do
 much more complex searches.  This chapter explains the most often used ones.
-A detailed specification can be found here: [pattern](#pattern)
+A detailed specification can be found here: [pattern](undefined#pattern)
 
-[27.1](#27.1)	Ignoring case
-[27.2](#27.2)	Wrapping around the file end
-[27.3](#27.3)	Offsets
-[27.4](#27.4)	Matching multiple times
-[27.5](#27.5)	Alternatives
-[27.6](#27.6)	Character ranges
-[27.7](#27.7)	Character classes
-[27.8](#27.8)	Matching a line break
-[27.9](#27.9)	Examples
+|27.1|	Ignoring case
+|27.2|	Wrapping around the file end
+|27.3|	Offsets
+|27.4|	Matching multiple times
+|27.5|	Alternatives
+|27.6|	Character ranges
+|27.7|	Character classes
+|27.8|	Matching a line break
+|27.9|	Examples
 
-     Next chapter: [usr_28.txt](#usr_28.txt)  Folding
- Previous chapter: [usr_26.txt](#usr_26.txt)  Repeating
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_28.txt|  Folding
+ Previous chapter: |usr_26.txt|  Repeating
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*27.1*	Ignoring Case</a> 
@@ -36,8 +36,8 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 By default, Vim's searches are case sensitive.  Therefore, "include",
 "INCLUDE", and "Include" are three different words and a search will match
 only one of them.
-   Now switch on the 'ignorecase' option: 
-```
+   Now switch on the 'ignorecase' option:
+
 	:set ignorecase
 
 Search for "include" again, and now it will match "Include", "INCLUDE" and
@@ -279,7 +279,7 @@ Matches "folder" and "folders".
 SPECIFIC COUNTS
 
 To match a specific number of items use the form "\{n,m}".  "n" and "m" are
-numbers.  The item before it will be matched "n" to "m" times [inclusive](#inclusive).
+numbers.  The item before it will be matched "n" to "m" times [inclusive](undefined#inclusive).
 Example:
 
 	/ab\{3,5}
@@ -333,7 +333,7 @@ The "or" operator in a pattern is "\|".  Example:
 
 This matches "foo" or "bar".  More alternatives can be concatenated:
 
-	/one\[two\](#two\)three
+	/one\|two\|three
 
 Matches "one", "two" and "three".
    To match multiple times, the whole thing must be placed in "\(" and "\)":
@@ -343,7 +343,7 @@ Matches "one", "two" and "three".
 This matches "foo", "foobar", "foofoo", "barfoobar", etc.
    Another example:
 
-	/end\(if\[while\](#while\)for\)
+	/end\(if\|while\|for\)
 
 This matches "endif", "endwhile" and "endfor".
 
@@ -357,9 +357,9 @@ This matches "for" in "forever".  It will not match "fortuin", for example.
 
 ## <a id="" class="section-title" href="#">*27.6*	Character Ranges</a> 
 
-To match "a", "b" or "c" you could use "/a\[b\](#b\)c".  When you want to match all
+To match "a", "b" or "c" you could use "/a\|b\|c".  When you want to match all
 letters from "a" to "z" this gets very long.  There is a shorter method:
-
+```
 	/[a-z]
 
 The [] construct matches a single character.  Inside you specify which
@@ -382,7 +382,7 @@ These special characters are accepted to make it easier to use them inside a
 	\r	<CR>
 	\b	<BS>
 
-There are a few more special cases for [] ranges, see [/[]](#/[]) for the whole
+There are a few more special cases for [] ranges, see |/[]| for the whole
 story.
 
 
@@ -405,8 +405,8 @@ This matches "foo" and "3!x", including the double quotes.
 PREDEFINED RANGES
 
 A number of ranges are used very often.  Vim provides a shortcut for these.
-For example: 
-```
+For example:
+
 	/\a
 
 Finds alphabetic characters.  This is equal to using "/[a-zA-Z]".  Here are a
@@ -430,7 +430,7 @@ few more of these:
 	These items can not be used inside [].  Thus "[\d\l]" does NOT work to
 	match a digit or lowercase alpha.  Use "\(\d\|\l\)" instead.
 
-See [/\s](#/\s) for the whole list of these ranges.
+See |/\s| for the whole list of these ranges.
 
 
 ## <a id="" class="section-title" href="#">*27.7*	Character Classes</a> 
@@ -526,7 +526,7 @@ FINDING A CALIFORNIA LICENSE PLATE
 
 A sample license plate number is "1MGU103".  It has one digit, three uppercase
 letters and three digits.  Directly putting this into a search pattern:
-
+```
 	/\d\u\u\u\d\d\d
 
 Another way is to specify that there are three digits and letters with a
@@ -563,10 +563,10 @@ and "\w" for "[0-9A-Za-z_]".
 ```
 
 	This checks if "\w" does not match before or after the identifier.
-	See [/\@<!| and |/\@!](#/\@<!| and |/\@!).
+	See |/\@<!| and |/\@!|.
 
 
-## <a id="Folding" class="section-title" href="#Folding">Next Chapter: [Usr_28.Txt](#Usr_28.Txt)</a> 
+## <a id="Folding" class="section-title" href="#Folding">Next Chapter: |Usr_28.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

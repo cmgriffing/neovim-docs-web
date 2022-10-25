@@ -18,7 +18,7 @@ https://tree-sitter.github.io/tree-sitter/
 WARNING: Treesitter support is still experimental and subject to frequent
 changes. This documentation may also not fully reflect the latest changes.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="treesitter-parsers" class="section-title" href="#treesitter-parsers">Parser Files</a> 
@@ -40,7 +40,7 @@ vim.treesitter.require_language("python", "/path/to/python.so")
 
 As buffers can contain multiple languages (e.g., Vimscript commands in a Lua
 file), multiple parsers may be needed to parse the full buffer. These are
-combined in a [LanguageTree](#LanguageTree) object.
+combined in a [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) object.
 
 To create a LanguageTree (parser object) for a buffer and a given language,
 use 
@@ -58,25 +58,25 @@ Whenever you need to access the current syntax tree, parse the buffer:
 tstree = tsparser:parse()
 ```
 
-This will return a table of immutable [treesitter-tree](#treesitter-tree)s that represent the
+This will return a table of immutable [[treesitter-tree](/undefined#treesitter-tree)](/undefined)s that represent the
 current state of the buffer. When the plugin wants to access the state after a
 (possible) edit it should call `parse()` again. If the buffer wasn't edited,
 the same tree will be returned again without extra work. If the buffer was
 parsed before, incremental parsing will be done of the changed parts.
 
-Note: To use the parser directly inside a [nvim_buf_attach()](#nvim_buf_attach()) Lua callback, you
-must call [get_parser()](#get_parser()) before you register your callback. But preferably
+Note: To use the parser directly inside a |nvim_buf_attach()| Lua callback, you
+must call |get_parser()| before you register your callback. But preferably
 parsing shouldn't be done directly in the change callback anyway as they will
 be very frequent. Rather a plugin that does any kind of analysis on a tree
 should use a timer to throttle too frequent updates.
 
-See [lua-treesitter-languagetree](#lua-treesitter-languagetree) for the list of available methods.
+See [[lua-treesitter-languagetree](/undefined#lua-treesitter-languagetree)](/undefined) for the list of available methods.
 
 
 ## <a id="treesitter-tree" class="section-title" href="#treesitter-tree">Treesitter Trees</a> <span id="tstree"></span>
 
 A "treesitter tree" represents the parsed contents of a buffer, which can be
-used to perform further analysis. It is a [luaref-userdata](#luaref-userdata) reference to an
+used to perform further analysis. It is a [[[luaref-userdata](/undefined#luaref-userdata)](/undefined)](/undefined) reference to an
 object held by the tree-sitter library.
 
 An instance `tstree` of a treesitter tree supports the following methods.
@@ -91,8 +91,8 @@ Returns a copy of the `tstree`.
 ## <a id="treesitter-node" class="section-title" href="#treesitter-node">Treesitter Nodes</a> <span id="tsnode"></span>
 
 A "treesitter node" represents one specific element of the parsed contents of
-a buffer, which can be captured by a [Query](#Query) for, e.g., highlighting. It is a
-[luaref-userdata](#luaref-userdata) reference to an object held by the tree-sitter library.
+a buffer, which can be captured by a [[Query](/undefined#Query)](/undefined) for, e.g., highlighting. It is a
+[[[luaref-userdata](/undefined#luaref-userdata)](/undefined)](/undefined) reference to an object held by the tree-sitter library.
 
 An instance `tsnode` of a treesitter node supports the following methods.
 
@@ -190,7 +190,7 @@ Get the smallest named node within this node that spans the given range of
 
 ## <a id="treesitter-query" class="section-title" href="#treesitter-query">Treesitter Queries</a> 
 
-Treesitter queries are a way to extract information about a parsed [tstree](#tstree),
+Treesitter queries are a way to extract information about a parsed [[[[[tstree](/undefined#tstree)](/undefined)](/undefined)](/undefined)](/undefined),
 e.g., for the purpose of highlighting. Briefly, a `query` consists of one or
 more patterns. A `pattern` is defined over node types in the syntax tree. A
 `match` corresponds to specific elements of the syntax tree which match a
@@ -201,7 +201,7 @@ adds arbitrary metadata and conditional data to a match.
 Queries are written in a lisp-like language documented in
 https://tree-sitter.github.io/tree-sitter/using-parsers#query-syntax
 Note: The predicates listed there page differ from those Nvim supports. See
-[treesitter-predicates](#treesitter-predicates) for a complete list of predicates supported by Nvim.
+[[treesitter-predicates](/undefined#treesitter-predicates)](/undefined) for a complete list of predicates supported by Nvim.
 
 Nvim looks for queries as `*.scm` files in a `queries` directory under
 `runtimepath`, where each file contains queries for a specific language and
@@ -209,16 +209,16 @@ purpose, e.g., `queries/lua/highlights.scm` for highlighting Lua files.
 By default, the first query on `runtimepath` is used (which usually implies
 that user config takes precedence over plugins, which take precedence over
 queries bundled with Neovim). If a query should extend other queries instead
-of replacing them, use [treesitter-query-modeline-extends](#treesitter-query-modeline-extends).
+of replacing them, use [[treesitter-query-modeline-extends](/undefined#treesitter-query-modeline-extends)](/undefined).
 
-See [lua-treesitter-query](#lua-treesitter-query) for the list of available methods for working with
+See [[[lua-treesitter-query](/undefined#lua-treesitter-query)](/undefined)](/undefined) for the list of available methods for working with
 treesitter queries from Lua.
 
 
 ### <a id="treesitter-predicates" class="section-title" href="#treesitter-predicates">Treesitter Query Predicates</a>
 
 Predicates are special scheme nodes that are evaluated to conditionally capture
-nodes. For example, the [eq?](#eq?) predicate can be used as follows: 
+nodes. For example, the |eq?| predicate can be used as follows: 
 ```
 ((identifier) @foo (#eq? @foo "foo"))
 ```
@@ -235,13 +235,13 @@ Match a string against the text corresponding to a node:
 
 `match?`                                      *treesitter-predicate-match?*
 `vim-match?`                              *treesitter-predicate-vim-match?*
-Match a [regexp](#regexp) against the text corresponding to a node: 
+Match a [[regexp](/undefined#regexp)](/undefined) against the text corresponding to a node: 
 ```            ((identifier) @constant (#match? @constant "^[A-Z_]+$"))
 Note: The `^` and `$` anchors will match the start and end of the
 node's text.
 
 `lua-match?`                              *treesitter-predicate-lua-match?*
-Match [lua-patterns](#lua-patterns) against the text corresponding to a node,
+Match [[lua-patterns](/undefined#lua-patterns)](/undefined) against the text corresponding to a node,
 similar to `match?`
 
 `contains?`                                *treesitter-predicate-contains?*
@@ -263,15 +263,15 @@ keywords, as it has been optimized for this.
 Each predicate has a `not-` prefixed predicate that is just the negation of
 the predicate.
 
-Further predicates can be added via `vim.treesitter.query.`[add_predicate()](#add_predicate()).
-Use `vim.treesitter.query.`[list_predicates()](#list_predicates()) to list all available
+Further predicates can be added via `vim.treesitter.query.`|add_predicate()|.
+Use `vim.treesitter.query.`|list_predicates()| to list all available
 predicates.
 
 
 ### <a id="treesitter-directives" class="section-title" href="#treesitter-directives">Treesitter Query Directives</a>
 
 Treesitter directives store metadata for a node or match and perform side
-effects. For example, the [set!](#set!) predicate sets metadata on the match or node: 
+effects. For example, the |set!| predicate sets metadata on the match or node: 
 ```
 ((identifier) @foo (#set! "type" "parameter"))
 ```
@@ -310,8 +310,8 @@ Example:
 ```
 
 
-Further directives can be added via `vim.treesitter.query.`[add_directive()](#add_directive()).
-Use `vim.treesitter.query.`[list_directives()](#list_directives()) to list all available
+Further directives can be added via `vim.treesitter.query.`|add_directive()|.
+Use `vim.treesitter.query.`|list_directives()| to list all available
 directives.
 
 
@@ -350,7 +350,7 @@ repeated, for example, the following two modeline blocks are both valid:
 ## <a id="treesitter-highlight" class="section-title" href="#treesitter-highlight">Treesitter Syntax Highlighting</a> 
 
 Syntax highlighting is specified through queries named `highlights.scm`,
-which match a [tsnode| in the parsed |tstree](#tsnode| in the parsed |tstree) to a `capture` that can be
+which match a [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) in the parsed [[[[[tstree](/undefined#tstree)](/undefined)](/undefined)](/undefined)](/undefined) to a `capture` that can be
 assigned a highlight group. For example, the query 
 ```
 (parameters (identifier) @parameter)
@@ -365,12 +365,12 @@ match literal expressions (provided the parser returns them):
 
 Assuming a suitable parser and `highlights.scm` query is found in runtimepath,
 treesitter highlighting for the current buffer can be enabled simply via
-[vim.treesitter.start()](#vim.treesitter.start()).
+|vim.treesitter.start()|.
 
 ### <a id="treesitter-highlight-groups" class="section-title" href="#treesitter-highlight-groups">Note:</a>
 The capture names, with `@` included, are directly usable as highlight groups.
 For many commonly used captures, the corresponding highlight groups are linked
-to Nvim's standard [highlight-groups](#highlight-groups) by default but can be overridden in
+to Nvim's standard [[highlight-groups](/undefined#highlight-groups)](/undefined) by default but can be overridden in
 colorschemes.
 
 A fallback system is implemented, so that more specific groups fallback to
@@ -389,7 +389,7 @@ hi @comment.lua @guifg=DarkBlue
 hi link @comment.doc.java String
 ```
 
-The following captures are linked by default to standard [group-name](#group-name)s:
+The following captures are linked by default to standard [[group-name](/undefined#group-name)](/undefined)s:
 
 ```    @text.literal      Comment
 @text.reference    Identifier
@@ -445,14 +445,14 @@ The following captures are linked by default to standard [group-name](#group-nam
 
 ### <a id="treesitter-highlight-spell" class="section-title" href="#treesitter-highlight-spell">Note:</a>
 The special `@spell` capture can be used to indicate that a node should be
-spell checked by Nvim's builtin [spell](#spell) checker. For example, the following
+spell checked by Nvim's builtin [[spell](/undefined#spell)](/undefined) checker. For example, the following
 capture marks comments as to be checked: 
 ```
 (comment) @spell
 ```
 
 ### <a id="treesitter-highlight-conceal" class="section-title" href="#treesitter-highlight-conceal">Note:</a>
-Treesitter highlighting supports [conceal](#conceal) via the `conceal` metadata. By
+Treesitter highlighting supports [[conceal](/undefined#conceal)](/undefined) via the `conceal` metadata. By
 convention, nodes to be concealed are captured as `@conceal`, but any capture
 can be used. For example, the following query can be used to hide code block
 delimiters in Markdown: 
@@ -471,7 +471,7 @@ still highlighted the same as other operators:
 Conceals specified in this way respect 'conceallevel'.
 
 ### <a id="treesitter-highlight-priority" class="section-title" href="#treesitter-highlight-priority">Note:</a>
-Treesitter uses [nvim_buf_set_extmark()](#nvim_buf_set_extmark()) to set highlights with a default
+Treesitter uses |nvim_buf_set_extmark()| to set highlights with a default
 priority of 100. This enables plugins to set a highlighting priority lower or
 higher than tree-sitter. It is also possible to change the priority of an
 individual query pattern manually by setting its `"priority"` metadata
@@ -546,13 +546,13 @@ Parameters: ~
 (default true)
 
 Return: ~
-userdata [tsnode](#tsnode) under the cursor
+userdata [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) under the cursor
 
 ### <a id="get_node_range()" class="section-title" href="#get_node_range()">get_node_range({node_or_range})</a>
 Returns the node's range or an unpacked range table
 
 Parameters: ~
-• {node_or_range}  (userdata[table) |tsnode](#table) |tsnode) or table of positions
+• {node_or_range}  (userdata|table) [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or table of positions
 
 Return: ~
 (table) `{ start_row, start_col, end_row, end_col }`
@@ -571,7 +571,7 @@ filetype)
 • {opts}   (table|nil) Options to pass to the created language tree
 
 Return: ~
-LanguageTree [LanguageTree](#LanguageTree) object to use for parsing
+LanguageTree [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) object to use for parsing
 
 ### <a id="get_string_parser()" class="section-title" href="#get_string_parser()">get_string_parser({str}, {lang}, {opts})</a>
 Returns a string parser
@@ -582,14 +582,14 @@ Parameters: ~
 • {opts}  (table|nil) Options to pass to the created language tree
 
 Return: ~
-LanguageTree [LanguageTree](#LanguageTree) object to use for parsing
+LanguageTree [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) object to use for parsing
 
 ### <a id="is_ancestor()" class="section-title" href="#is_ancestor()">is_ancestor({dest}, {source})</a>
 Determines whether a node is the ancestor of another
 
 Parameters: ~
-• {dest}    userdata Possible ancestor [tsnode](#tsnode)
-• {source}  userdata Possible descendant [tsnode](#tsnode)
+• {dest}    userdata Possible ancestor [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
+• {source}  userdata Possible descendant [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 Return: ~
 (boolean) True if {dest} is an ancestor of {source}
@@ -598,7 +598,7 @@ Return: ~
 Determines whether (line, col) position is in node range
 
 Parameters: ~
-• {node}  userdata [tsnode](#tsnode) defining the range
+• {node}  userdata [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) defining the range
 • {line}  (number) Line (0-based)
 • {col}   (number) Column (0-based)
 
@@ -609,7 +609,7 @@ Return: ~
 Determines if a node contains a range
 
 Parameters: ~
-• {node}   userdata [tsnode](#tsnode)
+• {node}   userdata [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 • {range}  (table)
 
 Return: ~
@@ -709,7 +709,7 @@ predicate:function)
 Gets the text corresponding to a given node
 
 Parameters: ~
-• {node}    userdata [tsnode](#tsnode)
+• {node}    userdata [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 • {source}  (number|string) Buffer or string from which the {node} is
 extracted
 • {opts}    (table|nil) Optional parameters.
@@ -759,7 +759,7 @@ string[] List of supported predicates.
 Parse {query} as a string. (If the query is in a file, the caller should
 read the contents into a string before calling).
 
-Returns a `Query` (see [lua-treesitter-query](#lua-treesitter-query)) object which can be used to search nodes in
+Returns a `Query` (see [[[lua-treesitter-query](/undefined#lua-treesitter-query)](/undefined)](/undefined)) object which can be used to search nodes in
 ### <a id="the syntax tree for the patterns defined in {query} using `iter_` methods below." class="section-title" href="#the syntax tree for the patterns defined in {query} using `iter_` methods below.">Note:</a>
 
 Exposes `info` and `captures` with additional context about {query}.
@@ -801,7 +801,7 @@ end
 
 
 Parameters: ~
-• {node}    userdata [tsnode](#tsnode) under which the search will occur
+• {node}    userdata [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) under which the search will occur
 • {source}  (number|string) Source buffer or string to extract text from
 • {start}   (number) Starting line for the search
 • {stop}    (number) Stopping line for the search (end-exclusive)
@@ -817,7 +817,7 @@ Query:iter_matches({self}, {node}, {source}, {start}, {stop})
 Iterates the matches of self on a given range.
 
 Iterate over all matches within a {node}. The arguments are the same as
-for [Query:iter_captures()](#Query:iter_captures()) but the iterated values are different: an
+for |Query:iter_captures()| but the iterated values are different: an
 (1-based) index of the pattern in the query, a table mapping capture
 indices to nodes, and metadata from any directives processing the match.
 If the query has more than one pattern, the capture table might be sparse
@@ -837,7 +837,7 @@ end
 
 
 Parameters: ~
-• {node}    userdata [tsnode](#tsnode) under which the search will occur
+• {node}    userdata [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) under which the search will occur
 • {source}  (number|string) Source buffer or string to search
 • {start}   (number) Starting line for the search
 • {stop}    (number) Stopping line for the search (end-exclusive)
@@ -866,7 +866,7 @@ Parameters: ~
 Creates a new highlighter using
 
 Parameters: ~
-• {tree}  LanguageTree [LanguageTree](#LanguageTree) parser object to use for highlighting
+• {tree}  LanguageTree [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) parser object to use for highlighting
 • {opts}  (table|nil) Configuration of the highlighter:
 • queries table overwrite queries used by the highlighter
 
@@ -889,7 +889,7 @@ Parameters: ~
 • {self}
 
 ### <a id="LanguageTree:contains()" class="section-title" href="#LanguageTree:contains()">LanguageTree:contains({self}, {range})</a>
-Determines whether {range} is contained in the [LanguageTree](#LanguageTree).
+Determines whether {range} is contained in the [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 Parameters: ~
 • {range}  (table) `{ start_line, start_col, end_line, end_col }`
@@ -899,7 +899,7 @@ Return: ~
 (boolean)
 
 ### <a id="LanguageTree:destroy()" class="section-title" href="#LanguageTree:destroy()">LanguageTree:destroy({self})</a>
-Destroys this [LanguageTree](#LanguageTree) and all its children.
+Destroys this [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and all its children.
 
 Any cleanup logic should be performed here.
 
@@ -910,7 +910,7 @@ Parameters: ~
 
 ### <a id="LanguageTree:for_each_child()" class="section-title" href="#LanguageTree:for_each_child()">Note:</a>
 LanguageTree:for_each_child({self}, {fn}, {include_self})
-Invokes the callback for each [LanguageTree](#LanguageTree) and its children recursively
+Invokes the callback for each [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) and its children recursively
 
 Parameters: ~
 • {fn}            function(tree: LanguageTree, lang: string)
@@ -919,7 +919,7 @@ results
 • {self}
 
 ### <a id="LanguageTree:for_each_tree()" class="section-title" href="#LanguageTree:for_each_tree()">LanguageTree:for_each_tree({self}, {fn})</a>
-Invokes the callback for each [LanguageTree](#LanguageTree) recursively.
+Invokes the callback for each [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) recursively.
 
 Note: This includes the invoking tree's child trees as well.
 
@@ -974,7 +974,7 @@ Parameters: ~
 • {self}
 
 Return: ~
-userdata[nil Found |tsnode](#nil Found |tsnode)
+userdata|nil Found [[[[[[[[[[[[tsnode](/undefined#tsnode)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="LanguageTree:parse()" class="section-title" href="#LanguageTree:parse()">LanguageTree:parse({self})</a>
 Parses all defined regions using a treesitter parser for the language this
@@ -985,16 +985,16 @@ Parameters: ~
 • {self}
 
 Return: ~
-userdata[] Table of parsed [tstree](#tstree)
+userdata[] Table of parsed [[[[[tstree](/undefined#tstree)](/undefined)](/undefined)](/undefined)](/undefined)
 (table) Change list
 
 ### <a id="LanguageTree:register_cbs()" class="section-title" href="#LanguageTree:register_cbs()">LanguageTree:register_cbs({self}, {cbs})</a>
-Registers callbacks for the [LanguageTree](#LanguageTree).
+Registers callbacks for the [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 Parameters: ~
-• {cbs}   (table) An [nvim_buf_attach()](#nvim_buf_attach())-like table argument with the
+• {cbs}   (table) An |nvim_buf_attach()|-like table argument with the
 following handlers:
-• `on_bytes` : see [nvim_buf_attach()](#nvim_buf_attach()), but this will be called after the parsers callback.
+• `on_bytes` : see |nvim_buf_attach()|, but this will be called after the parsers callback.
 • `on_changedtree` : a callback that will be called every time
 the tree has syntactical changes. It will only be passed one
 argument, which is a table of the ranges (as node ranges)
@@ -1023,7 +1023,7 @@ Parameters: ~
 • {self}
 
 Return: ~
-userdata[nil Contained |tstree](#nil Contained |tstree)
+userdata|nil Contained [[[[[tstree](/undefined#tstree)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="LanguageTree:trees()" class="section-title" href="#LanguageTree:trees()">LanguageTree:trees({self})</a>
 Returns all trees this language tree contains. Does not include child
@@ -1033,7 +1033,7 @@ Parameters: ~
 • {self}
 
 ### <a id="languagetree.new()" class="section-title" href="#languagetree.new()">new({source}, {lang}, {opts})</a>
-A [LanguageTree](#LanguageTree) holds the treesitter parser for a given language {lang}
+A [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) holds the treesitter parser for a given language {lang}
 used to parse a buffer. As the buffer may contain injected languages, the LanguageTree needs to store parsers for these child languages as well (which in turn
 may contain child languages themselves, hence the name).
 
@@ -1047,7 +1047,7 @@ runtime file searching for the injection language query
 per language.
 
 Return: ~
-LanguageTree [LanguageTree](#LanguageTree) parser object
+LanguageTree [[[[[[[[[[[[LanguageTree](/undefined#LanguageTree)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) parser object
 
 vim:tw=78:ts=8:sw=4:sts=4:et:ft=help:norl:
 

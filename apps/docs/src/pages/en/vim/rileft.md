@@ -19,8 +19,10 @@ These functions were originally created by Avner Lottem:
    Phone:  +972-4-8307322
 
 Introduction
-------------
-Some languages such as Arabic, Farsi, Hebrew (among others) require the
+
+
+## <a id="" class="section-title" href="#">Some Languages Such as Arabic, Farsi, Hebrew (Among Others) Require The</a> 
+
 ability to display their text from right-to-left.  Files in those languages
 are stored conventionally and the right-to-left requirement is only a
 function of the display engine (per the Unicode specification).  In
@@ -39,8 +41,9 @@ existing editor (and it's not sanctioned by Unicode either).
 
 
 Highlights
-----------
-o  Editing left-to-right files as in the original Vim, no change.
+
+
+## <a id="Editing left-to-right files as in the original Vim, no change." class="section-title" href="#Editing left-to-right files as in the original Vim, no change.">O</a> 
 
 o  Viewing and editing files in right-to-left windows.  File orientation
    is per window, so it is possible to view the same file in right-to-left
@@ -59,14 +62,15 @@ o  No special terminal with right-to-left capabilities is required.  The
 o  Many languages use and require right-to-left support.  These languages
    can quite easily be supported given the inclusion of their required
    keyboard mappings and some possible minor code change.  Some of the
-   current supported languages include - [arabic.txt| and |hebrew.txt](#arabic.txt| and |hebrew.txt).
+   current supported languages include - |arabic.txt| and |hebrew.txt|.
 
 
 Of Interest...
---------------
 
-o  Invocations
-   -----------
+
+## <a id="Invocations" class="section-title" href="#Invocations">O</a> 
+
+-----------
    + 'rightleft' ('rl') sets window orientation to right-to-left.
    + 'delcombine' ('deco'), boolean, if editing UTF-8 encoded languages,
      allows one to remove a composing character which gets superimposed
@@ -99,9 +103,11 @@ o  Pasting when in a rightleft window
 
 
 Bugs
-----
-o  Does not handle CTRL-A and CTRL-X commands (add and subtract) correctly
-   when in rightleft window.
+
+
+## <a id="Does not handle CTRL-A and CTRL-X commands (add and subtract) correctly" class="section-title" href="#Does not handle CTRL-A and CTRL-X commands (add and subtract) correctly">O</a> 
+
+when in rightleft window.
 
 o  Does not support reverse insert and rightleft modes on the command-line.
    However, functionality of the editor is not reduced, because it is

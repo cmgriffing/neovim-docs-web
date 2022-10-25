@@ -16,9 +16,9 @@ Nvim provides a framework for displaying errors or warnings from external
 tools, otherwise known as "diagnostics". These diagnostics can come from a
 variety of sources, such as linters or LSP servers. The diagnostic framework
 is an extension to existing error handling functionality such as the
-[quickfix](#quickfix) list.
+[[quickfix](/undefined#quickfix)](/undefined) list.
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="diagnostic-quickstart" class="section-title" href="#diagnostic-quickstart">Quickstart</a> 
@@ -27,12 +27,12 @@ Anything that reports diagnostics is referred to below as a "diagnostic
 producer". Diagnostic producers need only follow a few simple steps to
 report diagnostics:
 
-1. Create a namespace [nvim_create_namespace()](#nvim_create_namespace()). Note that the namespace must
+1. Create a namespace |nvim_create_namespace()|. Note that the namespace must
 have a name. Anonymous namespaces WILL NOT WORK.
 2. (Optional) Configure options for the diagnostic namespace
-[vim.diagnostic.config()](#vim.diagnostic.config()).
+|vim.diagnostic.config()|.
 3. Generate diagnostics.
-4. Set the diagnostics for the buffer [vim.diagnostic.set()](#vim.diagnostic.set()).
+4. Set the diagnostics for the buffer |vim.diagnostic.set()|.
 5. Repeat from step 3.
 
 Generally speaking, the API is split between functions meant to be used by
@@ -41,7 +41,7 @@ who want to read and view the diagnostics for a buffer).  The APIs for
 producers require a {namespace} as their first argument, while those for
 consumers generally do not require a namespace (though often one may be
 optionally supplied).  A good rule of thumb is that if a method is meant to
-modify the diagnostics for a buffer (e.g. [vim.diagnostic.set()](#vim.diagnostic.set())) then it
+modify the diagnostics for a buffer (e.g. |vim.diagnostic.set()|) then it
 requires a namespace.
 
 ### <a id="diagnostic-structure" class="section-title" href="#diagnostic-structure">Note:</a>
@@ -53,14 +53,14 @@ bufnr: Buffer number
 end_lnum: The final line of the diagnostic
 ### <a id="col(): The starting column of the diagnostic" class="section-title" href="#col(): The starting column of the diagnostic">Note:</a>
 end_col: The final column of the diagnostic
-severity: The severity of the diagnostic [vim.diagnostic.severity](#vim.diagnostic.severity)
+severity: The severity of the diagnostic |vim.diagnostic.severity|
 ### <a id="message(): The diagnostic text" class="section-title" href="#message(): The diagnostic text">Note:</a>
 source: The source of the diagnostic
 code: The diagnostic code
 user_data: Arbitrary data plugins or users can add
 
 Diagnostics use the same indexing as the rest of the Nvim API (i.e. 0-based
-rows and columns). [api-indexing](#api-indexing)
+rows and columns). [[api-indexing](/undefined#api-indexing)](/undefined)
 
 ### <a id="vim.diagnostic.severity diagnostic-severity" class="section-title" href="#vim.diagnostic.severity diagnostic-severity">Note:</a>
 The "severity" key in a diagnostic is one of the values defined in
@@ -72,9 +72,9 @@ vim.diagnostic.severity.INFO
 vim.diagnostic.severity.HINT
 
 Functions that take a severity as an optional parameter (e.g.
-[vim.diagnostic.get()](#vim.diagnostic.get())) accept one of two forms:
+|vim.diagnostic.get()|) accept one of two forms:
 
-1. A single [vim.diagnostic.severity](#vim.diagnostic.severity) value: 
+1. A single |vim.diagnostic.severity| value: 
 ```
 vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 
@@ -87,7 +87,7 @@ The latter form allows users to specify a range of severities.
 
 ## <a id="diagnostic-handlers" class="section-title" href="#diagnostic-handlers">Handlers</a> 
 
-Diagnostics are shown to the user with [vim.diagnostic.show()](#vim.diagnostic.show()). The display of
+Diagnostics are shown to the user with |vim.diagnostic.show()|. The display of
 diagnostics is managed through handlers. A handler is a table with a "show"
 and (optionally) a "hide" function. The "show" function has the signature
 function(namespace, bufnr, diagnostics, opts)
@@ -100,9 +100,9 @@ by the "show" function and has the signature
 ```    function(namespace, bufnr)
 ```
 
-Handlers can be configured with [vim.diagnostic.config()](#vim.diagnostic.config()) and added by
+Handlers can be configured with |vim.diagnostic.config()| and added by
 creating a new key in `vim.diagnostic.handlers` (see
-[diagnostic-handlers-example](#diagnostic-handlers-example)).
+[[diagnostic-handlers-example](/undefined#diagnostic-handlers-example)](/undefined)).
 
 The {opts} table passed to a handler is the full set of configuration options
 (that is, it is not limited to just the options for the handler itself). The
@@ -114,7 +114,7 @@ Nvim provides these handlers by default: "virtual_text", "signs", and
 
 ### <a id="diagnostic-handlers-example" class="section-title" href="#diagnostic-handlers-example">Note:</a>
 The example below creates a new handler that notifies the user of diagnostics
-with [vim.notify()](#vim.notify()): 
+with |vim.notify()|: 
 ```
 -- It's good practice to namespace custom handlers to avoid collisions
 vim.diagnostic.handlers["my/notify"] = {
@@ -191,9 +191,9 @@ By default, highlights for signs, floating windows, and virtual text are linked 
 corresponding default highlight. Underline highlights are not linked and use their
 own default highlight groups.
 
-For example, the default highlighting for [hl-DiagnosticSignError](#hl-DiagnosticSignError) is linked
-to [hl-DiagnosticError](#hl-DiagnosticError). To change the default (and therefore the linked
-highlights), use the [:highlight](#:highlight) command: 
+For example, the default highlighting for [[hl-DiagnosticSignError](/undefined#hl-DiagnosticSignError)](/undefined) is linked
+to [[hl-DiagnosticError](/undefined#hl-DiagnosticError)](/undefined). To change the default (and therefore the linked
+highlights), use the |:highlight| command: 
 ```
 highlight DiagnosticError guifg="BrightRed"
 ```
@@ -253,7 +253,7 @@ Used to underline "Hint" diagnostics.
 ### <a id="hl-DiagnosticFloatingError" class="section-title" href="#hl-DiagnosticFloatingError">Note:</a>
 DiagnosticFloatingError
 Used to color "Error" diagnostic messages in diagnostics float.
-See [vim.diagnostic.open_float()](#vim.diagnostic.open_float())
+See |vim.diagnostic.open_float()|
 
 ### <a id="hl-DiagnosticFloatingWarn" class="section-title" href="#hl-DiagnosticFloatingWarn">Note:</a>
 DiagnosticFloatingWarn
@@ -295,10 +295,10 @@ sign define DiagnosticSignWarn text=W texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text=I texthl=DiagnosticSignInfo linehl= numhl=
 sign define DiagnosticSignHint text=H texthl=DiagnosticSignHint linehl= numhl=
 
-When the "severity_sort" option is set (see [vim.diagnostic.config()](#vim.diagnostic.config())) the
+When the "severity_sort" option is set (see |vim.diagnostic.config()|) the
 priority of each sign depends on the severity of the associated diagnostic.
 Otherwise, all signs have the same priority (the value of the "priority"
-option in the "signs" table of [vim.diagnostic.config()](#vim.diagnostic.config()) or 10 if unset).
+option in the "signs" table of |vim.diagnostic.config()| or 10 if unset).
 
 
 ## <a id="diagnostic-events" class="section-title" href="#diagnostic-events">Events</a> 
@@ -326,8 +326,8 @@ Configure diagnostic options globally or for a specific diagnostic
 namespace.
 
 Configuration can be specified globally, per-namespace, or ephemerally
-(i.e. only for a single call to [vim.diagnostic.set()](#vim.diagnostic.set()) or
-[vim.diagnostic.show()](#vim.diagnostic.show())). Ephemeral configuration has highest priority,
+(i.e. only for a single call to |vim.diagnostic.set()| or
+|vim.diagnostic.show()|). Ephemeral configuration has highest priority,
 followed by namespace configuration, and finally global configuration.
 
 For example, if a user enables virtual text globally with 
@@ -360,14 +360,14 @@ following keys:
 • underline: (default true) Use underline for
 diagnostics. Options:
 • severity: Only underline diagnostics matching the
-given severity [diagnostic-severity](#diagnostic-severity)
+given severity [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 • virtual_text: (default true) Use virtual text for
 diagnostics. If multiple diagnostics are set for a
 namespace, one prefix per diagnostic + the last
 diagnostic message are shown. Options:
 • severity: Only show virtual text for diagnostics
-matching the given severity [diagnostic-severity](#diagnostic-severity)
+matching the given severity [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 • source: (boolean or string) Include the diagnostic
 source in virtual text. Use "if_many" to only show
 sources if there is more than one diagnostic source
@@ -393,14 +393,14 @@ end
 • signs: (default true) Use signs for diagnostics.
 Options:
 • severity: Only show signs for diagnostics matching
-the given severity [diagnostic-severity](#diagnostic-severity)
+the given severity [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 • priority: (number, default 10) Base priority to use
 for signs. When {severity_sort} is used, the priority
 of a sign is adjusted based on its severity.
 Otherwise, all signs use the same priority.
 
 • float: Options for floating windows. See
-[vim.diagnostic.open_float()](#vim.diagnostic.open_float()).
+|vim.diagnostic.open_float()|.
 • update_in_insert: (default false) Update diagnostics in
 Insert mode (if false, diagnostics are updated on
 InsertLeave)
@@ -435,11 +435,11 @@ namespace.
 Convert a list of quickfix items to a list of diagnostics.
 
 Parameters: ~
-• {list}  (table) A list of quickfix items from [getqflist()](#getqflist()) or
-[getloclist()](#getloclist()).
+• {list}  (table) A list of quickfix items from |getqflist()| or
+|getloclist()|.
 
 Return: ~
-array of diagnostics [diagnostic-structure](#diagnostic-structure)
+array of diagnostics [[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 
 ### <a id="vim.diagnostic.get()" class="section-title" href="#vim.diagnostic.get()">get({bufnr}, {opts})</a>
 Get current diagnostics.
@@ -451,10 +451,10 @@ current buffer or nil for all buffers.
 • namespace: (number) Limit diagnostics to the given
 namespace.
 • lnum: (number) Limit diagnostics to the given line number.
-• severity: See [diagnostic-severity](#diagnostic-severity).
+• severity: See [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 Return: ~
-(table) A list of diagnostic items [diagnostic-structure](#diagnostic-structure).
+(table) A list of diagnostic items [[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="vim.diagnostic.get_namespace()" class="section-title" href="#vim.diagnostic.get_namespace()">get_namespace({namespace})</a>
 Get namespace metadata.
@@ -469,13 +469,13 @@ Return: ~
 Get current diagnostic namespaces.
 
 Return: ~
-(table) A list of active diagnostic namespaces [vim.diagnostic](#vim.diagnostic).
+(table) A list of active diagnostic namespaces |vim.diagnostic|.
 
 ### <a id="vim.diagnostic.get_next()" class="section-title" href="#vim.diagnostic.get_next()">get_next({opts})</a>
 Get the next diagnostic closest to the cursor position.
 
 Parameters: ~
-• {opts}  (table) See [vim.diagnostic.goto_next()](#vim.diagnostic.goto_next())
+• {opts}  (table) See |vim.diagnostic.goto_next()|
 
 Return: ~
 (table) Next diagnostic
@@ -484,7 +484,7 @@ Return: ~
 Return the position of the next diagnostic in the current buffer.
 
 Parameters: ~
-• {opts}  (table) See [vim.diagnostic.goto_next()](#vim.diagnostic.goto_next())
+• {opts}  (table) See |vim.diagnostic.goto_next()|
 
 Return: ~
 (table) Next diagnostic position as a (row, col) tuple.
@@ -493,7 +493,7 @@ Return: ~
 Get the previous diagnostic closest to the cursor position.
 
 Parameters: ~
-• {opts}  (table) See [vim.diagnostic.goto_next()](#vim.diagnostic.goto_next())
+• {opts}  (table) See |vim.diagnostic.goto_next()|
 
 Return: ~
 (table) Previous diagnostic
@@ -502,7 +502,7 @@ Return: ~
 Return the position of the previous diagnostic in the current buffer.
 
 Parameters: ~
-• {opts}  (table) See [vim.diagnostic.goto_next()](#vim.diagnostic.goto_next())
+• {opts}  (table) See |vim.diagnostic.goto_next()|
 
 Return: ~
 (table) Previous diagnostic position as a (row, col) tuple.
@@ -515,15 +515,15 @@ Parameters: ~
 • namespace: (number) Only consider diagnostics from the given
 namespace.
 • cursor_position: (cursor position) Cursor position as a
-(row, col) tuple. See [nvim_win_get_cursor()](#nvim_win_get_cursor()). Defaults to
+(row, col) tuple. See |nvim_win_get_cursor()|. Defaults to
 the current cursor position.
 • wrap: (boolean, default true) Whether to loop around file or
 not. Similar to 'wrapscan'.
-• severity: See [diagnostic-severity](#diagnostic-severity).
+• severity: See [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 • float: (boolean or table, default true) If "true", call
-[vim.diagnostic.open_float()](#vim.diagnostic.open_float()) after moving. If a table, pass
+|vim.diagnostic.open_float()| after moving. If a table, pass
 the table as the {opts} parameter to
-[vim.diagnostic.open_float()](#vim.diagnostic.open_float()). Unless overridden, the float
+|vim.diagnostic.open_float()|. Unless overridden, the float
 will show diagnostics at the new cursor position (as if
 "cursor" were passed to the "scope" option).
 • win_id: (number, default 0) Window ID
@@ -532,17 +532,17 @@ will show diagnostics at the new cursor position (as if
 Move to the previous diagnostic in the current buffer.
 
 Parameters: ~
-• {opts}  (table) See [vim.diagnostic.goto_next()](#vim.diagnostic.goto_next())
+• {opts}  (table) See |vim.diagnostic.goto_next()|
 
 ### <a id="vim.diagnostic.hide()" class="section-title" href="#vim.diagnostic.hide()">hide({namespace}, {bufnr})</a>
 Hide currently displayed diagnostics.
 
 This only clears the decorations displayed in the buffer. Diagnostics can
-be redisplayed with [vim.diagnostic.show()](#vim.diagnostic.show()). To completely remove
-diagnostics, use [vim.diagnostic.reset()](#vim.diagnostic.reset()).
+be redisplayed with |vim.diagnostic.show()|. To completely remove
+diagnostics, use |vim.diagnostic.reset()|.
 
 To hide diagnostics and prevent them from re-displaying, use
-[vim.diagnostic.disable()](#vim.diagnostic.disable()).
+|vim.diagnostic.disable()|.
 
 Parameters: ~
 • {namespace}  (number|nil) Diagnostic namespace. When omitted, hide
@@ -560,7 +560,7 @@ WARNING filename:27:3: Variable 'foo' does not exist
 ```
 
 
-This can be parsed into a diagnostic [diagnostic-structure](#diagnostic-structure) with: 
+This can be parsed into a diagnostic [[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) with: 
 ```
 local s = "WARNING filename:27:3: Variable 'foo' does not exist"
 local pattern = "^(%w+) %w+:(%d+):(%d+): (.+)$"
@@ -572,16 +572,16 @@ vim.diagnostic.match(s, pattern, groups, { WARNING = vim.diagnostic.WARN })
 Parameters: ~
 • {str}           (string) String to parse diagnostics from.
 • {pat}           (string) Lua pattern with capture groups.
-• {groups}        (table) List of fields in a [diagnostic-structure](#diagnostic-structure) to
+• {groups}        (table) List of fields in a [[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) to
 associate with captures from {pat}.
 • {severity_map}  (table) A table mapping the severity field from
-{groups} with an item from [vim.diagnostic.severity](#vim.diagnostic.severity).
+{groups} with an item from |vim.diagnostic.severity|.
 • {defaults}      (table|nil) Table of default values for any fields not
 listed in {groups}. When omitted, numeric values
 default to 0 and "severity" defaults to ERROR.
 
 Return: ~
-diagnostic [diagnostic-structure](#diagnostic-structure) or `nil` if {pat} fails to match
+diagnostic [[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined) or `nil` if {pat} fails to match
 {str}.
 
 ### <a id="vim.diagnostic.open_float()" class="section-title" href="#vim.diagnostic.open_float()">open_float({opts}, {...})</a>
@@ -589,7 +589,7 @@ Show diagnostics in a floating window.
 
 Parameters: ~
 • {opts}  (table|nil) Configuration table with the same keys as
-[vim.lsp.util.open_floating_preview()](#vim.lsp.util.open_floating_preview()) in addition to the
+|vim.lsp.util.open_floating_preview()| in addition to the
 following:
 • bufnr: (number) Buffer number to show diagnostics from.
 Defaults to the current buffer.
@@ -603,23 +603,23 @@ versions are also accepted ("c" for "cursor", "l" for
 this position rather than the cursor position. If a number,
 interpreted as a line number; otherwise, a (row, col) tuple.
 • severity_sort: (default false) Sort diagnostics by severity.
-Overrides the setting from [vim.diagnostic.config()](#vim.diagnostic.config()).
-• severity: See [diagnostic-severity](#diagnostic-severity). Overrides the setting
-from [vim.diagnostic.config()](#vim.diagnostic.config()).
+Overrides the setting from |vim.diagnostic.config()|.
+• severity: See [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined). Overrides the setting
+from |vim.diagnostic.config()|.
 • header: (string or table) String to use as the header for
 the floating window. If a table, it is interpreted as a
 [text, hl_group] tuple. Overrides the setting from
-[vim.diagnostic.config()](#vim.diagnostic.config()).
+|vim.diagnostic.config()|.
 • source: (boolean or string) Include the diagnostic source in
 the message. Use "if_many" to only show sources if there is
 more than one source of diagnostics in the buffer.
 Otherwise, any truthy value means to always show the
 diagnostic source. Overrides the setting from
-[vim.diagnostic.config()](#vim.diagnostic.config()).
+|vim.diagnostic.config()|.
 • format: (function) A function that takes a diagnostic as
 input and returns a string. The return value is the text
 used to display the diagnostic. Overrides the setting from
-[vim.diagnostic.config()](#vim.diagnostic.config()).
+|vim.diagnostic.config()|.
 • prefix: (function, string, or table) Prefix each diagnostic
 in the floating window. If a function, it must have the
 signature (diagnostic, i, total) -> (string, string), where
@@ -629,10 +629,10 @@ window. The function should return a string which is
 prepended to each diagnostic in the window as well as an
 (optional) highlight group which will be used to highlight
 the prefix. If {prefix} is a table, it is interpreted as a
-[text, hl_group] tuple as in [nvim_echo()](#nvim_echo()); otherwise, if
+[text, hl_group] tuple as in |nvim_echo()|; otherwise, if
 {prefix} is a string, it is prepended to each diagnostic in
 the window with no highlight. Overrides the setting from
-[vim.diagnostic.config()](#vim.diagnostic.config()).
+|vim.diagnostic.config()|.
 
 Return: ~
 tuple ({float_bufnr}, {win_id})
@@ -640,10 +640,10 @@ tuple ({float_bufnr}, {win_id})
 ### <a id="vim.diagnostic.reset()" class="section-title" href="#vim.diagnostic.reset()">reset({namespace}, {bufnr})</a>
 Remove all diagnostics from the given namespace.
 
-Unlike [vim.diagnostic.hide()](#vim.diagnostic.hide()), this function removes all saved
-diagnostics. They cannot be redisplayed using [vim.diagnostic.show()](#vim.diagnostic.show()). To
+Unlike |vim.diagnostic.hide()|, this function removes all saved
+diagnostics. They cannot be redisplayed using |vim.diagnostic.show()|. To
 simply remove diagnostic decorations in a way that they can be
-re-displayed, use [vim.diagnostic.hide()](#vim.diagnostic.hide()).
+re-displayed, use |vim.diagnostic.hide()|.
 
 Parameters: ~
 • {namespace}  (number|nil) Diagnostic namespace. When omitted, remove
@@ -658,9 +658,9 @@ Parameters: ~
 • {namespace}    (number) The diagnostic namespace
 • {bufnr}        (number) Buffer number
 • {diagnostics}  (table) A list of diagnostic items
-[diagnostic-structure](#diagnostic-structure)
+[[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)
 • {opts}         (table|nil) Display options to pass to
-[vim.diagnostic.show()](#vim.diagnostic.show())
+|vim.diagnostic.show()|
 
 ### <a id="vim.diagnostic.setloclist()" class="section-title" href="#vim.diagnostic.setloclist()">setloclist({opts})</a>
 Add buffer diagnostics to the location list.
@@ -675,7 +675,7 @@ list for.
 setting.
 • title: (string) Title of the location list. Defaults to
 "Diagnostics".
-• severity: See [diagnostic-severity](#diagnostic-severity).
+• severity: See [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="vim.diagnostic.setqflist()" class="section-title" href="#vim.diagnostic.setqflist()">setqflist({opts})</a>
 Add all diagnostics to the quickfix list.
@@ -688,7 +688,7 @@ namespace.
 setting.
 • title: (string) Title of quickfix list. Defaults to
 "Diagnostics".
-• severity: See [diagnostic-severity](#diagnostic-severity).
+• severity: See [[[[[[[[[diagnostic-severity](/undefined#diagnostic-severity)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 ### <a id="vim.diagnostic.show()" class="section-title" href="#vim.diagnostic.show()">Note:</a>
 show({namespace}, {bufnr}, {diagnostics}, {opts})
@@ -706,17 +706,17 @@ diagnostics without saving them or to display only a
 subset of diagnostics. May not be used when {namespace}
 or {bufnr} is nil.
 • {opts}         (table|nil) Display options. See
-[vim.diagnostic.config()](#vim.diagnostic.config()).
+|vim.diagnostic.config()|.
 
 ### <a id="vim.diagnostic.toqflist()" class="section-title" href="#vim.diagnostic.toqflist()">toqflist({diagnostics})</a>
 Convert a list of diagnostics to a list of quickfix items that can be
-passed to [setqflist()| or |setloclist()](#setqflist()| or |setloclist()).
+passed to |setqflist()| or |setloclist()|.
 
 Parameters: ~
-• {diagnostics}  (table) List of diagnostics [diagnostic-structure](#diagnostic-structure).
+• {diagnostics}  (table) List of diagnostics [[[[[[[[diagnostic-structure](/undefined#diagnostic-structure)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined)](/undefined).
 
 Return: ~
-array of quickfix list items [setqflist-what](#setqflist-what)
+array of quickfix list items [[setqflist-what](/undefined#setqflist-what)](/undefined)
 
 vim:tw=78:ts=8:sw=4:sts=4:et:ft=help:norl:
 

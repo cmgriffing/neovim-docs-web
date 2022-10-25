@@ -12,9 +12,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="tags-and-searches" class="section-title" href="#tags-and-searches">Tags and special searches</a>
 
-See section [29.1](#29.1) of the user manual for an introduction.
+See section |29.1| of the user manual for an introduction.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="tag-commands" class="section-title" href="#tag-commands">1. Jump to a Tag</a> 
@@ -40,11 +40,11 @@ below.
 :[count]ta[g][!] {name}
 			Jump to the definition of {name}, using the
 			information in the tags file(s).  Put {name} in the
-			tag stack.  See [tag-!](#tag-!) for [!].
-			{name} can be a regexp pattern, see [tag-regexp](#tag-regexp).
+			tag stack.  See |tag-!| for [!].
+			{name} can be a regexp pattern, see [tag-regexp](undefined#tag-regexp).
 			When there are several matching tags for {name}, jump
 			to the [count] one.  When [count] is omitted the
-			first one is jumped to. See [tag-matchlist](#tag-matchlist) for
+			first one is jumped to. See [tag-matchlist](undefined#tag-matchlist) for
 			jumping to other matching tags.
 
 ### <a id="g<LeftMouse>" class="section-title" href="#g<LeftMouse>">g<LeftMouse></a>
@@ -54,7 +54,7 @@ CTRL-]			Jump to the definition of the keyword under the
 			keyword under or after cursor.
 			When there are several matching tags for {name}, jump
 			to the [count] one.  When no [count] is given the
-			first one is jumped to. See [tag-matchlist](#tag-matchlist) for
+			first one is jumped to. See [tag-matchlist](undefined#tag-matchlist) for
 			jumping to other matching tags.
 
 ### <a id="v_CTRL-]" class="section-title" href="#v_CTRL-]">Note:</a>
@@ -118,10 +118,10 @@ CTRL-T			Jump to [count] older entry in the tag stack
 
 ### <a id=":po :pop E555 E556" class="section-title" href="#:po :pop E555 E556">Note:</a>
 :[count]po[p][!]	Jump to [count] older entry in tag stack (default 1).
-			See [tag-!](#tag-!) for [!].
+			See |tag-!| for [!].
 
 :[count]ta[g][!]	Jump to [count] newer entry in tag stack (default 1).
-			See [tag-!](#tag-!) for [!].
+			See |tag-!| for [!].
 
 ### <a id=":tags" class="section-title" href="#:tags">Note:</a>
 :tags			Show the contents of the tag stack.  The active
@@ -182,12 +182,12 @@ commands explained above the tag stack will look like this:
    1  1 main		1  harddisk2:text/vim/test
    2  1 FuncB	       59  harddisk2:text/vim/src/main.c
 
-The [gettagstack()](#gettagstack()) function returns the tag stack of a specified window. The
-[settagstack()](#settagstack()) function modifies the tag stack of a window.
+The |gettagstack()| function returns the tag stack of a specified window. The
+|settagstack()| function modifies the tag stack of a window.
 
 ### <a id="tagstack-examples" class="section-title" href="#tagstack-examples">Note:</a>
 Write to the tag stack just like `:tag` but with a user-defined
-jumper#jump_to_tag function: 
+jumper#jump_to_tag function:
 ```	" Store where we're jumping from before we jump.
 	let tag = expand('<cword>')
 	let pos = [bufnr()] + getcurpos()[1:]
@@ -201,11 +201,11 @@ jumper#jump_to_tag function:
 	endif
 ```
 
-Set current index of the tag stack to 4: 
+Set current index of the tag stack to 4:
 ```	call settagstack(1005, {'curidx' : 4})
 ```
 
-Push a new item onto the tag stack: 
+Push a new item onto the tag stack:
 ```	let pos = [bufnr('myfile.txt'), 10, 1, 0]
 	let newtag = [{'tagname' : 'mytag', 'from' : pos}]
 	call settagstack(2, {'items' : newtag}, 'a')
@@ -227,15 +227,13 @@ the same entry.
 			information in the tags file(s).
 			When [name] is not given, the last tag name from the
 			tag stack is used.
-			See [tag-!](#tag-!) for [!].
+			See |tag-!| for [!].
 			With a '>' in the first column is indicated which is
 			the current position in the list (if there is one).
-			[name] can be a regexp pattern, see [tag-regexp](#tag-regexp).
-			See [tag-priority](#tag-priority) for the priorities used in the
+			[name] can be a regexp pattern, see [tag-regexp](undefined#tag-regexp).
+			See [tag-priority](undefined#tag-priority) for the priorities used in the
 			listing.
 			Example output:
-
-
 ```	  # pri kind tag		file
 	  1 F	f    mch_delay		os_amiga.c
 			mch_delay(msec, ignoreinput)
@@ -246,7 +244,7 @@ the same entry.
 	Type number and <Enter> (empty cancels):
 ```
 
-			See [tag-priority](#tag-priority) for the "pri" column.  Note that
+			See [tag-priority](undefined#tag-priority) for the "pri" column.  Note that
 			this depends on the current file, thus using
 			":tselect xxx" can produce different results.
 			The "kind" column gives the kind of tag, if this was
@@ -254,7 +252,7 @@ the same entry.
 			The "info" column shows information that could be
 			found in the tags file.  It depends on the program
 			that produced the tags file.
-			When the list is long, you may get the [more-prompt](#more-prompt).
+			When the list is long, you may get the [more-prompt](undefined#more-prompt).
 			If you already see the tag you want to use, you can
 			type 'q' and enter the number.
 
@@ -286,38 +284,38 @@ g CTRL-]		Like CTRL-], but use ":tjump" instead of ":tag".
 
 ### <a id=":tn :tnext" class="section-title" href="#:tn :tnext">Note:</a>
 :[count]tn[ext][!]	Jump to [count] next matching tag (default 1).  See
-			[tag-!](#tag-!) for [!].
+			|tag-!| for [!].
 
 ### <a id=":tp :tprevious" class="section-title" href="#:tp :tprevious">Note:</a>
 :[count]tp[revious][!]	Jump to [count] previous matching tag (default 1).
-			See [tag-!](#tag-!) for [!].
+			See |tag-!| for [!].
 
 ### <a id=":tN :tNext" class="section-title" href="#:tN :tNext">Note:</a>
 :[count]tN[ext][!]	Same as ":tprevious".
 
 ### <a id=":tr :trewind" class="section-title" href="#:tr :trewind">Note:</a>
 :[count]tr[ewind][!]	Jump to first matching tag.  If [count] is given, jump
-			to [count]th matching tag.  See [tag-!](#tag-!) for [!].
+			to [count]th matching tag.  See |tag-!| for [!].
 
 ### <a id=":tf :tfirst" class="section-title" href="#:tf :tfirst">Note:</a>
 :[count]tf[irst][!]	Same as ":trewind".
 
 ### <a id=":tl :tlast" class="section-title" href="#:tl :tlast">Note:</a>
-:tl[ast][!]		Jump to last matching tag.  See [tag-!](#tag-!) for [!].
+:tl[ast][!]		Jump to last matching tag.  See |tag-!| for [!].
 
 ### <a id=":lt :ltag" class="section-title" href="#:lt :ltag">Note:</a>
 :lt[ag][!] [name]	Jump to tag [name] and add the matching tags to a new
 			location list for the current window.  [name] can be
-			a regexp pattern, see [tag-regexp](#tag-regexp).  When [name] is
+			a regexp pattern, see [tag-regexp](undefined#tag-regexp).  When [name] is
 			not given, the last tag name from the tag stack is
 			used.  The search pattern to locate the tag line is
 			prefixed with "\V" to escape all the special
 			characters (very nomagic). The location list showing
 			the matching tags is independent of the tag stack.
-			See [tag-!](#tag-!) for [!].
+			See |tag-!| for [!].
 
 When there is no other message, Vim shows which matching tag has been jumped
-to, and the number of matching tags: 
+to, and the number of matching tags:
 ```	tag 1 of 3 or more
 The " or more" is used to indicate that Vim didn't try all the tags files yet.
 When using ":tnext" a few times, or with ":tlast", more matches may be found.
@@ -340,29 +338,29 @@ the same as above, with a "p" prepended.
 
 ### <a id=":pts :ptselect" class="section-title" href="#:pts :ptselect">Note:</a>
 :pts[elect][!] [name]	Does ":tselect[!] [name]" and shows the new tag in a
-			"Preview" window.  See [:ptag](#:ptag) for more info.
+			"Preview" window.  See |:ptag| for more info.
 
 ### <a id=":ptj :ptjump" class="section-title" href="#:ptj :ptjump">Note:</a>
 :ptj[ump][!] [name]	Does ":tjump[!] [name]" and shows the new tag in a
-			"Preview" window.  See [:ptag](#:ptag) for more info.
+			"Preview" window.  See |:ptag| for more info.
 
 ### <a id=":ptn :ptnext" class="section-title" href="#:ptn :ptnext">Note:</a>
-:[count]ptn[ext][!]	":tnext" in the preview window.  See [:ptag](#:ptag).
+:[count]ptn[ext][!]	":tnext" in the preview window.  See |:ptag|.
 
 ### <a id=":ptp :ptprevious" class="section-title" href="#:ptp :ptprevious">Note:</a>
-:[count]ptp[revious][!]	":tprevious" in the preview window.  See [:ptag](#:ptag).
+:[count]ptp[revious][!]	":tprevious" in the preview window.  See |:ptag|.
 
 ### <a id=":ptN :ptNext" class="section-title" href="#:ptN :ptNext">Note:</a>
 :[count]ptN[ext][!]	Same as ":ptprevious".
 
 ### <a id=":ptr :ptrewind" class="section-title" href="#:ptr :ptrewind">Note:</a>
-:[count]ptr[ewind][!]	":trewind" in the preview window.  See [:ptag](#:ptag).
+:[count]ptr[ewind][!]	":trewind" in the preview window.  See |:ptag|.
 
 ### <a id=":ptf :ptfirst" class="section-title" href="#:ptf :ptfirst">Note:</a>
 :[count]ptf[irst][!]	Same as ":ptrewind".
 
 ### <a id=":ptl :ptlast" class="section-title" href="#:ptl :ptlast">Note:</a>
-:ptl[ast][!]		":tlast" in the preview window.  See [:ptag](#:ptag).
+:ptl[ast][!]		":tlast" in the preview window.  See |:ptag|.
 
 
 ## <a id="tag-details" class="section-title" href="#tag-details">4. Tags Details</a> 
@@ -392,11 +390,11 @@ See 'tagbsearch' for details.
 
 ### <a id="tag-regexp" class="section-title" href="#tag-regexp">Note:</a>
 The ":tag" and ":tselect" commands accept a regular expression argument.  See
-[pattern](#pattern) for the special characters that can be used.
+[pattern](undefined#pattern) for the special characters that can be used.
 When the argument starts with '/', it is used as a pattern.  If the argument
 does not start with '/', it is taken literally, as a full tag name.
-Examples: 
-```    :tag main
+Examples:
+    :tag main
 	jumps to the tag "main" that has the highest priority.
     :tag /^get
 	jumps to the tag that starts with "get" and has the highest priority.
@@ -415,17 +413,20 @@ is added to the command and on the 'autowrite' option:
 
   tag in       file	   autowrite			~
 current file  changed	!   option	  action	~
------------------------------------------------------------------------------
-    yes		 x	x     x	  goto tag
-    no		 no	x     x	  read other file, goto tag
+
+
+## <a id="x	x" class="section-title" href="#x	x">Yes</a> 
+
+no		 no	x     x	  read other file, goto tag
     no		yes    yes    x   abandon current file, read other file, goto
 				  tag
     no		yes	no    on  write current file, read other file, goto
 				  tag
     no		yes	no   off  fail
------------------------------------------------------------------------------
 
-- If the tag is in the current file, the command will always work.
+
+## <a id="" class="section-title" href="#">- if the Tag Is in the Current File, the Command Will Always Work.</a> 
+
 - If the tag is in another file and the current file was not changed, the
   other file will be made the current file and read into the buffer.
 - If the tag is in another file, the current file was changed and a ! is
@@ -443,7 +444,7 @@ current file  changed	!   option	  action	~
 ### <a id="tag-security" class="section-title" href="#tag-security">Note:</a>
 Note that Vim forbids some commands, for security reasons.  This works like
 using the 'secure' option for exrc/vimrc files in the current directory.  See
-[trojan-horse| and |sandbox](#trojan-horse| and |sandbox).
+[trojan-horse](undefined#trojan-horse) and [sandbox](undefined#sandbox).
 When the {tagaddress} changes a buffer, you will get a warning message:
 	"WARNING: tag command changed a buffer!!!"
 In a future version changing the buffer will be impossible.  All this for
@@ -539,7 +540,7 @@ The lines in the tags file must have one of these two formats:
 1.  {tagname}		{TAB} {tagfile} {TAB} {tagaddress}
 2.  {tagname}		{TAB} {tagfile} {TAB} {tagaddress} {term} {field} ..
 
-Previously an old format was supported, see [tag-old-static](#tag-old-static).
+Previously an old format was supported, see [tag-old-static](undefined#tag-old-static).
 
 The first format is a normal tag, which is completely compatible with Vi.  It
 is the only format produced by traditional ctags implementations.  This is
@@ -564,7 +565,7 @@ ctags).
 		doubtful).  It cannot contain a <Tab>.
 {tagaddress}	The Ex command that positions the cursor on the tag.  It can
 		be any Ex command, although restrictions apply (see
-		[tag-security](#tag-security)).  Posix only allows line numbers and search
+		[tag-security](undefined#tag-security)).  Posix only allows line numbers and search
 		commands, which are mostly used.
 {term}		;" The two characters semicolon and double quote.  This is
 		interpreted by Vi as the start of a comment, which makes the
@@ -627,7 +628,7 @@ Examples:
 
 The command is always executed with 'magic' not set.  The only special
 characters in a search pattern are "^" (begin-of-line) and "$" (<EOL>).
-See [pattern](#pattern).  Note that you must put a backslash before each backslash in
+See [pattern](undefined#pattern).  Note that you must put a backslash before each backslash in
 the search text.  This is for backwards compatibility with Vi.
 
 ### <a id="E434 E435" class="section-title" href="#E434 E435">Note:</a>
@@ -659,7 +660,7 @@ the second format.  It is only supported by Elvis 1.x, older Vim versions and
 a few versions of ctags.  A static tag is often used for functions that are
 local, only referenced in the file {tagfile}.  Note that for the static tag,
 the two occurrences of {tagfile} must be exactly the same.  Also see
-[tags-option](#tags-option) below, for how static tags are used.
+[tags-option](undefined#tags-option) below, for how static tags are used.
 
 The support was removed, since when you can update to the new Vim version you
 should also be able to update ctags to one that supports the second format.
@@ -670,12 +671,12 @@ should also be able to update ctags to one that supports the second format.
 These commands look for a string in the current file and in all encountered
 included files (recursively).  This can be used to find the definition of a
 variable, function or macro.  If you only want to search in the current
-buffer, use the commands listed at [pattern-searches](#pattern-searches).
+buffer, use the commands listed at [pattern-searches](undefined#pattern-searches).
 
 When a line is encountered that includes another file, that file is searched
 before continuing in the current buffer.  Files included by included files are
 also searched.  When an include file could not be found it is silently
-ignored.  Use the [:checkpath](#:checkpath) command to discover which files could not be
+ignored.  Use the |:checkpath| command to discover which files could not be
 found, possibly your 'path' option is not set up correctly.  Note: the
 included file is searched, not a buffer that may be editing that file.  Only
 for the current file the lines in the buffer are used.
@@ -710,7 +711,7 @@ matches the pattern "^# *define" it is not considered to be a comment.
 
 If you want to list matches, and then select one to jump to, you could use a
 mapping to do that for you.  Here is an example:
-
+```
   :map <F4> [I:let nr = input("Which one: ")<Bar>exe "normal " .. nr .. "[\t"<CR>
 ```
 
@@ -729,7 +730,7 @@ mapping to do that for you.  Here is an example:
 :[range]is[earch][!] [count] [/]pattern[/]
 			Like "[i"  and "]i", but search in [range] lines
 			(default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
 ### <a id="[I" class="section-title" href="#[I">Note:</a>
 [I			Display all lines that contain the keyword under the
@@ -744,7 +745,7 @@ mapping to do that for you.  Here is an example:
 :[range]il[ist][!] [/]pattern[/]
 			Like "[I" and "]I", but search in [range] lines
 			(default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
 ### <a id="[_CTRL-I" class="section-title" href="#[_CTRL-I">Note:</a>
 [ CTRL-I		Jump to the first line that contains the keyword
@@ -762,7 +763,7 @@ mapping to do that for you.  Here is an example:
 :[range]ij[ump][!] [count] [/]pattern[/]
 			Like "[ CTRL-I"  and "] CTRL-I", but search in
 			[range] lines (default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
 ### <a id="CTRL-W_CTRL-I CTRL-W_i" class="section-title" href="#CTRL-W_CTRL-I CTRL-W_i">Ctrl-W Ctrl-I</a>
 CTRL-W i		Open a new window, with the cursor on the first line
@@ -777,7 +778,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]isp[lit][!] [count] [/]pattern[/]
 			Like "CTRL-W i"  and "CTRL-W i", but search in
 			[range] lines (default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
 ### <a id="[d" class="section-title" href="#[d">Note:</a>
 [d			Display the first macro definition that contains the
@@ -792,7 +793,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]ds[earch][!] [count] [/]string[/]
 			Like "[d"  and "]d", but search in [range] lines
 			(default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
 ### <a id="[D" class="section-title" href="#[D">Note:</a>
 [D			Display all macro definitions that contain the macro
@@ -807,7 +808,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]dli[st][!] [/]string[/]
 			Like `[D`  and `]D`, but search in [range] lines
 			(default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 			Note that `:dl` works like `:delete` with the "l"
 			flag, not `:dlist`.
 
@@ -825,7 +826,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]dj[ump][!] [count] [/]string[/]
 			Like "[ CTRL-D"  and "] CTRL-D", but search  in
 			[range] lines (default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
 ### <a id="CTRL-W_CTRL-D CTRL-W_d" class="section-title" href="#CTRL-W_CTRL-D CTRL-W_d">Ctrl-W Ctrl-D</a>
 CTRL-W d		Open a new window, with the cursor on the first
@@ -838,12 +839,12 @@ CTRL-W d		Open a new window, with the cursor on the first
 :[range]dsp[lit][!] [count] [/]string[/]
 			Like "CTRL-W d", but search in [range] lines
 			(default: whole file).
-			See [:search-args](#:search-args) for [/] and [!].
+			See |:search-args| for [/] and [!].
 
-### <a id=":che :chec :check :checkpath" class="section-title" href="#:che :chec :check :checkpath">Note:</a>
-:che[ckpath]		List all the included files that could not be found.
+### <a id=":checkp :checkpath" class="section-title" href="#:checkp :checkpath">Note:</a>
+:checkp[ath]		List all the included files that could not be found.
 
-:che[ckpath]!		List all the included files.
+:checkp[ath]!		List all the included files.
 
 ### <a id=":search-args" class="section-title" href="#:search-args">Note:</a>
 Common arguments for the commands above:
@@ -853,8 +854,8 @@ Common arguments for the commands above:
 	(after "//" or inside /* */).  Note that a match may be missed if a
 	line is recognized as a comment, but the comment ends halfway the line.
 	And if the line is a comment, but it is not recognized (according to
-	'comments') a match may be found in it anyway.  Example: 
-#### <a id="/ comment" class="section-title" href="#/ comment">```</a>
+	'comments') a match may be found in it anyway.  Example:
+### <a id="/ comment" class="section-title" href="#/ comment">Note:</a>
 ### <a id="foobar /" class="section-title" href="#foobar /">Note:</a>
 	A match for "foobar" is found, because this line is not recognized as
 	a comment (even though syntax highlighting does recognize it).
@@ -871,8 +872,8 @@ Common arguments for the commands above:
 ## <a id="tag-function" class="section-title" href="#tag-function">7. Using 'tagfunc'</a> 
 
 It is possible to provide Vim with a function which will generate a list of
-tags used for commands like [:tag|, |:tselect](#:tag|, |:tselect) and Normal mode tag commands
-like [CTRL-]](#CTRL-]).
+tags used for commands like |:tag|, |:tselect| and Normal mode tag commands
+like |CTRL-]|.
 
 The function used for generating the taglist is specified by setting the
 'tagfunc' option.  The function will be called with three arguments:
@@ -890,16 +891,16 @@ Currently up to three flags may be passed to the tag function:
 	        (mnemonic: the tag function may use the context around the
 		cursor to perform a better job of generating the tag list.)
   'i'		In Insert mode, the user was completing a tag (with
-		[i_CTRL-X_CTRL-]](#i_CTRL-X_CTRL-]) or 'completeopt' contains `t`).
+		|i_CTRL-X_CTRL-]| or 'completeopt' contains `t`).
   'r'		The first argument to tagfunc should be interpreted as a
-		[pattern| (see |tag-regexp](#pattern| (see |tag-regexp)), such as when using:
-		  :tag /pat
+		[pattern](undefined#pattern) (see [tag-regexp](undefined#tag-regexp)), such as when using:
+```		  :tag /pat
 		It is also given when completing in insert mode.
 		If this flag is not present, the argument is usually taken
 		literally as the full tag name.
 
 Note that when 'tagfunc' is set, the priority of the tags described in
-[tag-priority](#tag-priority) does not apply.  Instead, the priority is exactly as the
+[tag-priority](undefined#tag-priority) does not apply.  Instead, the priority is exactly as the
 ordering of the elements in the list returned by the function.
 ### <a id="E987" class="section-title" href="#E987">Note:</a>
 The function should return a List of Dict entries.  Each Dict must at least
@@ -909,20 +910,20 @@ include the following entries and each value must be a string:
 			either relative to the current directory or a full path.
 	cmd		Ex command used to locate the tag in the file.  This
 			can be either an Ex search pattern or a line number.
-Note that the format is similar to that of [taglist()](#taglist()), which makes it possible
+Note that the format is similar to that of |taglist()|, which makes it possible
 to use its output to generate the result.
 The following fields are optional:
 	kind		Type of the tag.
 	user_data	String of custom data stored in the tag stack which
 			can be used to disambiguate tags between operations.
 
-If the function returns [v:null](#v:null) instead of a List, a standard tag lookup will
+If the function returns |v:null| instead of a List, a standard tag lookup will
 be performed instead.
 
 ### <a id="E986 " class="section-title" href="#E986 ">It is not allowed to change the tagstack from inside 'tagfunc'.</a>
 
 The following is a hypothetical example of a function used for 'tagfunc'.  It
-uses the output of [taglist()](#taglist()) to generate the result: a list of tags in the
+uses the output of |taglist()| to generate the result: a list of tags in the
 inverse order of file names.
 	function TagFunc(pattern, flags, info)
 	  function CompareFilenames(item1, item2)

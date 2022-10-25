@@ -12,7 +12,7 @@ NVIM REFERENCE MANUAL
 
 ### <a id="ref reference" class="section-title" href="#ref reference">Nvim</a>
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="intro" class="section-title" href="#intro">Introduction</a> 
@@ -20,9 +20,9 @@ Type [gO](#gO) to see the table of contents.
 Vim is a text editor which includes most commands from the Unix program "Vi"
 and many new ones.
 
-An overview of this manual can be found in the file "help.txt", [help.txt](#help.txt).
+An overview of this manual can be found in the file "help.txt", |help.txt|.
 It can be accessed from within Vim with the <Help> or <F1> key and with the
-[:help](#:help) command (just type ":help", without the bars or quotes).
+|:help| command (just type ":help", without the bars or quotes).
 The 'helpfile' option can be set to the name of the help file, in case it
 is not located in the default place.  You can jump to subjects like with tags:
 Use CTRL-] to jump to a subject under the cursor, use CTRL-T to jump back.
@@ -32,8 +32,8 @@ Vim is pronounced as one word, like Jim.  So Nvim is N-Jim, which sounds like
 "Ninja".  Starting Nvim is like performing a roundhouse kick.
 
 This manual is a reference for all Nvim editor and API features.  It is not an
-introduction; instead for beginners, there is a hands-on [tutor](#tutor) and a user
-manual [usr_toc.txt](#usr_toc.txt).
+introduction; instead for beginners, there is a hands-on [[tutor](/undefined#tutor)](/undefined) and a user
+manual |usr_toc.txt|.
 
 ### <a id="book" class="section-title" href="#book">Note:</a>
 There are many books on Vi and Vim.  We recommend:
@@ -48,7 +48,7 @@ tasks with Vim.  "Modern Vim" explores new features in Nvim and Vim 8.
 "Vim - Vi Improved" by Steve Oualline
 
 This was the first book dedicated to Vim.  Parts of it were included in the
-user manual. [frombook](#frombook)  ISBN: 0735710015
+user manual. [[[frombook](/undefined#frombook)](/undefined)](/undefined)  ISBN: 0735710015
 For more information try one of these:
 https://iccf-holland.org/click5.html
 https://www.vim.org/iccf/click5.html
@@ -71,7 +71,7 @@ https://github.com/neovim/neovim/issues
 Be brief, yet complete.  Always give a reproducible example and try to find
 out which settings or other things trigger the bug.
 
-If Nvim crashes, try to get a backtrace.  See [debug.txt](#debug.txt).
+If Nvim crashes, try to get a backtrace.  See |debug.txt|.
 
 
 ## <a id="sponsor register" class="section-title" href="#sponsor register">Sponsor Vim/Nvim Development</a> 
@@ -81,7 +81,7 @@ your appreciation for the work and motivate Bram and others to continue
 working on Vim please send a donation.
 
 Since Bram is back to a paid job the money will now be used to help children
-in Uganda.  See [uganda](#uganda).  But at the same time donations increase Bram's
+in Uganda.  See [[uganda](/undefined#uganda)](/undefined).  But at the same time donations increase Bram's
 motivation to keep working on Vim!
 
 For the most recent information about sponsoring look on the Vim web site:
@@ -148,7 +148,7 @@ Paul Moore		Python interface extensions, many patches
 Katsuhito Nagano	Work on multibyte versions
 Sung-Hyun Nam		Work on multibyte versions
 Vince Negri		Win32 GUI and generic console enhancements
-Steve Oualline		Author of the first Vim book [frombook](#frombook)
+Steve Oualline		Author of the first Vim book [[[frombook](/undefined#frombook)](/undefined)](/undefined)
 Dominique Pelle		Valgrind reports and many fixes
 A.Politz		Many bug reports and some fixes
 George V. Reilly	Win32 port, Win32 GUI start-off
@@ -220,11 +220,11 @@ is used, unless otherwise noted.  Note that in this manual the
 but only in the explanation.  This was done to make the
 commands easier to look up.  If the 'showcmd' option is on,
 the (partially) entered count is shown at the bottom of the
-window.  You can use <Del> to erase the last digit ([N<Del>](#N<Del>)).
+window.  You can use <Del> to erase the last digit (|N<Del>|).
 
 ### <a id="[quotex]" class="section-title" href="#[quotex]">Note:</a>
 ["x]		An optional register designation where text can be stored.
-See [registers](#registers).  The x is a single character between 'a' and
+See [[registers](/undefined#registers)](/undefined).  The x is a single character between 'a' and
 'z' or 'A' and 'Z' or '"', and in some cases (with the put
 command) between '0' and '9', '%', '#', or others.  The
 uppercase and lowercase letter designate the same register,
@@ -247,12 +247,12 @@ character.
 
 ### <a id="{motion} movement" class="section-title" href="#{motion} movement">Note:</a>
 {motion}	A command that moves the cursor.  These are explained in
-[motion.txt](#motion.txt).  Examples:
+|motion.txt|.  Examples:
 w		to start of next word
 b		to begin of current word
 4j		four lines down
 /The<CR>	to next occurrence of "The"
-This is used after an [operator](#operator) command to move over the text
+This is used after an [[[operator](/undefined#operator)](/undefined)](/undefined) command to move over the text
 that is to be operated upon.
 - If the motion includes a count and the operator also has a
 count, the two counts are multiplied.  For example: "2d3w"
@@ -279,9 +279,9 @@ buffer is not unloaded.
 {Visual}	A selected text area.  It is started with the "v", "V", or
 CTRL-V command, then any cursor movement command can be used
 to change the end of the selected text.
-This is used before an [operator](#operator) command to highlight the
+This is used before an [[[operator](/undefined#operator)](/undefined)](/undefined) command to highlight the
 text that is to be operated upon.
-See [Visual-mode](#Visual-mode).
+See [[[Visual-mode](/undefined#Visual-mode)](/undefined)](/undefined).
 
 ### <a id="<character>" class="section-title" href="#<character>">Note:</a>
 character>	A special character from the table below, optionally with
@@ -301,7 +301,7 @@ such as CTRL-A.
 
 ### <a id="'option'" class="section-title" href="#'option'">Note:</a>
 'option'	An option, or parameter, that can be set to a value, is
-enclosed in single quotes.  See [options](#options).
+enclosed in single quotes.  See [[options](/undefined#options)](/undefined).
 
 ### <a id="quotecommandquote" class="section-title" href="#quotecommandquote">Note:</a>
 "command"	A reference to a command that you can type is enclosed in
@@ -385,14 +385,14 @@ Note:
 
 - Availability of some keys (<Help>, <S-Right>, …) depends on the UI or host
 terminal.
-- If numlock is on the [TUI](#TUI) receives plain ASCII values, so mapping <k0>,
+- If numlock is on the [[TUI](/undefined#TUI)](/undefined) receives plain ASCII values, so mapping <k0>,
 <k1>, ..., <k9> and <kPoint> will not work.
 - Nvim supports mapping multibyte chars with modifiers such as `<M-ä>`. Which
 combinations actually work depends on the the UI or host terminal.
 - When a key is pressed using a meta or alt modifier and no mapping exists for
 that keypress, Nvim may behave as though <Esc> was pressed before the key.
 - It is possible to notate combined modifiers (e.g. <C-A-T> for CTRL-ALT-T),
-but your terminal must encode the input for that to work. [tui-input](#tui-input)
+but your terminal must encode the input for that to work. [[tui-input](/undefined#tui-input)](/undefined)
 
 ### <a id="<>" class="section-title" href="#<>">Note:</a>
 Examples are often given in the <> notation.  Sometimes this is just to make
@@ -439,18 +439,18 @@ mode.  This is also known as command mode.
 Visual mode		This is like Normal mode, but the movement commands
 extend a highlighted area.  When a non-movement
 command is used, it is executed for the highlighted
-area.  See [Visual-mode](#Visual-mode).
+area.  See [[[Visual-mode](/undefined#Visual-mode)](/undefined)](/undefined).
 If the 'showmode' option is on "-- VISUAL --" is shown
 at the bottom of the window.
 
 Select mode		This looks most like the MS-Windows selection mode.
 Typing a printable character deletes the selection
-and starts Insert mode.  See [Select-mode](#Select-mode).
+and starts Insert mode.  See [[Select-mode](/undefined#Select-mode)](/undefined).
 If the 'showmode' option is on "-- SELECT --" is shown
 at the bottom of the window.
 
 Insert mode		In Insert mode the text you type is inserted into the
-buffer.  See [Insert-mode](#Insert-mode).
+buffer.  See [[Insert-mode](/undefined#Insert-mode)](/undefined).
 If the 'showmode' option is on "-- INSERT --" is shown
 at the bottom of the window.
 
@@ -458,17 +458,17 @@ Command-line mode	In Command-line mode (also called Cmdline mode) you
 Cmdline mode		can enter one line of text at the bottom of the
 window.  This is for the Ex commands, ":", the pattern
 search commands, "?" and "/", and the filter command,
-"!".  [Cmdline-mode](#Cmdline-mode)
+"!".  [[Cmdline-mode](/undefined#Cmdline-mode)](/undefined)
 
 Ex mode			Like Command-line mode, but after entering a command
 you remain in Ex mode.  Very limited editing of the
-command line.  [Ex-mode](#Ex-mode)
+command line.  [[Ex-mode](/undefined#Ex-mode)](/undefined)
 
 ### <a id="Terminal-mode" class="section-title" href="#Terminal-mode">Note:</a>
 Terminal mode		In Terminal mode all input (except CTRL-\) is sent to
-the process running in the current [terminal](#terminal) buffer.
+the process running in the current [[terminal](/undefined#terminal)](/undefined) buffer.
 If CTRL-\ is pressed, the next key is sent unless it
-is CTRL-N ([CTRL-\_CTRL-N|) or CTRL-O (|t_CTRL-\_CTRL-O](#CTRL-\_CTRL-N|) or CTRL-O (|t_CTRL-\_CTRL-O)).
+is CTRL-N (|CTRL-\_CTRL-N|) or CTRL-O (|t_CTRL-\_CTRL-O|).
 If the 'showmode' option is on "-- TERMINAL --" is shown
 at the bottom of the window.
 
@@ -482,18 +482,18 @@ to specify the text that the operator will work on.
 Replace mode		Replace mode is a special case of Insert mode.  You
 can do the same things as in Insert mode, but for
 each character you enter, one character of the existing
-text is deleted.  See [Replace-mode](#Replace-mode).
+text is deleted.  See [[Replace-mode](/undefined#Replace-mode)](/undefined).
 If the 'showmode' option is on "-- REPLACE --" is
 shown at the bottom of the window.
 
 Virtual Replace mode	Virtual Replace mode is similar to Replace mode, but
 instead of file characters you are replacing screen
-real estate.  See [Virtual-Replace-mode](#Virtual-Replace-mode).
+real estate.  See [[Virtual-Replace-mode](/undefined#Virtual-Replace-mode)](/undefined).
 If the 'showmode' option is on "-- VREPLACE --" is
 shown at the bottom of the window.
 
 Insert Normal mode	Entered when CTRL-O is typed in Insert mode (see
-[i_CTRL-O](#i_CTRL-O)).  This is like Normal mode, but after
+|i_CTRL-O|).  This is like Normal mode, but after
 executing one command Vim returns to Insert mode.
 If the 'showmode' option is on "-- (insert) --" is
 shown at the bottom of the window.
@@ -540,7 +540,7 @@ Ex		 :vi	  --	  --	 --	    --	      --
 "A", "o", "O", "c", "C", "s" or S".
 * 2 Go from Visual mode to Normal mode by giving a non-movement command, which
 causes the command to be executed, or by hitting <Esc> "v", "V" or "CTRL-V"
-(see [v_v](#v_v)), which just stops Visual mode without side effects.
+(see |v_v|), which just stops Visual mode without side effects.
 * 3 Go from Command-line mode to Normal mode by:
 - Hitting <CR> or <NL>, which causes the entered command to be executed.
 - Deleting the complete line (e.g., with CTRL-U) and giving a final <BS>.
@@ -554,7 +554,7 @@ ignore that and type <Esc> again.
 - use a non-printable command to move the cursor while keeping the Shift
 key pressed, and the 'selectmode' option contains "key"
 - use "v", "V" or "CTRL-V" while 'selectmode' contains "cmd"
-- use "gh", "gH" or "g CTRL-H"  [g_CTRL-H](#g_CTRL-H)
+- use "gh", "gH" or "g CTRL-H"  |g_CTRL-H|
 * 5 Go from Select mode to Normal mode by using a non-printable command to move
 the cursor, without keeping the Shift key pressed.
 * 6 Go from Select mode to Insert mode by typing a printable character.  The
@@ -566,17 +566,17 @@ Additionally the command CTRL-\ CTRL-N or <C-\><C-N> can be used to go to
 Normal mode from any other mode.  This can be used to make sure Vim is in
 Normal mode, without causing a beep like <Esc> would.  However, this does not
 work in Ex mode.  When used after a command that takes an argument, such as
-[f| or |m](#f| or |m), the timeout set with 'ttimeoutlen' applies.
+[[f](/undefined#f)](/undefined) or [[m](/undefined#m)](/undefined), the timeout set with 'ttimeoutlen' applies.
 
 *CTRL-\_CTRL-G* *i_CTRL-\_CTRL-G* *c_CTRL-\_CTRL-G* *v_CTRL-\_CTRL-G*
-CTRL-\ CTRL-G works the same as [CTRL-\_CTRL-N](#CTRL-\_CTRL-N) for backward compatibility.
+CTRL-\ CTRL-G works the same as |CTRL-\_CTRL-N| for backward compatibility.
 
 ### <a id="gQ mode-Ex Ex-mode Ex EX E501" class="section-title" href="#gQ mode-Ex Ex-mode Ex EX E501">Note:</a>
 gQ			Switch to Ex mode.  This is like typing ":" commands
 one after another, except:
 - You don't have to keep pressing ":".
 - The screen doesn't get updated after each command.
-Use the `:vi` command ([:visual](#:visual)) to exit this mode.
+Use the `:vi` command (|:visual|) to exit this mode.
 
 
 ## <a id="window-contents" class="section-title" href="#window-contents">Window Contents</a> 
@@ -597,10 +597,10 @@ If the window has room after the last line of the buffer, Vim will show '~' in
 the first column of the last lines in the window, like this:
 
 +-----------------------+
-[some line		](#some line		)
-[last line		](#last line		)
-[~			](#~			)
-[~			](#~			)
+|some line		|
+|last line		|
+|~			|
+|~			|
 +-----------------------+
 
 Thus the '~' lines indicate that the end of the buffer was reached.
@@ -609,10 +609,10 @@ If the last line in a window doesn't fit, Vim will indicate this with a '@' in
 the first column of the last lines in the window, like this:
 
 +-----------------------+
-[first line		](#first line		)
-[second line		](#second line		)
-[@			](#@			)
-[@			](#@			)
+|first line		|
+|second line		|
+|@			|
+|@			|
 +-----------------------+
 
 Thus the '@' lines indicate that there is a line that doesn't fit in the
@@ -624,10 +624,10 @@ completely, only the part that fits is shown, and the last three characters of
 the last line are replaced with "@@@", like this:
 
 +-----------------------+
-[first line		](#first line		)
-[second line		](#second line		)
-[a very long line that d](#a very long line that d)
-[oesn't fit in the wi@@@](#oesn't fit in the wi@@@)
+|first line		|
+|second line		|
+|a very long line that d|
+|oesn't fit in the wi@@@|
 +-----------------------+
 
 If there is a single line that is too long to fit in the window, this is a
@@ -635,7 +635,7 @@ special situation.  Vim will show only part of the line, around where the
 cursor is.  There are no special characters shown, so that you can edit all
 parts of this line.
 
-The [hl-NonText](#hl-NonText) highlight group can be used to set special highlighting
+The [[hl-NonText](/undefined#hl-NonText)](/undefined) highlight group can be used to set special highlighting
 for the '@' and '~' characters.  This makes it possible to distinguish them
 from real characters in the buffer.
 
@@ -679,7 +679,7 @@ current mode			'showmode'	on	    on
 command characters		'showcmd'	on	    off
 cursor position			'ruler'		off	    off
 
-The current mode is "-- INSERT --" or "-- REPLACE --", see ['showmode'](#'showmode').  The
+The current mode is "-- INSERT --" or "-- REPLACE --", see |'showmode'|.  The
 command characters are those that you typed but were not used yet.
 
 If you have a slow terminal you can switch off the status messages to speed
@@ -712,15 +712,15 @@ A screen contains one or more windows, separated by status lines and with the
 command line at the bottom.
 
 +-------------------------------+
-screen	[ window 1	| window 2	](# window 1	| window 2	)
-[		|		](#		|		)
-[		|		](#		|		)
-[= status line =|= status line =](#= status line =|= status line =)
-[ window 3			](# window 3			)
-[				](#				)
-[				](#				)
-[==== status line ==============](#==== status line ==============)
-[command line			](#command line			)
+screen	| window 1	| window 2	|
+|		|		|
+|		|		|
+|= status line =|= status line =|
+| window 3			|
+|				|
+|				|
+|==== status line ==============|
+|command line			|
 +-------------------------------+
 
 The command line is also used for messages.  It scrolls up the screen when
@@ -781,8 +781,8 @@ plugins.
 
 
 Remote plugin ~
-Arbitrary code registered via [:UpdateRemotePlugins](#:UpdateRemotePlugins), that runs in a separate
-process and communicates with Nvim via the [api](#api).
+Arbitrary code registered via |:UpdateRemotePlugins|, that runs in a separate
+process and communicates with Nvim via the [[api](/undefined#api)](/undefined).
 
 
 ## <a id="" class="section-title" href="#">Vim Tw 78 Ts 8 Noet Ft Help Norl</a> 

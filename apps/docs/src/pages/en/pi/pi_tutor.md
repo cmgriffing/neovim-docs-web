@@ -21,8 +21,10 @@ You can follow them by placing the cursor over them and pressing <Enter>, or
 by double-clicking them.
 
 1.1 Commands
-------------
-### <a id=":Tutor" class="section-title" href="#:Tutor">Note:</a>
+
+
+## <a id="" class="section-title" href="#">*:Tutor*</a> 
+
 :Tutor {tutorial}	Opens a tutorial. Command-line completion for
 			{tutorial} is provided, the candidates are a list of
 			'.tutor' files found in the 'tutor/'  folder in
@@ -37,7 +39,7 @@ by double-clicking them.
 ## <a id="vim-tutor-create" class="section-title" href="#vim-tutor-create">2. Creating Tutorials</a> 
 
 Writing vim-tutor-mode tutorials is easy. For an overview of the format used,
-please consult the 'tutor.tutor' file: 
+please consult the 'tutor.tutor' file:
 ```
     :Tutor tutor
 ```

@@ -16,7 +16,7 @@ This is style guide for developers working on Nvim's source code.
 
 License: CC-By 3.0 https://creativecommons.org/licenses/by/3.0/
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="" class="section-title" href="#">Background</a> 

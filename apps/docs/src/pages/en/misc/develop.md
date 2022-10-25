@@ -19,7 +19,7 @@ Architecture and internal concepts are covered in src/nvim/README.md
 Nvim is free and open source.  Everybody is encouraged to contribute.
 https://github.com/neovim/neovim/blob/master/CONTRIBUTING.md
 
-Type [gO](#gO) to see the table of contents.
+Type [[gO](/undefined#gO)](/undefined) to see the table of contents.
 
 
 ## <a id="design-goals" class="section-title" href="#design-goals">Design Goals</a> 
@@ -113,7 +113,7 @@ value returned by the provider will be discarded and empty value will be
 returned.
 - eval_has_provider(name): Checks the `g:loaded_{name}_provider` variable
 which must be set to 2 by the provider script to indicate that it is
-"enabled and working". Called by [has()](#has()) to check if features are available.
+"enabled and working". Called by |has()| to check if features are available.
 
 For example, the Python provider is implemented by the
 "autoload/provider/python.vim" script, which sets `g:loaded_python_provider`
@@ -123,7 +123,7 @@ reflects whether Python support is working.
 ### <a id="provider-reload" class="section-title" href="#provider-reload">Note:</a>
 Sometimes a GUI or other application may want to force a provider to
 "reload".  To reload a provider, undefine its "loaded" flag, then use
-[:runtime](#:runtime) to reload it: 
+|:runtime| to reload it: 
 ```
 :unlet g:loaded_clipboard_provider
 :runtime autoload/provider/clipboard.vim
@@ -138,11 +138,11 @@ optimize for the reader's time and energy: be "precise yet concise".
 - See https://developers.google.com/style/tone
 - Prefer the active voice: "Foo does X", not "X is done by Foo".
 - Vim differences:
-- Do not prefix help tags with "nvim-". Use [vim_diff.txt](#vim_diff.txt) to catalog
+- Do not prefix help tags with "nvim-". Use |vim_diff.txt| to catalog
 differences from Vim; no other distinction is necessary.
 - If a Vim feature is removed, delete its help section and move its tag to
-[vim_diff.txt](#vim_diff.txt).
-- Mention deprecated features in [deprecated.txt](#deprecated.txt) and delete their old doc.
+|vim_diff.txt|.
+- Mention deprecated features in |deprecated.txt| and delete their old doc.
 - Use consistent language.
 - "terminal" in a help tag always means "the embedded terminal emulator",
 not "the user host terminal".
@@ -175,12 +175,12 @@ before numbered items, e.g. "- 1." instead of "1.".
 - Separate blocks (paragraphs) of content by a blank line(s).
 - Do not use indentation in random places—that prevents the page from using
 "flow" layout. If you need a preformatted section, put it in
-a [help-codeblock](#help-codeblock) starting with ">".
+a [[help-codeblock](/undefined#help-codeblock)](/undefined) starting with ">".
 
 C docstrings ~
 
 Nvim API documentation lives in the source code, as docstrings (Doxygen
-comments) on the function definitions.  The [api](#api) :help is generated
+comments) on the function definitions.  The [[api](/undefined#api)](/undefined) :help is generated
 from the docstrings defined in src/nvim/api/*.c.
 
 Docstring format:
@@ -191,7 +191,7 @@ Docstring format:
 - List-items start with `-` (useful to nest or "indent")
 - Use `<pre>` for code samples.
 
-Example: the help for [nvim_open_win()](#nvim_open_win()) is generated from a docstring defined
+Example: the help for |nvim_open_win()| is generated from a docstring defined
 in src/nvim/api/win_config.c like this:
 
 /// Opens a new window.
@@ -219,7 +219,7 @@ in src/nvim/api/win_config.c like this:
 Lua docstrings ~
 ### <a id="dev-lua-doc" class="section-title" href="#dev-lua-doc">Note:</a>
 Lua documentation lives in the source code, as docstrings on the function
-definitions.  The [lua-vim](#lua-vim) :help is generated from the docstrings.
+definitions.  The [[lua-vim](/undefined#lua-vim)](/undefined) :help is generated from the docstrings.
 
 Docstring format:
 - Lines in the main description start with `---`
@@ -229,11 +229,11 @@ Docstring format:
 - List-items start with `-` (useful to nest or "indent")
 - Use `<pre>` for code samples.
 
-Example: the help for [vim.paste()](#vim.paste()) is generated from a docstring decorating
+Example: the help for |vim.paste()| is generated from a docstring decorating
 vim.paste in runtime/lua/vim/_editor.lua like this:
 
---- Paste handler, invoked by [nvim_paste()](#nvim_paste()) when a conforming UI
---- (such as the [TUI](#TUI)) pastes text into the editor.
+--- Paste handler, invoked by |nvim_paste()| when a conforming UI
+--- (such as the [[TUI](/undefined#TUI)](/undefined)) pastes text into the editor.
 ---
 --- Example: To remove ANSI color codes when pasting:
 --- <pre>
@@ -243,7 +243,7 @@ vim.paste in runtime/lua/vim/_editor.lua like this:
 --- end)()
 --- </pre>
 ---
----@see [paste](#paste)
+---@see [[paste](/undefined#paste)](/undefined)
 ---
 ---@param lines  ...
 ---@param phase  ...
@@ -252,7 +252,7 @@ vim.paste in runtime/lua/vim/_editor.lua like this:
 
 ### <a id="dev-lua" class="section-title" href="#dev-lua">LUA</a>
 
-- Keep the core Lua modules [lua-stdlib](#lua-stdlib) simple. Avoid elaborate OOP or
+- Keep the core Lua modules [[lua-stdlib](/undefined#lua-stdlib)](/undefined) simple. Avoid elaborate OOP or
 pseudo-OOP designs. Plugin authors just want functions to call, they don't
 want to learn a big, fancy inheritance hierarchy. Thus avoid specialized
 objects; tables or values are usually better.
@@ -260,7 +260,7 @@ objects; tables or values are usually better.
 
 ### <a id="dev-api" class="section-title" href="#dev-api">API</a>
 
-Use this format to name new RPC [API](#API) functions:
+Use this format to name new RPC [[[API](/undefined#API)](/undefined)](/undefined) functions:
 
 nvim_{thing}_{action}_{arbitrary-qualifiers}
 
@@ -288,7 +288,7 @@ Do NOT use these deprecated verbs:
 Use consistent names for {thing} (nouns) in API functions: buffer is called
 "buf" everywhere, not "buffer" in some places and "buf" in others.
 - buf       Buffer
-- chan      [channel](#channel)
+- chan      [[channel](/undefined#channel)](/undefined)
 - cmd       Command
 - cmdline   Command-line UI or input
 - fn        Function
@@ -323,8 +323,8 @@ Example:
 ### <a id="dev-api-client" class="section-title" href="#dev-api-client">API-CLIENT</a>
 
 ### <a id="api-client" class="section-title" href="#api-client">Note:</a>
-API clients wrap the Nvim [API](#API) to provide idiomatic "SDKs" for their
-respective platforms (see [jargon](#jargon)). You can build a new API client for your
+API clients wrap the Nvim [[[API](/undefined#API)](/undefined)](/undefined) to provide idiomatic "SDKs" for their
+respective platforms (see [[jargon](/undefined#jargon)](/undefined)). You can build a new API client for your
 favorite platform or programming language.
 
 List of API clients:
@@ -337,11 +337,11 @@ https://github.com/neovim/pynvim
 Standard Features ~
 
 - API clients exist to hide msgpack-rpc details. The wrappers can be
-automatically generated by reading the [api-metadata| from Nvim. |api-mapping](#api-metadata| from Nvim. |api-mapping)
-- Clients should call [nvim_set_client_info()](#nvim_set_client_info()) after connecting, so users and
-plugins can detect the client by handling the [ChanInfo](#ChanInfo) event. This avoids
+automatically generated by reading the [[api-metadata](/undefined#api-metadata)](/undefined) from Nvim. [[api-mapping](/undefined#api-mapping)](/undefined)
+- Clients should call |nvim_set_client_info()| after connecting, so users and
+plugins can detect the client by handling the [[[ChanInfo](/undefined#ChanInfo)](/undefined)](/undefined) event. This avoids
 the need for special variables or other client hints.
-- Clients should handle [nvim_error_event](#nvim_error_event) notifications, which will be sent
+- Clients should handle |nvim_error_event| notifications, which will be sent
 if an async request to nvim was rejected or caused an error.
 
 Package Naming ~
@@ -362,7 +362,7 @@ Examples of API-client package names:
 
 API client implementation guidelines ~
 
-- Separate the transport layer from the rest of the library. [rpc-connecting](#rpc-connecting)
+- Separate the transport layer from the rest of the library. [[rpc-connecting](/undefined#rpc-connecting)](/undefined)
 - Use a MessagePack library that implements at least version 5 of the
 MessagePack spec, which supports the BIN and EXT types used by Nvim.
 - Use a single-threaded event loop library/pattern.
@@ -385,7 +385,7 @@ https://github.com/msgpack-rpc/msgpack-rpc
 
 ### <a id="dev-ui" class="section-title" href="#dev-ui">External Ui</a>
 
-External UIs should be aware of the [api-contract](#api-contract). In particular, future
+External UIs should be aware of the [[api-contract](/undefined#api-contract)](/undefined). In particular, future
 versions of Nvim may add new items to existing events. The API is strongly
 backwards-compatible, but clients must not break if new (optional) fields are
 added to existing events.
@@ -394,17 +394,17 @@ Standard Features ~
 
 External UIs are expected to implement these common features:
 
-- Call [nvim_set_client_info()](#nvim_set_client_info()) after connecting, so users and plugins can
-detect the UI by handling the [ChanInfo](#ChanInfo) event. This avoids the need for
+- Call |nvim_set_client_info()| after connecting, so users and plugins can
+detect the UI by handling the [[[ChanInfo](/undefined#ChanInfo)](/undefined)](/undefined) event. This avoids the need for
 special variables and UI-specific config files (gvimrc, macvimrc, …).
 - Cursor style (shape, color) should conform to the 'guicursor' properties
 delivered with the mode_info_set UI event.
-- Send the ALT/META ("Option" on macOS) key as a [<M-](#<M-) chord.
-- Send the "super" key (Windows key, Apple key) as a [<D-](#<D-) chord.
+- Send the ALT/META ("Option" on macOS) key as a |<M-| chord.
+- Send the "super" key (Windows key, Apple key) as a |<D-| chord.
 - Avoid mappings that conflict with the Nvim keymap-space; GUIs have many new
 chords (<C-,> <C-Enter> <C-S-x> <D-x>) and patterns ("shift shift") that do
 not potentially conflict with Nvim defaults, plugins, etc.
-- Consider the "option_set" [ui-global](#ui-global) event as a hint for other GUI
+- Consider the "option_set" [[ui-global](/undefined#ui-global)](/undefined) event as a hint for other GUI
 behaviors. Various UI-related options ('guifont', 'ambiwidth', …) are
 published in this event. See also "mouse_on", "mouse_off".
 

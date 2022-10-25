@@ -16,18 +16,18 @@ Vim is an extensible editor.  You can take a sequence of commands you use
 often and turn it into a new command.  Or redefine an existing command.
 Autocommands make it possible to execute commands automatically.
 
-[40.1](#40.1)	Key mapping
-[40.2](#40.2)	Defining command-line commands
-[40.3](#40.3)	Autocommands
+|40.1|	Key mapping
+|40.2|	Defining command-line commands
+|40.3|	Autocommands
 
-     Next chapter: [usr_41.txt](#usr_41.txt)  Write a Vim script
- Previous chapter: [usr_32.txt](#usr_32.txt)  The undo tree
-Table of contents: [usr_toc.txt](#usr_toc.txt)
+     Next chapter: |usr_41.txt|  Write a Vim script
+ Previous chapter: |usr_32.txt|  The undo tree
+Table of contents: |usr_toc.txt|
 
 
 ## <a id="" class="section-title" href="#">*40.1*	Key Mapping</a> 
 
-A simple mapping was explained in section [05.3](#05.3).  The principle is that one
+A simple mapping was explained in section |05.3|.  The principle is that one
 sequence of key strokes is translated into another sequence of key strokes.
 This is a simple, yet powerful mechanism.
    The simplest form is that one key is mapped to a sequence of keys.  Since
@@ -52,7 +52,7 @@ line.  The <CR> is required to execute the ":read" command.
 	Fri Jun 15 12:54:34 CEST 2001 ~
 
 Now "kJ" moves the cursor up and joins the lines together.
-   To decide which key or keys you use for mapping, see [map-which-keys](#map-which-keys).
+   To decide which key or keys you use for mapping, see [map-which-keys](undefined#map-which-keys).
 
 
 MAPPING AND MODES
@@ -205,7 +205,7 @@ delete it for Visual mode:
 
 Notice that the five characters "<C-A>" stand for the single key CTRL-A.
 
-To remove all mappings use the [:mapclear](#:mapclear) command.  You can guess the
+To remove all mappings use the |:mapclear| command.  You can guess the
 variations for different modes by now.  Be careful with this command, it can't
 be undone.
 
@@ -265,14 +265,14 @@ is inserted.
 ADDITIONALLY...
 
 The <script> keyword can be used to make a mapping local to a script.  See
-[:map-<script>](#:map-<script>).
+|:map-<script>|.
 
 The <buffer> keyword can be used to make a mapping local to a specific buffer.
-See [:map-<buffer>](#:map-<buffer>)
+See |:map-<buffer>|
 
 The <unique> keyword can be used to make defining a new mapping fail when it
 already exists.  Otherwise a new mapping simply overwrites the old one.  See
-[:map-<unique>](#:map-<unique>).
+|:map-<unique>|.
 
 To make a key do nothing, map it to <Nop> (five characters).  This will make
 the <F7> key do nothing at all:
@@ -394,7 +394,7 @@ Some of the other options and keywords are as follows:
 				The register specification is available as
 				<reg> (a.k.a. <register>).
 	-complete={type}	Type of command-line completion used.  See
-				[:command-completion](#:command-completion) for the list of possible
+				|:command-completion| for the list of possible
 				values.
 	-bar			The command can be followed by | and another
 				command, or " and a comment.
@@ -423,7 +423,7 @@ To delete all the user commands:
 
 Careful, this can't be undone!
 
-More details about all this in the reference manual: [user-commands](#user-commands).
+More details about all this in the reference manual: [user-commands](/neovim-docs-web/en/vim/map#user-commands).
 
 
 ## <a id="" class="section-title" href="#">*40.3*	Autocommands</a> 
@@ -431,7 +431,7 @@ More details about all this in the reference manual: [user-commands](#user-comma
 An autocommand is a command that is executed automatically in response to some
 event, such as a file being read or written or a buffer change.  Through the
 use of autocommands you can train Vim to edit compressed files, for example.
-That is used in the [gzip](#gzip) plugin.
+That is used in the [gzip](undefined#gzip) plugin.
    Autocommands are very powerful.  Use them with care and they will help you
 avoid typing many commands.  Use them carelessly and they will cause a lot of
 trouble.
@@ -499,7 +499,7 @@ When starting to edit a new file, you could make Vim insert a skeleton:
 
 	:autocmd BufNewFile *.[ch]  0read ~/skeletons/skel.c
 
-See [autocmd-events](#autocmd-events) for a complete list of events.
+See [autocmd-events](undefined#autocmd-events) for a complete list of events.
 
 
 PATTERNS
@@ -646,7 +646,7 @@ lines.  This can be used in Vim scripts (not at the command line).
 
 When you want the autocommand do something complicated, which involves jumping
 around in the file and then returning to the original position, you may want
-to restore the view on the file.  See [restore-position](#restore-position) for an example.
+to restore the view on the file.  See [restore-position](/neovim-docs-web/en/vim/tips#restore-position) for an example.
 
 
 IGNORING EVENTS
@@ -666,7 +666,7 @@ To set it back to the normal behavior, make 'eventignore' empty:
 	:set eventignore=
 
 
-## <a id="Write a Vim script" class="section-title" href="#Write a Vim script">Next Chapter: [Usr_41.Txt](#Usr_41.Txt)</a> 
+## <a id="Write a Vim script" class="section-title" href="#Write a Vim script">Next Chapter: |Usr_41.Txt|</a> 
 
-Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
+Copyright: see [manual-copyright](/neovim-docs-web/en/usr/usr_01#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

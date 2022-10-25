@@ -14,19 +14,19 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 This file describes the diff feature: Showing differences between two to
 eight versions of the same file.
 
-The basics are explained in section [08.7](#08.7) of the user manual.
+The basics are explained in section |08.7| of the user manual.
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="start-vimdiff" class="section-title" href="#start-vimdiff">1. Starting Diff Mode</a> 
 
 To start editing in diff mode, run "nvim -d".  This starts Nvim as usual, and
-additionally sets up for viewing the differences between the arguments. 
-```
+additionally sets up for viewing the differences between the arguments.
+
 	nvim -d file1 file2 [file3 [file4]]
 
-In addition to the [-d| argument, |-R](#-d| argument, |-R) may be used for readonly mode.
+In addition to the [-d](undefined#-d) argument, [-R](undefined#-R) may be used for readonly mode.
 
 The second and following arguments may also be a directory name.  Vim will
 then append the file name of the first argument to the directory name to find
@@ -36,13 +36,13 @@ By default an internal diff library will be used.  When 'diffopt' or
 'diffexpr' has been set an external "diff" command will be used.  This only
 works when such a diff program is available.
 
-Diffs are local to the current tab page [tab-page](#tab-page).  You can't see diffs with
+Diffs are local to the current tab page [tab-page](undefined#tab-page).  You can't see diffs with
 a window in another tab page.  This does make it possible to have several
 diffs at the same time, each in their own tab page.
 
 What happens is that Nvim opens a window for each of the files.  This is like
-using the [-O](#-O) argument.  This uses vertical splits, but if you prefer
-horizontal splits use the [-o](#-o) argument instead:
+using the [-O](undefined#-O) argument.  This uses vertical splits, but if you prefer
+horizontal splits use the [-o](undefined#-o) argument instead:
 
 	nvim -d -o file1 file2 [file3 [file4]]
 
@@ -105,7 +105,7 @@ While already in Vim you can start diff mode in three ways.
 		various ".rej" files to be created.  And when absolute path
 		names are present these files may get patched anyway.
 
-To make these commands use a vertical split, prepend [:vertical](#:vertical).  Examples:
+To make these commands use a vertical split, prepend |:vertical|.  Examples:
 
 	:vert diffsplit main.c~
 	:vert diffpatch /tmp/diff
@@ -171,8 +171,8 @@ in diff mode in one window and "normal" in another window.  It is also
 possible to view the changes you have made to a buffer since the file was
 loaded.  Since Vim doesn't allow having two buffers for the same file, you
 need another buffer.  This command is useful:
-	 command DiffOrig vert new [ set buftype=nofile | read ++edit # ](# set buftype=nofile | read ++edit # ) 0d_
-		\ [ diffthis | wincmd p ](# diffthis | wincmd p ) diffthis
+	 command DiffOrig vert new | set buftype=nofile | read ++edit # | 0d_
+		\ | diffthis | wincmd p | diffthis
 Use ":DiffOrig" to see the differences
 between the current buffer and the file it was loaded from.
 
@@ -201,7 +201,7 @@ this file.  Removing "filler" from the 'diffopt' option will make Vim not
 display these filler lines.
 
 
-Folds are used to hide the text that wasn't changed.  See [folding](#folding) for all
+Folds are used to hide the text that wasn't changed.  See [folding](undefined#folding) for all
 the commands that can be used with folds.
 
 The context of lines above a difference that are not included in the fold can
@@ -213,10 +213,10 @@ lines:
 
 The diffs are highlighted with these groups:
 
-[hl-DiffAdd](#hl-DiffAdd)	DiffAdd		Added (inserted) lines.  These lines exist in
+[hl-DiffAdd](undefined#hl-DiffAdd)	DiffAdd		Added (inserted) lines.  These lines exist in
 				this buffer but not in another.
-[hl-DiffChange](#hl-DiffChange)	DiffChange	Changed lines.
-[hl-DiffText](#hl-DiffText)	DiffText	Changed text inside a Changed line.  Vim
+[hl-DiffChange](undefined#hl-DiffChange)	DiffChange	Changed lines.
+[hl-DiffText](undefined#hl-DiffText)	DiffText	Changed text inside a Changed line.  Vim
 				finds the first character that is different,
 				and the last character that is different
 				(searching from the end of the line).  The
@@ -224,7 +224,7 @@ The diffs are highlighted with these groups:
 				that parts in the middle that are still the
 				same are highlighted anyway.  The 'diffopt'
 				flags "iwhite" and "icase" are used here.
-[hl-DiffDelete](#hl-DiffDelete)	DiffDelete	Deleted lines.  Also called filler lines,
+[hl-DiffDelete](undefined#hl-DiffDelete)	DiffDelete	Deleted lines.  Also called filler lines,
 				because they don't really exist in this
 				buffer.
 
@@ -298,7 +298,7 @@ can't move the cursor into them.  To fill the deleted lines with the lines
 from another buffer use ":diffget" on the line below them.
 ### <a id="E787" class="section-title" href="#E787">Note:</a>
 When the buffer that is about to be modified is read-only and the autocommand
-that is triggered by [FileChangedRO](#FileChangedRO) changes buffers the command will fail.
+that is triggered by [FileChangedRO](undefined#FileChangedRO) changes buffers the command will fail.
 The autocommand must not change buffers.
 
 The [bufspec] argument above can be a buffer number, a pattern for a buffer
@@ -312,18 +312,18 @@ name or a part of a buffer name.  Examples:
 
 ## <a id="diff-options" class="section-title" href="#diff-options">5. Diff Options</a> 
 
-Also see ['diffopt'| and the "diff" item of |'fillchars'](#'diffopt'| and the "diff" item of |'fillchars').
+Also see |'diffopt'| and the "diff" item of |'fillchars'|.
 
 ### <a id="diff-slow diff_translations" class="section-title" href="#diff-slow diff_translations">Note:</a>
 For very long lines, the diff syntax highlighting might be slow, especially
 since it tries to match all different kind of localisations. To disable
 localisations and speed up the syntax highlighting, set the global variable
 g:diff_translations to zero:
-
+```
     let g:diff_translations = 0
 ```
 
-After setting this variable, reload the syntax script: 
+After setting this variable, reload the syntax script:
 ```
     set syntax=diff
 ```

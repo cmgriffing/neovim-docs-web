@@ -21,7 +21,7 @@ You can recover most of your changes from the files that Vim uses to store
 the contents of the file.  Mostly you can recover your work with one command:
 	vim -r filename
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="swap-file" class="section-title" href="#swap-file">1. the Swap File</a> 
@@ -33,7 +33,7 @@ You can see the name of the current swap file being used with the command:
 
 ### <a id=":sw :swapname" class="section-title" href="#:sw :swapname">	:sw[apname]</a>
 
-Or you can use the [swapname()](#swapname()) function, which also allows for seeing the
+Or you can use the |swapname()| function, which also allows for seeing the
 swap file name of other buffers.
 
 The name of the swap file is normally the same as the file you are editing,
@@ -76,7 +76,7 @@ For read-only files, a swap file is not used right away. The swap file is
 created only when making changes.
 
 The 'swapfile' option can be reset to avoid creating a swapfile.  And the
-[:noswapfile](#:noswapfile) modifier can be used to not create a swapfile for a new buffer.
+|:noswapfile| modifier can be used to not create a swapfile for a new buffer.
 
 :nos[wapfile]   {command}			*:nos* *:noswapfile*
 		Execute {command}. If it contains a command that loads a new
@@ -87,7 +87,7 @@ The 'swapfile' option can be reset to avoid creating a swapfile.  And the
 
 Detecting an existing swap file ~
 
-You can find this in the user manual, section [11.3](#11.3).
+You can find this in the user manual, section |11.3|.
 
 
 Updating the swapfile ~
@@ -144,7 +144,7 @@ there are exceptions:
 
 ## <a id="recovery E308 E311" class="section-title" href="#recovery E308 E311">2. Recovery</a> 
 
-Basic file recovery is explained in the user manual: [usr_11.txt](#usr_11.txt).
+Basic file recovery is explained in the user manual: |usr_11.txt|.
 
 Another way to do recovery is to start Vim and use the ":recover" command.
 This is easy when you start Vim to edit a file and you get the "ATTENTION:
@@ -174,7 +174,7 @@ parts of the original file were not written to disk.
 Be sure that the recovery was successful before overwriting the original
 file or deleting the swap file.  It is good practice to write the recovered
 file elsewhere and run 'diff' to find out if the changes you want are in the
-recovered file.  Or use [:DiffOrig](#:DiffOrig).
+recovered file.  Or use |:DiffOrig|.
 
 Once you are sure the recovery is ok delete the swap file.  Otherwise, you
 will continue to get warning messages that the ".swp" file already exists.

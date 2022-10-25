@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="edit-files" class="section-title" href="#edit-files">Editing files</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="edit-intro" class="section-title" href="#edit-intro">1. Introduction</a> 
@@ -27,13 +27,13 @@ Editing a file with Vim means:
 As long as you don't write the buffer, the original file remains unchanged.
 If you start editing a file (read a file into the buffer), the file name is
 remembered as the "current file name".  This is also known as the name of the
-current buffer.  It can be used with "%" on the command line [:_%](#:_%).
+current buffer.  It can be used with "%" on the command line |:_%|.
 
 ### <a id="alternate-file" class="section-title" href="#alternate-file">Note:</a>
 If there already was a current file name, then that one becomes the alternate
-file name.  It can be used with "#" on the command line [:_#](#:_#) and you can use
-the [CTRL-^](#CTRL-^) command to toggle between the current and the alternate file.
-However, the alternate file name is not changed when [:keepalt](#:keepalt) is used.
+file name.  It can be used with "#" on the command line |:_#| and you can use
+the |CTRL-^| command to toggle between the current and the alternate file.
+However, the alternate file name is not changed when |:keepalt| is used.
 An alternate file name is remembered for each window.
 
 ### <a id=":keepalt :keepa" class="section-title" href="#:keepalt :keepa">Note:</a>
@@ -46,7 +46,7 @@ All file names are remembered in the buffer list.  When you enter a file name,
 for editing (e.g., with ":e filename") or writing (e.g., with ":w filename"),
 the file name is added to the list.  You can use the buffer list to remember
 which files you edited and to quickly switch from one file to another (e.g.,
-to copy text) with the [CTRL-^](#CTRL-^) command.  First type the number of the file
+to copy text) with the |CTRL-^| command.  First type the number of the file
 and then hit CTRL-^.
 
 
@@ -57,7 +57,7 @@ CTRL-G		or				*CTRL-G* *:f* *:fi* *:file*
 			modified, read errors, new file).  See the 'shortmess'
 			option about how to make this message shorter.
 
-:f[ile]!		like [:file](#:file), but don't truncate the name even when
+:f[ile]!		like |:file|, but don't truncate the name even when
 			'shortmess' indicates this.
 
 {count}CTRL-G		Like CTRL-G, but prints the current file name with
@@ -77,7 +77,7 @@ g CTRL-G		Prints the current position of the cursor in five
 			utf-8), both the byte column and the screen column are
 			shown, separated by a dash.
 
-			Also see the 'ruler' option and the [wordcount()](#wordcount())
+			Also see the 'ruler' option and the |wordcount()|
 			function.
 
 ### <a id="v_g_CTRL-G" class="section-title" href="#v_g_CTRL-G">Note:</a>
@@ -85,26 +85,26 @@ g CTRL-G		Prints the current position of the cursor in five
 			Byte counts for the visually selected region are
 			displayed.
 			In Blockwise mode, Column count is also shown.  (For
-			{Visual} see [Visual-mode](#Visual-mode).)
+			{Visual} see [Visual-mode](undefined#Visual-mode).)
 
 ### <a id=":file_f" class="section-title" href="#:file_f">Note:</a>
 :f[ile][!] {name}	Sets the current file name to {name}.  The optional !
-			avoids truncating the message, as with [:file](#:file).
+			avoids truncating the message, as with |:file|.
 			If the buffer did have a name, that name becomes the
-			[alternate-file](#alternate-file) name.  An unlisted buffer is created
+			[alternate-file](undefined#alternate-file) name.  An unlisted buffer is created
 			to hold the old name.
 ### <a id=":0file" class="section-title" href="#:0file">Note:</a>
 :0f[ile][!]		Remove the name of the current buffer.  The optional !
-			avoids truncating the message, as with [:file](#:file).
+			avoids truncating the message, as with |:file|.
 
 :buffers
 :files
 :ls			List all the currently known file names.  See
-			[windows.txt| |:files| |:buffers| |:ls](#windows.txt| |:files| |:buffers| |:ls).
+			|windows.txt| |:files| |:buffers| |:ls|.
 
 Vim will remember the full path name of a file name that you enter.  In most
 cases when the file name is displayed only the name you typed is shown, but
-the full path name is being used if you used the ":cd" command [:cd](#:cd).
+the full path name is being used if you used the ":cd" command |:cd|.
 
 ### <a id="home-replace" class="section-title" href="#home-replace">Note:</a>
 If the environment variable $HOME is set, and the file name starts with that
@@ -117,8 +117,8 @@ between options set to $HOME with 'backupext' set to "~").
 When writing the buffer, the default is to use the current file name.  Thus
 when you give the "ZZ" or ":wq" command, the original file will be
 overwritten.  If you do not want this, the buffer can be written into another
-file by giving a file name argument to the ":write" command.  For example: 
-```
+file by giving a file name argument to the ":write" command.  For example:
+
 	vim testfile
 	[change the buffer with editor commands]
 	:w newfile
@@ -137,10 +137,10 @@ directory by setting 'backupdir'.
 When you started editing without giving a file name, "No File" is displayed in
 messages.  If the ":write" command is used with a file name argument, the file
 name for the current file is set to that file name.  This only happens when
-the 'F' flag is included in 'cpoptions' (by default it is included) [cpo-F](#cpo-F).
+the 'F' flag is included in 'cpoptions' (by default it is included) [cpo-F](undefined#cpo-F).
 This is useful when entering text in an empty buffer and then writing it to a
 file.  If 'cpoptions' contains the 'f' flag (by default it is NOT included)
-[cpo-f](#cpo-f) the file name is set for the ":read file" command.  This is useful
+[cpo-f](undefined#cpo-f) the file name is set for the ":read file" command.  This is useful
 when starting Vim without an argument and then doing ":read file" to start
 editing a file.
 When the file name was set and 'filetype' is empty the filetype detection
@@ -168,7 +168,7 @@ If you want to automatically save the changes without asking, switch on the
 that does not work for all commands.
 
 If you want to keep the changed buffer without saving it, switch on the
-'hidden' option.  See [hidden-buffer](#hidden-buffer).  Some commands work like this even when
+'hidden' option.  See [hidden-buffer](undefined#hidden-buffer).  Some commands work like this even when
 'hidden' is not set, check the help for the command.
 
 
@@ -180,14 +180,14 @@ If you want to keep the changed buffer without saving it, switch on the
 			This fails when changes have been made to the current
 			buffer and 'autowriteall' isn't set or the file can't
 			be written.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":edit! discard" class="section-title" href="#:edit! discard">Note:</a>
 :e[dit]! [++opt] [+cmd]
 			Edit the current file always.  Discard any changes to
 			the current buffer.  This is useful if you want to
 			start all over again.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":edit_f" class="section-title" href="#:edit_f">Note:</a>
 :e[dit] [++opt] [+cmd] {file}
@@ -195,20 +195,20 @@ If you want to keep the changed buffer without saving it, switch on the
 			This fails when changes have been made to the current
 			buffer, unless 'hidden' is set or 'autowriteall' is
 			set and the file can be written.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":edit!_f" class="section-title" href="#:edit!_f">Note:</a>
 :e[dit]! [++opt] [+cmd] {file}
 			Edit {file} always.  Discard any changes to the
 			current buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 ### <a id=":edit_# :e#" class="section-title" href="#:edit_# :e#">Note:</a>
 :e[dit] [++opt] [+cmd] #[count]
-			Edit the [count]th buffer (as shown by [:files](#:files)).
+			Edit the [count]th buffer (as shown by |:files|).
 			This command does the same as [count] CTRL-^.  But ":e
 			#" doesn't work if the alternate buffer doesn't have a
 			file name, while CTRL-^ still works then.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":ene :enew" class="section-title" href="#:ene :enew">Note:</a>
 :ene[w]			Edit a new, unnamed buffer.  This fails when changes
@@ -222,11 +222,11 @@ If you want to keep the changed buffer without saving it, switch on the
 ### <a id=":ene! :enew!" class="section-title" href="#:ene! :enew!">Note:</a>
 :ene[w]!		Edit a new, unnamed buffer.  Discard any changes to
 			the current buffer.
-			Set 'fileformat' like [:enew](#:enew).
+			Set 'fileformat' like |:enew|.
 
 ### <a id=":fin :find" class="section-title" href="#:fin :find">Note:</a>
 :fin[d][!] [++opt] [+cmd] {file}
-			Find {file} in 'path' and then [:edit](#:edit) it.
+			Find {file} in 'path' and then |:edit| it.
 
 :{count}fin[d][!] [++opt] [+cmd] {file}
 			Just like ":find", but use the {count} match in
@@ -237,17 +237,17 @@ If you want to keep the changed buffer without saving it, switch on the
 
 ### <a id=":ex" class="section-title" href="#:ex">Note:</a>
 :ex [++opt] [+cmd] [file]
-			Same as [:edit](#:edit).
+			Same as |:edit|.
 
 ### <a id=":vi :visual" class="section-title" href="#:vi :visual">Note:</a>
 :vi[sual][!] [++opt] [+cmd] [file]
-			When used in Ex mode: Leave [Ex-mode](#Ex-mode), go back to
-			Normal mode.  Otherwise same as [:edit](#:edit).
+			When used in Ex mode: Leave [Ex-mode](undefined#Ex-mode), go back to
+			Normal mode.  Otherwise same as |:edit|.
 
 ### <a id=":vie :view" class="section-title" href="#:vie :view">Note:</a>
 :vie[w][!] [++opt] [+cmd] file
-			When used in Ex mode: Leave [Ex-mode](#Ex-mode), go back to
-			Normal mode.  Otherwise same as [:edit](#:edit), but set
+			When used in Ex mode: Leave [Ex-mode](undefined#Ex-mode), go back to
+			Normal mode.  Otherwise same as |:edit|, but set
 			'readonly' option for this buffer.
 
 ### <a id="CTRL-^ CTRL-6" class="section-title" href="#CTRL-^ CTRL-6">Note:</a>
@@ -266,7 +266,7 @@ CTRL-^			Edit the alternate file.  Mostly the alternate file is
 {count}CTRL-^		Edit [count]th file in the buffer list (equivalent to
 			":e #[count]").  This is a quick way to switch between
 			files.
-			See [CTRL-^](#CTRL-^) above for further details.
+			See |CTRL-^| above for further details.
 
 ### <a id="gf E446 E447" class="section-title" href="#gf E446 E447">Note:</a>
 [count]gf		Edit the file whose name is under or after the cursor.
@@ -284,26 +284,26 @@ CTRL-^			Edit the alternate file.  Mostly the alternate file is
 			modify the name and another attempt is done.
 			If a [count] is given, the count'th file that is found
 			in the 'path' is edited.
-			This command fails if Vim refuses to [abandon](#abandon) the
+			This command fails if Vim refuses to [abandon](undefined#abandon) the
 			current file.
 			If you want to edit the file in a new window use
-			[CTRL-W_CTRL-F](#CTRL-W_CTRL-F).
+			|CTRL-W_CTRL-F|.
 			If you do want to edit a new file, use:
 				:e <cfile>
 			To make gf always work like that:
 				:map gf :e <cfile><CR>
 			If the name is a hypertext link, that looks like
-			"type://machine/path", you need the [netrw](#netrw) plugin.
+			"type://machine/path", you need the [netrw](undefined#netrw) plugin.
 			For Unix the '~' character is expanded, like in
 			"~user/file".  Environment variables are expanded too
-			[expand-env](#expand-env).
+			[expand-env](undefined#expand-env).
 
 ### <a id="v_gf" class="section-title" href="#v_gf">Note:</a>
 {Visual}[count]gf	Same as "gf", but the highlighted text is used as the
 			name of the file to edit.  'isfname' is ignored.
 			Leading blanks are skipped, otherwise all blanks and
 			special characters are included in the file name.
-			(For {Visual} see [Visual-mode](#Visual-mode).)
+			(For {Visual} see [Visual-mode](undefined#Visual-mode).)
 
 ### <a id="gF" class="section-title" href="#gF">Note:</a>
 [count]gF		Same as "gf", except if a number follows the file
@@ -326,9 +326,9 @@ CTRL-^			Edit the alternate file.  Mostly the alternate file is
 
 These commands are used to start editing a single file.  This means that the
 file is read into the buffer and the current file name is set.  The file that
-is opened depends on the current directory, see [:cd](#:cd).
+is opened depends on the current directory, see |:cd|.
 
-See [read-messages](#read-messages) for an explanation of the message that is given after the
+See [read-messages](undefined#read-messages) for an explanation of the message that is given after the
 file has been read.
 
 You can use the ":e!" command if you messed up the buffer and want to start
@@ -337,7 +337,7 @@ current file name.
 
 ### <a id=":filename {file}" class="section-title" href="#:filename {file}">Note:</a>
 Besides the things mentioned here, more special items for where a filename is
-expected are mentioned at [cmdline-special](#cmdline-special).
+expected are mentioned at [cmdline-special](/neovim-docs-web/en/vim/cmdline#cmdline-special).
 
 Note for systems other than Unix: When using a command that accepts a single
 file name (like ":edit file") spaces in the file name are allowed, but
@@ -365,7 +365,7 @@ is to use "path\[[]abc]", this matches the file "path\[abc]".
 Expanding "**" is possible on Unix, Win32, macOS and a few other systems.
 This allows searching a directory tree.  This goes up to 100 directories deep.
 Note there are some commands where this works slightly differently, see
-[file-searching](#file-searching).
+[file-searching](/neovim-docs-web/en/vim/editing#file-searching).
 Example:
 	:n **/*.txt
 Finds files:
@@ -396,7 +396,7 @@ To see what shell command Vim is running, set the 'verbose' option to 4. When
 the shell command returns a non-zero exit code, an error message will be
 displayed and the Vim command will be aborted. To avoid this make the shell
 always return zero like so:
-### <a id=":next `find . -name ver\\.c -print \[\](#\) true`" class="section-title" href="#:next `find . -name ver\\.c -print \[\](#\) true`">Note:</a>
+### <a id=":next `find . -name ver\\.c -print \|\| true`" class="section-title" href="#:next `find . -name ver\\.c -print \|\| true`">Note:</a>
 
 The backslashes before the star are required to prevent the shell from
 expanding "ver*.c" prior to execution of the find program.  The backslash
@@ -423,7 +423,7 @@ what you intended:
 	:e `='$HOME' .. '/.vimrc'`
 
 If the expression returns a string then names are to be separated with line
-breaks.  When the result is a [List](#List) then each item is used as a name.  Line
+breaks.  When the result is a [List](undefined#List) then each item is used as a name.  Line
 breaks also separate names.
 Note that such expressions are only supported in places where a filename is
 expected as an argument to an Ex-command.
@@ -442,7 +442,7 @@ Or:
     bin    or  binary	    sets 'binary'
     nobin  or  nobinary	    resets 'binary'
     bad			    specifies behavior for bad characters
-    edit		    for [:read](#:read) only: keep option values as if editing
+    edit		    for |:read| only: keep option values as if editing
 			    a file
 
 {value} cannot contain white space.  It can be any valid value for these
@@ -457,7 +457,7 @@ The message given when writing a file will show "[converted]" when
 'fileencoding' or the value specified with ++enc differs from 'encoding'.
 
 There may be several ++opt arguments, separated by white space.  They must all
-appear before any [+cmd](#+cmd) argument.
+appear before any |+cmd| argument.
 
 ### <a id="++bad" class="section-title" href="#++bad">Note:</a>
 The argument of "++bad=" specifies what happens with characters that can't be
@@ -471,7 +471,7 @@ The default is like "++bad=?": Replace each bad character with a question
 mark.  In some places an inverted question mark is used (0xBF).
 
 Note that not all commands use the ++bad argument, even though they do not
-give an error when you add it.  E.g. [:write](#:write).
+give an error when you add it.  E.g. |:write|.
 
 Note that when reading, the 'fileformat' and 'fileencoding' options will be
 set to the used format.  When writing this doesn't happen, thus a next write
@@ -504,10 +504,10 @@ The 'fileformat' option sets the <EOL> style for a file:
 When reading a file, the mentioned characters are interpreted as the <EOL>.
 In DOS format (default for Windows), <CR><NL> and <NL> are both interpreted as
 the <EOL>. Note that when writing the file in DOS format, <CR> characters will
-be added for each single <NL>.  Also see [file-read](#file-read).
+be added for each single <NL>.  Also see [file-read](undefined#file-read).
 
 When writing a file, the mentioned characters are used for <EOL>.  For DOS
-format <CR><NL> is used.  Also see [DOS-format-write](#DOS-format-write).
+format <CR><NL> is used.  Also see [DOS-format-write](undefined#DOS-format-write).
 
 You can read a file in DOS format and write it in Unix format.  This will
 replace all <CR><NL> pairs by <NL> (assuming 'fileformats' includes "dos"):
@@ -558,19 +558,19 @@ If you give more than one file name when starting Vim, this list is remembered
 as the argument list.  You can jump to each file in this list.
 
 Do not confuse this with the buffer list, which you can see with the
-[:buffers](#:buffers) command.  The argument list was already present in Vi, the buffer
+|:buffers| command.  The argument list was already present in Vi, the buffer
 list is new in Vim.  Every file name in the argument list will also be present
-in the buffer list (unless it was deleted with [:bdel| or |:bwipe](#:bdel| or |:bwipe)).  But it's
+in the buffer list (unless it was deleted with |:bdel| or |:bwipe|).  But it's
 common that names in the buffer list are not in the argument list.
 
-This subject is introduced in section [07.2](#07.2) of the user manual.
+This subject is introduced in section |07.2| of the user manual.
 
 There is one global argument list, which is used for all windows by default.
 It is possible to create a new argument list local to a window, see
-[:arglocal](#:arglocal).
+|:arglocal|.
 
 You can use the argument list with the following commands, and with the
-expression functions [argc()| and |argv()](#argc()| and |argv()).  These all work on the argument
+expression functions |argc()| and |argv()|.  These all work on the argument
 list of the current window.
 
 ### <a id=":ar :arg :args" class="section-title" href="#:ar :arg :args">Note:</a>
@@ -580,26 +580,26 @@ list of the current window.
 ### <a id=":args_f" class="section-title" href="#:args_f">:ar[gs] [++opt] [+cmd] {arglist}</a>
 			Define {arglist} as the new argument list and edit
 			the first one.  This fails when changes have been made
-			and Vim does not want to [abandon](#abandon) the current buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			and Vim does not want to [abandon](undefined#abandon) the current buffer.
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":args_f!" class="section-title" href="#:args_f!">:ar[gs]! [++opt] [+cmd] {arglist}</a>
 			Define {arglist} as the new argument list and edit
 			the first one.  Discard any changes to the current
 			buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":arge :argedit" class="section-title" href="#:arge :argedit">:[count]arge[dit][!] [++opt] [+cmd] {name} ..</a>
 			Add {name}s to the argument list and edit it.
 			When {name} already exists in the argument list, this
 			entry is edited.
-			This is like using [:argadd| and then |:edit](#:argadd| and then |:edit).
+			This is like using |:argadd| and then |:edit|.
 			Spaces in filenames have to be escaped with "\".
-			[count] is used like with [:argadd](#:argadd).
-			If the current file cannot be [abandon](#abandon)ed {name}s will
+			[count] is used like with |:argadd|.
+			If the current file cannot be [abandon](undefined#abandon)ed {name}s will
 			still be added to the argument list, but won't be
 			edited. No check for duplicates is done.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":arga :argadd E479" class="section-title" href="#:arga :argadd E479">:[count]arga[dd] {name} ..</a>
 :[count]arga[dd]
@@ -620,7 +620,7 @@ list of the current window.
 				:+2argadd y	a b c x y
 			There is no check for duplicates, it is possible to
 			add a file to the argument list twice.  You can use
-			[:argdedupe](#:argdedupe) to fix it afterwards:
+			|:argdedupe| to fix it afterwards:
 ### <a id=":argadd .txt | argdedupe" class="section-title" href="#:argadd .txt | argdedupe">Note:</a>
 			The currently edited file is not changed.
 			Note: you can also use this method:
@@ -635,7 +635,7 @@ list of the current window.
 ### <a id=":argd :argdelete E480 E610" class="section-title" href="#:argd :argdelete E480 E610">:argd[elete] {pattern} ..</a>
 			Delete files from the argument list that match the
 			{pattern}s.  {pattern} is used like a file pattern,
-			see [file-pattern](#file-pattern).  "%" can be used to delete the
+			see [file-pattern](undefined#file-pattern).  "%" can be used to delete the
 			current entry.
 			This command keeps the currently edited file, also
 			when it's deleted from the argument list.
@@ -661,55 +661,55 @@ list of the current window.
 			Edit file [count] in the argument list.  When [count]
 			is omitted the current entry is used.  This fails
 			when changes have been made and Vim does not want to
-			[abandon](#abandon) the current buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			[abandon](undefined#abandon) the current buffer.
+			Also see |++opt| and |+cmd|.
 
 :[count]argu[ment]! [count] [++opt] [+cmd]
 			Edit file [count] in the argument list, discard any
 			changes to the current buffer.  When [count] is
 			omitted the current entry is used.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Also see |++opt| and |+cmd|.
 
 ### <a id=":n :ne :next E165 E163" class="section-title" href="#:n :ne :next E165 E163">:[count]n[ext] [++opt] [+cmd]</a>
 			Edit [count] next file.  This fails when changes have
-			been made and Vim does not want to [abandon](#abandon) the
-			current buffer.  Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			been made and Vim does not want to [abandon](undefined#abandon) the
+			current buffer.  Also see |++opt| and |+cmd|.
 
 :[count]n[ext]! [++opt] [+cmd]
 			Edit [count] next file, discard any changes to the
-			buffer.  Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			buffer.  Also see |++opt| and |+cmd|.
 
 ### <a id=":next_f" class="section-title" href="#:next_f">:n[ext] [++opt] [+cmd] {arglist}</a>
-			Same as [:args_f](#:args_f).
+			Same as |:args_f|.
 
 :n[ext]! [++opt] [+cmd] {arglist}
-			Same as [:args_f!](#:args_f!).
+			Same as |:args_f!|.
 
 ### <a id=":Next :N E164" class="section-title" href="#:Next :N E164">:[count]N[ext] [count] [++opt] [+cmd]</a>
 			Edit [count] previous file in argument list.  This
 			fails when changes have been made and Vim does not
-			want to [abandon](#abandon) the current buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			want to [abandon](undefined#abandon) the current buffer.
+			Also see |++opt| and |+cmd|.
 
 :[count]N[ext]! [count] [++opt] [+cmd]
 			Edit [count] previous file in argument list.  Discard
-			any changes to the buffer.  Also see [++opt](#++opt) and
-			[+cmd](#+cmd).
+			any changes to the buffer.  Also see |++opt| and
+			|+cmd|.
 
 ### <a id=":prev :previous" class="section-title" href="#:prev :previous">:[count]prev[ious] [count] [++opt] [+cmd]</a>
-			Same as :Next.  Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			Same as :Next.  Also see |++opt| and |+cmd|.
 
 ### <a id=":rew :rewind" class="section-title" href="#:rew :rewind">Note:</a>
 :rew[ind] [++opt] [+cmd]
 			Start editing the first file in the argument list.
 			This fails when changes have been made and Vim does
-			not want to [abandon](#abandon) the current buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			not want to [abandon](undefined#abandon) the current buffer.
+			Also see |++opt| and |+cmd|.
 
 :rew[ind]! [++opt] [+cmd]
 			Start editing the first file in the argument list.
-			Discard any changes to the buffer.  Also see [++opt](#++opt)
-			and [+cmd](#+cmd).
+			Discard any changes to the buffer.  Also see |++opt|
+			and |+cmd|.
 
 ### <a id=":fir :first" class="section-title" href="#:fir :first">Note:</a>
 :fir[st][!] [++opt] [+cmd]
@@ -719,28 +719,28 @@ list of the current window.
 :la[st] [++opt] [+cmd]
 			Start editing the last file in the argument list.
 			This fails when changes have been made and Vim does
-			not want to [abandon](#abandon) the current buffer.
-			Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			not want to [abandon](undefined#abandon) the current buffer.
+			Also see |++opt| and |+cmd|.
 
 :la[st]! [++opt] [+cmd]
 			Start editing the last file in the argument list.
-			Discard any changes to the buffer.  Also see [++opt](#++opt)
-			and [+cmd](#+cmd).
+			Discard any changes to the buffer.  Also see |++opt|
+			and |+cmd|.
 
 ### <a id=":wn :wnext" class="section-title" href="#:wn :wnext">Note:</a>
 :[count]wn[ext] [++opt]
 			Write current file and start editing the [count]
-			next file.  Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			next file.  Also see |++opt| and |+cmd|.
 
 :[count]wn[ext] [++opt] {file}
 			Write current file to {file} and start editing the
 			[count] next file, unless {file} already exists and
-			the 'writeany' option is off.  Also see [++opt](#++opt) and
-			[+cmd](#+cmd).
+			the 'writeany' option is off.  Also see |++opt| and
+			|+cmd|.
 
 :[count]wn[ext]! [++opt] {file}
 			Write current file to {file} and start editing the
-			[count] next file.  Also see [++opt| and |+cmd](#++opt| and |+cmd).
+			[count] next file.  Also see |++opt| and |+cmd|.
 
 ### <a id=":wN :wNext" class="section-title" href="#:wN :wNext">:[count]wN[ext][!] [++opt] [file]</a>
 ### <a id=":wp :wprevious" class="section-title" href="#:wp :wprevious">:[count]wp[revious][!] [++opt] [file]</a>
@@ -792,7 +792,7 @@ LOCAL ARGUMENT LIST
 
 :argl[ocal][!] [++opt] [+cmd] {arglist}
 			Define a new argument list, which is local to the
-			current window.  Works like [:args_f](#:args_f) otherwise.
+			current window.  Works like |:args_f| otherwise.
 
 ### <a id=":argglobal" class="section-title" href="#:argglobal">Note:</a>
 :argg[lobal]		Use the global argument list for the current window.
@@ -800,7 +800,7 @@ LOCAL ARGUMENT LIST
 
 :argg[lobal][!] [++opt] [+cmd] {arglist}
 			Use the global argument list for the current window.
-			Define a new global argument list like [:args_f](#:args_f).
+			Define a new global argument list like |:args_f|.
 			All windows using the global argument list will see
 			this new list.
 
@@ -810,7 +810,7 @@ change it in the other window.
 
 When a window is split the new window inherits the argument list from the
 current window.  The two windows then share this list, until one of them uses
-[:arglocal| or |:argglobal](#:arglocal| or |:argglobal) to use another argument list.
+|:arglocal| or |:argglobal| to use another argument list.
 
 
 USING THE ARGUMENT LIST
@@ -824,7 +824,7 @@ USING THE ARGUMENT LIST
 				:next
 				:{cmd}
 				etc.
-			When the current file can't be [abandon](#abandon)ed and the [!]
+			When the current file can't be [abandon](undefined#abandon)ed and the [!]
 			is not present, the command fails.
 			When an error is detected on one file, further files
 			in the argument list will not be visited.
@@ -836,8 +836,8 @@ USING THE ARGUMENT LIST
 			autocommand event is disabled by adding it to
 			'eventignore'.  This considerably speeds up editing
 			each file.
-			Also see [:windo|, |:tabdo|, |:bufdo|, |:cdo|, |:ldo](#:windo|, |:tabdo|, |:bufdo|, |:cdo|, |:ldo),
-			[:cfdo| and |:lfdo](#:cfdo| and |:lfdo).
+			Also see |:windo|, |:tabdo|, |:bufdo|, |:cdo|, |:ldo|,
+			|:cfdo| and |:lfdo|.
 
 Example:
 	:args *.c
@@ -864,7 +864,7 @@ Note: When the 'write' option is off, you are not able to write any file.
 			the normal way to save changes to a file.  It fails
 			when the 'readonly' option is set or when there is
 			another reason why the file can't be written.
-			For ++opt see [++opt](#++opt), but only ++bin, ++nobin, ++ff
+			For ++opt see |++opt|, but only ++bin, ++nobin, ++ff
 			and ++enc are effective.
 
 :w[rite]! [++opt]	Like ":write", but forcefully write when 'readonly' is
@@ -902,7 +902,7 @@ Note: When the 'write' option is off, you are not able to write any file.
 			Execute {cmd} with [range] lines as standard input
 			(note the space in front of the '!').  {cmd} is
 			executed like with ":!{cmd}", any '!' is replaced with
-			the previous command [:!](#:!).
+			the previous command |:!|.
 
 The default [range] for the ":w" command is the whole buffer (1,$).  If you
 write the whole buffer, it is no longer considered changed.  When you
@@ -947,7 +947,7 @@ slower (but safer).
 
 
 Vim will warn you if you try to overwrite a file that has been changed
-elsewhere (unless "!" was used).  See [timestamp](#timestamp).
+elsewhere (unless "!" was used).  See [timestamp](undefined#timestamp).
 
 ### <a id="backup E207 E506 E507 E508 E509 E510" class="section-title" href="#backup E207 E506 E507 E508 E509 E510">Note:</a>
 If you write to an existing file (but do not append) while the 'backup',
@@ -976,7 +976,7 @@ made while the file is being written will have a different name.
 On some filesystems it's possible that in a crash you lose both the backup and
 the newly written file (it might be there but contain bogus data).  In that
 case try recovery, because the swap file is synced to disk and might still be
-there. [:recover](#:recover)
+there. |:recover|
 
 The directories given with the 'backupdir' option are used to put the backup
 file in.  (default: same directory as the written file).
@@ -1019,7 +1019,7 @@ the message "[unix format]" is shown.
 If the 'fileformat' is "mac", <CR> is used for <EOL>.  On non-Mac systems the
 message "[mac format]" is shown.
 
-See also [file-formats](#file-formats) and the 'fileformat' and 'fileformats' options.
+See also [file-formats](undefined#file-formats) and the 'fileformat' and 'fileformats' options.
 
 ### <a id="ACL" class="section-title" href="#ACL">Note:</a>
 ACL stands for Access Control List.  It is an advanced way to control access
@@ -1036,7 +1036,7 @@ This means that even if the file read-only attribute is absent, and the ACL
 settings on NT network shared drives allow writing to the file, you can still
 not write to the file.  Vim on Win32 platforms will detect read-only network
 drives and will mark the file as read-only.  You will not be able to override
-it with [:write](#:write).
+it with |:write|.
 
 ### <a id="write-device" class="section-title" href="#write-device">Note:</a>
 When the file name is actually a device name, Vim will not make a backup (that
@@ -1061,19 +1061,19 @@ The names can be in upper- or lowercase.
 
 ### <a id=":q :quit" class="section-title" href="#:q :quit">Note:</a>
 :q[uit]			Quit the current window.  Quit Vim if this is the last
-			[edit-window](#edit-window).  This fails when changes have been made
-			and Vim refuses to [abandon](#abandon) the current buffer, and
+			[edit-window](undefined#edit-window).  This fails when changes have been made
+			and Vim refuses to [abandon](undefined#abandon) the current buffer, and
 			when the last file in the argument list has not been
 			edited.
 			If there are other tab pages and quitting the last
 			window in the current tab page the current tab page is
-			closed [tab-page](#tab-page).
-			Triggers the [QuitPre](#QuitPre) autocommand event.
-			See [CTRL-W_q](#CTRL-W_q) for quitting another window.
+			closed [tab-page](undefined#tab-page).
+			Triggers the [QuitPre](undefined#QuitPre) autocommand event.
+			See |CTRL-W_q| for quitting another window.
 
 :conf[irm] q[uit]	Quit, but give prompt when changes have been made, or
 			the last file in the argument list has not been
-			edited.  See [:confirm](#:confirm) and 'confirm'.
+			edited.  See |:confirm| and 'confirm'.
 
 :q[uit]!		Quit without writing, also when the current buffer has
 			changes.  The buffer is unloaded, also when it has
@@ -1085,25 +1085,25 @@ The names can be in upper- or lowercase.
 			Use ":qall!" to exit always.
 
 :cq[uit]		Quit always, without writing, and return an error
-			code.  See [:cq](#:cq).
+			code.  See |:cq|.
 
 ### <a id=":wq" class="section-title" href="#:wq">Note:</a>
 :wq [++opt]		Write the current file and close the window.  If this
-			was the last [edit-window](#edit-window) Vim quits.
+			was the last [edit-window](undefined#edit-window) Vim quits.
 			Writing fails when the file is read-only or the buffer
 			does not have a name.  Quitting fails when the last
 			file in the argument list has not been edited.
 
 :wq! [++opt]		Write the current file and close the window.  If this
-			was the last [edit-window](#edit-window) Vim quits.  Writing fails
+			was the last [edit-window](undefined#edit-window) Vim quits.  Writing fails
 			when the current buffer does not have a name.
 
 :wq [++opt] {file}	Write to {file} and close the window.  If this was the
-			last [edit-window](#edit-window) Vim quits.  Quitting fails when the
+			last [edit-window](undefined#edit-window) Vim quits.  Quitting fails when the
 			last file in the argument list has not been edited.
 
 :wq! [++opt] {file}	Write to {file} and close the current window.  Quit
-			Vim if this was the last [edit-window](#edit-window).
+			Vim if this was the last [edit-window](undefined#edit-window).
 
 :[range]wq[!] [++opt] [file]
 			Same as above, but only write the lines in [range].
@@ -1134,14 +1134,14 @@ ZQ			Quit without checking for changes (same as ":q!").
 :qa[ll]		Exit Vim, unless there are some buffers which have been
 		changed.  (Use ":bmod" to go to the next modified buffer).
 		When 'autowriteall' is set all changed buffers will be
-		written, like [:wqall](#:wqall).
+		written, like |:wqall|.
 
 :conf[irm] qa[ll]
 		Exit Vim.  Bring up a prompt when some buffers have been
-		changed.  See [:confirm](#:confirm).
+		changed.  See |:confirm|.
 
 :qa[ll]!	Exit Vim.  Any changes to buffers are lost.
-		Also see [:cquit](#:cquit), it does the same but exits with a non-zero
+		Also see |:cquit|, it does the same but exits with a non-zero
 		value.
 
 ### <a id=":quita :quitall" class="section-title" href="#:quita :quitall">Note:</a>
@@ -1156,7 +1156,7 @@ ZQ			Quit without checking for changes (same as ":q!").
 :conf[irm] xa[ll]
 		Write all changed buffers and exit Vim.  Bring up a prompt
 		when some buffers are readonly or cannot be written for
-		another reason.  See [:confirm](#:confirm).
+		another reason.  See |:confirm|.
 
 :wqa[ll]! [++opt]
 :xa[ll]!	Write all changed buffers, even the ones that are readonly,
@@ -1169,10 +1169,10 @@ ZQ			Quit without checking for changes (same as ":q!").
 ### <a id=":confirm :conf" class="section-title" href="#:confirm :conf">Note:</a>
 :conf[irm] {command}	Execute {command}, and use a dialog when an
 			operation has to be confirmed.  Can be used on the
-			[:q|, |:qa| and |:w](#:q|, |:qa| and |:w) commands (the latter to override
+			|:q|, |:qa| and |:w| commands (the latter to override
 			a read-only setting), and any other command that can
-			fail in such a way, such as [:only|, |:buffer](#:only|, |:buffer),
-			[:bdelete](#:bdelete), etc.
+			fail in such a way, such as |:only|, |:buffer|,
+			|:bdelete|, etc.
 
 Examples:
   :confirm w foo
@@ -1188,22 +1188,22 @@ If you want to always use ":confirm", set the 'confirm' option.
 
 ### <a id=":browse :bro E338 E614 E615 E616" class="section-title" href="#:browse :bro E338 E614 E615 E616">Note:</a>
 :bro[wse] {command}	Open a file selection dialog for an argument to
-			{command}.  At present this works for [:e|, |:w](#:e|, |:w),
-			[:wall|, |:wq|, |:wqall|, |:x|, |:xall|, |:exit](#:wall|, |:wq|, |:wqall|, |:x|, |:xall|, |:exit),
-			[:view|, |:sview|, |:r|, |:saveas|, |:sp|, |:mkexrc](#:view|, |:sview|, |:r|, |:saveas|, |:sp|, |:mkexrc),
-			[:mkvimrc|, |:mksession|, |:mkview|, |:split](#:mkvimrc|, |:mksession|, |:mkview|, |:split),
-			[:vsplit|, |:tabe|, |:tabnew|, |:cfile|, |:cgetfile](#:vsplit|, |:tabe|, |:tabnew|, |:cfile|, |:cgetfile),
-			[:caddfile|, |:lfile|, |:lgetfile|, |:laddfile](#:caddfile|, |:lfile|, |:lgetfile|, |:laddfile),
-			[:diffsplit|, |:diffpatch|, |:pedit|, |:redir](#:diffsplit|, |:diffpatch|, |:pedit|, |:redir),
-			[:source|, |:update|, |:visual|, |:vsplit](#:source|, |:update|, |:visual|, |:vsplit),
-			and [:qall](#:qall) if 'confirm' is set.
+			{command}.  At present this works for |:e|, |:w|,
+			|:wall|, |:wq|, |:wqall|, |:x|, |:xall|, |:exit|,
+			|:view|, |:sview|, |:r|, |:saveas|, |:sp|, |:mkexrc|,
+			|:mkvimrc|, |:mksession|, |:mkview|, |:split|,
+			|:vsplit|, |:tabe|, |:tabnew|, |:cfile|, |:cgetfile|,
+			|:caddfile|, |:lfile|, |:lgetfile|, |:laddfile|,
+			|:diffsplit|, |:diffpatch|, |:pedit|, |:redir|,
+			|:source|, |:update|, |:visual|, |:vsplit|,
+			and |:qall| if 'confirm' is set.
 			{only in Win32 GUI, in console `browse edit` works
 			if the FileExplorer autocommand group exists}
 			When ":browse" is not possible you get an error
 			message.  If {command} doesn't support browsing, the
 			{command} is executed without a dialog.
-			":browse set" works like [:options](#:options).
-			See also [:oldfiles](#:oldfiles) for ":browse oldfiles".
+			":browse set" works like |:options|.
+			See also |:oldfiles| for ":browse oldfiles".
 
 The syntax is best shown via some examples:
 	:browse e $vim/foo
@@ -1256,7 +1256,7 @@ use has("browsefilter"):
 
 ## <a id="current-directory" class="section-title" href="#current-directory">7. the Current Directory</a> 
 
-You can use [:cd|, |:tcd| and |:lcd](#:cd|, |:tcd| and |:lcd) to change to another directory, so you
+You can use |:cd|, |:tcd| and |:lcd| to change to another directory, so you
 will not have to type that directory name in front of the file names.  It also
 makes a difference for executing external commands, e.g. ":!ls" or ":te ls".
 
@@ -1271,18 +1271,18 @@ exist, the next-higher scope in the hierarchy applies.
 			current directory name.
 			Otherwise: Change the current directory to the home
 			directory.  Clear any window-local directory.
-			Use [:pwd](#:pwd) to print the current directory on all
+			Use |:pwd| to print the current directory on all
 			systems.
 
 :cd[!] {path}		Change the current directory to {path}.
 			If {path} is relative, it is searched for in the
-			directories listed in ['cdpath'](#'cdpath').
+			directories listed in |'cdpath'|.
 			Does not change the meaning of an already opened file,
 			because its full path name is remembered.  Files from
-			the [arglist](#arglist) may change though!
+			the [arglist](undefined#arglist) may change though!
 			On MS-Windows this also changes the active drive.
 			To change to the directory of the current file:
-				:cd %:h
+```				:cd %:h
 ```
 
 ### <a id=":cd- E186" class="section-title" href="#:cd- E186">Note:</a>
@@ -1290,10 +1290,10 @@ exist, the next-higher scope in the hierarchy applies.
 			previous ":cd {path}" command).
 
 ### <a id=":chd :chdir" class="section-title" href="#:chd :chdir">Note:</a>
-:chd[ir][!] [path]	Same as [:cd](#:cd).
+:chd[ir][!] [path]	Same as |:cd|.
 
 ### <a id=":tc :tcd" class="section-title" href="#:tc :tcd">Note:</a>
-:tc[d][!] {path}	Like [:cd](#:cd), but only set the directory for the current
+:tc[d][!] {path}	Like |:cd|, but only set the directory for the current
 			tab.  The current window will also use this directory.
 			The current directory is not changed for windows in
 			other tabs and for windows in the current tab that
@@ -1304,15 +1304,15 @@ exist, the next-higher scope in the hierarchy applies.
 			previous ":tcd {path}" command).
 
 ### <a id=":tch :tchdir" class="section-title" href="#:tch :tchdir">Note:</a>
-:tch[dir][!]		Same as [:tcd](#:tcd).
+:tch[dir][!]		Same as |:tcd|.
 
 ### <a id=":lc :lcd" class="section-title" href="#:lc :lcd">Note:</a>
-:lc[d][!] {path}	Like [:cd](#:cd), but only set the current directory for the
+:lc[d][!] {path}	Like |:cd|, but only set the current directory for the
 			current window.  The current directory for other
 			windows or tabs is not changed.
 
 ### <a id=":lch :lchdir" class="section-title" href="#:lch :lchdir">Note:</a>
-:lch[dir][!]		Same as [:lcd](#:lcd).
+:lch[dir][!]		Same as |:lcd|.
 
 ### <a id=":lcd-" class="section-title" href="#:lcd-">Note:</a>
 :lc[d][!] -		Change to the previous current directory (before the
@@ -1320,11 +1320,11 @@ exist, the next-higher scope in the hierarchy applies.
 
 ### <a id=":pw :pwd E187" class="section-title" href="#:pw :pwd E187">Note:</a>
 :pw[d]			Print the current directory name.
-			Also see [getcwd()](#getcwd()).
+			Also see |getcwd()|.
 ### <a id=":pwd-verbose" class="section-title" href="#:pwd-verbose">Note:</a>
-			When 'verbose' is non-zero, [:pwd](#:pwd) will also display
-			what scope the current directory was set. Example: 
-```
+			When 'verbose' is non-zero, |:pwd| will also display
+			what scope the current directory was set. Example:
+
 				" Set by :cd
 				:verbose pwd
 				[global] /path/to/current
@@ -1337,12 +1337,12 @@ exist, the next-higher scope in the hierarchy applies.
 				:verbose pwd
 				[tabpage] /path/to/current
 
-So long as no [:lcd| or |:tcd](#:lcd| or |:tcd) command has been used, all windows share the
+So long as no |:lcd| or |:tcd| command has been used, all windows share the
 same current directory.  Using a command to jump to another window doesn't
 change anything for the current directory.
 
-When [:lcd](#:lcd) has been used for a window, the specified directory becomes the
-current directory for that window.  Windows where the [:lcd](#:lcd) command has not
+When |:lcd| has been used for a window, the specified directory becomes the
+current directory for that window.  Windows where the |:lcd| command has not
 been used stick to the global or tab-local directory.  When jumping to another
 window the current directory is changed to the last specified local current
 directory.  If none was specified, the global or tab-local directory is used.
@@ -1351,12 +1351,12 @@ When creating a new window it inherits the local directory of the current window
 When changing tabs the same behaviour applies.  If the current tab has no
 local working directory the global working directory is used.
 
-When a [:cd](#:cd) command is used, the current window and tab will lose their local
+When a |:cd| command is used, the current window and tab will lose their local
 current directories and will use the global current directory from now on.
-When a [:tcd](#:tcd) command is used, only the current window will lose its local
+When a |:tcd| command is used, only the current window will lose its local
 working directory.
 
-After using [:cd](#:cd) the full path name will be used for reading and writing
+After using |:cd| the full path name will be used for reading and writing
 files.  On some networked file systems this may cause problems.  The result of
 using the full path name is that the file names currently in use will remain
 referring to the same file.  Example: If you have a file a:test and a
@@ -1369,7 +1369,7 @@ filename before the ":cd".
 ## <a id="edit-binary" class="section-title" href="#edit-binary">8. Editing Binary Files</a> 
 
 Although Vim was made to edit text files, it is possible to edit binary
-files.  The [-b](#-b) Vim argument (b for binary) makes Vim do file I/O in binary
+files.  The [-b](undefined#-b) Vim argument (b for binary) makes Vim do file I/O in binary
 mode, and sets some options for editing binary files ('binary' on, 'textwidth'
 to 0, 'modeline' off, 'expandtab' off).  Setting the 'binary' option has the
 same effect.  Don't forget to do this before reading the file.
@@ -1382,7 +1382,7 @@ There are a few things to remember when editing binary files:
   split in two.
 - When there are not many <EOL>s, the lines will become very long.  If you
   want to edit a line that does not fit on the screen reset the 'wrap' option.
-  Horizontal scrolling is used then.  If a line becomes too long (see [limits](#limits))
+  Horizontal scrolling is used then.  If a line becomes too long (see [limits](/neovim-docs-web/en/vim/vi_diff#limits))
   you cannot edit that line.  The line will be split when reading the file.
   It is also possible that you get an "out of memory" error when reading the
   file.
@@ -1414,9 +1414,9 @@ Vim remembers the modification timestamp, mode and size of a file when you
 begin editing it.  This is used to avoid that you have two different versions
 of the same file (without you knowing this).
 
-After a shell command is run ([:!cmd| |suspend| |:read!| |K](#:!cmd| |suspend| |:read!| |K)) timestamps,
+After a shell command is run (|:!cmd| [suspend](/neovim-docs-web/en/vim/starting#suspend) |:read!| [K](undefined#K)) timestamps,
 file modes and file sizes are compared for all buffers in a window.   Vim will
-run any associated [FileChangedShell](#FileChangedShell) autocommands or display a warning for
+run any associated [FileChangedShell](undefined#FileChangedShell) autocommands or display a warning for
 any files that have changed.  In the GUI this happens when Vim regains input
 focus.
 
@@ -1435,7 +1435,7 @@ Or, when starting gvim from a shell:
 Note that if a FileChangedShell autocommand is defined you will not get a
 warning message or prompt.  The autocommand is expected to handle this.
 
-There is no warning for a directory (e.g., with [netrw-browse](#netrw-browse)).  But you do
+There is no warning for a directory (e.g., with [netrw-browse](undefined#netrw-browse)).  But you do
 get warned if you started editing a new file and it was created as a directory
 later.
 
@@ -1467,7 +1467,7 @@ If you don't get warned often enough you can use the following command.
 			you will not be warned again.
 			Syntax highlighting, marks, diff status,
 			'fileencoding', 'fileformat' and 'binary' options
-			are not changed.  See [v:fcs_choice](#v:fcs_choice) to reload these
+			are not changed.  See |v:fcs_choice| to reload these
 			too (for example, if a code formatting tools has
 			changed the file).
 
@@ -1522,7 +1522,7 @@ problem goes away the next day.
 ## <a id="file-searching" class="section-title" href="#file-searching">11. File Searching</a> 
 
 The file searching is currently used for the 'path', 'cdpath' and 'tags'
-options, for [finddir()| and |findfile()|.  Other commands use |wildcards](#finddir()| and |findfile()|.  Other commands use |wildcards)
+options, for |finddir()| and |findfile()|.  Other commands use [wildcards](undefined#wildcards)
 which is slightly different.
 
 There are three different types of searching:
@@ -1544,7 +1544,7 @@ There are three different types of searching:
       - The maximum number of levels matched can be given by appending a number
 	to '**'.
 	Thus '/usr/**2' can match:
-		/usr
+```		/usr
 		/usr/include
 		/usr/include/sys
 		/usr/include/g++
@@ -1583,9 +1583,9 @@ There are three different types of searching:
    directory or in the directory of the current file (if the relative path
    starts with './' and 'd' is not included in 'cpoptions').
 
-   If Vim's current path is /u/user_x/work/release and you do 
+   If Vim's current path is /u/user_x/work/release and you do
 ```	:set path=include;/u/user_x
-  and then search for a file with [gf](#gf) the file is searched in:
+  and then search for a file with [gf](undefined#gf) the file is searched in:
 	/u/user_x/work/release/include
 	/u/user_x/work/include
 	/u/user_x/include
@@ -1597,7 +1597,7 @@ There are three different types of searching:
 3) Combined up/downward search:
    If Vim's current path is /u/user_x/work/release and you do
 	set path=**;/u/user_x
-  and then search for a file with [gf](#gf) the file is searched in:
+  and then search for a file with [gf](undefined#gf) the file is searched in:
 	/u/user_x/work/release/**
 	/u/user_x/work/**
 	/u/user_x/**

@@ -353,7 +353,7 @@ tab page labels to appear: never, when there is more than one tab page or
 always.
 
 The highlighting of the tab pages line is set with the groups TabLine
-TabLineSel and TabLineFill.  [hl-TabLine| |hl-TabLineSel| |hl-TabLineFill](#hl-TabLine| |hl-TabLineSel| |hl-TabLineFill)
+TabLineSel and TabLineFill.  [hl-TabLine| [[[hl-TabLineSel](/undefined#hl-TabLineSel)](/undefined)](/undefined) |hl-TabLineFill](#hl-TabLine| [[[hl-TabLineSel](/undefined#hl-TabLineSel)](/undefined)](/undefined) |hl-TabLineFill)
 
 A "+" will be shown for a tab page that has a modified window.  The number of
 windows in a tabpage is also shown.  Thus "3+" means three windows and one of

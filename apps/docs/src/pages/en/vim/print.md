@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 ### <a id="printing" class="section-title" href="#printing">Printing</a>
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="print-intro" class="section-title" href="#print-intro">1. Introduction</a> 
@@ -22,8 +22,8 @@ systems a PostScript file is produced.  This can be directly sent to a
 PostScript printer.  For other printers a program like ghostscript needs to be
 used.
 
-Note: If you have problems printing with [:hardcopy](#:hardcopy), an alternative is to use
-[:TOhtml](#:TOhtml) and print the resulting html file from a browser.
+Note: If you have problems printing with |:hardcopy|, an alternative is to use
+|:TOhtml| and print the resulting html file from a browser.
 
 ### <a id=":ha :hardcopy E237 E238 E324" class="section-title" href="#:ha :hardcopy E237 E238 E324">Note:</a>
 :[range]ha[rdcopy][!] [arguments]
@@ -39,7 +39,7 @@ Note: If you have problems printing with [:hardcopy](#:hardcopy), an alternative
 			For systems other than MS-Windows, PostScript is
 			written in a temp file and 'printexpr' is used to
 			actually print it.  Then [arguments] can be used by
-			'printexpr' through [v:cmdarg](#v:cmdarg).  Otherwise [arguments]
+			'printexpr' through |v:cmdarg|.  Otherwise [arguments]
 			is ignored.  'printoptions' can be used to specify
 			paper size, duplex, etc.
 			Note: If you want PDF, there are tools such as
@@ -48,7 +48,7 @@ Note: If you have problems printing with [:hardcopy](#:hardcopy), an alternative
 :[range]ha[rdcopy][!] >{filename}
 			As above, but write the resulting PostScript in file
 			{filename}.
-			Things like "%" are expanded [cmdline-special](#cmdline-special)
+			Things like "%" are expanded [cmdline-special](/neovim-docs-web/en/vim/cmdline#cmdline-special)
 			Careful: An existing file is silently overwritten.
 			On MS-Windows use the "print to file" feature of the
 			printer driver.
@@ -75,12 +75,12 @@ considerations:
 ## <a id="print-options" class="section-title" href="#print-options">2. Print Options</a> 
 
 Here are the details for the options that change the way printing is done.
-For generic info about setting options see [options.txt](#options.txt).
+For generic info about setting options see |options.txt|.
 
 ### <a id="pdev-option" class="section-title" href="#pdev-option">Note:</a>
 'printdevice' 'pdev'	string	(default empty)
 			global
-This defines the name of the printer to be used when the [:hardcopy](#:hardcopy) command
+This defines the name of the printer to be used when the |:hardcopy| command
 is issued with a bang (!) to skip the printer selection dialog.  On Win32, it
 should be the printer name exactly as it appears in the standard printer
 dialog.
@@ -97,7 +97,7 @@ Sets the character encoding used when printing.  This option tells Vim which
 print character encoding file from the "print" directory in 'runtimepath' to
 use.
 
-This option will accept any value from [encoding-names](#encoding-names).  Any recognized names
+This option will accept any value from [encoding-names](undefined#encoding-names).  Any recognized names
 are converted to Vim standard names - see 'encoding' for more details.  Names
 not recognized by Vim will just be converted to lower case and underscores
 replaced with '-' signs.
@@ -121,14 +121,14 @@ HPUX character encodings and are used by default on these platforms. Code page
 'printexpr' 'pexpr'	String	(default: see below)
 			global
 Expression that is evaluated to print the PostScript produced with
-[:hardcopy](#:hardcopy).
-The file name to be printed is in [v:fname_in](#v:fname_in).
-The arguments to the ":hardcopy" command are in [v:cmdarg](#v:cmdarg).
+|:hardcopy|.
+The file name to be printed is in |v:fname_in|.
+The arguments to the ":hardcopy" command are in |v:cmdarg|.
 The expression must take care of deleting the file after printing it.
 When there is an error, the expression must return a non-zero number.
 If there is no error, return zero or an empty string.
 The default for non MS-Windows systems is to simply use "lpr" to print the
-file: 
+file:
 ```
     system(['lpr']
            + (empty(&printdevice)?[]:['-P', &printdevice])
@@ -161,13 +161,13 @@ an error message.  In that case Vim will delete the file.  In the default
 value for non-MS-Windows a trick is used: Adding "v:shell_error" will result
 in a non-zero number when the system() call fails.
 
-This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for security
+This option cannot be set from a [modeline](undefined#modeline) or in the [sandbox](undefined#sandbox), for security
 reasons.
 
 ### <a id="pfn-option E613" class="section-title" href="#pfn-option E613">Note:</a>
 'printfont' 'pfn'	string	(default "courier")
 			global
-This is the name of the font that will be used for the [:hardcopy](#:hardcopy) command's
+This is the name of the font that will be used for the |:hardcopy| command's
 output.  It has the same format as the 'guifont' option, except that only one
 font may be named, and the special "guifont=*" syntax is not available.
 
@@ -180,7 +180,7 @@ the font.  When omitted, the point size is 10.
 ### <a id="pheader-option" class="section-title" href="#pheader-option">Note:</a>
 'printheader' 'pheader'  string  (default "%<%f%h%m%=Page %N")
 			 global
-This defines the format of the header produced in [:hardcopy](#:hardcopy) output.  The
+This defines the format of the header produced in |:hardcopy| output.  The
 option is defined in the same way as the 'statusline' option.  The same simple
 header is used when this option is empty.
 
@@ -188,7 +188,7 @@ header is used when this option is empty.
 'printmbcharset' 'pmbcs'  string (default "")
 			  global
 Sets the CJK character set to be used when generating CJK output from
-[:hardcopy](#:hardcopy).  The following predefined values are currently recognised by Vim:
+|:hardcopy|.  The following predefined values are currently recognised by Vim:
 
 		Value		Description ~
   Chinese	GB_2312-80
@@ -262,7 +262,7 @@ defining the character set in the "print" directory in 'runtimepath'.
 'printmbfont' 'pmbfn'	string (default "")
 			global
 This is a comma-separated list of fields for font names to be used when
-generating CJK output from [:hardcopy](#:hardcopy).  Each font name has to be preceded
+generating CJK output from |:hardcopy|.  Each font name has to be preceded
 with a letter indicating the style the font is to be used for as follows:
 
   r:{font-name}		font to use for normal characters
@@ -300,7 +300,7 @@ character set:
 'printoptions' 'popt'	string (default "")
 			global
 This is a comma-separated list of items that control the format of the output
-of [:hardcopy](#:hardcopy):
+of |:hardcopy|:
 
   left:{spec}		left margin (default: 10pc)
   right:{spec}		right margin (default: 5pc)
@@ -425,7 +425,7 @@ locate and use your print character encoding.
 
 i.   Decide on a unique name for your encoding vector, one that does not clash
      with any of the recognized or standard encoding names that Vim uses (see
-     [encoding-names](#encoding-names) for a list), and that no one else is likely to use.
+     [encoding-names](undefined#encoding-names) for a list), and that no one else is likely to use.
 ii.  Copy $VIMRUNTIME/print/latin1.ps to the print subdirectory in your
      'runtimepath' and rename it with your unique name.
 iii. Edit your renamed copy of latin1.ps, replacing all occurrences of latin1

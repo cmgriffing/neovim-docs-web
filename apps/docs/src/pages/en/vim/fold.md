@@ -13,9 +13,9 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 ### <a id="Folding folding folds" class="section-title" href="#Folding folding folds">Folding</a>
 
 You can find an introduction on folding in chapter 28 of the user manual.
-[usr_28.txt](#usr_28.txt)
+|usr_28.txt|
 
-                                      Type [gO](#gO) to see the table of contents.
+                                      Type [gO](undefined#gO) to see the table of contents.
 
 
 ## <a id="fold-methods" class="section-title" href="#fold-methods">1. Fold Methods</a> 
@@ -46,7 +46,7 @@ level of a fold for a range of lines, define a fold inside it that has the
 same lines.
 
 The manual folds are lost when you abandon the file.  To save the folds use
-the [:mkview| command.  The view can be restored later with |:loadview](#:mkview| command.  The view can be restored later with |:loadview).
+the |:mkview| command.  The view can be restored later with |:loadview|.
 
 
 ### <a id="fold-indent" class="section-title" href="#fold-indent">INDENT</a>
@@ -65,7 +65,7 @@ with a character in 'foldignore'.  White space is skipped before checking for
 characters in 'foldignore'.  For C use "#" to ignore preprocessor lines.
 
 When you want to ignore lines in another way, use the "expr" method.  The
-[indent()](#indent()) function can be used in 'foldexpr' to get the indent of a line.
+|indent()| function can be used in 'foldexpr' to get the indent of a line.
 
 
 ### <a id="fold-expr" class="section-title" href="#fold-expr">EXPR</a>
@@ -83,7 +83,7 @@ This does the same:
 	:set foldexpr=getline(v:lnum-1)=~'^\\s*$'&&getline(v:lnum)=~'\\S'?'>1':1
 
 Note that backslashes must be used to escape characters that ":set" handles
-differently (space, backslash, double quote, etc., see [option-backslash](#option-backslash)).
+differently (space, backslash, double quote, etc., see [option-backslash](undefined#option-backslash)).
 
 These are the conditions with which the expression is evaluated:
 - The current buffer and window are set for the line.
@@ -134,18 +134,18 @@ would return "s1" to end the fold after that line:
   endif
 However, this won't work for single line comments, strings, etc.
 
-[foldlevel()](#foldlevel()) can be useful to compute a fold level relative to a previous
+|foldlevel()| can be useful to compute a fold level relative to a previous
 fold level.  But note that foldlevel() may return -1 if the level is not known
 yet.  And it returns the level at the start of the line, while a fold might
 end in that line.
 
-It may happen that folds are not updated properly.  You can use [zx| or |zX](#zx| or |zX)
+It may happen that folds are not updated properly.  You can use [zx](undefined#zx) or [zX](undefined#zX)
 to force updating folds.
 
 
 ### <a id="fold-syntax" class="section-title" href="#fold-syntax">SYNTAX</a>
 
-A fold is defined by syntax items that have the "fold" argument. [:syn-fold](#:syn-fold)
+A fold is defined by syntax items that have the "fold" argument. |:syn-fold|
 
 The fold level is defined by nesting folds.  The nesting of folds is limited
 with 'foldnestmax'.
@@ -286,7 +286,7 @@ zf{motion}  or
 		This only works when 'foldmethod' is "manual" or "marker".
 		The new fold will be closed for the "manual" method.
 		'foldenable' will be set.
-		Also see [fold-create-marker](#fold-create-marker).
+		Also see [fold-create-marker](undefined#fold-create-marker).
 
 ### <a id="zF" class="section-title" href="#zF">Note:</a>
 zF		Create a fold for [count] lines.  Works like "zf".
@@ -302,19 +302,19 @@ zd		Delete one fold at the cursor.  When the cursor is on a folded
 		Careful: This easily deletes more folds than you expect and
 		there is no undo for manual folding.
 		This only works when 'foldmethod' is "manual" or "marker".
-		Also see [fold-delete-marker](#fold-delete-marker).
+		Also see [fold-delete-marker](undefined#fold-delete-marker).
 
 ### <a id="zD" class="section-title" href="#zD">Note:</a>
 zD		Delete folds recursively at the cursor.  In Visual mode all
 		folds (partially) in the selected area and all nested folds in
 		them are deleted.
 		This only works when 'foldmethod' is "manual" or "marker".
-		Also see [fold-delete-marker](#fold-delete-marker).
+		Also see [fold-delete-marker](undefined#fold-delete-marker).
 
 ### <a id="zE E352" class="section-title" href="#zE E352">Note:</a>
 zE		Eliminate all folds in the window.
 		This only works when 'foldmethod' is "manual" or "marker".
-		Also see [fold-delete-marker](#fold-delete-marker).
+		Also see [fold-delete-marker](undefined#fold-delete-marker).
 
 
 OPENING AND CLOSING FOLDS ~
@@ -374,10 +374,10 @@ zx		Update folds: Undo manually opened and closed folds: re-apply
 
 ### <a id="zX" class="section-title" href="#zX">Note:</a>
 zX		Undo manually opened and closed folds: re-apply 'foldlevel'.
-		Also forces recomputing folds, like [zx](#zx).
+		Also forces recomputing folds, like [zx](undefined#zx).
 
 ### <a id="zm" class="section-title" href="#zm">Note:</a>
-zm		Fold more: Subtract [v:count1](#v:count1) from 'foldlevel'.  If 'foldlevel' was
+zm		Fold more: Subtract |v:count1| from 'foldlevel'.  If 'foldlevel' was
 		already zero nothing happens.
 		'foldenable' will be set.
 
@@ -386,7 +386,7 @@ zM		Close all folds: set 'foldlevel' to 0.
 		'foldenable' will be set.
 
 ### <a id="zr" class="section-title" href="#zr">Note:</a>
-zr		Reduce folding: Add [v:count1](#v:count1) to 'foldlevel'.
+zr		Reduce folding: Add |v:count1| to 'foldlevel'.
 
 ### <a id="zR" class="section-title" href="#zR">Note:</a>
 zR		Open all folds.  This sets 'foldlevel' to highest fold level.
@@ -431,13 +431,13 @@ MOVING OVER FOLDS ~
 zj		Move downwards to the start of the next fold.  A closed fold
 		is counted as one fold.
 		When a count is used, repeats the command [count] times.
-		This command can be used after an [operator](#operator).
+		This command can be used after an [operator](/neovim-docs-web/en/vim/motion#operator).
 
 ### <a id="zk" class="section-title" href="#zk">Note:</a>
 zk		Move upwards to the end of the previous fold.  A closed fold
 		is counted as one fold.
 		When a count is used, repeats the command [count] times.
-		This command can be used after an [operator](#operator).
+		This command can be used after an [operator](/neovim-docs-web/en/vim/motion#operator).
 
 
 EXECUTING COMMANDS ON FOLDS ~
@@ -466,8 +466,8 @@ EXECUTING COMMANDS ON FOLDS ~
 
 ### <a id="fold-colors" class="section-title" href="#fold-colors">COLORS</a>
 
-The colors of a closed fold are set with the Folded group [hl-Folded](#hl-Folded).  The
-colors of the fold column are set with the FoldColumn group [hl-FoldColumn](#hl-FoldColumn).
+The colors of a closed fold are set with the Folded group [hl-Folded](undefined#hl-Folded).  The
+colors of the fold column are set with the FoldColumn group [hl-FoldColumn](undefined#hl-FoldColumn).
 Example to set the colors:
 
 	:highlight Folded guibg=grey guifg=blue
@@ -493,7 +493,7 @@ folds will be opened.
 'foldtext' is a string option that specifies an expression.  This expression
 is evaluated to obtain the text displayed for a closed fold.  Example:
 
-### <a id=":set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\[\\/\\\](#\\/\\\){{{\\d\\=','','g')" class="section-title" href="#:set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\[\\/\\\](#\\/\\\){{{\\d\\=','','g')">Note:</a>
+### <a id=":set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\|\\/\\\|{{{\\d\\=','','g')" class="section-title" href="#:set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\|\\/\\\|{{{\\d\\=','','g')">Note:</a>
 
 This shows the first line of the fold, with "/*", "*/" and "{{{" removed.
 Note the use of backslashes to avoid some characters to be interpreted by the
@@ -502,16 +502,16 @@ Note the use of backslashes to avoid some characters to be interpreted by the
     :set foldtext=MyFoldText()
     :function MyFoldText()
     :  let line = getline(v:foldstart)
-    :  let sub = substitute(line, '/\*\[\*/\](#\*/\){{{\d\=', '', 'g')
+    :  let sub = substitute(line, '/\*\|\*/\|{{{\d\=', '', 'g')
     :  return v:folddashes .. sub
     :endfunction
 
-Evaluating 'foldtext' is done in the [sandbox](#sandbox).  The current window is set to
+Evaluating 'foldtext' is done in the [sandbox](undefined#sandbox).  The current window is set to
 the window that displays the line.
 
 Errors are ignored.  For debugging set the 'debug' option to "throw".
 
-The default value is [foldtext()](#foldtext()).  This returns a reasonable text for most
+The default value is |foldtext()|.  This returns a reasonable text for most
 types of folding.  If you don't like it, you can specify your own 'foldtext'
 expression.  It can use these special Vim variables:
 	v:foldstart	line number of first line in the fold
@@ -528,7 +528,7 @@ When there is room after the text, it is filled with the character specified
 by 'fillchars'.
 
 Note that backslashes need to be used for characters that the ":set" command
-handles differently: Space, backslash and double-quote. [option-backslash](#option-backslash)
+handles differently: Space, backslash and double-quote. [option-backslash](undefined#option-backslash)
 
 
 ### <a id="fold-foldcolumn" class="section-title" href="#fold-foldcolumn">FOLDCOLUMN</a>
@@ -594,7 +594,7 @@ fold.  Thus this command:
 	:s/foo/bar/g
 when used with the cursor on a closed fold, will replace "foo" with "bar" in
 all lines of the fold.
-This does not happen for [:folddoopen| and |:folddoclosed](#:folddoopen| and |:folddoclosed).
+This does not happen for |:folddoopen| and |:folddoclosed|.
 
 When editing a buffer that has been edited before, the last used folding
 settings are used again.  For manual folding the defined folds are restored.

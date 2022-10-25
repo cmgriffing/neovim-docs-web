@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Dev Style
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -42,14 +42,13 @@ All header files should have `#define` guards to prevent multiple inclusion.
 The format of the symbol name should be `NVIM_<DIRECTORY>_<FILE>_H`.
 
 In foo/bar.h:
-```
-#ifndef NVIM_FOO_BAR_H
+
+```        #ifndef NVIM_FOO_BAR_H
 #define NVIM_FOO_BAR_H
 
 ...
 
 #endif  // NVIM_FOO_BAR_H
-
 ```
 
 
@@ -76,9 +75,8 @@ C99 allows you to declare variables anywhere in a function. Declare them in as
 local a scope as possible, and as close to the first use as possible. This
 makes it easier for the reader to find the declaration and see what type the
 variable is and what it was initialized to. In particular, initialization
-should be used instead of declaration and assignment, e.g.
+should be used instead of declaration and assignment, e.g. 
 ```
-
 int i;
 i = f();      // BAD: initialization separate from declaration.
 
@@ -115,7 +113,6 @@ Variable-length arrays can cause hard to detect stack overflows.
 Postincrement and Postdecrement ~
 
 Use postfix form (`i++`) in statements.
-```
 
 for (int i = 0; i < 3; i++) { }
 int j = ++i;  // OK: ++i is used as an expression.
@@ -142,7 +139,6 @@ before the "noun" (`int`).
 
 That said, while we encourage putting `const` first, we do not require it.
 But be consistent with the code around you!
-```
 
 ### <a id="void foo(const char p, int i);" class="section-title" href="#void foo(const char p, int i);">Note:</a>
 }
@@ -183,7 +179,6 @@ Type		unsigned    signed
 Booleans ~
 
 Use `bool` to represent boolean values.
-```
 
 int loaded = 1;  // BAD: loaded should have type bool.
 
@@ -191,7 +186,6 @@ int loaded = 1;  // BAD: loaded should have type bool.
 Conditions ~
 
 Don't use "yoda-conditions". Use at most one assignment per condition.
-```
 
 if (1 == x) {
 
@@ -205,7 +199,6 @@ Function declarations ~
 Every function must not have a separate declaration.
 
 Function declarations are created by the gendeclarations.lua script.
-```
 
 static void f(void);
 
@@ -219,19 +212,12 @@ General translation unit layout ~
 
 The definitions of public functions precede the definitions of static
 functions.
-```
 
+<HEADER>
 
-```
-HEADER>
+<PUBLIC FUNCTION DEFINITIONS>
 
-
-```
-PUBLIC FUNCTION DEFINITIONS>
-
-
-```
-STATIC FUNCTION DEFINITIONS>
+<STATIC FUNCTION DEFINITIONS>
 
 
 Integration with declarations generator ~
@@ -247,7 +233,6 @@ Included file name consists of the .c file name without extension, preceded by
 the directory name relative to src/nvim. Name of the file containing static
 functions declarations ends with `.c.generated.h`, `*.h.generated.h` files
 contain only non-static function declarations.
-```
 
 // src/nvim/foo.c file
 #include <stddef.h>
@@ -292,7 +277,6 @@ alignment. For gcc, you can use `__attribute__((packed))`. MSVC offers
 
 - Use the `LL` or `ULL` suffixes as needed to create 64-bit constants. For
 example:
-```
 
 int64_t my_value = 0x123456789LL;
 uint64_t my_mask = 3ULL << 48;
@@ -307,7 +291,6 @@ Use `sizeof(varname)` when you take the size of a particular variable.
 type either now or later. You may use `sizeof(type)` for code unrelated to any
 particular variable, such as code that manages an external or internal data
 format where a variable of an appropriate C type is not convenient.
-```
 
 Struct data;
 memset(&data, 0, sizeof(data));
@@ -343,7 +326,6 @@ saving horizontal space as it is far more important to make your code
 immediately understandable by a new reader. Do not use abbreviations that are
 ambiguous or unfamiliar to readers outside your project, and do not abbreviate
 by deleting letters within a word.
-```
 
 int price_count_reader;    // No abbreviation.
 int num_errors;            // "num" is a widespread convention.
@@ -362,7 +344,6 @@ File Names ~
 Filenames should be all lowercase and can include underscores (`_`).
 
 Use underscores to separate words. Examples of acceptable file names:
-```
 
 my_useful_file.c
 getline_fix.c  // OK: getline refers to the glibc function.
@@ -382,7 +363,6 @@ letter for each new word, with no underscores: `MyExcitingStruct`.
 
 Non-Typedef-ed structs and enums are all lowercase with underscores between
 words: `struct my_exciting_struct` .
-```
 
 struct my_struct {
 ...
@@ -398,26 +378,22 @@ instance: `my_exciting_local_variable`.
 Common Variable names ~
 
 For example:
-```
 
 string table_name;  // OK: uses underscore.
 string tablename;   // OK: all lowercase.
 
 string tableName;   // BAD: mixed case.
-
 ```
 
 
 Struct Variables ~
 
-Data members in structs should be named like regular variables.
+Data members in structs should be named like regular variables. 
 ```
-
 struct url_table_properties {
 string name;
 int num_entries;
 }
-
 ```
 
 
@@ -433,9 +409,8 @@ Use a `k` followed by mixed case: `kDaysInAWeek`.
 
 All compile-time constants, whether they are declared locally or globally,
 follow a slightly different naming convention from other variables. Use a `k`
-followed by words with uppercase first letters:
+followed by words with uppercase first letters: 
 ```
-
 const int kDaysInAWeek = 7;
 
 Function Names ~
@@ -445,7 +420,6 @@ instance: `my_exceptional_function()`. All functions in the same header file
 should have a common prefix.
 
 In `os_unix.h`:
-```
 
 ### <a id="void unix_open(const char path);" class="section-title" href="#void unix_open(const char path);">Note:</a>
 void unix_user_id(void);
@@ -459,7 +433,6 @@ normal operation.
 Enumerator Names ~
 
 Enumerators should be named like constants: `kEnumName`.
-```
 
 enum url_table_errors {
 kOK = 0,
@@ -471,7 +444,6 @@ kErrorMalformedInput,
 Macro Names ~
 
 They're like this: `MY_MACRO_THAT_SCARES_CPP_DEVELOPERS`.
-```
 
 #define ROUND(x) ...
 #define PI_ROUNDED 5.0
@@ -492,7 +464,6 @@ Nvim uses Doxygen comments.
 Comment Style ~
 
 Use the `//`-style syntax only.
-```
 
 // This is a comment spanning
 // multiple lines
@@ -521,7 +492,6 @@ mention in the `.c` that the documentation is in the `.h` file.
 
 Do not duplicate comments in both the `.h` and the `.c`. Duplicated
 comments diverge.
-```
 
 /// A brief description of this file.
 ///
@@ -533,7 +503,6 @@ Struct Comments ~
 
 Every struct definition should have accompanying comments that describes what
 it is for and how it should be used.
-```
 
 /// Window info stored with a buffer.
 ///
@@ -556,7 +525,6 @@ struct win_info {
 
 If the field comments are short, you can also put them next to the field. But
 be consistent within one struct, and follow the necessary doxygen style.
-```
 
 struct wininfo_S {
 ### <a id="WinInfo wi_next;" class="section-title" href="#WinInfo wi_next;">Note:</a>
@@ -595,7 +563,6 @@ Types of things to mention in comments at the function declaration:
 - Whether any of the arguments can be a null pointer.
 - If there are any performance implications of how a function is used.
 - If the function is re-entrant. What are its synchronization assumptions?
-```
 /// Brief description of the function.
 ///
 /// Detailed description.
@@ -607,7 +574,6 @@ Types of things to mention in comments at the function declaration:
 ///
 /// @return Description of the return value.
 ### <a id="Iterator get_iterator(void arg1, void arg2);" class="section-title" href="#Iterator get_iterator(void arg1, void arg2);">Note:</a>
-
 ```
 
 
@@ -625,9 +591,8 @@ half.
 Note you should not just repeat the comments given with the function
 declaration, in the `.h` file or wherever. It's okay to recapitulate
 briefly what the function does, but the focus of the comments should be on
-how it does it.
+how it does it. 
 ```
-
 // Note that we don't use Doxygen comments here.
 ### <a id="Iterator get_iterator(void arg1, void arg2)" class="section-title" href="#Iterator get_iterator(void arg1, void arg2)">Note:</a>
 {
@@ -645,7 +610,6 @@ Global Variables ~
 
 All global variables should have a comment describing what they are and
 what they are used for. For example:
-```
 
 /// The total number of tests cases that we run
 /// through in this regression test.
@@ -662,14 +626,12 @@ Line Comments ~
 Also, lines that are non-obvious should get a comment at the end of the
 line. These end-of-line comments should be separated from the code by 2
 spaces. Example:
-```
 
 // If we have enough memory, mmap the data portion too.
 mmap_budget = max<int64>(0, mmap_budget - index_->length());
 if (mmap_budget >= data_size_ && !MmapData(mmap_chunk_bytes, mlock)) {
 return;  // Error already logged.
 }
-
 ```
 
 Note that there are both comments that describe what the code is doing,
@@ -677,9 +639,8 @@ and comments that mention that an error has already been logged when the
 function returns.
 
 If you have several comments on subsequent lines, it can often be more
-readable to line them up:
+readable to line them up: 
 ```
-
 do_something();                      // Comment here so the comments line up.
 do_something_else_that_is_longer();  // Comment here so there are two spaces between
 // the code and the comment.
@@ -687,7 +648,6 @@ do_something_else_that_is_longer();  // Comment here so there are two spaces bet
 // thus the comment lines up with the following comments and code.
 do_something_else();  // Two spaces before line comments normally.
 }
-
 ```
 
 
@@ -696,30 +656,26 @@ NULL, true/false, 1, 2, 3... ~
 When you pass in a null pointer, boolean, or literal integer values to
 functions, you should consider adding a comment about what they are, or
 make your code self-documenting by using constants. For example, compare:
-```
 
+```
 bool success = calculate_something(interesting_value,
 10,
 false,
 NULL);  // What are these arguments??
-
 ```
 
 
-versus:
+versus: 
 ```
-
 bool success = calculate_something(interesting_value,
 10,     // Default base value.
 false,  // Not the first time we're calling this.
 NULL);  // No callback.
-
 ```
 
 
-Or alternatively, constants or self-describing variables:
+Or alternatively, constants or self-describing variables: 
 ```
-
 const int kDefaultBaseValue = 10;
 const bool kFirstTimeCalling = false;
 ### <a id="Callback null_callback = NULL;" class="section-title" href="#Callback null_callback = NULL;">Note:</a>
@@ -727,7 +683,6 @@ bool success = calculate_something(interesting_value,
 kDefaultBaseValue,
 kFirstTimeCalling,
 null_callback);
-
 ```
 
 
@@ -735,9 +690,8 @@ Don'ts ~
 
 Note that you should never describe the code itself. Assume that the
 person reading the code knows C better than you do, even though he or she
-does not know what you are trying to do:
+does not know what you are trying to do: 
 ```
-
 // Now go through the b array and make sure that if i occurs,
 // the next element is i+1.
 ...        // Geez.  What a useless comment.
@@ -772,7 +726,6 @@ consistent `TODO` format that can be searched to find the person who can
 provide more details upon request. A `TODO` is not a commitment that the
 person referenced will fix the problem. Thus when you create a `TODO`, it is
 almost always your name that is given.
-```
 
 ### <a id="// TODO(kl@gmail.com): Use a "" here for concatenation operator." class="section-title" href="#// TODO(kl@gmail.com): Use a "" here for concatenation operator.">Note:</a>
 // TODO(Zeke): change this to use relations.
@@ -841,7 +794,6 @@ Return type on the same line as function name, parameters on the same line if
 they fit.
 
 Functions look like this:
-```
 
 ReturnType function_name(Type par_name1, Type par_name2)
 {
@@ -850,7 +802,6 @@ do_something();
 }
 
 If you have too much text to fit on one line:
-```
 
 ReturnType really_long_function_name(Type par_name1, Type par_name2,
 Type par_name3)
@@ -860,7 +811,6 @@ do_something();
 }
 
 or if you cannot fit even the first parameter (but only then):
-```
 
 ReturnType really_really_really_long_function_name(
 Type par_name1,  // 4 space indent
@@ -892,21 +842,18 @@ Function Calls ~
 On one line if it fits; otherwise, wrap arguments at the parenthesis.
 
 Function calls have the following format:
-```
 
 bool retval = do_something(argument1, argument2, argument3);
 
 If the arguments do not all fit on one line, they should be broken up onto
 multiple lines, with each subsequent line aligned with the first argument. Do
 not add spaces after the open paren or before the close paren:
-```
 
 bool retval = do_something(averyveryveryverylongargument1,
 argument2, argument3);
 
 If the function has many arguments, consider having one per line if this makes
 the code more readable:
-```
 
 bool retval = do_something(argument1,
 argument2,
@@ -915,7 +862,6 @@ argument4);
 
 Arguments may optionally all be placed on subsequent lines, with one line per
 argument:
-```
 
 if (...) {
 ...
@@ -940,7 +886,6 @@ place but with one space after the `{` and one space before the `}`
 If the braced list follows a name (e.g. a type or variable name), format as if
 the `{}` were the parentheses of a function call with that name. If there is
 no name, assume a zero-length name.
-```
 
 struct my_struct m = {  // Here, you could also break before {.
 superlongvariablename1,
@@ -953,7 +898,6 @@ interiorwrappinglist2 } };
 Conditionals ~
 
 Don't use spaces inside parentheses.
-```
 
 if (condition) {  // no spaces inside parentheses
 ...  // 2 space indent.
@@ -971,7 +915,6 @@ If not conditional on an enumerated value, switch statements should always
 have a `default` case (in the case of an enumerated value, the compiler will
 warn you if any values are not handled). If the default case should never
 execute, simply `assert`:
-```
 
 switch (var) {
 case 0:
@@ -991,7 +934,6 @@ spaces.
 
 The following are examples of correctly-formatted pointer and reference
 expressions:
-```
 
 ### <a id="x = p;" class="section-title" href="#x = p;">Note:</a>
 p = &x;
@@ -1007,7 +949,6 @@ Boolean Expressions ~
 
 When you have a boolean expression that is longer than the standard line
 length, keep operators at the start of the line.
-```
 
 if (this_one_thing > this_other_thing
 && a_third_thing == a_fourth_thing
@@ -1025,7 +966,6 @@ Do not needlessly surround the `return` expression with parentheses.
 
 Use parentheses in `return expr`; only where you would use them in `x =
 expr;`.
-```
 
 return result;
 return (some_long_condition && another_condition);
@@ -1039,15 +979,13 @@ Horizontal Whitespace ~
 Use of horizontal whitespace depends on location.
 
 General ~
-```
 int x[] = { 0 };  // Spaces inside braces for braced-init-list.
-
 ```
 
 
 Variables ~
-```
-int long_variable = 0;  // Don't align assignments.
+
+```        int long_variable = 0;  // Don't align assignments.
 int i             = 1;
 
 struct my_struct {  // Exception: struct arrays.
@@ -1059,21 +997,19 @@ int pos;
 { "Elizabeth", "Aiden",   10 },
 { "Emma",      "Mason",   2  },
 };
-
 ```
 
 
 
 Operators ~
-```
-x = 0;            // Assignment operators always have spaces around
+
+```        x = 0;            // Assignment operators always have spaces around
 // them.
 x = -5;           // No spaces separating unary operators and their
 x++;              // arguments.
 if (x && !y)
 ...
 i = (int)d;       // No spaces after a cast operator.
-
 ```
 
 

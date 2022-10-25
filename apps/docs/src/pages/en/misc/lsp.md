@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Lsp
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -39,21 +39,18 @@ https://microsoft.github.io/language-server-protocol/implementors/servers/
 
 2. Configure the LSP client per language server.
 A minimal example:
-```
-vim.lsp.start({
+
+```    vim.lsp.start({
 name = 'my-server-name',
 cmd = {'name-of-language-server-executable'},
 root_dir = vim.fs.dirname(vim.fs.find({'setup.py', 'pyproject.toml'}, { upward = true })[1]),
 })
-
 ```
 
 See [vim.lsp.start()](#vim.lsp.start()) for details.
 
 3. Configure keymaps and autocmds to utilize LSP features.
 See [lsp-config](#lsp-config).
-
-```
 
 ### <a id="lsp-config" class="section-title" href="#lsp-config">Note:</a>
 
@@ -76,14 +73,12 @@ server supports it.
 To use other LSP features like hover, rename, etc. you can setup some
 additional keymaps. It's recommended to setup them in a [LspAttach](#LspAttach) autocmd to
 ensure they're only active if there is a LSP client running. An example:
-```
-vim.api.nvim_create_autocmd('LspAttach', {
+
+```    vim.api.nvim_create_autocmd('LspAttach', {
 callback = function(args)
 vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
 end,
 })
-
-
 ```
 
 The most used functions are:
@@ -98,8 +93,8 @@ The most used functions are:
 Not all language servers provide the same capabilities. To ensure you only set
 keymaps if the language server supports a feature, you can guard the keymap
 calls behind capability checks:
-```
-vim.api.nvim_create_autocmd('LspAttach', {
+
+```    vim.api.nvim_create_autocmd('LspAttach', {
 callback = function(args)
 local client = vim.lsp.get_client_by_id(args.data.client_id)
 if client.server_capabilities.hoverProvider then
@@ -107,15 +102,14 @@ vim.keymap.set('n', 'K', vim.lsp.buf.hover, { buffer = args.buf })
 end
 end,
 })
-
 ```
 
 
 To learn what capabilities are available you can run the following command in
 a buffer with a started LSP client:
-```
-:lua =vim.lsp.get_active_clients()[1].server_capabilities
 
+
+```    :lua =vim.lsp.get_active_clients()[1].server_capabilities
 ```
 
 
@@ -125,22 +119,18 @@ Full list of features provided by default can be found in [lsp-buf](#lsp-buf).
 ## <a id="lsp-faq" class="section-title" href="#lsp-faq">Faq</a> 
 
 - Q: How to force-reload LSP?
-A: Stop all clients, then reload the buffer.
+A: Stop all clients, then reload the buffer. 
 ```
-
 :lua vim.lsp.stop_client(vim.lsp.get_active_clients())
 :edit
 
 - Q: Why isn't completion working?
 A: In the buffer where you want to use LSP, check that 'omnifunc' is set to
 "v:lua.vim.lsp.omnifunc":
-```
 
 :verbose set omnifunc?
 
-
-```
-     Some other plugin may be overriding the option. To avoid that, you could
+Some other plugin may be overriding the option. To avoid that, you could
 set the option in an [after-directory](#after-directory) ftplugin, e.g.
 "after/ftplugin/python.vim".
 
@@ -149,13 +139,10 @@ A: Check if the function has an `async` parameter and set the value to
 false.
 
 E.g. code formatting:
-```
 
 ### <a id="" Auto-format .rs (rust) files prior to saving them" class="section-title" href="#" Auto-format .rs (rust) files prior to saving them">Note:</a>
 " (async = false is the default for format)
 ### <a id="autocmd BufWritePre .rs lua vim.lsp.buf.format({ async = false })" class="section-title" href="#autocmd BufWritePre .rs lua vim.lsp.buf.format({ async = false })">Note:</a>
-
-
 ```
 
 ### <a id="lsp-vs-treesitter" class="section-title" href="#lsp-vs-treesitter">Note:</a>
@@ -184,11 +171,9 @@ to the given buffer. [lsp-buf](#lsp-buf)
 
 LSP request/response handlers are implemented as Lua functions (see
 [lsp-handler|). The |vim.lsp.handlers](#lsp-handler|). The |vim.lsp.handlers) table defines default handlers used
-when creating a new client. Keys are LSP method names:
+when creating a new client. Keys are LSP method names: 
 ```
-
 :lua print(vim.inspect(vim.tbl_keys(vim.lsp.handlers)))
-
 ```
 
 ### <a id="lsp-method" class="section-title" href="#lsp-method">Note:</a>
@@ -227,11 +212,9 @@ workspace/symbol
 lsp-handlers are functions with special signatures that are designed to handle
 responses and notifications from LSP servers.
 
-For [lsp-request|, each |lsp-handler](#lsp-request|, each |lsp-handler) has this signature:
+For [lsp-request|, each |lsp-handler](#lsp-request|, each |lsp-handler) has this signature: 
 ```
-
 function(err, result, ctx, config)
-
 ```
 
 Parameters: ~
@@ -276,11 +259,9 @@ Where `err` must be shaped like an RPC error:
 
 You can use [vim.lsp.rpc.rpc_response_error()](#vim.lsp.rpc.rpc_response_error()) to create this object.
 
-For [lsp-notification|, each |lsp-handler](#lsp-notification|, each |lsp-handler) has this signature:
+For [lsp-notification|, each |lsp-handler](#lsp-notification|, each |lsp-handler) has this signature: 
 ```
-
 function(err, result, ctx, config)
-
 ```
 
 Parameters: ~
@@ -322,35 +303,30 @@ To configure the behavior of a builtin [lsp-handler](#lsp-handler), the convenie
 
 To configure the behavior of [vim.lsp.diagnostic.on_publish_diagnostics()](#vim.lsp.diagnostic.on_publish_diagnostics()),
 consider the following example, where a new [lsp-handler](#lsp-handler) is created using
-[vim.lsp.with()](#vim.lsp.with()) that no longer generates signs for the diagnostics:
+[vim.lsp.with()](#vim.lsp.with()) that no longer generates signs for the diagnostics: 
 ```
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
 -- Disable signs
 signs = false,
 }
 )
-
 ```
 
 To enable signs, use [vim.lsp.with()](#vim.lsp.with()) again to create and assign a new
-[lsp-handler| to |vim.lsp.handlers](#lsp-handler| to |vim.lsp.handlers) for the associated method:
+[lsp-handler| to |vim.lsp.handlers](#lsp-handler| to |vim.lsp.handlers) for the associated method: 
 ```
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
 -- Enable signs
 signs = true,
 }
 )
-
 ```
 
 To configure a handler on a per-server basis, you can use the {handlers} key
-for [vim.lsp.start_client()](#vim.lsp.start_client())
+for [vim.lsp.start_client()](#vim.lsp.start_client()) 
 ```
-
 vim.lsp.start_client {
 ..., -- Other configuration omitted.
 handlers = {
@@ -362,12 +338,10 @@ virtual_text = false,
 ),
 },
 }
-
 ```
 
-or if using 'nvim-lspconfig', you can use the {handlers} key of `setup()`:
+or if using 'nvim-lspconfig', you can use the {handlers} key of `setup()`: 
 ```
-
 require('lspconfig').rust_analyzer.setup {
 handlers = {
 ["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -378,14 +352,12 @@ virtual_text = false
 ),
 }
 }
-
 ```
 
 Some handlers do not have an explicitly named handler function (such as
 [|vim.lsp.diagnostic.on_publish_diagnostics()](#|vim.lsp.diagnostic.on_publish_diagnostics())). To override these, first
-create a reference to the existing handler:
+create a reference to the existing handler: 
 ```
-
 local on_references = vim.lsp.handlers["textDocument/references"]
 vim.lsp.handlers["textDocument/references"] = vim.lsp.with(
 on_references, {
@@ -393,7 +365,6 @@ on_references, {
 loclist = true,
 }
 )
-
 ```
 
 ### <a id="lsp-handler-resolution" class="section-title" href="#lsp-handler-resolution">Note:</a>
@@ -403,19 +374,16 @@ Handlers can be set by:
 vim.lsp.handlers is a global table that contains the default mapping of
 [lsp-method| names to |lsp-handlers](#lsp-method| names to |lsp-handlers).
 
-To override the handler for the `"textDocument/definition"` method:
+To override the handler for the `"textDocument/definition"` method: 
 ```
-
 vim.lsp.handlers["textDocument/definition"] = my_custom_default_definition
-
 ```
 
 - The {handlers} parameter for [vim.lsp.start_client()](#vim.lsp.start_client()).
 This will set the [lsp-handler](#lsp-handler) as the default handler for this server.
 
-For example:
+For example: 
 ```
-
 vim.lsp.start_client {
 ..., -- Other configuration omitted.
 handlers = {
@@ -427,7 +395,6 @@ handlers = {
 This will set the [lsp-handler](#lsp-handler) ONLY for the current request.
 
 For example:
-```
 
 vim.lsp.buf_request(
 0,
@@ -435,7 +402,6 @@ vim.lsp.buf_request(
 definition_params,
 my_request_custom_definition
 )
-
 ```
 
 In summary, the [lsp-handler| will be chosen based on the current |lsp-method](#lsp-handler| will be chosen based on the current |lsp-method)
@@ -456,12 +422,10 @@ and helper functions for creating protocol-related objects.
 https://github.com/microsoft/language-server-protocol/raw/gh-pages/_specifications/specification-3-14.md
 
 For example `vim.lsp.protocol.ErrorCodes` allows reverse lookup by number or
-name:
+name: 
 ```
-
 vim.lsp.protocol.TextDocumentSyncKind.Full == 1
 vim.lsp.protocol.TextDocumentSyncKind[1] == "Full"
-
 ```
 
 
@@ -482,26 +446,23 @@ https://microsoft.github.io/language-server-protocol/specifications/specificatio
 - `context` table[nil. `ctx` from |lsp-handler](#nil. `ctx` from |lsp-handler)
 
 This table can be used with vim.fn.setqflist or vim.fn.setloclist. E.g.:
-```
-local function on_list(options)
+
+```    local function on_list(options)
 vim.fn.setqflist({}, ' ', options)
 vim.api.nvim_command('cfirst')
 end
 
 vim.lsp.buf.definition{on_list=on_list}
 vim.lsp.buf.references(nil, {on_list=on_list})
-
 ```
 
 If you prefer loclist do something like this:
-```
-local function on_list(options)
+
+```    local function on_list(options)
 vim.fn.setloclist(0, {}, ' ', options)
 vim.api.nvim_command('lopen')
 end
-
 ```
-
 
 
 ## <a id="lsp-highlight" class="section-title" href="#lsp-highlight">Lsp Highlight</a> 
@@ -548,9 +509,8 @@ Used to highlight the active parameter in the signature help. See
 ### <a id="LspAttach" class="section-title" href="#LspAttach">Note:</a>
 After an LSP client attaches to a buffer. The [autocmd-pattern](#autocmd-pattern) is the
 name of the buffer. When used from Lua, the client ID is passed to the
-callback in the "data" table. Example:
+callback in the "data" table. Example: 
 ```
-
 vim.api.nvim_create_autocmd("LspAttach", {
 callback = function(args)
 local bufnr = args.buf
@@ -563,15 +523,13 @@ vim.bo[bufnr].tagfunc = "v:lua.vim.lsp.tagfunc"
 end
 end,
 })
-
 ```
 
 ### <a id="LspDetach" class="section-title" href="#LspDetach">Note:</a>
 Just before an LSP client detaches from a buffer. The [autocmd-pattern](#autocmd-pattern) is the
 name of the buffer. When used from Lua, the client ID is passed to the
-callback in the "data" table. Example:
+callback in the "data" table. Example: 
 ```
-
 vim.api.nvim_create_autocmd("LspDetach", {
 callback = function(args)
 local client = vim.lsp.get_client_by_id(args.data.client_id)
@@ -579,7 +537,6 @@ local client = vim.lsp.get_client_by_id(args.data.client_id)
 vim.cmd("setlocal tagfunc< omnifunc<")
 end,
 })
-
 ```
 
 Also the following [User| |autocommand](#User| |autocommand)s are provided:
@@ -592,13 +549,10 @@ Upon receipt of a progress notification from the server. See
 After a change to the active set of pending LSP requests. See {requests}
 in [vim.lsp.client](#vim.lsp.client).
 
-Example:
-```
-autocmd User LspProgressUpdate redrawstatus
+Example: 
+```    autocmd User LspProgressUpdate redrawstatus
 autocmd User LspRequest redrawstatus
-
 ```
-
 
 
 ## <a id="lsp-core" class="section-title" href="#lsp-core">Lua Module: Vim.Lsp</a> 
@@ -750,13 +704,11 @@ Parameters: ~
 • {bufnr}  (number) Buffer number
 • {fn}     (function) Function to run on each client attached to buffer
 {bufnr}. The function takes the client, client ID, and buffer
-number as arguments. Example:
+number as arguments. Example: 
 ```
-
 vim.lsp.for_each_buffer_client(0, function(client, client_id, bufnr)
 print(vim.inspect(client))
 end)
-
 ```
 
 
@@ -853,14 +805,13 @@ running client if one is found matching `name` and `root_dir`. Attaches
 the current buffer to the client.
 
 Example:
-```
 
+```
 vim.lsp.start({
 name = 'my-server-name',
 cmd = {'name-of-language-server-executable'},
 root_dir = vim.fs.dirname(vim.fs.find({'pyproject.toml', 'setup.py'}, { upward = true })[1]),
 })
-
 ```
 
 
@@ -928,11 +879,9 @@ the `cmd` process. Not related to `root_dir`.
 • {cmd_env}            (table) Environment flags to pass to the LSP on
 spawn. Can be specified using keys like a map or
 as a list with `k=v` pairs or both. Non-string values are coerced to
-string. Example:
+string. Example: 
 ```
-
 { "PRODUCTION=true"; "TEST=123"; PORT = 8080; HOST = "0.0.0.0"; }
-
 ```
 
 • {detached}           (boolean, default true) Daemonize the server
@@ -1043,10 +992,9 @@ Stops a client(s).
 
 You can also use the `stop()` function on a [vim.lsp.client](#vim.lsp.client) object. To
 stop all clients:
+
 ```
-
 vim.lsp.stop_client(vim.lsp.get_active_clients())
-
 ```
 
 
@@ -1157,11 +1105,10 @@ already open.
 Send request to the server to resolve document highlights for the current
 text document position. This request can be triggered by a key mapping or
 by events such as `CursorHold`, e.g.:
-```
-autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
+
+```    autocmd CursorHold  <buffer> lua vim.lsp.buf.document_highlight()
 autocmd CursorHoldI <buffer> lua vim.lsp.buf.document_highlight()
 autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
-
 ```
 
 
@@ -1206,14 +1153,12 @@ attached to the given buffer, defaults to the current
 buffer (0).
 • filter (function|nil): Predicate used to filter clients.
 Receives a client as argument and must return a boolean.
-Clients matching the predicate are included. Example:               •
+Clients matching the predicate are included. Example:               • 
 ```
-
 -- Never request typescript-language-server for formatting
 vim.lsp.buf.format {
 filter = function(client) return client.name ~= "tsserver" end
 }
-
 ```
 
 • async boolean|nil If true the method won't block.
@@ -1335,9 +1280,8 @@ on_publish_diagnostics({_}, {result}, {ctx}, {config})
 [lsp-handler](#lsp-handler) for the method "textDocument/publishDiagnostics"
 
 See [vim.diagnostic.config()](#vim.diagnostic.config()) for configuration options. Handler-specific
-configuration can be set using [vim.lsp.with()](#vim.lsp.with()):
+configuration can be set using [vim.lsp.with()](#vim.lsp.with()): 
 ```
-
 vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
 vim.lsp.diagnostic.on_publish_diagnostics, {
 -- Enable underline, use default values
@@ -1355,7 +1299,6 @@ end,
 update_in_insert = false,
 }
 )
-
 ```
 
 
@@ -1390,9 +1333,8 @@ on_codelens({err}, {result}, {ctx}, {_})
 Refresh the codelens for the current buffer
 
 It is recommended to trigger this using an autocmd or via keymap.
-```
-autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
 
+```    autocmd BufEnter,CursorHold,InsertLeave <buffer> lua vim.lsp.codelens.refresh()
 ```
 
 
@@ -1411,16 +1353,14 @@ Parameters: ~
 ## <a id="lsp-handlers" class="section-title" href="#lsp-handlers">Lua Module: Vim.Lsp.Handlers</a> 
 
 ### <a id="vim.lsp.handlers.hover()" class="section-title" href="#vim.lsp.handlers.hover()">hover({_}, {result}, {ctx}, {config})</a>
-[lsp-handler](#lsp-handler) for the method "textDocument/hover"
+[lsp-handler](#lsp-handler) for the method "textDocument/hover" 
 ```
-
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
 vim.lsp.handlers.hover, {
 -- Use a sharp border with `FloatBorder` highlights
 border = "single"
 }
 )
-
 ```
 
 
@@ -1433,16 +1373,14 @@ Parameters: ~
 ### <a id="vim.lsp.handlers.signature_help()" class="section-title" href="#vim.lsp.handlers.signature_help()">Note:</a>
 signature_help({_}, {result}, {ctx}, {config})
 [lsp-handler](#lsp-handler) for the method "textDocument/signatureHelp". The active
-parameter is highlighted with [hl-LspSignatureActiveParameter](#hl-LspSignatureActiveParameter).
+parameter is highlighted with [hl-LspSignatureActiveParameter](#hl-LspSignatureActiveParameter). 
 ```
-
 vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(
 vim.lsp.handlers.signature_help, {
 -- Use a sharp border with `FloatBorder` highlights
 border = "single"
 }
 )
-
 ```
 
 

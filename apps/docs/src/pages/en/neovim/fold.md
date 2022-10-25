@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Fold
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -15,7 +15,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 You can find an introduction on folding in chapter 28 of the user manual.
 [usr_28.txt](#usr_28.txt)
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="fold-methods" class="section-title" href="#fold-methods">1. Fold Methods</a> 
@@ -28,12 +28,12 @@ the existing folds.  This can be used to first define the folds automatically
 and then change them manually.
 
 There are six methods to select folds:
-manual		manually define folds
-indent		more indent means a higher fold level
-expr		specify an expression to define folds
-syntax		folds defined by syntax highlighting
-diff		folds for unchanged text
-marker		folds defined by markers in the text
+	manual		manually define folds
+	indent		more indent means a higher fold level
+	expr		specify an expression to define folds
+	syntax		folds defined by syntax highlighting
+	diff		folds for unchanged text
+	marker		folds defined by markers in the text
 
 
 ### <a id="fold-manual" class="section-title" href="#fold-manual">MANUAL</a>
@@ -74,17 +74,13 @@ The folds are automatically defined by their foldlevel, like with the "indent"
 method.  The value of the 'foldexpr' option is evaluated to get the foldlevel
 of a line.  Examples:
 This will create a fold for all consecutive lines that start with a tab:
-```
-:set foldexpr=getline(v:lnum)[0]==\"\\t\"
+	:set foldexpr=getline(v:lnum)[0]==\"\\t\"
 This will call a function to compute the fold level:
-```
-:set foldexpr=MyFoldLevel(v:lnum)
+	:set foldexpr=MyFoldLevel(v:lnum)
 This will make a fold out of paragraphs separated by blank lines:
-```
-:set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
+	:set foldexpr=getline(v:lnum)=~'^\\s*$'&&getline(v:lnum+1)=~'\\S'?'<1':1
 This does the same:
-```
-:set foldexpr=getline(v:lnum-1)=~'^\\s*$'&&getline(v:lnum)=~'\\S'?'>1':1
+	:set foldexpr=getline(v:lnum-1)=~'^\\s*$'&&getline(v:lnum)=~'\\S'?'>1':1
 
 Note that backslashes must be used to escape characters that ":set" handles
 differently (space, backslash, double quote, etc., see [option-backslash](#option-backslash)).
@@ -93,19 +89,19 @@ These are the conditions with which the expression is evaluated:
 - The current buffer and window are set for the line.
 - The variable "v:lnum" is set to the line number.
 - The result is used for the fold level in this way:
-value			meaning ~
-0			the line is not in a fold
-1, 2, ..		the line is in a fold with this level
--1			the fold level is undefined, use the fold level of a
-line before or after this line, whichever is the
-lowest.
-"="			use fold level from the previous line
-"a1", "a2", ..	add one, two, .. to the fold level of the previous
-line, use the result for the current line
-"s1", "s2", ..	subtract one, two, .. from the fold level of the
-previous line, use the result for the next line
-"<1", "<2", ..	a fold with this level ends at this line
-">1", ">2", ..	a fold with this level starts at this line
+  value			meaning ~
+  0			the line is not in a fold
+  1, 2, ..		the line is in a fold with this level
+  -1			the fold level is undefined, use the fold level of a
+			line before or after this line, whichever is the
+			lowest.
+  "="			use fold level from the previous line
+  "a1", "a2", ..	add one, two, .. to the fold level of the previous
+			line, use the result for the current line
+  "s1", "s2", ..	subtract one, two, .. from the fold level of the
+			previous line, use the result for the next line
+  "<1", "<2", ..	a fold with this level ends at this line
+  ">1", ">2", ..	a fold with this level starts at this line
 
 It is not required to mark the start (end) of a fold with ">1" ("<1"), a fold
 will also start (end) when the fold level is higher (lower) than the fold
@@ -129,14 +125,13 @@ backwards for a line for which the fold level is defined.  This can be slow.
 An example of using "a1" and "s1": For a multi-line C comment, a line
 containing "/*" would return "a1" to start a fold, and a line containing "*/"
 would return "s1" to end the fold after that line:
-```
 ### <a id="if match(thisline, '/\') >= 0" class="section-title" href="#if match(thisline, '/\') >= 0">Note:</a>
-return 'a1'
+    return 'a1'
 ### <a id="elseif match(thisline, '\/') >= 0" class="section-title" href="#elseif match(thisline, '\/') >= 0">Note:</a>
-return 's1'
-else
-return '='
-endif
+    return 's1'
+  else
+    return '='
+  endif
 However, this won't work for single line comments, strings, etc.
 
 [foldlevel()](#foldlevel()) can be useful to compute a fold level relative to a previous
@@ -159,8 +154,7 @@ Be careful to specify proper syntax syncing.  If this is not done right, folds
 may differ from the displayed highlighting.  This is especially relevant when
 using patterns that match more than one line.  In case of doubt, try using
 brute-force syncing:
-```
-:syn sync fromstart
+	:syn sync fromstart
 
 
 ### <a id="fold-diff" class="section-title" href="#fold-diff">DIFF</a>
@@ -175,8 +169,7 @@ one big fold.
 The 'diffopt' option can be used to specify the context.  That is, the number
 of lines between the fold and a change that are not included in the fold.  For
 example, to use a context of 8 lines:
-```
-:set diffopt=filler,context:8
+	:set diffopt=filler,context:8
 The default context is six lines.
 
 When 'scrollbind' is also set, Vim will attempt to keep the same folds open in
@@ -194,51 +187,48 @@ This makes it possible to give a name to the fold.
 Markers can have a level included, or can use matching pairs.  Including a
 level is easier, you don't have to add end markers and avoid problems with
 non-matching marker pairs.  Example:
-```
-/* global variables {{{1 */
-int varA, varB;
+	/* global variables {{{1 */
+	int varA, varB;
 
-/* functions {{{1 */
-/* funcA() {{{2 */
-void funcA() {}
+	/* functions {{{1 */
+	/* funcA() {{{2 */
+	void funcA() {}
 
-/* funcB() {{{2 */
-void funcB() {}
+	/* funcB() {{{2 */
+	void funcB() {}
 
 A fold starts at a "{{{" marker.  The following number specifies the fold
 level.  What happens depends on the difference between the current fold level
 and the level given by the marker:
 1. If a marker with the same fold level is encountered, the previous fold
-ends and another fold with the same level starts.
+   ends and another fold with the same level starts.
 2. If a marker with a higher fold level is found, a nested fold is started.
 3. If a marker with a lower fold level is found, all folds up to and including
-this level end and a fold with the specified level starts.
+   this level end and a fold with the specified level starts.
 
 The number indicates the fold level.  A zero cannot be used (a marker with
 level zero is ignored).  You can use "}}}" with a digit to indicate the level
 of the fold that ends.  The fold level of the following line will be one less
 than the indicated level.  Note that Vim doesn't look back to the level of the
 matching marker (that would take too much time).  Example:
-```
 
-{{{1
-fold level here is 1
-{{{3
-fold level here is 3
-}}}3
-fold level here is 2
+	{{{1
+	fold level here is 1
+	{{{3
+	fold level here is 3
+	}}}3
+	fold level here is 2
 
 You can also use matching pairs of "{{{" and "}}}" markers to define folds.
 Each "{{{" increases the fold level by one, each "}}}" decreases the fold
 level by one.  Be careful to keep the markers matching!  Example:
-```
 
-{{{
-fold level here is 1
-{{{
-fold level here is 2
-}}}
-fold level here is 1
+	{{{
+	fold level here is 1
+	{{{
+	fold level here is 2
+	}}}
+	fold level here is 1
 
 You can mix using markers with a number and without a number.  A useful way of
 doing this is to use numbered markers for large folds, and unnumbered markers
@@ -261,12 +251,12 @@ markers for you.  Vim will append the start and end marker, as specified with
 'commentstring' is used if it isn't empty.
 This does not work properly when:
 - The line already contains a marker with a level number.  Vim then doesn't
-know what to do.
+  know what to do.
 - Folds nearby use a level number in their marker which gets in the way.
 - The line is inside a comment, 'commentstring' isn't empty and nested
-comments don't work.  For example with C: adding /* {{{ */ inside a comment
-will truncate the existing comment.  Either put the marker before or after
-the comment, or add the marker manually.
+  comments don't work.  For example with C: adding /* {{{ */ inside a comment
+  will truncate the existing comment.  Either put the marker before or after
+  the comment, or add the marker manually.
 Generally it's not a good idea to let Vim create markers when you already have
 markers with a level number.
 
@@ -277,10 +267,10 @@ with 'foldmarker', at the start and end of the fold.  When the text around the
 marker matches with 'commentstring', that text is deleted as well.
 This does not work properly when:
 - A line contains more than one marker and one of them specifies a level.
-Only the first one is removed, without checking if this will have the
-desired effect of deleting the fold.
+  Only the first one is removed, without checking if this will have the
+  desired effect of deleting the fold.
 - The marker contains a level number and is used to start or end several folds
-at the same time.
+  at the same time.
 
 
 ## <a id="fold-commands E490" class="section-title" href="#fold-commands E490">2. Fold Commands</a> 
@@ -293,38 +283,38 @@ CREATING AND DELETING FOLDS ~
 ### <a id="zf E350" class="section-title" href="#zf E350">Note:</a>
 zf{motion}  or
 {Visual}zf	Operator to create a fold.
-This only works when 'foldmethod' is "manual" or "marker".
-The new fold will be closed for the "manual" method.
-'foldenable' will be set.
-Also see [fold-create-marker](#fold-create-marker).
+		This only works when 'foldmethod' is "manual" or "marker".
+		The new fold will be closed for the "manual" method.
+		'foldenable' will be set.
+		Also see [fold-create-marker](#fold-create-marker).
 
 ### <a id="zF" class="section-title" href="#zF">Note:</a>
 zF		Create a fold for [count] lines.  Works like "zf".
 
 ### <a id=":fold :fo" class="section-title" href="#:fold :fo">:{range}fo[ld]</a>
-Create a fold for the lines in {range}.  Works like "zf".
+		Create a fold for the lines in {range}.  Works like "zf".
 
 ### <a id="zd E351" class="section-title" href="#zd E351">Note:</a>
 zd		Delete one fold at the cursor.  When the cursor is on a folded
-line, that fold is deleted.  Nested folds are moved one level
-up.  In Visual mode one level of all folds (partially) in the
-selected area are deleted.
-Careful: This easily deletes more folds than you expect and
-there is no undo for manual folding.
-This only works when 'foldmethod' is "manual" or "marker".
-Also see [fold-delete-marker](#fold-delete-marker).
+		line, that fold is deleted.  Nested folds are moved one level
+		up.  In Visual mode one level of all folds (partially) in the
+		selected area are deleted.
+		Careful: This easily deletes more folds than you expect and
+		there is no undo for manual folding.
+		This only works when 'foldmethod' is "manual" or "marker".
+		Also see [fold-delete-marker](#fold-delete-marker).
 
 ### <a id="zD" class="section-title" href="#zD">Note:</a>
 zD		Delete folds recursively at the cursor.  In Visual mode all
-folds (partially) in the selected area and all nested folds in
-them are deleted.
-This only works when 'foldmethod' is "manual" or "marker".
-Also see [fold-delete-marker](#fold-delete-marker).
+		folds (partially) in the selected area and all nested folds in
+		them are deleted.
+		This only works when 'foldmethod' is "manual" or "marker".
+		Also see [fold-delete-marker](#fold-delete-marker).
 
 ### <a id="zE E352" class="section-title" href="#zE E352">Note:</a>
 zE		Eliminate all folds in the window.
-This only works when 'foldmethod' is "manual" or "marker".
-Also see [fold-delete-marker](#fold-delete-marker).
+		This only works when 'foldmethod' is "manual" or "marker".
+		Also see [fold-delete-marker](#fold-delete-marker).
 
 
 OPENING AND CLOSING FOLDS ~
@@ -334,66 +324,66 @@ Therefore the commands below may work differently on small folds.
 
 ### <a id="zo" class="section-title" href="#zo">Note:</a>
 zo		Open one fold under the cursor.  When a count is given, that
-many folds deep will be opened.  In Visual mode one level of
-folds is opened for all lines in the selected area.
+		many folds deep will be opened.  In Visual mode one level of
+		folds is opened for all lines in the selected area.
 
 ### <a id="zO" class="section-title" href="#zO">Note:</a>
 zO		Open all folds under the cursor recursively.  Folds that don't
-contain the cursor line are unchanged.
-In Visual mode it opens all folds that are in the selected
-area, also those that are only partly selected.
+		contain the cursor line are unchanged.
+		In Visual mode it opens all folds that are in the selected
+		area, also those that are only partly selected.
 
 ### <a id="zc" class="section-title" href="#zc">Note:</a>
 zc		Close one fold under the cursor.  When a count is given, that
-many folds deep are closed.  In Visual mode one level of folds
-is closed for all lines in the selected area.
-'foldenable' will be set.
+		many folds deep are closed.  In Visual mode one level of folds
+		is closed for all lines in the selected area.
+		'foldenable' will be set.
 
 ### <a id="zC" class="section-title" href="#zC">Note:</a>
 zC		Close all folds under the cursor recursively.  Folds that
-don't contain the cursor line are unchanged.
-In Visual mode it closes all folds that are in the selected
-area, also those that are only partly selected.
-'foldenable' will be set.
+		don't contain the cursor line are unchanged.
+		In Visual mode it closes all folds that are in the selected
+		area, also those that are only partly selected.
+		'foldenable' will be set.
 
 ### <a id="za" class="section-title" href="#za">Note:</a>
 za		When on a closed fold: open it.  When folds are nested, you
-may have to use "za" several times.  When a count is given,
-that many closed folds are opened.
-When on an open fold: close it and set 'foldenable'.  This
-will only close one level, since using "za" again will open
-the fold.  When a count is given that many folds will be
-closed (that's not the same as repeating "za" that many
-times).
+		may have to use "za" several times.  When a count is given,
+		that many closed folds are opened.
+		When on an open fold: close it and set 'foldenable'.  This
+		will only close one level, since using "za" again will open
+		the fold.  When a count is given that many folds will be
+		closed (that's not the same as repeating "za" that many
+		times).
 
 ### <a id="zA" class="section-title" href="#zA">Note:</a>
 zA		When on a closed fold: open it recursively.
-When on an open fold: close it recursively and set
-'foldenable'.
+		When on an open fold: close it recursively and set
+		'foldenable'.
 
 ### <a id="zv" class="section-title" href="#zv">Note:</a>
 zv		View cursor line: Open just enough folds to make the line in
-which the cursor is located not folded.
+		which the cursor is located not folded.
 
 ### <a id="zx" class="section-title" href="#zx">Note:</a>
 zx		Update folds: Undo manually opened and closed folds: re-apply
-'foldlevel', then do "zv": View cursor line.
-Also forces recomputing folds.  This is useful when using
-'foldexpr' and the buffer is changed in a way that results in
-folds not to be updated properly.
+		'foldlevel', then do "zv": View cursor line.
+		Also forces recomputing folds.  This is useful when using
+		'foldexpr' and the buffer is changed in a way that results in
+		folds not to be updated properly.
 
 ### <a id="zX" class="section-title" href="#zX">Note:</a>
 zX		Undo manually opened and closed folds: re-apply 'foldlevel'.
-Also forces recomputing folds, like [zx](#zx).
+		Also forces recomputing folds, like [zx](#zx).
 
 ### <a id="zm" class="section-title" href="#zm">Note:</a>
 zm		Fold more: Subtract [v:count1](#v:count1) from 'foldlevel'.  If 'foldlevel' was
-already zero nothing happens.
-'foldenable' will be set.
+		already zero nothing happens.
+		'foldenable' will be set.
 
 ### <a id="zM" class="section-title" href="#zM">Note:</a>
 zM		Close all folds: set 'foldlevel' to 0.
-'foldenable' will be set.
+		'foldenable' will be set.
 
 ### <a id="zr" class="section-title" href="#zr">Note:</a>
 zr		Reduce folding: Add [v:count1](#v:count1) to 'foldlevel'.
@@ -403,22 +393,22 @@ zR		Open all folds.  This sets 'foldlevel' to highest fold level.
 
 ### <a id=":foldo :foldopen" class="section-title" href="#:foldo :foldopen">Note:</a>
 :{range}foldo[pen][!]
-Open folds in {range}.  When [!] is added all folds are
-opened.  Useful to see all the text in {range}.  Without [!]
-one level of folds is opened.
+		Open folds in {range}.  When [!] is added all folds are
+		opened.  Useful to see all the text in {range}.  Without [!]
+		one level of folds is opened.
 
 ### <a id=":foldc :foldclose" class="section-title" href="#:foldc :foldclose">Note:</a>
 :{range}foldc[lose][!]
-Close folds in {range}.  When [!] is added all folds are
-closed.  Useful to hide all the text in {range}.  Without [!]
-one level of folds is closed.
+		Close folds in {range}.  When [!] is added all folds are
+		closed.  Useful to hide all the text in {range}.  Without [!]
+		one level of folds is closed.
 
 ### <a id="zn" class="section-title" href="#zn">Note:</a>
 zn		Fold none: reset 'foldenable'.  All folds will be open.
 
 ### <a id="zN" class="section-title" href="#zN">Note:</a>
 zN		Fold normal: set 'foldenable'.  All folds will be as they
-were before.
+		were before.
 
 ### <a id="zi" class="section-title" href="#zi">Note:</a>
 zi		Invert 'foldenable'.
@@ -427,52 +417,49 @@ zi		Invert 'foldenable'.
 MOVING OVER FOLDS ~
 ### <a id="[z" class="section-title" href="#[z">Note:</a>
 [z		Move to the start of the current open fold.  If already at the
-start, move to the start of the fold that contains it.  If
-there is no containing fold, the command fails.
-When a count is used, repeats the command [count] times.
+		start, move to the start of the fold that contains it.  If
+		there is no containing fold, the command fails.
+		When a count is used, repeats the command [count] times.
 
 ### <a id="]z" class="section-title" href="#]z">Note:</a>
 ]z		Move to the end of the current open fold.  If already at the
-end, move to the end of the fold that contains it.  If there
-is no containing fold, the command fails.
-When a count is used, repeats the command [count] times.
+		end, move to the end of the fold that contains it.  If there
+		is no containing fold, the command fails.
+		When a count is used, repeats the command [count] times.
 
 ### <a id="zj" class="section-title" href="#zj">Note:</a>
 zj		Move downwards to the start of the next fold.  A closed fold
-is counted as one fold.
-When a count is used, repeats the command [count] times.
-This command can be used after an [operator](#operator).
+		is counted as one fold.
+		When a count is used, repeats the command [count] times.
+		This command can be used after an [operator](#operator).
 
 ### <a id="zk" class="section-title" href="#zk">Note:</a>
 zk		Move upwards to the end of the previous fold.  A closed fold
-is counted as one fold.
-When a count is used, repeats the command [count] times.
-This command can be used after an [operator](#operator).
+		is counted as one fold.
+		When a count is used, repeats the command [count] times.
+		This command can be used after an [operator](#operator).
 
 
 EXECUTING COMMANDS ON FOLDS ~
 
 ### <a id=":foldd :folddo :folddoopen" class="section-title" href="#:foldd :folddo :folddoopen">:[range]foldd[oopen] {cmd}</a>
-Execute {cmd} on all lines that are not in a closed fold.
-When [range] is given, only these lines are used.
-Each time {cmd} is executed the cursor is positioned on the
-line it is executed for.
-This works like the ":global" command: First all lines that
-are not in a closed fold are marked.  Then the {cmd} is
-executed for all marked lines.  Thus when {cmd} changes the
-folds, this has no influence on where it is executed (except
-when lines are deleted, of course).
-Example:
-```
-:folddoopen s/end/loop_end/ge
-
-```
+		Execute {cmd} on all lines that are not in a closed fold.
+		When [range] is given, only these lines are used.
+		Each time {cmd} is executed the cursor is positioned on the
+		line it is executed for.
+		This works like the ":global" command: First all lines that
+		are not in a closed fold are marked.  Then the {cmd} is
+		executed for all marked lines.  Thus when {cmd} changes the
+		folds, this has no influence on where it is executed (except
+		when lines are deleted, of course).
+		Example:
+			:folddoopen s/end/loop_end/ge
 		Note the use of the "e" flag to avoid getting an error message
-where "end" doesn't match.
+		where "end" doesn't match.
 
 ### <a id=":folddoc :folddoclosed" class="section-title" href="#:folddoc :folddoclosed">:[range]folddoc[losed] {cmd}</a>
-Execute {cmd} on all lines that are in a closed fold.
-Otherwise like ":folddoopen".
+		Execute {cmd} on all lines that are in a closed fold.
+		Otherwise like ":folddoopen".
 
 
 ## <a id="fold-options" class="section-title" href="#fold-options">3. Fold Options</a> 
@@ -482,10 +469,9 @@ Otherwise like ":folddoopen".
 The colors of a closed fold are set with the Folded group [hl-Folded](#hl-Folded).  The
 colors of the fold column are set with the FoldColumn group [hl-FoldColumn](#hl-FoldColumn).
 Example to set the colors:
-```
 
-:highlight Folded guibg=grey guifg=blue
-:highlight FoldColumn guibg=darkgrey guifg=white
+	:highlight Folded guibg=grey guifg=blue
+	:highlight FoldColumn guibg=darkgrey guifg=white
 
 
 ### <a id="fold-foldlevel" class="section-title" href="#fold-foldlevel">FOLDLEVEL</a>
@@ -506,21 +492,19 @@ folds will be opened.
 
 'foldtext' is a string option that specifies an expression.  This expression
 is evaluated to obtain the text displayed for a closed fold.  Example:
-```
 
-### <a id=":set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\[\\/\\\|{{{\\d\\=','','g')" class="section-title" href="#:set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\|\\/\\\](#\\/\\\|{{{\\d\\=','','g')" class="section-title" href="#:set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\|\\/\\\){{{\\d\\=','','g')">Note:</a>
+### <a id=":set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\[\\/\\\](#\\/\\\){{{\\d\\=','','g')" class="section-title" href="#:set foldtext=v:folddashes.substitute(getline(v:foldstart),'/\\\\\[\\/\\\](#\\/\\\){{{\\d\\=','','g')">Note:</a>
 
 This shows the first line of the fold, with "/*", "*/" and "{{{" removed.
 Note the use of backslashes to avoid some characters to be interpreted by the
 ":set" command.  It is much simpler to define a function and call it:
-```
 
-:set foldtext=MyFoldText()
-:function MyFoldText()
-:  let line = getline(v:foldstart)
-:  let sub = substitute(line, '/\*\[\*/\](#\*/\){{{\d\=', '', 'g')
-:  return v:folddashes .. sub
-:endfunction
+    :set foldtext=MyFoldText()
+    :function MyFoldText()
+    :  let line = getline(v:foldstart)
+    :  let sub = substitute(line, '/\*\[\*/\](#\*/\){{{\d\=', '', 'g')
+    :  return v:folddashes .. sub
+    :endfunction
 
 Evaluating 'foldtext' is done in the [sandbox](#sandbox).  The current window is set to
 the window that displays the line.
@@ -530,11 +514,11 @@ Errors are ignored.  For debugging set the 'debug' option to "throw".
 The default value is [foldtext()](#foldtext()).  This returns a reasonable text for most
 types of folding.  If you don't like it, you can specify your own 'foldtext'
 expression.  It can use these special Vim variables:
-v:foldstart	line number of first line in the fold
-v:foldend	line number of last line in the fold
-v:folddashes	a string that contains dashes to represent the
-foldlevel.
-v:foldlevel	the foldlevel of the fold
+	v:foldstart	line number of first line in the fold
+	v:foldend	line number of last line in the fold
+	v:folddashes	a string that contains dashes to represent the
+			foldlevel.
+	v:foldlevel	the foldlevel of the fold
 
 In the result a TAB is replaced with a space and unprintable characters are
 made into printable characters.
@@ -578,7 +562,7 @@ OTHER OPTIONS
 'foldmarker'  'fmr':	Defined markers used for "marker" folding.
 'foldmethod'  'fdm':	Name of the current folding method.
 'foldminlines' 'fml':	Minimum number of screen lines for a fold to be
-displayed closed.
+			displayed closed.
 'foldnestmax' 'fdn':	Maximum nesting for "indent" and "syntax" folding.
 'foldopen'    'fdo':	Which kinds of commands open closed folds.
 'foldclose'   'fcl':	When the folds not under the cursor are closed.
@@ -607,8 +591,7 @@ deletes the whole closed fold under the cursor.
 For Ex commands that work on buffer lines the range is adjusted to always
 start at the first line of a closed fold and end at the last line of a closed
 fold.  Thus this command:
-```
-:s/foo/bar/g
+	:s/foo/bar/g
 when used with the cursor on a closed fold, will replace "foo" with "bar" in
 all lines of the fold.
 This does not happen for [:folddoopen| and |:folddoclosed](#:folddoopen| and |:folddoclosed).

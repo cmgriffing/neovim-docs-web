@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Digraph
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -20,40 +20,33 @@ with CTRL-V (see [i_CTRL-V](#i_CTRL-V)).
 There is a brief introduction on digraphs in the user manual: [24.9](#24.9)
 An alternative is using the 'keymap' option.
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="digraphs-define" class="section-title" href="#digraphs-define">1. Defining Digraphs</a> 
 
 ### <a id=":dig :digraphs" class="section-title" href="#:dig :digraphs">Note:</a>
 :dig[raphs][!]		Show currently defined digraphs.
-With [!] headers are used to make it a bit easier to
-find a specific character.
+			With [!] headers are used to make it a bit easier to
+			find a specific character.
 ### <a id="E104 E39" class="section-title" href="#E104 E39">Note:</a>
 :dig[raphs] {char1}{char2} {number} ...
-Add digraph {char1}{char2} to the list.  {number} is
-the decimal representation of the character.  Normally
-it is the Unicode character, see [digraph-encoding](#digraph-encoding).
-Example:
-```
-:digr e: 235 a: 228
-
-```
+			Add digraph {char1}{char2} to the list.  {number} is
+			the decimal representation of the character.  Normally
+			it is the Unicode character, see [digraph-encoding](#digraph-encoding).
+			Example:
+	:digr e: 235 a: 228
 			You can use `:exe` to enter a hex number:
-```
-:exe 'digr += ' .. 0x2A72
-
-```
+	:exe 'digr += ' .. 0x2A72
 			Avoid defining a digraph with '_' (underscore) as the
-first character, it has a special meaning in the
-future.
-NOTE: This command cannot add a digraph that starts
-with a white space.  If you want to add such digraph,
-you can use [digraph_set()](#digraph_set()) instead.
+			first character, it has a special meaning in the
+			future.
+			NOTE: This command cannot add a digraph that starts
+			with a white space.  If you want to add such digraph,
+			you can use [digraph_set()](#digraph_set()) instead.
 
 Example of the output of ":digraphs":
-```
-TH Þ  222  ss ß  223  a! à  224  a' á  225  a> â  226  a? ã  227  a: ä  228
+ TH Þ  222  ss ß  223  a! à  224  a' á  225  a> â  226  a? ã  227  a: ä  228
 
 The first two characters in each column are the characters you have to type to
 enter the digraph.
@@ -71,16 +64,15 @@ conversion to be available, it might fail.  For the NUL character you will see
 character.  When you write the file it will become a NUL character.
 
 Example:
-```
-digraph oe 339
+	digraph oe 339
 This defines the "oe" digraph for a character that is number 339 in Unicode.
 
 
 ## <a id="digraphs-use" class="section-title" href="#digraphs-use">2. Using Digraphs</a> 
 
 ### <a id="i_digraph" class="section-title" href="#i_digraph">There are two methods to enter digraphs:</a>
-CTRL-K {char1} {char2}		or
-{char1} <BS> {char2}
+	CTRL-K {char1} {char2}		or
+	{char1} <BS> {char2}
 The first is always available; the second only when the 'digraph' option is
 set.
 
@@ -94,10 +86,9 @@ enters the code for that special key.  This is not a digraph.
 Once you have entered the digraph, Vim treats the character like a normal
 character that occupies only one character in the file and on the screen.
 Example:
-```
-'B' <BS> 'B'	will enter the broken '|' character (166)
-'a' <BS> '>'	will enter an 'a' with a circumflex (226)
-CTRL-K '-' '-'	will enter a soft hyphen (173)
+	'B' <BS> 'B'	will enter the broken '|' character (166)
+	'a' <BS> '>'	will enter an 'a' with a circumflex (226)
+	CTRL-K '-' '-'	will enter a soft hyphen (173)
 
 The current digraphs are listed with the ":digraphs" command.  Some of the
 default ones are listed below [digraph-table](#digraph-table).
@@ -120,13 +111,11 @@ For example: You insert ue (u-umlaut) and the editor echoes \334 in Insert
 mode.  After leaving the Insert mode everything is fine.  On some Unix systems
 this means you have to define the environment-variable LC_CTYPE.  If you are
 using csh, then put the following line in your .cshrc:
-```
-setenv LC_CTYPE en_US.utf8
+	setenv LC_CTYPE en_US.utf8
 (or similar for a different language or country). The value must be a valid
 locale on your system, i.e. on Unix-like systems it must be present in the
 output of
-```
-locale -a
+	locale -a
 
 
 ## <a id="digraphs-default" class="section-title" href="#digraphs-default">3. Default Digraphs</a> 
@@ -139,33 +128,33 @@ ISO-8859-1 character sets.  These default digraphs are taken from the RFC1345
 mnemonics.  To make it easy to remember the mnemonic, the second character has
 a standard meaning:
 
-char name		char	meaning ~
-Exclamation mark	!	Grave
-Apostrophe		'	Acute accent
-Greater-Than sign	>	Circumflex accent
-Question mark		?	Tilde
-Hyphen-Minus		-	Macron
-Left parenthesis	(	Breve
-Full stop		.	Dot above
-Colon			:	Diaeresis
-Comma			,	Cedilla
-Underline		_	Underline
-Solidus			/	Stroke
-Quotation mark		"	Double acute accent
-Semicolon		;	Ogonek
-Less-Than sign		<	Caron
-Zero			0	Ring above
-Two			2	Hook
-Nine			9	Horn
+	char name		char	meaning ~
+	Exclamation mark	!	Grave
+	Apostrophe		'	Acute accent
+	Greater-Than sign	>	Circumflex accent
+	Question mark		?	Tilde
+	Hyphen-Minus		-	Macron
+	Left parenthesis	(	Breve
+	Full stop		.	Dot above
+	Colon			:	Diaeresis
+	Comma			,	Cedilla
+	Underline		_	Underline
+	Solidus			/	Stroke
+	Quotation mark		"	Double acute accent
+	Semicolon		;	Ogonek
+	Less-Than sign		<	Caron
+	Zero			0	Ring above
+	Two			2	Hook
+	Nine			9	Horn
 
-Equals			=	Cyrillic (= used as second char)
+	Equals			=	Cyrillic (= used as second char)
 ### <a id="	Greek" class="section-title" href="#	Greek">	Asterisk</a>
-Percent sign		%	Greek/Cyrillic special
-Plus			+	smalls: Arabic, capitals: Hebrew
-Three			3	some Latin/Greek/Cyrillic letters
-Four			4	Bopomofo
-Five			5	Hiragana
-Six			6	Katakana
+	Percent sign		%	Greek/Cyrillic special
+	Plus			+	smalls: Arabic, capitals: Hebrew
+	Three			3	some Latin/Greek/Cyrillic letters
+	Four			4	Bopomofo
+	Five			5	Hiragana
+	Six			6	Katakana
 
 Example: a: is ä  and o: is ö
 
@@ -219,7 +208,7 @@ char  digraph	hex	dec	official name ~
 ^]	GS	0x1d	 29	GROUP SEPARATOR (IS3)
 ^^	RS	0x1e	 30	RECORD SEPARATOR (IS2)
 ^_	US	0x1f	 31	UNIT SEPARATOR (IS1)
-SP	0x20	 32	SPACE
+	SP	0x20	 32	SPACE
 #	Nb	0x23	 35	NUMBER SIGN
 $	DO	0x24	 36	DOLLAR SIGN
 @	At	0x40	 64	COMMERCIAL AT
@@ -906,13 +895,13 @@ $	DO	0x24	 36	DOLLAR SIGN
 ἅ	?,	1F05	7941	GREEK SMALL LETTER ALPHA WITH DASIA AND OXIA
 ἆ	!:	1F06	7942	GREEK SMALL LETTER ALPHA WITH PSILI AND PERISPOMENI
 ἇ	?:	1F07	7943	GREEK SMALL LETTER ALPHA WITH DASIA AND PERISPOMENI
-1N	2002	8194	EN SPACE
-1M	2003	8195	EM SPACE
-3M	2004	8196	THREE-PER-EM SPACE
-4M	2005	8197	FOUR-PER-EM SPACE
-6M	2006	8198	SIX-PER-EM SPACE
-1T	2009	8201	THIN SPACE
-1H	200A	8202	HAIR SPACE
+ 	1N	2002	8194	EN SPACE
+ 	1M	2003	8195	EM SPACE
+ 	3M	2004	8196	THREE-PER-EM SPACE
+ 	4M	2005	8197	FOUR-PER-EM SPACE
+ 	6M	2006	8198	SIX-PER-EM SPACE
+ 	1T	2009	8201	THIN SPACE
+ 	1H	200A	8202	HAIR SPACE
 ‐	-1	2010	8208	HYPHEN
 –	-N	2013	8211	EN DASH `
 —	-M	2014	8212	EM DASH
@@ -1234,7 +1223,7 @@ $	DO	0x24	 36	DOLLAR SIGN
 ✓	OK	2713	10003	CHECK MARK
 ✗	XX	2717	10007	BALLOT X
 ✠	-X	2720	10016	MALTESE CROSS
-IS	3000	12288	IDEOGRAPHIC SPACE
+　	IS	3000	12288	IDEOGRAPHIC SPACE
 、	,_	3001	12289	IDEOGRAPHIC COMMA
 。	._	3002	12290	IDEOGRAPHIC FULL STOP
 〃	+"	3003	12291	DITTO MARK
@@ -1493,5 +1482,5 @@ IS	3000	12288	IDEOGRAPHIC SPACE
 ﬅ	ft	FB05	64261	LATIN SMALL LIGATURE LONG S T
 ﬆ	st	FB06	64262	LATIN SMALL LIGATURE ST
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

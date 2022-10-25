@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Diagnostic
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -74,13 +74,11 @@ vim.diagnostic.severity.HINT
 Functions that take a severity as an optional parameter (e.g.
 [vim.diagnostic.get()](#vim.diagnostic.get())) accept one of two forms:
 
-1. A single [vim.diagnostic.severity](#vim.diagnostic.severity) value:
+1. A single [vim.diagnostic.severity](#vim.diagnostic.severity) value: 
 ```
-
 vim.diagnostic.get(0, { severity = vim.diagnostic.severity.WARN })
 
 2. A table with a "min" or "max" key (or both):
-```
 
 vim.diagnostic.get(0, { severity = { min = vim.diagnostic.severity.WARN } })
 
@@ -92,17 +90,14 @@ The latter form allows users to specify a range of severities.
 Diagnostics are shown to the user with [vim.diagnostic.show()](#vim.diagnostic.show()). The display of
 diagnostics is managed through handlers. A handler is a table with a "show"
 and (optionally) a "hide" function. The "show" function has the signature
-```
 function(namespace, bufnr, diagnostics, opts)
-
 ```
 
 and is responsible for displaying or otherwise handling the given
 diagnostics. The "hide" function takes care of "cleaning up" any actions taken
 by the "show" function and has the signature
-```
-function(namespace, bufnr)
 
+```    function(namespace, bufnr)
 ```
 
 Handlers can be configured with [vim.diagnostic.config()](#vim.diagnostic.config()) and added by
@@ -119,9 +114,8 @@ Nvim provides these handlers by default: "virtual_text", "signs", and
 
 ### <a id="diagnostic-handlers-example" class="section-title" href="#diagnostic-handlers-example">Note:</a>
 The example below creates a new handler that notifies the user of diagnostics
-with [vim.notify()](#vim.notify()):
+with [vim.notify()](#vim.notify()): 
 ```
-
 -- It's good practice to namespace custom handlers to avoid collisions
 vim.diagnostic.handlers["my/notify"] = {
 show = function(namespace, bufnr, diagnostics, opts)
@@ -143,16 +137,14 @@ vim.diagnostic.config({
 log_level = vim.log.levels.INFO
 }
 })
-
 ```
 
 In this example, there is nothing to do when diagnostics are hidden, so we
 omit the "hide" function.
 
 Existing handlers can be overridden. For example, use the following to only
-show a sign for the highest severity diagnostic on a given line:
+show a sign for the highest severity diagnostic on a given line: 
 ```
-
 -- Create a custom namespace. This will aggregate signs from all other
 -- namespaces and only show the one with the highest severity on a
 -- given line
@@ -186,9 +178,7 @@ hide = function(_, bufnr)
 orig_signs_handler.hide(ns, bufnr)
 end,
 }
-
 ```
-
 
 
 ## <a id="diagnostic-highlights" class="section-title" href="#diagnostic-highlights">Highlights</a> 
@@ -203,11 +193,9 @@ own default highlight groups.
 
 For example, the default highlighting for [hl-DiagnosticSignError](#hl-DiagnosticSignError) is linked
 to [hl-DiagnosticError](#hl-DiagnosticError). To change the default (and therefore the linked
-highlights), use the [:highlight](#:highlight) command:
+highlights), use the [:highlight](#:highlight) command: 
 ```
-
 highlight DiagnosticError guifg="BrightRed"
-
 ```
 
 ### <a id="hl-DiagnosticError" class="section-title" href="#hl-DiagnosticError">Note:</a>
@@ -300,9 +288,8 @@ Used for "Hint" signs in sign column.
 
 Signs are defined for each diagnostic severity. The default text for each sign
 is the first letter of the severity name (for example, "E" for ERROR). Signs
-can be customized using the following:
+can be customized using the following: 
 ```
-
 sign define DiagnosticSignError text=E texthl=DiagnosticSignError linehl= numhl=
 sign define DiagnosticSignWarn text=W texthl=DiagnosticSignWarn linehl= numhl=
 sign define DiagnosticSignInfo text=I texthl=DiagnosticSignInfo linehl= numhl=
@@ -322,7 +309,6 @@ the new diagnostics are passed to the autocmd
 callback in the "data" table.
 
 Example:
-```
 
 vim.api.nvim_create_autocmd('DiagnosticChanged', {
 callback = function(args)
@@ -330,9 +316,7 @@ local diagnostics = args.data.diagnostics
 vim.pretty_print(diagnostics)
 end,
 })
-
 ```
-
 
 
 ## <a id="diagnostic-api" class="section-title" href="#diagnostic-api">Lua Module: Vim.Diagnostic</a> 
@@ -346,19 +330,15 @@ Configuration can be specified globally, per-namespace, or ephemerally
 [vim.diagnostic.show()](#vim.diagnostic.show())). Ephemeral configuration has highest priority,
 followed by namespace configuration, and finally global configuration.
 
-For example, if a user enables virtual text globally with
+For example, if a user enables virtual text globally with 
 ```
-
 vim.diagnostic.config({ virtual_text = true })
-
 ```
 
 
-and a diagnostic producer sets diagnostics with
+and a diagnostic producer sets diagnostics with 
 ```
-
 vim.diagnostic.set(ns, 0, diagnostics, { virtual_text = false })
-
 ```
 
 
@@ -399,16 +379,14 @@ the beginning of the virtual text.
 prefix.
 • format: (function) A function that takes a diagnostic
 as input and returns a string. The return value is
-the text used to display the diagnostic. Example:
+the text used to display the diagnostic. Example: 
 ```
-
 function(diagnostic)
 if diagnostic.severity == vim.diagnostic.severity.ERROR then
 return string.format("E: %s", diagnostic.message)
 end
 return diagnostic.message
 end
-
 ```
 
 
@@ -576,22 +554,18 @@ omitted, hide diagnostics in all buffers.
 match({str}, {pat}, {groups}, {severity_map}, {defaults})
 Parse a diagnostic from a string.
 
-For example, consider a line of output from a linter:
+For example, consider a line of output from a linter: 
 ```
-
 WARNING filename:27:3: Variable 'foo' does not exist
-
 ```
 
 
-This can be parsed into a diagnostic [diagnostic-structure](#diagnostic-structure) with:
+This can be parsed into a diagnostic [diagnostic-structure](#diagnostic-structure) with: 
 ```
-
 local s = "WARNING filename:27:3: Variable 'foo' does not exist"
 local pattern = "^(%w+) %w+:(%d+):(%d+): (.+)$"
 local groups = { "severity", "lnum", "col", "message" }
 vim.diagnostic.match(s, pattern, groups, { WARNING = vim.diagnostic.WARN })
-
 ```
 
 

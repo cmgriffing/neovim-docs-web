@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Term
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -34,11 +34,10 @@ whole.
 
 Building your own terminfo is usually as simple as running this as
 a non-superuser:
-```
-curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz
+
+```  curl -LO https://invisible-island.net/datafiles/current/terminfo.src.gz
 gunzip terminfo.src.gz
 tic terminfo.src
-
 ```
 
 ### <a id="$TERM" class="section-title" href="#$TERM">Note:</a>
@@ -84,12 +83,11 @@ supplying an external one with entries for the terminal type.
 ### <a id="term-dependent-settings" class="section-title" href="#term-dependent-settings">Settings depending on terminal</a>
 
 If you want to set terminal-dependent options or mappings, you can do this in
-your init.vim.  Example:
+your init.vim.  Example: 
 ```
-
-### <a id="if $TERM =~ '^\(rxvt\[screen\|interix\|putty\)\(-.\)\?$'" class="section-title" href="#if $TERM =~ '^\(rxvt\|screen\|interix\](#screen\|interix\|putty\)\(-.\)\?$'" class="section-title" href="#if $TERM =~ '^\(rxvt\|screen\|interix\)putty\)\(-.\)\?$'">Note:</a>
+### <a id="if $TERM =~ '^\(rxvt\[screen\|interix\](#screen\|interix\)putty\)\(-.\)\?$'" class="section-title" href="#if $TERM =~ '^\(rxvt\[screen\|interix\](#screen\|interix\)putty\)\(-.\)\?$'">Note:</a>
 set notermguicolors
-### <a id="elseif $TERM =~ '^\(tmux\[iterm\|vte\|gnome\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(tmux\|iterm\|vte\](#iterm\|vte\|gnome\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(tmux\|iterm\|vte\)gnome\)\(-.\)\?$'">Note:</a>
+### <a id="elseif $TERM =~ '^\(tmux\[iterm\|vte\](#iterm\|vte\)gnome\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(tmux\[iterm\|vte\](#iterm\|vte\)gnome\)\(-.\)\?$'">Note:</a>
 set termguicolors
 ### <a id="elseif $TERM =~ '^\(xterm\)\(-.\)\?$'" class="section-title" href="#elseif $TERM =~ '^\(xterm\)\(-.\)\?$'">Note:</a>
 if $XTERM_VERSION != ''
@@ -104,7 +102,6 @@ endif
 elseif $TERM =~ ...
 ... and so forth ...
 endif
-
 ```
 
 ### <a id="scroll-region xterm-scroll-region" class="section-title" href="#scroll-region xterm-scroll-region">Note:</a>
@@ -124,15 +121,13 @@ Nvim uses libtermkey to convert terminal escape sequences to key codes.
 [terminfo| is used first, and CSI sequences not in |terminfo](#terminfo| is used first, and CSI sequences not in |terminfo) (including
 extended keys a.k.a. modifyOtherKeys or "CSI u") can also be parsed.
 For example, when running Nvim in tmux, this makes Nvim leave Insert mode and
-go to the window below:
-```
-tmux send-keys 'Escape' [ 2 7 u 'C-W' j
+go to the window below: 
+```	tmux send-keys 'Escape' [ 2 7 u 'C-W' j
 Where `'Escape' [ 2 7 u` is an unambiguous "CSI u" sequence for the <Esc> key.
 
 The kitty keyboard protocol https://sw.kovidgoyal.net/kitty/keyboard-protocol/
 is partially supported, including keypad keys in Unicode Private Use Area.
 For example, this sequence is recognized by Nvim as <C-kEnter>:
-```
 CSI 57414 ; 5 u
 and can be used differently from <C-CR> in mappings.
 
@@ -151,24 +146,20 @@ this will allow you to map the key pairs listed above separately.
 
 At startup Nvim will query your terminal to see if it supports the CSI u
 encoding by writing the sequence
-```
 
 CSI ? u CSI c
 
 If your terminal emulator responds with
-```
 
 CSI ? <flags> u
 
 this means your terminal supports the CSI u encoding and Nvim will tell your
 terminal to enable it by writing the sequence
-```
 
 CSI > 1 u
 
 If your terminal does not support CSI u then Nvim will instead enable the
 "modifyOtherKeys" encoding by writing the sequence
-```
 
 CSI > 4 ; 2 m
 
@@ -240,16 +231,10 @@ are not in terminfo you must add them by setting "terminal-overrides" in
 
 See the tmux(1) manual page for the details of how and what to do in the tmux
 configuration file.  It will look something like:
-```
 set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
-
-```
 or (alas!) for Konsole 18.07.70 or older, something more complex like:
-```
 set -ga terminal-overrides 'xterm*:\E]50;CursorShape=%?%p1%{3}%<%t%{0}%e%{1}%;%d\007'
-
 ```
-
 
 
 ## <a id="window-size" class="section-title" href="#window-size">Window Size</a> 
@@ -285,9 +270,8 @@ See the "Options" chapter [options](#options).
 
 If you are using a color terminal that is slow when displaying lines beyond
 the end of a buffer, this is because Nvim is drawing the whitespace twice, in
-two sets of colours and attributes.  To prevent this, use this command:
-```
-hi NonText cterm=NONE ctermfg=NONE
+two sets of colours and attributes.  To prevent this, use this command: 
+```	hi NonText cterm=NONE ctermfg=NONE
 This draws the spaces with the default colours and attributes, which allows the
 second pass of drawing to be optimized away.  Note: Although in theory the
 colours of whitespace are immaterial, in practice they change the colours of
@@ -303,85 +287,37 @@ Overview of what the mouse buttons do, when 'mousemodel' is "extend":
 Normal Mode:
 event	      position	   selection	  change  action	~
 cursor			  window		~
-
-```
 LeftMouse>     yes	     end	    yes
-
-```
 C-LeftMouse>   yes	     end	    yes	   "CTRL-]" (2)
-
-```
 S-LeftMouse>   yes	  no change	    yes	   "*" (2)    *<S-LeftMouse>*
-
-```
 LeftDrag>      yes	start or extend (1) no		      *<LeftDrag>*
-
-```
 LeftRelease>   yes	start or extend (1) no
-
-```
 MiddleMouse>   yes	  if not active     no	   put
-
-```
 MiddleMouse>   yes	  if active	    no	   yank and put
-
-```
 RightMouse>    yes	start or extend     yes
-
-```
 A-RightMouse>  yes start or extend blockw. yes		      *<A-RightMouse>*
-
-```
 S-RightMouse>  yes	   no change	    yes	   "#" (2)    *<S-RightMouse>*
-
-```
 C-RightMouse>  no	   no change	    no	   "CTRL-T"
-
-```
 RightDrag>     yes	    extend	    no		      *<RightDrag>*
-
-```
 RightRelease>  yes	    extend	    no		      *<RightRelease>*
 
 Insert or Replace Mode:
 event	      position	   selection	  change  action	~
 cursor			  window		~
-
-```
 LeftMouse>     yes     (cannot be active)  yes
-
-```
 C-LeftMouse>   yes     (cannot be active)  yes	   "CTRL-O^]" (2)
-
-```
 S-LeftMouse>   yes     (cannot be active)  yes	   "CTRL-O*" (2)
-
-```
 LeftDrag>      yes     start or extend (1) no	   like CTRL-O (1)
-
-```
 LeftRelease>   yes     start or extend (1) no	   like CTRL-O (1)
-
-```
 MiddleMouse>   no      (cannot be active)  no	   put register
-
-```
 RightMouse>    yes     start or extend	    yes	   like CTRL-O
-
-```
 A-RightMouse>  yes start or extend blockw. yes
-
-```
 S-RightMouse>  yes     (cannot be active)  yes	   "CTRL-O#" (2)
-
-```
 C-RightMouse>  no	(cannot be active)  no	   "CTRL-O CTRL-T"
 
 In a help window:
 event	      position	   selection	  change  action	~
 cursor			  window		~
-
-```
 2-LeftMouse>   yes     (cannot be active)  no	   "^]" (jump to help tag)
 
 When 'mousemodel' is "popup", these are different:
@@ -389,27 +325,15 @@ When 'mousemodel' is "popup", these are different:
 Normal Mode:
 event	      position	   selection	  change  action	~
 cursor			  window		~
-
-```
 S-LeftMouse>	yes	start or extend (1) no
-
-```
 A-LeftMouse>   yes start or extend blockw. no		      *<A-LeftMouse>*
-
-```
 RightMouse>	no	popup menu	    no
 
 Insert or Replace Mode:
 event	      position	   selection	  change  action	~
 cursor			  window		~
-
-```
 S-LeftMouse>   yes     start or extend (1) no	   like CTRL-O (1)
-
-```
 A-LeftMouse>   yes start or extend blockw. no
-
-```
 RightMouse>    no	popup menu	    no
 
 (1) only if mouse pointer moved since press
@@ -457,7 +381,6 @@ an #if/#else/#endif block, the selection becomes linewise.
 For MS-Windows and xterm the time for double clicking can be set with the
 'mousetime' option. For the other systems this time is defined outside of Vim.
 An example, for using a double click to jump to the tag under the cursor:
-```
 :map <2-LeftMouse> :exe "tag " .. expand("<cword>")<CR>
 
 Dragging the mouse with a double click (button-down, button-up, button-down
@@ -473,68 +396,35 @@ This is like using CTRL-O in Insert mode.  Select mode is used when the
 ### <a id="<MiddleRelease> <MiddleDrag>" class="section-title" href="#<MiddleRelease> <MiddleDrag>">Note:</a>
 Mouse clicks can be mapped.  The codes for mouse clicks are:
 code	    mouse button	      normal action	~
-
-```
-LeftMouse>	 left pressed		    set cursor position
-
-```
-LeftDrag>	 left moved while pressed   extend selection
-
-```
-LeftRelease>	 left released		    set selection end
-
-```
-MiddleMouse>	 middle pressed		    paste text at cursor position
-
-```
-MiddleDrag>	 middle moved while pressed -
-
-```
-MiddleRelease> middle released	    -
-
-```
-RightMouse>	 right pressed		    extend selection
-
-```
-RightDrag>	 right moved while pressed  extend selection
-
-```
-RightRelease>  right released		    set selection end
-
-```
-X1Mouse>	 X1 button pressed	    -			*X1Mouse*
-
-```
-X1Drag>	 X1 moved while pressed	    -			*X1Drag*
-
-```
-X1Release>	 X1 button release	    -			*X1Release*
-
-```
-X2Mouse>	 X2 button pressed	    -			*X2Mouse*
-
-```
-X2Drag>	 X2 moved while pressed     -			*X2Drag*
-
-```
-X2Release>	 X2 button release	    -			*X2Release*
+<LeftMouse>	 left pressed		    set cursor position
+<LeftDrag>	 left moved while pressed   extend selection
+<LeftRelease>	 left released		    set selection end
+<MiddleMouse>	 middle pressed		    paste text at cursor position
+<MiddleDrag>	 middle moved while pressed -
+<MiddleRelease> middle released	    -
+<RightMouse>	 right pressed		    extend selection
+<RightDrag>	 right moved while pressed  extend selection
+<RightRelease>  right released		    set selection end
+<X1Mouse>	 X1 button pressed	    -			*X1Mouse*
+<X1Drag>	 X1 moved while pressed	    -			*X1Drag*
+<X1Release>	 X1 button release	    -			*X1Release*
+<X2Mouse>	 X2 button pressed	    -			*X2Mouse*
+<X2Drag>	 X2 moved while pressed     -			*X2Drag*
+<X2Release>	 X2 button release	    -			*X2Release*
 
 The X1 and X2 buttons refer to the extra buttons found on some mice.  The
 'Microsoft Explorer' mouse has these buttons available to the right thumb.
 Currently X1 and X2 only work on Win32 and X11 environments.
 
 Examples:
-```
 :noremap <MiddleMouse> <LeftMouse><MiddleMouse>
 Paste at the position of the middle mouse button click (otherwise the paste
 would be done at the cursor position).
-```
 
 :noremap <LeftRelease> <LeftRelease>y
 Immediately yank the selection, when using Visual mode.
 
 Note the use of ":noremap" instead of "map" to avoid a recursive mapping.
-```
 :map <X1Mouse> <C-O>
 :map <X2Mouse> <C-I>
 Map the X1 and X2 buttons to go forwards and backwards in the jump list, see
@@ -542,7 +432,6 @@ Map the X1 and X2 buttons to go forwards and backwards in the jump list, see
 
 ### <a id="mouse-swap-buttons" class="section-title" href="#mouse-swap-buttons">Note:</a>
 To swap the meaning of the left and right mouse buttons:
-```
 :noremap	<LeftMouse>	<RightMouse>
 :noremap	<LeftDrag>	<RightDrag>
 :noremap	<LeftRelease>	<RightRelease>
@@ -557,7 +446,6 @@ To swap the meaning of the left and right mouse buttons:
 :noremap!	<RightMouse>	<LeftMouse>
 :noremap!	<RightDrag>	<LeftDrag>
 :noremap!	<RightRelease>	<LeftRelease>
-
 ```
 
 vim:tw=78:ts=8:ft=help:norl:

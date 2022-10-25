@@ -59,7 +59,7 @@ outputMarkdownFiles(piDocs, "Standard Plugins", "pi");
 outputMarkdownFiles(userDocs, "User Reference", "usr");
 outputMarkdownFiles(neovimDocs, "Neovim Reference", "neovim");
 outputMarkdownFiles(coreVimDocs, "Vim Reference", "vim");
-outputMarkdownFiles(genericDocs, "Misc", "misc");
+outputMarkdownFiles(genericDocs, "Misc", "misc", true);
 {
 }
 // write to config.json
@@ -77,14 +77,15 @@ fs.outputFileSync(
 function outputMarkdownFiles(
   files: string[],
   configKey: string,
-  outputSubdirectory: string = ""
+  outputSubdirectory: string = "",
+  shouldTrimStart = false
 ) {
   files.forEach((filePath) => {
     const { name } = path.parse(filePath);
 
     const content = fs.readFileSync(filePath, { encoding: "utf8" });
 
-    const parsedContent = parseTextContents(content);
+    const parsedContent = parseTextContents(name, content, shouldTrimStart);
 
     const renderedContent = renderSectionMarkdown(parsedContent);
 

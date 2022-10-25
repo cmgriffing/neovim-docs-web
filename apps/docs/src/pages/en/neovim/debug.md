@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Debug
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -15,7 +15,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 This is for debugging Vim itself, when it doesn't work properly.
 For debugging Vim scripts, functions, etc. see [debug-scripts](#debug-scripts)
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="debug-gcc gdb" class="section-title" href="#debug-gcc gdb">1. Location of a Crash, Using Gcc and Gdb</a> 
@@ -25,27 +25,20 @@ compilation, here is what you can do to find out exactly where Vim crashes.
 This also applies when using the MingW tools.
 
 1. Compile Vim with the "-g" option (there is a line in the src/Makefile for
-this, which you can uncomment).  Also make sure "strip" is disabled (do not
-install it, or use the line "STRIP = /bin/true").
+   this, which you can uncomment).  Also make sure "strip" is disabled (do not
+   install it, or use the line "STRIP = /bin/true").
 
-2. Execute these commands (replace "11" with the test that fails):
-```
-cd testdir
-gdb ../vim
-run -u unix.vim -U NONE -s dotest.in test11.in
+2. Execute these commands (replace "11" with the test that fails): 
+```	cd testdir
+	gdb ../vim
+	run -u unix.vim -U NONE -s dotest.in test11.in
 
 3. Check where Vim crashes, gdb should give a message for this.
 
 4. Get a stack trace from gdb with this command:
-```
-where
-
-```
+	where
   You can check out different places in the stack trace with:
-```
-frame 3
-
-```
+	frame 3
   Replace "3" with one of the numbers in the stack trace.
 
 
@@ -58,8 +51,7 @@ First of all, build Vim with EXITFREE defined.  Search for this in MAKEFILE
 and uncomment the line.
 
 Use this command to start Vim:
-```
-valgrind --log-file=valgrind.log --leak-check=full ./vim
+	valgrind --log-file=valgrind.log --leak-check=full ./vim
 
 Note: Vim will run much slower.  If your vimrc is big or you have several
 plugins you need to be patient for startup, or run with the "-u NONE"
@@ -150,9 +142,7 @@ your Vim process. Simply reproduce the crash and WinDbg will launch
 automatically. As above, set the Symbol File Path and the Source File Path.
 
 To save a minidump, type the following at the WinDbg command line:
-```
-.dump vim.dmp
-
+        .dump vim.dmp
 ```
 
 ### <a id="debug-minidump" class="section-title" href="#debug-minidump">Note:</a>
@@ -171,7 +161,7 @@ In WinDbg: choose Open Crash Dump on the File menu. Follow the instructions in
 3.5 Obtaining Microsoft Debugging Tools ~
 
 Visual Studio 2017 Community Edition can be downloaded for free from:
-https://visualstudio.microsoft.com/downloads/
+    https://visualstudio.microsoft.com/downloads/
 
 
 ## <a id="" class="section-title" href="#">Vim Tw 78 Ts 8 Noet Ft Help Norl</a> 

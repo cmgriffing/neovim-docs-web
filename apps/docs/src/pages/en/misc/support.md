@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Support
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---

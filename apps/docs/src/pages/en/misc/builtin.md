@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Builtin
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -580,25 +580,15 @@ Return the absolute value of {expr}.  When {expr} evaluates to
 a [Float| abs() returns a |Float](#Float| abs() returns a |Float).  When {expr} can be
 converted to a [Number| abs() returns a |Number](#Number| abs() returns a |Number).  Otherwise
 abs() gives an error message and returns -1.
-Examples:
-```
-echo abs(1.456)
-
-```
-			1.456
-```
+Examples: 
+```			echo abs(1.456)
+1.456
 echo abs(-5.456)
-
-```
-			5.456
-```
+5.456
 echo abs(-4)
-
-```
-			4
+4
 
 Can also be used as a [method](#method):
-```
 Compute()->abs()
 
 ### <a id="acos()" class="section-title" href="#acos()">acos({expr})</a>
@@ -609,56 +599,40 @@ Return the arc cosine of {expr} measured in radians, as a
 Returns NaN if {expr} is outside the range [-1, 1].  Returns
 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo acos(0)
-
-```
-			1.570796
-```
+1.570796
 :echo acos(-0.5)
-
-```
-			2.094395
+2.094395
 
 Can also be used as a [method](#method):
-```
 Compute()->acos()
 
 ### <a id="add()" class="section-title" href="#add()">add({object}, {expr})</a>
 Append the item {expr} to [List| or |Blob](#List| or |Blob) {object}.  Returns
 the resulting [List| or |Blob](#List| or |Blob).  Examples:
-```
 :let alist = add([1, 2, 3], item)
 :call add(mylist, "woodstock")
-
-```
-		Note that when {expr} is a [List](#List) it is appended as a single
+Note that when {expr} is a [List](#List) it is appended as a single
 item.  Use [extend()| to concatenate |Lists](#extend()| to concatenate |Lists).
 When {object} is a [Blob](#Blob) then {expr} must be a number.
 Use [insert()](#insert()) to add an item at another position.
 Returns 1 if {object} is not a [List| or a |Blob](#List| or a |Blob).
 
 Can also be used as a [method](#method):
-```
 mylist->add(val1)->add(val2)
 
 ### <a id="and()" class="section-title" href="#and()">and({expr}, {expr})</a>
 Bitwise AND on the two arguments.  The arguments are converted
 to a number.  A List, Dict or Float argument causes an error.
 Example:
-```
 :let flag = and(bits, 0x80)
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 :let flag = bits->and(0x80)
 
 ### <a id="api_info()" class="section-title" href="#api_info()">api_info()</a>
 Returns Dictionary of [api-metadata](#api-metadata).
 
 View it in a nice human-readable format:
-```
 :lua print(vim.inspect(vim.fn.api_info()))
 
 ### <a id="append()" class="section-title" href="#append()">append({lnum}, {text})</a>
@@ -670,14 +644,10 @@ the current buffer.
 {lnum} is used like with [getline()](#getline()).
 Returns 1 for failure ({lnum} out of range or out of memory),
 0 for success.  Example:
-```
 :let failed = append(line('$'), "# THE END")
 :let failed = append(0, ["Chapter 1", "the beginning"])
 
-
-```
-		Can also be used as a [method](#method) after a List:
-```
+Can also be used as a [method](#method) after a List:
 mylist->append(lnum)
 
 ### <a id="appendbufline()" class="section-title" href="#appendbufline()">appendbufline({buf}, {lnum}, {text})</a>
@@ -696,14 +666,11 @@ On success 0 is returned, on failure 1 is returned.
 
 If {buf} is not a valid buffer or {lnum} is not valid, an
 error message is given. Example:
-```
 :let failed = appendbufline(13, 0, "# THE START")
-
 ```
 
-Can also be used as a [method](#method) after a List:
-```
-mylist->appendbufline(buf, lnum)
+Can also be used as a [method](#method) after a List: 
+```			mylist->appendbufline(buf, lnum)
 
 ### <a id="argc()" class="section-title" href="#argc()">argc([{winid}])</a>
 The result is the number of files in the argument list.  See
@@ -736,16 +703,13 @@ page.
 argv([{nr} [, {winid}]])
 The result is the {nr}th file in the argument list.  See
 [arglist](#arglist).  "argv(0)" is the first one.  Example:
-```
 :let i = 0
 :while i < argc()
 :  let f = escape(fnameescape(argv(i)), '.')
 :  exe 'amenu Arg.' .. f .. ' :e ' .. f .. '<CR>'
 :  let i = i + 1
 :endwhile
-
-```
-		Without the {nr} argument, or when {nr} is -1, a [List](#List) with
+Without the {nr} argument, or when {nr} is -1, a [List](#List) with
 the whole [arglist](#arglist) is returned.
 
 The {winid} argument specifies the window ID, see [argc()](#argc()).
@@ -763,19 +727,12 @@ in the range of [-pi/2, pi/2].
 Returns NaN if {expr} is outside the range [-1, 1].  Returns
 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo asin(0.8)
-
-```
-			0.927295
-```
+0.927295
 :echo asin(-0.5)
-
-```
-			-0.523599
+-0.523599
 
 Can also be used as a [method](#method):
-```
 Compute()->asin()
 
 
@@ -788,19 +745,12 @@ the range [-pi/2, +pi/2] radians, as a [Float](#Float).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo atan(100)
-
-```
-			1.560797
-```
+1.560797
 :echo atan(-4.01)
-
-```
-			-1.326405
+-1.326405
 
 Can also be used as a [method](#method):
-```
 Compute()->atan()
 
 ### <a id="atan2()" class="section-title" href="#atan2()">atan2({expr1}, {expr2})</a>
@@ -810,19 +760,12 @@ radians, as a [Float](#Float) in the range [-pi, pi].
 Returns 0.0 if {expr1} or {expr2} is not a [Float](#Float) or a
 [Number](#Number).
 Examples:
-```
 :echo atan2(-1, 1)
-
-```
-			-0.785398
-```
+-0.785398
 :echo atan2(1, -1)
-
-```
-			2.356194
+2.356194
 
 Can also be used as a [method](#method):
-```
 Compute()->atan2(1)
 
 ### <a id="browse()" class="section-title" href="#browse()">Note:</a>
@@ -859,15 +802,11 @@ created buffer.  When {name} is an empty string then a new
 buffer is always created.
 The buffer will not have 'buflisted' set and not be loaded
 yet.  To add some text to the buffer use this:
-```
 let bufnr = bufadd('someName')
 call bufload(bufnr)
 call setbufline(bufnr, 1, ['some', 'text'])
-
-```
-		Returns 0 on error.
+Returns 0 on error.
 Can also be used as a [method](#method):
-```
 let bufnr = 'somename'->bufadd()
 
 ### <a id="bufexists()" class="section-title" href="#bufexists()">bufexists({buf})</a>
@@ -893,7 +832,6 @@ Use "bufexists(0)" to test for the existence of an alternate
 file name.
 
 Can also be used as a [method](#method):
-```
 let exists = 'somename'->bufexists()
 
 ### <a id="buflisted()" class="section-title" href="#buflisted()">buflisted({buf})</a>
@@ -902,7 +840,6 @@ The result is a Number, which is [TRUE](#TRUE) if a buffer called
 The {buf} argument is used like with [bufexists()](#bufexists()).
 
 Can also be used as a [method](#method):
-```
 let listed = 'somename'->buflisted()
 
 ### <a id="bufload()" class="section-title" href="#bufload()">bufload({buf})</a>
@@ -916,7 +853,6 @@ there will be no dialog, the buffer will be loaded anyway.
 The {buf} argument is used like with [bufexists()](#bufexists()).
 
 Can also be used as a [method](#method):
-```
 eval 'somename'->bufload()
 
 ### <a id="bufloaded()" class="section-title" href="#bufloaded()">bufloaded({buf})</a>
@@ -925,7 +861,6 @@ The result is a Number, which is [TRUE](#TRUE) if a buffer called
 The {buf} argument is used like with [bufexists()](#bufexists()).
 
 Can also be used as a [method](#method):
-```
 let loaded = 'somename'->bufloaded()
 
 ### <a id="bufname()" class="section-title" href="#bufname()">bufname([{buf}])</a>
@@ -950,24 +885,16 @@ with a listed buffer, that one is returned.  Next unlisted
 buffers are searched for.
 If the {buf} is a String, but you want to use it as a buffer
 number, force it to be a Number by adding zero to it:
-```
 :echo bufname("3" + 0)
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 echo bufnr->bufname()
 
-
-```
-		If the buffer doesn't exist, or doesn't have a name, an empty
+If the buffer doesn't exist, or doesn't have a name, an empty
 string is returned.
-```
 bufname("#")		alternate buffer name
 bufname(3)		name of buffer 3
 bufname("%")		name of current buffer
 bufname("file2")	name of buffer where "file2" matches.
-
 ```
 
 ### <a id="bufnr()" class="section-title" href="#bufnr()">Note:</a>
@@ -978,18 +905,14 @@ above.
 If the buffer doesn't exist, -1 is returned.  Or, if the
 {create} argument is present and TRUE, a new, unlisted,
 buffer is created and its number is returned.
-bufnr("$") is the last buffer:
-```
-:let last_buffer = bufnr("$")
-
-```
-		The result is a Number, which is the highest buffer number
+bufnr("$") is the last buffer: 
+```			:let last_buffer = bufnr("$")
+The result is a Number, which is the highest buffer number
 of existing buffers.  Note that not all buffers with a smaller
 number necessarily exist, because ":bwipeout" may have removed
 them.  Use bufexists() to test for the existence of a buffer.
 
 Can also be used as a [method](#method):
-```
 echo bufref->bufnr()
 
 ### <a id="bufwinid()" class="section-title" href="#bufwinid()">bufwinid({buf})</a>
@@ -997,34 +920,27 @@ The result is a Number, which is the [window-ID](#window-ID) of the first
 window associated with buffer {buf}.  For the use of {buf},
 see [bufname()](#bufname()) above.  If buffer {buf} doesn't exist or
 there is no such window, -1 is returned.  Example:
-```
 
 echo "A window containing buffer 1 is " .. (bufwinid(1))
-
 ```
 
 Only deals with the current tab page.
 
-Can also be used as a [method](#method):
-```
-FindBuffer()->bufwinid()
+Can also be used as a [method](#method): 
+```			FindBuffer()->bufwinid()
 
 ### <a id="bufwinnr()" class="section-title" href="#bufwinnr()">bufwinnr({buf})</a>
 Like [bufwinid()](#bufwinid()) but return the window number instead of the
 [window-ID](#window-ID).
 If buffer {buf} doesn't exist or there is no such window, -1
 is returned.  Example:
-```
 
 echo "A window containing buffer 1 is " .. (bufwinnr(1))
 
-
-```
-		The number can be used with [CTRL-W_w](#CTRL-W_w) and ":wincmd w"
+The number can be used with [CTRL-W_w](#CTRL-W_w) and ":wincmd w"
 [:wincmd](#:wincmd).
 
 Can also be used as a [method](#method):
-```
 FindBuffer()->bufwinnr()
 
 ### <a id="byte2line()" class="section-title" href="#byte2line()">byte2line({byte})</a>
@@ -1038,7 +954,6 @@ Also see [line2byte()|, |go| and |:goto](#line2byte()|, |go| and |:goto).
 Returns -1 if the {byte} value is invalid.
 
 Can also be used as a [method](#method):
-```
 GetOffset()->byte2line()
 
 ### <a id="byteidx()" class="section-title" href="#byteidx()">byteidx({expr}, {nr})</a>
@@ -1052,43 +967,32 @@ length is added to the preceding base character.  See
 [byteidxcomp()](#byteidxcomp()) below for counting composing characters
 separately.
 Example :
-```
 echo matchstr(str, ".", byteidx(str, 3))
-
-```
-		will display the fourth character.  Another way to do the
+will display the fourth character.  Another way to do the
 same:
-```
 let s = strpart(str, byteidx(str, 3))
 echo strpart(s, 0, byteidx(s, 1))
-
-```
-		Also see [strgetchar()| and |strcharpart()](#strgetchar()| and |strcharpart()).
+Also see [strgetchar()| and |strcharpart()](#strgetchar()| and |strcharpart()).
 
 If there are less than {nr} characters -1 is returned.
 If there are exactly {nr} characters the length of the string
 in bytes is returned.
 
 Can also be used as a [method](#method):
-```
 GetName()->byteidx(idx)
 
 ### <a id="byteidxcomp()" class="section-title" href="#byteidxcomp()">byteidxcomp({expr}, {nr})</a>
 Like byteidx(), except that a composing character is counted
 as a separate character.  Example:
-```
 let s = 'e' .. nr2char(0x301)
 echo byteidx(s, 1)
 echo byteidxcomp(s, 1)
 echo byteidxcomp(s, 2)
-
-```
-		The first and third echo result in 3 ('e' plus composing
+The first and third echo result in 3 ('e' plus composing
 character is 3 bytes), the second echo results in 1 ('e' is
 one byte).
 
 Can also be used as a [method](#method):
-```
 GetName()->byteidxcomp(idx)
 
 ### <a id="call() E699" class="section-title" href="#call() E699">call({func}, {arglist} [, {dict}])</a>
@@ -1101,7 +1005,6 @@ Returns the return value of the called function.
 used to set the local variable "self". [Dictionary-function](#Dictionary-function)
 
 Can also be used as a [method](#method):
-```
 GetFunc()->call([arg, arg], dict)
 
 ### <a id="ceil()" class="section-title" href="#ceil()">ceil({expr})</a>
@@ -1109,26 +1012,16 @@ Return the smallest integral value greater than or equal to
 {expr} as a [Float](#Float) (round up).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 echo ceil(1.456)
-
-```
-			2.0
-```
+2.0
 echo ceil(-5.456)
-
-```
-			-5.0
-```
+-5.0
 echo ceil(4.0)
-
-```
-			4.0
+4.0
 
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 
 Can also be used as a [method](#method):
-```
 Compute()->ceil()
 
 ### <a id="changenr()" class="section-title" href="#changenr()">changenr()</a>
@@ -1161,11 +1054,8 @@ See [channel-bytes](#channel-bytes) for more information.
 If {data} is a list, the items will be joined by newlines; any
 newlines in an item will be sent as NUL. To send a final
 newline, include a final empty string. Example:
-```
 :call chansend(id, ["abc", "123\n456", ""])
-
-```
- 		will send "abc<NL>123<NUL>456<NL>".
+will send "abc<NL>123<NUL>456<NL>".
 
 chansend() writes raw data, not RPC messages.  If the channel
 was created with `"rpc":v:true` then the channel expects RPC
@@ -1175,15 +1065,12 @@ messages, use [rpcnotify()| and |rpcrequest()](#rpcnotify()| and |rpcrequest()) 
 ### <a id="char2nr()" class="section-title" href="#char2nr()">char2nr({string} [, {utf8}])</a>
 Return Number value of the first char in {string}.
 Examples:
-```
 char2nr(" ")		returns 32
 char2nr("ABC")		returns 65
 char2nr("á")		returns 225
 char2nr("á"[0])		returns 195
 char2nr("\<M-x>")	returns 128
-
-```
-		Non-ASCII characters are always treated as UTF-8 characters.
+Non-ASCII characters are always treated as UTF-8 characters.
 {utf8} is ignored, it exists only for backwards-compatibility.
 A combining character is a separate character.
 [nr2char()](#nr2char()) does the opposite.
@@ -1191,7 +1078,6 @@ A combining character is a separate character.
 Returns 0 if {string} is not a [String](#String).
 
 Can also be used as a [method](#method):
-```
 GetChar()->char2nr()
 
 ### <a id="charclass()" class="section-title" href="#charclass()">charclass({string})</a>
@@ -1212,16 +1098,11 @@ position given with {expr} instead of the byte position.
 
 Example:
 With the cursor on '세' in line 5 with text "여보세요":
-```
 charcol('.')		returns 3
 col('.')		returns 7
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetPos()->col()
-
 ```
 
 ### <a id="charidx()" class="section-title" href="#charidx()">Note:</a>
@@ -1242,17 +1123,14 @@ argument is not a number or when the third argument is present
 and is not zero or one.
 See [byteidx()| and |byteidxcomp()](#byteidx()| and |byteidxcomp()) for getting the byte index
 from the character index.
-Examples:
-```
-echo charidx('áb́ć', 3)		returns 1
+Examples: 
+```			echo charidx('áb́ć', 3)		returns 1
 echo charidx('áb́ć', 6, 1)	returns 4
 echo charidx('áb́ć', 16)		returns -1
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetName()->charidx(idx)
+Can also be used as a [method](#method): 
+```			GetName()->charidx(idx)
 
 ### <a id="chdir()" class="section-title" href="#chdir()">chdir({dir})</a>
 Change the current working directory to {dir}.  The scope of
@@ -1270,19 +1148,14 @@ this to another chdir() to restore the directory.
 On failure, returns an empty string.
 
 Example:
-```
 let save_dir = chdir(newdir)
 if save_dir != ""
 " ... do some work
 call chdir(save_dir)
 endif
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetDir()->chdir()
-
 ```
 
 ### <a id="cindent()" class="section-title" href="#cindent()">cindent({lnum})</a>
@@ -1293,9 +1166,8 @@ relevant.  {lnum} is used just like in [getline()](#getline()).
 When {lnum} is invalid -1 is returned.
 See [C-indenting](#C-indenting).
 
-Can also be used as a [method](#method):
-```
-GetLnum()->cindent()
+Can also be used as a [method](#method): 
+```			GetLnum()->cindent()
 
 ### <a id="clearmatches()" class="section-title" href="#clearmatches()">clearmatches([{win}])</a>
 Clears all matches previously defined for the current window
@@ -1304,9 +1176,7 @@ If {win} is specified, use the window with this number or
 window ID instead of the current window.
 
 Can also be used as a [method](#method):
-```
 GetWin()->clearmatches()
-
 ```
 
 ### <a id="col()" class="section-title" href="#col()">Note:</a>
@@ -1330,32 +1200,24 @@ To get the line number use [line()](#line()).  To get both use
 For the screen column position use [virtcol()](#virtcol()).  For the
 character position use [charcol()](#charcol()).
 Note that only marks in the current file can be used.
-Examples:
-```
-col(".")		column of cursor
+Examples: 
+```			col(".")		column of cursor
 col("$")		length of cursor line plus one
 col("'t")		column of mark t
 col("'" .. markname)	column of mark markname
-
-```
-		The first column is 1.  Returns 0 if {expr} is invalid.
+The first column is 1.  Returns 0 if {expr} is invalid.
 For an uppercase mark the column may actually be in another
 buffer.
 For the cursor position, when 'virtualedit' is active, the
 column is one higher if the cursor is after the end of the
 line.  This can be used to obtain the column in Insert mode:
-```
 :imap <F2> <C-O>:let save_ve = &ve<CR>
 \<C-O>:set ve=all<CR>
 \<C-O>:echo col(".") .. "\n" <Bar>
 \let &ve = save_ve<CR>
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetPos()->col()
-
 ```
 
 
@@ -1377,9 +1239,8 @@ inserting anything that would cause completion to stop.
 The match can be selected with CTRL-N and CTRL-P as usual with
 Insert mode completion.  The popup menu will appear if
 specified, see [ins-completion-menu](#ins-completion-menu).
-Example:
-```
-inoremap <F5> <C-R>=ListMonths()<CR>
+Example: 
+```	inoremap <F5> <C-R>=ListMonths()<CR>
 
 func! ListMonths()
 call complete(col('.'), ['January', 'February', 'March',
@@ -1387,14 +1248,11 @@ call complete(col('.'), ['January', 'February', 'March',
 \ 'October', 'November', 'December'])
 return ''
 endfunc
-
-```
-		This isn't very useful, but it shows how it works.  Note that
+This isn't very useful, but it shows how it works.  Note that
 an empty string is returned to avoid a zero being inserted.
 
 Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetMatches()->complete(col('.'))
 
 ### <a id="complete_add()" class="section-title" href="#complete_add()">complete_add({expr})</a>
@@ -1407,7 +1265,6 @@ See [complete-functions](#complete-functions) for an explanation of {expr}.  It 
 the same as one item in the list that 'omnifunc' would return.
 
 Can also be used as a [method](#method):
-```
 GetMoreMatches()->complete_add()
 
 ### <a id="complete_check()" class="section-title" href="#complete_check()">complete_check()</a>
@@ -1435,9 +1292,7 @@ selected	Selected item index.  First index is zero.
 Index is -1 if no item is selected (showing
 typed text only, or the last completion after
 no item is selected when using the <Up> or
-
-```
-Down> keys)
+<Down> keys)
 inserted	Inserted string. [NOT IMPLEMENTED YET]
 
 ### <a id="complete_info_mode" class="section-title" href="#complete_info_mode">Note:</a>
@@ -1472,7 +1327,6 @@ To get the position and size of the popup menu, see
 Returns an empty [Dictionary](#Dictionary) on error.
 
 Examples:
-```
 " Get all items
 call complete_info()
 " Get only 'mode'
@@ -1480,12 +1334,8 @@ call complete_info(['mode'])
 " Get only 'mode' and 'pum_visible'
 call complete_info(['mode', 'pum_visible'])
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetItems()->complete_info()
-
 ```
 
 ### <a id="confirm()" class="section-title" href="#confirm()">Note:</a>
@@ -1501,19 +1351,13 @@ used (and translated).
 some systems the string is wrapped when it doesn't fit.
 
 {choices} is a String, with the individual choices separated
-by '\n', e.g.
-```
-confirm("Save changes?", "&Yes\n&No\n&Cancel")
-
-```
-		The letter after the '&' is the shortcut key for that choice.
+by '\n', e.g. 
+```			confirm("Save changes?", "&Yes\n&No\n&Cancel")
+The letter after the '&' is the shortcut key for that choice.
 Thus you can type 'c' to select "Cancel".  The shortcut does
 not need to be the first letter:
-```
 confirm("file has been modified", "&Save\nSave &All")
-
-```
-		For the console, the first letter of each choice is used as
+For the console, the first letter of each choice is used as
 the default shortcut key.  Case is ignored.
 
 The optional {type} String argument gives the type of dialog.
@@ -1531,7 +1375,6 @@ If the user aborts the dialog by pressing <Esc>, CTRL-C,
 or another valid interrupt key, confirm() returns 0.
 
 An example:
-```
 let choice = confirm("What do you want?",
 \ "&Apples\n&Oranges\n&Bananas", 2)
 if choice == 0
@@ -1541,9 +1384,7 @@ echo "tasteful"
 else
 echo "I prefer bananas myself."
 endif
-
-```
-		In a GUI dialog, buttons are used.  The layout of the buttons
+In a GUI dialog, buttons are used.  The layout of the buttons
 depends on the 'v' flag in 'guioptions'.  If it is included,
 the buttons are always put vertically.  Otherwise,  confirm()
 tries to put the buttons in one horizontal line.  If they
@@ -1551,9 +1392,7 @@ don't fit, a vertical layout is used anyway.  For some systems
 the horizontal layout is always used.
 
 Can also be used as a [method](#method)in:
-```
 BuildMessage()->confirm("&Yes\n&No")
-
 ```
 
 ### <a id="copy()" class="section-title" href="#copy()">Note:</a>
@@ -1565,28 +1404,20 @@ copy, and vice versa.  But the items are identical, thus
 changing an item changes the contents of both [Lists](#Lists).
 A [Dictionary| is copied in a similar way as a |List](#Dictionary| is copied in a similar way as a |List).
 Also see [deepcopy()](#deepcopy()).
-Can also be used as a [method](#method):
-```
-mylist->copy()
+Can also be used as a [method](#method): 
+```			mylist->copy()
 
 ### <a id="cos()" class="section-title" href="#cos()">cos({expr})</a>
 Return the cosine of {expr}, measured in radians, as a [Float](#Float).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo cos(100)
-
-```
-			0.862319
-```
+0.862319
 :echo cos(-4.01)
-
-```
-			-0.646043
+-0.646043
 
 Can also be used as a [method](#method):
-```
 Compute()->cos()
 
 ### <a id="cosh()" class="section-title" href="#cosh()">cosh({expr})</a>
@@ -1595,19 +1426,12 @@ Return the hyperbolic cosine of {expr} as a [Float](#Float) in the range
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo cosh(0.5)
-
-```
-			1.127626
-```
+1.127626
 :echo cosh(-0.5)
-
-```
-			-1.127626
+-1.127626
 
 Can also be used as a [method](#method):
-```
 Compute()->cosh()
 
 ### <a id="count()" class="section-title" href="#count()">count({comp}, {expr} [, {ic} [, {start}]])</a>
@@ -1624,9 +1448,7 @@ occurrences of {expr} is returned. Zero is returned when
 {expr} is an empty string.
 
 Can also be used as a [method](#method):
-```
 mylist->count(val)
-
 ```
 
 ### <a id="ctxget()" class="section-title" href="#ctxget()">ctxget([{index}])</a>
@@ -1687,9 +1509,8 @@ screen columns from the start of the character.  E.g., a
 position within a <Tab> or after the last character.
 Returns 0 when the position could be set, -1 otherwise.
 
-Can also be used as a [method](#method):
-```
-GetCursorPos()->cursor()
+Can also be used as a [method](#method): 
+```			GetCursorPos()->cursor()
 
 ### <a id="debugbreak()" class="section-title" href="#debugbreak()">debugbreak({pid})</a>
 Specifically used to interrupt a program being debugged.  It
@@ -1701,7 +1522,6 @@ Returns [TRUE](#TRUE) if successfully interrupted the program.
 Otherwise returns [FALSE](#FALSE).
 
 Can also be used as a [method](#method):
-```
 GetPid()->debugbreak()
 
 ### <a id="deepcopy() E698" class="section-title" href="#deepcopy() E698">deepcopy({expr} [, {noref}])</a>
@@ -1725,7 +1545,6 @@ that refers back to a higher level making a deep copy with
 Also see [copy()](#copy()).
 
 Can also be used as a [method](#method):
-```
 GetObject()->deepcopy()
 
 ### <a id="delete()" class="section-title" href="#delete()">delete({fname} [, {flags}])</a>
@@ -1748,7 +1567,6 @@ operation was successful and -1/true when the deletion failed
 or partly failed.
 
 Can also be used as a [method](#method):
-```
 GetName()->delete()
 
 ### <a id="deletebufline()" class="section-title" href="#deletebufline()">deletebufline({buf}, {first} [, {last}])</a>
@@ -1766,9 +1584,7 @@ when using [line()](#line()) this refers to the current buffer. Use "$"
 to refer to the last line in buffer {buf}.
 
 Can also be used as a [method](#method):
-```
 GetBuffer()->deletebufline(1)
-
 ```
 
 ### <a id="dictwatcheradd()" class="section-title" href="#dictwatcheradd()">dictwatcheradd({dict}, {pattern}, {callback})</a>
@@ -1782,14 +1598,12 @@ identified by three components:
 After this is called, every change on {dict} and on keys
 matching {pattern} will result in {callback} being invoked.
 
-For example, to watch all global variables:
-```
-### <a id="silent! call dictwatcherdel(g:, '', 'OnDictChanged')" class="section-title" href="#silent! call dictwatcherdel(g:, '', 'OnDictChanged')">Note:</a>
+For example, to watch all global variables: 
+#### <a id="silent! call dictwatcherdel(g:, '', 'OnDictChanged')" class="section-title" href="#silent! call dictwatcherdel(g:, '', 'OnDictChanged')">```</a>
 function! OnDictChanged(d,k,z)
 echomsg string(a:k) string(a:z)
 endfunction
 ### <a id="call dictwatcheradd(g:, '', 'OnDictChanged')" class="section-title" href="#call dictwatcheradd(g:, '', 'OnDictChanged')">Note:</a>
-
 ```
 
 For now {pattern} only accepts very simple patterns that can
@@ -1840,9 +1654,8 @@ display but don't exist in the buffer.
 line, "'m" mark m, etc.
 Returns 0 if the current window is not in diff mode.
 
-Can also be used as a [method](#method):
-```
-GetLnum()->diff_filler()
+Can also be used as a [method](#method): 
+```			GetLnum()->diff_filler()
 
 ### <a id="diff_hlID()" class="section-title" href="#diff_hlID()">diff_hlID({lnum}, {col})</a>
 Returns the highlight ID for diff mode at line {lnum} column
@@ -1856,9 +1669,7 @@ The highlight ID can be used with [synIDattr()](#synIDattr()) to obtain
 syntax information about the highlighting.
 
 Can also be used as a [method](#method):
-```
 GetLnum()->diff_hlID(col)
-
 ```
 
 
@@ -1870,21 +1681,17 @@ is given and an empty string is returned.
 
 Also see [digraph_getlist()](#digraph_getlist()).
 
-Examples:
-```
-" Get a built-in digraph
+Examples: 
+```		" Get a built-in digraph
 :echo digraph_get('00')		" Returns '∞'
 
 " Get a user-defined digraph
 :call digraph_set('aa', 'あ')
 :echo digraph_get('aa')		" Returns 'あ'
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetChars()->digraph_get()
-
+Can also be used as a [method](#method): 
+```			GetChars()->digraph_get()
 ```
 
 
@@ -1895,20 +1702,16 @@ digraphs.  Otherwise, return only user-defined digraphs.
 
 Also see [digraph_get()](#digraph_get()).
 
-Examples:
-```
-" Get user-defined digraphs
+Examples: 
+```		" Get user-defined digraphs
 :echo digraph_getlist()
 
 " Get all the digraphs, including default digraphs
 :echo digraph_getlist(1)
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetNumber()->digraph_getlist()
-
+Can also be used as a [method](#method): 
+```			GetNumber()->digraph_getlist()
 ```
 
 
@@ -1926,16 +1729,12 @@ this fails an error message is given and v:false is returned.
 If you want to define multiple digraphs at once, you can use
 [digraph_setlist()](#digraph_setlist()).
 
-Example:
-```
-call digraph_set('  ', 'あ')
-
+Example: 
+```			call digraph_set('  ', 'あ')
 ```
 
-Can be used as a [method](#method):
-```
-GetString()->digraph_set('あ')
-
+Can be used as a [method](#method): 
+```			GetString()->digraph_set('あ')
 ```
 
 
@@ -1943,27 +1742,20 @@ GetString()->digraph_set('あ')
 Similar to [digraph_set()](#digraph_set()) but this function can add multiple
 digraphs at once.  {digraphlist} is a list composed of lists,
 where each list contains two strings with {chars} and
-### <a id="{digraph} as in [digraph_set()|. E1216" class="section-title" href="#{digraph} as in |digraph_set()](#digraph_set()|. E1216" class="section-title" href="#{digraph} as in |digraph_set()). E1216">Note:</a>
-Example:
-```
-call digraph_setlist([['aa', 'あ'], ['ii', 'い']])
-
+### <a id="{digraph} as in [digraph_set()](#digraph_set()). E1216" class="section-title" href="#{digraph} as in [digraph_set()](#digraph_set()). E1216">Note:</a>
+Example: 
+```		    call digraph_setlist([['aa', 'あ'], ['ii', 'い']])
 ```
 
-It is similar to the following:
-```
-for [chars, digraph] in [['aa', 'あ'], ['ii', 'い']]
+It is similar to the following: 
+```		    for [chars, digraph] in [['aa', 'あ'], ['ii', 'い']]
 call digraph_set(chars, digraph)
 endfor
-
-```
-		Except that the function returns after the first error,
+Except that the function returns after the first error,
 following digraphs will not be added.
 
 Can be used as a [method](#method):
-```
 GetList()->digraph_setlist()
-
 ```
 
 
@@ -1976,40 +1768,27 @@ items.
 - [v:false| and |v:null| are empty, |v:true](#v:false| and |v:null| are empty, |v:true) is not.
 - A [Blob](#Blob) is empty when its length is zero.
 
-Can also be used as a [method](#method):
-```
-mylist->empty()
+Can also be used as a [method](#method): 
+```			mylist->empty()
 
 ### <a id="environ()" class="section-title" href="#environ()">environ()</a>
 Return all of environment variables as dictionary. You can
 check if an environment variable exists like this:
-```
 :echo has_key(environ(), 'HOME')
-
-```
-		Note that the variable name may be CamelCase; to ignore case
+Note that the variable name may be CamelCase; to ignore case
 use this:
-```
 :echo index(keys(environ()), 'HOME', 0, 1) != -1
 
 ### <a id="escape()" class="section-title" href="#escape()">escape({string}, {chars})</a>
 Escape the characters in {chars} that occur in {string} with a
 backslash.  Example:
-```
 :echo escape('c:\program files\vim', ' \')
-
-```
-		results in:
-```
+results in:
 c:\\program\ files\\vim
-
-```
-		Also see [shellescape()| and |fnameescape()](#shellescape()| and |fnameescape()).
+Also see [shellescape()| and |fnameescape()](#shellescape()| and |fnameescape()).
 
 Can also be used as a [method](#method):
-```
 GetText()->escape(' \')
-
 ```
 
 ### <a id="eval()" class="section-title" href="#eval()">Note:</a>
@@ -2019,9 +1798,8 @@ This works for Numbers, Floats, Strings, Blobs and composites
 of them.  Also works for [Funcref](#Funcref)s that refer to existing
 functions.
 
-Can also be used as a [method](#method):
-```
-argv->join()->eval()
+Can also be used as a [method](#method): 
+```			argv->join()->eval()
 
 ### <a id="eventhandler()" class="section-title" href="#eventhandler()">eventhandler()</a>
 Returns 1 when inside an event handler.  That is that Vim got
@@ -2053,7 +1831,6 @@ The result is a Number:
 [exepath()](#exepath()) can be used to get the full path of an executable.
 
 Can also be used as a [method](#method):
-```
 GetCommand()->executable()
 
 ### <a id="execute()" class="section-title" href="#execute()">execute({command} [, {silent}])</a>
@@ -2061,16 +1838,10 @@ Execute {command} and capture its output.
 If {command} is a [String](#String), returns {command} output.
 If {command} is a [List](#List), returns concatenated outputs.
 Examples:
-```
 echo execute('echon "foo"')
-
-```
-			foo
-```
+foo
 echo execute(['echon "foo"', 'echon "bar"'])
-
-```
-			foobar
+foobar
 
 The optional {silent} argument can have these values:
 ""		no `:silent` used
@@ -2080,12 +1851,9 @@ The default is "silent".  Note that with "silent!", unlike
 `:redir`, error messages are dropped.
 
 To get a list of lines use [split()](#split()) on the result:
-```
 execute('args')->split("\n")
 
-
-```
-		This function is not available in the [sandbox](#sandbox).
+This function is not available in the [sandbox](#sandbox).
 Note: If nested, an outer execute() will not observe output of
 the inner calls.
 Note: Text attributes (highlights) are not captured.
@@ -2093,7 +1861,6 @@ To execute a command in another window than the current one
 use `win_execute()`.
 
 Can also be used as a [method](#method):
-```
 GetCommand()->execute()
 
 ### <a id="exepath()" class="section-title" href="#exepath()">exepath({expr})</a>
@@ -2103,9 +1870,7 @@ Returns empty string otherwise.
 If {expr} starts with "./" the [current-directory](#current-directory) is used.
 
 Can also be used as a [method](#method):
-```
 GetCommand()->exepath()
-
 ```
 
 ### <a id="exists()" class="section-title" href="#exists()">Note:</a>
@@ -2122,18 +1887,12 @@ list[i]		for [curly-braces-names|, |Dictionary](#curly-braces-names|, |Dictionar
 entries, [List](#List) items, etc.
 Beware that evaluating an index may
 cause an error message for an invalid
-expression.  E.g.:
-```
-:let l = [1, 2, 3]
+expression.  E.g.: 
+```					   :let l = [1, 2, 3]
 :echo exists("l[5]")
-
-```
-					   0
-```
+0
 :echo exists("l[xx]")
-
-```
-					   E121: Undefined variable: xx
+E121: Undefined variable: xx
 0
 &option-name	Vim option (only checks if it exists,
 not if it really works)
@@ -2141,7 +1900,7 @@ not if it really works)
 $ENVNAME	environment variable (could also be
 done by comparing with an empty
 string)
-### <a id="funcname	built-in function (see [functions|)" class="section-title" href="#funcname	built-in function (see |functions](#functions|)" class="section-title" href="#funcname	built-in function (see |functions))">Note:</a>
+### <a id="funcname	built-in function (see [functions](#functions))" class="section-title" href="#funcname	built-in function (see [functions](#functions))">Note:</a>
 or user defined function (see
 [user-function](#user-function)). Also works for a
 variable that is a Funcref.
@@ -2173,7 +1932,6 @@ event and pattern.
 supported.
 
 Examples:
-```
 exists("&mouse")
 exists("$HOSTNAME")
 ### <a id="exists("strftime")" class="section-title" href="#exists("strftime")">Note:</a>
@@ -2187,33 +1945,23 @@ exists("#filetypeindent")
 exists("#filetypeindent#FileType")
 ### <a id="exists("#filetypeindent#FileType#")" class="section-title" href="#exists("#filetypeindent#FileType#")">Note:</a>
 exists("##ColorScheme")
-### <a id="There must be no space between the symbol (&/$//#) and the" class="section-title" href="#There must be no space between the symbol (&/$//#) and the"><</a>
+### <a id="There must be no space between the symbol (&/$//#) and the" class="section-title" href="#There must be no space between the symbol (&/$//#) and the">Note:</a>
 name.
 There must be no extra characters after the name, although in
 a few cases this is ignored.  That may become stricter in the
 future, thus don't count on it!
 Working example:
-```
 exists(":make")
-
-```
-		NOT working example:
-```
+NOT working example:
 exists(":make install")
 
-
-```
-		Note that the argument must be a string, not the name of the
+Note that the argument must be a string, not the name of the
 variable itself.  For example:
-```
 exists(bufcount)
-
-```
-		This doesn't check for existence of the "bufcount" variable,
+This doesn't check for existence of the "bufcount" variable,
 but gets the value of "bufcount", and checks if that exists.
 
 Can also be used as a [method](#method):
-```
 Varname()->exists()
 
 ### <a id="exp()" class="section-title" href="#exp()">exp({expr})</a>
@@ -2222,19 +1970,12 @@ Return the exponential of {expr} as a [Float](#Float) in the range
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo exp(2)
-
-```
-			7.389056
-```
+7.389056
 :echo exp(-1)
-
-```
-			0.367879
+0.367879
 
 Can also be used as a [method](#method):
-```
 Compute()->exp()
 
 ### <a id="expand()" class="section-title" href="#expand()">expand({string} [, {nosuf} [, {list}]])</a>
@@ -2256,52 +1997,24 @@ associated modifiers.  Here is a short overview:
 %		current file name
 #		alternate file name
 #n		alternate file name n
-
-```
-cfile>		file name under the cursor
-
-```
-afile>		autocmd file name
-
-```
-abuf>		autocmd buffer number (as a String!)
-
-```
-amatch>	autocmd matched name
-
-```
-cexpr>		C expression under the cursor
-
-```
-sfile>		sourced script file or function name
-
-```
-slnum>		sourced script line number or function
+<cfile>		file name under the cursor
+<afile>		autocmd file name
+<abuf>		autocmd buffer number (as a String!)
+<amatch>	autocmd matched name
+<cexpr>		C expression under the cursor
+<sfile>		sourced script file or function name
+<slnum>		sourced script line number or function
 line number
-
-```
-sflnum>	script file line number, also when in
+<sflnum>	script file line number, also when in
 a function
-
-```
-SID>		"<SNR>123_"  where "123" is the
+<SID>		"<SNR>123_"  where "123" is the
 current script ID  [<SID>](#<SID>)
-
-```
-script>	sourced script file, or script file
+<script>	sourced script file, or script file
 where the current function was defined
-
-```
-stack>		call stack
-
-```
-cword>		word under the cursor
-
-```
-cWORD>		WORD under the cursor
-
-```
-client>	the {clientid} of the last received
+<stack>		call stack
+<cword>		word under the cursor
+<cWORD>		WORD under the cursor
+<client>	the {clientid} of the last received
 message
 Modifiers:
 :p		expand to full path
@@ -2311,28 +2024,17 @@ Modifiers:
 :e		extension only
 
 Example:
-```
 :let &tags = expand("%:p:h") .. "/tags"
-
-```
-		Note that when expanding a string that starts with '%', '#' or
+Note that when expanding a string that starts with '%', '#' or
 '<', any following text is ignored.  This does NOT work:
-```
 :let doesntwork = expand("%:h.bak")
-
-```
-		Use this:
-```
+Use this:
 :let doeswork = expand("%:h") .. ".bak"
-
-```
-		Also note that expanding "<cfile>" and others only returns the
+Also note that expanding "<cfile>" and others only returns the
 referenced file name without further expansion.  If "<cfile>"
 is "~/.cshrc", you need to do another expand() to have the
 "~/" expanded into the path of the home directory:
-```
 :echo expand(expand("<cfile>"))
-
 ```
 
 There cannot be white space between the variables and the
@@ -2353,10 +2055,8 @@ expanded like a file name is expanded on the command line.
 {nosuf} argument is given and it is [TRUE](#TRUE).
 Names for non-existing files are included.  The "**" item can
 be used to search in a directory tree.  For example, to find
-all "README" files in the current directory and below:
-```
-### <a id=":echo expand("/README")" class="section-title" href="#:echo expand("/README")">Note:</a>
-
+all "README" files in the current directory and below: 
+#### <a id=":echo expand("/README")" class="section-title" href="#:echo expand("/README")">```</a>
 ```
 
 expand() can also be used to expand variables and environment
@@ -2371,9 +2071,8 @@ left unchanged.  Thus ":echo expand('$FOOBAR')" results in
 See [glob()| for finding existing files.  See |system()](#glob()| for finding existing files.  See |system()) for
 getting the raw output of an external command.
 
-Can also be used as a [method](#method):
-```
-Getpattern()->expand()
+Can also be used as a [method](#method): 
+```			Getpattern()->expand()
 
 ### <a id="expandcmd()" class="section-title" href="#expandcmd()">expandcmd({string})</a>
 Expand special items in String {string} like what is done for
@@ -2384,16 +2083,11 @@ start.
 Returns the expanded string.  If an error is encountered
 during expansion, the unmodified {string} is returned.
 Example:
-```
 :echo expandcmd('make %<.o')
-
-```
-			make /path/runtime/doc/builtin.o ~
+make /path/runtime/doc/builtin.o ~
 
 Can also be used as a [method](#method):
-```
 GetCommand()->expandcmd()
-
 ```
 
 ### <a id="extend()" class="section-title" href="#extend()">extend({expr1}, {expr2} [, {expr3}])</a>
@@ -2405,21 +2099,16 @@ If {expr3} is given insert the items of {expr2} before the
 item with index {expr3} in {expr1}.  When {expr3} is zero
 insert before the first item.  When {expr3} is equal to
 len({expr1}) then {expr2} is appended.
-Examples:
-```
-:echo sort(extend(mylist, [7, 5]))
+Examples: 
+```			:echo sort(extend(mylist, [7, 5]))
 :call extend(mylist, [2, 3], 1)
-
-```
-		When {expr1} is the same List as {expr2} then the number of
+When {expr1} is the same List as {expr2} then the number of
 items copied is equal to the original length of the List.
 E.g., when {expr3} is 1 you get N new copies of the first item
 (where N is the original length of the List).
 Use [add()](#add()) to concatenate one item to a list.  To concatenate
 two lists into a new list use the + operator:
-```
 :let newlist = [1, 2, 3] + [4, 5]
-
 ```
 
 If they are [Dictionaries](#Dictionaries):
@@ -2438,9 +2127,8 @@ When {expr1} is locked and {expr2} is not empty the operation
 fails.
 Returns {expr1}.  Returns 0 on error.
 
-Can also be used as a [method](#method):
-```
-mylist->extend(otherlist)
+Can also be used as a [method](#method): 
+```			mylist->extend(otherlist)
 
 ### <a id="feedkeys()" class="section-title" href="#feedkeys()">feedkeys({string} [, {mode}])</a>
 Characters in {string} are queued for processing as if they
@@ -2488,7 +2176,6 @@ a little later.  Useful for testing CursorHoldI.
 Return value is always 0.
 
 Can also be used as a [method](#method):
-```
 GetInput()->feedkeys()
 
 ### <a id="filereadable()" class="section-title" href="#filereadable()">filereadable({file})</a>
@@ -2499,16 +2186,12 @@ expression, which is used as a String.
 If you don't care about the file being readable you can use
 [glob()](#glob()).
 {file} is used as-is, you may want to expand wildcards first:
-```
 echo filereadable('~/.vimrc')
 0
 echo filereadable(expand('~/.vimrc'))
 1
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetName()->filereadable()
 
 ### <a id="filewritable()" class="section-title" href="#filewritable()">filewritable({file})</a>
@@ -2518,7 +2201,6 @@ exist, or is not writable, the result is 0.  If {file} is a
 directory, and we can write to it, the result is 2.
 
 Can also be used as a [method](#method):
-```
 GetName()->filewritable()
 
 ### <a id="filter()" class="section-title" href="#filter()">filter({expr1}, {expr2})</a>
@@ -2536,21 +2218,12 @@ the current item.  For a [Blob| |v:key](#Blob| |v:key) has the index of the
 current byte.
 
 Examples:
-```
 call filter(mylist, 'v:val !~ "OLD"')
-
-```
-		Removes the items where "OLD" appears.
-```
+Removes the items where "OLD" appears.
 call filter(mydict, 'v:key >= 8')
-
-```
-		Removes the items with a key below 8.
-```
+Removes the items with a key below 8.
 call filter(var, 0)
-
-```
-		Removes all the items, thus clears the [List| or |Dictionary](#List| or |Dictionary).
+Removes all the items, thus clears the [List| or |Dictionary](#List| or |Dictionary).
 
 Note that {expr2} is the result of expression and is then
 used as an expression again.  Often it is good to use a
@@ -2561,39 +2234,27 @@ If {expr2} is a [Funcref](#Funcref) it must take two arguments:
 2. the value of the current item.
 The function must return [TRUE](#TRUE) if the item should be kept.
 Example that keeps the odd items of a list:
-```
 func Odd(idx, val)
 return a:idx % 2 == 1
 endfunc
 call filter(mylist, function('Odd'))
-
-```
-		It is shorter when using a [lambda](#lambda):
-```
+It is shorter when using a [lambda](#lambda):
 ### <a id="call filter(myList, {idx, val -> idx  val <= 42})" class="section-title" href="#call filter(myList, {idx, val -> idx  val <= 42})">Note:</a>
-
-```
-		If you do not use "val" you can leave it out:
-```
+If you do not use "val" you can leave it out:
 call filter(myList, {idx -> idx % 2 == 1})
-
 ```
 
 The operation is done in-place.  If you want a [List](#List) or
-[Dictionary](#Dictionary) to remain unmodified make a copy first:
-```
-:let l = filter(copy(mylist), 'v:val =~ "KEEP"')
+[Dictionary](#Dictionary) to remain unmodified make a copy first: 
+```			:let l = filter(copy(mylist), 'v:val =~ "KEEP"')
 
-
-```
-		Returns {expr1}, the [List|, |Blob| or |Dictionary](#List|, |Blob| or |Dictionary) that was
+Returns {expr1}, the [List|, |Blob| or |Dictionary](#List|, |Blob| or |Dictionary) that was
 filtered.  When an error is encountered while evaluating
 {expr2} no further items in {expr1} are processed.  When
 {expr2} is a Funcref errors inside a function are ignored,
 unless it was defined with the "abort" flag.
 
 Can also be used as a [method](#method):
-```
 mylist->filter(expr2)
 
 ### <a id="finddir()" class="section-title" href="#finddir()">finddir({name} [, {path} [, {count}]])</a>
@@ -2615,22 +2276,17 @@ Returns an empty string if the directory is not found.
 This is quite similar to the ex-command `:find`.
 
 Can also be used as a [method](#method):
-```
 GetName()->finddir()
 
 ### <a id="findfile()" class="section-title" href="#findfile()">findfile({name} [, {path} [, {count}]])</a>
 Just like [finddir()](#finddir()), but find a file instead of a directory.
 Uses 'suffixesadd'.
 Example:
-```
 :echo findfile("tags.vim", ".;")
-
-```
-		Searches from the directory of the current file upwards until
+Searches from the directory of the current file upwards until
 it finds the file "tags.vim".
 
 Can also be used as a [method](#method):
-```
 GetName()->findfile()
 
 ### <a id="flatten()" class="section-title" href="#flatten()">flatten({list} [, {maxdepth}])</a>
@@ -2647,21 +2303,13 @@ not want that.
 If there is an error the number zero is returned.
 
 Example:
-```
 :echo flatten([1, [2, [3, 4]], 5])
-
-```
-			[1, 2, 3, 4, 5]
-```
+[1, 2, 3, 4, 5]
 :echo flatten([1, [2, [3, 4]], 5], 1)
-
-```
-			[1, 2, [3, 4], 5]
+[1, 2, [3, 4], 5]
 
 Can also be used as a [method](#method):
-```
 mylist->flatten()
-
 ```
 
 ### <a id="float2nr()" class="section-title" href="#float2nr()">float2nr({expr})</a>
@@ -2674,35 +2322,19 @@ result is truncated to 0x7fffffff or -0x7fffffff (or when
 64-bit Number support is enabled, 0x7fffffffffffffff or
 -0x7fffffffffffffff).  NaN results in -0x80000000 (or when
 64-bit Number support is enabled, -0x8000000000000000).
-Examples:
-```
-echo float2nr(3.95)
-
-```
-			3
-```
+Examples: 
+```			echo float2nr(3.95)
+3
 echo float2nr(-23.45)
-
-```
-			-23
-```
+-23
 echo float2nr(1.0e100)
-
-```
-			2147483647  (or 9223372036854775807)
-```
+2147483647  (or 9223372036854775807)
 echo float2nr(-1.0e150)
-
-```
-			-2147483647 (or -9223372036854775807)
-```
+-2147483647 (or -9223372036854775807)
 echo float2nr(1.0e-100)
-
-```
-			0
+0
 
 Can also be used as a [method](#method):
-```
 Compute()->float2nr()
 
 ### <a id="floor()" class="section-title" href="#floor()">floor({expr})</a>
@@ -2711,24 +2343,14 @@ Return the largest integral value less than or equal to
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 echo floor(1.856)
-
-```
-			1.0
-```
+1.0
 echo floor(-5.456)
-
-```
-			-6.0
-```
+-6.0
 echo floor(4.0)
-
-```
-			4.0
+4.0
 
 Can also be used as a [method](#method):
-```
 Compute()->floor()
 
 ### <a id="fmod()" class="section-title" href="#fmod()">fmod({expr1}, {expr2})</a>
@@ -2742,19 +2364,12 @@ returned is zero.  The value returned is a [Float](#Float).
 Returns 0.0 if {expr1} or {expr2} is not a [Float](#Float) or a
 [Number](#Number).
 Examples:
-```
 :echo fmod(12.33, 1.22)
-
-```
-			0.13
-```
+0.13
 :echo fmod(-12.33, 1.22)
-
-```
-			-0.13
+-0.13
 
 Can also be used as a [method](#method):
-```
 Compute()->fmod(1.22)
 
 ### <a id="fnameescape()" class="section-title" href="#fnameescape()">fnameescape({string})</a>
@@ -2762,42 +2377,30 @@ Escape {string} for use as file name command argument.  All
 characters that have a special meaning, such as '%' and '|'
 are escaped with a backslash.
 For most systems the characters escaped are
-### <a id="" \t\n?[{`$\\%#'\"[!<"." class="section-title" href="#" \t\n?[{`$\\%#'\"](#!<"." class="section-title" href="#" \t\n?[{`$\\%#'\")!<".">Note:</a>
+### <a id="" \t\n?[{`$\\%#'\"|!<"." class="section-title" href="#" \t\n?[{`$\\%#'\"|!<".">Note:</a>
 appears in a filename, it depends on the value of 'isfname'.
 A leading '+' and '>' is also escaped (special after [:edit](#:edit)
 and [:write|).  And a "-" by itself (special after |:cd](#:write|).  And a "-" by itself (special after |:cd)).
 Returns an empty string on error.
 Example:
-```
 :let fname = '+some str%nge|name'
 :exe "edit " .. fnameescape(fname)
-
-```
-		results in executing:
-```
+results in executing:
 edit \+some\ str\%nge\|name
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetName()->fnameescape()
+Can also be used as a [method](#method): 
+```			GetName()->fnameescape()
 
 ### <a id="fnamemodify()" class="section-title" href="#fnamemodify()">fnamemodify({fname}, {mods})</a>
 Modify file name {fname} according to {mods}.  {mods} is a
 string of characters like it is used for file names on the
 command line.  See [filename-modifiers](#filename-modifiers).
 Example:
-```
 :echo fnamemodify("main.c", ":p:h")
-
-```
-		results in:
-```
+results in:
 /home/user/vim/vim/src
-
-```
-		If {mods} is empty or an unsupported modifier is used then
+If {mods} is empty or an unsupported modifier is used then
 {fname} is returned.
 When {fname} is empty then with {mods} ":h" returns ".", so
 that `:cd` can be used with it.  This is different from
@@ -2807,7 +2410,6 @@ Note: Environment variables don't work in {fname}, use
 [expand()](#expand()) first then.
 
 Can also be used as a [method](#method):
-```
 GetName()->fnamemodify(':p:h')
 
 ### <a id="foldclosed()" class="section-title" href="#foldclosed()">foldclosed({lnum})</a>
@@ -2818,7 +2420,6 @@ If the line {lnum} is not in a closed fold, -1 is returned.
 line, "'m" mark m, etc.
 
 Can also be used as a [method](#method):
-```
 GetLnum()->foldclosed()
 
 ### <a id="foldclosedend()" class="section-title" href="#foldclosedend()">foldclosedend({lnum})</a>
@@ -2829,7 +2430,6 @@ If the line {lnum} is not in a closed fold, -1 is returned.
 line, "'m" mark m, etc.
 
 Can also be used as a [method](#method):
-```
 GetLnum()->foldclosedend()
 
 ### <a id="foldlevel()" class="section-title" href="#foldlevel()">foldlevel({lnum})</a>
@@ -2845,9 +2445,7 @@ previous line is usually available.
 line, "'m" mark m, etc.
 
 Can also be used as a [method](#method):
-```
 GetLnum()->foldlevel()
-
 ```
 
 ### <a id="foldtext()" class="section-title" href="#foldtext()">Note:</a>
@@ -2855,12 +2453,9 @@ foldtext()	Returns a String, to be displayed for a closed fold.  This is
 the default function used for the 'foldtext' option and should
 only be called from evaluating 'foldtext'.  It uses the
 [v:foldstart|, |v:foldend| and |v:folddashes](#v:foldstart|, |v:foldend| and |v:folddashes) variables.
-The returned string looks like this:
-```
-+-- 45 lines: abcdef
-
-```
-		The number of leading dashes depends on the foldlevel.  The
+The returned string looks like this: 
+```			+-- 45 lines: abcdef
+The number of leading dashes depends on the foldlevel.  The
 "45" is the number of lines in the fold.  "abcdef" is the text
 in the first non-blank line of the fold.  Leading white space,
 ### <a id=""//" or "/" and the text from the 'foldmarker' and" class="section-title" href="#"//" or "/" and the text from the 'foldmarker' and">Note:</a>
@@ -2880,9 +2475,7 @@ line, "'m" mark m, etc.
 Useful when exporting folded text, e.g., to HTML.
 
 Can also be used as a [method](#method):
-```
 GetLnum()->foldtextresult()
-
 ```
 
 ### <a id="fullcommand()" class="section-title" href="#fullcommand()">fullcommand({name})</a>
@@ -2897,10 +2490,8 @@ ambiguous (for user-defined commands).
 For example `fullcommand('s')`, `fullcommand('sub')`,
 `fullcommand(':%substitute')` all return "substitute".
 
-Can also be used as a [method](#method):
-```
-GetName()->fullcommand()
-
+Can also be used as a [method](#method): 
+```			GetName()->fullcommand()
 ```
 
 ### <a id="funcref()" class="section-title" href="#funcref()">Note:</a>
@@ -2916,10 +2507,8 @@ when only intending to use the function name, use [function()](#function())
 instead). {name} cannot be a builtin function.
 Returns 0 on error.
 
-Can also be used as a [method](#method):
-```
-GetFuncname()->funcref([arg])
-
+Can also be used as a [method](#method): 
+```			GetFuncname()->funcref([arg])
 ```
 
 ### <a id="function() partial E700 E922 E923" class="section-title" href="#function() partial E700 E922 E923">Note:</a>
@@ -2930,11 +2519,9 @@ internal function.
 
 {name} can also be a Funcref or a partial. When it is a
 partial the dict stored in it will be used and the {dict}
-argument is not allowed. E.g.:
-```
-let FuncWithArg = function(dict.Func, [arg])
+argument is not allowed. E.g.: 
+```			let FuncWithArg = function(dict.Func, [arg])
 let Broken = function(dict.Func, [arg], dict)
-
 ```
 
 When using the Funcref the function will be found by {name},
@@ -2946,57 +2533,38 @@ That means the argument list and/or the dictionary is stored in
 the Funcref and will be used when the Funcref is called.
 
 The arguments are passed to the function in front of other
-arguments, but after any argument from [method](#method).  Example:
-```
-func Callback(arg1, arg2, name)
+arguments, but after any argument from [method](#method).  Example: 
+```			func Callback(arg1, arg2, name)
 "...
 let Partial = function('Callback', ['one', 'two'])
 "...
 call Partial('name')
-
-```
-		Invokes the function as with:
-```
+Invokes the function as with:
 call Callback('one', 'two', 'name')
 
-
-```
-		With a [method](#method):
-```
+With a [method](#method):
 func Callback(one, two, three)
 "...
 let Partial = function('Callback', ['two'])
 "...
 eval 'one'->Partial('three')
-
-```
-		Invokes the function as with:
-```
+Invokes the function as with:
 call Callback('one', 'two', 'three')
 
-
-```
-		The function() call can be nested to add more arguments to the
+The function() call can be nested to add more arguments to the
 Funcref.  The extra arguments are appended to the list of
 arguments.  Example:
-```
 func Callback(arg1, arg2, name)
 "...
 let Func = function('Callback', ['one'])
 let Func2 = function(Func, ['two'])
 "...
 call Func2('name')
-
-```
-		Invokes the function as with:
-```
+Invokes the function as with:
 call Callback('one', 'two', 'name')
 
-
-```
-		The Dictionary is only useful when calling a "dict" function.
+The Dictionary is only useful when calling a "dict" function.
 In that case the {dict} is passed in as "self". Example:
-```
 function Callback() dict
 echo "called for " .. self.name
 endfunction
@@ -3005,38 +2573,27 @@ let context = {"name": "example"}
 let Func = function('Callback', context)
 "...
 call Func()	" will echo: called for example
-
-```
-		The use of function() is not needed when there are no extra
+The use of function() is not needed when there are no extra
 arguments, these two are equivalent, if Callback() is defined
 as context.Callback():
-```
 let Func = function('Callback', context)
 let Func = context.Callback
 
-
-```
-		The argument list and the Dictionary can be combined:
-```
+The argument list and the Dictionary can be combined:
 function Callback(arg1, count) dict
 "...
 let context = {"name": "example"}
 let Func = function('Callback', ['one'], context)
 "...
 call Func(500)
-
-```
-		Invokes the function as with:
-```
+Invokes the function as with:
 call context.Callback('one', 500)
-
 ```
 
 Returns 0 on error.
 
-Can also be used as a [method](#method):
-```
-GetFuncname()->function([arg])
+Can also be used as a [method](#method): 
+```			GetFuncname()->function([arg])
 
 ### <a id="garbagecollect()" class="section-title" href="#garbagecollect()">garbagecollect([{atexit}])</a>
 Cleanup unused [Lists| and |Dictionaries](#Lists| and |Dictionaries) that have circular
@@ -3063,7 +2620,6 @@ Get item {idx} from [List](#List) {list}.  When this item is not
 available return {default}.  Return zero when {default} is
 omitted.
 Can also be used as a [method](#method):
-```
 mylist->get(idx)
 get({blob}, {idx} [, {default}])
 Get byte {idx} from [Blob](#Blob) {blob}.  When this byte is not
@@ -3073,11 +2629,8 @@ get({dict}, {key} [, {default}])
 Get item with key {key} from [Dictionary](#Dictionary) {dict}.  When this
 item is not available return {default}.  Return zero when
 {default} is omitted.  Useful example:
-```
 let val = get(g:, 'var_name', 'default')
-
-```
-		This gets the value of g:var_name if it exists, and uses
+This gets the value of g:var_name if it exists, and uses
 "default" when it does not exist.
 get({func}, {what})
 Get item {what} from Funcref {func}.  Possible values for
@@ -3125,9 +2678,7 @@ displayed in the window in the past.
 If you want the line number of the
 last known cursor position in a given
 window, use [line()](#line()):
-```
 :echo line('.', {winid})
-
 ```
 
 linecount	Number of lines in the buffer (only
@@ -3145,9 +2696,8 @@ buffer-local variables.
 windows		List of [window-ID](#window-ID)s that display this
 buffer
 
-Examples:
-```
-for buf in getbufinfo()
+Examples: 
+```			for buf in getbufinfo()
 echo buf.name
 endfor
 for buf in getbufinfo({'buflisted':1})
@@ -3155,19 +2705,14 @@ if buf.changed
 ....
 endif
 endfor
-
 ```
 
-To get buffer-local options use:
-```
-getbufvar({bufnr}, '&option_name')
-
+To get buffer-local options use: 
+```			getbufvar({bufnr}, '&option_name')
 ```
 
-Can also be used as a [method](#method):
-```
-GetBufnr()->getbufinfo()
-
+Can also be used as a [method](#method): 
+```			GetBufnr()->getbufinfo()
 ```
 
 ### <a id="getbufline()" class="section-title" href="#getbufline()">Note:</a>
@@ -3192,14 +2737,10 @@ returned.
 This function works only for loaded buffers.  For unloaded and
 non-existing buffers, an empty [List](#List) is returned.
 
-Example:
-```
-:let lines = getbufline(bufnr("myfile"), 1, "$")
+Example: 
+```			:let lines = getbufline(bufnr("myfile"), 1, "$")
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetBufnr()->getbufline(lnum)
 
 ### <a id="getbufvar()" class="section-title" href="#getbufvar()">getbufvar({buf}, {varname} [, {def}])</a>
@@ -3220,16 +2761,11 @@ For the use of {buf}, see [bufname()](#bufname()) above.
 When the buffer or variable doesn't exist {def} or an empty
 string is returned, there is no error message.
 Examples:
-```
 :let bufmodified = getbufvar(1, "&mod")
 :echo "todo myvar = " .. getbufvar("todo", "myvar")
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetBufnr()->getbufvar(varname)
-
 ```
 
 ### <a id="getchangelist()" class="section-title" href="#getchangelist()">getchangelist([{buf}])</a>
@@ -3248,9 +2784,8 @@ If buffer {buf} is the current buffer, then the current
 position refers to the position in the list. For other
 buffers, it is set to the length of the list.
 
-Can also be used as a [method](#method):
-```
-GetBufnr()->getchangelist()
+Can also be used as a [method](#method): 
+```			GetBufnr()->getchangelist()
 
 ### <a id="getchar()" class="section-title" href="#getchar()">getchar([expr])</a>
 Get a single character from the user or input stream.
@@ -3287,14 +2822,12 @@ returned.  The position can then be found in [v:mouse_col](#v:mouse_col),
 [getmousepos()](#getmousepos()) can also be used.  Mouse move events will be
 ignored.
 This example positions the mouse as it would normally happen:
-```
 let c = getchar()
 if c == "\<LeftMouse>" && v:mouse_win > 0
 exe v:mouse_win .. "wincmd w"
 exe v:mouse_lnum
 exe "normal " .. v:mouse_col .. "|"
 endif
-
 ```
 
 There is no prompt, you will somehow have to make clear to the
@@ -3302,16 +2835,12 @@ user that a character has to be typed.  The screen is not
 redrawn, e.g. when resizing the window.
 
 There is no mapping for the character.
-Key codes are replaced, thus when the user presses the <Del>
-key you get the code for the <Del> key, not the raw character
+Key codes are replaced, thus when the user presses the <Del
+```		key you get the code for the <Del> key, not the raw character
 sequence.  Examples:
-```
 getchar() == "\<Del>"
 getchar() == "\<S-Left>"
-
-```
-		This example redefines "f" to ignore case:
-```
+This example redefines "f" to ignore case:
 :nmap f :call FindChar()<CR>
 :function FindChar()
 :  let c = nr2char(getchar())
@@ -3322,7 +2851,6 @@ getchar() == "\<S-Left>"
 :    endif
 :  endwhile
 :endfunction
-
 ```
 
 ### <a id="getcharmod()" class="section-title" href="#getcharmod()">getcharmod()</a>
@@ -3348,16 +2876,13 @@ column number in the returned List is a character index
 instead of a byte index.
 
 Example:
-With the cursor on '세' in line 5 with text "여보세요":
-```
-getcharpos('.')		returns [0, 5, 3, 0]
+With the cursor on '세' in line 5 with text "여보세요": 
+```			getcharpos('.')		returns [0, 5, 3, 0]
 getpos('.')		returns [0, 5, 7, 0]
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetMark()->getcharpos()
+Can also be used as a [method](#method): 
+```			GetMark()->getcharpos()
 
 ### <a id="getcharsearch()" class="section-title" href="#getcharsearch()">getcharsearch()</a>
 Return the current character search information as a {dict}
@@ -3375,12 +2900,9 @@ character search
 This can be useful to always have [;| and |,](#;| and |,) search
 forward/backward regardless of the direction of the previous
 character search:
-```
 :nnoremap <expr> ; getcharsearch().forward ? ';' : ','
 :nnoremap <expr> , getcharsearch().forward ? ',' : ';'
-
-```
-		Also see [setcharsearch()](#setcharsearch()).
+Also see [setcharsearch()](#setcharsearch()).
 
 
 ### <a id="getcharstr()" class="section-title" href="#getcharstr()">getcharstr([expr])</a>
@@ -3409,11 +2931,8 @@ Return the current command-line.  Only works when the command
 line is being edited, thus requires use of [c_CTRL-\_e](#c_CTRL-\_e) or
 [c_CTRL-R_=](#c_CTRL-R_=).
 Example:
-```
 :cmap <F7> <C-\>eescape(getcmdline(), ' \')<CR>
-
-```
-		Also see [getcmdtype()|, |getcmdpos()|, |setcmdpos()](#getcmdtype()|, |getcmdpos()|, |setcmdpos()) and
+Also see [getcmdtype()|, |getcmdpos()|, |setcmdpos()](#getcmdtype()|, |getcmdpos()|, |setcmdpos()) and
 [setcmdline()](#setcmdline()).
 Returns an empty string when entering a password or using
 [inputsecret()](#inputsecret()).
@@ -3509,18 +3028,14 @@ are returned. The 'wildignorecase' option always applies.
 If {type} is "cmdline", then the [cmdline-completion](#cmdline-completion) result is
 returned.  For example, to complete the possible values after
 a ":call" command:
-```
 echo getcompletion('call ', 'cmdline')
-
 ```
 
 If there are no matches, an empty list is returned.  An
 invalid value for {type} produces an error.
 
-Can also be used as a [method](#method):
-```
-GetPattern()->getcompletion('color')
-
+Can also be used as a [method](#method): 
+```			GetPattern()->getcompletion('color')
 ```
 
 ### <a id="getcurpos()" class="section-title" href="#getcurpos()">Note:</a>
@@ -3541,20 +3056,15 @@ cursor position is returned, this may be invalid for the
 current value of the buffer if it is not the current window.
 If {winid} is invalid a list with zeroes is returned.
 
-This can be used to save and restore the cursor position:
-```
-let save_cursor = getcurpos()
+This can be used to save and restore the cursor position: 
+```			let save_cursor = getcurpos()
 MoveTheCursorAround
 call setpos('.', save_cursor)
-
-```
-		Note that this only works within the window.  See
+Note that this only works within the window.  See
 [winrestview()](#winrestview()) for restoring more state.
 
 Can also be used as a [method](#method):
-```
 GetWinid()->getcurpos()
-
 ```
 
 ### <a id="getcursorcharpos()" class="section-title" href="#getcursorcharpos()">Note:</a>
@@ -3563,16 +3073,13 @@ Same as [getcurpos()](#getcurpos()) but the column number in the returned
 List is a character index instead of a byte index.
 
 Example:
-With the cursor on '보' in line 3 with text "여보세요":
-```
-getcursorcharpos()	returns [0, 3, 2, 0, 3]
+With the cursor on '보' in line 3 with text "여보세요": 
+```			getcursorcharpos()	returns [0, 3, 2, 0, 3]
 getcurpos()		returns [0, 3, 4, 0, 3]
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetWinid()->getcursorcharpos()
+Can also be used as a [method](#method): 
+```			GetWinid()->getcursorcharpos()
 
 ### <a id="getcwd()" class="section-title" href="#getcwd()">getcwd([{winnr} [, {tabnr}]])</a>
 With no arguments, returns the name of the effective
@@ -3582,35 +3089,27 @@ ignored.
 Tabs and windows are identified by their respective numbers,
 0 means current tab or window. Missing tab number implies 0.
 Thus the following are equivalent:
-```
 getcwd(0)
 getcwd(0, 0)
-
-```
-		If {winnr} is -1 it is ignored, only the tab is resolved.
+If {winnr} is -1 it is ignored, only the tab is resolved.
 {winnr} can be the window number or the [window-ID](#window-ID).
 If both {winnr} and {tabnr} are -1 the global working
 directory is returned.
 Throw error if the arguments are invalid. [E5000| |E5001| |E5002](#E5000| |E5001| |E5002)
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->getcwd()
 
 ### <a id="getenv()" class="section-title" href="#getenv()">getenv({name})</a>
 Return the value of environment variable {name}.  The {name}
 argument is a string, without a leading '$'.  Example:
-```
 myHome = getenv('HOME')
 
-
-```
-		When the variable does not exist [v:null](#v:null) is returned.  That
+When the variable does not exist [v:null](#v:null) is returned.  That
 is different from a variable set to an empty string.
 See also [expr-env](#expr-env).
 
 Can also be used as a [method](#method):
-```
 GetVarname()->getenv()
 
 ### <a id="getfontname()" class="section-title" href="#getfontname()">getfontname([{name}])</a>
@@ -3635,18 +3134,13 @@ The result is of the form "rwxrwxrwx", where each group of
 of the file, the group the file belongs to, and other users.
 If a user does not have a given permission the flag for this
 is replaced with the string "-".  Examples:
-```
 :echo getfperm("/etc/passwd")
 :echo getfperm(expand("~/.config/nvim/init.vim"))
-
-```
-		This will hopefully (from a security point of view) display
+This will hopefully (from a security point of view) display
 the string "rw-r--r--" or even "rw-------".
 
 Can also be used as a [method](#method):
-```
 GetFilename()->getfperm()
-
 ```
 
 For setting permissions use [setfperm()](#setfperm()).
@@ -3659,9 +3153,8 @@ If the file {fname} can't be found, -1 is returned.
 If the size of {fname} is too big to fit in a Number then -2
 is returned.
 
-Can also be used as a [method](#method):
-```
-GetFilename()->getfsize()
+Can also be used as a [method](#method): 
+```			GetFilename()->getfsize()
 
 ### <a id="getftime()" class="section-title" href="#getftime()">getftime({fname})</a>
 The result is a Number, which is the last modification time of
@@ -3671,7 +3164,6 @@ since 1st Jan 1970, and may be passed to strftime().  See also
 If the file {fname} can't be found -1 is returned.
 
 Can also be used as a [method](#method):
-```
 GetFilename()->getftime()
 
 ### <a id="getftype()" class="section-title" href="#getftype()">getftype({fname})</a>
@@ -3689,16 +3181,12 @@ Socket			"socket"
 FIFO			"fifo"
 All other		"other"
 Example:
-```
 getftype("/home")
-
-```
-		Note that a type such as "link" will only be returned on
+Note that a type such as "link" will only be returned on
 systems that support it.  On some systems only "dir" and
 "file" are returned.
 
 Can also be used as a [method](#method):
-```
 GetFilename()->getftype()
 
 ### <a id="getjumplist()" class="section-title" href="#getjumplist()">getjumplist([{winnr} [, {tabnr}]])</a>
@@ -3722,25 +3210,18 @@ filename	filename if available
 lnum		line number
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->getjumplist()
 
-### <a id="getline()" class="section-title" href="#getline()"><</a>
+### <a id="getline()" class="section-title" href="#getline()">Note:</a>
 getline({lnum} [, {end}])
 Without {end} the result is a String, which is line {lnum}
 from the current buffer.  Example:
-```
 getline(1)
-
-```
-		When {lnum} is a String that doesn't start with a
+When {lnum} is a String that doesn't start with a
 digit, [line()](#line()) is called to translate the String into a Number.
 To get the line under the cursor:
-```
 getline(".")
-
-```
-		When {lnum} is a number smaller than 1 or bigger than the
+When {lnum} is a number smaller than 1 or bigger than the
 number of lines in the buffer, an empty string is returned.
 
 When {end} is given the result is a [List](#List) where each item is
@@ -3750,20 +3231,14 @@ including line {end}.
 Non-existing lines are silently omitted.
 When {end} is before {lnum} an empty [List](#List) is returned.
 Example:
-```
 :let start = line('.')
 :let end = search("^$") - 1
 :let lines = getline(start, end)
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 ComputeLnum()->getline()
 
-
-```
-		To get lines from another buffer see [getbufline()](#getbufline())
+To get lines from another buffer see [getbufline()](#getbufline())
 
 ### <a id="getloclist()" class="section-title" href="#getloclist()">getloclist({nr} [, {what}])</a>
 Returns a [List](#List) with all the entries in the location list for
@@ -3793,7 +3268,6 @@ location list for the window {nr}.
 Returns an empty Dictionary if window {nr} does not exist.
 
 Examples (See also [getqflist-examples](#getqflist-examples)):
-```
 :echo getloclist(3, {'all': 0})
 :echo getloclist(5, {'filewinid': 0})
 
@@ -3818,7 +3292,6 @@ Refer to [getpos()](#getpos()) for getting information about a specific
 mark.
 
 Can also be used as a [method](#method):
-```
 GetBufnr()->getmarklist()
 
 ### <a id="getmatches()" class="section-title" href="#getmatches()">getmatches([{win}])</a>
@@ -3831,31 +3304,20 @@ If {win} is specified, use the window with this number or
 window ID instead of the current window.  If {win} is invalid,
 an empty list is returned.
 Example:
-```
 :echo getmatches()
-
-```
-			[{"group": "MyGroup1", "pattern": "TODO",
+[{"group": "MyGroup1", "pattern": "TODO",
 "priority": 10, "id": 1}, {"group": "MyGroup2",
 "pattern": "FIXME", "priority": 10, "id": 2}]
-```
 :let m = getmatches()
 :call clearmatches()
 :echo getmatches()
-
-```
-			[]
-```
+[]
 :call setmatches(m)
 :echo getmatches()
-
-```
-			[{"group": "MyGroup1", "pattern": "TODO",
+[{"group": "MyGroup1", "pattern": "TODO",
 "priority": 10, "id": 1}, {"group": "MyGroup2",
 "pattern": "FIXME", "priority": 10, "id": 2}]
-```
 :unlet m
-
 ```
 
 ### <a id="getmousepos()" class="section-title" href="#getmousepos()">getmousepos()</a>
@@ -3914,17 +3376,13 @@ use [getcharpos()](#getcharpos()).
 The column number can be very large, e.g. 2147483647, in which
 case it means "after the end of the line".
 If {expr} is invalid, returns a list with all zeros.
-This can be used to save and restore the position of a mark:
-```
-let save_a_mark = getpos("'a")
+This can be used to save and restore the position of a mark: 
+```			let save_a_mark = getpos("'a")
 ...
 call setpos("'a", save_a_mark)
-
-```
-		Also see [getcharpos()|, |getcurpos()| and |setpos()](#getcharpos()|, |getcurpos()| and |setpos()).
+Also see [getcharpos()|, |getcurpos()| and |setpos()](#getcharpos()|, |getcurpos()| and |setpos()).
 
 Can also be used as a [method](#method):
-```
 GetMark()->getpos()
 
 ### <a id="getqflist()" class="section-title" href="#getqflist()">getqflist([{what}])</a>
@@ -3954,12 +3412,10 @@ you may need to explicitly check for zero).
 
 Useful application: Find pattern matches in multiple files and
 do something with them:
-```
 ### <a id=":vimgrep /theword/jg .c" class="section-title" href="#:vimgrep /theword/jg .c">Note:</a>
 :for d in getqflist()
 :   echo bufname(d.bufnr) ':' d.lnum '=' d.text
 :endfor
-
 ```
 
 If the optional {what} dictionary argument is supplied, then
@@ -4025,22 +3481,17 @@ title	quickfix list title text. If not present, set
 to "".
 winid	quickfix [window-ID](#window-ID). If not present, set to 0
 
-Examples (See also [getqflist-examples](#getqflist-examples)):
-```
-:echo getqflist({'all': 1})
+Examples (See also [getqflist-examples](#getqflist-examples)): 
+```			:echo getqflist({'all': 1})
 :echo getqflist({'nr': 2, 'title': 1})
 :echo getqflist({'lines' : ["F1:10:L10"]})
-
 ```
 
 ### <a id="getreg()" class="section-title" href="#getreg()">getreg([{regname} [, 1 [, {list}]]])</a>
 The result is a String, which is the contents of register
-{regname}.  Example:
-```
-### <a id=":let cliptext = getreg('')" class="section-title" href="#:let cliptext = getreg('')">Note:</a>
-
-```
-		When register {regname} was not set the result is an empty
+{regname}.  Example: 
+#### <a id=":let cliptext = getreg('')" class="section-title" href="#:let cliptext = getreg('')">```</a>
+When register {regname} was not set the result is an empty
 string.
 The {regname} argument must be a string.
 
@@ -4060,7 +3511,6 @@ When the register was not set an empty list is returned.
 If {regname} is not specified, [v:register](#v:register) is used.
 
 Can also be used as a [method](#method):
-```
 GetRegname()->getreg()
 
 ### <a id="getreginfo()" class="section-title" href="#getreginfo()">getreginfo([{regname}])</a>
@@ -4088,7 +3538,6 @@ If {regname} is not specified, [v:register](#v:register) is used.
 The returned Dictionary can be passed to [setreg()](#setreg()).
 
 Can also be used as a [method](#method):
-```
 GetRegname()->getreginfo()
 
 ### <a id="getregtype()" class="section-title" href="#getregtype()">getregtype([{regname}])</a>
@@ -4098,14 +3547,11 @@ The value will be one of:
 "V"			for [linewise](#linewise) text
 "<CTRL-V>{width}"	for [blockwise-visual](#blockwise-visual) text
 ""			for an empty or unknown register
-
-```
-CTRL-V> is one character with value 0x16.
+<CTRL-V> is one character with value 0x16.
 The {regname} argument is a string.  If {regname} is not
 specified, [v:register](#v:register) is used.
 
 Can also be used as a [method](#method):
-```
 GetRegname()->getregtype()
 
 ### <a id="gettabinfo()" class="section-title" href="#gettabinfo()">gettabinfo([{tabnr}])</a>
@@ -4122,7 +3568,6 @@ tabpage-local variables
 windows		List of [window-ID](#window-ID)s in the tab page.
 
 Can also be used as a [method](#method):
-```
 GetTabnr()->gettabinfo()
 
 ### <a id="gettabvar()" class="section-title" href="#gettabvar()">gettabvar({tabnr}, {varname} [, {def}])</a>
@@ -4136,7 +3581,6 @@ When the tab or variable doesn't exist {def} or an empty
 string is returned, there is no error message.
 
 Can also be used as a [method](#method):
-```
 GetTabnr()->gettabvar(varname)
 
 ### <a id="gettabwinvar()" class="section-title" href="#gettabwinvar()">gettabwinvar({tabnr}, {winnr}, {varname} [, {def}])</a>
@@ -4159,20 +3603,14 @@ or buffer-local variable.
 When the tab, window or variable doesn't exist {def} or an
 empty string is returned, there is no error message.
 Examples:
-```
 :let list_is_on = gettabwinvar(1, 2, '&list')
 :echo "myvar = " .. gettabwinvar(3, 1, 'myvar')
-
 ```
 
-To obtain all window-local variables use:
-```
-gettabwinvar({tabnr}, {winnr}, '&')
+To obtain all window-local variables use: 
+```			gettabwinvar({tabnr}, {winnr}, '&')
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetTabnr()->gettabwinvar(winnr, varname)
 
 ### <a id="gettagstack()" class="section-title" href="#gettagstack()">gettagstack([{winnr}])</a>
@@ -4204,7 +3642,6 @@ tagname		name of the tag
 See [tagstack](#tagstack) for more information about the tag stack.
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->gettagstack()
 
 ### <a id="getwininfo()" class="section-title" href="#getwininfo()">getwininfo([{winid}])</a>
@@ -4242,7 +3679,6 @@ winrow		topmost screen line of the window;
 "row" from [win_screenpos()](#win_screenpos())
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->getwininfo()
 
 ### <a id="getwinpos()" class="section-title" href="#getwinpos()">getwinpos([{timeout}])</a>
@@ -4257,7 +3693,6 @@ When using a value less than 10 and no response is received
 within that time, a previously reported position is returned,
 if available.  This can be used to poll for the position and
 do some work in the meantime:
-```
 while 1
 let res = getwinpos(1)
 if res[0] >= 0
@@ -4265,13 +3700,10 @@ break
 endif
 " Do some work here
 endwhile
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetTimeout()->getwinpos()
-
+Can also be used as a [method](#method): 
+```			GetTimeout()->getwinpos()
 ```
 
 ### <a id="getwinposx()" class="section-title" href="#getwinposx()">Note:</a>
@@ -4288,17 +3720,12 @@ The value can be used with `:winpos`.
 
 ### <a id="getwinvar()" class="section-title" href="#getwinvar()">getwinvar({winnr}, {varname} [, {def}])</a>
 Like [gettabwinvar()](#gettabwinvar()) for the current tabpage.
-Examples:
-```
-:let list_is_on = getwinvar(2, '&list')
+Examples: 
+```			:let list_is_on = getwinvar(2, '&list')
 :echo "myvar = " .. getwinvar(1, 'myvar')
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetWinnr()->getwinvar(varname)
-
 ```
 
 ### <a id="glob()" class="section-title" href="#glob()">glob({expr} [, {nosuf} [, {list} [, {alllinks}]]])</a>
@@ -4328,50 +3755,37 @@ However, when the {alllinks} argument is present and it is
 [TRUE](#TRUE) then all symbolic links are included.
 
 For most systems backticks can be used to get files names from
-any external command.  Example:
-```
-:let tagfiles = glob("`find . -name tags -print`")
+any external command.  Example: 
+```			:let tagfiles = glob("`find . -name tags -print`")
 :let &tags = substitute(tagfiles, "\n", ",", "g")
-
-```
-		The result of the program inside the backticks should be one
+The result of the program inside the backticks should be one
 item per line.  Spaces inside an item are allowed.
 
 See [expand()](#expand()) for expanding special Vim variables.  See
 [system()](#system()) for getting the raw output of an external command.
 
 Can also be used as a [method](#method):
-```
 GetExpr()->glob()
 
 ### <a id="glob2regpat()" class="section-title" href="#glob2regpat()">glob2regpat({string})</a>
 Convert a file pattern, as used by glob(), into a search
 pattern.  The result can be used to match with a string that
 is a file name.  E.g.
-```
 ### <a id="if filename =~ glob2regpat('Make.mak')" class="section-title" href="#if filename =~ glob2regpat('Make.mak')">Note:</a>
-
-```
-		This is equivalent to:
-```
+This is equivalent to:
 ### <a id="if filename =~ '^Make.\.mak$'" class="section-title" href="#if filename =~ '^Make.\.mak$'">Note:</a>
-
-```
-		When {string} is an empty string the result is "^$", match an
+When {string} is an empty string the result is "^$", match an
 empty string.
 Note that the result depends on the system.  On MS-Windows
 a backslash usually means a path separator.
 
 Can also be used as a [method](#method):
-```
 GetExpr()->glob2regpat()
-### <a id="globpath()" class="section-title" href="#globpath()"><</a>
+### <a id="globpath()" class="section-title" href="#globpath()">Note:</a>
 globpath({path}, {expr} [, {nosuf} [, {list} [, {allinks}]]])
 Perform glob() for String {expr} on all directories in {path}
 and concatenate the results.  Example:
-```
 :echo globpath(&rtp, "syntax/c.vim")
-
 ```
 
 {path} is a comma-separated list of directory names.  Each
@@ -4392,27 +3806,22 @@ When {list} is present and it is [TRUE| the result is a |List](#TRUE| the result
 with all matching files. The advantage of using a List is, you
 also get filenames containing newlines correctly. Otherwise
 the result is a String and when there are several matches,
-they are separated by <NL> characters.  Example:
-```
-:echo globpath(&rtp, "syntax/c.vim", 0, 1)
-
+they are separated by <NL> characters.  Example: 
+```			:echo globpath(&rtp, "syntax/c.vim", 0, 1)
 ```
 
 {allinks} is used as with [glob()](#glob()).
 
 ### <a id="The "" item can be used to search in a directory tree." class="section-title" href="#The "" item can be used to search in a directory tree.">Note:</a>
 For example, to find all "README.txt" files in the directories
-in 'runtimepath' and below:
-```
-### <a id=":echo globpath(&rtp, "/README.txt")" class="section-title" href="#:echo globpath(&rtp, "/README.txt")">Note:</a>
-### <a id="Upwards search and limiting the depth of "" is not" class="section-title" href="#Upwards search and limiting the depth of "" is not"><</a>
+in 'runtimepath' and below: 
+#### <a id=":echo globpath(&rtp, "/README.txt")" class="section-title" href="#:echo globpath(&rtp, "/README.txt")">```</a>
+### <a id="Upwards search and limiting the depth of "" is not" class="section-title" href="#Upwards search and limiting the depth of "" is not">Note:</a>
 supported, thus using 'path' will not always work properly.
 
 Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetExpr()->globpath(&rtp)
-
 ```
 
 ### <a id="has()" class="section-title" href="#has()">Note:</a>
@@ -4420,20 +3829,15 @@ has({feature})	Returns 1 if {feature} is supported, 0 otherwise.  The
 {feature} argument is a feature name like "nvim-0.2.1" or
 "win32", see below.  See also [exists()](#exists()).
 
-To get the system name use [vim.loop](#vim.loop).os_uname() in Lua:
-```
-:lua print(vim.loop.os_uname().sysname)
+To get the system name use [vim.loop](#vim.loop).os_uname() in Lua: 
+```			:lua print(vim.loop.os_uname().sysname)
 
-
-```
-		If the code has a syntax error then Vimscript may skip the
+If the code has a syntax error then Vimscript may skip the
 rest of the line.  Put [:if| and |:endif](#:if| and |:endif) on separate lines to
 avoid the syntax error:
-```
 if has('feature')
 let x = this->breaks->without->the->feature
 endif
-
 ```
 
 Vim's compile-time feature-names (prefixed with "+") are not
@@ -4442,17 +3846,13 @@ features. [feature-compile](#feature-compile)
 
 Feature names can be:
 1.  Nvim version. For example the "nvim-0.2.1" feature means
-that Nvim is version 0.2.1 or later:
-```
-:if has("nvim-0.2.1")
+that Nvim is version 0.2.1 or later: 
+```			:if has("nvim-0.2.1")
 
-
-```
-		2.  Runtime condition or other pseudo-feature. For example the
+2.  Runtime condition or other pseudo-feature. For example the
 "win32" feature checks if the current system is Windows:
-```
 :if has("win32")
-### <a id="feature-list" class="section-title" href="#feature-list"><</a>
+### <a id="feature-list" class="section-title" href="#feature-list">Note:</a>
 List of supported pseudo-feature names:
 acl		[ACL](#ACL) support.
 bsd		BSD system (not macOS, use "mac" for that).
@@ -4469,7 +3869,7 @@ sun		SunOS system.
 ttyin		input is a terminal (tty).
 ttyout		output is a terminal (tty).
 unix		Unix system.
-### <a id="vim_starting	True during [startup|." class="section-title" href="#vim_starting	True during |startup](#startup|." class="section-title" href="#vim_starting	True during |startup).">Note:</a>
+### <a id="vim_starting	True during [startup](#startup)." class="section-title" href="#vim_starting	True during [startup](#startup).">Note:</a>
 win32		Windows system (32 or 64 bit).
 win64		Windows system (64 bit).
 wsl		WSL (Windows Subsystem for Linux) system.
@@ -4477,14 +3877,10 @@ wsl		WSL (Windows Subsystem for Linux) system.
 ### <a id="has-patch" class="section-title" href="#has-patch">Note:</a>
 3.  Vim patch. For example the "patch123" feature means that
 Vim patch 123 at the current [v:version](#v:version) was included:
-```
 :if v:version > 602 || v:version == 602 && has("patch148")
 
-
-```
-		4.  Vim version. For example the "patch-7.4.237" feature means
+4.  Vim version. For example the "patch-7.4.237" feature means
 that Nvim is Vim-compatible to version 7.4.237 or later.
-```
 :if has("patch-7.4.237")
 
 
@@ -4494,7 +3890,6 @@ has an entry with key {key}.  FALSE otherwise. The {key}
 argument is a string.
 
 Can also be used as a [method](#method):
-```
 mydict->has_key(key)
 
 ### <a id="haslocaldir()" class="section-title" href="#haslocaldir()">haslocaldir([{winnr} [, {tabnr}]])</a>
@@ -4505,20 +3900,16 @@ has set a local path via [:tcd](#:tcd), otherwise 0.
 Tabs and windows are identified by their respective numbers,
 0 means current tab or window. Missing argument implies 0.
 Thus the following are equivalent:
-```
 haslocaldir()
 haslocaldir(0)
 haslocaldir(0, 0)
-
-```
-		With {winnr} use that window in the current tabpage.
+With {winnr} use that window in the current tabpage.
 With {winnr} and {tabnr} use the window in that tabpage.
 {winnr} can be the window number or the [window-ID](#window-ID).
 If {winnr} is -1 it is ignored, only the tab is resolved.
 Throw error if the arguments are invalid. [E5000| |E5001| |E5002](#E5000| |E5001| |E5002)
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->haslocaldir()
 
 ### <a id="hasmapto()" class="section-title" href="#hasmapto()">hasmapto({what} [, {mode} [, {abbr}]])</a>
@@ -4546,17 +3937,13 @@ When {mode} is omitted, "nvo" is used.
 
 This function is useful to check if a mapping already exists
 to a function in a Vim script.  Example:
-```
 :if !hasmapto('\ABCdoit')
 :   map <Leader>d \ABCdoit
 :endif
-
-```
-		This installs the mapping to "\ABCdoit" only if there isn't
+This installs the mapping to "\ABCdoit" only if there isn't
 already a mapping to "\ABCdoit".
 
 Can also be used as a [method](#method):
-```
 GetRHS()->hasmapto()
 
 ### <a id="histadd()" class="section-title" href="#histadd()">histadd({history}, {item})</a>
@@ -4576,16 +3963,12 @@ The result is a Number: TRUE if the operation was successful,
 otherwise FALSE is returned.
 
 Example:
-```
 :call histadd("input", strftime("%Y %b %d"))
 :let date=input("Enter date: ")
-
-```
-		This function is not available in the [sandbox](#sandbox).
+This function is not available in the [sandbox](#sandbox).
 
 Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetHistory()->histadd('search')
 
 ### <a id="histdel()" class="section-title" href="#histdel()">histdel({history} [, {item}])</a>
@@ -4605,35 +3988,27 @@ is returned.
 
 Examples:
 Clear expression register history:
-```
 :call histdel("expr")
-
 ```
 
-### <a id="Remove all entries starting with "" from the search history: >" class="section-title" href="#Remove all entries starting with "" from the search history: >">Note:</a>
-### <a id=":call histdel("/", '^\')" class="section-title" href="#:call histdel("/", '^\')">Note:</a>
-
+### <a id="Remove all entries starting with "" from the search history: " class="section-title" href="#Remove all entries starting with "" from the search history: ">Note:</a>
+#### <a id=":call histdel("/", '^\')" class="section-title" href="#:call histdel("/", '^\')">```</a>
 ```
 
-The following three are equivalent:
-```
-:call histdel("search", histnr("search"))
+The following three are equivalent: 
+```			:call histdel("search", histnr("search"))
 :call histdel("search", -1)
 :call histdel("search", '^' .. histget("search", -1) .. '$')
-
 ```
 
 To delete the last search pattern and use the last-but-one for
-the "n" command and 'hlsearch':
-```
-:call histdel("search", -1)
+the "n" command and 'hlsearch': 
+```			:call histdel("search", -1)
 :let @/ = histget("search", -1)
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetHistory()->histdel()
+Can also be used as a [method](#method): 
+```			GetHistory()->histdel()
 
 ### <a id="histget()" class="section-title" href="#histget()">histget({history} [, {index}])</a>
 The result is a String, the entry with Number {index} from
@@ -4644,21 +4019,15 @@ omitted, the most recent item from the history is used.
 
 Examples:
 Redo the second last search from history.
-```
 :execute '/' .. histget("search", -2)
 
-
-```
-		Define an Ex command ":H {num}" that supports re-execution of
+Define an Ex command ":H {num}" that supports re-execution of
 the {num}th entry from the output of [:history](#:history).
-```
 :command -nargs=1 H execute histget("cmd", 0+<args>)
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetHistory()->histget()
+Can also be used as a [method](#method): 
+```			GetHistory()->histget()
 
 ### <a id="histnr()" class="section-title" href="#histnr()">histnr({history})</a>
 The result is the Number of the current entry in {history}.
@@ -4666,15 +4035,10 @@ See [hist-names](#hist-names) for the possible values of {history}.
 If an error occurred, -1 is returned.
 
 Example:
-```
 :let inp_index = histnr("expr")
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetHistory()->histnr()
-
 ```
 
 ### <a id="hlexists()" class="section-title" href="#hlexists()">hlexists({name})</a>
@@ -4684,10 +4048,8 @@ defined in some way.  Not necessarily when highlighting has
 been defined for it, it may also have been used for a syntax
 item.
 
-Can also be used as a [method](#method):
-```
-GetName()->hlexists()
-
+Can also be used as a [method](#method): 
+```			GetName()->hlexists()
 ```
 
 ### <a id="hlID()" class="section-title" href="#hlID()">Note:</a>
@@ -4696,15 +4058,12 @@ with name {name}.  When the highlight group doesn't exist,
 zero is returned.
 This can be used to retrieve information about the highlight
 group.  For example, to get the background color of the
-"Comment" group:
-```
-:echo synIDattr(synIDtrans(hlID("Comment")), "bg")
-
+"Comment" group: 
+```	:echo synIDattr(synIDtrans(hlID("Comment")), "bg")
 ```
 
-Can also be used as a [method](#method):
-```
-GetName()->hlID()
+Can also be used as a [method](#method): 
+```			GetName()->hlID()
 
 ### <a id="hostname()" class="section-title" href="#hostname()">hostname()</a>
 The result is a String, which is the name of the machine on
@@ -4724,9 +4083,7 @@ from/to UCS-2 is automatically changed to use UTF-8.  You
 cannot use UCS-2 in a string anyway, because of the NUL bytes.
 
 Can also be used as a [method](#method):
-```
 GetText()->iconv('latin1', 'utf-8')
-
 ```
 
 ### <a id="indent()" class="section-title" href="#indent()">Note:</a>
@@ -4736,9 +4093,8 @@ of 'tabstop' is relevant.  {lnum} is used just like in
 [getline()](#getline()).
 When {lnum} is invalid -1 is returned.
 
-Can also be used as a [method](#method):
-```
-GetLnum()->indent()
+Can also be used as a [method](#method): 
+```			GetLnum()->indent()
 
 ### <a id="index()" class="section-title" href="#index()">index({object}, {expr} [, {start} [, {ic}]])</a>
 If {object} is a [List](#List) return the lowest index where the item
@@ -4756,14 +4112,10 @@ When {ic} is given and it is [TRUE](#TRUE), ignore case.  Otherwise
 case must match.
 -1 is returned when {expr} is not found in {object}.
 Example:
-```
 :let idx = index(words, "the")
 :if index(numbers, 123) >= 0
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetObject()->index(what)
 
 ### <a id="input()" class="section-title" href="#input()">input({prompt} [, {text} [, {completion}]])</a>
@@ -4789,31 +4141,25 @@ The input is entered just like a command-line, with the same
 editing commands and mappings.  There is a separate history
 for lines typed for input().
 Example:
-```
 :if input("Coffee or beer? ") == "beer"
 :  echo "Cheers!"
 :endif
-
 ```
 
 If the optional {text} argument is present and not empty, this
 is used for the default reply, as if the user typed this.
-Example:
-```
-:let color = input("Color? ", "white")
+Example: 
+```			:let color = input("Color? ", "white")
 
-
-```
-		The optional {completion} argument specifies the type of
+The optional {completion} argument specifies the type of
 completion supported for the input.  Without it completion is
 not performed.  The supported completion types are the same as
 that can be supplied to a user-defined command using the
 "-complete=" argument.  Refer to [:command-completion](#:command-completion) for
 more information.  Example:
-```
 let fname = input("File: ", "", "file")
 
-### <a id="input()-highlight E5400 E5402" class="section-title" href="#input()-highlight E5400 E5402"><</a>
+### <a id="input()-highlight E5400 E5402" class="section-title" href="#input()-highlight E5400 E5402">Note:</a>
 The optional `highlight` key allows specifying function which
 will be used for highlighting user input.  This function
 receives user input as its only argument and must return
@@ -4832,7 +4178,6 @@ sections must be ordered so that next hl_start_col is greater
 then or equal to previous hl_end_col.
 
 Example (try some input with parentheses):
-```
 highlight RBP1 guibg=Red ctermbg=red
 highlight RBP2 guibg=Yellow ctermbg=yellow
 highlight RBP3 guibg=Green ctermbg=green
@@ -4855,7 +4200,6 @@ endwhile
 return ret
 endfunction
 call input({'prompt':'>','highlight':'RainbowParens'})
-
 ```
 
 Highlight function is called at least once for each new
@@ -4879,19 +4223,15 @@ after input() to avoid that.  Another solution is to avoid
 that further characters follow in the mapping, e.g., by using
 [:execute| or |:normal](#:execute| or |:normal).
 
-Example with a mapping:
-```
-:nmap \x :call GetFoo()<CR>:exe "/" .. Foo<CR>
+Example with a mapping: 
+```			:nmap \x :call GetFoo()<CR>:exe "/" .. Foo<CR>
 :function GetFoo()
 :  call inputsave()
 :  let g:Foo = input("enter search pattern: ")
 :  call inputrestore()
 :endfunction
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetPrompt()->input()
 
 ### <a id="inputlist()" class="section-title" href="#inputlist()">inputlist({textlist})</a>
@@ -4908,14 +4248,10 @@ Make sure {textlist} has less than 'lines' entries, otherwise
 it won't work.  It's a good idea to put the entry number at
 the start of the string.  And put a prompt in the first item.
 Example:
-```
 let color = inputlist(['Select color:', '1. red',
 \ '2. green', '3. blue'])
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetChoices()->inputlist()
 
 ### <a id="inputrestore()" class="section-title" href="#inputrestore()">inputrestore()</a>
@@ -4944,7 +4280,6 @@ typed on the command-line in response to the issued prompt.
 NOTE: Command-line completion is not supported.
 
 Can also be used as a [method](#method):
-```
 GetPrompt()->inputsecret()
 
 ### <a id="insert()" class="section-title" href="#insert()">insert({object}, {item} [, {idx}])</a>
@@ -4957,18 +4292,14 @@ like omitting {idx}.  A negative {idx} is also possible, see
 [list-index](#list-index).  -1 inserts just before the last item.
 
 Returns the resulting [List| or |Blob](#List| or |Blob).  Examples:
-```
 :let mylist = insert([2, 3, 5], 1)
 :call insert(mylist, 4, -1)
 :call insert(mylist, 6, len(mylist))
-
-```
-		The last example can be done simpler with [add()](#add()).
+The last example can be done simpler with [add()](#add()).
 Note that when {item} is a [List](#List) it is inserted as a single
 item.  Use [extend()| to concatenate |Lists](#extend()| to concatenate |Lists).
 
 Can also be used as a [method](#method):
-```
 mylist->insert(item)
 
 ### <a id="interrupt()" class="section-title" href="#interrupt()">interrupt()</a>
@@ -4976,7 +4307,6 @@ Interrupt script execution.  It works more or less like the
 user typing CTRL-C, most commands won't execute and control
 returns to the user.  This is useful to abort execution
 from lower down, e.g. in an autocommand.  Example:
-```
 :function s:check_typoname(file)
 :   if fnamemodify(a:file, ':t') == '['
 :       echomsg 'Maybe typo'
@@ -4988,12 +4318,8 @@ from lower down, e.g. in an autocommand.  Example:
 ### <a id="invert()" class="section-title" href="#invert()">invert({expr})</a>
 Bitwise invert.  The argument is converted to a number.  A
 List, Dict or Float argument causes an error.  Example:
-```
 :let bits = invert(bits)
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 :let bits = bits->invert()
 
 ### <a id="isdirectory()" class="section-title" href="#isdirectory()">isdirectory({directory})</a>
@@ -5003,25 +4329,17 @@ exist, or isn't a directory, the result is [FALSE](#FALSE).  {directory}
 is any expression, which is used as a String.
 
 Can also be used as a [method](#method):
-```
 GetName()->isdirectory()
 
 ### <a id="isinf()" class="section-title" href="#isinf()">isinf({expr})</a>
 Return 1 if {expr} is a positive infinity, or -1 a negative
 infinity, otherwise 0.
-```
 :echo isinf(1.0 / 0.0)
-
-```
-			1
-```
+1
 :echo isinf(-1.0 / 0.0)
-
-```
-			-1
+-1
 
 Can also be used as a [method](#method):
-```
 Compute()->isinf()
 
 ### <a id="islocked() E786" class="section-title" href="#islocked() E786">islocked({expr})</a>
@@ -5030,19 +4348,15 @@ name of a locked variable.
 The string argument {expr} must be the name of a variable,
 [List| item or |Dictionary](#List| item or |Dictionary) entry, not the variable itself!
 Example:
-```
 :let alist = [0, ['a', 'b'], 2, 3]
 :lockvar 1 alist
 :echo islocked('alist')		" 1
 :echo islocked('alist[1]')	" 0
 
-
-```
-		When {expr} is a variable that does not exist you get an error
+When {expr} is a variable that does not exist you get an error
 message.  Use [exists()](#exists()) to check for existence.
 
 Can also be used as a [method](#method):
-```
 GetName()->islocked()
 
 ### <a id="id()" class="section-title" href="#id()">id({expr})</a>
@@ -5068,27 +4382,19 @@ Return a [List](#List) with all the key-value pairs of {dict}.  Each
 entry and the value of this entry.  The [List](#List) is in arbitrary
 order.  Also see [keys()| and |values()](#keys()| and |values()).
 Example:
-```
 for [key, value] in items(mydict)
 echo key .. ': ' .. value
 endfor
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 mydict->items()
 
 ### <a id="isnan()" class="section-title" href="#isnan()">isnan({expr})</a>
 Return [TRUE](#TRUE) if {expr} is a float with value NaN.
-```
 echo isnan(0.0 / 0.0)
-
-```
-			1
+1
 
 Can also be used as a [method](#method):
-```
 Compute()->isnan()
 
 ### <a id="jobpid()" class="section-title" href="#jobpid()">jobpid({job})</a>
@@ -5103,16 +4409,11 @@ Fails if the job was not started with `"pty":v:true`.
 Spawns {cmd} as a job.
 If {cmd} is a List it runs directly (no 'shell').
 If {cmd} is a String it runs in the 'shell', like this:
-```
 :call jobstart(split(&shell) + split(&shellcmdflag) + ['{cmd}'])
-
-```
-		(See [shell-unquoting](#shell-unquoting) for details.)
+(See [shell-unquoting](#shell-unquoting) for details.)
 
 Example:
-```
 :call jobstart('nvim -h', {'on_stdout':{j,d,e->append(line('.'),d)}})
-
 ```
 
 Returns [job-id](#job-id) on success, 0 on invalid arguments (or job
@@ -5126,17 +4427,11 @@ See [job-control| and |RPC](#job-control| and |RPC).
 
 NOTE: on Windows if {cmd} is a List:
 - cmd[0] must be an executable (not a "built-in"). If it is
-in $PATH it can be called by name, without an extension:
-```
-:call jobstart(['ping', 'neovim.io'])
-
-```
-		    If it is a full or partial path, extension is required:
-```
+in $PATH it can be called by name, without an extension: 
+```		      :call jobstart(['ping', 'neovim.io'])
+If it is a full or partial path, extension is required:
 :call jobstart(['System32\ping.exe', 'neovim.io'])
-
-```
-		  - {cmd} is collapsed to a string of quoted args as expected
+- {cmd} is collapsed to a string of quoted args as expected
 by CommandLineToArgvW https://msdn.microsoft.com/bb776391
 unless cmd[0] is some form of "cmd.exe".
 
@@ -5215,9 +4510,7 @@ Waits for jobs and their [on_exit](#on_exit) handlers to complete.
 omitted or -1, wait forever.
 
 Timeout of 0 can be used to check the status of a job:
-```
 let running = jobwait([{job-id}], 0)[0] == -1
-
 ```
 
 During jobwait() callbacks for jobs not in the {jobs} list may
@@ -5236,17 +4529,13 @@ Join the items in {list} together into one String.
 When {sep} is specified it is put in between the items.  If
 {sep} is omitted a single space is used.
 Note that {sep} is not added at the end.  You might want to
-add it there too:
-```
-let lines = join(mylist, "\n") .. "\n"
-
-```
-		String items are used as-is.  [Lists| and |Dictionaries](#Lists| and |Dictionaries) are
+add it there too: 
+```			let lines = join(mylist, "\n") .. "\n"
+String items are used as-is.  [Lists| and |Dictionaries](#Lists| and |Dictionaries) are
 converted into a string like with [string()](#string()).
 The opposite function is [split()](#split()).
 
 Can also be used as a [method](#method):
-```
 mylist->join()
 
 ### <a id="json_decode()" class="section-title" href="#json_decode()">json_decode({expr})</a>
@@ -5266,7 +4555,6 @@ recommended and the only one required to be supported.
 Non-UTF-8 characters are an error.
 
 Can also be used as a [method](#method):
-```
 ReadObject()->json_decode()
 
 ### <a id="json_encode()" class="section-title" href="#json_encode()">json_encode({expr})</a>
@@ -5282,7 +4570,6 @@ or special escapes like "\t", other are dumped as-is.
 [Blob](#Blob)s are converted to arrays of the individual bytes.
 
 Can also be used as a [method](#method):
-```
 GetObject()->json_encode()
 
 ### <a id="keys()" class="section-title" href="#keys()">keys({dict})</a>
@@ -5290,24 +4577,19 @@ Return a [List| with all the keys of {dict}.  The |List](#List| with all the key
 arbitrary order.  Also see [items()| and |values()](#items()| and |values()).
 
 Can also be used as a [method](#method):
-```
 mydict->keys()
 
 ### <a id="keytrans()" class="section-title" href="#keytrans()">keytrans({string})</a>
 Turn the internal byte representation of keys into a form that
 can be used for [:map](#:map).  E.g.
-```
 :let xx = "\<C-Home>"
 :echo keytrans(xx)
-
-```
-			<C-Home>
+<C-Home>
 
 Can also be used as a [method](#method):
-```
 "\<C-Home>"->keytrans()
 
-### <a id="len() E701" class="section-title" href="#len() E701"><</a>
+### <a id="len() E701" class="section-title" href="#len() E701">Note:</a>
 len({expr})	The result is a Number, which is the length of the argument.
 When {expr} is a String or a Number the length in bytes is
 used, as with [strlen()](#strlen()).
@@ -5319,10 +4601,9 @@ When {expr} is a [Dictionary](#Dictionary) the number of entries in the
 Otherwise an error is given and returns zero.
 
 Can also be used as a [method](#method):
-```
 mylist->len()
 
-### <a id="libcall() E364 E368" class="section-title" href="#libcall() E364 E368"><</a>
+### <a id="libcall() E364 E368" class="section-title" href="#libcall() E364 E368">Note:</a>
 libcall({libname}, {funcname}, {argument})
 Call function {funcname} in the run-time library {libname}
 with single argument {argument}.
@@ -5363,35 +4644,26 @@ the DLL is not in the usual places.
 For Unix: When compiling your own plugins, remember that the
 object code must be compiled as position-independent ('PIC').
 Examples:
-```
 :echo libcall("libc.so", "getenv", "HOME")
 
-
-```
-		Can also be used as a [method](#method), the base is passed as the
+Can also be used as a [method](#method), the base is passed as the
 third argument:
-```
 GetValue()->libcall("libc.so", "getenv")
-
 ```
 
 ### <a id="libcallnr()" class="section-title" href="#libcallnr()">Note:</a>
 libcallnr({libname}, {funcname}, {argument})
 Just like [libcall()](#libcall()), but used for a function that returns an
 int instead of a string.
-Examples:
-```
-:echo libcallnr("/usr/lib/libc.so", "getpid", "")
+Examples: 
+```			:echo libcallnr("/usr/lib/libc.so", "getpid", "")
 :call libcallnr("libc.so", "printf", "Hello World!\n")
 :call libcallnr("libc.so", "sleep", 10)
-
 ```
 
 Can also be used as a [method](#method), the base is passed as the
-third argument:
-```
-GetValue()->libcallnr("libc.so", "printf")
-
+third argument: 
+```			GetValue()->libcallnr("libc.so", "printf")
 ```
 
 ### <a id="line()" class="section-title" href="#line()">line({expr} [, {winid}])</a>
@@ -5417,21 +4689,18 @@ To get the column number use [col()](#col()).  To get both use
 With the optional {winid} argument the values are obtained for
 that window instead of the current window.
 Returns 0 for invalid values of {expr} and {winid}.
-Examples:
-```
-line(".")		line number of the cursor
+Examples: 
+```			line(".")		line number of the cursor
 line(".", winid)	idem, in window "winid"
 line("'t")		line number of mark t
 line("'" .. marker)	line number of mark marker
-
 ```
 
 To jump to the last known position when opening a file see
 [last-position-jump](#last-position-jump).
 
-Can also be used as a [method](#method):
-```
-GetValue()->line()
+Can also be used as a [method](#method): 
+```			GetValue()->line()
 
 ### <a id="line2byte()" class="section-title" href="#line2byte()">line2byte({lnum})</a>
 Return the byte count from the start of the buffer for line
@@ -5440,17 +4709,13 @@ the 'fileformat' option for the current buffer.  The first
 line returns 1. UTF-8 encoding is used, 'fileencoding' is
 ignored.  This can also be used to get the byte count for the
 line just below the last line:
-```
 line2byte(line("$") + 1)
-
-```
-		This is the buffer size plus one.  If 'fileencoding' is empty
+This is the buffer size plus one.  If 'fileencoding' is empty
 it is the file size plus one.  {lnum} is used like with
 [getline()](#getline()).  When {lnum} is invalid -1 is returned.
 Also see [byte2line()|, |go| and |:goto](#byte2line()|, |go| and |:goto).
 
 Can also be used as a [method](#method):
-```
 GetLnum()->line2byte()
 
 ### <a id="lispindent()" class="section-title" href="#lispindent()">lispindent({lnum})</a>
@@ -5461,37 +4726,27 @@ relevant.  {lnum} is used just like in [getline()](#getline()).
 When {lnum} is invalid, -1 is returned.
 
 Can also be used as a [method](#method):
-```
 GetLnum()->lispindent()
 
 ### <a id="list2str()" class="section-title" href="#list2str()">list2str({list} [, {utf8}])</a>
 Convert each number in {list} to a character string can
 concatenate them all.  Examples:
-```
 list2str([32])		returns " "
 list2str([65, 66, 67])	returns "ABC"
-
-```
-		The same can be done (slowly) with:
-```
+The same can be done (slowly) with:
 join(map(list, {nr, val -> nr2char(val)}), '')
-
-```
-		[str2list()](#str2list()) does the opposite.
+[str2list()](#str2list()) does the opposite.
 
 UTF-8 encoding is always used, {utf8} option has no effect,
 and exists only for backwards-compatibility.
 With UTF-8 composing characters work as expected:
-```
 list2str([97, 769])	returns "á"
-
 ```
 
 Returns an empty string on error.
 
-Can also be used as a [method](#method):
-```
-GetList()->list2str()
+Can also be used as a [method](#method): 
+```			GetList()->list2str()
 
 ### <a id="localtime()" class="section-title" href="#localtime()">localtime()</a>
 Return the current time, measured as seconds since 1st Jan
@@ -5504,19 +4759,12 @@ Return the natural logarithm (base e) of {expr} as a [Float](#Float).
 (0, inf].
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo log(10)
-
-```
-			2.302585
-```
+2.302585
 :echo log(exp(5))
-
-```
-			5.0
+5.0
 
 Can also be used as a [method](#method):
-```
 Compute()->log()
 
 ### <a id="log10()" class="section-title" href="#log10()">log10({expr})</a>
@@ -5524,19 +4772,12 @@ Return the logarithm of Float {expr} to base 10 as a [Float](#Float).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo log10(1000)
-
-```
-			3.0
-```
+3.0
 :echo log10(0.01)
-
-```
-			-2.0
+-2.0
 
 Can also be used as a [method](#method):
-```
 Compute()->log10()
 
 luaeval({expr} [, {expr}])
@@ -5544,7 +4785,6 @@ Evaluate Lua expression {expr} and return its result converted
 to Vim data structures. See [lua-eval](#lua-eval) for more details.
 
 Can also be used as a [method](#method):
-```
 GetExpr()->luaeval()
 
 ### <a id="map()" class="section-title" href="#map()">map({expr1}, {expr2})</a>
@@ -5560,11 +4800,8 @@ of the current item and for a [List| |v:key](#List| |v:key) has the index of
 the current item.  For a [Blob| |v:key](#Blob| |v:key) has the index of the
 current byte.
 Example:
-```
 :call map(mylist, '"> " .. v:val .. " <"')
-
-```
-		This puts "> " before and " <" after each item in "mylist".
+This puts "> " before and " <" after each item in "mylist".
 
 Note that {expr2} is the result of an expression and is then
 used as an expression again.  Often it is good to use a
@@ -5576,44 +4813,29 @@ If {expr2} is a [Funcref](#Funcref) it is called with two arguments:
 2. the value of the current item.
 The function must return the new value of the item. Example
 that changes each value by "key-value":
-```
 func KeyValue(key, val)
 return a:key .. '-' .. a:val
 endfunc
 call map(myDict, function('KeyValue'))
-
-```
-		It is shorter when using a [lambda](#lambda):
-```
+It is shorter when using a [lambda](#lambda):
 call map(myDict, {key, val -> key .. '-' .. val})
-
-```
-		If you do not use "val" you can leave it out:
-```
+If you do not use "val" you can leave it out:
 call map(myDict, {key -> 'item: ' .. key})
-
-```
-		If you do not use "key" you can use a short name:
-```
+If you do not use "key" you can use a short name:
 call map(myDict, {_, val -> 'item: ' .. val})
-
 ```
 
 The operation is done in-place.  If you want a [List](#List) or
-[Dictionary](#Dictionary) to remain unmodified make a copy first:
-```
-:let tlist = map(copy(mylist), ' v:val .. "\t"')
+[Dictionary](#Dictionary) to remain unmodified make a copy first: 
+```			:let tlist = map(copy(mylist), ' v:val .. "\t"')
 
-
-```
-		Returns {expr1}, the [List|, |Blob| or |Dictionary](#List|, |Blob| or |Dictionary) that was
+Returns {expr1}, the [List|, |Blob| or |Dictionary](#List|, |Blob| or |Dictionary) that was
 filtered.  When an error is encountered while evaluating
 {expr2} no further items in {expr1} are processed.  When
 {expr2} is a Funcref errors inside a function are ignored,
 unless it was defined with the "abort" flag.
 
 Can also be used as a [method](#method):
-```
 mylist->map(expr2)
 
 
@@ -5679,13 +4901,9 @@ The mappings local to the current buffer are checked first,
 then the global mappings.
 This function can be used to map a key even when it's already
 mapped, and have it do the original mapping too.  Sketch:
-```
 exe 'nnoremap <Tab> ==' .. maparg('<Tab>', 'n')
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetKey()->maparg('n')
 
 ### <a id="mapcheck()" class="section-title" href="#mapcheck()">mapcheck({name} [, {mode} [, {abbr}]])</a>
@@ -5715,34 +4933,27 @@ The mappings local to the current buffer are checked first,
 then the global mappings.
 This function can be used to check if a mapping can be added
 without being ambiguous.  Example:
-```
 :if mapcheck("_vv") == ""
 :   map _vv :set guifont=7x13<CR>
 :endif
-
-```
-		This avoids adding the "_vv" mapping when there already is a
+This avoids adding the "_vv" mapping when there already is a
 mapping for "_v" or for "_vvv".
 
 Can also be used as a [method](#method):
-```
 GetKey()->mapcheck('n')
 
 ### <a id="mapset()" class="section-title" href="#mapset()">mapset({mode}, {abbr}, {dict})</a>
 Restore a mapping from a dictionary returned by [maparg()](#maparg()).
 {mode} and {abbr} should be the same as for the call to
-### <a id="[maparg()|. E460" class="section-title" href="#|maparg()](#maparg()|. E460" class="section-title" href="#|maparg()). E460">Note:</a>
+### <a id="[maparg()](#maparg()). E460" class="section-title" href="#[maparg()](#maparg()). E460">Note:</a>
 {mode} is used to define the mode in which the mapping is set,
 not the "mode" entry in {dict}.
 Example for saving and restoring a mapping:
-```
 let save_map = maparg('K', 'n', 0, 1)
 nnoremap K somethingelse
 ...
 call mapset('n', 0, save_map)
-
-```
-		Note that if you are going to replace a map in several modes,
+Note that if you are going to replace a map in several modes,
 e.g. with `:map!`, you need to save the mapping for all of
 them, since they can differ.
 
@@ -5761,43 +4972,28 @@ If there is no match -1 is returned.
 
 For getting submatches see [matchlist()](#matchlist()).
 Example:
-```
 :echo match("testing", "ing")	" results in 4
 :echo match([1, 'x'], '\a')	" results in 1
-
-```
-		See [string-match](#string-match) for how {pat} is used.
+See [string-match](#string-match) for how {pat} is used.
 ### <a id="strpbrk()" class="section-title" href="#strpbrk()">Note:</a>
 Vim doesn't have a strpbrk() function.  But you can do:
-```
 :let sepidx = match(line, '[.,;: \t]')
-### <a id="strcasestr()" class="section-title" href="#strcasestr()"><</a>
+### <a id="strcasestr()" class="section-title" href="#strcasestr()">Note:</a>
 Vim doesn't have a strcasestr() function.  But you can add
 "\c" to the pattern to ignore case:
-```
 :let idx = match(haystack, '\cneedle')
-
 ```
 
 If {start} is given, the search starts from byte index
 {start} in a String or item {start} in a [List](#List).
 The result, however, is still the index counted from the
-first character/item.  Example:
-```
-:echo match("testing", "ing", 2)
-
-```
-		result is again "4".
-```
+first character/item.  Example: 
+```			:echo match("testing", "ing", 2)
+result is again "4".
 :echo match("testing", "ing", 4)
-
-```
-		result is again "4".
-```
+result is again "4".
 :echo match("testing", "t", 2)
-
-```
-		result is "3".
+result is "3".
 For a String, if {start} > 0 then it is like the string starts
 {start} bytes later, thus "^" will match at {start}.  Except
 when {count} is given, then it's like matches before the
@@ -5811,11 +5007,8 @@ String or {start} > len({expr}) for a [List](#List)) -1 is returned.
 When {count} is given use the {count}'th match.  When a match
 is found in a String the search for the next one starts one
 character further.  Thus this example results in 1:
-```
 echo match("testing", "..", 0, 2)
-
-```
-		In a [List](#List) the search continues in the next item.
+In a [List](#List) the search continues in the next item.
 Note that when {count} is added the way {start} works changes,
 see above.
 
@@ -5829,10 +5022,8 @@ zero matches at the start instead of a number of matches
 further down in the text.
 
 Can also be used as a [method](#method):
-```
 GetText()->match('word')
 GetList()->match('word')
-
 ```
 
 ### <a id="matchadd() E798 E799 E801 E957" class="section-title" href="#matchadd() E798 E799 E801 E957">Note:</a>
@@ -5884,26 +5075,18 @@ the [:match](#:match) commands.
 
 Returns -1 on error.
 
-Example:
-```
-:highlight MyGroup ctermbg=green guibg=green
+Example: 
+```			:highlight MyGroup ctermbg=green guibg=green
 :let m = matchadd("MyGroup", "TODO")
-
-```
-		Deletion of the pattern:
-```
+Deletion of the pattern:
 :call matchdelete(m)
 
-
-```
-		A list of matches defined by [matchadd()| and |:match](#matchadd()| and |:match) are
+A list of matches defined by [matchadd()| and |:match](#matchadd()| and |:match) are
 available from [getmatches()](#getmatches()).  All matches can be deleted in
 one operation by [clearmatches()](#clearmatches()).
 
 Can also be used as a [method](#method):
-```
 GetGroup()->matchadd('TODO')
-
 ```
 
 ### <a id="matchaddpos()" class="section-title" href="#matchaddpos()">Note:</a>
@@ -5935,23 +5118,16 @@ lengths.
 
 Returns -1 on error.
 
-Example:
-```
-:highlight MyGroup ctermbg=green guibg=green
+Example: 
+```			:highlight MyGroup ctermbg=green guibg=green
 :let m = matchaddpos("MyGroup", [[23, 24], 34])
-
-```
-		Deletion of the pattern:
-```
+Deletion of the pattern:
 :call matchdelete(m)
 
-
-```
-		Matches added by [matchaddpos()](#matchaddpos()) are returned by
+Matches added by [matchaddpos()](#matchaddpos()) are returned by
 [getmatches()](#getmatches()).
 
 Can also be used as a [method](#method):
-```
 GetGroup()->matchaddpos([23, 11])
 
 ### <a id="matcharg()" class="section-title" href="#matcharg()">matcharg({nr})</a>
@@ -5967,7 +5143,6 @@ Highlighting matches using the [:match](#:match) commands are limited
 to three matches. [matchadd()](#matchadd()) does not have this limitation.
 
 Can also be used as a [method](#method):
-```
 GetMatch()->matcharg()
 
 ### <a id="matchdelete() E802 E803" class="section-title" href="#matchdelete() E802 E803">matchdelete({id} [, {win}])</a>
@@ -5979,42 +5154,28 @@ If {win} is specified, use the window with this number or
 window ID instead of the current window.
 
 Can also be used as a [method](#method):
-```
 GetMatch()->matchdelete()
 
 ### <a id="matchend()" class="section-title" href="#matchend()">matchend({expr}, {pat} [, {start} [, {count}]])</a>
 Same as [match()](#match()), but return the index of first character
 after the match.  Example:
-```
 :echo matchend("testing", "ing")
-
-```
-		results in "7".
+results in "7".
 ### <a id="strspn() strcspn()" class="section-title" href="#strspn() strcspn()">Note:</a>
 Vim doesn't have a strspn() or strcspn() function, but you can
 do it with matchend():
-```
 :let span = matchend(line, '[a-zA-Z]')
 :let span = matchend(line, '[^a-zA-Z]')
-
-```
-		Except that -1 is returned when there are no matches.
+Except that -1 is returned when there are no matches.
 
 The {start}, if given, has the same meaning as for [match()](#match()).
-```
 :echo matchend("testing", "ing", 2)
-
-```
-		results in "7".
-```
+results in "7".
 :echo matchend("testing", "ing", 5)
-
-```
-		result is "-1".
+result is "-1".
 When {expr} is a [List| the result is equal to |match()](#List| the result is equal to |match()).
 
 Can also be used as a [method](#method):
-```
 GetText()->matchend('word')
 
 ### <a id="matchfuzzy()" class="section-title" href="#matchfuzzy()">matchfuzzy({list}, {str} [, {dict}])</a>
@@ -6059,50 +5220,26 @@ Refer to [fuzzy-matching](#fuzzy-matching) for more information about fuzzy
 matching strings.
 
 Example:
-```
 :echo matchfuzzy(["clay", "crow"], "cay")
-
-```
-		results in ["clay"].
-```
+results in ["clay"].
 :echo getbufinfo()->map({_, v -> v.name})->matchfuzzy("ndl")
-
-```
-		results in a list of buffer names fuzzy matching "ndl".
-```
+results in a list of buffer names fuzzy matching "ndl".
 :echo getbufinfo()->matchfuzzy("ndl", {'key' : 'name'})
-
-```
-		results in a list of buffer information dicts with buffer
+results in a list of buffer information dicts with buffer
 names fuzzy matching "ndl".
-```
 :echo getbufinfo()->matchfuzzy("spl",
 \ {'text_cb' : {v -> v.name}})
-
-```
-		results in a list of buffer information dicts with buffer
+results in a list of buffer information dicts with buffer
 names fuzzy matching "spl".
-```
 :echo v:oldfiles->matchfuzzy("test")
-
-```
-		results in a list of file names fuzzy matching "test".
-```
+results in a list of file names fuzzy matching "test".
 :let l = readfile("buffer.c")->matchfuzzy("str")
-
-```
-		results in a list of lines in "buffer.c" fuzzy matching "str".
-```
+results in a list of lines in "buffer.c" fuzzy matching "str".
 :echo ['one two', 'two one']->matchfuzzy('two one')
-
-```
-		results in ['two one', 'one two'].
-```
+results in ['two one', 'one two'].
 :echo ['one two', 'two one']->matchfuzzy('two one',
 \ {'matchseq': 1})
-
-```
-		results in ['two one'].
+results in ['two one'].
 
 ### <a id="matchfuzzypos()" class="section-title" href="#matchfuzzypos()">matchfuzzypos({list}, {str} [, {dict}])</a>
 Same as [matchfuzzy()](#matchfuzzy()), but returns the list of matched
@@ -6118,22 +5255,13 @@ If there are no matching strings or there is an error, then a
 list with three empty list items is returned.
 
 Example:
-```
 :echo matchfuzzypos(['testing'], 'tsg')
-
-```
-		results in [["testing"], [[0, 2, 6]], [99]]
-```
+results in [["testing"], [[0, 2, 6]], [99]]
 :echo matchfuzzypos(['clay', 'lacy'], 'la')
-
-```
-		results in [["lacy", "clay"], [[0, 1], [1, 2]], [153, 133]]
-```
+results in [["lacy", "clay"], [[0, 1], [1, 2]], [153, 133]]
 :echo [{'text': 'hello', 'id' : 10}]
 \ ->matchfuzzypos('ll', {'key' : 'text'})
-
-```
-		results in [[{"id": 10, "text": "hello"}], [[2, 3]], [127]]
+results in [[{"id": 10, "text": "hello"}], [[2, 3]], [127]]
 
 ### <a id="matchlist()" class="section-title" href="#matchlist()">matchlist({expr}, {pat} [, {start} [, {count}]])</a>
 Same as [match()|, but return a |List](#match()|, but return a |List).  The first item in the
@@ -6141,97 +5269,65 @@ list is the matched string, same as what matchstr() would
 return.  Following items are submatches, like "\1", "\2", etc.
 in [:substitute](#:substitute).  When an optional submatch didn't match an
 empty string is used.  Example:
-```
 ### <a id="echo matchlist('acd', '\(a\)\?\(b\)\?\(c\)\?\(.\)')" class="section-title" href="#echo matchlist('acd', '\(a\)\?\(b\)\?\(c\)\?\(.\)')">Note:</a>
-
-```
-		Results in: ['acd', 'a', '', 'c', 'd', '', '', '', '', '']
+Results in: ['acd', 'a', '', 'c', 'd', '', '', '', '', '']
 When there is no match an empty list is returned.
 
 You can pass in a List, but that is not very useful.
 
 Can also be used as a [method](#method):
-```
 GetText()->matchlist('word')
 
 ### <a id="matchstr()" class="section-title" href="#matchstr()">matchstr({expr}, {pat} [, {start} [, {count}]])</a>
 Same as [match()](#match()), but return the matched string.  Example:
-```
 :echo matchstr("testing", "ing")
-
-```
-		results in "ing".
+results in "ing".
 When there is no match "" is returned.
 The {start}, if given, has the same meaning as for [match()](#match()).
-```
 :echo matchstr("testing", "ing", 2)
-
-```
-		results in "ing".
-```
+results in "ing".
 :echo matchstr("testing", "ing", 5)
-
-```
-		result is "".
+result is "".
 When {expr} is a [List](#List) then the matching item is returned.
 The type isn't changed, it's not necessarily a String.
 
 Can also be used as a [method](#method):
-```
 GetText()->matchstr('word')
 
 ### <a id="matchstrpos()" class="section-title" href="#matchstrpos()">matchstrpos({expr}, {pat} [, {start} [, {count}]])</a>
 Same as [matchstr()](#matchstr()), but return the matched string, the start
 position and the end position of the match.  Example:
-```
 :echo matchstrpos("testing", "ing")
-
-```
-		results in ["ing", 4, 7].
+results in ["ing", 4, 7].
 When there is no match ["", -1, -1] is returned.
 The {start}, if given, has the same meaning as for [match()](#match()).
-```
 :echo matchstrpos("testing", "ing", 2)
-
-```
-		results in ["ing", 4, 7].
-```
+results in ["ing", 4, 7].
 :echo matchstrpos("testing", "ing", 5)
-
-```
-		result is ["", -1, -1].
+result is ["", -1, -1].
 When {expr} is a [List](#List) then the matching item, the index
 of first item where {pat} matches, the start position and the
 end position of the match are returned.
-```
 :echo matchstrpos([1, '__x'], '\a')
-
-```
-		result is ["x", 1, 2, 3].
+result is ["x", 1, 2, 3].
 The type isn't changed, it's not necessarily a String.
 
 Can also be used as a [method](#method):
-```
 GetText()->matchstrpos('word')
-
 ```
 
 
 ### <a id="max()" class="section-title" href="#max()">Note:</a>
-max({expr})	Return the maximum value of all items in {expr}. Example:
-```
-echo max([apples, pears, oranges])
+max({expr})	Return the maximum value of all items in {expr}. Example: 
+```			echo max([apples, pears, oranges])
 
-
-```
-		{expr} can be a [List| or a |Dictionary](#List| or a |Dictionary).  For a Dictionary,
+{expr} can be a [List| or a |Dictionary](#List| or a |Dictionary).  For a Dictionary,
 it returns the maximum of all values in the Dictionary.
 If {expr} is neither a List nor a Dictionary, or one of the
 items in {expr} cannot be used as a Number this results in
 an error.  An empty [List| or |Dictionary](#List| or |Dictionary) results in zero.
 
 Can also be used as a [method](#method):
-```
 mylist->max()
 
 
@@ -6241,26 +5337,20 @@ by [:menu|, |:amenu|, …), including |hidden-menus](#:menu|, |:amenu|, …), in
 
 {path} matches a menu by name, or all menus if {path} is an
 empty string.  Example:
-```
 :echo menu_get('File','')
 :echo menu_get('')
-
 ```
 
 {modes} is a string of zero or more modes (see [maparg()](#maparg()) or
 [creating-menus](#creating-menus) for the list of modes). "a" means "all".
 
-Example:
-```
-nnoremenu &Test.Test inormal
+Example: 
+```			nnoremenu &Test.Test inormal
 inoremenu Test.Test insert
 vnoremenu Test.Test x
 echo menu_get("")
 
-
-```
-		returns something like this:
-```
+returns something like this:
 
 [ {
 "hidden": 0,
@@ -6286,7 +5376,6 @@ v": { ... }
 "shortcut": 0
 } ]
 } ]
-
 ```
 
 
@@ -6342,9 +5431,8 @@ item has submenus.
 
 Returns an empty dictionary if the menu item is not found.
 
-Examples:
-```
-:echo menu_info('Edit.Cut')
+Examples: 
+```			:echo menu_info('Edit.Cut')
 :echo menu_info('File.Save', 'n')
 
 " Display the entire menu hierarchy in a buffer
@@ -6360,32 +5448,26 @@ new
 for topmenu in menu_info('').submenus
 call ShowMenu(topmenu, '')
 endfor
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetMenuName()->menu_info('v')
+Can also be used as a [method](#method): 
+```			GetMenuName()->menu_info('v')
 
 
-### <a id="min()" class="section-title" href="#min()"><</a>
+### <a id="min()" class="section-title" href="#min()">Note:</a>
 min({expr})	Return the minimum value of all items in {expr}. Example:
-```
 echo min([apples, pears, oranges])
 
-
-```
-		{expr} can be a [List| or a |Dictionary](#List| or a |Dictionary).  For a Dictionary,
+{expr} can be a [List| or a |Dictionary](#List| or a |Dictionary).  For a Dictionary,
 it returns the minimum of all values in the Dictionary.
 If {expr} is neither a List nor a Dictionary, or one of the
 items in {expr} cannot be used as a Number this results in
 an error.  An empty [List| or |Dictionary](#List| or |Dictionary) results in zero.
 
 Can also be used as a [method](#method):
-```
 mylist->min()
 
-### <a id="mkdir() E739" class="section-title" href="#mkdir() E739"><</a>
+### <a id="mkdir() E739" class="section-title" href="#mkdir() E739">Note:</a>
 mkdir({name} [, {path} [, {prot}]])
 Create directory {name}.
 
@@ -6399,12 +5481,9 @@ unreadable for others.
 
 {prot} is applied for all parts of {name}.  Thus if you create
 /tmp/foo/bar then /tmp/foo will be created with 0o700. Example:
-```
 :call mkdir($HOME .. "/tmp/foo/bar", "p", 0o700)
 
-
-```
-		This function is not available in the [sandbox](#sandbox).
+This function is not available in the [sandbox](#sandbox).
 
 If you try to create an existing directory with {path} set to
 "p" mkdir() will silently exit.
@@ -6414,9 +5493,7 @@ successful or FALSE if the directory creation failed or partly
 failed.
 
 Can also be used as a [method](#method):
-```
 GetName()->mkdir()
-
 ```
 
 ### <a id="mode()" class="section-title" href="#mode()">Note:</a>
@@ -6470,22 +5547,16 @@ be added. It's better not to compare the whole string but only
 the leading character(s).
 Also see [visualmode()](#visualmode()).
 
-Can also be used as a [method](#method):
-```
-DoFull()->mode()
+Can also be used as a [method](#method): 
+```			DoFull()->mode()
 
 ### <a id="msgpackdump()" class="section-title" href="#msgpackdump()">msgpackdump({list} [, {type}])</a>
 Convert a list of VimL objects to msgpack. Returned value is a
 [readfile()|-style list. When {type} contains "B", a |Blob](#readfile()|-style list. When {type} contains "B", a |Blob) is
 returned instead. Example:
-```
 call writefile(msgpackdump([{}]), 'fname.mpack', 'b')
-
-```
-		or, using a [Blob](#Blob):
-```
+or, using a [Blob](#Blob):
 call writefile(msgpackdump([{}], 'B'), 'fname.mpack')
-
 ```
 
 This will write the single 0x80 byte to a `fname.mpack` file
@@ -6502,14 +5573,11 @@ Limitations:				*E5004* *E5005*
 ### <a id="msgpackparse()" class="section-title" href="#msgpackparse()">msgpackparse({data})</a>
 Convert a [readfile()|-style list or a |Blob](#readfile()|-style list or a |Blob) to a list of
 VimL objects.
-Example:
-```
-let fname = expand('~/.config/nvim/shada/main.shada')
+Example: 
+```			let fname = expand('~/.config/nvim/shada/main.shada')
 let mpack = readfile(fname, 'b')
 let shada_objects = msgpackparse(mpack)
-
-```
-		This will read ~/.config/nvim/shada/main.shada file to
+This will read ~/.config/nvim/shada/main.shada file to
 `shada_objects` list.
 
 Limitations:
@@ -6540,13 +5608,10 @@ integer	[List](#List) with four numbers: sign (-1 or 1), highest two
 bits, number with bits from 62nd to 31st, lowest 31
 bits. I.e. to get actual number one will need to use
 code like
-```
 ### <a id="_VAL[0]  ((_VAL[1] << 62)" class="section-title" href="#_VAL[0]  ((_VAL[1] << 62)">Note:</a>
 & (_VAL[2] << 31)
 & _VAL[3])
-
-```
-			Special dictionary with this type will appear in
+Special dictionary with this type will appear in
 [msgpackparse()](#msgpackparse()) output under one of the following
 circumstances:
 1. [Number](#Number) is 32-bit and value is either above
@@ -6582,33 +5647,23 @@ representing extension type. Second is
 ### <a id="nextnonblank()" class="section-title" href="#nextnonblank()">nextnonblank({lnum})</a>
 Return the line number of the first line at or below {lnum}
 that is not blank.  Example:
-```
 if getline(nextnonblank(1)) =~ "Java"
-
-```
-		When {lnum} is invalid or there is no non-blank line at or
+When {lnum} is invalid or there is no non-blank line at or
 below it, zero is returned.
 {lnum} is used like with [getline()](#getline()).
 See also [prevnonblank()](#prevnonblank()).
 
 Can also be used as a [method](#method):
-```
 GetLnum()->nextnonblank()
 
 ### <a id="nr2char()" class="section-title" href="#nr2char()">nr2char({expr} [, {utf8}])</a>
 Return a string with a single character, which has the number
 value {expr}.  Examples:
-```
 nr2char(64)		returns "@"
 nr2char(32)		returns " "
-
-```
-		Example for "utf-8":
-```
+Example for "utf-8":
 nr2char(300)		returns I with bow character
-
-```
-		UTF-8 encoding is always used, {utf8} option has no effect,
+UTF-8 encoding is always used, {utf8} option has no effect,
 and exists only for backwards-compatibility.
 Note that a NUL character in the file is specified with
 nr2char(10), because NULs are represented with newline
@@ -6616,7 +5671,6 @@ characters.  nr2char(0) is a real NUL and terminates the
 string, thus results in an empty string.
 
 Can also be used as a [method](#method):
-```
 GetNumber()->nr2char()
 
 ### <a id="E5555 nvim_...() eval-api" class="section-title" href="#E5555 nvim_...() eval-api">nvim_...({...})</a>
@@ -6635,17 +5689,11 @@ Bitwise OR on the two arguments.  The arguments are converted
 to a number.  A List, Dict or Float argument causes an error.
 Also see `and()` and `xor()`.
 Example:
-```
 :let bits = or(bits, 0x80)
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 :let bits = bits->or(0x80)
 
-
-```
-		Rationale: The reason this is a function and not using the "|"
+Rationale: The reason this is a function and not using the "|"
 character like many languages, is that Vi has always used "|"
 to separate commands.  In many places it would not be clear if
 "|" is an operator or a command separator.
@@ -6657,21 +5705,14 @@ result.  The tail, the file name, is kept as-is.  The other
 components in the path are reduced to {len} letters in length.
 If {len} is omitted or smaller than 1 then 1 is used (single
 letters).  Leading '~' and '.' characters are kept.  Examples:
-```
 :echo pathshorten('~/.config/nvim/autoload/file1.vim')
-
-```
-			~/.c/n/a/file1.vim ~
-```
+~/.c/n/a/file1.vim ~
 :echo pathshorten('~/.config/nvim/autoload/file2.vim', 2)
-
-```
-			~/.co/nv/au/file2.vim ~
+~/.co/nv/au/file2.vim ~
 It doesn't matter if the path exists or not.
 Returns an empty string on error.
 
 Can also be used as a [method](#method):
-```
 GetDirectories()->pathshorten()
 
 ### <a id="perleval()" class="section-title" href="#perleval()">perleval({expr})</a>
@@ -6686,14 +5727,10 @@ non-string keys result in error.
 Note: If you want an array or hash, {expr} must return a
 reference to it.
 Example:
-```
 :echo perleval('[1 .. 4]')
-
-```
-			[1, 2, 3, 4]
+[1, 2, 3, 4]
 
 Can also be used as a [method](#method):
-```
 GetExpr()->perleval()
 
 ### <a id="pow()" class="section-title" href="#pow()">pow({x}, {y})</a>
@@ -6701,57 +5738,38 @@ Return the power of {x} to the exponent {y} as a [Float](#Float).
 {x} and {y} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {x} or {y} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo pow(3, 3)
-
-```
-			27.0
-```
+27.0
 :echo pow(2, 16)
-
-```
-			65536.0
-```
+65536.0
 :echo pow(32, 0.20)
-
-```
-			2.0
+2.0
 
 Can also be used as a [method](#method):
-```
 Compute()->pow(3)
 
 ### <a id="prevnonblank()" class="section-title" href="#prevnonblank()">prevnonblank({lnum})</a>
 Return the line number of the first line at or above {lnum}
 that is not blank.  Example:
-```
 let ind = indent(prevnonblank(v:lnum - 1))
-
-```
-		When {lnum} is invalid or there is no non-blank line at or
+When {lnum} is invalid or there is no non-blank line at or
 above it, zero is returned.
 {lnum} is used like with [getline()](#getline()).
 Also see [nextnonblank()](#nextnonblank()).
 
 Can also be used as a [method](#method):
-```
 GetLnum()->prevnonblank()
 
 ### <a id="printf()" class="section-title" href="#printf()">printf({fmt}, {expr1} ...)</a>
 Return a String with {fmt}, where "%" items are replaced by
 the formatted form of their respective arguments.  Example:
-```
 printf("%4d: E%d %.30s", lnum, errno, msg)
-
-```
-		May result in:
+May result in:
 "  99: E42 asdfasdfasdfasdfasdfasdfasdfas" ~
 
 When used as a [method](#method) the base is passed as the second
 argument:
-```
 Compute()->printf("result: %d")
-
 ```
 
 You can use `call()` to pass the items as a list.
@@ -6851,12 +5869,9 @@ A field width or precision, or both, may be indicated by an
 Number argument supplies the field width or precision.  A
 negative field width is treated as a left adjustment flag
 followed by a positive field width; a negative precision is
-treated as though it were missing.  Example:
-```
-### <a id=":echo printf("%d: %.s", nr, width, line)" class="section-title" href="#:echo printf("%d: %.s", nr, width, line)">Note:</a>
-
-```
-		This limits the length of the text used from "line" to
+treated as though it were missing.  Example: 
+#### <a id=":echo printf("%d: %.s", nr, width, line)" class="section-title" href="#:echo printf("%d: %.s", nr, width, line)">```</a>
+This limits the length of the text used from "line" to
 "width" bytes.
 
 The conversion specifiers and their meanings are:
@@ -6911,11 +5926,8 @@ is not specified 6 is used.  A really big number
 or "-inf" with %f (INF or -INF with %F).
 "0.0 / 0.0" results in "nan" with %f (NAN with %F).
 Example:
-```
 echo printf("%.2f", 12.115)
-
-```
-				12.12
+12.12
 Note that roundoff depends on the system libraries.
 Use [round()](#round()) when in doubt.
 
@@ -6957,7 +5969,6 @@ If the buffer doesn't exist or isn't a prompt buffer, an empty
 string is returned.
 
 Can also be used as a [method](#method):
-```
 GetBuffer()->prompt_getprompt()
 
 ### <a id="prompt_setcallback()" class="section-title" href="#prompt_setcallback()">prompt_setcallback({buf}, {expr})</a>
@@ -6977,7 +5988,6 @@ The callback is invoked with one argument, which is the text
 that was entered at the prompt.  This can be an empty string
 if the user only typed Enter.
 Example:
-```
 call prompt_setcallback(bufnr(''), function('s:TextEntered'))
 func s:TextEntered(text)
 if a:text == 'exit' || a:text == 'quit'
@@ -6990,10 +6000,7 @@ set nomodified
 endif
 endfunc
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetBuffer()->prompt_setcallback(callback)
 
 ### <a id="prompt_setinterrupt()" class="section-title" href="#prompt_setinterrupt()">prompt_setinterrupt({buf}, {expr})</a>
@@ -7006,7 +6013,6 @@ mode.  Without setting a callback Vim will exit Insert mode,
 as in any buffer.
 
 Can also be used as a [method](#method):
-```
 GetBuffer()->prompt_setinterrupt(callback)
 
 ### <a id="prompt_setprompt()" class="section-title" href="#prompt_setprompt()">prompt_setprompt({buf}, {text})</a>
@@ -7014,14 +6020,11 @@ Set prompt for buffer {buf} to {text}.  You most likely want
 {text} to end in a space.
 The result is only visible if {buf} has 'buftype' set to
 "prompt".  Example:
-```
 call prompt_setprompt(bufnr(''), 'command: ')
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetBuffer()->prompt_setprompt('command: ')
+Can also be used as a [method](#method): 
+```			GetBuffer()->prompt_setprompt('command: ')
 
 ### <a id="pum_getpos()" class="section-title" href="#pum_getpos()">pum_getpos()</a>
 If the popup menu (see [ins-completion-menu](#ins-completion-menu)) is not visible,
@@ -7053,9 +6056,7 @@ Dictionaries are represented as Vim [Dictionary](#Dictionary) type with
 keys converted to strings.
 
 Can also be used as a [method](#method):
-```
 GetExpr()->py3eval()
-
 ```
 
 ### <a id="E858 E859" class="section-title" href="#E858 E859">Note:</a>
@@ -7068,9 +6069,8 @@ Lists are represented as Vim [List](#List) type.
 Dictionaries are represented as Vim [Dictionary](#Dictionary) type,
 non-string keys result in error.
 
-Can also be used as a [method](#method):
-```
-GetExpr()->pyeval()
+Can also be used as a [method](#method): 
+```			GetExpr()->pyeval()
 
 ### <a id="pyxeval()" class="section-title" href="#pyxeval()">pyxeval({expr})</a>
 Evaluate Python expression {expr} and return its result
@@ -7079,9 +6079,7 @@ Uses Python 2 or 3, see [python_x](#python_x) and 'pyxversion'.
 See also: [pyeval()|, |py3eval()](#pyeval()|, |py3eval())
 
 Can also be used as a [method](#method):
-```
 GetExpr()->pyxeval()
-
 ```
 
 ### <a id="E726 E727" class="section-title" href="#E726 E727">Note:</a>
@@ -7095,21 +6093,17 @@ producing a value past {max}).
 When the maximum is one before the start the result is an
 empty list.  When the maximum is more than one before the
 start this is an error.
-Examples:
-```
-range(4)		" [0, 1, 2, 3]
+Examples: 
+```			range(4)		" [0, 1, 2, 3]
 range(2, 4)		" [2, 3, 4]
 range(2, 9, 3)		" [2, 5, 8]
 range(2, -2, -1)	" [2, 1, 0, -1, -2]
 range(0)		" []
 range(2, 0)		" error!
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetExpr()->range()
-
+Can also be used as a [method](#method): 
+```			GetExpr()->range()
 ```
 
 ### <a id="rand()" class="section-title" href="#rand()">rand([{expr}])</a>
@@ -7121,19 +6115,15 @@ rand().  If {expr} is omitted, an internal seed value is used
 and updated.
 Returns -1 if {expr} is invalid.
 
-Examples:
-```
-:echo rand()
+Examples: 
+```			:echo rand()
 :let seed = srand()
 :echo rand(seed)
 :echo rand(seed) % 16  " random number 0 - 15
-
 ```
 
-Can also be used as a [method](#method):
-```
-seed->rand()
-
+Can also be used as a [method](#method): 
+```			seed->rand()
 ```
 
 ### <a id="readdir()" class="section-title" href="#readdir()">Note:</a>
@@ -7152,34 +6142,24 @@ If {expr} results in 1 then this entry will be added
 to the list.
 Each time {expr} is evaluated [v:val](#v:val) is set to the entry name.
 When {expr} is a function the name is passed as the argument.
-For example, to get a list of files ending in ".txt":
-```
-readdir(dirname, {n -> n =~ '.txt$'})
-
-```
-		To skip hidden and backup files:
-```
+For example, to get a list of files ending in ".txt": 
+```		  readdir(dirname, {n -> n =~ '.txt$'})
+To skip hidden and backup files:
 readdir(dirname, {n -> n !~ '^\.\|\~$'})
 
-
-```
-		If you want to get a directory tree:
-```
+If you want to get a directory tree:
 function! s:tree(dir)
 return {a:dir : map(readdir(a:dir),
 \ {_, x -> isdirectory(x) ?
 \          {x : s:tree(a:dir .. '/' .. x)} : x})}
 endfunction
 echo s:tree(".")
-
 ```
 
 Returns an empty List on error.
 
-Can also be used as a [method](#method):
-```
-GetDirName()->readdir()
-
+Can also be used as a [method](#method): 
+```			GetDirName()->readdir()
 ```
 
 ### <a id="readfile()" class="section-title" href="#readfile()">Note:</a>
@@ -7201,14 +6181,11 @@ Otherwise:
 - Any UTF-8 byte order mark is removed from the text.
 When {max} is given this specifies the maximum number of lines
 to be read.  Useful if you only want to check the first ten
-lines of a file:
-```
-:for line in readfile(fname, '', 10)
+lines of a file: 
+```			:for line in readfile(fname, '', 10)
 :  if line =~ 'Date' [ echo line ](# echo line ) endif
 :endfor
-
-```
-		When {max} is negative -{max} lines from the end of the file
+When {max} is negative -{max} lines from the end of the file
 are returned, or as many as there are.
 When {max} is zero the result is an empty list.
 Note that without {max} the whole file is read into memory.
@@ -7219,7 +6196,6 @@ the result is an empty list.
 Also see [writefile()](#writefile()).
 
 Can also be used as a [method](#method):
-```
 GetFileName()->readfile()
 
 ### <a id="reduce() E998" class="section-title" href="#reduce() E998">reduce({object}, {func} [, {initial}])</a>
@@ -7234,16 +6210,13 @@ item.  If {initial} is not given and {object} is empty no
 result can be computed, an E998 error is given.
 
 Examples:
-```
 echo reduce([1, 3, 5], { acc, val -> acc + val })
 echo reduce(['x', 'y'], { acc, val -> acc .. val }, 'a')
 ### <a id="echo reduce(0z1122, { acc, val -> 2  acc + val })" class="section-title" href="#echo reduce(0z1122, { acc, val -> 2  acc + val })">Note:</a>
-
 ```
 
-Can also be used as a [method](#method):
-```
-echo mylist->reduce({ acc, val -> acc + val }, 0)
+Can also be used as a [method](#method): 
+```			echo mylist->reduce({ acc, val -> acc + val }, 0)
 
 ### <a id="reg_executing()" class="section-title" href="#reg_executing()">reg_executing()</a>
 Returns the single letter name of the register being executed.
@@ -7280,9 +6253,7 @@ The {start} and {end} arguments must be values returned by
 reltime().  Returns zero on error.
 
 Can also be used as a [method](#method):
-```
 GetStart()->reltime()
-
 ```
 
 Note: [localtime()](#localtime()) returns the current (non-relative) time.
@@ -7298,34 +6269,25 @@ See the note of reltimestr() about overhead.
 Also see [profiling](#profiling).
 If there is an error an empty string is returned
 
-Can also be used as a [method](#method):
-```
-reltime(start)->reltimefloat()
+Can also be used as a [method](#method): 
+```			reltime(start)->reltimefloat()
 
 ### <a id="reltimestr()" class="section-title" href="#reltimestr()">reltimestr({time})</a>
 Return a String that represents the time value of {time}.
 This is the number of seconds, a dot and the number of
 microseconds.  Example:
-```
 let start = reltime()
 call MyFunction()
 echo reltimestr(reltime(start))
-
-```
-		Note that overhead for the commands will be added to the time.
+Note that overhead for the commands will be added to the time.
 Leading spaces are used to make the string align nicely.  You
 can use split() to remove it.
-```
 echo split(reltimestr(reltime(start)))[0]
-
-```
-		Also see [profiling](#profiling).
+Also see [profiling](#profiling).
 If there is an error an empty string is returned
 
 Can also be used as a [method](#method):
-```
 reltime(start)->reltimestr()
-
 ```
 
 remove({list}, {idx})
@@ -7338,18 +6300,15 @@ item as {end} a list with one item is returned.  When {end}
 points to an item before {idx} this is an error.
 See [list-index](#list-index) for possible values of {idx} and {end}.
 Returns zero on error.
-Example:
-```
-:echo "last item: " .. remove(mylist, -1)
+Example: 
+```			:echo "last item: " .. remove(mylist, -1)
 :call remove(mylist, 0, 9)
-
 ```
 
 Use [delete()](#delete()) to remove a file.
 
-Can also be used as a [method](#method):
-```
-mylist->remove(idx)
+Can also be used as a [method](#method): 
+```			mylist->remove(idx)
 
 remove({blob}, {idx})
 remove({blob}, {idx}, {end})
@@ -7361,18 +6320,14 @@ byte as {end} a [Blob](#Blob) with one byte is returned.  When {end}
 points to a byte before {idx} this is an error.
 Returns zero on error.
 Example:
-```
 :echo "last byte: " .. remove(myblob, -1)
 :call remove(mylist, 0, 9)
 
 remove({dict}, {key})
 Remove the entry from {dict} with key {key} and return it.
 Example:
-```
 :echo "removed " .. remove(dict, "one")
-
-```
-		If there is no {key} in {dict} this is an error.
+If there is no {key} in {dict} this is an error.
 Returns zero on error.
 
 ### <a id="rename()" class="section-title" href="#rename()">rename({from}, {to})</a>
@@ -7384,27 +6339,19 @@ NOTE: If {to} exists it is overwritten without warning.
 This function is not available in the [sandbox](#sandbox).
 
 Can also be used as a [method](#method):
-```
 GetOldName()->rename(newname)
 
 ### <a id="repeat()" class="section-title" href="#repeat()">repeat({expr}, {count})</a>
 Repeat {expr} {count} times and return the concatenated
 result.  Example:
-```
 :let separator = repeat('-', 80)
-
-```
-		When {count} is zero or negative the result is empty.
+When {count} is zero or negative the result is empty.
 When {expr} is a [List](#List) the result is {expr} concatenated
 {count} times.  Example:
-```
 :let longlist = repeat(['a', 'b'], 3)
-
-```
-		Results in ['a', 'b', 'a', 'b', 'a', 'b'].
+Results in ['a', 'b', 'a', 'b', 'a', 'b'].
 
 Can also be used as a [method](#method):
-```
 mylist->repeat(count)
 
 ### <a id="resolve() E655" class="section-title" href="#resolve() E655">resolve({filename})</a>
@@ -7421,9 +6368,7 @@ current directory (provided the result is still a relative
 path name) and also keeps a trailing path separator.
 
 Can also be used as a [method](#method):
-```
 GetName()->resolve()
-
 ```
 
 ### <a id="reverse()" class="section-title" href="#reverse()">Note:</a>
@@ -7432,13 +6377,9 @@ Reverse the order of items in {object} in-place.
 {object} can be a [List| or a |Blob](#List| or a |Blob).
 Returns {object}.
 Returns zero if {object} is not a List or a Blob.
-If you want an object to remain unmodified make a copy first:
-```
-:let revlist = reverse(copy(mylist))
-
-```
-		Can also be used as a [method](#method):
-```
+If you want an object to remain unmodified make a copy first: 
+```			:let revlist = reverse(copy(mylist))
+Can also be used as a [method](#method):
 mylist->reverse()
 
 ### <a id="round()" class="section-title" href="#round()">round({expr})</a>
@@ -7448,48 +6389,32 @@ values, then use the larger one (away from zero).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 echo round(0.456)
-
-```
-			0.0
-```
+0.0
 echo round(4.5)
-
-```
-			5.0
-```
+5.0
 echo round(-4.5)
-
-```
-			-5.0
+-5.0
 
 Can also be used as a [method](#method):
-```
 Compute()->round()
 
 ### <a id="rpcnotify()" class="section-title" href="#rpcnotify()">rpcnotify({channel}, {event} [, {args}...])</a>
 Sends {event} to {channel} via [RPC](#RPC) and returns immediately.
 If {channel} is 0, the event is broadcast to all channels.
 Example:
-```
 :au VimLeave call rpcnotify(0, "leaving")
 
 ### <a id="rpcrequest()" class="section-title" href="#rpcrequest()">rpcrequest({channel}, {method} [, {args}...])</a>
 Sends a request to {channel} to invoke {method} via
 [RPC](#RPC) and blocks until a response is received.
 Example:
-```
 :let result = rpcrequest(rpc_chan, "func", 1, 2, 3)
 
 ### <a id="rpcstart()" class="section-title" href="#rpcstart()">rpcstart({prog} [, {argv}])</a>
 Deprecated. Replace
-```
 :let id = rpcstart('prog', ['arg1', 'arg2'])
-
-```
-		with
-```
+with
 :let id = jobstart(['prog', 'arg1', 'arg2'], {'rpc': v:true})
 
 ### <a id="rubyeval()" class="section-title" href="#rubyeval()">rubyeval({expr})</a>
@@ -7503,7 +6428,6 @@ Other objects are represented as strings resulted from their
 "Object#to_s" method.
 
 Can also be used as a [method](#method):
-```
 GetRubyExpr()->rubyeval()
 
 ### <a id="screenattr()" class="section-title" href="#screenattr()">screenattr({row}, {col})</a>
@@ -7513,7 +6437,6 @@ attribute at other positions.
 Returns -1 when row or col is out of range.
 
 Can also be used as a [method](#method):
-```
 GetRow()->screenattr(col)
 
 ### <a id="screenchar()" class="section-title" href="#screenchar()">screenchar({row}, {col})</a>
@@ -7527,7 +6450,6 @@ This is mainly to be used for testing.
 Returns -1 when row or col is out of range.
 
 Can also be used as a [method](#method):
-```
 GetRow()->screenchar(col)
 
 ### <a id="screenchars()" class="section-title" href="#screenchars()">screenchars({row}, {col})</a>
@@ -7538,7 +6460,6 @@ This is mainly to be used for testing.
 Returns an empty List when row or col is out of range.
 
 Can also be used as a [method](#method):
-```
 GetRow()->screenchars(col)
 
 ### <a id="screencol()" class="section-title" href="#screencol()">screencol()</a>
@@ -7551,11 +6472,9 @@ in a command (e.g. ":echo screencol()") it will return the
 column inside the command line, which is 1 when the command is
 executed. To get the cursor position in the file use one of
 the following mappings:
-```
 nnoremap <expr> GG ":echom " .. screencol() .. "\n"
 nnoremap <silent> GG :echom screencol()<CR>
 noremap GG <Cmd>echom screencol()<Cr>
-
 ```
 
 ### <a id="screenpos()" class="section-title" href="#screenpos()">screenpos({winid}, {lnum}, {col})</a>
@@ -7580,9 +6499,8 @@ right position and use [screencol()](#screencol()) to get the value with
 [conceal](#conceal) taken into account.
 Returns an empty Dict if {winid} is invalid.
 
-Can also be used as a [method](#method):
-```
-GetWinid()->screenpos(lnum, col)
+Can also be used as a [method](#method): 
+```			GetWinid()->screenpos(lnum, col)
 
 ### <a id="screenrow()" class="section-title" href="#screenrow()">screenrow()</a>
 The result is a Number, which is the current screen row of the
@@ -7601,9 +6519,7 @@ This is mainly to be used for testing.
 Returns an empty String when row or col is out of range.
 
 Can also be used as a [method](#method):
-```
 GetRow()->screenstring(col)
-
 ```
 
 ### <a id="search()" class="section-title" href="#search()">Note:</a>
@@ -7648,13 +6564,10 @@ file).
 
 When the {stopline} argument is given then the search stops
 after searching this line.  This is useful to restrict the
-search to a range of lines.  Examples:
-```
-let match = search('(', 'b', line("w0"))
+search to a range of lines.  Examples: 
+```			let match = search('(', 'b', line("w0"))
 let end = search('END', '', line("w$"))
-
-```
-		When {stopline} is used and it is not zero this also implies
+When {stopline} is used and it is not zero this also implies
 that the search does not wrap around the end of the file.
 A zero value is equal to not giving the argument.
 
@@ -7683,7 +6596,6 @@ The cursor will be positioned at the match, unless the 'n'
 flag is used.
 
 Example (goes over all files in the argument list):
-```
 :let n = 1
 :while n <= argc()	    " loop over all files in arglist
 :  exe "argument " .. n
@@ -7698,15 +6610,11 @@ Example (goes over all files in the argument list):
 :  update		    " write the file if modified
 :  let n = n + 1
 :endwhile
-
 ```
 
-Example for using some flags:
-```
-:echo search('\<if\[\(else\)\](#\(else\)\)\(endif\)', 'ncpe')
-
-```
-		This will search for the keywords "if", "else", and "endif"
+Example for using some flags: 
+```		    :echo search('\<if\[\(else\)\](#\(else\)\)\(endif\)', 'ncpe')
+This will search for the keywords "if", "else", and "endif"
 under or after the cursor.  Because of the 'p' flag, it
 returns 1, 2, or 3 depending on which keyword is found, or 0
 if the search fails.  With the cursor on the first word of the
@@ -7718,7 +6626,6 @@ without the 'e' flag if the cursor is on the "f" of "if".
 The 'n' flag tells the function not to move the cursor.
 
 Can also be used as a [method](#method):
-```
 GetPattern()->search()
 
 ### <a id="searchcount()" class="section-title" href="#searchcount()">searchcount([{options}])</a>
@@ -7747,7 +6654,6 @@ this function with `recompute: 0` . This sometimes returns
 wrong information because [n| and |N](#n| and |N)'s maximum count is 99.
 If it exceeded 99 the result must be max count + 1 (100). If
 you want to get correct information, specify `recompute: 1`:
-```
 
 " result == maxcount + 1 (100) when many matches
 let result = searchcount(#{recompute: 0})
@@ -7755,12 +6661,10 @@ let result = searchcount(#{recompute: 0})
 " Below returns correct result (recompute defaults
 " to 1)
 let result = searchcount()
-
 ```
 
-The function is useful to add the count to 'statusline':
-```
-function! LastSearchCount() abort
+The function is useful to add the count to 'statusline': 
+```			function! LastSearchCount() abort
 let result = searchcount(#{recompute: 0})
 if empty(result)
 return ''
@@ -7786,13 +6690,11 @@ let &statusline ..= '%{LastSearchCount()}'
 " 'hlsearch' was on
 " let &statusline ..=
 " \   '%{v:hlsearch ? LastSearchCount() : ""}'
-
 ```
 
 You can also update the search count, which can be useful in a
-[CursorMoved| or |CursorMovedI](#CursorMoved| or |CursorMovedI) autocommand:
+[CursorMoved| or |CursorMovedI](#CursorMoved| or |CursorMovedI) autocommand: 
 ```
-
 ### <a id="autocmd CursorMoved,CursorMovedI " class="section-title" href="#autocmd CursorMoved,CursorMovedI ">Note:</a>
 \ let s:searchcount_timer = timer_start(
 \   200, function('s:update_searchcount'))
@@ -7803,13 +6705,11 @@ call searchcount(#{
 redrawstatus
 endif
 endfunction
-
 ```
 
 This can also be used to count matched texts with specified
-pattern in the current buffer using "pattern":
+pattern in the current buffer using "pattern":  
 ```
-
 " Count '\<foo\>' in this buffer
 " (Note that it also updates search count)
 let result = searchcount(#{pattern: '\<foo\>'})
@@ -7817,7 +6717,6 @@ let result = searchcount(#{pattern: '\<foo\>'})
 " To restore old search count by old pattern,
 " search again
 call searchcount()
-
 ```
 
 {options} must be a Dictionary. It can contain:
@@ -7834,12 +6733,9 @@ pattern	[String](#String)	recompute if this was given
 and different with [@/](#@/).
 this works as same as the
 below command is executed
-before calling this function
-```
-let @/ = pattern
-
-```
-						(default: [@/](#@/))
+before calling this function 
+```						  let @/ = pattern
+(default: [@/](#@/))
 timeout	[Number](#Number)	0 or negative number is no
 timeout. timeout milliseconds
 for recomputing the result
@@ -7858,9 +6754,7 @@ value. see [cursor()|, ](#cursor()|, )getpos()
 (default: cursor's position)
 
 Can also be used as a [method](#method):
-```
 GetSearchOpts()->searchcount()
-
 ```
 
 ### <a id="searchdecl()" class="section-title" href="#searchdecl()">searchdecl({name} [, {global} [, {thisblock}]])</a>
@@ -7876,18 +6770,14 @@ finding variable declarations only valid in another scope.
 
 Moves the cursor to the found match.
 Returns zero for success, non-zero for failure.
-Example:
-```
-if searchdecl('myvar') == 0
+Example: 
+```			if searchdecl('myvar') == 0
 echo getline('.')
 endif
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetName()->searchdecl()
-
+Can also be used as a [method](#method): 
+```			GetName()->searchdecl()
 ```
 
 ### <a id="searchpair()" class="section-title" href="#searchpair()">Note:</a>
@@ -7907,12 +6797,9 @@ given.
 must not contain \( \) pairs.  Use of \%( \) is allowed.  When
 {middle} is not empty, it is found when searching from either
 direction, but only when not in a nested start-end pair.  A
-typical use is:
-```
-searchpair('\<if\>', '\<else\>', '\<endif\>')
-
-```
-		By leaving {middle} empty the "else" is skipped.
+typical use is: 
+```			searchpair('\<if\>', '\<else\>', '\<endif\>')
+By leaving {middle} empty the "else" is skipped.
 
 {flags} 'b', 'c', 'n', 's', 'w' and 'W' are used like with
 [search()](#search()).  Additionally:
@@ -7942,14 +6829,11 @@ patterns are used like it's on.
 The search starts exactly at the cursor.  A match with
 {start}, {middle} or {end} at the next character, in the
 direction of searching, is the first one found.  Example:
-```
 if 1
 if 2
 endif 2
 endif 1
-
-```
-		When starting at the "if 2", with the cursor on the "i", and
+When starting at the "if 2", with the cursor on the "i", and
 searching forwards, the "endif 2" is found.  When starting on
 the character just before the "if 2", the "endif 1" will be
 found.  That's because the "if 2" will be found first, and
@@ -7961,34 +6845,26 @@ that when the cursor is inside a match with the end it finds
 the matching start.
 
 Example, to find the "endif" command in a Vim script:
-```
 
 :echo searchpair('\<if\>', '\<el\%[seif]\>', '\<en\%[dif]\>', 'W',
 ### <a id="\ 'getline(".") =~ "^\\s\""')" class="section-title" href="#\ 'getline(".") =~ "^\\s\""')">Note:</a>
 
-
-```
-		The cursor must be at or after the "if" for which a match is
+The cursor must be at or after the "if" for which a match is
 to be found.  Note that single-quote strings are used to avoid
 having to double the backslashes.  The skip expression only
 catches comments at the start of a line, not after a command.
 Also, a word "en" or "if" halfway through a line is considered
 a match.
 Another example, to search for the matching "{" of a "}":
-```
 
 :echo searchpair('{', '', '}', 'bW')
 
-
-```
-		This works when the cursor is at or before the "}" for which a
+This works when the cursor is at or before the "}" for which a
 match is to be found.  To reject matches that syntax
 highlighting recognized as strings:
-```
 
 :echo searchpair('{', '', '}', 'bW',
 \ 'synIDattr(synID(line("."), col("."), 0), "name") =~? "string"')
-
 ```
 
 ### <a id="searchpairpos()" class="section-title" href="#searchpairpos()">Note:</a>
@@ -7998,11 +6874,9 @@ Same as [searchpair()|, but returns a |List](#searchpair()|, but returns a |List
 column position of the match. The first element of the [List](#List)
 is the line number and the second element is the byte index of
 the column position of the match.  If no match is found,
-returns [0, 0].
+returns [0, 0]. 
 ```
-
 :let [lnum,col] = searchpairpos('{', '', '}', 'n')
-
 ```
 
 See [match-parens](#match-parens) for a bigger and more useful example.
@@ -8014,30 +6888,22 @@ column position of the match. The first element of the [List](#List)
 is the line number and the second element is the byte index of
 the column position of the match. If no match is found,
 returns [0, 0].
-Example:
-```
-:let [lnum, col] = searchpos('mypattern', 'n')
+Example: 
+```	:let [lnum, col] = searchpos('mypattern', 'n')
 
-
-```
-		When the 'p' flag is given then there is an extra item with
+When the 'p' flag is given then there is an extra item with
 the sub-pattern match number [search()-sub-match](#search()-sub-match).  Example:
-```
 :let [lnum, col, submatch] = searchpos('\(\l\)\|\(\u\)', 'np')
-
-```
-		In this example "submatch" is 2 when a lowercase letter is
+In this example "submatch" is 2 when a lowercase letter is
 found [/\l|, 3 when an uppercase letter is found |/\u](#/\l|, 3 when an uppercase letter is found |/\u).
 
 Can also be used as a [method](#method):
-```
 GetPattern()->searchpos()
 
 ### <a id="serverlist()" class="section-title" href="#serverlist()">serverlist()</a>
 Returns a list of server addresses, or empty if all servers
 were stopped. [serverstart()| |serverstop()](#serverstart()| |serverstop())
 Example:
-```
 :echo serverlist()
 
 ### <a id="serverstart()" class="section-title" href="#serverstart()">serverstart([{address}])</a>
@@ -8054,36 +6920,24 @@ assigns a random port).
 - Else {address} is the path to a named pipe (except on Windows).
 - If {address} has no slashes ("/") it is treated as the
 "name" part of a generated path in this format:
-```
 stdpath("run").."/{name}.{pid}.{counter}"
-
-```
-		  - If {address} is omitted the name is "nvim".
-```
+- If {address} is omitted the name is "nvim".
 :echo serverstart()
 => /tmp/nvim.bram/oknANW/nvim.15430.5
 
-
-```
-		Example bash command to list all Nvim servers:
-```
+Example bash command to list all Nvim servers:
 ### <a id="ls ${XDG_RUNTIME_DIR:-${TMPDIR}nvim.${USER}}//nvim..0" class="section-title" href="#ls ${XDG_RUNTIME_DIR:-${TMPDIR}nvim.${USER}}//nvim..0">Note:</a>
 
-
-```
-		Example named pipe:
-```
+Example named pipe:
 if has('win32')
 echo serverstart('\\.\pipe\nvim-pipe-1234')
 else
 echo serverstart('nvim.sock')
 endif
-
 ```
 
-Example TCP/IP address:
-```
-echo serverstart('::1:12345')
+Example TCP/IP address: 
+```			echo serverstart('::1:12345')
 
 ### <a id="serverstop()" class="section-title" href="#serverstop()">serverstop({address})</a>
 Closes the pipe or socket at {address}.
@@ -8117,7 +6971,6 @@ error message is given.
 
 Can also be used as a [method](#method), the base is passed as the
 third argument:
-```
 GetText()->setbufline(buf, lnum)
 
 ### <a id="setbufvar()" class="section-title" href="#setbufvar()">setbufvar({buf}, {varname}, {val})</a>
@@ -8130,16 +6983,12 @@ For the use of {buf}, see [bufname()](#bufname()) above.
 The {varname} argument is a string.
 Note that the variable name without "b:" must be used.
 Examples:
-```
 :call setbufvar(1, "&mod", 1)
 :call setbufvar("todo", "myvar", "foobar")
-
-```
-		This function is not available in the [sandbox](#sandbox).
+This function is not available in the [sandbox](#sandbox).
 
 Can also be used as a [method](#method), the base is passed as the
 third argument:
-```
 GetValue()->setbufvar(buf, varname)
 
 
@@ -8147,11 +6996,10 @@ GetValue()->setbufvar(buf, varname)
 Specify overrides for cell widths of character ranges.  This
 tells Vim how wide characters are, counted in screen cells.
 This overrides 'ambiwidth'.  Example:
-```
 setcellwidths([[0xad, 0xad, 1],
 \ [0x2194, 0x2199, 2]])
 
-### <a id="E1109 E1110 E1111 E1112 E1113 E1114" class="section-title" href="#E1109 E1110 E1111 E1112 E1113 E1114"><</a>
+### <a id="E1109 E1110 E1111 E1112 E1113 E1114" class="section-title" href="#E1109 E1110 E1111 E1112 E1113 E1114">Note:</a>
 The {list} argument is a list of lists with each three
 numbers. These three numbers are [low, high, width].  "low"
 and "high" can be the same, in which case this refers to one
@@ -8166,11 +7014,8 @@ If the new value causes 'fillchars' or 'listchars' to become
 invalid it is rejected and an error is given.
 
 To clear the overrides pass an empty list:
-```
 setcellwidths([]);
-
-```
-		You can use the script $VIMRUNTIME/tools/emoji_list.vim to see
+You can use the script $VIMRUNTIME/tools/emoji_list.vim to see
 the effect for known emoji characters.
 
 ### <a id="setcharpos()" class="section-title" href="#setcharpos()">setcharpos({expr}, {list})</a>
@@ -8179,19 +7024,12 @@ character index instead of the byte index in the line.
 
 Example:
 With the text "여보세요" in line 8:
-```
 call setcharpos('.', [0, 8, 4, 0])
-
-```
-		positions the cursor on the fourth character '요'.
-```
+positions the cursor on the fourth character '요'.
 call setpos('.', [0, 8, 4, 0])
-
-```
-		positions the cursor on the second character '보'.
+positions the cursor on the second character '보'.
 
 Can also be used as a [method](#method):
-```
 GetPosition()->setcharpos('.')
 
 ### <a id="setcharsearch()" class="section-title" href="#setcharsearch()">setcharsearch({dict})</a>
@@ -8209,16 +7047,12 @@ character search
 
 This can be useful to save/restore a user's character search
 from a script:
-```
 :let prevsearch = getcharsearch()
 :" Perform a command which clobbers user's search
 :call setcharsearch(prevsearch)
-
-```
-		Also see [getcharsearch()](#getcharsearch()).
+Also see [getcharsearch()](#getcharsearch()).
 
 Can also be used as a [method](#method):
-```
 SavedSearch()->setcharsearch()
 
 ### <a id="setcmdline()" class="section-title" href="#setcmdline()">setcmdline({str} [, {pos}])</a>
@@ -8229,7 +7063,6 @@ Returns 0 when successful, 1 when not editing the command
 line.
 
 Can also be used as a [method](#method):
-```
 GetText()->setcmdline()
 
 ### <a id="setcmdpos()" class="section-title" href="#setcmdpos()">setcmdpos({pos})</a>
@@ -8248,7 +7081,6 @@ Returns 0 when successful, 1 when not editing the command
 line.
 
 Can also be used as a [method](#method):
-```
 GetPos()->setcmdpos()
 
 ### <a id="setcursorcharpos()" class="section-title" href="#setcursorcharpos()">setcursorcharpos({lnum}, {col} [, {off}])</a>
@@ -8258,34 +7090,23 @@ character index instead of the byte index in the line.
 
 Example:
 With the text "여보세요" in line 4:
-```
 call setcursorcharpos(4, 3)
-
-```
-		positions the cursor on the third character '세'.
-```
+positions the cursor on the third character '세'.
 call cursor(4, 3)
-
-```
-		positions the cursor on the first character '여'.
+positions the cursor on the first character '여'.
 
 Can also be used as a [method](#method):
-```
 GetCursorPos()->setcursorcharpos()
 
 ### <a id="setenv()" class="section-title" href="#setenv()">setenv({name}, {val})</a>
 Set environment variable {name} to {val}.  Example:
-```
 call setenv('HOME', '/home/myhome')
 
-
-```
-		When {val} is [v:null](#v:null) the environment variable is deleted.
+When {val} is [v:null](#v:null) the environment variable is deleted.
 See also [expr-env](#expr-env).
 
 Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetPath()->setenv('PATH')
 
 ### <a id="setfperm() chmod" class="section-title" href="#setfperm() chmod">setfperm({fname}, {mode})</a>
@@ -8304,9 +7125,7 @@ would do the same thing.
 Returns non-zero for success, zero for failure.
 
 Can also be used as a [method](#method):
-```
 GetFilename()->setfperm(mode)
-
 ```
 
 To read permissions see [getfperm()](#getfperm()).
@@ -8323,31 +7142,21 @@ added below the last line.
 If this succeeds, FALSE is returned.  If this fails (most likely
 because {lnum} is invalid) TRUE is returned.
 
-Example:
-```
-:call setline(5, strftime("%c"))
+Example: 
+```			:call setline(5, strftime("%c"))
 
-
-```
-		When {text} is a [List](#List) then line {lnum} and following lines
+When {text} is a [List](#List) then line {lnum} and following lines
 will be set to the items in the list.  Example:
-```
 :call setline(5, ['aaa', 'bbb', 'ccc'])
-
-```
-		This is equivalent to:
-```
+This is equivalent to:
 :for [n, l] in [[5, 'aaa'], [6, 'bbb'], [7, 'ccc']]
 :  call setline(n, l)
 :endfor
 
-
-```
-		Note: The '[ and '] marks are not set.
+Note: The '[ and '] marks are not set.
 
 Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetText()->setline(lnum)
 
 ### <a id="setloclist()" class="section-title" href="#setloclist()">setloclist({nr}, {list} [, {action} [, {what}]])</a>
@@ -8368,7 +7177,6 @@ for the list of supported keys in {what}.
 
 Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetLoclist()->setloclist(winnr)
 
 ### <a id="setmatches()" class="section-title" href="#setmatches()">setmatches({list} [, {win}])</a>
@@ -8380,9 +7188,7 @@ If {win} is specified, use the window with this number or
 window ID instead of the current window.
 
 Can also be used as a [method](#method):
-```
 GetMatches()->setmatches()
-
 ```
 
 ### <a id="setpos()" class="section-title" href="#setpos()">Note:</a>
@@ -8435,9 +7241,8 @@ vertically; if you set the cursor position with this, [j](#j) and
 also set the preferred column.  Also see the "curswant" key in
 [winrestview()](#winrestview()).
 
-Can also be used as a [method](#method):
-```
-GetPosition()->setpos('.')
+Can also be used as a [method](#method): 
+```			GetPosition()->setpos('.')
 
 ### <a id="setqflist()" class="section-title" href="#setqflist()">setqflist({list} [, {action} [, {what}]])</a>
 Create or replace or add to the quickfix list.
@@ -8493,9 +7298,7 @@ new list is created.
 'r'	The items from the current quickfix list are replaced
 with the items from {list}.  This can also be used to
 clear the list:
-```
 :call setqflist([], 'r')
-
 ```
 
 'f'	All the quickfix lists in the quickfix stack are
@@ -8542,12 +7345,10 @@ When modifying a quickfix list, to guarantee that the correct
 list is modified, "id" should be used instead of "nr" to
 specify the list.
 
-Examples (See also [setqflist-examples](#setqflist-examples)):
-```
-:call setqflist([], 'r', {'title': 'My search'})
+Examples (See also [setqflist-examples](#setqflist-examples)): 
+```		   :call setqflist([], 'r', {'title': 'My search'})
 :call setqflist([], 'r', {'nr': 2, 'title': 'Errors'})
 :call setqflist([], 'a', {'id':qfid, 'lines':["F1:10:L10"]})
-
 ```
 
 Returns zero for success, -1 for failure.
@@ -8557,10 +7358,8 @@ independent of the 'errorformat' setting.  Use a command like
 `:cc 1` to jump to the first position.
 
 Can also be used as a [method](#method), the base is passed as the
-second argument:
-```
-GetErrorlist()->setqflist()
-
+second argument: 
+```			GetErrorlist()->setqflist()
 ```
 
 ### <a id="setreg()" class="section-title" href="#setreg()">Note:</a>
@@ -8595,45 +7394,32 @@ Note: you may not use [List](#List) containing more than one item to
 set search and expression registers. Lists containing no
 items act like empty strings.
 
-Examples:
-```
-### <a id=":call setreg(v:register, @)" class="section-title" href="#:call setreg(v:register, @)">Note:</a>
+Examples: 
+#### <a id=":call setreg(v:register, @)" class="section-title" href="#:call setreg(v:register, @)">```</a>
 ### <a id=":call setreg('', @%, 'ac')" class="section-title" href="#:call setreg('', @%, 'ac')">Note:</a>
 :call setreg('a', "1\n2\n3", 'b5')
 :call setreg('"', { 'points_to': 'a'})
 
-
-```
-		This example shows using the functions to save and restore a
+This example shows using the functions to save and restore a
 register:
-```
 :let var_a = getreginfo()
 :call setreg('a', var_a)
-
-```
-		or:
-```
+or:
 :let var_a = getreg('a', 1, 1)
 :let var_amode = getregtype('a')
 ....
 :call setreg('a', var_a, var_amode)
-
-```
-		Note: you may not reliably restore register value
+Note: you may not reliably restore register value
 without using the third argument to [getreg()](#getreg()) as without it
 newlines are represented as newlines AND Nul bytes are
 represented as newlines as well, see [NL-used-for-Nul](#NL-used-for-Nul).
 
 You can also change the type of a register by appending
 nothing:
-```
 :call setreg('a', '', 'al')
 
-
-```
-		Can also be used as a [method](#method), the base is passed as the
+Can also be used as a [method](#method), the base is passed as the
 second argument:
-```
 GetText()->setreg('a')
 
 ### <a id="settabvar()" class="section-title" href="#settabvar()">settabvar({tabnr}, {varname}, {val})</a>
@@ -8646,7 +7432,6 @@ This function is not available in the [sandbox](#sandbox).
 
 Can also be used as a [method](#method), the base is passed as the
 third argument:
-```
 GetValue()->settabvar(tab, name)
 
 settabwinvar({tabnr}, {winnr}, {varname}, {val})	*settabwinvar()*
@@ -8661,16 +7446,12 @@ doesn't work for a global or local buffer variable.
 For a local buffer option the global value is unchanged.
 Note that the variable name without "w:" must be used.
 Examples:
-```
 :call settabwinvar(1, 1, "&list", 0)
 :call settabwinvar(3, 2, "myvar", "foobar")
-
-```
-		This function is not available in the [sandbox](#sandbox).
+This function is not available in the [sandbox](#sandbox).
 
 Can also be used as a [method](#method), the base is passed as the
 fourth argument:
-```
 GetValue()->settabwinvar(tab, winnr, name)
 
 ### <a id="settagstack()" class="section-title" href="#settagstack()">settagstack({nr}, {dict} [, {action}])</a>
@@ -8698,37 +7479,27 @@ Returns zero for success, -1 for failure.
 
 Examples (for more examples see [tagstack-examples](#tagstack-examples)):
 Empty the tag stack of window 3:
-```
 call settagstack(3, {'items' : []})
 
-
-```
-		    Save and restore the tag stack:
-```
+Save and restore the tag stack:
 let stack = gettagstack(1003)
 " do something else
 call settagstack(1003, stack)
 unlet stack
-
 ```
 
 Can also be used as a [method](#method), the base is passed as the
-second argument:
-```
-GetStack()->settagstack(winnr)
+second argument: 
+```			GetStack()->settagstack(winnr)
 
 ### <a id="setwinvar()" class="section-title" href="#setwinvar()">setwinvar({nr}, {varname}, {val})</a>
 Like [settabwinvar()](#settabwinvar()) for the current tab page.
 Examples:
-```
 :call setwinvar(1, "&list", 0)
 :call setwinvar(2, "myvar", "foobar")
 
-
-```
-		Can also be used as a [method](#method), the base is passed as the
+Can also be used as a [method](#method), the base is passed as the
 third argument:
-```
 GetValue()->setwinvar(winnr, name)
 
 ### <a id="sha256()" class="section-title" href="#sha256()">sha256({string})</a>
@@ -8736,7 +7507,6 @@ Returns a String with 64 hex characters, which is the SHA256
 checksum of {string}.
 
 Can also be used as a [method](#method):
-```
 GetText()->sha256()
 
 ### <a id="shellescape()" class="section-title" href="#shellescape()">shellescape({string} [, {special}])</a>
@@ -8764,20 +7534,13 @@ be escaped because in fish it is used as an escape character
 inside single quotes.
 
 Example of use with a [:!](#:!) command:
-```
 :exe '!dir ' .. shellescape(expand('<cfile>'), 1)
-
-```
-		This results in a directory listing for the file under the
+This results in a directory listing for the file under the
 cursor.  Example of use with [system()](#system()):
-```
 :call system("chmod +w -- " .. shellescape(expand("%")))
-
-```
-		See also [::S](#::S).
+See also [::S](#::S).
 
 Can also be used as a [method](#method):
-```
 GetCommand()->shellescape()
 
 ### <a id="shiftwidth()" class="section-title" href="#shiftwidth()">shiftwidth([{col}])</a>
@@ -8785,7 +7548,6 @@ Returns the effective value of 'shiftwidth'. This is the
 'shiftwidth' value unless it is zero, in which case it is the
 'tabstop' value.  To be backwards compatible in indent
 plugins, use this:
-```
 ### <a id="if exists('shiftwidth')" class="section-title" href="#if exists('shiftwidth')">Note:</a>
 func s:sw()
 return shiftwidth()
@@ -8795,9 +7557,7 @@ func s:sw()
 return &sw
 endfunc
 endif
-
-```
-		And then use s:sw() instead of &sw.
+And then use s:sw() instead of &sw.
 
 When there is one argument {col} this is used as column number
 for which to return the 'shiftwidth' value. This matters for the
@@ -8805,7 +7565,6 @@ for which to return the 'shiftwidth' value. This matters for the
 will be assumed.
 
 Can also be used as a [method](#method):
-```
 GetColumn()->shiftwidth()
 
 sign_ functions are documented here: [sign-functions-details](#sign-functions-details)
@@ -8820,18 +7579,14 @@ not removed either. On Unix "//path" is unchanged, but
 "///path" is simplified to "/path" (this follows the Posix
 standard).
 Example:
-```
 simplify("./dir/.././/file/") == "./file/"
-
-```
-		Note: The combination "dir/.." is only removed if "dir" is
+Note: The combination "dir/.." is only removed if "dir" is
 a searchable directory or does not exist.  On Unix, it is also
 removed when "dir" is a symbolic link within the same
 directory.  In order to resolve all the involved symbolic
 links before simplifying the path name, use [resolve()](#resolve()).
 
 Can also be used as a [method](#method):
-```
 GetName()->simplify()
 
 ### <a id="sin()" class="section-title" href="#sin()">sin({expr})</a>
@@ -8839,19 +7594,12 @@ Return the sine of {expr}, measured in radians, as a [Float](#Float).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo sin(100)
-
-```
-			-0.506366
-```
+-0.506366
 :echo sin(-4.01)
-
-```
-			0.763301
+0.763301
 
 Can also be used as a [method](#method):
-```
 Compute()->sin()
 
 ### <a id="sinh()" class="section-title" href="#sinh()">sinh({expr})</a>
@@ -8860,19 +7608,12 @@ Return the hyperbolic sine of {expr} as a [Float](#Float) in the range
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo sinh(0.5)
-
-```
-			0.521095
-```
+0.521095
 :echo sinh(-0.9)
-
-```
-			-1.026517
+-1.026517
 
 Can also be used as a [method](#method):
-```
 Compute()->sinh()
 
 ### <a id="sockconnect()" class="section-title" href="#sockconnect()">sockconnect({mode}, {address} [, {opts}])</a>
@@ -8900,12 +7641,9 @@ Returns:
 Sort the items in {list} in-place.  Returns {list}.
 
 If you want a list to remain unmodified make a copy first:
-```
 :let sortedlist = sort(copy(mylist))
 
-
-```
-		When {func} is omitted, is empty or zero, then sort() uses the
+When {func} is omitted, is empty or zero, then sort() uses the
 string representation of each item to sort on.  Numbers sort
 after Strings, [Lists](#Lists) after Numbers.  For sorting text in the
 current buffer use [:sort](#:sort).
@@ -8919,20 +7657,14 @@ is used to compare strings. See [:language](#:language) check or set the
 collation locale. [v:collate](#v:collate) can also be used to check the
 current locale. Sorting using the locale typically ignores
 case. Example:
-```
 " ö is sorted similarly to o with English locale.
 :language collate en_US.UTF8
 :echo sort(['n', 'o', 'O', 'ö', 'p', 'z'], 'l')
-
-```
-			['n', 'o', 'O', 'ö', 'p', 'z'] ~
-```
+['n', 'o', 'O', 'ö', 'p', 'z'] ~
 " ö is sorted after z with Swedish locale.
 :language collate sv_SE.UTF8
 :echo sort(['n', 'o', 'O', 'ö', 'p', 'z'], 'l')
-
-```
-			['n', 'o', 'O', 'p', 'z', 'ö'] ~
+['n', 'o', 'O', 'p', 'z', 'ö'] ~
 This does not work properly on Mac.
 
 When {func} is given and it is 'n' then all items will be
@@ -8962,33 +7694,22 @@ on numbers, text strings will sort next to each other, in the
 same order as they were originally.
 
 Can also be used as a [method](#method):
-```
 mylist->sort()
 
-
-```
-		Also see [uniq()](#uniq()).
+Also see [uniq()](#uniq()).
 
 Example:
-```
 func MyCompare(i1, i2)
 return a:i1 == a:i2 ? 0 : a:i1 > a:i2 ? 1 : -1
 endfunc
 eval mylist->sort("MyCompare")
-
-```
-		A shorter compare version for this specific simple case, which
+A shorter compare version for this specific simple case, which
 ignores overflow:
-```
 func MyCompare(i1, i2)
 return a:i1 - a:i2
 endfunc
-
-```
-		For a simple expression you can use a lambda:
-```
+For a simple expression you can use a lambda:
 eval mylist->sort({i1, i2 -> i1 - i2})
-
 ```
 
 ### <a id="soundfold()" class="section-title" href="#soundfold()">Note:</a>
@@ -9000,10 +7721,8 @@ possible the {word} is returned unmodified.
 This can be used for making spelling suggestions.  Note that
 the method can be quite slow.
 
-Can also be used as a [method](#method):
-```
-GetWord()->soundfold()
-
+Can also be used as a [method](#method): 
+```			GetWord()->soundfold()
 ```
 
 ### <a id="spellbadword()" class="section-title" href="#spellbadword()">Note:</a>
@@ -9024,20 +7743,15 @@ The return value is a list with two items:
 "rare"		rare word
 "local"		word only valid in another region
 "caps"		word should start with Capital
-Example:
-```
-echo spellbadword("the quik brown fox")
-
-```
-			['quik', 'bad'] ~
+Example: 
+```			echo spellbadword("the quik brown fox")
+['quik', 'bad'] ~
 
 The spelling information for the current window and the value
 of 'spelllang' are used.
 
 Can also be used as a [method](#method):
-```
 GetText()->spellbadword()
-
 ```
 
 ### <a id="spellsuggest()" class="section-title" href="#spellsuggest()">Note:</a>
@@ -9062,9 +7776,8 @@ although it may appear capitalized.
 The spelling information for the current window is used.  The
 values of 'spelllang' and 'spellsuggest' are used.
 
-Can also be used as a [method](#method):
-```
-GetWord()->spellsuggest()
+Can also be used as a [method](#method): 
+```			GetWord()->spellsuggest()
 
 ### <a id="split()" class="section-title" href="#split()">split({string} [, {pattern} [, {keepempty}]])</a>
 Make a [List](#List) out of {string}.  When {pattern} is omitted or
@@ -9078,31 +7791,18 @@ When the first or last item is empty it is omitted, unless the
 Other empty items are kept when {pattern} matches at least one
 character or when {keepempty} is non-zero.
 Example:
-```
 :let words = split(getline('.'), '\W\+')
-
-```
-		To split a string in individual characters:
-```
+To split a string in individual characters:
 :for c in split(mystring, '\zs')
-
-```
-		If you want to keep the separator you can also use '\zs' at
+If you want to keep the separator you can also use '\zs' at
 the end of the pattern:
-```
 :echo split('abc:def:ghi', ':\zs')
-
-```
-			['abc:', 'def:', 'ghi'] ~
+['abc:', 'def:', 'ghi'] ~
 Splitting a table where the first element can be empty:
-```
 :let items = split(line, ':', 1)
-
-```
-		The opposite function is [join()](#join()).
+The opposite function is [join()](#join()).
 
 Can also be used as a [method](#method):
-```
 GetString()->split()
 
 ### <a id="sqrt()" class="section-title" href="#sqrt()">sqrt({expr})</a>
@@ -9112,20 +7812,13 @@ Return the non-negative square root of Float {expr} as a
 is negative the result is NaN (Not a Number).  Returns 0.0 if
 {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo sqrt(100)
-
-```
-			10.0
-```
+10.0
 :echo sqrt(-4.01)
-
-```
-			str2float("nan")
+str2float("nan")
 NaN may be different, it depends on system libraries.
 
 Can also be used as a [method](#method):
-```
 Compute()->sqrt()
 
 ### <a id="srand()" class="section-title" href="#srand()">srand([{expr}])</a>
@@ -9138,16 +7831,13 @@ initialize the seed values.  This is useful for testing or
 when a predictable sequence is intended.
 
 Examples:
-```
 :let seed = srand()
 :let seed = srand(userinput)
 :echo rand(seed)
-
 ```
 
-Can also be used as a [method](#method):
-```
-userinput->srand()
+Can also be used as a [method](#method): 
+```			userinput->srand()
 
 ### <a id="stdioopen()" class="section-title" href="#stdioopen()">stdioopen({opts})</a>
 With [--headless| this opens stdin and stdout as a |channel](#--headless| this opens stdin and stdout as a |channel).
@@ -9190,7 +7880,6 @@ state        String  Session state directory: storage for file
 drafts, swap, undo, [shada](#shada).
 
 Example:
-```
 :echo stdpath("config")
 
 
@@ -9209,37 +7898,27 @@ The decimal point is always '.', no matter what the locale is
 set to.  A comma ends the number: "12,345.67" is converted to
 12.0.  You can strip out thousands separators with
 [substitute()](#substitute()):
-```
 let f = str2float(substitute(text, ',', '', 'g'))
-
 ```
 
 Returns 0.0 if the conversion fails.
 
-Can also be used as a [method](#method):
-```
-let f = text->substitute(',', '', 'g')->str2float()
+Can also be used as a [method](#method): 
+```			let f = text->substitute(',', '', 'g')->str2float()
 
 ### <a id="str2list()" class="section-title" href="#str2list()">str2list({string} [, {utf8}])</a>
 Return a list containing the number values which represent
 each character in String {string}.  Examples:
-```
 str2list(" ")		returns [32]
 str2list("ABC")		returns [65, 66, 67]
-
-```
-		[list2str()](#list2str()) does the opposite.
+[list2str()](#list2str()) does the opposite.
 
 UTF-8 encoding is always used, {utf8} option has no effect,
 and exists only for backwards-compatibility.
 With UTF-8 composing characters are handled properly:
-```
 str2list("á")		returns [97, 769]
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetString()->str2list()
 
 ### <a id="str2nr()" class="section-title" href="#str2nr()">str2nr({string} [, {base}])</a>
@@ -9251,9 +7930,7 @@ quotes are ignored, thus "1'000'000" is a million.
 When {base} is omitted base 10 is used.  This also means that
 a leading zero doesn't cause octal conversion to be used, as
 with the default String to Number conversion.  Example:
-```
 let nr = str2nr('0123')
-
 ```
 
 When {base} is 16 a leading "0x" or "0X" is ignored.  With a
@@ -9264,9 +7941,8 @@ Text after the number is silently ignored.
 
 Returns 0 if {string} is empty or on error.
 
-Can also be used as a [method](#method):
-```
-GetText()->str2nr()
+Can also be used as a [method](#method): 
+```			GetText()->str2nr()
 
 ### <a id="strcharpart()" class="section-title" href="#strcharpart()">strcharpart({src}, {start} [, {len}])</a>
 Like [strpart()](#strpart()) but using character index and length instead
@@ -9274,16 +7950,12 @@ of byte index and length.  Composing characters are counted
 separately.
 When a character index is used where a character does not
 exist it is assumed to be one character.  For example:
-```
 strcharpart('abc', -1, 2)
-
-```
-		results in 'a'.
+results in 'a'.
 
 Returns an empty string on error.
 
 Can also be used as a [method](#method):
-```
 GetText()->strcharpart(5)
 
 ### <a id="strchars()" class="section-title" href="#strchars()">strchars({string} [, {skipcc}])</a>
@@ -9299,7 +7971,6 @@ Also see [strlen()|, |strdisplaywidth()| and |strwidth()](#strlen()|, |strdispla
 
 {skipcc} is only available after 7.4.755.  For backward
 compatibility, you can define a wrapper function:
-```
 if has("patch-7.4.755")
 function s:strchars(str, skipcc)
 return strchars(a:str, a:skipcc)
@@ -9313,12 +7984,10 @@ return strchars(a:str)
 endif
 endfunction
 endif
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetText()->strchars()
+Can also be used as a [method](#method): 
+```			GetText()->strchars()
 
 ### <a id="strdisplaywidth()" class="section-title" href="#strdisplaywidth()">strdisplaywidth({string} [, {col}])</a>
 The result is a Number, which is the number of display cells
@@ -9335,7 +8004,6 @@ Returns zero on error.
 Also see [strlen()|, |strwidth()| and |strchars()](#strlen()|, |strwidth()| and |strchars()).
 
 Can also be used as a [method](#method):
-```
 GetText()->strdisplaywidth()
 
 ### <a id="strftime()" class="section-title" href="#strftime()">strftime({format} [, {time}])</a>
@@ -9348,7 +8016,6 @@ format.  The maximum length of the result is 80 characters.
 See also [localtime()|, |getftime()| and |strptime()](#localtime()|, |getftime()| and |strptime()).
 The language can be changed with the [:language](#:language) command.
 Examples:
-```
 :echo strftime("%c")		   Sun Apr 27 11:49:23 1997
 :echo strftime("%Y %b %d %X")	   1997 Apr 27 11:53:25
 :echo strftime("%y%m%d %T")	   970427 11:53:55
@@ -9356,10 +8023,7 @@ Examples:
 :echo strftime("%c", getftime("file.c"))
 Show mod time of file.c.
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetFormat()->strftime()
 
 ### <a id="strgetchar()" class="section-title" href="#strgetchar()">strgetchar({str}, {index})</a>
@@ -9372,7 +8036,6 @@ Returns -1 if {index} is invalid.
 Also see [strcharpart()| and |strchars()](#strcharpart()| and |strchars()).
 
 Can also be used as a [method](#method):
-```
 GetText()->strgetchar(5)
 
 ### <a id="stridx()" class="section-title" href="#stridx()">stridx({haystack}, {needle} [, {start}])</a>
@@ -9380,26 +8043,21 @@ The result is a Number, which gives the byte index in
 {haystack} of the first occurrence of the String {needle}.
 If {start} is specified, the search starts at index {start}.
 This can be used to find a second match:
-```
 :let colon1 = stridx(line, ":")
 :let colon2 = stridx(line, ":", colon1 + 1)
-
-```
-		The search is done case-sensitive.
+The search is done case-sensitive.
 For pattern searches use [match()](#match()).
 -1 is returned if the {needle} does not occur in {haystack}.
 See also [strridx()](#strridx()).
 Examples:
-```
 :echo stridx("An Example", "Example")	     3
 :echo stridx("Starting point", "Start")    0
 :echo stridx("Starting point", "start")   -1
-### <a id="strstr() strchr()" class="section-title" href="#strstr() strchr()"><</a>
+### <a id="strstr() strchr()" class="section-title" href="#strstr() strchr()">Note:</a>
 stridx() works similar to the C function strstr().  When used
 with a single character it works similar to strchr().
 
 Can also be used as a [method](#method):
-```
 GetHaystack()->stridx(needle)
 
 ### <a id="string()" class="section-title" href="#string()">Note:</a>
@@ -9427,7 +8085,6 @@ method, use [msgpackdump()| or |json_encode()](#msgpackdump()| or |json_encode()
 share data with other application.
 
 Can also be used as a [method](#method):
-```
 mylist->string()
 
 ### <a id="strlen()" class="section-title" href="#strlen()">strlen({string})</a>
@@ -9440,7 +8097,6 @@ If you want to count the number of multibyte characters use
 Also see [len()|, |strdisplaywidth()| and |strwidth()](#len()|, |strdisplaywidth()| and |strwidth()).
 
 Can also be used as a [method](#method):
-```
 GetString()->strlen()
 
 ### <a id="strpart()" class="section-title" href="#strpart()">strpart({src}, {start} [, {len} [, {chars}]])</a>
@@ -9457,26 +8113,20 @@ When bytes are selected which do not exist, this doesn't
 result in an error, the bytes are simply omitted.
 If {len} is missing, the copy continues from {start} till the
 end of the {src}.
-```
 strpart("abcdefg", 3, 2)    == "de"
 strpart("abcdefg", -2, 4)   == "ab"
 strpart("abcdefg", 5, 4)    == "fg"
 strpart("abcdefg", 3)	    == "defg"
 
-
-```
-		Note: To get the first character, {start} must be 0.  For
+Note: To get the first character, {start} must be 0.  For
 example, to get the character under the cursor:
-```
 strpart(getline("."), col(".") - 1, 1, v:true)
-
 ```
 
 Returns an empty string on error.
 
-Can also be used as a [method](#method):
-```
-GetText()->strpart(5)
+Can also be used as a [method](#method): 
+```			GetText()->strpart(5)
 
 ### <a id="strptime()" class="section-title" href="#strptime()">strptime({format}, {timestring})</a>
 The result is a Number, which is a unix timestamp representing
@@ -9495,26 +8145,15 @@ result.
 
 See also [strftime()](#strftime()).
 Examples:
-```
 :echo strptime("%Y %b %d %X", "1997 Apr 27 11:49:23")
-
-```
-		  862156163
-```
+862156163
 :echo strftime("%c", strptime("%y%m%d %T", "970427 11:53:55"))
-
-```
-		  Sun Apr 27 11:53:55 1997
-```
+Sun Apr 27 11:53:55 1997
 :echo strftime("%c", strptime("%Y%m%d%H%M%S", "19970427115355") + 3600)
-
-```
-		  Sun Apr 27 12:53:55 1997
+Sun Apr 27 12:53:55 1997
 
 Can also be used as a [method](#method):
-```
 GetFormat()->strptime(timestring)
-
 ```
 
 ### <a id="strridx()" class="section-title" href="#strridx()">strridx({haystack}, {needle} [, {start}])</a>
@@ -9522,42 +8161,33 @@ The result is a Number, which gives the byte index in
 {haystack} of the last occurrence of the String {needle}.
 When {start} is specified, matches beyond this index are
 ignored.  This can be used to find a match before a previous
-match:
-```
-:let lastcomma = strridx(line, ",")
+match: 
+```			:let lastcomma = strridx(line, ",")
 :let comma2 = strridx(line, ",", lastcomma - 1)
-
-```
-		The search is done case-sensitive.
+The search is done case-sensitive.
 For pattern searches use [match()](#match()).
 -1 is returned if the {needle} does not occur in {haystack}.
 If the {needle} is empty the length of {haystack} is returned.
 See also [stridx()](#stridx()).  Examples:
-```
 :echo strridx("an angry armadillo", "an")	     3
-### <a id="strrchr()" class="section-title" href="#strrchr()"><</a>
+### <a id="strrchr()" class="section-title" href="#strrchr()">Note:</a>
 When used with a single character it works similar to the C
 function strrchr().
 
 Can also be used as a [method](#method):
-```
 GetHaystack()->strridx(needle)
 
 ### <a id="strtrans()" class="section-title" href="#strtrans()">strtrans({string})</a>
 The result is a String, which is {string} with all unprintable
 characters translated into printable characters ['isprint'](#'isprint').
 Like they are shown in a window.  Example:
-```
 echo strtrans(@a)
-
-```
-		This displays a newline in register a as "^@" instead of
+This displays a newline in register a as "^@" instead of
 starting a new line.
 
 Returns an empty string on error.
 
 Can also be used as a [method](#method):
-```
 GetString()->strtrans()
 
 ### <a id="strwidth()" class="section-title" href="#strwidth()">strwidth({string})</a>
@@ -9570,7 +8200,6 @@ Returns zero on error.
 Also see [strlen()|, |strdisplaywidth()| and |strchars()](#strlen()|, |strdisplaywidth()| and |strchars()).
 
 Can also be used as a [method](#method):
-```
 GetString()->strwidth()
 
 ### <a id="submatch() E935" class="section-title" href="#submatch() E935">submatch({nr} [, {list}])</a>
@@ -9596,16 +8225,12 @@ the current (deepest) call can be obtained.
 Returns an empty string or list on error.
 
 Examples:
-```
 :s/\d\+/\=submatch(0) + 1/
 :echo substitute(text, '\d\+', '\=submatch(0) + 1', '')
-
-```
-		This finds the first number in the line and adds one to it.
+This finds the first number in the line and adds one to it.
 A line break is included as a newline character.
 
 Can also be used as a [method](#method):
-```
 GetNr()->submatch()
 
 ### <a id="substitute()" class="section-title" href="#substitute()">substitute({string}, {pat}, {sub}, {flags})</a>
@@ -9631,43 +8256,27 @@ When {pat} does not match in {string}, {string} is returned
 unmodified.
 
 Example:
-```
 ### <a id=":let &path = substitute(&path, ",\\=[^,]$", "", "")" class="section-title" href="#:let &path = substitute(&path, ",\\=[^,]$", "", "")">Note:</a>
-
-```
-		This removes the last component of the 'path' option.
-```
+This removes the last component of the 'path' option.
 ### <a id=":echo substitute("testing", ".", "\\U\\0", "")" class="section-title" href="#:echo substitute("testing", ".", "\\U\\0", "")">Note:</a>
-
-```
-		results in "TESTING".
+results in "TESTING".
 
 When {sub} starts with "\=", the remainder is interpreted as
 an expression. See [sub-replace-expression](#sub-replace-expression).  Example:
-```
 :echo substitute(s, '%\(\x\x\)',
 \ '\=nr2char("0x" .. submatch(1))', 'g')
 
-
-```
-		When {sub} is a Funcref that function is called, with one
+When {sub} is a Funcref that function is called, with one
 optional argument.  Example:
-```
 :echo substitute(s, '%\(\x\x\)', SubNr, 'g')
-
-```
-		The optional argument is a list which contains the whole
+The optional argument is a list which contains the whole
 matched string and up to nine submatches, like what
 [submatch()](#submatch()) returns.  Example:
-```
 :echo substitute(s, '%\(\x\x\)', {m -> '0x' .. m[1]}, 'g')
 
-
-```
-		Returns an empty string on error.
+Returns an empty string on error.
 
 Can also be used as a [method](#method):
-```
 GetString()->substitute(pat, sub, flags)
 
 ### <a id="swapinfo()" class="section-title" href="#swapinfo()">swapinfo({fname})</a>
@@ -9689,7 +8298,6 @@ Not a swap file: does not contain correct block ID
 Magic number mismatch: Info in first block is invalid
 
 Can also be used as a [method](#method):
-```
 GetFilename()->swapinfo()
 
 ### <a id="swapname()" class="section-title" href="#swapname()">swapname({buf})</a>
@@ -9700,7 +8308,6 @@ If buffer {buf} is the current buffer, the result is equal to
 If buffer {buf} has no swap file, returns an empty string.
 
 Can also be used as a [method](#method):
-```
 GetBufname()->swapname()
 
 ### <a id="synID()" class="section-title" href="#synID()">synID({lnum}, {col}, {trans})</a>
@@ -9726,9 +8333,7 @@ obtained by going through the file in forward direction.
 Returns zero on error.
 
 Example (echoes the name of the syntax item under the cursor):
-```
 :echo synIDattr(synID(line("."), col("."), 1), "name")
-
 ```
 
 
@@ -9770,15 +8375,12 @@ running the name in "#RRGGBB" form
 Returns an empty string on error.
 
 Example (echoes the color of the syntax item under the
-cursor):
-```
-:echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")
-
+cursor): 
+```	:echo synIDattr(synIDtrans(synID(line("."), col("."), 1)), "fg")
 ```
 
-Can also be used as a [method](#method):
-```
-:echo synID(line("."), col("."), 1)->synIDtrans()->synIDattr("fg")
+Can also be used as a [method](#method): 
+```	:echo synID(line("."), col("."), 1)->synIDtrans()->synIDattr("fg")
 
 ### <a id="synIDtrans()" class="section-title" href="#synIDtrans()">synIDtrans({synID})</a>
 The result is a Number, which is the translated syntax ID of
@@ -9789,7 +8391,6 @@ highlight the character.  Highlight links given with
 Returns zero on error.
 
 Can also be used as a [method](#method):
-```
 :echo synID(line("."), col("."), 1)->synIDtrans()->synIDattr("fg")
 
 ### <a id="synconcealed()" class="section-title" href="#synconcealed()">synconcealed({lnum}, {col})</a>
@@ -9829,13 +8430,10 @@ returns, unless not the whole item is highlighted or it is a
 transparent item.
 This function is useful for debugging a syntax file.
 Example that shows the syntax stack under the cursor:
-```
 for id in synstack(line("."), col("."))
 echo synIDattr(id, "name")
 endfor
-
-```
-		When the position specified with {lnum} and {col} is invalid
+When the position specified with {lnum} and {col} is invalid
 an empty list is returned.  The position just after the last
 character in a line and the first column in an empty line are
 valid positions.
@@ -9846,24 +8444,18 @@ a [List|) and sets |v:shell_error](#List|) and sets |v:shell_error) to the error
 {cmd} is treated as in [jobstart()](#jobstart()):
 If {cmd} is a List it runs directly (no 'shell').
 If {cmd} is a String it runs in the 'shell', like this:
-```
 :call jobstart(split(&shell) + split(&shellcmdflag) + ['{cmd}'])
 
-
-```
-		Not to be used for interactive commands.
+Not to be used for interactive commands.
 
 Result is a String, filtered to avoid platform-specific quirks:
 - <CR><NL> is replaced with <NL>
 - NUL characters are replaced with SOH (0x01)
 
 Example:
-```
 :echo system(['ls', expand('%:h')])
 
-
-```
-		If {input} is a string it is written to a pipe and passed as
+If {input} is a string it is written to a pipe and passed as
 stdin to the command.  The string is written as-is, line
 separators are not changed.
 If {input} is a [List](#List) it is written to the pipe as
@@ -9876,16 +8468,10 @@ terminated by NL (and NUL where the text has NL).
 ### <a id="E5677" class="section-title" href="#E5677">Note:</a>
 Note: system() cannot write to or read from backgrounded ("&")
 shell commands, e.g.:
-```
 :echo system("cat - &", "foo")
-
-```
-		which is equivalent to:
-```
+which is equivalent to:
 $ echo foo | bash -c 'cat - &'
-
-```
-		The pipes are disconnected (unless overridden by shell
+The pipes are disconnected (unless overridden by shell
 redirection syntax) before input can reach it. Use
 [jobstart()](#jobstart()) instead.
 
@@ -9893,17 +8479,13 @@ Note: Use [shellescape()| or |::S| with |expand()](#shellescape()| or |::S| with
 [fnamemodify()](#fnamemodify()) to escape special characters in a command
 argument. 'shellquote' and 'shellxquote' must be properly
 configured. Example:
-```
 :echo system('ls '..shellescape(expand('%:h')))
 :echo system('ls '..expand('%:h:S'))
 
-
-```
-		Unlike ":!cmd" there is no automatic check for changed files.
+Unlike ":!cmd" there is no automatic check for changed files.
 Use [:checktime](#:checktime) to force a check.
 
 Can also be used as a [method](#method):
-```
 :echo GetCmd()->system()
 
 ### <a id="systemlist()" class="section-title" href="#systemlist()">systemlist({cmd} [, {input} [, {keepempty}]])</a>
@@ -9916,16 +8498,13 @@ Note that on MS-Windows you may get trailing CR characters.
 
 To see the difference between "echo hello" and "echo -n hello"
 use [system()| and |split()](#system()| and |split()):
-```
 echo split(system('echo hello'), '\n', 1)
-
 ```
 
 Returns an empty string on error.
 
-Can also be used as a [method](#method):
-```
-:echo GetCmd()->systemlist()
+Can also be used as a [method](#method): 
+```			:echo GetCmd()->systemlist()
 
 ### <a id="tabpagebuflist()" class="section-title" href="#tabpagebuflist()">tabpagebuflist([{arg}])</a>
 The result is a [List](#List), where each item is the number of the
@@ -9934,17 +8513,13 @@ buffer associated with each window in the current tab page.
 omitted the current tab page is used.
 When {arg} is invalid the number zero is returned.
 To get a list of all buffers in all tabs use this:
-```
 let buflist = []
 for i in range(tabpagenr('$'))
 call extend(buflist, tabpagebuflist(i + 1))
 endfor
-
-```
-		Note that a buffer may appear in more than one window.
+Note that a buffer may appear in more than one window.
 
 Can also be used as a [method](#method):
-```
 GetTabpage()->tabpagebuflist()
 
 ### <a id="tabpagenr()" class="section-title" href="#tabpagenr()">tabpagenr([{arg}])</a>
@@ -9970,17 +8545,12 @@ the window which will be used when going to this tab page.
 - When "$" the number of windows is returned.
 - When "#" the previous window nr is returned.
 Useful examples:
-```
 tabpagewinnr(1)	    " current window of tab page 1
 tabpagewinnr(4, '$')    " number of windows in tab page 4
-
-```
-		When {tabarg} is invalid zero is returned.
+When {tabarg} is invalid zero is returned.
 
 Can also be used as a [method](#method):
-```
 GetTabpage()->tabpagewinnr()
-
 ```
 
 ### <a id="tagfiles()" class="section-title" href="#tagfiles()">Note:</a>
@@ -10031,19 +8601,15 @@ Refer to ['tags'](#'tags') for information about how the tags file is
 located by Vim. Refer to [tags-file-format](#tags-file-format) for the format of
 the tags file generated by the different ctags tools.
 
-Can also be used as a [method](#method):
-```
-GetTagpattern()->taglist()
+Can also be used as a [method](#method): 
+```			GetTagpattern()->taglist()
 
 ### <a id="tempname() temp-file-name" class="section-title" href="#tempname() temp-file-name">tempname()</a>
 The result is a String, which is the name of a file that
 doesn't exist.  It can be used for a temporary file.  Example:
-```
 :let tmpfile = tempname()
 :exe "redir > " .. tmpfile
-
-```
-		For Unix, the file will be in a private directory [tempfile](#tempfile).
+For Unix, the file will be in a private directory [tempfile](#tempfile).
 For MS-Windows forward slashes are used when the 'shellslash'
 option is set or when 'shellcmdflag' starts with '-'.
 
@@ -10065,19 +8631,12 @@ in the range [-inf, inf].
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo tan(10)
-
-```
-			0.648361
-```
+0.648361
 :echo tan(-4.01)
-
-```
-			-1.181502
+-1.181502
 
 Can also be used as a [method](#method):
-```
 Compute()->tan()
 
 ### <a id="tanh()" class="section-title" href="#tanh()">tanh({expr})</a>
@@ -10086,21 +8645,13 @@ range [-1, 1].
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 :echo tanh(0.5)
-
-```
-			0.462117
-```
+0.462117
 :echo tanh(-1)
-
-```
-			-0.761594
+-0.761594
 
 Can also be used as a [method](#method):
-```
 Compute()->tanh()
-
 ```
 
 ### <a id="timer_info()" class="section-title" href="#timer_info()">Note:</a>
@@ -10119,10 +8670,8 @@ these items:
 -1 means forever
 "callback"	    the callback
 
-Can also be used as a [method](#method):
-```
-GetTimer()->timer_info()
-
+Can also be used as a [method](#method): 
+```			GetTimer()->timer_info()
 ```
 
 ### <a id="timer_pause()" class="section-title" href="#timer_pause()">timer_pause({timer}, {paused})</a>
@@ -10138,10 +8687,8 @@ If {paused} evaluates to a non-zero Number or a non-empty
 String, then the timer is paused, otherwise it is unpaused.
 See [non-zero-arg](#non-zero-arg).
 
-Can also be used as a [method](#method):
-```
-GetTimer()->timer_pause(1)
-
+Can also be used as a [method](#method): 
+```			GetTimer()->timer_pause(1)
 ```
 
 ### <a id="timer_start() timer timers" class="section-title" href="#timer_start() timer timers">Note:</a>
@@ -10165,24 +8712,18 @@ row the repeat is cancelled.
 
 Returns -1 on error.
 
-Example:
-```
-func MyHandler(timer)
+Example: 
+```			func MyHandler(timer)
 echo 'Handler called'
 endfunc
 let timer = timer_start(500, 'MyHandler',
 \ {'repeat': 3})
-
-```
-		This invokes MyHandler() three times at 500 msec intervals.
+This invokes MyHandler() three times at 500 msec intervals.
 
 Can also be used as a [method](#method):
-```
 GetMsec()->timer_start(callback)
 
-
-```
-		Not available in the [sandbox](#sandbox).
+Not available in the [sandbox](#sandbox).
 
 ### <a id="timer_stop()" class="section-title" href="#timer_stop()">timer_stop({timer})</a>
 Stop a timer.  The timer callback will no longer be invoked.
@@ -10190,9 +8731,7 @@ Stop a timer.  The timer callback will no longer be invoked.
 Number.  If {timer} does not exist there is no error.
 
 Can also be used as a [method](#method):
-```
 GetTimer()->timer_stop()
-
 ```
 
 ### <a id="timer_stopall()" class="section-title" href="#timer_stopall()">timer_stopall()</a>
@@ -10205,9 +8744,8 @@ The result is a copy of the String given, with all uppercase
 characters turned into lowercase (just like applying [gu](#gu) to
 the string).  Returns an empty string on error.
 
-Can also be used as a [method](#method):
-```
-GetText()->tolower()
+Can also be used as a [method](#method): 
+```			GetText()->tolower()
 
 ### <a id="toupper()" class="section-title" href="#toupper()">toupper({expr})</a>
 The result is a copy of the String given, with all lowercase
@@ -10215,7 +8753,6 @@ characters turned into uppercase (just like applying [gU](#gU) to
 the string).  Returns an empty string on error.
 
 Can also be used as a [method](#method):
-```
 GetText()->toupper()
 
 ### <a id="tr()" class="section-title" href="#tr()">tr({src}, {fromstr}, {tostr})</a>
@@ -10229,19 +8766,12 @@ This code also deals with multibyte characters properly.
 Returns an empty string on error.
 
 Examples:
-```
 echo tr("hello there", "ht", "HT")
-
-```
-		returns "Hello THere"
-```
+returns "Hello THere"
 echo tr("<blob>", "<>", "{}")
-
-```
-		returns "{blob}"
+returns "{blob}"
 
 Can also be used as a [method](#method):
-```
 GetText()->tr(from, to)
 
 ### <a id="trim()" class="section-title" href="#trim()">trim({text} [, {mask} [, {dir}]])</a>
@@ -10260,29 +8790,16 @@ This function deals with multibyte characters properly.
 Returns an empty string on error.
 
 Examples:
-```
 echo trim("   some text ")
-
-```
-		returns "some text"
-```
+returns "some text"
 echo trim("  \r\t\t\r RESERVE \t\n\x0B\xA0") .. "_TAIL"
-
-```
-		returns "RESERVE_TAIL"
-```
+returns "RESERVE_TAIL"
 echo trim("rm<Xrm<>X>rrm", "rm<>")
-
-```
-		returns "Xrm<>X" (characters in the middle are not removed)
-```
+returns "Xrm<>X" (characters in the middle are not removed)
 echo trim("  vim  ", " ", 2)
-
-```
-		returns "  vim"
+returns "  vim"
 
 Can also be used as a [method](#method):
-```
 GetText()->trim()
 
 ### <a id="trunc()" class="section-title" href="#trunc()">trunc({expr})</a>
@@ -10291,24 +8808,14 @@ equal to {expr} as a [Float](#Float) (truncate towards zero).
 {expr} must evaluate to a [Float| or a |Number](#Float| or a |Number).
 Returns 0.0 if {expr} is not a [Float| or a |Number](#Float| or a |Number).
 Examples:
-```
 echo trunc(1.456)
-
-```
-			1.0
-```
+1.0
 echo trunc(-5.456)
-
-```
-			-5.0
-```
+-5.0
 echo trunc(4.0)
-
-```
-			4.0
+4.0
 
 Can also be used as a [method](#method):
-```
 Compute()->trunc()
 
 ### <a id="type()" class="section-title" href="#type()">type({expr})</a>
@@ -10325,7 +8832,6 @@ Boolean:    6 ([v:true| and |v:false](#v:true| and |v:false))
 Null:       7 ([v:null](#v:null))
 Blob:      10 ([v:t_blob](#v:t_blob))
 For backward compatibility, this method can be used:
-```
 :if type(myvar) == type(0)
 :if type(myvar) == type("")
 :if type(myvar) == type(function("tr"))
@@ -10333,22 +8839,13 @@ For backward compatibility, this method can be used:
 :if type(myvar) == type({})
 :if type(myvar) == type(0.0)
 :if type(myvar) == type(v:true)
-
-```
-		In place of checking for [v:null](#v:null) type it is better to check
+In place of checking for [v:null](#v:null) type it is better to check
 for [v:null](#v:null) directly as it is the only value of this type:
-```
 :if myvar is v:null
-
-```
-               To check if the v:t_ variables exist use this:
-```
+To check if the v:t_ variables exist use this:
 :if exists('v:t_number')
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 mylist->type()
 
 ### <a id="undofile()" class="section-title" href="#undofile()">undofile({name})</a>
@@ -10363,7 +8860,6 @@ buffer without a file name will not write an undo file.
 Useful in combination with [:wundo| and |:rundo](#:wundo| and |:rundo).
 
 Can also be used as a [method](#method):
-```
 GetFilename()->undofile()
 
 ### <a id="undotree()" class="section-title" href="#undotree()">undotree()</a>
@@ -10413,17 +8909,13 @@ item.
 Remove second and succeeding copies of repeated adjacent
 {list} items in-place.  Returns {list}.  If you want a list
 to remain unmodified make a copy first:
-```
 :let newlist = uniq(copy(mylist))
-
-```
-		The default compare function uses the string representation of
+The default compare function uses the string representation of
 each item.  For the use of {func} and {dict} see [sort()](#sort()).
 
 Returns zero if {list} is not a [List](#List).
 
 Can also be used as a [method](#method):
-```
 mylist->uniq()
 
 ### <a id="values()" class="section-title" href="#values()">values({dict})</a>
@@ -10432,7 +8924,6 @@ in arbitrary order.  Also see [items()| and |keys()](#items()| and |keys()).
 Returns zero if {dict} is not a [Dict](#Dict).
 
 Can also be used as a [method](#method):
-```
 mydict->values()
 
 ### <a id="virtcol()" class="section-title" href="#virtcol()">virtcol({expr})</a>
@@ -10464,22 +8955,15 @@ returns the cursor position.  Differs from ['<](#'<) in
 that it's updated right away.
 Note that only marks in the current file can be used.
 Examples:
-```
 virtcol(".")	   with text "foo^Lbar", with cursor on the "^L", returns 5
 virtcol("$")	   with text "foo^Lbar", returns 9
 virtcol("'t")    with text "	  there", with 't at 'h', returns 6
-
-```
-		The first column is 1.  0 is returned for an error.
+The first column is 1.  0 is returned for an error.
 A more advanced example that echoes the maximum length of
 all lines:
-```
 echo max(map(range(1, line('$')), "virtcol([v:val, '$'])"))
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetPos()->virtcol()
 
 ### <a id="virtcol2col()" class="section-title" href="#virtcol2col()">virtcol2col({winid}, {lnum}, {col})</a>
@@ -10500,7 +8984,6 @@ line {lnum} or virtual column {col} is invalid.
 See also [screenpos()|, |virtcol()| and |col()](#screenpos()|, |virtcol()| and |col()).
 
 Can also be used as a [method](#method):
-```
 GetWinid()->virtcol2col(lnum, col)
 
 ### <a id="visualmode()" class="section-title" href="#visualmode()">visualmode([{expr}])</a>
@@ -10511,11 +8994,8 @@ string, but once Visual mode has been used, it returns "v",
 character-wise, line-wise, or block-wise Visual mode
 respectively.
 Example:
-```
 :exe "normal " .. visualmode()
-
-```
-		This enters the same Visual mode as before.  It is also useful
+This enters the same Visual mode as before.  It is also useful
 in scripts if you wish to act differently depending on the
 Visual mode that was used.
 If Visual mode is active, use [mode()](#mode()) to get the Visual mode
@@ -10547,9 +9027,7 @@ This can be used in mappings to handle the 'wildcharm' option
 gracefully. (Makes only sense with [mapmode-c](#mapmode-c) mappings).
 
 For example to make <c-j> work like <down> in wildmode, use:
-```
 :cnoremap <expr> <C-j> wildmenumode() ? "\<Down>\<Tab>" : "\<c-j>"
-
 ```
 
 (Note, this needs the 'wildcharm' option set appropriately).
@@ -10560,23 +9038,19 @@ The window will temporarily be made the current window,
 without triggering autocommands or changing directory.  When
 executing {command} autocommands will be triggered, this may
 have unexpected side effects.  Use [:noautocmd](#:noautocmd) if needed.
-Example:
-```
-call win_execute(winid, 'syntax enable')
-
+Example: 
+```			call win_execute(winid, 'syntax enable')
 ```
 
 Can also be used as a [method](#method), the base is passed as the
-second argument:
-```
-GetCommand()->win_execute(winid)
+second argument: 
+```			GetCommand()->win_execute(winid)
 
 ### <a id="win_findbuf()" class="section-title" href="#win_findbuf()">win_findbuf({bufnr})</a>
 Returns a [List| with |window-ID](#List| with |window-ID)s for windows that contain
 buffer {bufnr}.  When there is none the list is empty.
 
 Can also be used as a [method](#method):
-```
 GetBufnr()->win_findbuf()
 
 ### <a id="win_getid()" class="section-title" href="#win_getid()">win_getid([{win} [, {tab}]])</a>
@@ -10589,7 +9063,6 @@ number {tab}.  The first tab has number one.
 Return zero if the window cannot be found.
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->win_getid()
 
 ### <a id="win_gettype()" class="section-title" href="#win_gettype()">win_gettype([{nr}])</a>
@@ -10611,9 +9084,7 @@ When {nr} is given return the type of this window by number or
 Also see the 'buftype' option.
 
 Can also be used as a [method](#method):
-```
 GetWinid()->win_gettype()
-
 ```
 
 ### <a id="win_gotoid()" class="section-title" href="#win_gotoid()">win_gotoid({expr})</a>
@@ -10621,9 +9092,8 @@ Go to window with ID {expr}.  This may also change the current
 tabpage.
 Return TRUE if successful, FALSE if the window cannot be found.
 
-Can also be used as a [method](#method):
-```
-GetWinid()->win_gotoid()
+Can also be used as a [method](#method): 
+```			GetWinid()->win_gotoid()
 
 ### <a id="win_id2tabwin()" class="section-title" href="#win_id2tabwin()">win_id2tabwin({expr})</a>
 Return a list with the tab number and window number of window
@@ -10631,7 +9101,6 @@ with ID {expr}: [tabnr, winnr].
 Return [0, 0] if the window cannot be found.
 
 Can also be used as a [method](#method):
-```
 GetWinid()->win_id2tabwin()
 
 ### <a id="win_id2win()" class="section-title" href="#win_id2win()">win_id2win({expr})</a>
@@ -10639,7 +9108,6 @@ Return the window number of window with ID {expr}.
 Return 0 if the window cannot be found in the current tabpage.
 
 Can also be used as a [method](#method):
-```
 GetWinid()->win_id2win()
 
 ### <a id="win_move_separator()" class="section-title" href="#win_move_separator()">win_move_separator({nr}, {offset})</a>
@@ -10657,7 +9125,6 @@ This will fail for the rightmost window and a full-width
 window, since it has no separator on the right.
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->win_move_separator(offset)
 
 ### <a id="win_move_statusline()" class="section-title" href="#win_move_statusline()">win_move_statusline({nr}, {offset})</a>
@@ -10672,7 +9139,6 @@ of maintaining 'winminheight'). Returns TRUE if the window can
 be found and FALSE otherwise.
 
 Can also be used as a [method](#method):
-```
 GetWinnr()->win_move_statusline(offset)
 
 ### <a id="win_screenpos()" class="section-title" href="#win_screenpos()">win_screenpos({nr})</a>
@@ -10685,9 +9151,7 @@ Returns [0, 0] if the window cannot be found in the current
 tabpage.
 
 Can also be used as a [method](#method):
-```
 GetWinid()->win_screenpos()
-
 ```
 
 ### <a id="win_splitmove()" class="section-title" href="#win_splitmove()">win_splitmove({nr}, {target} [, {options}])</a>
@@ -10710,10 +9174,8 @@ above or to the left (if vertical).  When not
 present, the values of 'splitbelow' and
 'splitright' are used.
 
-Can also be used as a [method](#method):
-```
-GetWinid()->win_splitmove(target)
-
+Can also be used as a [method](#method): 
+```			GetWinid()->win_splitmove(target)
 ```
 
 ### <a id="winbufnr()" class="section-title" href="#winbufnr()">Note:</a>
@@ -10723,16 +9185,12 @@ the [window-ID](#window-ID).
 When {nr} is zero, the number of the buffer in the current
 window is returned.
 When window {nr} doesn't exist, -1 is returned.
-Example:
-```
-:echo "The file in the current window is " .. bufname(winbufnr(0))
-
+Example: 
+```  :echo "The file in the current window is " .. bufname(winbufnr(0))
 ```
 
-Can also be used as a [method](#method):
-```
-FindWindow()->winbufnr()->bufname()
-
+Can also be used as a [method](#method): 
+```			FindWindow()->winbufnr()->bufname()
 ```
 
 ### <a id="wincol()" class="section-title" href="#wincol()">Note:</a>
@@ -10754,16 +9212,11 @@ When {nr} is zero, the height of the current window is
 returned.  When window {nr} doesn't exist, -1 is returned.
 An existing window always has a height of zero or more.
 This excludes any window toolbar line.
-Examples:
-```
-:echo "The current window has " .. winheight(0) .. " lines."
+Examples: 
+```  :echo "The current window has " .. winheight(0) .. " lines."
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetWinid()->winheight()
-
 ```
 
 ### <a id="winlayout()" class="section-title" href="#winlayout()">winlayout([{tabnr}])</a>
@@ -10782,9 +9235,8 @@ returns:
 For vertically split windows, which form a row, it returns:
 ["row", [{nested list of windows}]]
 
-Example:
-```
-" Only one window in the tab page
+Example: 
+```			" Only one window in the tab page
 :echo winlayout()
 ['leaf', 1000]
 " Two horizontally split windows
@@ -10796,13 +9248,10 @@ Example:
 :echo winlayout(2)
 ['col', [['leaf', 1002], ['row', [['leaf', 1003],
 ['leaf', 1001]]], ['leaf', 1000]]]
-
 ```
 
-Can also be used as a [method](#method):
-```
-GetTabnr()->winlayout()
-
+Can also be used as a [method](#method): 
+```			GetTabnr()->winlayout()
 ```
 
 ### <a id="winline()" class="section-title" href="#winline()">Note:</a>
@@ -10836,18 +9285,13 @@ The number can be used with [CTRL-W_w](#CTRL-W_w) and ":wincmd w"
 [:wincmd](#:wincmd).
 When {arg} is invalid an error is given and zero is returned.
 Also see [tabpagewinnr()| and |win_getid()](#tabpagewinnr()| and |win_getid()).
-Examples:
-```
-let window_count = winnr('$')
+Examples: 
+```			let window_count = winnr('$')
 let prev_window = winnr('#')
 let wnum = winnr('3k')
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetWinval()->winnr()
-
 ```
 
 ### <a id="winrestcmd()" class="section-title" href="#winrestcmd()">Note:</a>
@@ -10855,12 +9299,10 @@ winrestcmd()	Returns a sequence of [:resize](#:resize) commands that should rest
 the current window sizes.  Only works properly when no windows
 are opened or closed and the current window and tab page is
 unchanged.
-Example:
-```
-:let cmd = winrestcmd()
+Example: 
+```			:let cmd = winrestcmd()
 :call MessWithWindowSizes()
 :exe cmd
-
 ```
 
 ### <a id="winrestview()" class="section-title" href="#winrestview()">Note:</a>
@@ -10869,10 +9311,8 @@ Uses the [Dictionary| returned by |winsaveview()](#Dictionary| returned by |wins
 the view of the current window.
 Note: The {dict} does not have to contain all values, that are
 returned by [winsaveview()](#winsaveview()). If values are missing, those
-settings won't be restored. So you can use:
-```
-:call winrestview({'curswant': 4})
-
+settings won't be restored. So you can use: 
+```		    :call winrestview({'curswant': 4})
 ```
 
 This will only set the curswant value (the column the cursor
@@ -10883,10 +9323,8 @@ same. This is useful, if you set the cursor position manually.
 If you have changed the values the result is unpredictable.
 If the window size changed the result won't be the same.
 
-Can also be used as a [method](#method):
-```
-GetView()->winrestview()
-
+Can also be used as a [method](#method): 
+```			GetView()->winrestview()
 ```
 
 ### <a id="winsaveview()" class="section-title" href="#winsaveview()">Note:</a>
@@ -10919,19 +9357,15 @@ The result is a Number, which is the width of window {nr}.
 When {nr} is zero, the width of the current window is
 returned.  When window {nr} doesn't exist, -1 is returned.
 An existing window always has a width of zero or more.
-Examples:
-```
-:echo "The current window has " .. winwidth(0) .. " columns."
+Examples: 
+```  :echo "The current window has " .. winwidth(0) .. " columns."
 :if winwidth(0) <= 50
 :  50 wincmd |
 :endif
-
-```
-		For getting the terminal or screen size, see the 'columns'
+For getting the terminal or screen size, see the 'columns'
 option.
 
 Can also be used as a [method](#method):
-```
 GetWinid()->winwidth()
 
 ### <a id="wordcount()" class="section-title" href="#wordcount()">wordcount()</a>
@@ -10970,10 +9404,8 @@ unmodified.
 
 When {flags} contains "a" then append mode is used, lines are
 appended to the file:
-```
 :call writefile(["foo"], "event.log", "a")
 :call writefile(["bar"], "event.log", "a")
-
 ```
 
 When {flags} contains "S" fsync() call is not used, with "s"
@@ -10990,15 +9422,11 @@ When the write fails -1 is returned, otherwise 0.  There is an
 error message if the file can't be created or when writing
 fails.
 Also see [readfile()](#readfile()).
-To copy a file byte for byte:
-```
-:let fl = readfile("foo", "b")
+To copy a file byte for byte: 
+```			:let fl = readfile("foo", "b")
 :call writefile(fl, "foocopy", "b")
 
-
-```
-		Can also be used as a [method](#method):
-```
+Can also be used as a [method](#method):
 GetText()->writefile("thefile")
 
 ### <a id="xor()" class="section-title" href="#xor()">xor({expr}, {expr})</a>
@@ -11006,17 +9434,12 @@ Bitwise XOR on the two arguments.  The arguments are converted
 to a number.  A List, Dict or Float argument causes an error.
 Also see `and()` and `or()`.
 Example:
-```
 :let bits = xor(bits, 0x80)
-
 ```
 
-Can also be used as a [method](#method):
+Can also be used as a [method](#method): 
+```			:let bits = bits->xor(0x80)
 ```
-:let bits = bits->xor(0x80)
-
-```
-
 
 
 ## <a id="string-match" class="section-title" href="#string-match">3. Matching a Pattern in a String</a> 
@@ -11027,7 +9450,6 @@ pattern is used to find a match in a String, almost everything works in the
 same way.  The difference is that a String is handled like it is one line.
 When it contains a "\n" character, this is not seen as a line break for the
 pattern.  It can be matched with a "\n" in the pattern, or with ".".  Example:
-```
 :let a = "aaaa\nxxxx"
 :echo matchstr(a, "..\n..")
 aa

@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Undo
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -14,13 +14,11 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 
 The basics are explained in section [02.5](#02.5) of the user manual.
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="undo-commands" class="section-title" href="#undo-commands">1. Undo and Redo Commands</a> 
 
-
-```
 Undo>		or					*undo* *<Undo>* *u*
 u			Undo [count] changes.
 
@@ -28,15 +26,15 @@ u			Undo [count] changes.
 :u[ndo]			Undo one change.
 ### <a id="E830" class="section-title" href="#E830">Note:</a>
 :u[ndo] {N}		Jump to after change number {N}.  See [undo-branches](#undo-branches)
-for the meaning of {N}.
+			for the meaning of {N}.
 
 :u[ndo]!		Undo one change and remove it from undo history.
 ### <a id="E5767" class="section-title" href="#E5767">Note:</a>
 :u[ndo]! {N}		Like ":u[ndo] {N}", but forget all changes in the
-current undo branch up until {N}. You may only use
-":undo! {N}" to move backwards in the same undo
-branch, not to redo or switch to a different undo
-branch.
+			current undo branch up until {N}. You may only use
+			":undo! {N}" to move backwards in the same undo
+			branch, not to redo or switch to a different undo
+			branch.
 
 ### <a id="CTRL-R" class="section-title" href="#CTRL-R">Note:</a>
 CTRL-R			Redo [count] changes which were undone.
@@ -46,8 +44,8 @@ CTRL-R			Redo [count] changes which were undone.
 
 ### <a id="U" class="section-title" href="#U">Note:</a>
 U			Undo all latest changes on one line, the line where
-the latest change was made. [U](#U) itself also counts as
-a change, and thus [U| undoes a previous |U](#U| undoes a previous |U).
+			the latest change was made. [U](#U) itself also counts as
+			a change, and thus [U| undoes a previous |U](#U| undoes a previous |U).
 
 The last changes are remembered.  You can use the undo and redo commands above
 to revert the text to how it was before each change.  You can also apply the
@@ -85,8 +83,8 @@ Examples	Vim way			Vi-compatible way	~
 "u CTRL-R"	no-op			two times undo
 
 Rationale:  Nvi uses the "." command instead of CTRL-R.  Unfortunately, this
-is not Vi compatible.  For example "dwdwu." in Vi deletes two
-words, in Nvi it does nothing.
+	    is not Vi compatible.  For example "dwdwu." in Vi deletes two
+	    words, in Nvi it does nothing.
 
 
 ## <a id="undo-blocks" class="section-title" href="#undo-blocks">3. Undo Blocks</a> 
@@ -101,9 +99,9 @@ change but joins in with the previous change use this command:
 
 ### <a id=":undoj :undojoin E790" class="section-title" href="#:undoj :undojoin E790">Note:</a>
 :undoj[oin]		Join further changes with the previous undo block.
-Warning: Use with care, it may prevent the user from
-properly undoing changes.  Don't use this after undo
-or redo.
+			Warning: Use with care, it may prevent the user from
+			properly undoing changes.  Don't use this after undo
+			or redo.
 
 This is most useful when you need to prompt the user halfway through a change.
 For example in a function that calls [getchar()](#getchar()).  Do make sure that there was
@@ -111,9 +109,8 @@ a related change before this that you must join with.
 
 This doesn't work by itself, because the next key press will start a new
 change again.  But you can do something like this:
-```
 
-:undojoin | delete
+	:undojoin | delete
 
 After this a "u" command will undo the delete command and the previous
 change.
@@ -124,8 +121,7 @@ parts.  E.g., for each sentence.  [i_CTRL-G_u](#i_CTRL-G_u)
 
 Setting the value of 'undolevels' also closes the undo block.  Even when the
 new value is equal to the old value:
-```
-let &undolevels = &undolevels
+	let &undolevels = &undolevels
 
 
 ## <a id="undo-branches undo-tree" class="section-title" href="#undo-branches undo-tree">4. Undo Branches</a> 
@@ -139,31 +135,31 @@ This is explained in the user manual: [usr_32.txt](#usr_32.txt).
 
 ### <a id=":undol :undolist" class="section-title" href="#:undol :undolist">Note:</a>
 :undol[ist]		List the leafs in the tree of changes.  Example:
-number changes  when               saved ~
-88      88  2010/01/04 14:25:53
-108     107  08/07 12:47:51
-136      46  13:33:01             7
-166     164  3 seconds ago
+			   number changes  when               saved ~
+			       88      88  2010/01/04 14:25:53
+			      108     107  08/07 12:47:51
+			      136      46  13:33:01             7
+			      166     164  3 seconds ago
 
-The "number" column is the change number.  This number
-continuously increases and can be used to identify a
-specific undo-able change, see [:undo](#:undo).
-The "changes" column is the number of changes to this
-leaf from the root of the tree.
-The "when" column is the date and time when this
-change was made.  The four possible formats are:
-N seconds ago
-HH:MM:SS             hour, minute, seconds
-MM/DD HH:MM:SS       idem, with month and day
-YYYY/MM/DD HH:MM:SS  idem, with year
-The "saved" column specifies, if this change was
-written to disk and which file write it was. This can
-be used with the [:later| and |:earlier](#:later| and |:earlier) commands.
-For more details use the [undotree()](#undotree()) function.
+			The "number" column is the change number.  This number
+			continuously increases and can be used to identify a
+			specific undo-able change, see [:undo](#:undo).
+			The "changes" column is the number of changes to this
+			leaf from the root of the tree.
+			The "when" column is the date and time when this
+			change was made.  The four possible formats are:
+			    N seconds ago
+			    HH:MM:SS             hour, minute, seconds
+			    MM/DD HH:MM:SS       idem, with month and day
+			    YYYY/MM/DD HH:MM:SS  idem, with year
+			The "saved" column specifies, if this change was
+			written to disk and which file write it was. This can
+			be used with the [:later| and |:earlier](#:later| and |:earlier) commands.
+			For more details use the [undotree()](#undotree()) function.
 
 ### <a id="g-" class="section-title" href="#g-">Note:</a>
 g-			Go to older text state.  With a count repeat that many
-times.
+			times.
 ### <a id=":ea :earlier" class="section-title" href="#:ea :earlier">Note:</a>
 :earlier {count}	Go to older text state {count} times.
 :earlier {N}s		Go to older text state about {N} seconds before.
@@ -172,17 +168,17 @@ times.
 :earlier {N}d		Go to older text state about {N} days before.
 
 :earlier {N}f		Go to older text state {N} file writes before.
-When changes were made since the last write
-":earlier 1f" will revert the text to the state when
-it was written.  Otherwise it will go to the write
-before that.
-When at the state of the first file write, or when
-the file was not written, ":earlier 1f" will go to
-before the first change.
+			When changes were made since the last write
+			":earlier 1f" will revert the text to the state when
+			it was written.  Otherwise it will go to the write
+			before that.
+			When at the state of the first file write, or when
+			the file was not written, ":earlier 1f" will go to
+			before the first change.
 
 ### <a id="g+" class="section-title" href="#g+">Note:</a>
 g+			Go to newer text state.  With a count repeat that many
-times.
+			times.
 ### <a id=":lat :later" class="section-title" href="#:lat :later">Note:</a>
 :later {count}		Go to newer text state {count} times.
 :later {N}s		Go to newer text state about {N} seconds later.
@@ -191,8 +187,8 @@ times.
 :later {N}d		Go to newer text state about {N} days later.
 
 :later {N}f		Go to newer text state {N} file writes later.
-When at the state of the last file write, ":later 1f"
-will go to the newest text state.
+			When at the state of the last file write, ":later 1f"
+			will go to the newest text state.
 
 
 Note that text states will become unreachable when undo information is cleared
@@ -205,39 +201,39 @@ making a new change.
 EXAMPLE
 
 Start with this text:
-one two three ~
+	one two three ~
 
 Delete the first word by pressing "x" three times:
-ne two three ~
-e two three ~
-two three ~
+	ne two three ~
+	e two three ~
+	 two three ~
 
 Now undo that by pressing "u" three times:
-e two three ~
-ne two three ~
-one two three ~
+	e two three ~
+	ne two three ~
+	one two three ~
 
 Delete the second word by pressing "x" three times:
-one wo three ~
-one o three ~
-one  three ~
+	one wo three ~
+	one o three ~
+	one  three ~
 
 Now undo that by using "g-" three times:
-one o three ~
-one wo three ~
-two three ~
+	one o three ~
+	one wo three ~
+	 two three ~
 
 You are now back in the first undo branch, after deleting "one".  Repeating
 "g-" will now bring you back to the original text:
-e two three ~
-ne two three ~
-one two three ~
+	e two three ~
+	ne two three ~
+	one two three ~
 
 Jump to the last change with ":later 1h":
-one  three ~
+	one  three ~
 
 And back to the start again with ":earlier 1h":
-one two three ~
+	one two three ~
 
 
 Note that using "u" and CTRL-R will not get you to all possible text states
@@ -254,8 +250,7 @@ the file again.
 The 'undofile' option is checked after writing a file, before the BufWritePost
 autocommands.  If you want to control what files to write undo information
 for, you can use a BufWritePre autocommand:
-```
-au BufWritePre /tmp/* setlocal noundofile
+	au BufWritePre /tmp/* setlocal noundofile
 
 Vim saves undo trees in a separate undo file, one for each edited file, using
 a simple scheme that maps filesystem paths directly to undo files. Vim will
@@ -273,38 +268,37 @@ You can also save and restore undo histories by using ":wundo" and ":rundo"
 respectively:
 ### <a id=":wundo :rundo" class="section-title" href="#:wundo :rundo">Note:</a>
 :wundo[!] {file}
-Write undo history to {file}.
-When {file} exists and it does not look like an undo file
-(the magic number at the start of the file is wrong), then
-this fails, unless the ! was added.
-If it exists and does look like an undo file it is
-overwritten. If there is no undo-history, nothing will be
-written.
-Implementation detail: Overwriting happens by first deleting
-the existing file and then creating a new file with the same
-name. So it is not possible to overwrite an existing undofile
-in a write-protected directory.
+		Write undo history to {file}.
+		When {file} exists and it does not look like an undo file
+		(the magic number at the start of the file is wrong), then
+		this fails, unless the ! was added.
+		If it exists and does look like an undo file it is
+		overwritten. If there is no undo-history, nothing will be
+		written.
+		Implementation detail: Overwriting happens by first deleting
+		the existing file and then creating a new file with the same
+		name. So it is not possible to overwrite an existing undofile
+		in a write-protected directory.
 
 :rundo {file}	Read undo history from {file}.
 
 You can use these in autocommands to explicitly specify the name of the
 history file.  E.g.:
-```
 
-au BufReadPost * call ReadUndo()
-au BufWritePost * call WriteUndo()
-func ReadUndo()
-if filereadable(expand('%:h') .. '/UNDO/' .. expand('%:t'))
-rundo %:h/UNDO/%:t
-endif
-endfunc
-func WriteUndo()
-let dirname = expand('%:h') .. '/UNDO'
-if !isdirectory(dirname)
-call mkdir(dirname)
-endif
-wundo %:h/UNDO/%:t
-endfunc
+	au BufReadPost * call ReadUndo()
+	au BufWritePost * call WriteUndo()
+	func ReadUndo()
+	  if filereadable(expand('%:h') .. '/UNDO/' .. expand('%:t'))
+	    rundo %:h/UNDO/%:t
+	  endif
+	endfunc
+	func WriteUndo()
+	  let dirname = expand('%:h') .. '/UNDO'
+	  if !isdirectory(dirname)
+	    call mkdir(dirname)
+	  endif
+	  wundo %:h/UNDO/%:t
+	endfunc
 
 You should keep 'undofile' off, otherwise you end up with two undo files for
 every write.
@@ -321,36 +315,36 @@ NOTE: undo files are never deleted by Vim.  You need to delete them yourself.
 Reading an existing undo file may fail for several reasons:
 *E822*	It cannot be opened, because the file permissions don't allow it.
 *E823*	The magic number at the start of the file doesn't match.  This usually
-means it is not an undo file.
+	means it is not an undo file.
 *E824*	The version number of the undo file indicates that it's written by a
-newer version of Vim.  You need that newer version to open it.  Don't
-write the buffer if you want to keep the undo info in the file.
+	newer version of Vim.  You need that newer version to open it.  Don't
+	write the buffer if you want to keep the undo info in the file.
 "File contents changed, cannot use undo info"
-The file text differs from when the undo file was written.  This means
-the undo file cannot be used, it would corrupt the text.  This also
-happens when 'encoding' differs from when the undo file was written.
+	The file text differs from when the undo file was written.  This means
+	the undo file cannot be used, it would corrupt the text.  This also
+	happens when 'encoding' differs from when the undo file was written.
 *E825*  The undo file does not contain valid contents and cannot be used.
 "Not reading undo file, owner differs"
-The undo file is owned by someone else than the owner of the text
-file.  For safety the undo file is not used.
+	The undo file is owned by someone else than the owner of the text
+	file.  For safety the undo file is not used.
 
 Writing an undo file may fail for these reasons:
 *E828*	The file to be written cannot be created.  Perhaps you do not have
-write permissions in the directory.
+	write permissions in the directory.
 "Cannot write undo file in any directory in 'undodir'"
-None of the directories in 'undodir' can be used.
+	None of the directories in 'undodir' can be used.
 "Will not overwrite with undo file, cannot read"
-A file exists with the name of the undo file to be written, but it
-cannot be read.  You may want to delete this file or rename it.
+	A file exists with the name of the undo file to be written, but it
+	cannot be read.  You may want to delete this file or rename it.
 "Will not overwrite, this is not an undo file"
-A file exists with the name of the undo file to be written, but it
-does not start with the right magic number.  You may want to delete
-this file or rename it.
+	A file exists with the name of the undo file to be written, but it
+	does not start with the right magic number.  You may want to delete
+	this file or rename it.
 "Skipping undo file write, nothing to undo"
-There is no undo information to be written, nothing has been changed
-or 'undolevels' is negative.
+	There is no undo information to be written, nothing has been changed
+	or 'undolevels' is negative.
 *E829*	An error occurred while writing the undo file.  You may want to try
-again.
+	again.
 
 
 ## <a id="undo-remarks" class="section-title" href="#undo-remarks">6. Remarks About Undo</a> 
@@ -363,12 +357,11 @@ undo is possible.  Use this if you are running out of memory.
 When you set 'undolevels' to -1 the undo information is not immediately
 cleared, this happens at the next change.  To force clearing the undo
 information you can use these commands:
-```
-:let old_undolevels = &undolevels
-:set undolevels=-1
-:exe "normal a \<BS>\<Esc>"
-:let &undolevels = old_undolevels
-:unlet old_undolevels
+	:let old_undolevels = &undolevels
+	:set undolevels=-1
+	:exe "normal a \<BS>\<Esc>"
+	:let &undolevels = old_undolevels
+	:unlet old_undolevels
 
 Marks for the buffer ('a to 'z) are also saved and restored, together with the
 text.
@@ -398,7 +391,7 @@ register used.  So if you first do '"1P', the following "." will result in a
 '"2P'.  Repeating this will result in all numbered registers being inserted.
 
 Example:	If you deleted text with 'dd....' it can be restored with
-'"1P....'.
+		'"1P....'.
 
 If you don't know in which register the deleted text is, you can use the
 :display command.  An alternative is to try the first register with '"1P', and
@@ -406,5 +399,5 @@ if it is not what you want do 'u.'.  This will remove the contents of the
 first put, and repeat the put command for the second register.  Repeat the
 'u.' until you got what you want.
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

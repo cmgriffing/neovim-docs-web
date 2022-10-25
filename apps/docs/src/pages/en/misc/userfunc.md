@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Userfunc
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -47,26 +47,21 @@ functions.
 
 :fu[nction][!] {name}	List function {name}, annotated with line numbers
 unless "!" is given.
-{name} may be a [Dictionary| |Funcref](#Dictionary| |Funcref) entry:
-```
-:function dict.init
+{name} may be a [Dictionary| |Funcref](#Dictionary| |Funcref) entry: 
+```				:function dict.init
 
 :fu[nction] /{pattern}	List functions with a name matching {pattern}.
 Example that lists all functions ending with "File":
-```
 :function /File$
-
 ```
 
 ### <a id=":function-verbose" class="section-title" href="#:function-verbose">Note:</a>
 When 'verbose' is non-zero, listing a function will also display where it was
-last defined. Example:
+last defined. Example: 
 ```
-
 :verbose function SetFileTypeSH
 function SetFileTypeSH(name)
 Last set from /usr/share/vim/vim-7.0/filetype.vim
-
 ```
 
 See [:verbose-cmd](#:verbose-cmd) for more information.
@@ -85,12 +80,9 @@ name has a colon in the name, e.g. for "foo:bar()".
 Before that patch no error was given).
 
 {name} can also be a [Dictionary](#Dictionary) entry that is a
-[Funcref](#Funcref):
-```
-:function dict.init(arg)
-
-```
-			"dict" must be an existing dictionary.  The entry
+[Funcref](#Funcref): 
+```				:function dict.init(arg)
+"dict" must be an existing dictionary.  The entry
 "init" is added if it didn't exist yet.  Otherwise [!]
 is required to overwrite an existing function.  The
 result is a [Funcref](#Funcref) to a numbered function.  The
@@ -134,7 +126,6 @@ can access variables and arguments from the outer
 scope.  This is usually called a closure.  In this
 example Bar() uses "x" from the scope of Foo().  It
 remains referenced even after Foo() returns:
-```
 :function! Foo()
 :  let x = 0
 :  function! Bar() closure
@@ -146,19 +137,11 @@ remains referenced even after Foo() returns:
 
 :let F = Foo()
 :echo F()
-
-```
-				1
-```
+1
 :echo F()
-
-```
-				2
-```
+2
 :echo F()
-
-```
-				3
+3
 
 ### <a id="function-search-undo" class="section-title" href="#function-search-undo">Note:</a>
 The last used search pattern and the redo command "."
@@ -183,21 +166,16 @@ ignored.
 
 To be able to define a function inside an `:execute`
 command, use line breaks instead of [:bar](#:bar):
-```
 :exe "func Foo()\necho 'foo'\nendfunc"
-
 ```
 
 ### <a id=":delf :delfunction E131 E933" class="section-title" href="#:delf :delfunction E131 E933">Note:</a>
 :delf[unction][!] {name}
 Delete function {name}.
 {name} can also be a [Dictionary](#Dictionary) entry that is a
-[Funcref](#Funcref):
-```
-:delfunc dict.init
-
-```
-			This will remove the "init" entry from "dict".  The
+[Funcref](#Funcref): 
+```				:delfunc dict.init
+This will remove the "init" entry from "dict".  The
 function is deleted if there are no more references to
 it.
 With the ! there is no error if the function does not
@@ -248,7 +226,6 @@ This only works for functions declared with `:function`, not for
 lambda expressions [expr-lambda](#expr-lambda).
 
 Example:
-```
 function Something(key, value = 10)
 echo a:key .. ": " .. a:value
 endfunction
@@ -269,14 +246,11 @@ but not the other way around.  They must be prefixed with "a:", as with all
 arguments.
 
 Example that works:
-```
 :function Okay(mandatory, optional = a:mandatory)
 :endfunction
 Example that does NOT work:
-```
 :function NoGood(first = a:second, second = 10)
 :endfunction
-
 ```
 
 When not using "...", the number of arguments in a function call must be at
@@ -291,9 +265,8 @@ functions local variables are accessed without prepending anything. But you
 can also prepend "l:" if you like.  This is required for some reserved names,
 such as "version".
 
-Example:
-```
-:function Table(title, ...)
+Example: 
+```  :function Table(title, ...)
 :  echohl Title
 :  echo a:title
 :  echohl None
@@ -304,12 +277,10 @@ Example:
 :endfunction
 
 This function can then be called with:
-```
 call Table("Table", "line1", "line2")
 call Table("Empty Table")
 
 To return more than one value, return a [List](#List):
-```
 :function Compute(n1, n2)
 :  if a:n2 == 0
 :    return ["fail", 0]
@@ -318,14 +289,11 @@ To return more than one value, return a [List](#List):
 :endfunction
 
 This function can then be called with:
-```
 :let [success, div] = Compute(102, 6)
 :if success == "ok"
 :  echo div
 :endif
-
 ```
-
 
 
 ## <a id="" class="section-title" href="#">2. Calling a Function ~</a> <span id=":cal"></span>
@@ -345,25 +313,22 @@ is left at the last line (possibly moved by the last function
 call).  The arguments are re-evaluated for each line.  Thus
 this works:
 ### <a id="function-range-example" class="section-title" href="#function-range-example">Note:</a>
-:function Mynumber(arg)
+```	:function Mynumber(arg)
 :  echo line(".") .. " " .. a:arg
 :endfunction
 :1,5call Mynumber(getline("."))
-
 ```
 
 The "a:firstline" and "a:lastline" are defined anyway, they
 can be used to do something different at the start or end of
 the range.
 
-Example of a function that handles the range itself:
+Example of a function that handles the range itself: 
 ```
-
 :function Cont() range
 :  execute (a:firstline + 1) .. "," .. a:lastline .. 's/^/\t\\ '
 :endfunction
 :4,8call Cont()
-
 ```
 
 This function inserts the continuation character "\" in front
@@ -371,11 +336,8 @@ of all the lines in the range, except the first one.
 
 When the function returns a composite value it can be further
 dereferenced, but the range will not be used then.  Example:
-```
 :4,8call GetDict().method()
-
-```
-		Here GetDict() gets the range but method() does not.
+Here GetDict() gets the range but method() does not.
 
 ### <a id="E132" class="section-title" href="#E132">Note:</a>
 The recursiveness of user functions is restricted with the ['maxfuncdepth'](#'maxfuncdepth')
@@ -383,12 +345,10 @@ option.
 
 It is also possible to use `:eval`.  It does not support a range, but does
 allow for method chaining, e.g.:
-```
 eval GetList()->Filter()->append('$')
 
 A function can also be called as part of evaluating an expression or when it
 is used as a method:
-```
 let x = GetList()
 let y = GetList()->Filter()
 
@@ -411,7 +371,6 @@ again, setting a variable to skip the `:finish` command.
 
 Use the FuncUndefined autocommand event with a pattern that matches the
 function(s) to be defined.  Example:
-```
 
 :au FuncUndefined BufNet* source ~/vim/bufnetfuncs.vim
 
@@ -426,7 +385,6 @@ This is introduced in the user manual, section [41.15](#41.15).
 Using a script in the "autoload" directory is simpler, but requires using
 exactly the right file name.  A function that can be autoloaded has a name
 like this:
-```
 
 :call filename#funcname()
 
@@ -434,7 +392,6 @@ When such a function is called, and it is not defined yet, Vim will search the
 "autoload" directories in 'runtimepath' for a script file called
 "filename.vim".  For example "~/.config/nvim/autoload/filename.vim".  That
 file should then define the function like this:
-```
 
 function filename#funcname()
 echo "Done!"
@@ -450,14 +407,12 @@ called.
 
 It is possible to use subdirectories.  Every # in the function name works like
 a path separator.  Thus when calling a function:
-```
 
 :call foo#bar#func()
 
 Vim will look for the file "autoload/foo/bar.vim" in 'runtimepath'.
 
 This also works when reading a variable that has not been set yet:
-```
 
 :let l = foo#bar#lvar
 
@@ -466,7 +421,6 @@ for an unknown variable.
 
 When assigning a value to such a variable nothing special happens.  This can
 be used to pass settings to the autoload script before it's loaded:
-```
 
 :let foo#bar#toggle = 1
 :call foo#bar#func()

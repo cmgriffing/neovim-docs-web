@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Recover
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -15,13 +15,13 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 You have spent several hours typing in that text that has to be finished
 next morning, and then disaster strikes: Your computer crashes.
 
-DON'T PANIC!
+			DON'T PANIC!
 
 You can recover most of your changes from the files that Vim uses to store
 the contents of the file.  Mostly you can recover your work with one command:
-vim -r filename
+	vim -r filename
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="swap-file" class="section-title" href="#swap-file">1. the Swap File</a> 
@@ -39,36 +39,36 @@ swap file name of other buffers.
 The name of the swap file is normally the same as the file you are editing,
 with the extension ".swp".
 - On Unix, a '.' is prepended to swap file names in the same directory as the
-edited file.  This avoids that the swap file shows up in a directory
-listing.
+  edited file.  This avoids that the swap file shows up in a directory
+  listing.
 - If this file already exists (e.g., when you are recovering from a crash) a
-warning is given and another extension is used, ".swo", ".swn", etc.
+  warning is given and another extension is used, ".swo", ".swn", etc.
 - An existing file will never be overwritten.
 - The swap file is deleted as soon as Vim stops editing the file.
 
 ### <a id="E326" class="section-title" href="#E326">Note:</a>
 Technical: If the ".swp" file name already exists, the last character is
-decremented until there is no file with that name or ".saa" is
-reached.  In the last case, no swap file is created.
+	   decremented until there is no file with that name or ".saa" is
+	   reached.  In the last case, no swap file is created.
 
 By setting the 'directory' option you can place the swap file in another place
 than where the edited file is.
 Advantages:
 - You will not pollute the directories with ".swp" files.
 - When the 'directory' is on another partition, reduce the risk of damaging
-the file system where the file is (in a crash).
+  the file system where the file is (in a crash).
 Disadvantages:
 - You can get name collisions from files with the same name but in different
-directories (although Vim tries to avoid that by comparing the path name).
-This will result in bogus ATTENTION warning messages.
+  directories (although Vim tries to avoid that by comparing the path name).
+  This will result in bogus ATTENTION warning messages.
 - When you use your home directory, and somebody else tries to edit the same
-file, that user will not see your swap file and will not get the ATTENTION
-warning message.
+  file, that user will not see your swap file and will not get the ATTENTION
+  warning message.
 
 If you want to put swap files in a fixed place, put a command resembling the
 following ones in your vimrc:
-:set dir=~/tmp		(for Unix)
-:set dir=c:\\tmp	(for Win32)
+	:set dir=~/tmp		(for Unix)
+	:set dir=c:\\tmp	(for Win32)
 This is also very handy when editing files on floppy.  Of course you will have
 to create that "tmp" directory for this to work!
 
@@ -79,10 +79,10 @@ The 'swapfile' option can be reset to avoid creating a swapfile.  And the
 [:noswapfile](#:noswapfile) modifier can be used to not create a swapfile for a new buffer.
 
 :nos[wapfile]   {command}			*:nos* *:noswapfile*
-Execute {command}. If it contains a command that loads a new
-buffer, it will be loaded without creating a swapfile and the
-'swapfile' option will be reset.  If a buffer already had a
-swapfile it is not removed and 'swapfile' is not reset.
+		Execute {command}. If it contains a command that loads a new
+		buffer, it will be loaded without creating a swapfile and the
+		'swapfile' option will be reset.  If a buffer already had a
+		swapfile it is not removed and 'swapfile' is not reset.
 
 
 Detecting an existing swap file ~
@@ -113,8 +113,8 @@ command:
 
 ### <a id=":pre :preserve E313 E314" class="section-title" href="#:pre :preserve E313 E314">Note:</a>
 :pre[serve]		Write all text for the current buffer into its swap
-file.  The original file is no longer needed for
-recovery.
+			file.  The original file is no longer needed for
+			recovery.
 
 A Vim swap file can be recognized by the first six characters: "b0VIM ".
 After that comes the version number, e.g., "3.0".
@@ -136,10 +136,10 @@ The swap file name is based on that name.  Thus it doesn't matter by what name
 you edit the file, the swap file name will normally be the same.  However,
 there are exceptions:
 - When the directory of the actual file is not writable the swapfile is put
-elsewhere.
+  elsewhere.
 - When the symbolic links somehow create a loop you get an *E773* error
-message and the unmodified file name will be used.  You won't be able to
-save your file normally.
+  message and the unmodified file name will be used.  You won't be able to
+  save your file normally.
 
 
 ## <a id="recovery E308 E311" class="section-title" href="#recovery E308 E311">2. Recovery</a> 
@@ -153,12 +153,12 @@ will do the work.  You can also give the name of the file or the swap file to
 the recover command:
 ### <a id=":rec :recover E305 E306 E307" class="section-title" href="#:rec :recover E305 E306 E307">Note:</a>
 :rec[over] [file]	Try to recover [file] from the swap file.  If [file]
-is not given use the file name for the current
-buffer.  The current contents of the buffer are lost.
-This command fails if the buffer was modified.
+			is not given use the file name for the current
+			buffer.  The current contents of the buffer are lost.
+			This command fails if the buffer was modified.
 
 :rec[over]! [file]	Like ":recover", but any changes in the current
-buffer are lost.
+			buffer are lost.
 
 ### <a id="E312 E309 E310" class="section-title" href="#E312 E309 E310">Note:</a>
 Vim has some intelligence about what to do if the swap file is corrupt in
@@ -180,5 +180,5 @@ Once you are sure the recovery is ok delete the swap file.  Otherwise, you
 will continue to get warning messages that the ".swp" file already exists.
 
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Usr 27
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -9,7 +9,7 @@ layout: "@layouts/MainLayout.astro"
 
 VIM USER MANUAL - by Bram Moolenaar
 
-Search commands and patterns
+			 Search commands and patterns
 
 
 In chapter 3 a few simple search patterns were mentioned [03.9](#03.9).  Vim can do
@@ -26,8 +26,8 @@ A detailed specification can be found here: [pattern](#pattern)
 [27.8](#27.8)	Matching a line break
 [27.9](#27.9)	Examples
 
-Next chapter: [usr_28.txt](#usr_28.txt)  Folding
-Previous chapter: [usr_26.txt](#usr_26.txt)  Repeating
+     Next chapter: [usr_28.txt](#usr_28.txt)  Folding
+ Previous chapter: [usr_26.txt](#usr_26.txt)  Repeating
 Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 
@@ -36,36 +36,33 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 By default, Vim's searches are case sensitive.  Therefore, "include",
 "INCLUDE", and "Include" are three different words and a search will match
 only one of them.
-Now switch on the 'ignorecase' option:
+   Now switch on the 'ignorecase' option: 
 ```
-
-:set ignorecase
+	:set ignorecase
 
 Search for "include" again, and now it will match "Include", "INCLUDE" and
 "InClUDe".  (Set the 'hlsearch' option to quickly see where a pattern
 matches.)
-You can switch this off again with:
-```
+   You can switch this off again with:
 
-:set noignorecase
+	:set noignorecase
 
 But let's keep it set, and search for "INCLUDE".  It will match exactly the
 same text as "include" did.  Now set the 'smartcase' option:
-```
 
-:set ignorecase smartcase
+	:set ignorecase smartcase
 
 If you have a pattern with at least one uppercase character, the search
 becomes case sensitive.  The idea is that you didn't have to type that
 uppercase character, so you must have done it because you wanted case to
 match.  That's smart!
-With these two options set you find the following matches:
+    With these two options set you find the following matches:
 
-pattern			matches	~
-word			word, Word, WORD, WoRd, etc.
-Word			Word
-WORD			WORD
-WoRd			WoRd
+	pattern			matches	~
+	word			word, Word, WORD, WoRd, etc.
+	Word			Word
+	WORD			WORD
+	WoRd			WoRd
 
 
 CASE IN ONE PATTERN
@@ -75,25 +72,25 @@ prepending the "\c" string.  Using "\C" will make the pattern to match case.
 This overrules the 'ignorecase' and 'smartcase' options, when "\c" or "\C" is
 used their value doesn't matter.
 
-pattern			matches	~
-\Cword			word
-\CWord			Word
-\cword			word, Word, WORD, WoRd, etc.
-\cWord			word, Word, WORD, WoRd, etc.
+	pattern			matches	~
+	\Cword			word
+	\CWord			Word
+	\cword			word, Word, WORD, WoRd, etc.
+	\cWord			word, Word, WORD, WoRd, etc.
 
 A big advantage of using "\c" and "\C" is that it sticks with the pattern.
 Thus if you repeat a pattern from the search history, the same will happen, no
 matter if 'ignorecase' or 'smartcase' was changed.
 
-Note:
-The use of "\" items in search patterns depends on the 'magic' option.
-In this chapter we will assume 'magic' is on, because that is the
-standard and recommended setting.  If you would change 'magic', many
-search patterns would suddenly become invalid.
+	Note:
+	The use of "\" items in search patterns depends on the 'magic' option.
+	In this chapter we will assume 'magic' is on, because that is the
+	standard and recommended setting.  If you would change 'magic', many
+	search patterns would suddenly become invalid.
 
-Note:
-If your search takes much longer than you expected, you can interrupt
-it with CTRL-C on Unix and CTRL-Break on MS-Windows.
+	Note:
+	If your search takes much longer than you expected, you can interrupt
+	it with CTRL-C on Unix and CTRL-Break on MS-Windows.
 
 
 ## <a id="" class="section-title" href="#">*27.2*	Wrapping Around the File End</a> 
@@ -102,27 +99,26 @@ By default, a forward search starts searching for the given string at the
 current cursor location.  It then proceeds to the end of the file.  If it has
 not found the string by that time, it starts from the beginning and searches
 from the start of the file to the cursor location.
-Keep in mind that when repeating the "n" command to search for the next
+   Keep in mind that when repeating the "n" command to search for the next
 match, you eventually get back to the first match.  If you don't notice this
 you keep searching forever!  To give you a hint, Vim displays this message:
 
-search hit BOTTOM, continuing at TOP ~
+	search hit BOTTOM, continuing at TOP ~
 
 If you use the "?" command, to search in the other direction, you get this
 message:
 
-search hit TOP, continuing at BOTTOM ~
+	search hit TOP, continuing at BOTTOM ~
 
 Still, you don't know when you are back at the first match.  One way to see
 this is by switching on the 'ruler' option:
-```
 
-:set ruler
+	:set ruler
 
 Vim will display the cursor position in the lower righthand corner of the
 window (in the status line if there is one).  It looks like this:
 
-101,29       84% ~
+	101,29       84% ~
 
 The first number is the line number of the cursor.  Remember the line number
 where you started, so that you can check if you passed this position again.
@@ -131,19 +127,18 @@ where you started, so that you can check if you passed this position again.
 NOT WRAPPING
 
 To turn off search wrapping, use the following command:
-```
 
-:set nowrapscan
+	:set nowrapscan
 
 Now when the search hits the end of the file, an error message displays:
 
-E385: search hit BOTTOM without match for: forever ~
+	E385: search hit BOTTOM without match for: forever ~
 
 Thus you can find all matches by going to the start of the file with "gg" and
 keep searching until you see this message.
-If you search in the other direction, using "?", you get:
+   If you search in the other direction, using "?", you get:
 
-E384: search hit TOP without match for: forever ~
+	E384: search hit TOP without match for: forever ~
 
 
 ## <a id="" class="section-title" href="#">*27.3*	Offsets</a> 
@@ -152,9 +147,8 @@ By default, the search command leaves the cursor positioned on the beginning
 of the pattern.  You can tell Vim to leave it some other place by specifying
 an offset.  For the forward search command "/", the offset is specified by
 appending a slash (/) and the offset:
-```
 
-/default/2
+	/default/2
 
 This command searches for the pattern "default" and then moves to the
 beginning of the second line past the pattern.  Using this command on the
@@ -171,22 +165,19 @@ CHARACTER OFFSETS
 
 The "e" offset indicates an offset from the end of the match.  It moves the
 cursor onto the last character of the match.  The command:
-```
 
-/const/e
+	/const/e
 
 puts the cursor on the "t" of "const".
-From that position, adding a number moves forward that many characters.
+   From that position, adding a number moves forward that many characters.
 This command moves to the character just after the match:
-```
 
-/const/e+1
+	/const/e+1
 
 A positive number moves the cursor to the right, a negative number moves it to
 the left.  For example:
-```
 
-/const/e-1
+	/const/e-1
 
 moves the cursor to the "s" of "const".
 
@@ -194,9 +185,8 @@ If the offset begins with "b", the cursor moves to the beginning of the
 pattern.  That's not very useful, since leaving out the "b" does the same
 thing.  It does get useful when a number is added or subtracted.  The cursor
 then goes forward or backward that many characters.  For example:
-```
 
-/const/b+2
+	/const/b+2
 
 Moves the cursor to the beginning of the match and then two characters to the
 right.  Thus it lands on the "n".
@@ -206,34 +196,29 @@ REPEATING
 
 To repeat searching for the previously used search pattern, but with a
 different offset, leave out the pattern:
-```
 
-/that
-//e
+	/that
+	//e
 
 Is equal to:
-```
 
-/that/e
+	/that/e
 
 To repeat with the same offset:
-```
 
-/
+	/
 
 "n" does the same thing.  To repeat while removing a previously used offset:
-```
 
-//
+	//
 
 
 SEARCHING BACKWARDS
 
 The "?" command uses offsets in the same way, but you must use "?" to separate
 the offset from the pattern, instead of "/":
-```
 
-?const?e-2
+	?const?e-2
 
 The "b" and "e" keep their meaning, they don't change direction with the use
 of "?".
@@ -243,15 +228,14 @@ START POSITION
 
 When starting a search, it normally starts at the cursor position.  When you
 specify a line offset, this can cause trouble.  For example:
-```
 
-/const/-2
+	/const/-2
 
 This finds the next word "const" and then moves two lines up.  If you
 use "n" to search again, Vim could start at the current position and find the
 same "const" match.  Then using the offset again, you would be back where you
 started.  You would be stuck!
-It could be worse: Suppose there is another match with "const" in the next
+   It could be worse: Suppose there is another match with "const" in the next
 line.  Then repeating the forward search would find this match and move two
 lines up.  Thus you would actually move the cursor back!
 
@@ -264,9 +248,8 @@ isn't found again.
 
 The "*" item specifies that the item before it can match any number of times.
 Thus:
-```
 
-/a*
+	/a*
 
 matches "a", "aa", "aaa", etc.  But also "" (the empty string), because zero
 times is included.
@@ -274,24 +257,21 @@ times is included.
 "a", "ab", "abb", "abbb", etc.  To match a whole string multiple times, it
 must be grouped into one item.  This is done by putting "\(" before it and
 "\)" after it.  Thus this command:
-```
 
-/\(ab\)*
+	/\(ab\)*
 
 Matches: "ab", "abab", "ababab", etc.  And also "".
 
 To avoid matching the empty string, use "\+".  This makes the previous item
 match one or more times.
-```
 
-/ab\+
+	/ab\+
 
 Matches "ab", "abb", "abbb", etc.  It does not match "a" when no "b" follows.
 
 To match an optional item, use "\=".  Example:
-```
 
-/folders\=
+	/folders\=
 
 Matches "folder" and "folders".
 
@@ -301,22 +281,21 @@ SPECIFIC COUNTS
 To match a specific number of items use the form "\{n,m}".  "n" and "m" are
 numbers.  The item before it will be matched "n" to "m" times [inclusive](#inclusive).
 Example:
-```
 
-/ab\{3,5}
+	/ab\{3,5}
 
 matches "abbb", "abbbb" and "abbbbb".
-When "n" is omitted, it defaults to zero.  When "m" is omitted it defaults
+  When "n" is omitted, it defaults to zero.  When "m" is omitted it defaults
 to infinity.  When ",m" is omitted, it matches exactly "n" times.
 Examples:
 
-pattern		match count ~
-\{,4}		0, 1, 2, 3 or 4
-\{3,}		3, 4, 5, etc.
-\{0,1}		0 or 1, same as \=
+	pattern		match count ~
+	\{,4}		0, 1, 2, 3 or 4
+	\{3,}		3, 4, 5, etc.
+	\{0,1}		0 or 1, same as \=
 ### <a id="0 or more, same as " class="section-title" href="#0 or more, same as ">	\{0,}</a>
-\{1,}		1 or more, same as \+
-\{3}		3
+	\{1,}		1 or more, same as \+
+	\{3}		3
 
 
 MATCHING AS LITTLE AS POSSIBLE
@@ -324,26 +303,23 @@ MATCHING AS LITTLE AS POSSIBLE
 The items so far match as many characters as they can find.  To match as few
 as possible, use "\{-n,m}".  It works the same as "\{n,m}", except that the
 minimal amount possible is used.
-For example, use:
-```
+   For example, use:
 
-/ab\{-1,3}
+	/ab\{-1,3}
 
 Will match "ab" in "abbb".  Actually, it will never match more than one b,
 because there is no reason to match more.  It requires something else to force
 it to match more than the lower limit.
-The same rules apply to removing "n" and "m".  It's even possible to remove
+   The same rules apply to removing "n" and "m".  It's even possible to remove
 both of the numbers, resulting in "\{-}".  This matches the item before it
 zero or more times, as few as possible.  The item by itself always matches
 zero times.  It is useful when combined with something else.  Example:
-```
 
-/a.\{-}b
+	/a.\{-}b
 
 This matches "axb" in "axbxb".  If this pattern would be used:
-```
 
-/a.*b
+	/a.*b
 
 It would try to match as many characters as possible with ".*", thus it
 matches "axbxb" as a whole.
@@ -352,34 +328,29 @@ matches "axbxb" as a whole.
 ## <a id="" class="section-title" href="#">*27.5*	Alternatives</a> 
 
 The "or" operator in a pattern is "\|".  Example:
-```
 
-/foo\|bar
+	/foo\|bar
 
 This matches "foo" or "bar".  More alternatives can be concatenated:
-```
 
-/one\[two\](#two\)three
+	/one\[two\](#two\)three
 
 Matches "one", "two" and "three".
-To match multiple times, the whole thing must be placed in "\(" and "\)":
-```
+   To match multiple times, the whole thing must be placed in "\(" and "\)":
 
-/\(foo\|bar\)\+
+	/\(foo\|bar\)\+
 
 This matches "foo", "foobar", "foofoo", "barfoobar", etc.
-Another example:
-```
+   Another example:
 
-/end\(if\[while\](#while\)for\)
+	/end\(if\[while\](#while\)for\)
 
 This matches "endif", "endwhile" and "endfor".
 
 A related item is "\&".  This requires that both alternatives match in the
 same place.  The resulting match uses the last alternative.  Example:
-```
 
-/forever\&...
+	/forever\&...
 
 This matches "for" in "forever".  It will not match "fortuin", for example.
 
@@ -388,31 +359,28 @@ This matches "for" in "forever".  It will not match "fortuin", for example.
 
 To match "a", "b" or "c" you could use "/a\[b\](#b\)c".  When you want to match all
 letters from "a" to "z" this gets very long.  There is a shorter method:
-```
 
-/[a-z]
+	/[a-z]
 
 The [] construct matches a single character.  Inside you specify which
 characters to match.  You can include a list of characters, like this:
-```
 
-/[0123456789abcdef]
+	/[0123456789abcdef]
 
 This will match any of the characters included.  For consecutive characters
 you can specify the range.  "0-3" stands for "0123".  "w-z" stands for "wxyz".
 Thus the same command as above can be shortened to:
-```
 
-/[0-9a-f]
+	/[0-9a-f]
 
 To match the "-" character itself make it the first or last one in the range.
 These special characters are accepted to make it easier to use them inside a
 [] range (they can actually be used anywhere in the search pattern):
 
-\e	<Esc>
-\t	<Tab>
-\r	<CR>
-\b	<BS>
+	\e	<Esc>
+	\t	<Tab>
+	\r	<CR>
+	\b	<BS>
 
 There are a few more special cases for [] ranges, see [/[]](#/[]) for the whole
 story.
@@ -422,16 +390,14 @@ COMPLEMENTED RANGE
 
 To avoid matching a specific character, use "^" at the start of the range.
 The [] item then matches everything but the characters included.  Example:
+
+	/"[^"]*"
 ```
 
-/"[^"]*"
-
-```
-
-"	  a double quote
-[^"]	  any character that is not a double quote
+	 "	  a double quote
+	  [^"]	  any character that is not a double quote
 ### <a id="" class="section-title" href="#">Note:</a>
-"  a double quote again
+	       "  a double quote again
 
 This matches "foo" and "3!x", including the double quotes.
 
@@ -439,31 +405,30 @@ This matches "foo" and "3!x", including the double quotes.
 PREDEFINED RANGES
 
 A number of ranges are used very often.  Vim provides a shortcut for these.
-For example:
+For example: 
 ```
-
-/\a
+	/\a
 
 Finds alphabetic characters.  This is equal to using "/[a-zA-Z]".  Here are a
 few more of these:
 
-item	matches			equivalent ~
-\d	digit			[0-9]
-\D	non-digit		[^0-9]
-\x	hex digit		[0-9a-fA-F]
-\X	non-hex digit		[^0-9a-fA-F]
-\s	white space		[ 	]     (<Tab> and <Space>)
-\S	non-white characters	[^ 	]     (not <Tab> and <Space>)
-\l	lowercase alpha		[a-z]
-\L	non-lowercase alpha	[^a-z]
-\u	uppercase alpha		[A-Z]
-\U	non-uppercase alpha	[^A-Z]
+	item	matches			equivalent ~
+	\d	digit			[0-9]
+	\D	non-digit		[^0-9]
+	\x	hex digit		[0-9a-fA-F]
+	\X	non-hex digit		[^0-9a-fA-F]
+	\s	white space		[ 	]     (<Tab> and <Space>)
+	\S	non-white characters	[^ 	]     (not <Tab> and <Space>)
+	\l	lowercase alpha		[a-z]
+	\L	non-lowercase alpha	[^a-z]
+	\u	uppercase alpha		[A-Z]
+	\U	non-uppercase alpha	[^A-Z]
 
-Note:
-Using these predefined ranges works a lot faster than the character
-range it stands for.
-These items can not be used inside [].  Thus "[\d\l]" does NOT work to
-match a digit or lowercase alpha.  Use "\(\d\|\l\)" instead.
+	Note:
+	Using these predefined ranges works a lot faster than the character
+	range it stands for.
+	These items can not be used inside [].  Thus "[\d\l]" does NOT work to
+	match a digit or lowercase alpha.  Use "\(\d\|\l\)" instead.
 
 See [/\s](#/\s) for the whole list of these ranges.
 
@@ -473,43 +438,41 @@ See [/\s](#/\s) for the whole list of these ranges.
 The character range matches a fixed set of characters.  A character class is
 similar, but with an essential difference: The set of characters can be
 redefined without changing the search pattern.
-For example, search for this pattern:
-```
+   For example, search for this pattern:
 
-/\f\+
+	/\f\+
 
 The "\f" item stands for file name characters.  Thus this matches a sequence
 of characters that can be a file name.
-Which characters can be part of a file name depends on the system you are
+   Which characters can be part of a file name depends on the system you are
 using.  On MS-Windows, the backslash is included, on Unix it is not.  This is
 specified with the 'isfname' option.  The default value for Unix is:
-```
 
-:set isfname
-isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,=
+	:set isfname
+	isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,=
 
 For other systems the default value is different.  Thus you can make a search
 pattern with "\f" to match a file name, and it will automatically adjust to
 the system you are using it on.
 
-Note:
-Actually, Unix allows using just about any character in a file name,
-including white space.  Including these characters in 'isfname' would
-be theoretically correct.  But it would make it impossible to find the
-end of a file name in text.  Thus the default value of 'isfname' is a
-compromise.
+	Note:
+	Actually, Unix allows using just about any character in a file name,
+	including white space.  Including these characters in 'isfname' would
+	be theoretically correct.  But it would make it impossible to find the
+	end of a file name in text.  Thus the default value of 'isfname' is a
+	compromise.
 
 The character classes are:
 
-item	matches				option ~
-\i	identifier characters		'isident'
-\I	like \i, excluding digits
-\k	keyword characters		'iskeyword'
-\K	like \k, excluding digits
-\p	printable characters		'isprint'
-\P	like \p, excluding digits
-\f	file name characters		'isfname'
-\F	like \f, excluding digits
+	item	matches				option ~
+	\i	identifier characters		'isident'
+	\I	like \i, excluding digits
+	\k	keyword characters		'iskeyword'
+	\K	like \k, excluding digits
+	\p	printable characters		'isprint'
+	\P	like \p, excluding digits
+	\f	file name characters		'isfname'
+	\F	like \f, excluding digits
 
 
 ## <a id="" class="section-title" href="#">*27.8*	Matching a Line Break</a> 
@@ -517,22 +480,19 @@ item	matches				option ~
 Vim can find a pattern that includes a line break.  You need to specify where
 the line break happens, because all items mentioned so far don't match a line
 break.
-To check for a line break in a specific place, use the "\n" item:
-```
+   To check for a line break in a specific place, use the "\n" item:
 
-/one\ntwo
+	/one\ntwo
 
 This will match at a line that ends in "one" and the next line starts with
 "two".  To match "one two" as well, you need to match a space or a line
 break.  The item to use for it is "\_s":
-```
 
-/one\_stwo
+	/one\_stwo
 
 To allow any amount of white space:
-```
 
-/one\_s\+two
+	/one\_s\+two
 
 This also matches when "one  " is at the end of a line and "   two" at the
 start of the next one.
@@ -545,14 +505,13 @@ can be modified in the same way by inserting a "_".
 Many other items can be made to match a line break by prepending "\_".  For
 example: "\_." matches any character or a line break.
 
-Note:
-"\_.*" matches everything until the end of the file.  Be careful with
-this, it can make a search command very slow.
+	Note:
+	"\_.*" matches everything until the end of the file.  Be careful with
+	this, it can make a search command very slow.
 
 Another example is "\_[]", a character range that includes a line break:
-```
 
-/"\_[^"]*"
+	/"\_[^"]*"
 
 This finds a text in double quotes that may be split up in several lines.
 
@@ -567,20 +526,17 @@ FINDING A CALIFORNIA LICENSE PLATE
 
 A sample license plate number is "1MGU103".  It has one digit, three uppercase
 letters and three digits.  Directly putting this into a search pattern:
-```
 
-/\d\u\u\u\d\d\d
+	/\d\u\u\u\d\d\d
 
 Another way is to specify that there are three digits and letters with a
 count:
-```
 
-/\d\u\{3}\d\{3}
+	/\d\u\{3}\d\{3}
 
 Using [] ranges instead:
-```
 
-/[0-9][A-Z]\{3}[0-9]\{3}
+	/[0-9][A-Z]\{3}[0-9]\{3}
 
 Which one of these you should use?  Whichever one you can remember.  The
 simple way you can remember is much faster than the fancy way that you can't.
@@ -593,27 +549,24 @@ FINDING AN IDENTIFIER
 In C programs (and many other computer languages) an identifier starts with a
 letter and further consists of letters and digits.  Underscores can be used
 too.  This can be found with:
-```
 
-/\<\h\w*\>
+	/\<\h\w*\>
 
 "\<" and "\>" are used to find only whole words.  "\h" stands for "[A-Za-z_]"
 and "\w" for "[0-9A-Za-z_]".
 
-Note:
-"\<" and "\>" depend on the 'iskeyword' option.  If it includes "-",
-for example, then "ident-" is not matched.  In this situation use:
-```
+	Note:
+	"\<" and "\>" depend on the 'iskeyword' option.  If it includes "-",
+	for example, then "ident-" is not matched.  In this situation use:
 
 ### <a id="/\w\@<!\h\w\w\@!" class="section-title" href="#/\w\@<!\h\w\w\@!">Note:</a>
-
 ```
 
-This checks if "\w" does not match before or after the identifier.
-See [/\@<!| and |/\@!](#/\@<!| and |/\@!).
+	This checks if "\w" does not match before or after the identifier.
+	See [/\@<!| and |/\@!](#/\@<!| and |/\@!).
 
 
-## <a id="Folding" class="section-title" href="#Folding">Next Chapter: |Usr_28.Txt|</a> 
+## <a id="Folding" class="section-title" href="#Folding">Next Chapter: [Usr_28.Txt](#Usr_28.Txt)</a> 
 
 Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

@@ -4,12 +4,18 @@ const SECTION_SPLITTER = "---SECTION_SPLITTER---";
 const TITLE_SPLITTER = "---TITLE_SPLITTER---";
 const DETAIL_SPLITTER = "---DETAIL_SPLITTER---";
 
-export function parseTextContents(textContent: string): HelpPage {
+export function parseTextContents(
+  pageTitle: string,
+  textContent: string,
+  shouldTrimStart = false
+): HelpPage {
   // convert split sections to explicit string from regex
-  const scrubbedContent = textContent.replace(
+  let scrubbedContent = textContent.replace(
     new RegExp("^=+$", "gm"),
     SECTION_SPLITTER
   );
+
+  scrubbedContent = scrubContent(scrubbedContent);
 
   // split sections
   const rawSections = scrubbedContent
@@ -52,10 +58,14 @@ export function parseTextContents(textContent: string): HelpPage {
         if (scrubbedLine.indexOf("lua-treesitter-not-predicate") > -1) {
           console.log("Bailing out", { scrubbedLine });
         }
-        return otherLine.trimStart();
+        if (shouldTrimStart) {
+          return otherLine.trimStart();
+        } else {
+          return otherLine; // trimStart();
+        }
       }
 
-      otherLine = otherLine.trimStart();
+      // otherLine = otherLine.trimStart();
 
       rawDetailAnchor = rawDetailAnchor
         .trimStart()
@@ -88,13 +98,13 @@ export function parseTextContents(textContent: string): HelpPage {
       title: Case.title(title),
       anchor,
       extraAnchor,
-      content: scrubContent(otherLines.join("\n").trim()),
+      content: otherLines.join("\n").trim(),
     };
   });
 
   return {
-    title: "TreeSitter",
-    slug: "treesitter",
+    title: Case.title(pageTitle),
+    slug: Case.kebab(pageTitle),
     sections,
   };
 }
@@ -103,8 +113,16 @@ function scrubContent(content: string) {
   let newContent = content;
 
   // code blocks
-  newContent = newContent.replace(new RegExp("\\s+>$", "gm"), "\n```");
-  newContent = newContent.replace(new RegExp("^<", "gm"), "\n```\n");
+  // newContent = newContent.replace(new RegExp("\\s+>$", "gm"), "\n```");
+  // newContent = newContent.replace(new RegExp("^<", "gm"), "\n```\n");
+
+  newContent = newContent.replace(
+    new RegExp(">\\n([.\\S\\s]+?)\\s*?<$", "gm"),
+    "\n```$1\n```\n"
+  );
+
+  newContent = newContent.replace(new RegExp("\\s+>$", "gm"), "");
+  newContent = newContent.replace(new RegExp("^<", "gm"), "");
 
   // links
   newContent = newContent.replace(new RegExp("\\|(.+)\\|", "gm"), "[$1](#$1)");

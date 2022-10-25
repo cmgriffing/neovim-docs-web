@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Pi Tutor
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -24,24 +24,22 @@ by double-clicking them.
 ------------
 ### <a id=":Tutor" class="section-title" href="#:Tutor">Note:</a>
 :Tutor {tutorial}	Opens a tutorial. Command-line completion for
-{tutorial} is provided, the candidates are a list of
-'.tutor' files found in the 'tutor/'  folder in
-the 'runtimepath'. Tutorials prefixed with 'vim-' will
-always be shown first.
+			{tutorial} is provided, the candidates are a list of
+			'.tutor' files found in the 'tutor/'  folder in
+			the 'runtimepath'. Tutorials prefixed with 'vim-' will
+			always be shown first.
 
-If no {tutorial} is provided, the command starts the
-'vim-01-beginner' tutorial, which is equivalent to
-Vim's `vimtutor`.
+			If no {tutorial} is provided, the command starts the
+			'vim-01-beginner' tutorial, which is equivalent to
+			Vim's `vimtutor`.
 
 
 ## <a id="vim-tutor-create" class="section-title" href="#vim-tutor-create">2. Creating Tutorials</a> 
 
 Writing vim-tutor-mode tutorials is easy. For an overview of the format used,
-please consult the 'tutor.tutor' file:
+please consult the 'tutor.tutor' file: 
 ```
-
-:Tutor tutor
-
+    :Tutor tutor
 ```
 
 New tutorials must be placed in the 'tutor/' folder in the 'runtimepath'

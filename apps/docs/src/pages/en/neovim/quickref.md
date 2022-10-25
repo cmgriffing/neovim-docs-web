@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Quickref
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -13,7 +13,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 ## <a id="" class="section-title" href="#">Quick Reference Guide</a> 
 
 ### <a id="quickref Contents" class="section-title" href="#quickref Contents">Note:</a>
-tag	  subject			 tag	  subject	~
+ tag	  subject			 tag	  subject	~
 [Q_ct|	list of help files		|Q_re](#Q_ct|	list of help files		|Q_re)	Repeating commands
 [Q_lr|	motion: Left-right		|Q_km](#Q_lr|	motion: Left-right		|Q_km)	Key mapping
 [Q_ud|	motion: Up-down			|Q_ab](#Q_ud|	motion: Up-down			|Q_ab)	Abbreviations
@@ -34,7 +34,7 @@ tag	  subject			 tag	  subject	~
 [Q_co|	change: Complex			|Q_bu](#Q_co|	change: Complex			|Q_bu)	Buffer list commands
 [Q_vi|	Visual mode			|Q_sy](#Q_vi|	Visual mode			|Q_sy)	Syntax highlighting
 [Q_to|	Text objects			|Q_gu](#Q_to|	Text objects			|Q_gu)	GUI commands
-[Q_fo](#Q_fo)	Folding
+					[Q_fo](#Q_fo)	Folding
 
 ------------------------------------------------------------------------------
 *Q_lr*		Left-right motions
@@ -46,13 +46,13 @@ N is used to indicate an optional count that can be given before the command.
 [0](#0)	   0		to first character in the line (also: <Home> key)
 [^](#^)	   ^		to first non-blank character in the line
 [$](#$)	N  $		to the next EOL (end of line) position
-(also: <End> key)
+			   (also: <End> key)
 [g0](#g0)	   g0		to first character in screen line (differs from "0"
-when lines wrap)
+			   when lines wrap)
 [g^](#g^)	   g^		to first non-blank character in screen line (differs
-from "^" when lines wrap)
+			   from "^" when lines wrap)
 [g$](#g$)	N  g$		to last character in screen line (differs from "$"
-when lines wrap)
+			   when lines wrap)
 [gm](#gm)	   gm		to middle of the screen line
 [gM](#gM)	   gM		to middle of the line
 [bar|	N  ](#bar|	N  )		to column N (default: 1)
@@ -62,7 +62,7 @@ when lines wrap)
 [T](#T)	N  T{char}	till before the Nth occurrence of {char} to the left
 [;](#;)	N  ;		repeat the last "f", "F", "t", or "T" N times
 [,](#,)	N  ,		repeat the last "f", "F", "t", or "T" N times in
-opposite direction
+			   opposite direction
 
 ------------------------------------------------------------------------------
 *Q_ud*		Up-down motions
@@ -71,14 +71,14 @@ opposite direction
 [j](#j)	N  j		down N lines (also: CTRL-J, CTRL-N, <NL>, and <Down>)
 [-](#-)	N  -		up N lines, on the first non-blank character
 [+](#+)	N  +		down N lines, on the first non-blank character (also:
-CTRL-M and <CR>)
+			   CTRL-M and <CR>)
 [_](#_)	N  _		down N-1 lines, on the first non-blank character
 [G](#G)	N  G		goto line N (default: last line), on the first
-non-blank character
+			   non-blank character
 [gg](#gg)	N  gg		goto line N (default: first line), on the first
-non-blank character
+			   non-blank character
 [N%](#N%)	N  %		goto line N percentage down in the file; N must be
-given, otherwise it is the [%](#%) command
+			   given, otherwise it is the [%](#%) command
 [gk](#gk)	N  gk		up N screen lines (differs from "k" when line wraps)
 [gj](#gj)	N  gj		down N screen lines (differs from "j" when line wraps)
 
@@ -118,10 +118,10 @@ given, otherwise it is the [%](#%) command
 ------------------------------------------------------------------------------
 *Q_pa*		Pattern searches
 
-[/](#/)	N  /{pattern}[/[offset]]<CR>
-search forward for the Nth occurrence of {pattern}
+[/](#/)	N  /{pattern}[/[offset]]<CR
+```			search forward for the Nth occurrence of {pattern}
 [?](#?)	N  ?{pattern}[?[offset]]<CR>
-search backward for the Nth occurrence of {pattern}
+			search backward for the Nth occurrence of {pattern}
 [/<CR>](#/<CR>)	N  /<CR>	repeat last search, in the forward direction
 [?<CR>](#?<CR>)	N  ?<CR>	repeat last search, in the backward direction
 [n](#n)	N  n		repeat last search
@@ -135,49 +135,51 @@ search backward for the Nth occurrence of {pattern}
 
 [pattern](#pattern)		Special characters in search patterns
 
-meaning		      magic   nomagic	~
-matches any single character	.	\.
-matches start of line	^	^
-matches <EOL>	$	$
-matches start of word	\<	\<
-matches end of word	\>	\>
-matches a single char from the range	[a-z]	\[a-z]
-matches a single char not in the range	[^a-z]	\[^a-z]
-matches an identifier char	\i	\i
-idem but excluding digits	\I	\I
-matches a keyword character	\k	\k
-idem but excluding digits	\K	\K
-matches a file name character	\f	\f
-idem but excluding digits	\F	\F
-matches a printable character	\p	\p
-idem but excluding digits	\P	\P
-matches a white space character	\s	\s
-matches a non-white space character	\S	\S
+			meaning		      magic   nomagic	~
+		matches any single character	.	\.
+		       matches start of line	^	^
+			       matches <EOL>	$	$
+		       matches start of word	\<	\
+```
 
-matches <Esc>	\e	\e
-matches <Tab>	\t	\t
-matches <CR>	\r	\r
-matches <BS>	\b	\b
+			 matches end of word	\>	\>
+	matches a single char from the range	[a-z]	\[a-z]
+      matches a single char not in the range	[^a-z]	\[^a-z]
+		  matches an identifier char	\i	\i
+		   idem but excluding digits	\I	\I
+		 matches a keyword character	\k	\k
+		   idem but excluding digits	\K	\K
+	       matches a file name character	\f	\f
+		   idem but excluding digits	\F	\F
+	       matches a printable character	\p	\p
+		   idem but excluding digits	\P	\P
+	     matches a white space character	\s	\s
+	 matches a non-white space character	\S	\S
+
+			       matches <Esc>	\e	\e
+			       matches <Tab>	\t	\t
+				matches <CR>	\r	\r
+				matches <BS>	\b	\b
 
 ### <a id="matches 0 or more of the preceding atom		\" class="section-title" href="#matches 0 or more of the preceding atom		\">Note:</a>
-matches 1 or more of the preceding atom	\+	\+
-matches 0 or 1 of the preceding atom	\=	\=
-matches 2 to 5 of the preceding atom	\{2,5}  \{2,5}
-separates two alternatives	\[	\](#	\)
-group a pattern into an atom	\(\)	\(\)
+     matches 1 or more of the preceding atom	\+	\+
+	matches 0 or 1 of the preceding atom	\=	\=
+	matches 2 to 5 of the preceding atom	\{2,5}  \{2,5}
+		  separates two alternatives	\[	\](#	\)
+		group a pattern into an atom	\(\)	\(\)
 
 [search-offset](#search-offset)		Offsets allowed after search command
 
-[num]	[num] lines downwards, in column 1
-+[num]	[num] lines downwards, in column 1
--[num]	[num] lines upwards, in column 1
-e[+num]	[num] characters to the right of the end of the match
-e[-num]	[num] characters to the left of the end of the match
-s[+num]	[num] characters to the right of the start of the match
-s[-num]	[num] characters to the left of the start of the match
-b[+num]	[num] identical to s[+num] above (mnemonic: begin)
-b[-num]	[num] identical to s[-num] above (mnemonic: begin)
-;{search-command}	execute {search-command} next
+    [num]	[num] lines downwards, in column 1
+    +[num]	[num] lines downwards, in column 1
+    -[num]	[num] lines upwards, in column 1
+    e[+num]	[num] characters to the right of the end of the match
+    e[-num]	[num] characters to the left of the end of the match
+    s[+num]	[num] characters to the right of the start of the match
+    s[-num]	[num] characters to the left of the start of the match
+    b[+num]	[num] identical to s[+num] above (mnemonic: begin)
+    b[-num]	[num] identical to s[-num] above (mnemonic: begin)
+    ;{search-command}	execute {search-command} next
 
 ------------------------------------------------------------------------------
 *Q_ma*		Marks and motions
@@ -194,7 +196,7 @@ b[-num]	[num] identical to s[-num] above (mnemonic: begin)
 [`>](#`>)       `>		go to the end of the (previous) Visual area
 [`.](#`.)       `.		go to the position of the last change in this file
 ['](#')        '{a-zA-Z0-9[]'"<>.}
-same as `, but on the first non-blank in the line
+			same as `, but on the first non-blank in the line
 [:marks](#:marks)  :marks	print the active marks
 [CTRL-O](#CTRL-O)  N  CTRL-O	go to Nth older position in jump list
 [CTRL-I](#CTRL-I)  N  CTRL-I	go to Nth newer position in jump list
@@ -204,13 +206,13 @@ same as `, but on the first non-blank in the line
 *Q_vm*		Various motions
 
 [%](#%)	   %		find the next brace, bracket, comment, or "#if"/
-"#else"/"#endif" in this line and go to its match
+			   "#else"/"#endif" in this line and go to its match
 [H](#H)	N  H		go to the Nth line in the window, on the first
-non-blank
+			   non-blank
 [M](#M)	   M		go to the middle line in the window, on the first
-non-blank
+			   non-blank
 [L](#L)	N  L		go to the Nth line from the bottom, on the first
-non-blank
+			   non-blank
 
 [go](#go)	N  go			go to Nth byte in the buffer
 [:go](#:go)	:[range]go[to] [off]	go to [off] byte in the buffer
@@ -221,12 +223,12 @@ non-blank
 [:ta](#:ta)      :ta[g][!] {tag}	jump to tag {tag}
 [:ta](#:ta)      :[count]ta[g][!]	jump to [count]'th newer tag in tag list
 [CTRL-]](#CTRL-])      CTRL-]		jump to the tag under cursor, unless changes
-have been made
+				   have been made
 [:ts](#:ts)      :ts[elect][!] [tag]	list matching tags and select one to jump to
 [:tjump](#:tjump)   :tj[ump][!] [tag]	jump to tag [tag] or select from list when
-there are multiple matches
+				   there are multiple matches
 [:ltag](#:ltag)    :lt[ag][!] [tag]	jump to tag [tag] and add matching tags to the
-location list
+				   location list
 
 [:tags](#:tags)    :tags		print tag list
 [CTRL-T](#CTRL-T)   N  CTRL-T		jump back from Nth older tag in tag list
@@ -300,56 +302,56 @@ moving around:
 *Q_ss*		Special keys in Insert mode
 
 [i_CTRL-V](#i_CTRL-V)	CTRL-V {char}..	  insert character literally, or enter decimal
-byte value
+				     byte value
 [i_<NL>](#i_<NL>)	<NL> or <CR> or CTRL-M or CTRL-J
-begin new line
+				  begin new line
 [i_CTRL-E](#i_CTRL-E)	CTRL-E		  insert the character from below the cursor
 [i_CTRL-Y](#i_CTRL-Y)	CTRL-Y		  insert the character from above the cursor
 
 [i_CTRL-A](#i_CTRL-A)	CTRL-A		  insert previously inserted text
 [i_CTRL-@](#i_CTRL-@)	CTRL-@		  insert previously inserted text and stop
-Insert mode
+				     Insert mode
 [i_CTRL-R](#i_CTRL-R)	CTRL-R {register} insert the contents of a register
 
 [i_CTRL-N](#i_CTRL-N)	CTRL-N		  insert next match of identifier before the
-cursor
+				     cursor
 [i_CTRL-P](#i_CTRL-P)	CTRL-P		  insert previous match of identifier before
-the cursor
+				     the cursor
 [i_CTRL-X](#i_CTRL-X)	CTRL-X ...	  complete the word before the cursor in
-various ways
+				     various ways
 
 [i_<BS>](#i_<BS>)	<BS> or CTRL-H	  delete the character before the cursor
 [i_<Del>](#i_<Del>)	<Del>		  delete the character under the cursor
 [i_CTRL-W](#i_CTRL-W)	CTRL-W		  delete word before the cursor
 [i_CTRL-U](#i_CTRL-U)	CTRL-U		  delete all entered characters in the current
-line
+				     line
 [i_CTRL-T](#i_CTRL-T)	CTRL-T		  insert one shiftwidth of indent in front of
-the current line
+				       the current line
 [i_CTRL-D](#i_CTRL-D)	CTRL-D		  delete one shiftwidth of indent in front of
-the current line
+				     the current line
 [i_0_CTRL-D](#i_0_CTRL-D)	0 CTRL-D	  delete all indent in the current line
 [i_^_CTRL-D](#i_^_CTRL-D)	^ CTRL-D	  delete all indent in the current line,
-restore indent in next line
+				     restore indent in next line
 
 ------------------------------------------------------------------------------
 *Q_di*		Digraphs
 
 [:dig](#:dig)	   :dig[raphs]		show current list of digraphs
 [:dig](#:dig)	   :dig[raphs] {char1}{char2} {number} ...
-add digraph(s) to the list
+				add digraph(s) to the list
 
 In Insert or Command-line mode:
 [i_CTRL-K](#i_CTRL-K)	CTRL-K {char1} {char2}
-enter digraph
+				  enter digraph
 [i_digraph](#i_digraph)	{char1} <BS> {char2}
-enter digraph if 'digraph' option set
+				  enter digraph if 'digraph' option set
 
 ------------------------------------------------------------------------------
 *Q_si*		Special inserts
 
 [:r](#:r)	   :r [file]	   insert the contents of [file] below the cursor
 [:r!](#:r!)	   :r! {command}   insert the standard output of {command} below the
-cursor
+			      cursor
 
 ------------------------------------------------------------------------------
 *Q_de*		Deleting text
@@ -377,7 +379,7 @@ cursor
 [v_y](#v_y)	     {visual}y	yank the highlighted text into a register
 [yy](#yy)	  N  yy		yank N lines into a register
 [Y](#Y)	  N  Y		yank N lines into a register
-Note: Mapped to "y$" by default. [default-mappings](#default-mappings)
+			Note: Mapped to "y$" by default. [default-mappings](#default-mappings)
 [p](#p)	  N  p		put a register after the cursor position (N times)
 [P](#P)	  N  P		put a register before the cursor position (N times)
 []p](#]p)	  N  ]p		like p, but adjust indent to current line
@@ -392,12 +394,12 @@ Note: Mapped to "y$" by default. [default-mappings](#default-mappings)
 [gr](#gr)	  N  gr{char}	replace N characters without affecting layout
 [R](#R)	  N  R		enter Replace mode (repeat the entered text N times)
 [gR](#gR)	  N  gR		enter virtual Replace mode: Like Replace mode but
-without affecting layout
+			   without affecting layout
 [v_b_r](#v_b_r)	     {visual}r{char}
-in Visual block mode: Replace each char of the
-selected text with {char}
+			in Visual block mode: Replace each char of the
+			   selected text with {char}
 
-(change = delete text and enter Insert mode)
+	(change = delete text and enter Insert mode)
 [c](#c)	  N  c{motion}	change the text that is moved over with {motion}
 [v_c](#v_c)	     {visual}c	change the highlighted text
 [cc](#cc)	  N  cc		change N lines
@@ -405,68 +407,68 @@ selected text with {char}
 [C](#C)	  N  C		change to the end of the line (and N-1 more lines)
 [s](#s)	  N  s		change N characters
 [v_b_c](#v_b_c)	     {visual}c	in Visual block mode: Change each of the selected
-lines with the entered text
+			   lines with the entered text
 [v_b_C](#v_b_C)	     {visual}C	in Visual block mode: Change each of the selected
-lines until end-of-line with the entered text
+			   lines until end-of-line with the entered text
 
 [~](#~)	  N  ~		switch case for N characters and advance cursor
 [v_~](#v_~)	     {visual}~	switch case for highlighted text
 [v_u](#v_u)	     {visual}u	make highlighted text lowercase
 [v_U](#v_U)	     {visual}U	make highlighted text uppercase
 [g~](#g~)	     g~{motion} switch case for the text that is moved over with
-{motion}
+			   {motion}
 [gu](#gu)	     gu{motion} make the text that is moved over with {motion}
-lowercase
+			   lowercase
 [gU](#gU)	     gU{motion} make the text that is moved over with {motion}
-uppercase
+			   uppercase
 [v_g?](#v_g?)	     {visual}g? perform rot13 encoding on highlighted text
 [g?](#g?)	     g?{motion} perform rot13 encoding on the text that is moved over
-with {motion}
+			   with {motion}
 
 [CTRL-A](#CTRL-A)  N  CTRL-A	add N to the number at or after the cursor
 [CTRL-X](#CTRL-X)  N  CTRL-X	subtract N from the number at or after the cursor
 
 [<](#<)	  N  <{motion}	move the lines that are moved over with {motion} one
-shiftwidth left
+			   shiftwidth left
 [<<](#<<)	  N  <<		move N lines one shiftwidth left
 [>](#>)	  N  >{motion}	move the lines that are moved over with {motion} one
-shiftwidth right
+			   shiftwidth right
 [>>](#>>)	  N  >>		move N lines one shiftwidth right
 [gq](#gq)	  N  gq{motion}	format the lines that are moved over with {motion} to
-'textwidth' length
+			   'textwidth' length
 [:ce](#:ce)	  :[range]ce[nter] [width]
-center the lines in [range]
+			center the lines in [range]
 [:le](#:le)	  :[range]le[ft] [indent]
-left-align the lines in [range] (with [indent])
+			left-align the lines in [range] (with [indent])
 [:ri](#:ri)	  :[range]ri[ght] [width]
-right-align the lines in [range]
+			right-align the lines in [range]
 
 ------------------------------------------------------------------------------
 *Q_co*		Complex changes
 
 [!](#!)	   N  !{motion}{command}<CR>
-filter the lines that are moved over through {command}
+			filter the lines that are moved over through {command}
 [!!](#!!)	   N  !!{command}<CR>
-filter N lines through {command}
+			filter N lines through {command}
 [v_!](#v_!)	      {visual}!{command}<CR>
-filter the highlighted lines through {command}
+			filter the highlighted lines through {command}
 [:range!](#:range!)  :[range]! {command}<CR>
-filter [range] lines through {command}
+			filter [range] lines through {command}
 [=](#=)	   N  ={motion}
-filter the lines that are moved over through 'equalprg'
+			filter the lines that are moved over through 'equalprg'
 [==](#==)	   N  ==	filter N lines through 'equalprg'
 [v_=](#v_=)	      {visual}=
-filter the highlighted lines through 'equalprg'
+			filter the highlighted lines through 'equalprg'
 [:s](#:s)	   :[range]s[ubstitute]/{pattern}/{string}/[g][c]
-substitute {pattern} by {string} in [range] lines;
-with [g], replace all occurrences of {pattern};
-with [c], confirm each replacement
+			substitute {pattern} by {string} in [range] lines;
+			   with [g], replace all occurrences of {pattern};
+			   with [c], confirm each replacement
 [:s](#:s)	   :[range]s[ubstitute] [g][c]
-repeat previous ":s" with new range and options
+			repeat previous ":s" with new range and options
 [&](#&)	      &		Repeat previous ":s" on current line without options
 [:ret](#:ret)	   :[range]ret[ab][!] [tabstop]
-set 'tabstop' to new value and adjust white space
-accordingly
+			set 'tabstop' to new value and adjust white space
+			   accordingly
 
 ------------------------------------------------------------------------------
 *Q_vi*		Visual mode
@@ -519,20 +521,20 @@ accordingly
 [@](#@)	   N  @{a-z}	execute the contents of register {a-z} (N times)
 [@@](#@@)	   N  @@	   repeat previous @{a-z} (N times)
 [:@](#:@)	   :@{a-z}	execute the contents of register {a-z} as an Ex
-command
+			   command
 [:@@](#:@@)	   :@@		repeat previous :@{a-z}
 [:g](#:g)	   :[range]g[lobal]/{pattern}/[cmd]
-execute Ex command [cmd] (default: ":p") on the lines
-within [range] where {pattern} matches
+			execute Ex command [cmd] (default: ":p") on the lines
+			   within [range] where {pattern} matches
 [:g](#:g)	   :[range]g[lobal]!/{pattern}/[cmd]
-execute Ex command [cmd] (default: ":p") on the lines
-within [range] where {pattern} does NOT match
+			execute Ex command [cmd] (default: ":p") on the lines
+			   within [range] where {pattern} does NOT match
 [:so](#:so)	   :so[urce] {file}
-read Ex commands from {file}
+			read Ex commands from {file}
 [:so](#:so)	   :so[urce]! {file}
-read Vim commands from {file}
+			read Vim commands from {file}
 [:sl](#:sl)	   :sl[eep] [sec]
-don't do anything for [sec] seconds
+			don't do anything for [sec] seconds
 [gs](#gs)	   N  gs	goto Sleep for N seconds
 
 ------------------------------------------------------------------------------
@@ -540,32 +542,32 @@ don't do anything for [sec] seconds
 
 [:map](#:map)       :ma[p] {lhs} {rhs}	  map {lhs} to {rhs} in Normal and Visual mode
 [:map!](#:map!)      :ma[p]! {lhs} {rhs}  map {lhs} to {rhs} in Insert and Command-line
-mode
+				     mode
 [:noremap](#:noremap)   :no[remap][!] {lhs} {rhs}
-same as ":map", no remapping for this {rhs}
+				  same as ":map", no remapping for this {rhs}
 [:unmap](#:unmap)     :unm[ap] {lhs}	  remove the mapping of {lhs} for Normal and
-Visual mode
+				     Visual mode
 [:unmap!](#:unmap!)    :unm[ap]! {lhs}	  remove the mapping of {lhs} for Insert and
-Command-line mode
+				     Command-line mode
 [:map_l](#:map_l)     :ma[p] [lhs]	  list mappings (starting with [lhs]) for
-Normal and Visual mode
+				     Normal and Visual mode
 [:map_l!](#:map_l!)    :ma[p]! [lhs]	  list mappings (starting with [lhs]) for
-Insert and Command-line mode
+				     Insert and Command-line mode
 [:cmap](#:cmap)      :cmap/:cunmap/:cnoremap
-like ":map!"/":unmap!"/":noremap!" but for
-Command-line mode only
+				  like ":map!"/":unmap!"/":noremap!" but for
+				     Command-line mode only
 [:imap](#:imap)      :imap/:iunmap/:inoremap
-like ":map!"/":unmap!"/":noremap!" but for
-Insert mode only
+				  like ":map!"/":unmap!"/":noremap!" but for
+				     Insert mode only
 [:nmap](#:nmap)      :nmap/:nunmap/:nnoremap
-like ":map"/":unmap"/":noremap" but for
-Normal mode only
+				  like ":map"/":unmap"/":noremap" but for
+				     Normal mode only
 [:vmap](#:vmap)      :vmap/:vunmap/:vnoremap
-like ":map"/":unmap"/":noremap" but for
-Visual mode only
+				  like ":map"/":unmap"/":noremap" but for
+				     Visual mode only
 [:omap](#:omap)      :omap/:ounmap/:onoremap
-like ":map"/":unmap"/":noremap" but only for
-when an operator is pending
+				  like ":map"/":unmap"/":noremap" but only for
+				     when an operator is pending
 [:mapc](#:mapc)      :mapc[lear]	  remove mappings for Normal and Visual mode
 [:mapc](#:mapc)      :mapc[lear]!	  remove mappings for Insert and Cmdline mode
 [:imapc](#:imapc)     :imapc[lear]	  remove mappings for Insert mode
@@ -574,14 +576,14 @@ when an operator is pending
 [:nmapc](#:nmapc)     :nmapc[lear]	  remove mappings for Normal mode
 [:cmapc](#:cmapc)     :cmapc[lear]	  remove mappings for Cmdline mode
 [:mkexrc](#:mkexrc)    :mk[exrc][!] [file]  write current mappings, abbreviations, and
-settings to [file] (default: ".exrc";
-use ! to overwrite)
+				     settings to [file] (default: ".exrc";
+				     use ! to overwrite)
 [:mkvimrc](#:mkvimrc)   :mkv[imrc][!] [file]
-same as :mkexrc, but with default ".nvimrc"
+				  same as :mkexrc, but with default ".nvimrc"
 [:mksession](#:mksession) :mks[ession][!] [file]
-like ":mkvimrc", but store current files,
-windows, etc. too, to be able to continue
-this session later
+				  like ":mkvimrc", but store current files,
+				     windows, etc. too, to be able to continue
+				     this session later
 
 ------------------------------------------------------------------------------
 *Q_ab*		Abbreviations
@@ -593,7 +595,7 @@ this session later
 [:noreabbrev](#:noreabbrev)	:norea[bbrev] [lhs] [rhs]  like ":ab", but don't remap [rhs]
 [:iabbrev](#:iabbrev)	:iab/:iunab/:inoreab	   like ":ab", but only for Insert mode
 [:cabbrev](#:cabbrev)	:cab/:cunab/:cnoreab	   like ":ab", but only for
-Command-line mode
+						Command-line mode
 [:abclear](#:abclear)	:abc[lear]		   remove all abbreviations
 [:cabclear](#:cabclear)	:cabc[lear]		   remove all abbr's for Cmdline mode
 [:iabclear](#:iabclear)	:iabc[lear]		   remove all abbr's for Insert mode
@@ -604,26 +606,26 @@ Command-line mode
 [:set](#:set)		:se[t]			  show all modified options
 [:set](#:set)		:se[t] all		  show all options
 [:set](#:set)		:se[t] {option}		  set boolean option (switch it on),
-show string or number option
+					  show string or number option
 [:set](#:set)		:se[t] no{option}	  reset boolean option (switch it off)
 [:set](#:set)		:se[t] inv{option}	  invert boolean option
 [:set](#:set)		:se[t] {option}={value}	  set string/number option to {value}
 [:set](#:set)		:se[t] {option}+={value}  append {value} to string option, add
-{value} to number option
+					  {value} to number option
 [:set](#:set)		:se[t] {option}-={value}  remove {value} to string option,
-subtract {value} from number option
+					  subtract {value} from number option
 [:set](#:set)		:se[t] {option}?	  show value of {option}
 [:set](#:set)		:se[t] {option}&	  reset {option} to its default value
 
 [:setlocal](#:setlocal)	:setl[ocal]		  like ":set" but set the local value
-for options that have one
+					  for options that have one
 [:setglobal](#:setglobal)	:setg[lobal]		  like ":set" but set the global value
-of a local option
+					  of a local option
 
 [:options](#:options)	:opt[ions]		  open a new window to view and set
-options, grouped by functionality,
-a one line explanation and links to
-the help
+					  options, grouped by functionality,
+					  a one line explanation and links to
+					  the help
 
 ### <a id="option-list" class="section-title" href="#option-list">Short explanation of each option:</a>
 'aleph'		  'al'	    ASCII code of the letter Aleph (Hebrew)
@@ -977,7 +979,7 @@ the help
 
 [:!](#:!)		:!{command}	execute {command} with a shell
 [K](#K)		   K		lookup keyword under the cursor with
-'keywordprg' program (default: "man")
+				   'keywordprg' program (default: "man")
 
 ------------------------------------------------------------------------------
 *Q_qf*		Quickfix commands
@@ -991,57 +993,55 @@ the help
 [:cgetfile](#:cgetfile)	:cg		like :cfile but don't jump to the first error
 [:cgetexpr](#:cgetexpr)	:cgete		like :cexpr but don't jump to the first error
 [:caddfile](#:caddfile)	:caddf		add errors from the error file to the current
-quickfix list
+				   quickfix list
 [:caddexpr](#:caddexpr)	:cad		add errors from an expression to the current
-quickfix list
+				   quickfix list
 [:cbuffer](#:cbuffer)	:cb		read errors from text in a buffer
 [:cexpr](#:cexpr)	:cex		read errors from an expression
 [:cquit](#:cquit)	:cq		quit without writing and return error code (to
-the compiler)
+				   the compiler)
 [:make](#:make)		:make [args]	start make, read errors, and jump to first
-error
+				   error
 [:grep](#:grep)		:gr[ep] [args]	execute 'grepprg' to find matches and jump to
-the first one
+				   the first one
 
 ------------------------------------------------------------------------------
 *Q_vc*		Various commands
 
 [CTRL-L](#CTRL-L)	   CTRL-L	clear and redraw the screen
 [CTRL-G](#CTRL-G)	   CTRL-G	show current file name (with path) and cursor
-position
+				   position
 [ga](#ga)		   ga		show ascii value of character under cursor in
-decimal, hex, and octal
+				   decimal, hex, and octal
 [g8](#g8)		   g8		for utf-8 encoding: show byte sequence for
-character under cursor in hex
+				   character under cursor in hex
 [g_CTRL-G](#g_CTRL-G)	   g CTRL-G	show cursor column, line, and character
-position
+				   position
 [CTRL-C](#CTRL-C)	   CTRL-C	during searches: Interrupt the search
 [<Del>](#<Del>)		   <Del>	while entering a count: delete last character
 [:version](#:version)	:ve[rsion]	show version information
 [:normal](#:normal)	:norm[al][!] {commands}
-execute Normal mode commands
+				execute Normal mode commands
 [gQ](#gQ)		   gQ		switch to "Ex" mode
 
 [:redir](#:redir)	:redir >{file}		redirect messages to {file}
 [:silent](#:silent)	:silent[!] {command}	execute {command} silently
 [:confirm](#:confirm)	:confirm {command}	quit, write, etc., asking about
-unsaved changes or read-only files
+					unsaved changes or read-only files
 [:browse](#:browse)	:browse {command}	open/read/write file, using a
-file selection dialog
+					file selection dialog
 
 ------------------------------------------------------------------------------
 *Q_ce*		Command-line editing
 
 [c_<Esc>](#c_<Esc>)	<Esc>		   abandon command-line (if 'wildchar' is
-
-```
-Esc>, type it twice)
+				      <Esc>, type it twice)
 
 [c_CTRL-V](#c_CTRL-V)	CTRL-V {char}	   insert {char} literally
 [c_CTRL-V](#c_CTRL-V)	CTRL-V {number}    enter decimal value of character (up to
-three digits)
+				      three digits)
 [c_CTRL-K](#c_CTRL-K)	CTRL-K {char1} {char2}
-enter digraph (See [Q_di](#Q_di))
+				   enter digraph (See [Q_di](#Q_di))
 [c_CTRL-R](#c_CTRL-R)	CTRL-R {register}  insert the contents of a register
 
 [c_<Left>](#c_<Left>)	<Left>/<Right>	   cursor left/right
@@ -1054,7 +1054,7 @@ enter digraph (See [Q_di](#Q_di))
 [c_CTRL-U](#c_CTRL-U)	CTRL-U		   remove all characters
 
 [c_<Up>](#c_<Up>)	<Up>/<Down>	   recall older/newer command-line that starts
-with current command
+				      with current command
 [c_<S-Up>](#c_<S-Up>)	<S-Up>/<S-Down>	   recall older/newer command-line from history
 [c_CTRL-G](#c_CTRL-G)	CTRL-G		   next match when 'incsearch' is active
 [c_CTRL-T](#c_CTRL-T)	CTRL-T		   previous match when 'incsearch' is active
@@ -1063,27 +1063,27 @@ with current command
 Context-sensitive completion on the command-line:
 
 [c_wildchar](#c_wildchar)	'wildchar'  (default: <Tab>)
-do completion on the pattern in front of the
-cursor; if there are multiple matches,
-beep and show the first one; further
-'wildchar' will show the next ones
+				do completion on the pattern in front of the
+				   cursor; if there are multiple matches,
+				   beep and show the first one; further
+				   'wildchar' will show the next ones
 [c_CTRL-D](#c_CTRL-D)	CTRL-D		list all names that match the pattern in
-front of the cursor
+				   front of the cursor
 [c_CTRL-A](#c_CTRL-A)	CTRL-A		insert all names that match pattern in front
-of cursor
+				   of cursor
 [c_CTRL-L](#c_CTRL-L)	CTRL-L		insert longest common part of names that
-match pattern
+				   match pattern
 [c_CTRL-N](#c_CTRL-N)	CTRL-N		after 'wildchar' with multiple matches: go
-to next match
+				   to next match
 [c_CTRL-P](#c_CTRL-P)	CTRL-P		after 'wildchar' with multiple matches: go
-to previous match
+				   to previous match
 
 ------------------------------------------------------------------------------
 *Q_ra*		Ex ranges
 
 [:range](#:range)	,		separates two line numbers
 [:range](#:range)	;		idem, set cursor to the first line number
-before interpreting the second one
+				before interpreting the second one
 
 [:range](#:range)	{number}	an absolute line number
 [:range](#:range)	.		the current line
@@ -1095,9 +1095,9 @@ before interpreting the second one
 [:range](#:range)	?{pattern}[?]	the previous line where {pattern} matches
 
 [:range](#:range)	+[num]		add [num] to the preceding line number
-(default: 1)
+				   (default: 1)
 [:range](#:range)	-[num]		subtract [num] from the preceding line
-number (default: 1)
+				   number (default: 1)
 
 ------------------------------------------------------------------------------
 *Q_ex*		Special Ex characters
@@ -1107,30 +1107,30 @@ number (default: 1)
 
 [:_%](#:_%)       %		current file name (only where a file name is expected)
 [:_#](#:_#)       #[num]	alternate file name [num] (only where a file name is
-expected)
-Note: The next seven are typed literally; these are not special keys!
+			   expected)
+	Note: The next seven are typed literally; these are not special keys!
 [:<abuf>](#:<abuf>)   <abuf>	buffer number, for use in an autocommand (only where a
-file name is expected)
+			   file name is expected)
 [:<afile>](#:<afile>)  <afile>	file name, for use in an autocommand (only where a
-file name is expected)
+			   file name is expected)
 [:<amatch>](#:<amatch>) <amatch>	what matched with the pattern, for use in an
-autocommand (only where a file name is expected)
+			   autocommand (only where a file name is expected)
 [:<cword>](#:<cword>)  <cword>	word under the cursor (only where a file name is
-expected)
+			   expected)
 [:<cWORD>](#:<cWORD>)  <cWORD>	WORD under the cursor (only where a file name is
-expected) (see [WORD](#WORD))
+			   expected) (see [WORD](#WORD))
 [:<cfile>](#:<cfile>)  <cfile>	file name under the cursor (only where a file name is
-expected)
+			   expected)
 [:<sfile>](#:<sfile>)  <sfile>	file name of a ":source"d file, within that file (only
-where a file name is expected)
+			   where a file name is expected)
 
-After "%", "#", "<cfile>", "<sfile>" or "<afile>"
-[::p](#::p)	    :p		full path
-[::h](#::h)	    :h		head (file name removed)
-[::t](#::t)	    :t		tail (file name only)
-[::r](#::r)	    :r		root (extension removed)
-[::e](#::e)	    :e		extension
-[::s](#::s)	    :s/{pat}/{repl}/	substitute {pat} with {repl}
+		After "%", "#", "<cfile>", "<sfile>" or "<afile>"
+		[::p](#::p)	    :p		full path
+		[::h](#::h)	    :h		head (file name removed)
+		[::t](#::t)	    :t		tail (file name only)
+		[::r](#::r)	    :r		root (extension removed)
+		[::e](#::e)	    :e		extension
+		[::s](#::s)	    :s/{pat}/{repl}/	substitute {pat} with {repl}
 
 ------------------------------------------------------------------------------
 *Q_st*		Starting Vim
@@ -1139,9 +1139,9 @@ After "%", "#", "<cfile>", "<sfile>" or "<afile>"
 [--](#--)	   vim [options] -		read file from stdin
 [-tag](#-tag)	   vim [options] -t {tag}	edit the file associated with {tag}
 [-qf](#-qf)	   vim [options] -q [fname]	start editing in QuickFix mode,
-display the first error
+					   display the first error
 
-Most useful Vim arguments (for full list see [startup-options](#startup-options))
+	Most useful Vim arguments (for full list see [startup-options](#startup-options))
 
 [-+](#-+)	+[num]		    put the cursor at line [num] (default: last line)
 [-+c](#-+c)	+{command}	    execute {command} after loading the file
@@ -1172,8 +1172,8 @@ Most useful Vim arguments (for full list see [startup-options](#startup-options)
 ------------------------------------------------------------------------------
 *Q_ed*		Editing a file
 
-Without !: Fail if changes have been made to the current buffer.
-With !: Discard any changes to the current buffer.
+	   Without !: Fail if changes have been made to the current buffer.
+	      With !: Discard any changes to the current buffer.
 [:edit_f](#:edit_f)  :e[dit][!] {file}	edit {file}
 [:edit](#:edit)    :e[dit][!]		reload the current file
 [:enew](#:enew)    :ene[w][!]		edit a new, unnamed buffer
@@ -1185,7 +1185,7 @@ With !: Discard any changes to the current buffer.
 [:cd](#:cd)      :cd [path]		change the current directory to [path]
 [:cd-](#:cd-)     :cd -		back to previous current directory
 [:file](#:file)    :f[ile]		print the current file name and the cursor
-position
+				   position
 [:file](#:file)    :f[ile] {name}	set the current file name to {name}
 [:files](#:files)   :files		show alternate file names
 
@@ -1193,19 +1193,19 @@ position
 *Q_fl*		Using the argument list			[argument-list](#argument-list)
 
 [:args](#:args)	   :ar[gs]		print the argument list, with the current file
-in "[]"
+				   in "[]"
 [:all](#:all)	   :all  or :sall	open a window for every file in the arg list
 [:wn](#:wn)	   :wn[ext][!]		write file and edit next file
 [:wn](#:wn)	   :wn[ext][!] {file}	write to {file} and edit next file, unless
-{file} exists; With !, overwrite existing
-file
+				   {file} exists; With !, overwrite existing
+				   file
 [:wN](#:wN)	   :wN[ext][!] [file]	write file and edit previous file
 
-in current window    in new window	~
+	     in current window    in new window	~
 [:argument](#:argument)  :argu[ment] N	  :sar[gument] N	edit file N
 [:next](#:next)      :n[ext]		  :sn[ext]		edit next file
 [:next_f](#:next_f)    :n[ext] {arglist}	  :sn[ext] {arglist}	define new arg list
-and edit first file
+							   and edit first file
 [:Next](#:Next)      :N[ext]		  :sN[ext]		edit previous file
 [:first](#:first)     :fir[st]		  :sfir[st]		edit first file
 [:last](#:last)      :la[st]		  :sla[st]		edit last file
@@ -1215,22 +1215,22 @@ and edit first file
 
 [:w](#:w)	  :[range]w[rite][!]		write to the current file
 [:w_f](#:w_f)	  :[range]w[rite] {file}	write to {file}, unless it already
-exists
+					   exists
 [:w_f](#:w_f)	  :[range]w[rite]! {file}	write to {file}.  Overwrite an existing
-file
+					   file
 [:w_a](#:w_a)	  :[range]w[rite][!] >>		append to the current file
 [:w_a](#:w_a)	  :[range]w[rite][!] >> {file}	append to {file}
 [:w_c](#:w_c)	  :[range]w[rite] !{cmd}	execute {cmd} with [range] lines as
-standard input
+					   standard input
 [:up](#:up)	  :[range]up[date][!]		write to current file if modified
 [:wall](#:wall)	  :wa[ll][!]			write all changed buffers
 
 [:q](#:q)	  :q[uit]		quit current buffer, unless changes have been
-made; Exit Vim when there are no other
-non-help buffers
+				   made; Exit Vim when there are no other
+				   non-help buffers
 [:q](#:q)	  :q[uit]!		quit current buffer always, discard any
-changes.  Exit Vim when there are no other
-non-help buffers
+				   changes.  Exit Vim when there are no other
+				   non-help buffers
 [:qa](#:qa)	  :qa[ll]		exit Vim, unless changes have been made
 [:qa](#:qa)	  :qa[ll]!		exit Vim always, discard any changes
 [:cq](#:cq)	  :cq			quit without writing and return error code
@@ -1238,14 +1238,14 @@ non-help buffers
 [:wq](#:wq)	  :wq[!]		write the current file and exit
 [:wq](#:wq)	  :wq[!] {file}		write to {file} and exit
 [:xit](#:xit)	  :x[it][!] [file]	like ":wq" but write only when changes have
-been made
+				   been made
 [ZZ](#ZZ)	     ZZ			same as ":x"
 [ZQ](#ZQ)	     ZQ			same as ":q!"
 [:xall](#:xall)	  :xa[ll][!]  or :wqall[!]
-write all changed buffers and exit
+				write all changed buffers and exit
 
 [:stop](#:stop)	  :st[op][!]		suspend Vim or start new shell; if 'aw' option
-is set and [!] not given write the buffer
+				   is set and [!] not given write the buffer
 [CTRL-Z](#CTRL-Z)     CTRL-Z		same as ":stop"
 
 ------------------------------------------------------------------------------
@@ -1261,47 +1261,47 @@ is set and [!] not given write the buffer
 [modeline](#modeline)	Automatic option setting when editing a file
 
 [modeline](#modeline)	vim:{set-arg}: ..	In the first and last lines of the
-file (see 'ml' option), {set-arg} is
-given as an argument to ":set"
+					file (see 'ml' option), {set-arg} is
+					given as an argument to ":set"
 
 [autocommand](#autocommand)	Automatic execution of commands on certain events.
 
 [:autocmd](#:autocmd)	:au			  list all autocommands
 [:autocmd](#:autocmd)	:au {event}		  list all autocommands for {event}
 [:autocmd](#:autocmd)	:au {event} {pat}	  list all autocommands for {event}
-with {pat}
+					  with {pat}
 [:autocmd](#:autocmd)	:au {event} {pat} {cmd}	  enter new autocommands for {event}
-with {pat}
+					  with {pat}
 [:autocmd](#:autocmd)	:au!			  remove all autocommands
 [:autocmd](#:autocmd)	:au! {event}		  remove all autocommands for {event}
 [:autocmd](#:autocmd)	:au! * {pat}		  remove all autocommands for {pat}
 [:autocmd](#:autocmd)	:au! {event} {pat}	  remove all autocommands for {event}
-with {pat}
+					  with {pat}
 [:autocmd](#:autocmd)	:au! {event} {pat} {cmd}  remove all autocommands for {event}
-with {pat} and enter new one
+					  with {pat} and enter new one
 
 ------------------------------------------------------------------------------
 *Q_wi*		Multi-window commands
 
 [CTRL-W_s](#CTRL-W_s)	CTRL-W s  or  :split	split window into two parts
 [:split_f](#:split_f)	:split {file}		split window and edit {file} in one of
-them
+					   them
 [:vsplit](#:vsplit)	:vsplit {file}		same, but split vertically
 [:vertical](#:vertical)	:vertical {cmd}		make {cmd} split vertically
 
 [:sfind](#:sfind)	:sf[ind] {file}		split window, find {file} in 'path'
-and edit it
+					   and edit it
 [:terminal](#:terminal)	:terminal {cmd}		open a terminal window
 [CTRL-W_]](#CTRL-W_])	CTRL-W ]		split window and jump to tag under
-cursor
+					   cursor
 [CTRL-W_f](#CTRL-W_f)	CTRL-W f		split window and edit file name under
-the cursor
+					   the cursor
 [CTRL-W_^](#CTRL-W_^)	CTRL-W ^		split window and edit alternate file
 [CTRL-W_n](#CTRL-W_n)	CTRL-W n  or  :new	create new empty window
 [CTRL-W_q](#CTRL-W_q)	CTRL-W q  or  :q[uit]	quit editing and close window
 [CTRL-W_c](#CTRL-W_c)	CTRL-W c  or  :clo[se]	make buffer hidden and close window
 [CTRL-W_o](#CTRL-W_o)	CTRL-W o  or  :on[ly]	make current window only one on the
-screen
+					   screen
 
 [CTRL-W_j](#CTRL-W_j)	CTRL-W j		move cursor to window below
 [CTRL-W_k](#CTRL-W_k)	CTRL-W k		move cursor to window above
@@ -1319,12 +1319,12 @@ screen
 [CTRL-W_-](#CTRL-W_-)	CTRL-W -		decrease current window height
 [CTRL-W_+](#CTRL-W_+)	CTRL-W +		increase current window height
 [CTRL-W__](#CTRL-W__)	CTRL-W _		set current window height (default:
-very high)
+					   very high)
 
 [CTRL-W_<](#CTRL-W_<)	CTRL-W <		decrease current window width
 [CTRL-W_>](#CTRL-W_>)	CTRL-W >		increase current window width
 [CTRL-W_bar|	CTRL-W ](#CTRL-W_bar|	CTRL-W )		set current window width (default:
-widest possible)
+					   widest possible)
 
 ------------------------------------------------------------------------------
 *Q_bu*		Buffer list commands
@@ -1337,9 +1337,9 @@ widest possible)
 [:badd](#:badd)		:badd {fname}		add file name {fname} to the list
 [:bunload](#:bunload)	:bunload[!] [N]		unload buffer [N] from memory
 [:bdelete](#:bdelete)	:bdelete[!] [N]		unload buffer [N] and delete it from
-the buffer list
+					   the buffer list
 
-in current window  in new window       ~
+		in current window  in new window       ~
 [:buffer](#:buffer)	:[N]buffer [N]     :[N]sbuffer [N]     to arg/buf N
 [:bnext](#:bnext)	:[N]bnext [N]      :[N]sbnext [N]      to Nth next arg/buf
 [:bNext](#:bNext)	:[N]bNext [N]      :[N]sbNext [N]      to Nth previous arg/buf
@@ -1355,25 +1355,25 @@ in current window  in new window       ~
 [:syn-off](#:syn-off)	:syntax off		stop using syntax highlighting
 
 [:syn-keyword](#:syn-keyword)	:syntax keyword {group-name} {keyword} ..
-add a syntax keyword item
+					add a syntax keyword item
 [:syn-match](#:syn-match)	:syntax match {group-name} {pattern} ...
-add syntax match item
+					add syntax match item
 [:syn-region](#:syn-region)	:syntax region {group-name} {pattern} ...
-add syntax region item
+					add syntax region item
 [:syn-sync|	:syntax sync [ccomment | lines {N} ](#:syn-sync|	:syntax sync [ccomment | lines {N} ) ...]
-tell syntax how to sync
+					tell syntax how to sync
 [:syntax](#:syntax)	:syntax [list]		list current syntax items
 [:syn-clear](#:syn-clear)	:syntax clear		clear all syntax info
 
 [:highlight](#:highlight)	:highlight clear	clear all highlight info
 [:highlight](#:highlight)	:highlight {group-name} {key}={arg} ..
-set highlighting for {group-name}
+					set highlighting for {group-name}
 
 [:filetype](#:filetype)	:filetype on		switch on file type detection, without
-syntax highlighting
+					syntax highlighting
 [:filetype](#:filetype)	:filetype plugin indent on
-switch on file type detection, with
-automatic indenting and settings
+					switch on file type detection, with
+					automatic indenting and settings
 
 ------------------------------------------------------------------------------
 *Q_gu*		GUI commands
@@ -1382,9 +1382,9 @@ automatic indenting and settings
 [:menu](#:menu)		:menu {mpath}		list menus starting with {mpath}
 [:menu](#:menu)		:menu {mpath} {rhs}	add menu {mpath}, giving {rhs}
 [:menu](#:menu)		:menu {pri} {mpath} {rhs}
-idem, with priorities {pri}
+					idem, with priorities {pri}
 [:menu](#:menu)		:menu ToolBar.{name} {rhs}
-add toolbar item, giving {rhs}
+					add toolbar item, giving {rhs}
 [:tmenu](#:tmenu)	:tmenu {mpath} {text}	add tooltip to menu {mpath}
 [:unmenu](#:unmenu)	:unmenu {mpath}		remove menu {mpath}
 
@@ -1392,10 +1392,10 @@ add toolbar item, giving {rhs}
 *Q_fo*		Folding
 
 ['foldmethod'](#'foldmethod')	set foldmethod=manual	manual folding
-set foldmethod=indent	folding by indent
-set foldmethod=expr	folding by 'foldexpr'
-set foldmethod=syntax	folding by syntax regions
-set foldmethod=marker	folding by 'foldmarker'
+		set foldmethod=indent	folding by indent
+		set foldmethod=expr	folding by 'foldexpr'
+		set foldmethod=syntax	folding by syntax regions
+		set foldmethod=marker	folding by 'foldmarker'
 
 [zf](#zf)		zf{motion}		operator: Define a fold manually
 [:fold](#:fold)		:{range}fold		define a fold for {range} lines
@@ -1416,5 +1416,5 @@ set foldmethod=marker	folding by 'foldmarker'
 [zN](#zN)		zN			fold normal set 'foldenable'
 [zi](#zi)		zi			invert 'foldenable'
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

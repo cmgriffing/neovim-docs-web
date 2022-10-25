@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Rileft
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -8,15 +8,15 @@ layout: "@layouts/MainLayout.astro"
 ## <a id="Nvim" class="section-title" href="#Nvim"> Rileft Txt</a> 
 
 VIM REFERENCE MANUAL    by Avner Lottem
-updated by Nadim Shaikli
+					  updated by Nadim Shaikli
 
 
 ### <a id="rileft" class="section-title" href="#rileft">Right to Left display mode for Vim</a>
 
 
 These functions were originally created by Avner Lottem:
-E-mail: alottem@iil.intel.com
-Phone:  +972-4-8307322
+   E-mail: alottem@iil.intel.com
+   Phone:  +972-4-8307322
 
 Introduction
 ------------
@@ -43,79 +43,79 @@ Highlights
 o  Editing left-to-right files as in the original Vim, no change.
 
 o  Viewing and editing files in right-to-left windows.  File orientation
-is per window, so it is possible to view the same file in right-to-left
-and left-to-right modes, simultaneously.  (Useful for editing mixed files
-in which both right-to-left and left-to-right text exist).
+   is per window, so it is possible to view the same file in right-to-left
+   and left-to-right modes, simultaneously.  (Useful for editing mixed files
+   in which both right-to-left and left-to-right text exist).
 
 o  Compatibility to the original Vim.  Almost all features work in
-right-to-left mode (see Bugs below).
+   right-to-left mode (see Bugs below).
 
 o  Backing from reverse insert mode to the correct place in the file
-(if possible).
+   (if possible).
 
 o  No special terminal with right-to-left capabilities is required.  The
-right-to-left changes are completely hardware independent.
+   right-to-left changes are completely hardware independent.
 
 o  Many languages use and require right-to-left support.  These languages
-can quite easily be supported given the inclusion of their required
-keyboard mappings and some possible minor code change.  Some of the
-current supported languages include - [arabic.txt| and |hebrew.txt](#arabic.txt| and |hebrew.txt).
+   can quite easily be supported given the inclusion of their required
+   keyboard mappings and some possible minor code change.  Some of the
+   current supported languages include - [arabic.txt| and |hebrew.txt](#arabic.txt| and |hebrew.txt).
 
 
 Of Interest...
 --------------
 
 o  Invocations
------------
-+ 'rightleft' ('rl') sets window orientation to right-to-left.
-+ 'delcombine' ('deco'), boolean, if editing UTF-8 encoded languages,
-allows one to remove a composing character which gets superimposed
-on those that preceded them (some languages require this).
-+ 'rightleftcmd' ('rlc') sets the command-line within certain modes
-(such as search) to be utilized in right-to-left orientation as well.
+   -----------
+   + 'rightleft' ('rl') sets window orientation to right-to-left.
+   + 'delcombine' ('deco'), boolean, if editing UTF-8 encoded languages,
+     allows one to remove a composing character which gets superimposed
+     on those that preceded them (some languages require this).
+   + 'rightleftcmd' ('rlc') sets the command-line within certain modes
+     (such as search) to be utilized in right-to-left orientation as well.
 
 o  Typing backwards					*ins-reverse*
-----------------
-In lieu of using the full-fledged 'rightleft' option, one can opt for
-reverse insertion.  When the 'revins' (reverse insert) option is set,
-inserting happens backwards.  This can be used to type right-to-left
-text.  When inserting characters the cursor is not moved and the text
-moves rightwards.  A <BS> deletes the character under the cursor.
-CTRL-W and CTRL-U also work in the opposite direction.  <BS>, CTRL-W
-and CTRL-U do not stop at the start of insert or end of line, no matter
-how the 'backspace' option is set.
+   ----------------
+   In lieu of using the full-fledged 'rightleft' option, one can opt for
+   reverse insertion.  When the 'revins' (reverse insert) option is set,
+   inserting happens backwards.  This can be used to type right-to-left
+   text.  When inserting characters the cursor is not moved and the text
+   moves rightwards.  A <BS> deletes the character under the cursor.
+   CTRL-W and CTRL-U also work in the opposite direction.  <BS>, CTRL-W
+   and CTRL-U do not stop at the start of insert or end of line, no matter
+   how the 'backspace' option is set.
 
-There is no reverse replace mode (yet).
+   There is no reverse replace mode (yet).
 
-If the 'showmode' option is set, "-- REVERSE INSERT --" will be shown
-in the status line when reverse Insert mode is active.
+   If the 'showmode' option is set, "-- REVERSE INSERT --" will be shown
+   in the status line when reverse Insert mode is active.
 
 o  Pasting when in a rightleft window
-----------------------------------
-When cutting text with the mouse and pasting it in a rightleft window
-the text will be reversed, because the characters come from the cut buffer
-from the left to the right, while inserted in the file from the right to
-the left.   In order to avoid it, toggle 'revins' before pasting.
+   ----------------------------------
+   When cutting text with the mouse and pasting it in a rightleft window
+   the text will be reversed, because the characters come from the cut buffer
+   from the left to the right, while inserted in the file from the right to
+   the left.   In order to avoid it, toggle 'revins' before pasting.
 
 
 Bugs
 ----
 o  Does not handle CTRL-A and CTRL-X commands (add and subtract) correctly
-when in rightleft window.
+   when in rightleft window.
 
 o  Does not support reverse insert and rightleft modes on the command-line.
-However, functionality of the editor is not reduced, because it is
-possible to enter mappings, abbreviations and searches typed from the
-left to the right on the command-line.
+   However, functionality of the editor is not reduced, because it is
+   possible to enter mappings, abbreviations and searches typed from the
+   left to the right on the command-line.
 
 o  Somewhat slower in right-to-left mode, because right-to-left motion is
-emulated inside Vim, not by the controlling terminal.
+   emulated inside Vim, not by the controlling terminal.
 
 o  When both 'rightleft' and 'revins' are on: 'textwidth' does not work.
-Lines do not wrap at all; you just get a single, long line.
+   Lines do not wrap at all; you just get a single, long line.
 
 o  There is no full bidirectionality (bidi) support.
 
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

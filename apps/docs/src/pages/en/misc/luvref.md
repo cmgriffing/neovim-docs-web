@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Luvref
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -33,8 +33,9 @@ libuv documentation page (https://docs.libuv.org/).
 TCP Echo Server Example~
 
 Here is a small example showing a TCP echo server:
-```
-local uv = vim.loop
+
+
+```    local uv = vim.loop
 
 local server = uv.new_tcp()
 server:bind("127.0.0.1", 1337)
@@ -54,7 +55,6 @@ end)
 end)
 print("TCP server listening at 127.0.0.1 port 1337")
 uv.run() -- an explicit run call is necessary outside of luvit
-
 ```
 
 
@@ -256,9 +256,9 @@ the event loop spends in the event provider. This option
 is necessary to use `metrics_idle_time()`.
 
 An example of a valid call to this function is:
-```
-uv.loop_configure("block_signal", "sigprof")
 
+
+```                    uv.loop_configure("block_signal", "sigprof")
 ```
 
 
@@ -350,17 +350,16 @@ Walk the list of handles: `callback` will be executed with
 each handle.
 
 Returns: Nothing.
-```
--- Example usage of uv.walk to close all handles that
+
+
+```                    -- Example usage of uv.walk to close all handles that
 -- aren't already closing.
 uv.walk(function (handle)
 if not handle:is_closing() then
 handle:close()
 end
 end)
-
 ```
-
 
 
 ## <a id="luv-base-request uv_req_t" class="section-title" href="#luv-base-request uv_req_t">`Uv_Req_T` — Base Request</a> 
@@ -621,8 +620,9 @@ Creates and initializes a new [uv_timer_t](#uv_timer_t). Returns the Lua
 userdata wrapping it.
 
 Returns: `uv_timer_t userdata` or `fail`
-```
--- Creating a simple setTimeout wrapper
+
+
+```                    -- Creating a simple setTimeout wrapper
 local function setTimeout(timeout, callback)
 local timer = uv.new_timer()
 timer:start(timeout, 0, function ()
@@ -647,7 +647,6 @@ local function clearInterval(timer)
 timer:stop()
 timer:close()
 end
-
 ```
 
 
@@ -746,12 +745,12 @@ Note: New in libuv version 1.40.0.
 
 Prepare handles will run the given callback once per loop iteration, right
 before polling for I/O.
-```
-local prepare = uv.new_prepare()
+
+
+```    local prepare = uv.new_prepare()
 prepare:start(function()
 print("Before I/O polling")
 end)
-
 ```
 
 
@@ -792,12 +791,12 @@ Returns: `0` or `fail`
 
 Check handles will run the given callback once per loop iteration, right after
 polling for I/O.
-```
-local check = uv.new_check()
+
+
+```    local check = uv.new_check()
 check:start(function()
 print("After I/O polling")
 end)
-
 ```
 
 
@@ -845,12 +844,12 @@ blocking for I/O.
 
 WARNING: Despite the name, idle handles will get their callbacks called on
 every loop iteration, not when the loop is actually "idle".
-```
-local idle = uv.new_idle()
+
+
+```    local idle = uv.new_idle()
 idle:start(function()
 print("Before I/O polling, no blocking")
 end)
-
 ```
 
 
@@ -891,15 +890,15 @@ Returns: `0` or `fail`
 
 Async handles allow the user to "wakeup" the event loop and get a callback
 called from another thread.
-```
-local async
+
+
+```    local async
 async = uv.new_async(function()
 print("async operation ran")
 async:close()
 end)
 
 async:send()
-
 ```
 
 
@@ -1075,15 +1074,15 @@ assert().
 pthreads library to manage threads. Installing watchers for those signals
 will lead to unpredictable behavior and is strongly discouraged. Future
 versions of libuv may simply reject them.
-```
--- Create a new signal handler
+
+
+```    -- Create a new signal handler
 local signal = uv.new_signal()
 -- Define a handler function
 uv.signal_start(signal, "sigint", function(signal)
 print("got " .. signal .. ", shutting down")
 os.exit(1)
 end)
-
 ```
 
 
@@ -1178,8 +1177,9 @@ Possible reasons for failing to spawn would include (but not
 be limited to) the file to execute not existing, not having
 permissions to use the setuid or setgid specified, or not
 having enough memory to allocate for the new process.
-```
-local stdin = uv.new_pipe()
+
+
+```                    local stdin = uv.new_pipe()
 local stdout = uv.new_pipe()
 local stderr = uv.new_pipe()
 
@@ -1222,7 +1222,6 @@ uv.close(handle, function()
 print("process closed", handle, pid)
 end)
 end)
-
 ```
 
 ### <a id="uv.spawn-options" class="section-title" href="#uv.spawn-options">Note:</a>
@@ -1373,12 +1372,12 @@ you attempt to use it more than once, it may fail. It is
 suggested to only call this function once per connection call.
 
 Returns: `0` or `fail`
-```
-server:listen(128, function (err)
+
+
+```                    server:listen(128, function (err)
 local client = uv.new_tcp()
 server:accept(client)
 end)
-
 ```
 
 
@@ -1398,8 +1397,9 @@ several times until there is no more data to read or
 will be `nil`.
 
 Returns: `0` or `fail`
-```
-stream:read_start(function (err, chunk)
+
+
+```                    stream:read_start(function (err, chunk)
 if err then
 -- handle read error
 elseif chunk then
@@ -1408,7 +1408,6 @@ else
 -- handle disconnect
 end
 end)
-
 ```
 
 
@@ -1707,12 +1706,12 @@ Parameters:
 Establish an IPv4 or IPv6 TCP connection.
 
 Returns: `uv_connect_t userdata` or `fail`
-```
-local client = uv.new_tcp()
+
+
+```                    local client = uv.new_tcp()
 client:connect("127.0.0.1", 8080, function (err)
 -- check error and carry on.
 end)
-
 ```
 
 
@@ -1773,8 +1772,9 @@ Equivalent to `socketpair(2)` with a domain of `AF_UNIX`.
 
 Returns: `table` or `fail`
 - `[1, 2]` : `integer` (file descriptor)
-```
--- Simple read/write with tcp
+
+
+```                    -- Simple read/write with tcp
 local fds = uv.socketpair(nil, nil, {nonblock=true}, {nonblock=true})
 
 local sock1 = uv.new_tcp()
@@ -1788,9 +1788,7 @@ sock2:read_start(function(err, chunk)
 assert(not err, err)
 print(chunk)
 end)
-
 ```
-
 
 
 ## <a id="luv-pipe-handle uv_pipe_t" class="section-title" href="#luv-pipe-handle uv_pipe_t">`Uv_Pipe_T` — Pipe Handle</a> 
@@ -1799,8 +1797,9 @@ end)
 
 Pipe handles provide an abstraction over local domain sockets on Unix and
 named pipes on Windows.
-```
-local pipe = uv.new_pipe(false)
+
+
+```    local pipe = uv.new_pipe(false)
 
 pipe:bind('/tmp/sock.test')
 
@@ -1810,7 +1809,6 @@ pipe:accept(client)
 client:write("hello!\n")
 client:close()
 end)
-
 ```
 
 
@@ -1979,8 +1977,9 @@ Equivalent to `pipe(2)` with the `O_CLOEXEC` flag set.
 Returns: `table` or `fail`
 - `read` : `integer` (file descriptor)
 - `write` : `integer` (file descriptor)
-```
--- Simple read/write with pipe_open
+
+
+```                    -- Simple read/write with pipe_open
 local fds = uv.pipe({nonblock=true}, {nonblock=true})
 
 local read_pipe = uv.new_pipe()
@@ -1994,9 +1993,7 @@ read_pipe:read_start(function(err, chunk)
 assert(not err, err)
 print(chunk)
 end)
-
 ```
-
 
 
 ## <a id="luv-tty-handle uv_tty_t" class="section-title" href="#luv-tty-handle uv_tty_t">`Uv_Tty_T` — TTY Handle</a> 
@@ -2004,8 +2001,9 @@ end)
 > [uv_handle_t| and |uv_stream_t](#uv_handle_t| and |uv_stream_t) functions also apply.
 
 TTY handles represent a stream for the console.
-```
--- Simple echo program
+
+
+```    -- Simple echo program
 local stdin = uv.new_tty(0, true)
 local stdout = uv.new_tty(1, false)
 
@@ -2018,7 +2016,6 @@ stdin:close()
 stdout:close()
 end
 end)
-
 ```
 
 
@@ -2559,8 +2556,9 @@ FS call.
 
 Synchronous and asynchronous versions of `readFile` (with naive error
 handling) are implemented below as an example:
-```
-local function readFileSync(path)
+
+
+```    local function readFileSync(path)
 local fd = assert(uv.fs_open(path, "r", 438))
 local stat = assert(uv.fs_fstat(fd))
 local data = assert(uv.fs_read(fd, stat.size, 0))
@@ -2570,11 +2568,11 @@ end
 
 local data = readFileSync("main.lua")
 print("synchronous read", data)
-
 ```
 
-```
-local function readFile(path, callback)
+
+
+```    local function readFile(path, callback)
 uv.fs_open(path, "r", 438, function(err, fd)
 assert(not err, err)
 uv.fs_fstat(fd, function(err, stat)
@@ -2593,7 +2591,6 @@ end
 readFile("main.lua", function(data)
 print("asynchronous read", data)
 end)
-
 ```
 
 
@@ -3277,8 +3274,9 @@ Returns `table` or `nil`
 Libuv provides a threadpool which can be used to run user code and get
 notified in the loop thread. This threadpool is internally used to run all
 file system operations, as well as `getaddrinfo` and `getnameinfo` requests.
-```
-local function work_callback(a, b)
+
+
+```    local function work_callback(a, b)
 return a + b
 end
 
@@ -3291,7 +3289,6 @@ local work = uv.new_work(work_callback, after_work_callback)
 work:queue(1, 2)
 
 -- output: "The result is: 3"
-
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Luaref
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -15,10 +15,8 @@ August 7th, 2022
 
 
 Vimdoc version (c) 2006 by Luis Carvalho
-
+<lexcarvalho at gmail dot com
 ```
-lexcarvalho at gmail dot com>
-
 Adapted from "Lua: 5.1 reference manual"
 R. Ierusalimschy, L. H. de Figueiredo, W. Celes
 Copyright (c) 2006 Lua.org, PUC-Rio.
@@ -82,12 +80,10 @@ locale can be used in an identifier.) Identifiers are used to name variables
 and table fields.
 
 The following keywords are reserved and cannot be used as names:
-```
 and       break     do        else      elseif
 end       false     for       function  if
 in        local     nil       not       or
 repeat    return    then      true      until     while
-
 ```
 
 Lua is a case-sensitive language: `and` is a reserved word, but `And` and `AND` are
@@ -96,12 +92,11 @@ followed by uppercase letters (such as `_VERSION`) are reserved for internal
 global variables used by Lua.
 
 The following strings denote other tokens:
-```
-+     -     *     /     %     ^     #
+
+```       +     -     *     /     %     ^     #
 ==    ~=    <=    >=    <     >     =
 (     )     {     }     [     ]
 ;     :     ,     .     ..    ...
-
 ```
 
 ### <a id="luaref-literal" class="section-title" href="#luaref-literal">Note:</a>
@@ -148,8 +143,8 @@ For convenience, when the opening long bracket is immediately followed by a
 newline, the newline is not included in the string. As an example, in a system
 using ASCII (in which `a` is coded as 97, newline is coded as 10, and `1` is
 coded as 49), the five literals below denote the same string:
-```
-a = 'alo\n123"'
+
+```       a = 'alo\n123"'
 a = "alo\n123\""
 a = '\97lo\10\04923"'
 a = [[alo
@@ -157,16 +152,14 @@ a = [[alo
 a = [==[
 alo
 123"]==]
-
 ```
 
 ### <a id="luaref-numconstant" class="section-title" href="#luaref-numconstant">Note:</a>
 A numerical constant may be written with an optional decimal part and an
 optional decimal exponent. Lua also accepts integer hexadecimal constants, by
 prefixing them with `0x`. Examples of valid numerical constants are
-```
-3     3.0     3.1416  314.16e-2   0.31416E1   0xff   0x56
 
+```     3     3.0     3.1416  314.16e-2   0.31416E1   0xff   0x56
 ```
 
 ### <a id="luaref-comment" class="section-title" href="#luaref-comment">Note:</a>
@@ -262,9 +255,8 @@ Lua: global variables, local variables, and table fields.
 
 A single name can denote a global variable or a local variable (or a
 function's formal parameter, which is a particular form of local variable):
-```
-var ::= Name
 
+```       var ::= Name
 ```
 
 Name denotes identifiers, as defined in [luaref-langLexConv](#luaref-langLexConv).
@@ -277,9 +269,8 @@ variables can be freely accessed by functions defined inside their scope (see
 Before the first assignment to a variable, its value is `nil`.
 
 Square brackets are used to index a table:
-```
-var ::= prefixexp [ exp ]
 
+```       var ::= prefixexp [ exp ]
 ```
 
 The first expression (`prefixexp`) should result in a table value; the second
@@ -288,9 +279,8 @@ expression denoting the table to be indexed has a restricted syntax; see
 [luaref-langExpressions](#luaref-langExpressions) for details.
 
 The syntax `var.NAME` is just syntactic sugar for `var["NAME"]` :
-```
-var ::= prefixexp . Name
 
+```       var ::= prefixexp . Name
 ```
 
 All global variables live as fields in ordinary Lua tables, called environment
@@ -305,9 +295,8 @@ library; see [luaref-libDebug](#luaref-libDebug).)
 
 An access to a global variable `x` is equivalent to `_env.x`, which in turn is
 equivalent to
-```
-gettable_event(_env, "x")
 
+```       gettable_event(_env, "x")
 ```
 
 where `_env` is the environment of the running function. (The `_env` variable is
@@ -332,9 +321,8 @@ calls, and variable declarations.
 The unit of execution of Lua is called a chunk. A chunk is simply a sequence
 of statements, which are executed sequentially. Each statement can be
 optionally followed by a semicolon:
-```
-chunk ::= {stat [ ; ]}
 
+```       chunk ::= {stat [ ; ]}
 ```
 
 There are no empty statements and thus `;;` is not legal.
@@ -357,16 +345,14 @@ automatically detects the file type and acts accordingly.
 
 A block is a list of statements; syntactically, a block is the same as a
 chunk:
-```
-block ::= chunk
 
+```       block ::= chunk
 ```
 
 ### <a id="luaref-do luaref-end" class="section-title" href="#luaref-do luaref-end">Note:</a>
 A block may be explicitly delimited to produce a single statement:
-```
-stat ::= do block end
 
+```       stat ::= do block end
 ```
 
 Explicit blocks are useful to control the scope of variable declarations.
@@ -379,11 +365,10 @@ in the middle of another block (see [luaref-langContStructs](#luaref-langContStr
 Lua allows multiple assignment. Therefore, the syntax for assignment defines a
 list of variables on the left side and a list of expressions on the right
 side. The elements in both lists are separated by commas:
-```
-stat ::= varlist1 = explist1
+
+```       stat ::= varlist1 = explist1
 varlist1 ::= var { , var }
 explist1 ::= exp { , exp }
-
 ```
 
 Expressions are discussed in [luaref-langExpressions](#luaref-langExpressions).
@@ -398,17 +383,15 @@ before the adjustment (except when the call is enclosed in parentheses; see
 
 The assignment statement first evaluates all its expressions and only then are
 the assignments performed. Thus the code
-```
-i = 3
-i, a[i] = i+1, 20
 
+```       i = 3
+i, a[i] = i+1, 20
 ```
 
 sets `a[3]` to 20, without affecting `a[4]` because the `i` in `a[i]` is evaluated (to
 3) before it is assigned 4. Similarly, the line
-```
-x, y = y, x
 
+```       x, y = y, x
 ```
 
 exchanges the values of `x` and `y`.
@@ -421,9 +404,8 @@ defined or callable in Lua. We use it here only for explanatory purposes.)
 
 An assignment to a global variable `x = val` is equivalent to the
 assignment `_env.x = val`, which in turn is equivalent to
-```
-settable_event(_env, "x", val)
 
+```       settable_event(_env, "x", val)
 ```
 
 where `_env` is the environment of the running function. (The `_env` variable is
@@ -436,12 +418,11 @@ not defined in Lua. We use it here only for explanatory purposes.)
 ### <a id="luaref-while luaref-repeat luaref-until" class="section-title" href="#luaref-while luaref-repeat luaref-until">Note:</a>
 The control structures `if`, `while`, and `repeat` have the usual meaning and
 familiar syntax:
-```
-stat ::=  while  exp do block end
+
+```       stat ::=  while  exp do block end
 stat ::=  repeat  block until exp
 stat ::=  if  exp then block { elseif exp then block }
 [ else block ] end
-
 ```
 
 Lua also has a `for` statement, in two flavors (see [luaref-langForStat](#luaref-langForStat)).
@@ -483,22 +464,17 @@ The `for` statement has two forms: one numeric and one generic.
 
 The numeric `for` loop repeats a block of code while a control variable runs
 through an arithmetic progression. It has the following syntax:
-```
-stat ::=  for  Name = exp , exp [ , exp ] do block end
 
+```       stat ::=  for  Name = exp , exp [ , exp ] do block end
 ```
 
 The `block` is repeated for `name` starting at the value of the first `exp`, until
 it passes the second `exp` by steps of the third `exp`. More precisely,
-a `for` statement like
+a `for` statement like 
 ```
-
 for var =  e1, e2, e3  do  block  end
 
-
-```
- is equivalent to the code:
-```
+is equivalent to the code:
 
 do
 local  var, limit, step  = tonumber(e1), tonumber(e2), tonumber(e3)
@@ -509,7 +485,6 @@ block
 var  =  var  +  step
 end
 end
-
 ```
 
 
@@ -529,19 +504,17 @@ another variable before breaking or exiting the loop.
 The generic `for` statement works over functions, called iterators. On each
 iteration, the iterator function is called to produce a new value, stopping
 when this new value is `nil`. The generic `for` loop has the following syntax:
-```
-stat ::=  for  namelist in explist1 do block end
-namelist ::= Name { , Name }
 
+```       stat ::=  for  namelist in explist1 do block end
+namelist ::= Name { , Name }
 ```
 
 A `for` statement like
 
 `for`  `var1, ..., varn`  `in`  `explist`  `do`  `block`  `end`
 
-is equivalent to the code:
+is equivalent to the code: 
 ```
-
 do
 local  f, s, var  =  explist
 while true do
@@ -551,7 +524,6 @@ if  var  == nil then break end
 block
 end
 end
-
 ```
 
 Note the following:
@@ -569,9 +541,8 @@ them to other variables before breaking or exiting the loop.
 2.4.6  Function Calls as Statements                        *luaref-langFuncStat*
 
 To allow possible side-effects, function calls can be executed as statements:
-```
-stat ::= functioncall
 
+```       stat ::= functioncall
 ```
 
 In this case, all returned values are thrown away. Function calls are
@@ -582,10 +553,9 @@ explained in [luaref-langFuncCalls](#luaref-langFuncCalls).
 
 Local variables may be declared anywhere inside a block. The declaration may
 include an initial assignment:
-```
-stat ::=  local  namelist [ = explist1 ]
-namelist ::= Name { , Name }
 
+```       stat ::=  local  namelist [ = explist1 ]
+namelist ::= Name { , Name }
 ```
 
 If present, an initial assignment has the same semantics of a multiple
@@ -603,8 +573,8 @@ The visibility rules for local variables are explained in
 ## <a id="Expressions" class="section-title" href="#Expressions">2 5</a> 
 
 The basic expressions in Lua are the following:
-```
-exp ::= prefixexp
+
+```       exp ::= prefixexp
 exp ::=  nil  [  false  ](#  false  )  true
 exp ::= Number
 exp ::= String
@@ -614,7 +584,6 @@ exp ::= ...
 exp ::= exp binop exp
 exp ::= unop exp
 prefixexp ::= var [ functioncall ](# functioncall ) ( exp )
-
 ```
 
 Numbers and literal strings are explained in [luaref-langLexConv](#luaref-langLexConv); variables are
@@ -641,8 +610,8 @@ adjusts the result list to one element, discarding all values except the first
 one.
 
 Here are some examples:
-```
-f()                -- adjusted to 0 results
+
+```       f()                -- adjusted to 0 results
 g(f(), x)          -- f() is adjusted to 1 result
 g(x, f())          -- g gets x plus all results from f()
 a,b,c = f(), x     -- f() is adjusted to 1 result (c gets nil)
@@ -658,7 +627,6 @@ return x,y,f()     -- returns x, y, and all results from f()
 {f()}              -- creates a list with all results from f()
 {...}              -- creates a list with all vararg parameters
 {f(), nil}         -- f() is adjusted to 1 result
-
 ```
 
 An expression enclosed in parentheses always results in only one value. Thus,
@@ -676,9 +644,8 @@ or strings that can be converted to numbers (see [luaref-langCoercion](#luaref-l
 operations have the usual meaning. Exponentiation works for any exponent. For
 instance, `x^(-0.5)` computes the inverse of the square root of `x`. Modulo is
 defined as
-```
-### <a id="a % b == a - math.floor(a/b)b" class="section-title" href="#a % b == a - math.floor(a/b)b">Note:</a>
 
+#### <a id="a % b == a - math.floor(a/b)b" class="section-title" href="#a % b == a - math.floor(a/b)b">```</a>
 ```
 
 That is, it is the remainder of a division that rounds the quotient towards
@@ -688,9 +655,8 @@ minus infinity.
 2.5.2  Relational Operators                                   *luaref-langRelOp*
 
 The relational operators in Lua are
-```
-==    ~=    <     >     <=    >=
 
+```                    ==    ~=    <     >     <=    >=
 ```
 
 These operators always result in `false` or `true`.
@@ -721,9 +687,8 @@ call the "lt" or the "le" metamethod (see [luaref-langMetatables](#luaref-langMe
 2.5.3  Logical Operators                                      *luaref-langLogOp*
 
 The logical operators in Lua are
-```
-and    or    not
 
+```       and    or    not
 ```
 
 Like the control structures (see [luaref-langContStructs](#luaref-langContStructs)), all logical operators
@@ -737,8 +702,8 @@ operator `or` returns its first argument if this value is different
 from `nil` and `false`; otherwise, `or` returns its second argument.
 Both `and` and `or` use short-cut evaluation, that is, the second operand is
 evaluated only if necessary. Here are some examples:
-```
-10 or 20            --> 10
+
+```       10 or 20            --> 10
 10 or error()       --> 10
 nil or "a"          --> "a"
 nil and 10          --> nil
@@ -746,7 +711,6 @@ false and error()   --> false
 false and nil       --> false
 false or nil        --> nil
 10 and 20           --> 20
-
 ```
 
 (In this manual, `-->` indicates the result of the preceding expression.)
@@ -779,18 +743,15 @@ such `nil` value as the end of the array).
 
 Operator precedence in Lua follows the table below, from lower to higher
 priority:
-```
-or
-and
 
-```
-     >     <=    >=    ~=    ==
+```       or
+and
+<     >     <=    >=    ~=    ==
 ..
 +     -
 ### <a id="" class="section-title" href="#">Note:</a>
 not   #     - (unary)
 ^
-
 ```
 
 As usual, you can use parentheses to change the precedences in an expression.
@@ -804,12 +765,11 @@ Table constructors are expressions that create tables. Every time a
 constructor is evaluated, a new table is created. Constructors can be used to
 create empty tables, or to create a table and initialize some of its fields.
 The general syntax for constructors is
-```
-tableconstructor ::= { [ fieldlist ] }
+
+```       tableconstructor ::= { [ fieldlist ] }
 fieldlist ::= field { fieldsep field } [ fieldsep ]
 field ::= [ exp ]  = exp [ Name = exp ](# Name = exp ) exp
 fieldsep ::=  , |  ;
-
 ```
 
 Each field of the form `[exp1] = exp2` adds to the new table an entry with
@@ -817,14 +777,13 @@ key `exp1` and value `exp2`. A field of the form `name = exp` is equivalent to
 `["name"] = exp`. Finally, fields of the form `exp` are equivalent to
 `[i] = exp`, where `i` are consecutive numerical integers, starting with 1.
 Fields in the other formats do not affect this counting. For example,
-```
-a = { [f(1)] = g; "x", "y"; x = 1, f(x), [30] = 23; 45 }
 
+```       a = { [f(1)] = g; "x", "y"; x = 1, f(x), [30] = 23; 45 }
 ```
 
 is equivalent to
-```
-do
+
+```       do
 local t = {}
 t[f(1)] = g
 t[1] = "x"         -- 1st exp
@@ -835,7 +794,6 @@ t[30] = 23
 t[4] = 45          -- 4th exp
 a = t
 end
-
 ```
 
 If the last field in the list has the form `exp` and the expression is a
@@ -850,9 +808,8 @@ machine-generated code.
 2.5.8  Function Calls                     *luaref-function* *luaref-langFuncCalls*
 
 A function call in Lua has the following syntax:
-```
-functioncall ::= prefixexp args
 
+```       functioncall ::= prefixexp args
 ```
 
 In a function call, first `prefixexp` and `args` are evaluated. If the value
@@ -862,20 +819,18 @@ first parameter the value of `prefixexp`, followed by the original call
 arguments (see [luaref-langMetatables](#luaref-langMetatables)).
 
 The form
-```
-functioncall ::= prefixexp : Name args
 
+```       functioncall ::= prefixexp : Name args
 ```
 
 can be used to call "methods". A call `v:name(` `args` `)` is syntactic sugar
 for `v.name(v,` `args` `)`, except that `v` is evaluated only once.
 
 Arguments have the following syntax:
-```
-args ::=  ( [ explist1 ] )
+
+```       args ::=  ( [ explist1 ] )
 args ::= tableconstructor
 args ::= String
-
 ```
 
 All argument expressions are evaluated before the call.  A call of the
@@ -887,10 +842,9 @@ argument list is a single new table. A call of the form `f'` `string` `'`
 As an exception to the free-format syntax of Lua, you cannot put a line break
 before the `(` in a function call. This restriction avoids some ambiguities
 in the language. If you write
-```
-a = f
-(g).x(a)
 
+```       a = f
+(g).x(a)
 ```
 
 Lua would see that as a single statement, `a = f(g).x(a)`. So, if you want two
@@ -907,13 +861,12 @@ function. Note that a tail call only happens with a particular syntax, where
 the `return` has one single function call as argument; this syntax makes the
 calling function return exactly the returns of the called function. So, none
 of the following examples are tail calls:
-```
-return (f(x))        -- results adjusted to 1
+
+```       return (f(x))        -- results adjusted to 1
 ### <a id="return 2  f(x)" class="section-title" href="#return 2  f(x)">Note:</a>
 return x, f(x)       -- additional results
 f(x); return         -- results discarded
 return x or f(x)     -- results adjusted to 1
-
 ```
 
 
@@ -921,18 +874,16 @@ return x or f(x)     -- results adjusted to 1
 2.5.9  Function Definitions                                *luaref-langFuncDefs*
 
 The syntax for function definition is
-```
-function ::= function funcbody
-funcbody ::= ( [ parlist1 ] ) block end
 
+```       function ::= function funcbody
+funcbody ::= ( [ parlist1 ] ) block end
 ```
 
 The following syntactic sugar simplifies function definitions:
-```
-stat ::= function funcname funcbody
+
+```       stat ::= function funcname funcbody
 stat ::= local function Name funcbody
 funcname ::= Name { . Name } [ : Name ]
-
 ```
 
 The statement
@@ -977,9 +928,8 @@ environment tables.
 
 Parameters act as local variables that are initialized with the argument
 values:
-```
-parlist1 ::= namelist [ , ... ] | ...
 
+```       parlist1 ::= namelist [ , ... ] | ...
 ```
 
 ### <a id="luaref-vararg" class="section-title" href="#luaref-vararg">Note:</a>
@@ -996,17 +946,16 @@ expression is used as the last element of a list of expressions, then no
 adjustment is made (unless the call is enclosed in parentheses).
 
 As an example, consider the following definitions:
-```
-function f(a, b) end
+
+```       function f(a, b) end
 function g(a, b, ...) end
 function r() return 1,2,3 end
-
 ```
 
 Then, we have the following mapping from arguments to parameters and to the
 vararg expression:
-```
-CALL            PARAMETERS
+
+```       CALL            PARAMETERS
 
 f(3)             a=3, b=nil
 f(3, 4)          a=3, b=4
@@ -1018,7 +967,6 @@ g(3)             a=3, b=nil, ... -->  (nothing)
 g(3, 4)          a=3, b=4,   ... -->  (nothing)
 g(3, 4, 5, 8)    a=3, b=4,   ... -->  5  8
 g(5, r())        a=5, b=1,   ... -->  2  3
-
 ```
 
 Results are returned using the `return` statement (see [luaref-langContStructs](#luaref-langContStructs)).
@@ -1041,8 +989,8 @@ is syntactic sugar for
 Lua is a lexically scoped language. The scope of variables begins at the first
 statement after their declaration and lasts until the end of the innermost
 block that includes the declaration. Consider the following example:
-```
-x = 10                -- global variable
+
+```       x = 10                -- global variable
 do                    -- new block
 local x = x         -- new `x`, with value 10
 print(x)            --> 10
@@ -1054,7 +1002,6 @@ end
 print(x)            --> 11
 end
 print(x)              --> 10  (the global one)
-
 ```
 
 Notice that, in a declaration like `local x = x`, the new `x` being declared is
@@ -1068,14 +1015,13 @@ function.
 
 Notice that each execution of a local statement defines new local variables.
 Consider the following example:
-```
-a = {}
+
+```       a = {}
 local x = 20
 for i=1,10 do
 local y = 0
 a[i] = function () y=y+1; return x+y end
 end
-
 ```
 
 The loop creates ten closures (that is, ten instances of the anonymous
@@ -1142,15 +1088,13 @@ coded in the interpreter and it is much more efficient than this simulation.
 All functions used in these descriptions (`rawget`, `tonumber`, etc.) are
 described in [luaref-libBasic](#luaref-libBasic). In particular, to retrieve the metamethod of a
 given object, we use the expression
-```
-metatable(obj)[event]
 
+```       metatable(obj)[event]
 ```
 
 This should be read as
-```
-rawget(metatable(obj) or {}, event)
 
+```       rawget(metatable(obj) or {}, event)
 ```
 
 That is, the access to a metamethod does not invoke other metamethods, and the
@@ -1164,16 +1108,15 @@ the `+` operation.
 The function `getbinhandler` below defines how Lua chooses a handler for a
 binary operation. First, Lua tries the first operand. If its type does not
 define a handler for the operation, then Lua tries the second operand.
-```
-function getbinhandler (op1, op2, event)
+
+```       function getbinhandler (op1, op2, event)
 return metatable(op1)[event] or metatable(op2)[event]
 end
-
 ```
 
 By using this function, the behavior of the `op1 + op2` is
-```
-function add_event (op1, op2)
+
+```       function add_event (op1, op2)
 local o1, o2 = tonumber(op1), tonumber(op2)
 if o1 and o2 then  -- both operands are numeric?
 return o1 + o2   -- `+` here is the primitive `add`
@@ -1187,7 +1130,6 @@ error(...)
 end
 end
 end
-
 ```
 
 ### <a id="__sub()" class="section-title" href="#__sub()">"sub":</a>
@@ -1215,8 +1157,8 @@ with the function `pow` (from the C math library) as the primitive operation.
 ### <a id="__unm()" class="section-title" href="#__unm()">"unm":</a>
 ------
 the unary `-` operation.
-```
-function unm_event (op)
+
+```       function unm_event (op)
 local o = tonumber(op)
 if o then  -- operand is numeric?
 return -o  -- `-` here is the primitive `unm`
@@ -1231,14 +1173,13 @@ error(...)
 end
 end
 end
-
 ```
 
 ### <a id="__concat()" class="section-title" href="#__concat()">"concat":</a>
 ---------
 the `..` (concatenation) operation.
-```
-function concat_event (op1, op2)
+
+```       function concat_event (op1, op2)
 if (type(op1) == "string" or type(op1) == "number") and
 (type(op2) == "string" or type(op2) == "number") then
 return op1 .. op2  -- primitive string concatenation
@@ -1251,14 +1192,13 @@ error(...)
 end
 end
 end
-
 ```
 
 ### <a id="__len()" class="section-title" href="#__len()">"len":</a>
 ------
 the `#` operation.
-```
-function len_event (op)
+
+```       function len_event (op)
 if type(op) == "string" then
 return strlen(op)         -- primitive string length
 elseif type(op) == "table" then
@@ -1273,7 +1213,6 @@ error(...)
 end
 end
 end
-
 ```
 
 ### <a id="__eq()" class="section-title" href="#__eq()">"eq":</a>
@@ -1284,19 +1223,18 @@ The function `getcomphandler` defines how Lua chooses a metamethod for
 comparison operators. A metamethod only is selected when both objects being
 compared have the same type and the same metamethod for the selected
 operation.
-```
-function getcomphandler (op1, op2, event)
+
+```       function getcomphandler (op1, op2, event)
 if type(op1) ~= type(op2) then return nil end
 local mm1 = metatable(op1)[event]
 local mm2 = metatable(op2)[event]
 if mm1 == mm2 then return mm1 else return nil end
 end
-
 ```
 
 The "eq" event is defined as follows:
-```
-function eq_event (op1, op2)
+
+```       function eq_event (op1, op2)
 if type(op1) ~= type(op2) then  -- different types?
 return false   -- different objects
 end
@@ -1311,7 +1249,6 @@ else
 return false
 end
 end
-
 ```
 
 `a ~= b` is equivalent to `not (a == b)`.
@@ -1319,8 +1256,8 @@ end
 ### <a id="__lt()" class="section-title" href="#__lt()">"lt":</a>
 -----
 the `<` operation.
-```
-function lt_event (op1, op2)
+
+```       function lt_event (op1, op2)
 if type(op1) == "number" and type(op2) == "number" then
 return op1 < op2   -- numeric comparison
 elseif type(op1) == "string" and type(op2) == "string" then
@@ -1334,7 +1271,6 @@ error(...);
 end
 end
 end
-
 ```
 
 `a > b` is equivalent to `b < a`.
@@ -1342,8 +1278,8 @@ end
 ### <a id="__le()" class="section-title" href="#__le()">"le":</a>
 -----
 the `<=` operation.
-```
-function le_event (op1, op2)
+
+```       function le_event (op1, op2)
 if type(op1) == "number" and type(op2) == "number" then
 return op1 <= op2   -- numeric comparison
 elseif type(op1) == "string" and type(op2) == "string" then
@@ -1362,7 +1298,6 @@ end
 end
 end
 end
-
 ```
 
 `a >= b` is equivalent to `b <= a`. Note that, in the absence of a "le"
@@ -1372,8 +1307,8 @@ to `not (b < a)`.
 ### <a id="__index()" class="section-title" href="#__index()">"index":</a>
 --------
 The indexing access `table[key]`.
-```
-function gettable_event (table, key)
+
+```       function gettable_event (table, key)
 local h
 if type(table) == "table" then
 local v = rawget(table, key)
@@ -1390,14 +1325,13 @@ if type(h) == "function" then
 return h(table, key)      -- call the handler
 else return h[key]          -- or repeat operation on it
 end
-
 ```
 
 ### <a id="__newindex()" class="section-title" href="#__newindex()">"newindex":</a>
 -----------
 The indexing assignment `table[key] = value`.
-```
-function settable_event (table, key, value)
+
+```       function settable_event (table, key, value)
 local h
 if type(table) == "table" then
 local v = rawget(table, key)
@@ -1414,14 +1348,13 @@ if type(h) == "function" then
 return h(table, key,value)    -- call the handler
 else h[key] = value             -- or repeat operation on it
 end
-
 ```
 
 ### <a id="__call()" class="section-title" href="#__call()">"call":</a>
 -------
 called when Lua calls a value.
-```
-function function_event (func, ...)
+
+```       function function_event (func, ...)
 if type(func) == "function" then
 return func(...)   -- primitive call
 else
@@ -1433,9 +1366,7 @@ error(...)
 end
 end
 end
-
 ```
-
 
 
 ## <a id="Environments" class="section-title" href="#Environments">2 9</a> 
@@ -1517,14 +1448,13 @@ Garbage userdata with a field `__gc` in their metatables are not collected
 immediately by the garbage collector. Instead, Lua puts them in a list. After
 the collection, Lua does the equivalent of the following function for each
 userdata in that list:
-```
-function gc_event (udata)
+
+```       function gc_event (udata)
 local h = metatable(udata).__gc
 if h then
 h(udata)
 end
 end
-
 ```
 
 At the end of each garbage-collection cycle, the finalizers for userdata are
@@ -1602,8 +1532,8 @@ coroutine. Any arguments passed to this function go as extra arguments to
 propagated to the caller.
 
 As an example, consider the next code:
-```
-function foo1 (a)
+
+```       function foo1 (a)
 print("foo", a)
 ### <a id="return coroutine.yield(2a)" class="section-title" href="#return coroutine.yield(2a)">Note:</a>
 end
@@ -1621,12 +1551,11 @@ print("main", coroutine.resume(co, 1, 10))
 print("main", coroutine.resume(co, "r"))
 print("main", coroutine.resume(co, "x", "y"))
 print("main", coroutine.resume(co, "x", "y"))
-
 ```
 
 When you run it, it produces the following output:
-```
-co-body 1       10
+
+```       co-body 1       10
 foo     2
 main    true    4
 co-body r
@@ -1634,9 +1563,7 @@ main    true    11      -9
 co-body x       y
 main    true    10      end
 main    false   cannot resume dead coroutine
-
 ```
-
 
 
 ## <a id="THE APPLICATION PROGRAM INTERFACE" class="section-title" href="#THE APPLICATION PROGRAM INTERFACE">3</a> 
@@ -1696,9 +1623,8 @@ Most query functions accept as indices any value inside the available stack
 space, that is, indices up to the maximum stack size you have set through
 `lua_checkstack`. Such indices are called acceptable indices. More formally,
 we define an acceptable index as follows:
-```
-(index < 0 && abs(index) <= top) || (index > 0 && index <= stackspace)
 
+```    (index < 0 && abs(index) <= top) || (index > 0 && index <= stackspace)
 ```
 
 Note that 0 is never an acceptable index.
@@ -1719,11 +1645,9 @@ pseudo-index `LUA_ENVIRONINDEX`.
 To access and change the value of global variables, you can use regular table
 operations over an environment table. For instance, to access the value of a
 global variable, do
-```
-lua_getfield(L, LUA_GLOBALSINDEX, varname);
 
+```       lua_getfield(L, LUA_GLOBALSINDEX, varname);
 ```
-
 
 
 ## <a id="C Closures" class="section-title" href="#C Closures">3 4</a> 
@@ -1780,12 +1704,11 @@ Inside a C function you can raise an error by calling `lua_error`  (see
 Here we list all functions and types from the C API in alphabetical order.
 
 ### <a id="lua_Alloc()" class="section-title" href="#lua_Alloc()">lua_Alloc</a>
-```
-### <a id="typedef void  (lua_Alloc) (void ud," class="section-title" href="#typedef void  (lua_Alloc) (void ud,">Note:</a>
+
+#### <a id="typedef void  (lua_Alloc) (void ud," class="section-title" href="#typedef void  (lua_Alloc) (void ud,">```</a>
 ### <a id="void ptr," class="section-title" href="#void ptr,">Note:</a>
 size_t osize,
 size_t nsize);
-
 ```
 
 The type of the memory-allocation function used by Lua states. The
@@ -1806,8 +1729,8 @@ nsize`.
 Here is a simple implementation for the allocator function. It is used
 in the auxiliary library by `luaL_newstate` (see
 [luaL_newstate()](#luaL_newstate())).
-```
-### <a id="static void l_alloc (void ud, void ptr, size_t osize," class="section-title" href="#static void l_alloc (void ud, void ptr, size_t osize,">Note:</a>
+
+#### <a id="static void l_alloc (void ud, void ptr, size_t osize," class="section-title" href="#static void l_alloc (void ud, void ptr, size_t osize,">```</a>
 size_t nsize) {
 (void)ud;  (void)osize;  /* not used */
 if (nsize == 0) {
@@ -1817,7 +1740,6 @@ return NULL;
 else
 return realloc(ptr, nsize);
 }
-
 ```
 
 This code assumes that `free(NULL)` has no effect and that
@@ -1825,9 +1747,8 @@ This code assumes that `free(NULL)` has no effect and that
 behaviors.
 
 ### <a id="lua_atpanic()" class="section-title" href="#lua_atpanic()">lua_atpanic</a>
-```
-### <a id="lua_CFunction lua_atpanic (lua_State L, lua_CFunction panicf);" class="section-title" href="#lua_CFunction lua_atpanic (lua_State L, lua_CFunction panicf);">Note:</a>
 
+#### <a id="lua_CFunction lua_atpanic (lua_State L, lua_CFunction panicf);" class="section-title" href="#lua_CFunction lua_atpanic (lua_State L, lua_CFunction panicf);">```</a>
 ```
 
 Sets a new panic function and returns the old one.
@@ -1841,9 +1762,8 @@ The panic function can access the error message at the top of the
 stack.
 
 ### <a id="lua_call()" class="section-title" href="#lua_call()">lua_call</a>
-```
-### <a id="void lua_call (lua_State L, int nargs, int nresults);" class="section-title" href="#void lua_call (lua_State L, int nargs, int nresults);">Note:</a>
 
+#### <a id="void lua_call (lua_State L, int nargs, int nresults);" class="section-title" href="#void lua_call (lua_State L, int nargs, int nresults);">```</a>
 ```
 
 Calls a function.
@@ -1867,14 +1787,13 @@ Any error inside the called function is propagated upwards (with a
 
 The following example shows how the host program may do the equivalent
 to this Lua code:
-```
-a = f("how", t.x, 14)
 
+```            a = f("how", t.x, 14)
 ```
 
 Here it is in C:
-```
-lua_getfield(L, LUA_GLOBALSINDEX, "f"); // function to be called
+
+```            lua_getfield(L, LUA_GLOBALSINDEX, "f"); // function to be called
 lua_pushstring(L, "how");                        // 1st argument
 lua_getfield(L, LUA_GLOBALSINDEX, "t");   // table to be indexed
 lua_getfield(L, -1, "x");        // push result of t.x (2nd arg)
@@ -1882,7 +1801,6 @@ lua_remove(L, -2);                  // remove 't' from the stack
 lua_pushinteger(L, 14);                          // 3rd argument
 lua_call(L, 3, 1);     // call 'f' with 3 arguments and 1 result
 lua_setfield(L, LUA_GLOBALSINDEX, "a");        // set global 'a'
-
 ```
 
 Note that the code above is "balanced": at its end, the stack is back
@@ -1890,9 +1808,8 @@ to its original configuration. This is considered good programming
 practice.
 
 ### <a id="luaref-cfunction lua_CFunction()" class="section-title" href="#luaref-cfunction lua_CFunction()">lua_CFunction</a>
-```
-### <a id="typedef int (lua_CFunction) (lua_State L);" class="section-title" href="#typedef int (lua_CFunction) (lua_State L);">Note:</a>
 
+#### <a id="typedef int (lua_CFunction) (lua_State L);" class="section-title" href="#typedef int (lua_CFunction) (lua_State L);">```</a>
 ```
 
 Type for C functions.
@@ -1913,8 +1830,8 @@ by Lua can also return many results.
 ### <a id="luaref-cfunctionexample" class="section-title" href="#luaref-cfunctionexample">Note:</a>
 As an example, the following function receives a variable number of
 numerical arguments and returns their average and sum:
-```
-### <a id="static int foo (lua_State L) {" class="section-title" href="#static int foo (lua_State L) {">Note:</a>
+
+#### <a id="static int foo (lua_State L) {" class="section-title" href="#static int foo (lua_State L) {">```</a>
 int n = lua_gettop(L);    /* number of arguments */
 lua_Number sum = 0;
 int i;
@@ -1929,14 +1846,12 @@ sum += lua_tonumber(L, i);
 lua_pushnumber(L, sum);   /* second result */
 return 2;                 /* number of results */
 }
-
 ```
 
 
 ### <a id="lua_checkstack()" class="section-title" href="#lua_checkstack()">lua_checkstack</a>
-```
-### <a id="int lua_checkstack (lua_State L, int extra);" class="section-title" href="#int lua_checkstack (lua_State L, int extra);">Note:</a>
 
+#### <a id="int lua_checkstack (lua_State L, int extra);" class="section-title" href="#int lua_checkstack (lua_State L, int extra);">```</a>
 ```
 
 Ensures that there are at least `extra` free stack slots in the stack.
@@ -1945,9 +1860,8 @@ function never shrinks the stack; if the stack is already larger than
 the new size, it is left unchanged.
 
 ### <a id="lua_close()" class="section-title" href="#lua_close()">lua_close</a>
-```
-### <a id="void lua_close (lua_State L);" class="section-title" href="#void lua_close (lua_State L);">Note:</a>
 
+#### <a id="void lua_close (lua_State L);" class="section-title" href="#void lua_close (lua_State L);">```</a>
 ```
 
 Destroys all objects in the given Lua state (calling the corresponding
@@ -1959,9 +1873,8 @@ daemon or a web server, might need to release states as soon as they
 are not needed, to avoid growing too large.
 
 ### <a id="lua_concat()" class="section-title" href="#lua_concat()">lua_concat</a>
-```
-### <a id="void lua_concat (lua_State L, int n);" class="section-title" href="#void lua_concat (lua_State L, int n);">Note:</a>
 
+#### <a id="void lua_concat (lua_State L, int n);" class="section-title" href="#void lua_concat (lua_State L, int n);">```</a>
 ```
 
 Concatenates the `n` values at the top of the stack, pops them, and
@@ -1971,9 +1884,8 @@ the result is the empty string. Concatenation is done following the
 usual semantics of Lua (see [luaref-langConcat](#luaref-langConcat)).
 
 ### <a id="lua_cpcall()" class="section-title" href="#lua_cpcall()">lua_cpcall</a>
-```
-### <a id="int lua_cpcall (lua_State L, lua_CFunction func, void ud);" class="section-title" href="#int lua_cpcall (lua_State L, lua_CFunction func, void ud);">Note:</a>
 
+#### <a id="int lua_cpcall (lua_State L, lua_CFunction func, void ud);" class="section-title" href="#int lua_cpcall (lua_State L, lua_CFunction func, void ud);">```</a>
 ```
 
 Calls the C function `func` in protected mode. `func` starts with only
@@ -1984,9 +1896,8 @@ otherwise, it returns zero, and does not change the stack. All values
 returned by `func` are discarded.
 
 ### <a id="lua_createtable()" class="section-title" href="#lua_createtable()">lua_createtable</a>
-```
-### <a id="void lua_createtable (lua_State L, int narr, int nrec);" class="section-title" href="#void lua_createtable (lua_State L, int narr, int nrec);">Note:</a>
 
+#### <a id="void lua_createtable (lua_State L, int narr, int nrec);" class="section-title" href="#void lua_createtable (lua_State L, int narr, int nrec);">```</a>
 ```
 
 Creates a new empty table and pushes it onto the stack. The new table
@@ -1996,9 +1907,8 @@ elements the table will have. Otherwise you can use the function
 `lua_newtable`  (see [lua_newtable()](#lua_newtable())).
 
 ### <a id="lua_dump()" class="section-title" href="#lua_dump()">lua_dump</a>
-```
-### <a id="int lua_dump (lua_State L, lua_Writer writer, void data);" class="section-title" href="#int lua_dump (lua_State L, lua_Writer writer, void data);">Note:</a>
 
+#### <a id="int lua_dump (lua_State L, lua_Writer writer, void data);" class="section-title" href="#int lua_dump (lua_State L, lua_Writer writer, void data);">```</a>
 ```
 
 Dumps a function as a binary chunk. Receives a Lua function on the top
@@ -2013,9 +1923,8 @@ writer; 0 means no errors.
 This function does not pop the Lua function from the stack.
 
 ### <a id="lua_equal()" class="section-title" href="#lua_equal()">lua_equal</a>
-```
-### <a id="int lua_equal (lua_State L, int index1, int index2);" class="section-title" href="#int lua_equal (lua_State L, int index1, int index2);">Note:</a>
 
+#### <a id="int lua_equal (lua_State L, int index1, int index2);" class="section-title" href="#int lua_equal (lua_State L, int index1, int index2);">```</a>
 ```
 
 Returns 1 if the two values in acceptable indices `index1` and
@@ -2024,9 +1933,8 @@ Returns 1 if the two values in acceptable indices `index1` and
 if any of the indices is non valid.
 
 ### <a id="lua_error()" class="section-title" href="#lua_error()">lua_error</a>
-```
-### <a id="int lua_error (lua_State L);" class="section-title" href="#int lua_error (lua_State L);">Note:</a>
 
+#### <a id="int lua_error (lua_State L);" class="section-title" href="#int lua_error (lua_State L);">```</a>
 ```
 
 Generates a Lua error. The error message (which can actually be a Lua
@@ -2034,9 +1942,8 @@ value of any type) must be on the stack top. This function does a long
 jump, and therefore never returns (see [luaL_error()](#luaL_error())).
 
 ### <a id="lua_gc()" class="section-title" href="#lua_gc()">lua_gc</a>
-```
-### <a id="int lua_gc (lua_State L, int what, int data);" class="section-title" href="#int lua_gc (lua_State L, int what, int data);">Note:</a>
 
+#### <a id="int lua_gc (lua_State L, int what, int data);" class="section-title" href="#int lua_gc (lua_State L, int what, int data);">```</a>
 ```
 
 Controls the garbage collector.
@@ -2068,9 +1975,8 @@ pause.
 previous value of the step multiplier.
 
 ### <a id="lua_getallocf()" class="section-title" href="#lua_getallocf()">lua_getallocf</a>
-```
-### <a id="lua_Alloc lua_getallocf (lua_State L, void ud);" class="section-title" href="#lua_Alloc lua_getallocf (lua_State L, void ud);">Note:</a>
 
+#### <a id="lua_Alloc lua_getallocf (lua_State L, void ud);" class="section-title" href="#lua_Alloc lua_getallocf (lua_State L, void ud);">```</a>
 ```
 
 Returns the memory-allocation function of a given state. If `ud` is
@@ -2078,18 +1984,16 @@ Returns the memory-allocation function of a given state. If `ud` is
 `lua_newstate` (see [lua_newstate()](#lua_newstate())).
 
 ### <a id="lua_getfenv()" class="section-title" href="#lua_getfenv()">lua_getfenv</a>
-```
-### <a id="void lua_getfenv (lua_State L, int index);" class="section-title" href="#void lua_getfenv (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_getfenv (lua_State L, int index);" class="section-title" href="#void lua_getfenv (lua_State L, int index);">```</a>
 ```
 
 Pushes onto the stack the environment table of the value at the given
 index.
 
 ### <a id="lua_getfield()" class="section-title" href="#lua_getfield()">lua_getfield</a>
-```
-### <a id="void lua_getfield (lua_State L, int index, const char k);" class="section-title" href="#void lua_getfield (lua_State L, int index, const char k);">Note:</a>
 
+#### <a id="void lua_getfield (lua_State L, int index, const char k);" class="section-title" href="#void lua_getfield (lua_State L, int index, const char k);">```</a>
 ```
 
 Pushes onto the stack the value `t[k]`, where `t` is the value at the
@@ -2097,23 +2001,20 @@ given valid index `index`. As in Lua, this function may trigger a
 metamethod for the "index" event (see [luaref-langMetatables](#luaref-langMetatables)).
 
 ### <a id="lua_getglobal()" class="section-title" href="#lua_getglobal()">lua_getglobal</a>
-```
-### <a id="void lua_getglobal (lua_State L, const char name);" class="section-title" href="#void lua_getglobal (lua_State L, const char name);">Note:</a>
 
+#### <a id="void lua_getglobal (lua_State L, const char name);" class="section-title" href="#void lua_getglobal (lua_State L, const char name);">```</a>
 ```
 
 Pushes onto the stack the value of the global `name`. It is defined as
 a macro:
-```
-#define lua_getglobal(L,s)  lua_getfield(L, LUA_GLOBALSINDEX, s)
 
+```            #define lua_getglobal(L,s)  lua_getfield(L, LUA_GLOBALSINDEX, s)
 ```
 
 
 ### <a id="lua_getmetatable()" class="section-title" href="#lua_getmetatable()">lua_getmetatable</a>
-```
-### <a id="int lua_getmetatable (lua_State L, int index);" class="section-title" href="#int lua_getmetatable (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_getmetatable (lua_State L, int index);" class="section-title" href="#int lua_getmetatable (lua_State L, int index);">```</a>
 ```
 
 Pushes onto the stack the metatable of the value at the given
@@ -2122,9 +2023,8 @@ have a metatable, the function returns 0 and pushes nothing on the
 stack.
 
 ### <a id="lua_gettable()" class="section-title" href="#lua_gettable()">lua_gettable</a>
-```
-### <a id="void lua_gettable (lua_State L, int index);" class="section-title" href="#void lua_gettable (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_gettable (lua_State L, int index);" class="section-title" href="#void lua_gettable (lua_State L, int index);">```</a>
 ```
 
 Pushes onto the stack the value `t[k]`, where `t` is the value at the
@@ -2136,9 +2036,8 @@ in its place). As in Lua, this function may trigger a metamethod for
 the "index" event (see [luaref-langMetatables](#luaref-langMetatables)).
 
 ### <a id="lua_gettop()" class="section-title" href="#lua_gettop()">lua_gettop</a>
-```
-### <a id="int lua_gettop (lua_State L);" class="section-title" href="#int lua_gettop (lua_State L);">Note:</a>
 
+#### <a id="int lua_gettop (lua_State L);" class="section-title" href="#int lua_gettop (lua_State L);">```</a>
 ```
 
 Returns the index of the top element in the stack. Because indices
@@ -2147,9 +2046,8 @@ stack (and so
 0 means an empty stack).
 
 ### <a id="lua_insert()" class="section-title" href="#lua_insert()">lua_insert</a>
-```
-### <a id="void lua_insert (lua_State L, int index);" class="section-title" href="#void lua_insert (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_insert (lua_State L, int index);" class="section-title" href="#void lua_insert (lua_State L, int index);">```</a>
 ```
 
 Moves the top element into the given valid index, shifting up the
@@ -2157,9 +2055,8 @@ elements above this index to open space. Cannot be called with a
 pseudo-index, because a pseudo-index is not an actual stack position.
 
 ### <a id="lua_Integer()" class="section-title" href="#lua_Integer()">lua_Integer</a>
-```
-typedef ptrdiff_t lua_Integer;
 
+```    typedef ptrdiff_t lua_Integer;
 ```
 
 The type used by the Lua API to represent integral values.
@@ -2168,99 +2065,88 @@ By default it is a `ptrdiff_t`, which is usually the largest integral
 type the machine handles "comfortably".
 
 ### <a id="lua_isboolean()" class="section-title" href="#lua_isboolean()">lua_isboolean</a>
-```
-### <a id="int lua_isboolean (lua_State L, int index);" class="section-title" href="#int lua_isboolean (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isboolean (lua_State L, int index);" class="section-title" href="#int lua_isboolean (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index has type boolean,
 and 0 otherwise.
 
 ### <a id="lua_iscfunction()" class="section-title" href="#lua_iscfunction()">lua_iscfunction</a>
-```
-### <a id="int lua_iscfunction (lua_State L, int index);" class="section-title" href="#int lua_iscfunction (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_iscfunction (lua_State L, int index);" class="section-title" href="#int lua_iscfunction (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a C function,
 and 0 otherwise.
 
 ### <a id="lua_isfunction()" class="section-title" href="#lua_isfunction()">lua_isfunction</a>
-```
-### <a id="int lua_isfunction (lua_State L, int index);" class="section-title" href="#int lua_isfunction (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isfunction (lua_State L, int index);" class="section-title" href="#int lua_isfunction (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a function
 (either C or Lua), and 0 otherwise.
 
 ### <a id="lua_islightuserdata()" class="section-title" href="#lua_islightuserdata()">lua_islightuserdata</a>
-```
-### <a id="int lua_islightuserdata (lua_State L, int index);" class="section-title" href="#int lua_islightuserdata (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_islightuserdata (lua_State L, int index);" class="section-title" href="#int lua_islightuserdata (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a light
 userdata, and 0 otherwise.
 
 ### <a id="lua_isnil()" class="section-title" href="#lua_isnil()">lua_isnil</a>
-```
-### <a id="int lua_isnil (lua_State L, int index);" class="section-title" href="#int lua_isnil (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isnil (lua_State L, int index);" class="section-title" href="#int lua_isnil (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is `nil`, and 0
 otherwise.
 
 ### <a id="lua_isnumber()" class="section-title" href="#lua_isnumber()">lua_isnumber</a>
-```
-### <a id="int lua_isnumber (lua_State L, int index);" class="section-title" href="#int lua_isnumber (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isnumber (lua_State L, int index);" class="section-title" href="#int lua_isnumber (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a number or a
 string convertible to a number, and 0 otherwise.
 
 ### <a id="lua_isstring()" class="section-title" href="#lua_isstring()">lua_isstring</a>
-```
-### <a id="int lua_isstring (lua_State L, int index);" class="section-title" href="#int lua_isstring (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isstring (lua_State L, int index);" class="section-title" href="#int lua_isstring (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a string or a
 number (which is always convertible to a string), and 0 otherwise.
 
 ### <a id="lua_istable()" class="section-title" href="#lua_istable()">lua_istable</a>
-```
-### <a id="int lua_istable (lua_State L, int index);" class="section-title" href="#int lua_istable (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_istable (lua_State L, int index);" class="section-title" href="#int lua_istable (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a table, and
 0 otherwise.
 
 ### <a id="lua_isthread()" class="section-title" href="#lua_isthread()">lua_isthread</a>
-```
-### <a id="int lua_isthread (lua_State L, int index);" class="section-title" href="#int lua_isthread (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isthread (lua_State L, int index);" class="section-title" href="#int lua_isthread (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a thread, and
 0 otherwise.
 
 ### <a id="lua_isuserdata()" class="section-title" href="#lua_isuserdata()">lua_isuserdata</a>
-```
-### <a id="int lua_isuserdata (lua_State L, int index);" class="section-title" href="#int lua_isuserdata (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_isuserdata (lua_State L, int index);" class="section-title" href="#int lua_isuserdata (lua_State L, int index);">```</a>
 ```
 
 Returns 1 if the value at the given acceptable index is a userdata
 (either full or light), and 0 otherwise.
 
 ### <a id="lua_lessthan()" class="section-title" href="#lua_lessthan()">lua_lessthan</a>
-```
-### <a id="int lua_lessthan (lua_State L, int index1, int index2);" class="section-title" href="#int lua_lessthan (lua_State L, int index1, int index2);">Note:</a>
 
+#### <a id="int lua_lessthan (lua_State L, int index1, int index2);" class="section-title" href="#int lua_lessthan (lua_State L, int index1, int index2);">```</a>
 ```
 
 Returns 1 if the value at acceptable index `index1` is smaller than
@@ -2269,12 +2155,11 @@ Lua `<` operator (that is, may call metamethods). Otherwise returns 0.
 Also returns 0 if any of the indices is non valid.
 
 ### <a id="lua_load()" class="section-title" href="#lua_load()">lua_load</a>
-```
-### <a id="int lua_load (lua_State L," class="section-title" href="#int lua_load (lua_State L,">Note:</a>
+
+#### <a id="int lua_load (lua_State L," class="section-title" href="#int lua_load (lua_State L,">```</a>
 lua_Reader reader,
 ### <a id="void data," class="section-title" href="#void data,">Note:</a>
 ### <a id="const char chunkname);" class="section-title" href="#const char chunkname);">Note:</a>
-
 ```
 
 Loads a Lua chunk. If there are no errors, `lua_load` pushes the
@@ -2298,9 +2183,8 @@ The `chunkname` argument gives a name to the chunk, which is used for
 error messages and in debug information (see [luaref-apiDebug](#luaref-apiDebug)).
 
 ### <a id="lua_newstate()" class="section-title" href="#lua_newstate()">lua_newstate</a>
-```
-### <a id="lua_State lua_newstate (lua_Alloc f, void ud);" class="section-title" href="#lua_State lua_newstate (lua_Alloc f, void ud);">Note:</a>
 
+#### <a id="lua_State lua_newstate (lua_Alloc f, void ud);" class="section-title" href="#lua_State lua_newstate (lua_Alloc f, void ud);">```</a>
 ```
 
 Creates a new, independent state. Returns `NULL` if cannot create the
@@ -2310,9 +2194,8 @@ function. The second argument, `ud`, is an opaque pointer that Lua
 simply passes to the allocator in every call.
 
 ### <a id="lua_newtable()" class="section-title" href="#lua_newtable()">lua_newtable</a>
-```
-### <a id="void lua_newtable (lua_State L);" class="section-title" href="#void lua_newtable (lua_State L);">Note:</a>
 
+#### <a id="void lua_newtable (lua_State L);" class="section-title" href="#void lua_newtable (lua_State L);">```</a>
 ```
 
 Creates a new empty table and pushes it onto the stack. It is
@@ -2320,9 +2203,8 @@ equivalent to `lua_createtable(L, 0, 0)` (see
 [lua_createtable()](#lua_createtable())).
 
 ### <a id="lua_newthread()" class="section-title" href="#lua_newthread()">lua_newthread</a>
-```
-### <a id="lua_State lua_newthread (lua_State L);" class="section-title" href="#lua_State lua_newthread (lua_State L);">Note:</a>
 
+#### <a id="lua_State lua_newthread (lua_State L);" class="section-title" href="#lua_State lua_newthread (lua_State L);">```</a>
 ```
 
 Creates a new thread, pushes it on the stack, and returns a pointer to
@@ -2335,9 +2217,8 @@ There is no explicit function to close or to destroy a thread. Threads
 are subject to garbage collection, like any Lua object.
 
 ### <a id="lua_newuserdata()" class="section-title" href="#lua_newuserdata()">lua_newuserdata</a>
-```
-### <a id="void lua_newuserdata (lua_State L, size_t size);" class="section-title" href="#void lua_newuserdata (lua_State L, size_t size);">Note:</a>
 
+#### <a id="void lua_newuserdata (lua_State L, size_t size);" class="section-title" href="#void lua_newuserdata (lua_State L, size_t size);">```</a>
 ```
 
 This function allocates a new block of memory with the given size,
@@ -2355,9 +2236,8 @@ the metamethod and marks the userdata as finalized. When this userdata
 is collected again then Lua frees its corresponding memory.
 
 ### <a id="lua_next()" class="section-title" href="#lua_next()">lua_next</a>
-```
-### <a id="int lua_next (lua_State L, int index);" class="section-title" href="#int lua_next (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_next (lua_State L, int index);" class="section-title" href="#int lua_next (lua_State L, int index);">```</a>
 ```
 
 Pops a key from the stack, and pushes a key-value pair from the table
@@ -2367,8 +2247,8 @@ nothing).
 
 ### <a id="luaref-tabletraversal" class="section-title" href="#luaref-tabletraversal">Note:</a>
 A typical traversal looks like this:
-```
-### <a id="/ table is in the stack at index 't' /" class="section-title" href="#/ table is in the stack at index 't' /">Note:</a>
+
+#### <a id="/ table is in the stack at index 't' /" class="section-title" href="#/ table is in the stack at index 't' /">```</a>
 lua_pushnil(L);  /* first key */
 while (lua_next(L, t) != 0) {
 ### <a id="/ uses 'key' (at index -2) and 'value' (at index -1) /" class="section-title" href="#/ uses 'key' (at index -2) and 'value' (at index -1) /">Note:</a>
@@ -2378,7 +2258,6 @@ lua_typename(L, lua_type(L, -1)));
 ### <a id="/ removes 'value'; keeps 'key' for next iteration /" class="section-title" href="#/ removes 'value'; keeps 'key' for next iteration /">Note:</a>
 lua_pop(L, 1);
 }
-
 ```
 
 While traversing a table, do not call `lua_tolstring` (see
@@ -2387,9 +2266,8 @@ key is actually a string. Recall that `lua_tolstring` `changes` the
 value at the given index; this confuses the next call to `lua_next`.
 
 ### <a id="lua_Number()" class="section-title" href="#lua_Number()">lua_Number</a>
-```
-typedef double lua_Number;
 
+```    typedef double lua_Number;
 ```
 
 The type of numbers in Lua. By default, it is double, but that can be
@@ -2399,9 +2277,8 @@ Through the configuration file you can change Lua to operate with
 another type for numbers (e.g., float or long).
 
 ### <a id="lua_objlen()" class="section-title" href="#lua_objlen()">lua_objlen</a>
-```
-### <a id="size_t lua_objlen (lua_State L, int index);" class="section-title" href="#size_t lua_objlen (lua_State L, int index);">Note:</a>
 
+#### <a id="size_t lua_objlen (lua_State L, int index);" class="section-title" href="#size_t lua_objlen (lua_State L, int index);">```</a>
 ```
 
 Returns the "length" of the value at the given acceptable index: for
@@ -2410,9 +2287,8 @@ the length operator (`#`); for userdata, this is the size of the
 block of memory allocated for the userdata; for other values, it is 0.
 
 ### <a id="lua_pcall()" class="section-title" href="#lua_pcall()">lua_pcall</a>
-```
-### <a id="lua_pcall (lua_State L, int nargs, int nresults, int errfunc);" class="section-title" href="#lua_pcall (lua_State L, int nargs, int nresults, int errfunc);">Note:</a>
 
+#### <a id="lua_pcall (lua_State L, int nargs, int nresults, int errfunc);" class="section-title" href="#lua_pcall (lua_State L, int nargs, int nresults, int errfunc);">```</a>
 ```
 
 Calls a function in protected mode.
@@ -2447,25 +2323,22 @@ not call the error handler function.
 - `LUA_ERRERR`  error while running the error handler function.
 
 ### <a id="lua_pop()" class="section-title" href="#lua_pop()">lua_pop</a>
-```
-### <a id="void lua_pop (lua_State L, int n);" class="section-title" href="#void lua_pop (lua_State L, int n);">Note:</a>
 
+#### <a id="void lua_pop (lua_State L, int n);" class="section-title" href="#void lua_pop (lua_State L, int n);">```</a>
 ```
 
 Pops `n` elements from the stack.
 
 ### <a id="lua_pushboolean()" class="section-title" href="#lua_pushboolean()">lua_pushboolean</a>
-```
-### <a id="void lua_pushboolean (lua_State L, int b);" class="section-title" href="#void lua_pushboolean (lua_State L, int b);">Note:</a>
 
+#### <a id="void lua_pushboolean (lua_State L, int b);" class="section-title" href="#void lua_pushboolean (lua_State L, int b);">```</a>
 ```
 
 Pushes a boolean value with value `b` onto the stack.
 
 ### <a id="lua_pushcclosure()" class="section-title" href="#lua_pushcclosure()">lua_pushcclosure</a>
-```
-### <a id="void lua_pushcclosure (lua_State L, lua_CFunction fn, int n);" class="section-title" href="#void lua_pushcclosure (lua_State L, lua_CFunction fn, int n);">Note:</a>
 
+#### <a id="void lua_pushcclosure (lua_State L, lua_CFunction fn, int n);" class="section-title" href="#void lua_pushcclosure (lua_State L, lua_CFunction fn, int n);">```</a>
 ```
 
 Pushes a new C closure onto the stack.
@@ -2481,9 +2354,8 @@ values should be associated with the function. `lua_pushcclosure` also
 pops these values from the stack.
 
 ### <a id="lua_pushcfunction()" class="section-title" href="#lua_pushcfunction()">lua_pushcfunction</a>
-```
-### <a id="void lua_pushcfunction (lua_State L, lua_CFunction f);" class="section-title" href="#void lua_pushcfunction (lua_State L, lua_CFunction f);">Note:</a>
 
+#### <a id="void lua_pushcfunction (lua_State L, lua_CFunction f);" class="section-title" href="#void lua_pushcfunction (lua_State L, lua_CFunction f);">```</a>
 ```
 
 Pushes a C function onto the stack. This function receives a pointer
@@ -2495,16 +2367,14 @@ to receive its parameters and return its results (see
 [lua_CFunction()](#lua_CFunction())).
 
 `lua_pushcfunction` is defined as a macro:
-```
-#define lua_pushcfunction(L,f)  lua_pushcclosure(L,f,0)
 
+```            #define lua_pushcfunction(L,f)  lua_pushcclosure(L,f,0)
 ```
 
 
 ### <a id="lua_pushfstring()" class="section-title" href="#lua_pushfstring()">lua_pushfstring</a>
-```
-### <a id="const char lua_pushfstring (lua_State L, const char fmt, ...);" class="section-title" href="#const char lua_pushfstring (lua_State L, const char fmt, ...);">Note:</a>
 
+#### <a id="const char lua_pushfstring (lua_State L, const char fmt, ...);" class="section-title" href="#const char lua_pushfstring (lua_State L, const char fmt, ...);">```</a>
 ```
 
 Pushes onto the stack a formatted string and returns a pointer to this
@@ -2523,17 +2393,15 @@ string, with no size restrictions), `%f` (inserts a
 character).
 
 ### <a id="lua_pushinteger()" class="section-title" href="#lua_pushinteger()">lua_pushinteger</a>
-```
-### <a id="void lua_pushinteger (lua_State L, lua_Integer n);" class="section-title" href="#void lua_pushinteger (lua_State L, lua_Integer n);">Note:</a>
 
+#### <a id="void lua_pushinteger (lua_State L, lua_Integer n);" class="section-title" href="#void lua_pushinteger (lua_State L, lua_Integer n);">```</a>
 ```
 
 Pushes a number with value `n` onto the stack.
 
 ### <a id="lua_pushlightuserdata()" class="section-title" href="#lua_pushlightuserdata()">lua_pushlightuserdata</a>
-```
-### <a id="void lua_pushlightuserdata (lua_State L, void p);" class="section-title" href="#void lua_pushlightuserdata (lua_State L, void p);">Note:</a>
 
+#### <a id="void lua_pushlightuserdata (lua_State L, void p);" class="section-title" href="#void lua_pushlightuserdata (lua_State L, void p);">```</a>
 ```
 
 Pushes a light userdata onto the stack.
@@ -2545,9 +2413,8 @@ created). A light userdata is equal to "any" light userdata with the
 same C address.
 
 ### <a id="lua_pushlstring()" class="section-title" href="#lua_pushlstring()">lua_pushlstring</a>
-```
-### <a id="void lua_pushlstring (lua_State L, const char s, size_t len);" class="section-title" href="#void lua_pushlstring (lua_State L, const char s, size_t len);">Note:</a>
 
+#### <a id="void lua_pushlstring (lua_State L, const char s, size_t len);" class="section-title" href="#void lua_pushlstring (lua_State L, const char s, size_t len);">```</a>
 ```
 
 Pushes the string pointed to by `s` with size `len` onto the stack.
@@ -2556,25 +2423,22 @@ memory at `s` can be freed or reused immediately after the function
 returns. The string can contain embedded zeros.
 
 ### <a id="lua_pushnil()" class="section-title" href="#lua_pushnil()">lua_pushnil</a>
-```
-### <a id="void lua_pushnil (lua_State L);" class="section-title" href="#void lua_pushnil (lua_State L);">Note:</a>
 
+#### <a id="void lua_pushnil (lua_State L);" class="section-title" href="#void lua_pushnil (lua_State L);">```</a>
 ```
 
 Pushes a nil value onto the stack.
 
 ### <a id="lua_pushnumber()" class="section-title" href="#lua_pushnumber()">lua_pushnumber</a>
-```
-### <a id="void lua_pushnumber (lua_State L, lua_Number n);" class="section-title" href="#void lua_pushnumber (lua_State L, lua_Number n);">Note:</a>
 
+#### <a id="void lua_pushnumber (lua_State L, lua_Number n);" class="section-title" href="#void lua_pushnumber (lua_State L, lua_Number n);">```</a>
 ```
 
 Pushes a number with value `n` onto the stack.
 
 ### <a id="lua_pushstring()" class="section-title" href="#lua_pushstring()">lua_pushstring</a>
-```
-### <a id="void lua_pushstring (lua_State L, const char s);" class="section-title" href="#void lua_pushstring (lua_State L, const char s);">Note:</a>
 
+#### <a id="void lua_pushstring (lua_State L, const char s);" class="section-title" href="#void lua_pushstring (lua_State L, const char s);">```</a>
 ```
 
 Pushes the zero-terminated string pointed to by `s` onto the stack.
@@ -2584,28 +2448,25 @@ returns. The string cannot contain embedded zeros; it is assumed to
 end at the first zero.
 
 ### <a id="lua_pushthread()" class="section-title" href="#lua_pushthread()">lua_pushthread</a>
-```
-### <a id="int lua_pushthread (lua_State L);" class="section-title" href="#int lua_pushthread (lua_State L);">Note:</a>
 
+#### <a id="int lua_pushthread (lua_State L);" class="section-title" href="#int lua_pushthread (lua_State L);">```</a>
 ```
 
 Pushes the thread represented by `L` onto the stack. Returns 1 if this
 thread is the main thread of its state.
 
 ### <a id="lua_pushvalue()" class="section-title" href="#lua_pushvalue()">lua_pushvalue</a>
-```
-### <a id="void lua_pushvalue (lua_State L, int index);" class="section-title" href="#void lua_pushvalue (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_pushvalue (lua_State L, int index);" class="section-title" href="#void lua_pushvalue (lua_State L, int index);">```</a>
 ```
 
 Pushes a copy of the element at the given valid index onto the stack.
 
 ### <a id="lua_pushvfstring()" class="section-title" href="#lua_pushvfstring()">lua_pushvfstring</a>
-```
-### <a id="const char lua_pushvfstring (lua_State L," class="section-title" href="#const char lua_pushvfstring (lua_State L,">Note:</a>
+
+#### <a id="const char lua_pushvfstring (lua_State L," class="section-title" href="#const char lua_pushvfstring (lua_State L,">```</a>
 ### <a id="const char fmt," class="section-title" href="#const char fmt,">Note:</a>
 va_list argp);
-
 ```
 
 Equivalent to `lua_pushfstring` (see [lua_pushfstring()](#lua_pushfstring())), except
@@ -2613,9 +2474,8 @@ that it receives a `va_list` instead of a variable number of
 arguments.
 
 ### <a id="lua_rawequal()" class="section-title" href="#lua_rawequal()">lua_rawequal</a>
-```
-### <a id="int lua_rawequal (lua_State L, int index1, int index2);" class="section-title" href="#int lua_rawequal (lua_State L, int index1, int index2);">Note:</a>
 
+#### <a id="int lua_rawequal (lua_State L, int index1, int index2);" class="section-title" href="#int lua_rawequal (lua_State L, int index1, int index2);">```</a>
 ```
 
 Returns 1 if the two values in acceptable indices `index1` and
@@ -2624,18 +2484,16 @@ Otherwise returns 0. Also returns 0 if any of the indices are non
 valid.
 
 ### <a id="lua_rawget()" class="section-title" href="#lua_rawget()">lua_rawget</a>
-```
-### <a id="void lua_rawget (lua_State L, int index);" class="section-title" href="#void lua_rawget (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_rawget (lua_State L, int index);" class="section-title" href="#void lua_rawget (lua_State L, int index);">```</a>
 ```
 
 Similar to `lua_gettable` (see [lua_gettable()](#lua_gettable())), but does a raw
 access (i.e., without metamethods).
 
 ### <a id="lua_rawgeti()" class="section-title" href="#lua_rawgeti()">lua_rawgeti</a>
-```
-### <a id="void lua_rawgeti (lua_State L, int index, int n);" class="section-title" href="#void lua_rawgeti (lua_State L, int index, int n);">Note:</a>
 
+#### <a id="void lua_rawgeti (lua_State L, int index, int n);" class="section-title" href="#void lua_rawgeti (lua_State L, int index, int n);">```</a>
 ```
 
 Pushes onto the stack the value `t[n]`, where `t` is the value at the
@@ -2643,18 +2501,16 @@ given valid index `index`. The access is raw; that is, it does not
 invoke metamethods.
 
 ### <a id="lua_rawset()" class="section-title" href="#lua_rawset()">lua_rawset</a>
-```
-### <a id="void lua_rawset (lua_State L, int index);" class="section-title" href="#void lua_rawset (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_rawset (lua_State L, int index);" class="section-title" href="#void lua_rawset (lua_State L, int index);">```</a>
 ```
 
 Similar to `lua_settable` (see [lua_settable()](#lua_settable())), but does a raw
 assignment (i.e., without metamethods).
 
 ### <a id="lua_rawseti()" class="section-title" href="#lua_rawseti()">lua_rawseti</a>
-```
-### <a id="void lua_rawseti (lua_State L, int index, int n);" class="section-title" href="#void lua_rawseti (lua_State L, int index, int n);">Note:</a>
 
+#### <a id="void lua_rawseti (lua_State L, int index, int n);" class="section-title" href="#void lua_rawseti (lua_State L, int index, int n);">```</a>
 ```
 
 Does the equivalent of `t[n] = v`, where `t` is the value at the given
@@ -2664,11 +2520,10 @@ This function pops the value from the stack. The assignment is raw;
 that is, it does not invoke metamethods.
 
 ### <a id="lua_Reader()" class="section-title" href="#lua_Reader()">lua_Reader</a>
-```
-### <a id="typedef const char  (lua_Reader) (lua_State L," class="section-title" href="#typedef const char  (lua_Reader) (lua_State L,">Note:</a>
+
+#### <a id="typedef const char  (lua_Reader) (lua_State L," class="section-title" href="#typedef const char  (lua_Reader) (lua_State L,">```</a>
 ### <a id="void data," class="section-title" href="#void data,">Note:</a>
 ### <a id="size_t size);" class="section-title" href="#size_t size);">Note:</a>
-
 ```
 
 The reader function used by `lua_load` (see [lua_load()](#lua_load())). Every
@@ -2681,26 +2536,23 @@ called again. To signal the end of the chunk, the reader must return
 zero.
 
 ### <a id="lua_register()" class="section-title" href="#lua_register()">lua_register</a>
-```
-### <a id="void lua_register (lua_State L," class="section-title" href="#void lua_register (lua_State L,">Note:</a>
+
+#### <a id="void lua_register (lua_State L," class="section-title" href="#void lua_register (lua_State L,">```</a>
 ### <a id="const char name," class="section-title" href="#const char name,">Note:</a>
 lua_CFunction f);
-
 ```
 
 Sets the C function `f` as the new value of global `name`. It is
 defined as a macro:
-```
-#define lua_register(L,n,f) \
-(lua_pushcfunction(L, f), lua_setglobal(L, n))
 
+```            #define lua_register(L,n,f) \
+(lua_pushcfunction(L, f), lua_setglobal(L, n))
 ```
 
 
 ### <a id="lua_remove()" class="section-title" href="#lua_remove()">lua_remove</a>
-```
-### <a id="void lua_remove (lua_State L, int index);" class="section-title" href="#void lua_remove (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_remove (lua_State L, int index);" class="section-title" href="#void lua_remove (lua_State L, int index);">```</a>
 ```
 
 Removes the element at the given valid index, shifting down the
@@ -2708,9 +2560,8 @@ elements above this index to fill the gap. Cannot be called with a
 pseudo-index, because a pseudo-index is not an actual stack position.
 
 ### <a id="lua_replace()" class="section-title" href="#lua_replace()">lua_replace</a>
-```
-### <a id="void lua_replace (lua_State L, int index);" class="section-title" href="#void lua_replace (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_replace (lua_State L, int index);" class="section-title" href="#void lua_replace (lua_State L, int index);">```</a>
 ```
 
 Moves the top element into the given position (and pops it), without
@@ -2718,9 +2569,8 @@ shifting any element (therefore replacing the value at the given
 position).
 
 ### <a id="lua_resume()" class="section-title" href="#lua_resume()">lua_resume</a>
-```
-### <a id="int lua_resume (lua_State L, int narg);" class="section-title" href="#int lua_resume (lua_State L, int narg);">Note:</a>
 
+#### <a id="int lua_resume (lua_State L, int narg);" class="section-title" href="#int lua_resume (lua_State L, int narg);">```</a>
 ```
 
 Starts and resumes a coroutine in a given thread.
@@ -2741,18 +2591,16 @@ its stack only the values to be passed as results from `lua_yield`,
 and then call `lua_resume`.
 
 ### <a id="lua_setallocf()" class="section-title" href="#lua_setallocf()">lua_setallocf</a>
-```
-### <a id="void lua_setallocf (lua_State L, lua_Alloc f, void ud);" class="section-title" href="#void lua_setallocf (lua_State L, lua_Alloc f, void ud);">Note:</a>
 
+#### <a id="void lua_setallocf (lua_State L, lua_Alloc f, void ud);" class="section-title" href="#void lua_setallocf (lua_State L, lua_Alloc f, void ud);">```</a>
 ```
 
 Changes the allocator function of a given state to `f` with user data
 `ud`.
 
 ### <a id="lua_setfenv()" class="section-title" href="#lua_setfenv()">lua_setfenv</a>
-```
-### <a id="int lua_setfenv (lua_State L, int index);" class="section-title" href="#int lua_setfenv (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_setfenv (lua_State L, int index);" class="section-title" href="#int lua_setfenv (lua_State L, int index);">```</a>
 ```
 
 Pops a table from the stack and sets it as the new environment for the
@@ -2761,9 +2609,8 @@ function nor a thread nor a userdata, `lua_setfenv` returns 0.
 Otherwise it returns 1.
 
 ### <a id="lua_setfield()" class="section-title" href="#lua_setfield()">lua_setfield</a>
-```
-### <a id="void lua_setfield (lua_State L, int index, const char k);" class="section-title" href="#void lua_setfield (lua_State L, int index, const char k);">Note:</a>
 
+#### <a id="void lua_setfield (lua_State L, int index, const char k);" class="section-title" href="#void lua_setfield (lua_State L, int index, const char k);">```</a>
 ```
 
 Does the equivalent to `t[k] = v`, where `t` is the value at the given
@@ -2774,32 +2621,28 @@ may trigger a metamethod for the "newindex" event (see
 [luaref-langMetatables](#luaref-langMetatables)).
 
 ### <a id="lua_setglobal()" class="section-title" href="#lua_setglobal()">lua_setglobal</a>
-```
-### <a id="void lua_setglobal (lua_State L, const char name);" class="section-title" href="#void lua_setglobal (lua_State L, const char name);">Note:</a>
 
+#### <a id="void lua_setglobal (lua_State L, const char name);" class="section-title" href="#void lua_setglobal (lua_State L, const char name);">```</a>
 ```
 
 Pops a value from the stack and sets it as the new value of global
 `name`. It is defined as a macro:
-```
-#define lua_setglobal(L,s)   lua_setfield(L, LUA_GLOBALSINDEX, s)
 
+```            #define lua_setglobal(L,s)   lua_setfield(L, LUA_GLOBALSINDEX, s)
 ```
 
 
 ### <a id="lua_setmetatable()" class="section-title" href="#lua_setmetatable()">lua_setmetatable</a>
-```
-### <a id="int lua_setmetatable (lua_State L, int index);" class="section-title" href="#int lua_setmetatable (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_setmetatable (lua_State L, int index);" class="section-title" href="#int lua_setmetatable (lua_State L, int index);">```</a>
 ```
 
 Pops a table from the stack and sets it as the new metatable for the
 value at the given acceptable index.
 
 ### <a id="lua_settable()" class="section-title" href="#lua_settable()">lua_settable</a>
-```
-### <a id="void lua_settable (lua_State L, int index);" class="section-title" href="#void lua_settable (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_settable (lua_State L, int index);" class="section-title" href="#void lua_settable (lua_State L, int index);">```</a>
 ```
 
 Does the equivalent to `t[k] = v`, where `t` is the value at the given
@@ -2811,9 +2654,8 @@ Lua, this function may trigger a metamethod for the "newindex" event
 (see [luaref-langMetatables](#luaref-langMetatables)).
 
 ### <a id="lua_settop()" class="section-title" href="#lua_settop()">lua_settop</a>
-```
-### <a id="void lua_settop (lua_State L, int index);" class="section-title" href="#void lua_settop (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_settop (lua_State L, int index);" class="section-title" href="#void lua_settop (lua_State L, int index);">```</a>
 ```
 
 Accepts any acceptable index, or 0, and sets the stack top to this
@@ -2822,9 +2664,8 @@ elements are filled with `nil`. If `index` is 0, then all stack
 elements are removed.
 
 ### <a id="lua_State()" class="section-title" href="#lua_State()">lua_State</a>
-```
-typedef struct lua_State lua_State;
 
+```    typedef struct lua_State lua_State;
 ```
 
 Opaque structure that keeps the whole state of a Lua interpreter. The
@@ -2836,9 +2677,8 @@ function in the library, except to `lua_newstate` (see
 [lua_newstate()](#lua_newstate())), which creates a Lua state from scratch.
 
 ### <a id="lua_status()" class="section-title" href="#lua_status()">lua_status</a>
-```
-### <a id="int lua_status (lua_State L);" class="section-title" href="#int lua_status (lua_State L);">Note:</a>
 
+#### <a id="int lua_status (lua_State L);" class="section-title" href="#int lua_status (lua_State L);">```</a>
 ```
 
 Returns the status of the thread `L`.
@@ -2848,9 +2688,8 @@ finished its execution with an error, or `LUA_YIELD` if the thread is
 suspended.
 
 ### <a id="lua_toboolean()" class="section-title" href="#lua_toboolean()">lua_toboolean</a>
-```
-### <a id="int lua_toboolean (lua_State L, int index);" class="section-title" href="#int lua_toboolean (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_toboolean (lua_State L, int index);" class="section-title" href="#int lua_toboolean (lua_State L, int index);">```</a>
 ```
 
 Converts the Lua value at the given acceptable index to a C boolean
@@ -2861,18 +2700,16 @@ to accept only actual boolean values, use `lua_isboolean`
 [lua_isboolean()](#lua_isboolean()) to test the value's type.)
 
 ### <a id="lua_tocfunction()" class="section-title" href="#lua_tocfunction()">lua_tocfunction</a>
-```
-### <a id="lua_CFunction lua_tocfunction (lua_State L, int index);" class="section-title" href="#lua_CFunction lua_tocfunction (lua_State L, int index);">Note:</a>
 
+#### <a id="lua_CFunction lua_tocfunction (lua_State L, int index);" class="section-title" href="#lua_CFunction lua_tocfunction (lua_State L, int index);">```</a>
 ```
 
 Converts a value at the given acceptable index to a C function. That
 value must be a C function; otherwise it returns `NULL`.
 
 ### <a id="lua_tointeger()" class="section-title" href="#lua_tointeger()">lua_tointeger</a>
-```
-### <a id="lua_Integer lua_tointeger (lua_State L, int idx);" class="section-title" href="#lua_Integer lua_tointeger (lua_State L, int idx);">Note:</a>
 
+#### <a id="lua_Integer lua_tointeger (lua_State L, int idx);" class="section-title" href="#lua_Integer lua_tointeger (lua_State L, int idx);">```</a>
 ```
 
 Converts the Lua value at the given acceptable index to the signed
@@ -2884,13 +2721,12 @@ If the number is not an integer, it is truncated in some non-specified
 way.
 
 ### <a id="lua_tolstring()" class="section-title" href="#lua_tolstring()">lua_tolstring</a>
-```
-### <a id="const char lua_tolstring (lua_State L, int index, size_t len);" class="section-title" href="#const char lua_tolstring (lua_State L, int index, size_t len);">Note:</a>
 
+#### <a id="const char lua_tolstring (lua_State L, int index, size_t len);" class="section-title" href="#const char lua_tolstring (lua_State L, int index, size_t len);">```</a>
 ```
 
 Converts the Lua value at the given acceptable index to a C string. If
-#### <a id="`len` is not `NULL`, it also sets `len` with the string length. The" class="section-title" href="#`len` is not `NULL`, it also sets `len` with the string length. The">Note:</a>
+### <a id="`len` is not `NULL`, it also sets `len` with the string length. The" class="section-title" href="#`len` is not `NULL`, it also sets `len` with the string length. The">Note:</a>
 Lua value must be a string or a number; otherwise, the function
 returns `NULL`. If the value is a number, then `lua_tolstring`  also
 `changes the actual value in the stack to a` `string`. (This change
@@ -2905,9 +2741,8 @@ returned by `lua_tolstring` will be valid after the corresponding
 value is removed from the stack.
 
 ### <a id="lua_tonumber()" class="section-title" href="#lua_tonumber()">lua_tonumber</a>
-```
-### <a id="lua_Number lua_tonumber (lua_State L, int index);" class="section-title" href="#lua_Number lua_tonumber (lua_State L, int index);">Note:</a>
 
+#### <a id="lua_Number lua_tonumber (lua_State L, int index);" class="section-title" href="#lua_Number lua_tonumber (lua_State L, int index);">```</a>
 ```
 
 Converts the Lua value at the given acceptable index to the C type
@@ -2916,9 +2751,8 @@ or a string convertible to a number (see [luaref-langCoercion](#luaref-langCoerc
 otherwise, `lua_tonumber` returns 0.
 
 ### <a id="lua_topointer()" class="section-title" href="#lua_topointer()">lua_topointer</a>
-```
-### <a id="const void lua_topointer (lua_State L, int index);" class="section-title" href="#const void lua_topointer (lua_State L, int index);">Note:</a>
 
+#### <a id="const void lua_topointer (lua_State L, int index);" class="section-title" href="#const void lua_topointer (lua_State L, int index);">```</a>
 ```
 
 Converts the value at the given acceptable index to a generic C
@@ -2930,28 +2764,25 @@ pointer back to its original value.
 Typically this function is used only for debug information.
 
 ### <a id="lua_tostring()" class="section-title" href="#lua_tostring()">lua_tostring</a>
-```
-### <a id="const char lua_tostring (lua_State L, int index);" class="section-title" href="#const char lua_tostring (lua_State L, int index);">Note:</a>
 
+#### <a id="const char lua_tostring (lua_State L, int index);" class="section-title" href="#const char lua_tostring (lua_State L, int index);">```</a>
 ```
 
 Equivalent to `lua_tolstring` (see [lua_tolstring()](#lua_tolstring())) with `len`
 equal to `NULL`.
 
 ### <a id="lua_tothread()" class="section-title" href="#lua_tothread()">lua_tothread</a>
-```
-### <a id="lua_State lua_tothread (lua_State L, int index);" class="section-title" href="#lua_State lua_tothread (lua_State L, int index);">Note:</a>
 
+#### <a id="lua_State lua_tothread (lua_State L, int index);" class="section-title" href="#lua_State lua_tothread (lua_State L, int index);">```</a>
 ```
 
 Converts the value at the given acceptable index to a Lua thread
-### <a id="(represented as `lua_State` [lua_State()|). This value must be a" class="section-title" href="#(represented as `lua_State` |lua_State()](#lua_State()|). This value must be a" class="section-title" href="#(represented as `lua_State` |lua_State())). This value must be a">Note:</a>
+### <a id="(represented as `lua_State` [lua_State()](#lua_State())). This value must be a" class="section-title" href="#(represented as `lua_State` [lua_State()](#lua_State())). This value must be a">Note:</a>
 thread; otherwise, the function returns `NULL`.
 
 ### <a id="lua_touserdata()" class="section-title" href="#lua_touserdata()">lua_touserdata</a>
-```
-### <a id="void lua_touserdata (lua_State L, int index);" class="section-title" href="#void lua_touserdata (lua_State L, int index);">Note:</a>
 
+#### <a id="void lua_touserdata (lua_State L, int index);" class="section-title" href="#void lua_touserdata (lua_State L, int index);">```</a>
 ```
 
 If the value at the given acceptable index is a full userdata, returns
@@ -2959,9 +2790,8 @@ its block address. If the value is a light userdata, returns its
 pointer. Otherwise, it returns `NULL`.
 
 ### <a id="lua_type()" class="section-title" href="#lua_type()">lua_type</a>
-```
-### <a id="int lua_type (lua_State L, int index);" class="section-title" href="#int lua_type (lua_State L, int index);">Note:</a>
 
+#### <a id="int lua_type (lua_State L, int index);" class="section-title" href="#int lua_type (lua_State L, int index);">```</a>
 ```
 
 Returns the type of the value in the given acceptable index, or
@@ -2972,21 +2802,19 @@ following constants defined in `lua.h` : `LUA_TNIL`, `LUA_TNUMBER`,
 `LUA_TUSERDATA`, `LUA_TTHREAD`, and `LUA_TLIGHTUSERDATA`.
 
 ### <a id="lua_typename()" class="section-title" href="#lua_typename()">lua_typename</a>
-```
-### <a id="const char lua_typename" class="section-title" href="#const char lua_typename">Note:</a>
 
+#### <a id="const char lua_typename" class="section-title" href="#const char lua_typename">```</a>
 ```
 
 Returns the name of the type encoded by the value `tp`, which must be
 one the values returned by `lua_type`.
 
 ### <a id="lua_Writer()" class="section-title" href="#lua_Writer()">lua_Writer</a>
-```
-### <a id="typedef int (lua_Writer) (lua_State L," class="section-title" href="#typedef int (lua_Writer) (lua_State L,">Note:</a>
+
+#### <a id="typedef int (lua_Writer) (lua_State L," class="section-title" href="#typedef int (lua_Writer) (lua_State L,">```</a>
 ### <a id="const void p," class="section-title" href="#const void p,">Note:</a>
 size_t sz,
 ### <a id="void ud);" class="section-title" href="#void ud);">Note:</a>
-
 ```
 
 The writer function used by `lua_dump` (see [lua_dump()](#lua_dump())). Every
@@ -2998,9 +2826,8 @@ The writer returns an error code: 0 means no errors; any other value
 means an error and stops `lua_dump` from calling the writer again.
 
 ### <a id="lua_xmove()" class="section-title" href="#lua_xmove()">lua_xmove</a>
-```
-### <a id="void lua_xmove (lua_State from, lua_State to, int n);" class="section-title" href="#void lua_xmove (lua_State from, lua_State to, int n);">Note:</a>
 
+#### <a id="void lua_xmove (lua_State from, lua_State to, int n);" class="section-title" href="#void lua_xmove (lua_State from, lua_State to, int n);">```</a>
 ```
 
 Exchange values between different threads of the `same` global state.
@@ -3009,18 +2836,16 @@ This function pops `n` values from the stack `from`, and pushes them
 onto the stack `to`.
 
 ### <a id="lua_yield()" class="section-title" href="#lua_yield()">lua_yield</a>
-```
-### <a id="int lua_yield (lua_State L, int nresults);" class="section-title" href="#int lua_yield (lua_State L, int nresults);">Note:</a>
 
+#### <a id="int lua_yield (lua_State L, int nresults);" class="section-title" href="#int lua_yield (lua_State L, int nresults);">```</a>
 ```
 
 Yields a coroutine.
 
 This function should only be called as the return expression of a C
 function, as follows:
-```
-return lua_yield (L, nresults);
 
+```               return lua_yield (L, nresults);
 ```
 
 When a C function calls `lua_yield` in that way, the running coroutine
@@ -3031,9 +2856,9 @@ passed as results to `lua_resume`.
 
 ### <a id="luaref-stackexample" class="section-title" href="#luaref-stackexample">Note:</a>
 As an example of stack manipulation, if the stack starts as
-#### <a id="`10 20 30 40 50` (from bottom to top; the `` marks the top), then" class="section-title" href="#`10 20 30 40 50` (from bottom to top; the `` marks the top), then">Note:</a>
-```
-lua_pushvalue(L, 3)    --> 10 20 30 40 50 30*
+### <a id="`10 20 30 40 50` (from bottom to top; the `` marks the top), then" class="section-title" href="#`10 20 30 40 50` (from bottom to top; the `` marks the top), then">Note:</a>
+
+```               lua_pushvalue(L, 3)    --> 10 20 30 40 50 30*
 lua_pushvalue(L, -1)   --> 10 20 30 40 50 30 30*
 lua_remove(L, -3)      --> 10 20 30 40 30 30*
 lua_remove(L,  6)      --> 10 20 30 40 30*
@@ -3042,9 +2867,7 @@ lua_insert(L, -1)      --> 30 10 20 30 40*  (no effect)
 lua_replace(L, 2)      --> 30 40 20 30*
 lua_settop(L, -3)      --> 30 40*
 lua_settop(L,  6)      --> 30 40 nil nil nil nil*
-
 ```
-
 
 
 ## <a id="The Debug Interface" class="section-title" href="#The Debug Interface">3 8</a> 
@@ -3055,8 +2878,9 @@ construction of different kinds of debuggers, profilers, and other tools that
 need "inside information" from the interpreter.
 
 ### <a id="lua_Debug()" class="section-title" href="#lua_Debug()">lua_Debug</a>
-```
-typedef struct lua_Debug {
+
+
+```    typedef struct lua_Debug {
 int event;
 ### <a id="const char name;" class="section-title" href="#const char name;">Note:</a>
 ### <a id="const char namewhat;" class="section-title" href="#const char namewhat;">Note:</a>
@@ -3070,7 +2894,6 @@ int lastlinedefined;        /* (S) */
 ### <a id="/ private part /" class="section-title" href="#/ private part /">Note:</a>
 other fields
 } lua_Debug;
-
 ```
 
 
@@ -3110,33 +2933,29 @@ no other option seems to apply.) `nups`  the number of
 upvalues of the function.
 
 ### <a id="lua_gethook()" class="section-title" href="#lua_gethook()">lua_gethook</a>
-```
-### <a id="lua_Hook lua_gethook (lua_State L);" class="section-title" href="#lua_Hook lua_gethook (lua_State L);">Note:</a>
 
+#### <a id="lua_Hook lua_gethook (lua_State L);" class="section-title" href="#lua_Hook lua_gethook (lua_State L);">```</a>
 ```
 
 Returns the current hook function.
 
 ### <a id="lua_gethookcount()" class="section-title" href="#lua_gethookcount()">lua_gethookcount</a>
-```
-### <a id="int lua_gethookcount (lua_State L);" class="section-title" href="#int lua_gethookcount (lua_State L);">Note:</a>
 
+#### <a id="int lua_gethookcount (lua_State L);" class="section-title" href="#int lua_gethookcount (lua_State L);">```</a>
 ```
 
 Returns the current hook count.
 
 ### <a id="lua_gethookmask()" class="section-title" href="#lua_gethookmask()">lua_gethookmask</a>
-```
-### <a id="int lua_gethookmask (lua_State L);" class="section-title" href="#int lua_gethookmask (lua_State L);">Note:</a>
 
+#### <a id="int lua_gethookmask (lua_State L);" class="section-title" href="#int lua_gethookmask (lua_State L);">```</a>
 ```
 
 Returns the current hook mask.
 
 ### <a id="lua_getinfo()" class="section-title" href="#lua_getinfo()">lua_getinfo</a>
-```
-### <a id="int lua_getinfo (lua_State L, const char what, lua_Debug ar);" class="section-title" href="#int lua_getinfo (lua_State L, const char what, lua_Debug ar);">Note:</a>
 
+#### <a id="int lua_getinfo (lua_State L, const char what, lua_Debug ar);" class="section-title" href="#int lua_getinfo (lua_State L, const char what, lua_Debug ar);">```</a>
 ```
 
 Returns information about a specific function or function invocation.
@@ -3151,12 +2970,11 @@ start the `what` string with the character `>`. (In that case,
 `lua_getinfo` pops the function in the top of the stack.) For
 instance, to know in which line a function `f` was defined, you can
 write the following code:
-```
-lua_Debug ar;
+
+```               lua_Debug ar;
 lua_getfield(L, LUA_GLOBALSINDEX, "f");  /* get global 'f' */
 lua_getinfo(L, ">S", &ar);
 printf("%d\n", ar.linedefined);
-
 ```
 
 Each character in the string `what` selects some fields of the
@@ -3178,9 +2996,8 @@ This function returns 0 on error (for instance, an invalid option in
 `what`).
 
 ### <a id="lua_getlocal()" class="section-title" href="#lua_getlocal()">lua_getlocal</a>
-```
-### <a id="const char lua_getlocal (lua_State L, lua_Debug ar, int n);" class="section-title" href="#const char lua_getlocal (lua_State L, lua_Debug ar, int n);">Note:</a>
 
+#### <a id="const char lua_getlocal (lua_State L, lua_Debug ar, int n);" class="section-title" href="#const char lua_getlocal (lua_State L, lua_Debug ar, int n);">```</a>
 ```
 
 Gets information about a local variable of a given activation record.
@@ -3200,9 +3017,8 @@ Returns `NULL` (and pushes nothing) when the index is greater than the
 number of active local variables.
 
 ### <a id="lua_getstack()" class="section-title" href="#lua_getstack()">lua_getstack</a>
-```
-### <a id="int lua_getstack (lua_State L, int level, lua_Debug ar);" class="section-title" href="#int lua_getstack (lua_State L, int level, lua_Debug ar);">Note:</a>
 
+#### <a id="int lua_getstack (lua_State L, int level, lua_Debug ar);" class="section-title" href="#int lua_getstack (lua_State L, int level, lua_Debug ar);">```</a>
 ```
 
 Gets information about the interpreter runtime stack.
@@ -3215,9 +3031,8 @@ function, whereas level `n+1` is the function that has called level
 with a level greater than the stack depth, it returns 0.
 
 ### <a id="lua_getupvalue()" class="section-title" href="#lua_getupvalue()">lua_getupvalue</a>
-```
-### <a id="const char lua_getupvalue (lua_State L, int funcindex, int n);" class="section-title" href="#const char lua_getupvalue (lua_State L, int funcindex, int n);">Note:</a>
 
+#### <a id="const char lua_getupvalue (lua_State L, int funcindex, int n);" class="section-title" href="#const char lua_getupvalue (lua_State L, int funcindex, int n);">```</a>
 ```
 
 Gets information about a closure's upvalue. (For Lua functions,
@@ -3233,9 +3048,8 @@ number of upvalues. For C functions, this function uses the empty
 string `""` as a name for all upvalues.
 
 ### <a id="lua_Hook()" class="section-title" href="#lua_Hook()">lua_Hook</a>
-```
-### <a id="typedef void (lua_Hook) (lua_State L, lua_Debug ar);" class="section-title" href="#typedef void (lua_Hook) (lua_State L, lua_Debug ar);">Note:</a>
 
+#### <a id="typedef void (lua_Hook) (lua_State L, lua_Debug ar);" class="section-title" href="#typedef void (lua_Hook) (lua_State L, lua_Debug ar);">```</a>
 ```
 
 Type for debugging hook functions.
@@ -3257,9 +3071,8 @@ this execution occurs without any calls to hooks.
 
 
 ### <a id="lua_sethook()" class="section-title" href="#lua_sethook()">lua_sethook</a>
-```
-### <a id="int lua_sethook (lua_State L, lua_Hook f, int mask, int count);" class="section-title" href="#int lua_sethook (lua_State L, lua_Hook f, int mask, int count);">Note:</a>
 
+#### <a id="int lua_sethook (lua_State L, lua_Hook f, int mask, int count);" class="section-title" href="#int lua_sethook (lua_State L, lua_Hook f, int mask, int count);">```</a>
 ```
 
 Sets the debugging hook function.
@@ -3288,9 +3101,8 @@ executing a Lua function.)
 A hook is disabled by setting `mask` to zero.
 
 ### <a id="lua_setlocal()" class="section-title" href="#lua_setlocal()">lua_setlocal</a>
-```
-### <a id="const char lua_setlocal (lua_State L, lua_Debug ar, int n);" class="section-title" href="#const char lua_setlocal (lua_State L, lua_Debug ar, int n);">Note:</a>
 
+#### <a id="const char lua_setlocal (lua_State L, lua_Debug ar, int n);" class="section-title" href="#const char lua_setlocal (lua_State L, lua_Debug ar, int n);">```</a>
 ```
 
 Sets the value of a local variable of a given activation record.
@@ -3303,9 +3115,8 @@ Returns `NULL` (and pops nothing) when the index is greater than the
 number of active local variables.
 
 ### <a id="lua_setupvalue()" class="section-title" href="#lua_setupvalue()">lua_setupvalue</a>
-```
-### <a id="const char lua_setupvalue (lua_State L, int funcindex, int n);" class="section-title" href="#const char lua_setupvalue (lua_State L, int funcindex, int n);">Note:</a>
 
+#### <a id="const char lua_setupvalue (lua_State L, int funcindex, int n);" class="section-title" href="#const char lua_setupvalue (lua_State L, int funcindex, int n);">```</a>
 ```
 
 Sets the value of a closure's upvalue. It assigns the value at the top
@@ -3319,8 +3130,8 @@ number of upvalues.
 ### <a id="luaref-debugexample" class="section-title" href="#luaref-debugexample">Note:</a>
 As an example, the following function lists the names of all local
 variables and upvalues for a function at a given level of the stack:
-```
-### <a id="int listvars (lua_State L, int level) {" class="section-title" href="#int listvars (lua_State L, int level) {">Note:</a>
+
+#### <a id="int listvars (lua_State L, int level) {" class="section-title" href="#int listvars (lua_State L, int level) {">```</a>
 lua_Debug ar;
 int i;
 ### <a id="const char name;" class="section-title" href="#const char name;">Note:</a>
@@ -3339,9 +3150,7 @@ lua_pop(L, 1);  /* remove upvalue value */
 }
 return 1;
 }
-
 ```
-
 
 
 ## <a id="THE AUXILIARY LIBRARY" class="section-title" href="#THE AUXILIARY LIBRARY">4</a> 
@@ -3370,26 +3179,23 @@ Here we list all functions and types from the auxiliary library in
 alphabetical order.
 
 ### <a id="luaL_addchar()" class="section-title" href="#luaL_addchar()">luaL_addchar</a>
-```
-### <a id="void luaL_addchar (luaL_Buffer B, char c);" class="section-title" href="#void luaL_addchar (luaL_Buffer B, char c);">Note:</a>
 
+#### <a id="void luaL_addchar (luaL_Buffer B, char c);" class="section-title" href="#void luaL_addchar (luaL_Buffer B, char c);">```</a>
 ```
 
 Adds the character `c` to the buffer `B` (see [luaL_Buffer()](#luaL_Buffer())).
 
 ### <a id="luaL_addlstring()" class="section-title" href="#luaL_addlstring()">luaL_addlstring</a>
-```
-### <a id="void luaL_addlstring (luaL_Buffer B, const char s, size_t l);" class="section-title" href="#void luaL_addlstring (luaL_Buffer B, const char s, size_t l);">Note:</a>
 
+#### <a id="void luaL_addlstring (luaL_Buffer B, const char s, size_t l);" class="section-title" href="#void luaL_addlstring (luaL_Buffer B, const char s, size_t l);">```</a>
 ```
 
 Adds the string pointed to by `s` with length `l` to the buffer `B`
 (see [luaL_Buffer()](#luaL_Buffer())). The string may contain embedded zeros.
 
 ### <a id="luaL_addsize()" class="section-title" href="#luaL_addsize()">luaL_addsize</a>
-```
-### <a id="void luaL_addsize (luaL_Buffer B, size_t n);" class="section-title" href="#void luaL_addsize (luaL_Buffer B, size_t n);">Note:</a>
 
+#### <a id="void luaL_addsize (luaL_Buffer B, size_t n);" class="section-title" href="#void luaL_addsize (luaL_Buffer B, size_t n);">```</a>
 ```
 
 Adds to the buffer `B` (see [luaL_Buffer()](#luaL_Buffer())) a string of length
@@ -3397,18 +3203,16 @@ Adds to the buffer `B` (see [luaL_Buffer()](#luaL_Buffer())) a string of length
 [luaL_prepbuffer()](#luaL_prepbuffer())).
 
 ### <a id="luaL_addstring()" class="section-title" href="#luaL_addstring()">luaL_addstring</a>
-```
-### <a id="void luaL_addstring (luaL_Buffer B, const char s);" class="section-title" href="#void luaL_addstring (luaL_Buffer B, const char s);">Note:</a>
 
+#### <a id="void luaL_addstring (luaL_Buffer B, const char s);" class="section-title" href="#void luaL_addstring (luaL_Buffer B, const char s);">```</a>
 ```
 
 Adds the zero-terminated string pointed to by `s` to the buffer `B`
 (see [luaL_Buffer()](#luaL_Buffer())). The string may not contain embedded zeros.
 
 ### <a id="luaL_addvalue()" class="section-title" href="#luaL_addvalue()">luaL_addvalue</a>
-```
-### <a id="void luaL_addvalue (luaL_Buffer B);" class="section-title" href="#void luaL_addvalue (luaL_Buffer B);">Note:</a>
 
+#### <a id="void luaL_addvalue (luaL_Buffer B);" class="section-title" href="#void luaL_addvalue (luaL_Buffer B);">```</a>
 ```
 
 Adds the value at the top of the stack to the buffer `B` (see
@@ -3419,42 +3223,37 @@ called with an extra element on the stack, which is the value to be
 added to the buffer.
 
 ### <a id="luaL_argcheck()" class="section-title" href="#luaL_argcheck()">luaL_argcheck</a>
-```
-### <a id="void luaL_argcheck (lua_State L," class="section-title" href="#void luaL_argcheck (lua_State L,">Note:</a>
+
+#### <a id="void luaL_argcheck (lua_State L," class="section-title" href="#void luaL_argcheck (lua_State L,">```</a>
 int cond,
 int narg,
 ### <a id="const char extramsg);" class="section-title" href="#const char extramsg);">Note:</a>
-
 ```
 
 Checks whether `cond` is true. If not, raises an error with the
 following message, where `func` is retrieved from the call stack:
-```
-bad argument #<narg> to <func> (<extramsg>)
 
+```               bad argument #<narg> to <func> (<extramsg>)
 ```
 
 
 ### <a id="luaL_argerror()" class="section-title" href="#luaL_argerror()">luaL_argerror</a>
-```
-### <a id="int luaL_argerror (lua_State L, int narg, const char extramsg);" class="section-title" href="#int luaL_argerror (lua_State L, int narg, const char extramsg);">Note:</a>
 
+#### <a id="int luaL_argerror (lua_State L, int narg, const char extramsg);" class="section-title" href="#int luaL_argerror (lua_State L, int narg, const char extramsg);">```</a>
 ```
 
 Raises an error with the following message, where `func` is retrieved
 from the call stack:
-```
-bad argument #<narg> to <func> (<extramsg>)
 
+```               bad argument #<narg> to <func> (<extramsg>)
 ```
 
 This function never returns, but it is an idiom to use it in C
 functions as `return luaL_argerror(` `args` `)`.
 
 ### <a id="luaL_Buffer()" class="section-title" href="#luaL_Buffer()">luaL_Buffer</a>
-```
-typedef struct luaL_Buffer luaL_Buffer;
 
+```    typedef struct luaL_Buffer luaL_Buffer;
 ```
 
 Type for a `string buffer`.
@@ -3466,7 +3265,7 @@ pattern of use is as follows:
 - Then you initialize it with a call `luaL_buffinit(L, &b)` (see
 [luaL_buffinit()](#luaL_buffinit())).
 - Then you add string pieces to the buffer calling any of the
-#### <a id="`luaL_add` functions." class="section-title" href="#`luaL_add` functions.">Note:</a>
+### <a id="`luaL_add` functions." class="section-title" href="#`luaL_add` functions.">Note:</a>
 - You finish by calling `luaL_pushresult(&b)` (see
 [luaL_pushresult()](#luaL_pushresult())). This call leaves the final string on the
 top of the stack.
@@ -3483,18 +3282,16 @@ back to its level when the buffer was initialized, plus the final
 string on its top.
 
 ### <a id="luaL_buffinit()" class="section-title" href="#luaL_buffinit()">luaL_buffinit</a>
-```
-### <a id="void luaL_buffinit (lua_State L, luaL_Buffer B);" class="section-title" href="#void luaL_buffinit (lua_State L, luaL_Buffer B);">Note:</a>
 
+#### <a id="void luaL_buffinit (lua_State L, luaL_Buffer B);" class="section-title" href="#void luaL_buffinit (lua_State L, luaL_Buffer B);">```</a>
 ```
 
 Initializes a buffer `B`. This function does not allocate any space;
 the buffer must be declared as a variable (see [luaL_Buffer()](#luaL_Buffer())).
 
 ### <a id="luaL_callmeta()" class="section-title" href="#luaL_callmeta()">luaL_callmeta</a>
-```
-### <a id="int luaL_callmeta (lua_State L, int obj, const char e);" class="section-title" href="#int luaL_callmeta (lua_State L, int obj, const char e);">Note:</a>
 
+#### <a id="int luaL_callmeta (lua_State L, int obj, const char e);" class="section-title" href="#int luaL_callmeta (lua_State L, int obj, const char e);">```</a>
 ```
 
 Calls a metamethod.
@@ -3507,66 +3304,59 @@ no metamethod, this function returns
 0 (without pushing any value on the stack).
 
 ### <a id="luaL_checkany()" class="section-title" href="#luaL_checkany()">luaL_checkany</a>
-```
-### <a id="void luaL_checkany (lua_State L, int narg);" class="section-title" href="#void luaL_checkany (lua_State L, int narg);">Note:</a>
 
+#### <a id="void luaL_checkany (lua_State L, int narg);" class="section-title" href="#void luaL_checkany (lua_State L, int narg);">```</a>
 ```
 
 Checks whether the function has an argument of any type (including
 `nil`) at position `narg`.
 
 ### <a id="luaL_checkint()" class="section-title" href="#luaL_checkint()">luaL_checkint</a>
-```
-### <a id="int luaL_checkint (lua_State L, int narg);" class="section-title" href="#int luaL_checkint (lua_State L, int narg);">Note:</a>
 
+#### <a id="int luaL_checkint (lua_State L, int narg);" class="section-title" href="#int luaL_checkint (lua_State L, int narg);">```</a>
 ```
 
 Checks whether the function argument `narg` is a number and returns
 this number cast to an `int`.
 
 ### <a id="luaL_checkinteger()" class="section-title" href="#luaL_checkinteger()">luaL_checkinteger</a>
-```
-### <a id="lua_Integer luaL_checkinteger (lua_State L, int narg);" class="section-title" href="#lua_Integer luaL_checkinteger (lua_State L, int narg);">Note:</a>
 
+#### <a id="lua_Integer luaL_checkinteger (lua_State L, int narg);" class="section-title" href="#lua_Integer luaL_checkinteger (lua_State L, int narg);">```</a>
 ```
 
 Checks whether the function argument `narg` is a number and returns
 this number cast to a `lua_Integer` (see [lua_Integer()](#lua_Integer())).
 
 ### <a id="luaL_checklong()" class="section-title" href="#luaL_checklong()">luaL_checklong</a>
-```
-### <a id="long luaL_checklong (lua_State L, int narg);" class="section-title" href="#long luaL_checklong (lua_State L, int narg);">Note:</a>
 
+#### <a id="long luaL_checklong (lua_State L, int narg);" class="section-title" href="#long luaL_checklong (lua_State L, int narg);">```</a>
 ```
 
 Checks whether the function argument `narg` is a number and returns
 this number cast to a `long`.
 
 ### <a id="luaL_checklstring()" class="section-title" href="#luaL_checklstring()">luaL_checklstring</a>
-```
-### <a id="const char luaL_checklstring (lua_State L, int narg, size_t l);" class="section-title" href="#const char luaL_checklstring (lua_State L, int narg, size_t l);">Note:</a>
 
+#### <a id="const char luaL_checklstring (lua_State L, int narg, size_t l);" class="section-title" href="#const char luaL_checklstring (lua_State L, int narg, size_t l);">```</a>
 ```
 
 Checks whether the function argument `narg` is a string and returns
 ### <a id="this string; if `l` is not `NULL` fills `l` with the string's length." class="section-title" href="#this string; if `l` is not `NULL` fills `l` with the string's length.">Note:</a>
 
 ### <a id="luaL_checknumber()" class="section-title" href="#luaL_checknumber()">luaL_checknumber</a>
-```
-### <a id="lua_Number luaL_checknumber (lua_State L, int narg);" class="section-title" href="#lua_Number luaL_checknumber (lua_State L, int narg);">Note:</a>
 
+#### <a id="lua_Number luaL_checknumber (lua_State L, int narg);" class="section-title" href="#lua_Number luaL_checknumber (lua_State L, int narg);">```</a>
 ```
 
 Checks whether the function argument `narg` is a number and returns
 this number (see [lua_Number()](#lua_Number())).
 
 ### <a id="luaL_checkoption()" class="section-title" href="#luaL_checkoption()">luaL_checkoption</a>
-```
-### <a id="int luaL_checkoption (lua_State L," class="section-title" href="#int luaL_checkoption (lua_State L,">Note:</a>
+
+#### <a id="int luaL_checkoption (lua_State L," class="section-title" href="#int luaL_checkoption (lua_State L,">```</a>
 int narg,
 ### <a id="const char def," class="section-title" href="#const char def,">Note:</a>
 ### <a id="const char const lst[]);" class="section-title" href="#const char const lst[]);">Note:</a>
-
 ```
 
 Checks whether the function argument `narg` is a string and searches
@@ -3583,9 +3373,8 @@ convention in Lua libraries is to use strings instead of numbers to
 select options.)
 
 ### <a id="luaL_checkstack()" class="section-title" href="#luaL_checkstack()">luaL_checkstack</a>
-```
-### <a id="void luaL_checkstack (lua_State L, int sz, const char msg);" class="section-title" href="#void luaL_checkstack (lua_State L, int sz, const char msg);">Note:</a>
 
+#### <a id="void luaL_checkstack (lua_State L, int sz, const char msg);" class="section-title" href="#void luaL_checkstack (lua_State L, int sz, const char msg);">```</a>
 ```
 
 Grows the stack size to `top + sz` elements, raising an error if the
@@ -3593,64 +3382,56 @@ stack cannot grow to that size. `msg` is an additional text to go into
 the error message.
 
 ### <a id="luaL_checkstring()" class="section-title" href="#luaL_checkstring()">luaL_checkstring</a>
-```
-### <a id="const char luaL_checkstring (lua_State L, int narg);" class="section-title" href="#const char luaL_checkstring (lua_State L, int narg);">Note:</a>
 
+#### <a id="const char luaL_checkstring (lua_State L, int narg);" class="section-title" href="#const char luaL_checkstring (lua_State L, int narg);">```</a>
 ```
 
 Checks whether the function argument `narg` is a string and returns
 this string.
 
 ### <a id="luaL_checktype()" class="section-title" href="#luaL_checktype()">luaL_checktype</a>
-```
-### <a id="void luaL_checktype (lua_State L, int narg, int t);" class="section-title" href="#void luaL_checktype (lua_State L, int narg, int t);">Note:</a>
 
+#### <a id="void luaL_checktype (lua_State L, int narg, int t);" class="section-title" href="#void luaL_checktype (lua_State L, int narg, int t);">```</a>
 ```
 
 Checks whether the function argument `narg` has type `t` (see
 [lua_type()](#lua_type())).
 
 ### <a id="luaL_checkudata()" class="section-title" href="#luaL_checkudata()">luaL_checkudata</a>
-```
-### <a id="void luaL_checkudata (lua_State L, int narg, const char tname);" class="section-title" href="#void luaL_checkudata (lua_State L, int narg, const char tname);">Note:</a>
 
+#### <a id="void luaL_checkudata (lua_State L, int narg, const char tname);" class="section-title" href="#void luaL_checkudata (lua_State L, int narg, const char tname);">```</a>
 ```
 
 Checks whether the function argument `narg` is a userdata of the type
 `tname` (see [luaL_newmetatable()](#luaL_newmetatable())).
 
 ### <a id="luaL_dofile()" class="section-title" href="#luaL_dofile()">luaL_dofile</a>
-```
-### <a id="int luaL_dofile (lua_State L, const char filename);" class="section-title" href="#int luaL_dofile (lua_State L, const char filename);">Note:</a>
 
+#### <a id="int luaL_dofile (lua_State L, const char filename);" class="section-title" href="#int luaL_dofile (lua_State L, const char filename);">```</a>
 ```
 
 Loads and runs the given file. It is defined as the following macro:
-```
-(luaL_loadfile(L, filename) || lua_pcall(L, 0, LUA_MULTRET, 0))
 
+```               (luaL_loadfile(L, filename) || lua_pcall(L, 0, LUA_MULTRET, 0))
 ```
 
 It returns 0 if there are no errors or 1 in case of errors.
 
 ### <a id="luaL_dostring()" class="section-title" href="#luaL_dostring()">luaL_dostring</a>
-```
-### <a id="int luaL_dostring (lua_State L, const char str);" class="section-title" href="#int luaL_dostring (lua_State L, const char str);">Note:</a>
 
+#### <a id="int luaL_dostring (lua_State L, const char str);" class="section-title" href="#int luaL_dostring (lua_State L, const char str);">```</a>
 ```
 
 Loads and runs the given string. It is defined as the following macro:
-```
-(luaL_loadstring(L, str) || lua_pcall(L, 0, LUA_MULTRET, 0))
 
+```               (luaL_loadstring(L, str) || lua_pcall(L, 0, LUA_MULTRET, 0))
 ```
 
 It returns 0 if there are no errors or 1 in case of errors.
 
 ### <a id="luaL_error()" class="section-title" href="#luaL_error()">luaL_error</a>
-```
-### <a id="int luaL_error (lua_State L, const char fmt, ...);" class="section-title" href="#int luaL_error (lua_State L, const char fmt, ...);">Note:</a>
 
+#### <a id="int luaL_error (lua_State L, const char fmt, ...);" class="section-title" href="#int luaL_error (lua_State L, const char fmt, ...);">```</a>
 ```
 
 Raises an error. The error message format is given by `fmt` plus any
@@ -3663,9 +3444,8 @@ This function never returns, but it is an idiom to use it in C
 functions as `return luaL_error(` `args` `)`.
 
 ### <a id="luaL_getmetafield()" class="section-title" href="#luaL_getmetafield()">luaL_getmetafield</a>
-```
-### <a id="int luaL_getmetafield (lua_State L, int obj, const char e);" class="section-title" href="#int luaL_getmetafield (lua_State L, int obj, const char e);">Note:</a>
 
+#### <a id="int luaL_getmetafield (lua_State L, int obj, const char e);" class="section-title" href="#int luaL_getmetafield (lua_State L, int obj, const char e);">```</a>
 ```
 
 Pushes onto the stack the field `e` from the metatable of the object
@@ -3673,21 +3453,19 @@ at index `obj`. If the object does not have a metatable, or if the
 metatable does not have this field, returns 0 and pushes nothing.
 
 ### <a id="luaL_getmetatable()" class="section-title" href="#luaL_getmetatable()">luaL_getmetatable</a>
-```
-### <a id="void luaL_getmetatable (lua_State L, const char tname);" class="section-title" href="#void luaL_getmetatable (lua_State L, const char tname);">Note:</a>
 
+#### <a id="void luaL_getmetatable (lua_State L, const char tname);" class="section-title" href="#void luaL_getmetatable (lua_State L, const char tname);">```</a>
 ```
 
 Pushes onto the stack the metatable associated with name `tname` in
 the registry (see [luaL_newmetatable()](#luaL_newmetatable())).
 
 ### <a id="luaL_gsub()" class="section-title" href="#luaL_gsub()">luaL_gsub</a>
-```
-### <a id="const char luaL_gsub (lua_State L," class="section-title" href="#const char luaL_gsub (lua_State L,">Note:</a>
+
+#### <a id="const char luaL_gsub (lua_State L," class="section-title" href="#const char luaL_gsub (lua_State L,">```</a>
 ### <a id="const char s," class="section-title" href="#const char s,">Note:</a>
 ### <a id="const char p," class="section-title" href="#const char p,">Note:</a>
 ### <a id="const char r);" class="section-title" href="#const char r);">Note:</a>
-
 ```
 
 Creates a copy of string `s` by replacing any occurrence of the string
@@ -3695,12 +3473,11 @@ Creates a copy of string `s` by replacing any occurrence of the string
 returns it.
 
 ### <a id="luaL_loadbuffer()" class="section-title" href="#luaL_loadbuffer()">luaL_loadbuffer</a>
-```
-### <a id="int luaL_loadbuffer (lua_State L," class="section-title" href="#int luaL_loadbuffer (lua_State L,">Note:</a>
+
+#### <a id="int luaL_loadbuffer (lua_State L," class="section-title" href="#int luaL_loadbuffer (lua_State L,">```</a>
 ### <a id="const char buff," class="section-title" href="#const char buff,">Note:</a>
 size_t sz,
 ### <a id="const char name);" class="section-title" href="#const char name);">Note:</a>
-
 ```
 
 Loads a buffer as a Lua chunk. This function uses `lua_load` (see
@@ -3711,9 +3488,8 @@ This function returns the same results as `lua_load`. `name` is the
 chunk name, used for debug information and error messages.
 
 ### <a id="luaL_loadfile()" class="section-title" href="#luaL_loadfile()">luaL_loadfile</a>
-```
-### <a id="int luaL_loadfile (lua_State L, const char filename);" class="section-title" href="#int luaL_loadfile (lua_State L, const char filename);">Note:</a>
 
+#### <a id="int luaL_loadfile (lua_State L, const char filename);" class="section-title" href="#int luaL_loadfile (lua_State L, const char filename);">```</a>
 ```
 
 Loads a file as a Lua chunk. This function uses `lua_load` (see
@@ -3727,9 +3503,8 @@ extra error code `LUA_ERRFILE` if it cannot open/read the file.
 As `lua_load`, this function only loads the chunk; it does not run it.
 
 ### <a id="luaL_loadstring()" class="section-title" href="#luaL_loadstring()">luaL_loadstring</a>
-```
-### <a id="int luaL_loadstring (lua_State L, const char s);" class="section-title" href="#int luaL_loadstring (lua_State L, const char s);">Note:</a>
 
+#### <a id="int luaL_loadstring (lua_State L, const char s);" class="section-title" href="#int luaL_loadstring (lua_State L, const char s);">```</a>
 ```
 
 Loads a string as a Lua chunk. This function uses `lua_load` (see
@@ -3742,9 +3517,8 @@ Also as `lua_load`, this function only loads the chunk; it does not
 run it.
 
 ### <a id="luaL_newmetatable()" class="section-title" href="#luaL_newmetatable()">luaL_newmetatable</a>
-```
-### <a id="int luaL_newmetatable (lua_State L, const char tname);" class="section-title" href="#int luaL_newmetatable (lua_State L, const char tname);">Note:</a>
 
+#### <a id="int luaL_newmetatable (lua_State L, const char tname);" class="section-title" href="#int luaL_newmetatable (lua_State L, const char tname);">```</a>
 ```
 
 If the registry already has the key `tname`, returns 0. Otherwise,
@@ -3755,9 +3529,8 @@ In both cases pushes onto the stack the final value associated with
 `tname` in the registry.
 
 ### <a id="luaL_newstate()" class="section-title" href="#luaL_newstate()">luaL_newstate</a>
-```
-### <a id="lua_State luaL_newstate (void);" class="section-title" href="#lua_State luaL_newstate (void);">Note:</a>
 
+#### <a id="lua_State luaL_newstate (void);" class="section-title" href="#lua_State luaL_newstate (void);">```</a>
 ```
 
 Creates a new Lua state. It calls `lua_newstate` (see
@@ -3770,18 +3543,16 @@ Returns the new state, or `NULL` if there is a memory allocation
 error.
 
 ### <a id="luaL_openlibs()" class="section-title" href="#luaL_openlibs()">luaL_openlibs</a>
-```
-### <a id="void luaL_openlibs (lua_State L);" class="section-title" href="#void luaL_openlibs (lua_State L);">Note:</a>
 
+#### <a id="void luaL_openlibs (lua_State L);" class="section-title" href="#void luaL_openlibs (lua_State L);">```</a>
 ```
 
 Opens all standard Lua libraries into the given state. See also
 [luaref-openlibs](#luaref-openlibs) for details on how to open individual libraries.
 
 ### <a id="luaL_optint()" class="section-title" href="#luaL_optint()">luaL_optint</a>
-```
-### <a id="int luaL_optint (lua_State L, int narg, int d);" class="section-title" href="#int luaL_optint (lua_State L, int narg, int d);">Note:</a>
 
+#### <a id="int luaL_optint (lua_State L, int narg, int d);" class="section-title" href="#int luaL_optint (lua_State L, int narg, int d);">```</a>
 ```
 
 If the function argument `narg` is a number, returns this number cast
@@ -3789,11 +3560,10 @@ to an `int`. If this argument is absent or is `nil`, returns `d`.
 Otherwise, raises an error.
 
 ### <a id="luaL_optinteger()" class="section-title" href="#luaL_optinteger()">luaL_optinteger</a>
-```
-### <a id="lua_Integer luaL_optinteger (lua_State L," class="section-title" href="#lua_Integer luaL_optinteger (lua_State L,">Note:</a>
+
+#### <a id="lua_Integer luaL_optinteger (lua_State L," class="section-title" href="#lua_Integer luaL_optinteger (lua_State L,">```</a>
 int narg,
 lua_Integer d);
-
 ```
 
 If the function argument `narg` is a number, returns this number cast
@@ -3801,9 +3571,8 @@ to a `lua_Integer` (see [lua_Integer()](#lua_Integer())). If this argument is
 absent or is `nil`, returns `d`. Otherwise, raises an error.
 
 ### <a id="luaL_optlong()" class="section-title" href="#luaL_optlong()">luaL_optlong</a>
-```
-### <a id="long luaL_optlong (lua_State L, int narg, long d);" class="section-title" href="#long luaL_optlong (lua_State L, int narg, long d);">Note:</a>
 
+#### <a id="long luaL_optlong (lua_State L, int narg, long d);" class="section-title" href="#long luaL_optlong (lua_State L, int narg, long d);">```</a>
 ```
 
 If the function argument `narg` is a number, returns this number cast
@@ -3811,12 +3580,11 @@ to a `long`. If this argument is absent or is `nil`, returns `d`.
 Otherwise, raises an error.
 
 ### <a id="luaL_optlstring()" class="section-title" href="#luaL_optlstring()">luaL_optlstring</a>
-```
-### <a id="const char luaL_optlstring (lua_State L," class="section-title" href="#const char luaL_optlstring (lua_State L,">Note:</a>
+
+#### <a id="const char luaL_optlstring (lua_State L," class="section-title" href="#const char luaL_optlstring (lua_State L,">```</a>
 int narg,
 ### <a id="const char d," class="section-title" href="#const char d,">Note:</a>
 ### <a id="size_t l);" class="section-title" href="#size_t l);">Note:</a>
-
 ```
 
 If the function argument `narg` is a string, returns this string. If
@@ -3826,9 +3594,8 @@ error.
 ### <a id="If `l` is not `NULL`, fills the position `l` with the results' length." class="section-title" href="#If `l` is not `NULL`, fills the position `l` with the results' length.">Note:</a>
 
 ### <a id="luaL_optnumber()" class="section-title" href="#luaL_optnumber()">luaL_optnumber</a>
-```
-### <a id="lua_Number luaL_optnumber (lua_State L, int narg, lua_Number d);" class="section-title" href="#lua_Number luaL_optnumber (lua_State L, int narg, lua_Number d);">Note:</a>
 
+#### <a id="lua_Number luaL_optnumber (lua_State L, int narg, lua_Number d);" class="section-title" href="#lua_Number luaL_optnumber (lua_State L, int narg, lua_Number d);">```</a>
 ```
 
 If the function argument `narg` is a number, returns this number. If
@@ -3836,11 +3603,10 @@ this argument is absent or is `nil`, returns `d`. Otherwise, raises an
 error.
 
 ### <a id="luaL_optstring()" class="section-title" href="#luaL_optstring()">luaL_optstring</a>
-```
-### <a id="const char luaL_optstring (lua_State L," class="section-title" href="#const char luaL_optstring (lua_State L,">Note:</a>
+
+#### <a id="const char luaL_optstring (lua_State L," class="section-title" href="#const char luaL_optstring (lua_State L,">```</a>
 int narg,
 ### <a id="const char d);" class="section-title" href="#const char d);">Note:</a>
-
 ```
 
 If the function argument `narg` is a string, returns this string. If
@@ -3848,9 +3614,8 @@ this argument is absent or is `nil`, returns `d`. Otherwise, raises an
 error.
 
 ### <a id="luaL_prepbuffer()" class="section-title" href="#luaL_prepbuffer()">luaL_prepbuffer</a>
-```
-### <a id="char luaL_prepbuffer (luaL_Buffer B);" class="section-title" href="#char luaL_prepbuffer (luaL_Buffer B);">Note:</a>
 
+#### <a id="char luaL_prepbuffer (luaL_Buffer B);" class="section-title" href="#char luaL_prepbuffer (luaL_Buffer B);">```</a>
 ```
 
 Returns an address to a space of size `LUAL_BUFFERSIZE` where you can
@@ -3860,18 +3625,16 @@ After copying the string into this space you must call `luaL_addsize`
 add it to the buffer.
 
 ### <a id="luaL_pushresult()" class="section-title" href="#luaL_pushresult()">luaL_pushresult</a>
-```
-### <a id="void luaL_pushresult (luaL_Buffer B);" class="section-title" href="#void luaL_pushresult (luaL_Buffer B);">Note:</a>
 
+#### <a id="void luaL_pushresult (luaL_Buffer B);" class="section-title" href="#void luaL_pushresult (luaL_Buffer B);">```</a>
 ```
 
 Finishes the use of buffer `B` leaving the final string on the top of
 the stack.
 
 ### <a id="luaL_ref()" class="section-title" href="#luaL_ref()">luaL_ref</a>
-```
-### <a id="int luaL_ref (lua_State L, int t);" class="section-title" href="#int luaL_ref (lua_State L, int t);">Note:</a>
 
+#### <a id="int luaL_ref (lua_State L, int t);" class="section-title" href="#int luaL_ref (lua_State L, int t);">```</a>
 ```
 
 Creates and returns a `reference`, in the table at index `t`, for the
@@ -3889,12 +3652,11 @@ constant `LUA_REFNIL`. The constant `LUA_NOREF` is guaranteed to be
 different from any reference returned by `luaL_ref`.
 
 ### <a id="luaL_Reg()" class="section-title" href="#luaL_Reg()">luaL_Reg</a>
-```
-typedef struct luaL_Reg {
+
+```    typedef struct luaL_Reg {
 ### <a id="const char name;" class="section-title" href="#const char name;">Note:</a>
 lua_CFunction func;
 } luaL_Reg;
-
 ```
 
 Type for arrays of functions to be registered by `luaL_register`  (see
@@ -3903,11 +3665,10 @@ pointer to the function. Any array of `luaL_Reg` must end with a
 sentinel entry in which both `name` and `func` are `NULL`.
 
 ### <a id="luaL_register()" class="section-title" href="#luaL_register()">luaL_register</a>
-```
-### <a id="void luaL_register (lua_State L," class="section-title" href="#void luaL_register (lua_State L,">Note:</a>
+
+#### <a id="void luaL_register (lua_State L," class="section-title" href="#void luaL_register (lua_State L,">```</a>
 ### <a id="const char libname," class="section-title" href="#const char libname,">Note:</a>
 ### <a id="const luaL_Reg l);" class="section-title" href="#const luaL_Reg l);">Note:</a>
-
 ```
 
 Opens a library.
@@ -3926,17 +3687,15 @@ instead of creating a new one.
 In any case the function leaves the table on the top of the stack.
 
 ### <a id="luaL_typename()" class="section-title" href="#luaL_typename()">luaL_typename</a>
-```
-### <a id="const char luaL_typename (lua_State L, int idx);" class="section-title" href="#const char luaL_typename (lua_State L, int idx);">Note:</a>
 
+#### <a id="const char luaL_typename (lua_State L, int idx);" class="section-title" href="#const char luaL_typename (lua_State L, int idx);">```</a>
 ```
 
 Returns the name of the type of the value at index `idx`.
 
 ### <a id="luaL_typerror()" class="section-title" href="#luaL_typerror()">luaL_typerror</a>
-```
-### <a id="int luaL_typerror (lua_State L, int narg, const char tname);" class="section-title" href="#int luaL_typerror (lua_State L, int narg, const char tname);">Note:</a>
 
+#### <a id="int luaL_typerror (lua_State L, int narg, const char tname);" class="section-title" href="#int luaL_typerror (lua_State L, int narg, const char tname);">```</a>
 ```
 
 Generates an error with a message like the following:
@@ -3949,9 +3708,8 @@ where `location` is produced by `luaL_where`  (see
 `rt` is the type name of the actual argument.
 
 ### <a id="luaL_unref()" class="section-title" href="#luaL_unref()">luaL_unref</a>
-```
-### <a id="void luaL_unref (lua_State L, int t, int ref);" class="section-title" href="#void luaL_unref (lua_State L, int t, int ref);">Note:</a>
 
+#### <a id="void luaL_unref (lua_State L, int t, int ref);" class="section-title" href="#void luaL_unref (lua_State L, int t, int ref);">```</a>
 ```
 
 Releases reference `ref` from the table at index `t` (see
@@ -3962,9 +3720,8 @@ be used again.
 If `ref` is `LUA_NOREF` or `LUA_REFNIL`, `luaL_unref` does nothing.
 
 ### <a id="luaL_where()" class="section-title" href="#luaL_where()">luaL_where</a>
-```
-### <a id="void luaL_where (lua_State L, int lvl);" class="section-title" href="#void luaL_where (lua_State L, int lvl);">Note:</a>
 
+#### <a id="void luaL_where (lua_State L, int lvl);" class="section-title" href="#void luaL_where (lua_State L, int lvl);">```</a>
 ```
 
 Pushes onto the stack a string identifying the current position of the
@@ -4113,9 +3870,8 @@ Similar to `load` (see [luaref-load()](#luaref-load())), but gets the chunk from
 given {string}.
 
 To load and run a given string, use the idiom
-```
-assert(loadstring(s))()
 
+```               assert(loadstring(s))()
 ```
 
 
@@ -4230,9 +3986,8 @@ results of this function are `"nil"` (a string, not the value `nil`),
 ### <a id="luaref-unpack()" class="section-title" href="#luaref-unpack()">unpack({list} [, {i} [, {j}]])</a>
 Returns the elements from the given table. This function is equivalent
 to
-```
-return list[i], list[i+1], ..., list[j]
 
+```          return list[i], list[i+1], ..., list[j]
 ```
 
 except that the above code can be written only for a fixed number of
@@ -4420,9 +4175,8 @@ template, `require` will change each interrogation mark in the
 template by `filename`, which is `modname` with each dot replaced by a
 "directory separator" (such as `"/"`  in Unix); then it will try to
 load the resulting file name. So, for instance, if the Lua path is
-```
-"./?.lua;./?.lc;/usr/local/?/init.lua"
 
+```               "./?.lua;./?.lc;/usr/local/?/init.lua"
 ```
 
 the search for a Lua loader for module `foo` will try to load the
@@ -4499,16 +4253,14 @@ string in a form suitable to be safely read back by the Lua
 interpreter: the string is written between double quotes, and all
 double quotes, newlines, embedded zeros, and backslashes in the string
 are correctly escaped when written. For instance, the call
-```
-string.format('%q', 'a string with "quotes" and \n new line')
 
+```               string.format('%q', 'a string with "quotes" and \n new line')
 ```
 
 will produce the string:
-```
-"a string with \"quotes\" and \
-new line"
 
+```               "a string with \"quotes\" and \
+new line"
 ```
 
 The options `c`, `d`, `E`, `e`, `f`, `g`, `G`, `i`, `o`, `u`, `X`, and
@@ -4525,24 +4277,22 @@ If {pattern} specifies no captures, then the whole match is produced
 in each call.
 
 As an example, the following loop
-```
-s = "hello world from Lua"
+
+```               s = "hello world from Lua"
 for w in string.gmatch(s, "%a+") do
 print(w)
 end
-
 ```
 
 will iterate over all the words from string {s}, printing one per
 line. The next example collects all pairs `key=value` from the given
 string into a table:
-```
-t = {}
+
+```               t = {}
 s = "from=world, to=Lua"
 for k, v in string.gmatch(s, "(%w+)=(%w+)") do
 t[k] = v
 end
-
 ```
 
 
@@ -4577,8 +4327,8 @@ substitutions to occur. For instance, when {n} is 1 only the first
 occurrence of `pattern` is replaced.
 
 Here are some examples:
-```
-x = string.gsub("hello world", "(%w+)", "%1 %1")
+
+```           x = string.gsub("hello world", "(%w+)", "%1 %1")
 --> x="hello hello world world"
 
 x = string.gsub("hello world", "%w+", "%0 %0", 1)
@@ -4598,7 +4348,6 @@ end)
 local t = {name="lua", version="5.1"}
 x = string.gsub(" `name%-` version.tar.gz", "%$(%w+)", t)
 --> x="lua-5.1.tar.gz"
-
 ```
 
 
@@ -5041,11 +4790,11 @@ format that reads the entire next line (see below).
 
 The available formats are
 
-#### <a id="`"n"`" class="section-title" href="#`"n"`">Note:</a>
+### <a id="`"n"`" class="section-title" href="#`"n"`">Note:</a>
 number instead of a string.
-#### <a id="`"a"`" class="section-title" href="#`"a"`">Note:</a>
+### <a id="`"a"`" class="section-title" href="#`"a"`">Note:</a>
 end of file, it returns the empty string.
-#### <a id="`"l"`" class="section-title" href="#`"l"`">Note:</a>
+### <a id="`"l"`" class="section-title" href="#`"l"`">Note:</a>
 `nil` on end of file. This is the default format.
 `number`  reads a string with up to that number of characters,
 returning `nil` on end of file. If number is zero, it reads

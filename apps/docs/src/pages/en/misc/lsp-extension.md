@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Lsp Extension
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -13,12 +13,9 @@ NVIM REFERENCE MANUAL
 The `vim.lsp` Lua module is a framework for building LSP plugins.
 
 1. Start with [vim.lsp.start_client()| and |vim.lsp.buf_attach_client()](#vim.lsp.start_client()| and |vim.lsp.buf_attach_client()).
-2. Peek at the API:
-```
-:lua print(vim.inspect(vim.lsp))
-
-```
-  3. See [lsp-extension-example](#lsp-extension-example) for a full example.
+2. Peek at the API: 
+```       :lua print(vim.inspect(vim.lsp))
+3. See [lsp-extension-example](#lsp-extension-example) for a full example.
 
 
 ## <a id="lsp-extension-example" class="section-title" href="#lsp-extension-example">Lsp Example</a> 
@@ -39,7 +36,6 @@ The example will:
 2. Try to find a root directory by ascending from the buffer's path.
 3. Create a new LSP for that root directory if one doesn't exist.
 4. Attach the buffer to the client for that root directory.
-```
 -- Some path manipulation utilities
 local function is_dir(filename)
 local stat = vim.loop.fs_stat(filename)
@@ -133,7 +129,6 @@ vim.lsp.buf_attach_client(bufnr, client_id)
 end
 
 ### <a id="vim.api.nvim_command [[autocmd BufReadPost  lua check_start_javascript_lsp()]]" class="section-title" href="#vim.api.nvim_command [[autocmd BufReadPost  lua check_start_javascript_lsp()]]">Note:</a>
-
 ```
 
 

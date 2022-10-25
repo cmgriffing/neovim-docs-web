@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Pi Gzip
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -17,8 +17,7 @@ VIM REFERENCE MANUAL    by Bram Moolenaar
 The functionality mentioned here is a [standard-plugin](#standard-plugin).
 This plugin is only available if 'compatible' is not set.
 You can avoid loading this plugin by setting the "loaded_gzip" variable:
-```
-:let loaded_gzip = 1
+	:let loaded_gzip = 1
 
 
 ## <a id="gzip-autocmd" class="section-title" href="#gzip-autocmd">1. Autocommands</a> 
@@ -26,14 +25,14 @@ You can avoid loading this plugin by setting the "loaded_gzip" variable:
 The plugin installs autocommands to intercept reading and writing of files
 with these extensions:
 
-extension	compression ~
-*.Z		compress (Lempel-Ziv)
-*.gz		gzip
-*.bz2		bzip2
-*.lzma		lzma
-*.xz		xz
-*.lz		lzip
-*.zst		zstd
+	extension	compression ~
+	*.Z		compress (Lempel-Ziv)
+	*.gz		gzip
+	*.bz2		bzip2
+	*.lzma		lzma
+	*.xz		xz
+	*.lz		lzip
+	*.zst		zstd
 
 That's actually the only thing you need to know.  There are no options.
 

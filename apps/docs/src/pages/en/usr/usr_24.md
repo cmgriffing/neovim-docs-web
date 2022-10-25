@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Usr 24
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -9,7 +9,7 @@ layout: "@layouts/MainLayout.astro"
 
 VIM USER MANUAL - by Bram Moolenaar
 
-Inserting quickly
+			     Inserting quickly
 
 
 When entering text, Vim offers various ways to reduce the number of keystrokes
@@ -28,8 +28,8 @@ aren't on your keyboard.
 [24.9](#24.9)	Digraphs
 [24.10](#24.10)	Normal mode commands
 
-Next chapter: [usr_25.txt](#usr_25.txt)  Editing formatted text
-Previous chapter: [usr_23.txt](#usr_23.txt)  Editing other files
+     Next chapter: [usr_25.txt](#usr_25.txt)  Editing formatted text
+ Previous chapter: [usr_23.txt](#usr_23.txt)  Editing other files
 Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 
@@ -38,95 +38,65 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 The <BS> key was already mentioned.  It deletes the character just before the
 cursor.  The <Del> key does the same for the character under (after) the
 cursor.
-When you typed a whole word wrong, use CTRL-W:
+   When you typed a whole word wrong, use CTRL-W:
 
-The horse had fallen to the sky ~
-CTRL-W
-The horse had fallen to the ~
+	The horse had fallen to the sky ~
+				       CTRL-W
+	The horse had fallen to the ~
 
 If you really messed up a line and want to start over, use CTRL-U to delete
 it.  This keeps the text after the cursor and the indent.  Only the text from
 the first non-blank to the cursor is deleted.  With the cursor on the "f" of
 "fallen" in the next line pressing CTRL-U does this:
 
-The horse had fallen to the ~
-CTRL-U
-fallen to the ~
+	The horse had fallen to the ~
+		      CTRL-U
+	fallen to the ~
 
 When you spot a mistake a few words back, you need to move the cursor there to
 correct it.  For example, you typed this:
 
-The horse had follen to the ground ~
+	The horse had follen to the ground ~
 
 You need to change "follen" to "fallen".  With the cursor at the end, you
 would type this to correct it:
-```
 
+					<Esc>4blraA
 
-```
-Esc>4blraA
-
-
-```
 	get out of Insert mode		<Esc>
-four words back			     4b
-move on top of the "o"		       l
-replace with "a"			ra
-restart Insert mode			  A
+	four words back			     4b
+	move on top of the "o"		       l
+	replace with "a"			ra
+	restart Insert mode			  A
 
 Another way to do this:
-```
 
+		<C-Left><C-Left><C-Left><C-Left><Right><Del>a<End>
 
-```
-C-Left><C-Left><C-Left><C-Left><Right><Del>a<End>
-
-
-```
 	four words back		     <C-Left><C-Left><C-Left><C-Left>
-move on top of the "o"			<Right>
-delete the "o"				       <Del>
-insert an "a"					    a
-go to end of the line				     <End>
+	move on top of the "o"			<Right>
+	delete the "o"				       <Del>
+	insert an "a"					    a
+	go to end of the line				     <End>
 
 This uses special keys to move around, while remaining in Insert mode.  This
 resembles what you would do in a modeless editor.  It's easier to remember,
 but takes more time (you have to move your hand from the letters to the cursor
 keys, and the <End> key is hard to press without looking at the keyboard).
-These special keys are most useful when writing a mapping that doesn't
+   These special keys are most useful when writing a mapping that doesn't
 leave Insert mode.  The extra typing doesn't matter then.
-An overview of the keys you can use in Insert mode:
+   An overview of the keys you can use in Insert mode:
 
-
-```
-C-Home>	to start of the file
-
-```
-PageUp>	a whole screenful up
-
-```
-Home>		to start of line
-
-```
-S-Left>	one word left
-
-```
-C-Left>	one word left
-
-```
-S-Right>	one word right
-
-```
-C-Right>	one word right
-
-```
-End>		to end of the line
-
-```
-PageDown>	a whole screenful down
-
-```
-C-End>		to end of the file
+	<C-Home>	to start of the file
+	<PageUp>	a whole screenful up
+	<Home>		to start of line
+	<S-Left>	one word left
+	<C-Left>	one word left
+	<S-Right>	one word right
+	<C-Right>	one word right
+	<End>		to end of the line
+	<PageDown>	a whole screenful down
+	<C-End>		to end of the file
 
 There are a few more, see [ins-special-special](#ins-special-special).
 
@@ -135,23 +105,21 @@ There are a few more, see [ins-special-special](#ins-special-special).
 
 When you type a ) it would be nice to see with which ( it matches.  To make
 Vim do that use this command:
-```
 
-:set showmatch
+	:set showmatch
 
 When you now type a text like "(example)", as soon as you type the ) Vim will
 briefly move the cursor to the matching (, keep it there for half a second,
 and move back to where you were typing.
-In case there is no matching (, Vim will beep.  Then you know that you
+   In case there is no matching (, Vim will beep.  Then you know that you
 might have forgotten the ( somewhere, or typed a ) too many.
-The match will also be shown for [] and {} pairs.  You don't have to wait
+   The match will also be shown for [] and {} pairs.  You don't have to wait
 with typing the next character, as soon as Vim sees it the cursor will move
 back and inserting continues as before.
-You can change the time Vim waits with the 'matchtime' option.  For
+   You can change the time Vim waits with the 'matchtime' option.  For
 example, to make Vim wait one and a half second:
-```
 
-:set matchtime=15
+	:set matchtime=15
 
 The time is specified in tenths of a second.
 
@@ -160,25 +128,25 @@ The time is specified in tenths of a second.
 
 Vim can automatically complete words on insertion.  You type the first part of
 a word, press CTRL-P, and Vim guesses the rest.
-Suppose, for example, that you are creating a C program and want to type in
+   Suppose, for example, that you are creating a C program and want to type in
 the following:
 
-total = ch_array[0] + ch_array[1] + ch_array[2]; ~
+	total = ch_array[0] + ch_array[1] + ch_array[2]; ~
 
 You start by entering the following:
 
-total = ch_array[0] + ch_ ~
+	total = ch_array[0] + ch_ ~
 
 At this point, you tell Vim to complete the word using the command CTRL-P.
 Vim searches for a word that starts with what's in front of the cursor.  In
 this case, it is "ch_", which matches with the word ch_array.  So typing
 CTRL-P gives you the following:
 
-total = ch_array[0] + ch_array ~
+	total = ch_array[0] + ch_array ~
 
 After a little more typing, you get this (ending in a space):
 
-total = ch_array[0] + ch_array[1] +  ~
+	total = ch_array[0] + ch_array[1] +  ~
 
 If you now type CTRL-P Vim will search again for a word that completes the
 word before the cursor.  Since there is nothing in front of the cursor, it
@@ -195,12 +163,12 @@ sequence.  Hint: CTRL-N is Next-match and CTRL-P is Previous-match.
 The Vim editor goes through a lot of effort to find words to complete.  By
 default, it searches the following places:
 
-1. Current file
-2. Files in other windows
-3. Other loaded files (hidden buffers)
-4. Files which are not loaded (inactive buffers)
-5. Tag files
-6. All files #included by the current file
+	1. Current file
+	2. Files in other windows
+	3. Other loaded files (hidden buffers)
+	4. Files which are not loaded (inactive buffers)
+	5. Tag files
+	6. All files #included by the current file
 
 
 OPTIONS
@@ -221,18 +189,18 @@ COMPLETING SPECIFIC ITEMS
 If you know what you are looking for, you can use these commands to complete
 with a certain type of item:
 
-CTRL-X CTRL-F		file names
-CTRL-X CTRL-L		whole lines
-CTRL-X CTRL-D		macro definitions (also in included files)
-CTRL-X CTRL-I		current and included files
-CTRL-X CTRL-K		words from a dictionary
-CTRL-X CTRL-T		words from a thesaurus
-CTRL-X CTRL-]		tags
-CTRL-X CTRL-V		Vim command line
+	CTRL-X CTRL-F		file names
+	CTRL-X CTRL-L		whole lines
+	CTRL-X CTRL-D		macro definitions (also in included files)
+	CTRL-X CTRL-I		current and included files
+	CTRL-X CTRL-K		words from a dictionary
+	CTRL-X CTRL-T		words from a thesaurus
+	CTRL-X CTRL-]		tags
+	CTRL-X CTRL-V		Vim command line
 
 After each of them CTRL-N can be used to find the next match, CTRL-P to find
 the previous match.
-More information for each of these commands here: [ins-completion](#ins-completion).
+   More information for each of these commands here: [ins-completion](#ins-completion).
 
 
 COMPLETING FILE NAMES
@@ -240,14 +208,14 @@ COMPLETING FILE NAMES
 Let's take CTRL-X CTRL-F as an example.  This will find file names.  It scans
 the current directory for files and displays each one that matches the word in
 front of the cursor.
-Suppose, for example, that you have the following files in the current
+   Suppose, for example, that you have the following files in the current
 directory:
 
-main.c  sub_count.c  sub_done.c  sub_exit.c
+	main.c  sub_count.c  sub_done.c  sub_exit.c
 
 Now enter Insert mode and start typing:
 
-The exit code is in the file sub ~
+	The exit code is in the file sub ~
 
 At this point, you enter the command CTRL-X CTRL-F.  Vim now completes the
 current word "sub" by looking at the files in the current directory.  The
@@ -255,18 +223,18 @@ first match is sub_count.c.  This is not the one you want, so you match the
 next file by typing CTRL-N.  This match is sub_done.c.  Typing CTRL-N again
 takes you to sub_exit.c.  The results:
 
-The exit code is in the file sub_exit.c ~
+	The exit code is in the file sub_exit.c ~
 
 If the file name starts with / (Unix) or C:\ (MS-Windows) you can find all
 files in the file system.  For example, type "/u" and CTRL-X CTRL-F.  This
 will match "/usr" (this is on Unix):
 
-the file is found in /usr/ ~
+	the file is found in /usr/ ~
 
 If you now press CTRL-N you go back to "/u".  Instead, to accept the "/usr/"
 and go one directory level deeper, use CTRL-X CTRL-F again:
 
-the file is found in /usr/X11R6/ ~
+	the file is found in /usr/X11R6/ ~
 
 The results depend on what is found in your file system, of course.  The
 matches are sorted alphabetically.
@@ -282,9 +250,9 @@ The key to Omni completion is CTRL-X CTRL-O.  Obviously the O stands for Omni
 here, so that you can remember it easier.  Let's use an example for editing C
 source:
 
-{ ~
+	{ ~
 ### <a id="struct foo p; ~" class="section-title" href="#struct foo p; ~">Note:</a>
-p-> ~
+	    p-> ~
 
 The cursor is after "p->".  Now type CTRL-X CTRL-O.  Vim will offer you a list
 of alternatives, which are the items that "struct foo" contains.  That is
@@ -294,11 +262,9 @@ members of "struct foo" are valid here.
 For Omni completion to work you may need to do some setup.  At least make sure
 filetype plugins are enabled.  Your vimrc file should contain a line like
 this:
-```
-filetype plugin on
+	filetype plugin on
 Or:
-```
-filetype plugin indent on
+	filetype plugin indent on
 
 For C code you need to create a tags file and set the 'tags' option.  That is
 explained [ft-c-omni](#ft-c-omni).  For other filetypes you may need to do something
@@ -311,35 +277,34 @@ work.
 
 If you press CTRL-A, the editor inserts the text you typed the last time you
 were in Insert mode.
-Assume, for example, that you have a file that begins with the following:
+   Assume, for example, that you have a file that begins with the following:
 
-"file.h" ~
-/* Main program begins */ ~
+	"file.h" ~
+	/* Main program begins */ ~
 
 You edit this file by inserting "#include " at the beginning of the first
 line:
 
-#include "file.h" ~
-/* Main program begins */ ~
+	#include "file.h" ~
+	/* Main program begins */ ~
 
 You go down to the beginning of the next line using the commands "j^".  You
 now start to insert a new "#include" line.  So you type:
-```
 
-i CTRL-A
+	i CTRL-A
 
 The result is as follows:
 
-#include "file.h" ~
-#include /* Main program begins */ ~
+	#include "file.h" ~
+	#include /* Main program begins */ ~
 
 The "#include " was inserted because CTRL-A inserts the text of the previous
 insert.  Now you type  "main.h"<Enter>  to finish the line:
 
 
-#include "file.h" ~
-#include "main.h" ~
-/* Main program begins */ ~
+	#include "file.h" ~
+	#include "main.h" ~
+	/* Main program begins */ ~
 
 The CTRL-@ command does a CTRL-A and then exits Insert mode.  That's a quick
 way of doing exactly the same insertion again.
@@ -351,24 +316,24 @@ The CTRL-Y command inserts the character above the cursor.  This is useful
 when you are duplicating a previous line.  For example, you have this line of
 C code:
 
-b_array[i]->s_next = a_array[i]->s_next; ~
+	b_array[i]->s_next = a_array[i]->s_next; ~
 
 Now you need to type the same line, but with "s_prev" instead of "s_next".
 Start the new line, and press CTRL-Y 14 times, until you are at the "n" of
 "next":
 
-b_array[i]->s_next = a_array[i]->s_next; ~
-b_array[i]->s_ ~
+	b_array[i]->s_next = a_array[i]->s_next; ~
+	b_array[i]->s_ ~
 
 Now you type "prev":
 
-b_array[i]->s_next = a_array[i]->s_next; ~
-b_array[i]->s_prev ~
+	b_array[i]->s_next = a_array[i]->s_next; ~
+	b_array[i]->s_prev ~
 
 Continue pressing CTRL-Y until the following "next":
 
-b_array[i]->s_next = a_array[i]->s_next; ~
-b_array[i]->s_prev = a_array[i]->s_ ~
+	b_array[i]->s_next = a_array[i]->s_next; ~
+	b_array[i]->s_prev = a_array[i]->s_ ~
 
 Now type "prev;" to finish it off.
 
@@ -382,26 +347,25 @@ The command CTRL-R {register} inserts the contents of the register.  This is
 useful to avoid having to type a long word.  For example, you need to type
 this:
 
-r = VeryLongFunction(a) + VeryLongFunction(b) + VeryLongFunction(c) ~
+	r = VeryLongFunction(a) + VeryLongFunction(b) + VeryLongFunction(c) ~
 
 The function name is defined in a different file.  Edit that file and move the
 cursor on top of the function name there, and yank it into register v:
-```
 
-"vyiw
+	"vyiw
 
 "v is the register specification, "yiw" is yank-inner-word.  Now edit the file
 where the new line is to be inserted, and type the first letters:
 
-r = ~
+	r = ~
 
 Now use CTRL-R v to insert the function name:
 
-r = VeryLongFunction ~
+	r = VeryLongFunction ~
 
 You continue to type the characters in between the function name, and use
 CTRL-R v two times more.
-You could have done the same with completion.  Using a register is useful
+   You could have done the same with completion.  Using a register is useful
 when there are many words that start with the same characters.
 
 If the register contains characters such as <BS> or other special characters,
@@ -415,20 +379,19 @@ use the command CTRL-R CTRL-R {register}.
 An abbreviation is a short word that takes the place of a long one.  For
 example, "ad" stands for "advertisement".  Vim enables you to type an
 abbreviation and then will automatically expand it for you.
-To tell Vim to expand "ad" into "advertisement" every time you insert it,
+   To tell Vim to expand "ad" into "advertisement" every time you insert it,
 use the following command:
-```
 
-:iabbrev ad advertisement
+	:iabbrev ad advertisement
 
 Now, when you type "ad", the whole word "advertisement" will be inserted into
 the text.  This is triggered by typing a character that can't be part of a
 word, for example a space:
 
-What Is Entered		What You See
-I saw the a		I saw the a ~
-I saw the ad		I saw the ad ~
-I saw the ad<Space>	I saw the advertisement<Space> ~
+	What Is Entered		What You See
+	I saw the a		I saw the a ~
+	I saw the ad		I saw the ad ~
+	I saw the ad<Space>	I saw the advertisement<Space> ~
 
 The expansion doesn't happen when typing just "ad".  That allows you to type a
 word like "add", which will not get expanded.  Only whole words are checked
@@ -439,36 +402,33 @@ ABBREVIATING SEVERAL WORDS
 
 It is possible to define an abbreviation that results in multiple words.  For
 example, to define "JB" as "Jack Benny", use the following command:
-```
 
-:iabbrev JB Jack Benny
+	:iabbrev JB Jack Benny
 
 As a programmer, I use two rather unusual abbreviations:
-```
 
-:iabbrev #b /****************************************
-:iabbrev #e <Space>****************************************/
+	:iabbrev #b /****************************************
+	:iabbrev #e <Space>****************************************/
 
 These are used for creating boxed comments.  The comment starts with #b, which
 draws the top line.  I then type the comment text and use #e to draw the
 bottom line.
-Notice that the #e abbreviation begins with a space.  In other words, the
+   Notice that the #e abbreviation begins with a space.  In other words, the
 first two characters are space-star.  Usually Vim ignores spaces between the
 abbreviation and the expansion.  To avoid that problem, I spell space as seven
 characters: <, S, p, a, c, e, >.
 
-Note:
-":iabbrev" is a long word to type.  ":iab" works just as well.
-That's abbreviating the abbreviate command!
+	Note:
+	":iabbrev" is a long word to type.  ":iab" works just as well.
+	That's abbreviating the abbreviate command!
 
 
 FIXING TYPING MISTAKES
 
 It's very common to make the same typing mistake every time.  For example,
 typing "teh" instead of "the".  You can fix this with an abbreviation:
-```
 
-:abbreviate teh the
+	:abbreviate teh the
 
 You can add a whole list of these.  Add one each time you discover a common
 mistake.
@@ -478,47 +438,43 @@ LISTING ABBREVIATIONS
 
 The ":abbreviate" command lists the abbreviations:
 
-:abbreviate
-i  #e		  ****************************************/
-i  #b		 /****************************************
-i  JB		 Jack Benny
-i  ad		 advertisement
-!  teh		 the
+	:abbreviate
+	i  #e		  ****************************************/
+	i  #b		 /****************************************
+	i  JB		 Jack Benny
+	i  ad		 advertisement
+	!  teh		 the
 
 The "i" in the first column indicates Insert mode.  These abbreviations are
 only active in Insert mode.  Other possible characters are:
 
-c	Command-line mode			:cabbrev
-!	both Insert and Command-line mode	:abbreviate
+	c	Command-line mode			:cabbrev
+	!	both Insert and Command-line mode	:abbreviate
 
 Since abbreviations are not often useful in Command-line mode, you will mostly
 use the ":iabbrev" command.  That avoids, for example, that "ad" gets expanded
 when typing a command like:
-```
 
-:edit ad
+	:edit ad
 
 
 DELETING ABBREVIATIONS
 
 To get rid of an abbreviation, use the ":unabbreviate" command.  Suppose you
 have the following abbreviation:
-```
 
-:abbreviate @f fresh
+	:abbreviate @f fresh
 
 You can remove it with this command:
-```
 
-:unabbreviate @f
+	:unabbreviate @f
 
 While you type this, you will notice that @f is expanded to "fresh".  Don't
 worry about this, Vim understands it anyway (except when you have an
 abbreviation for "fresh", but that's very unlikely).
-To remove all the abbreviations:
-```
+   To remove all the abbreviations:
 
-:abclear
+	:abclear
 
 ":unabbreviate" and ":abclear" also come in the variants for Insert mode
 (":iunabbreviate and ":iabclear") and Command-line mode (":cunabbreviate" and
@@ -529,17 +485,15 @@ REMAPPING ABBREVIATIONS
 
 There is one thing to watch out for when defining an abbreviation: The
 resulting string should not be mapped.  For example:
-```
 
-:abbreviate @a adder
-:imap dd disk-door
+	:abbreviate @a adder
+	:imap dd disk-door
 
 When you now type @a, you will get "adisk-doorer".  That's not what you want.
 To avoid this, use the ":noreabbrev" command.  It does the same as
 ":abbreviate", but avoids that the resulting string is used for mappings:
-```
 
-:noreabbrev @a adder
+	:noreabbrev @a adder
 
 Fortunately, it's unlikely that the result of an abbreviation is mapped.
 
@@ -549,47 +503,43 @@ Fortunately, it's unlikely that the result of an abbreviation is mapped.
 The CTRL-V command is used to insert the next character literally.  In other
 words, any special meaning the character has, it will be ignored.  For
 example:
-```
 
-CTRL-V <Esc>
+	CTRL-V <Esc>
 
 Inserts an escape character.  Thus you don't leave Insert mode.  (Don't type
 the space after CTRL-V, it's only to make this easier to read).
 
-Note:
-On MS-Windows CTRL-V is used to paste text.  Use CTRL-Q instead of
-CTRL-V.  On Unix, on the other hand, CTRL-Q does not work on some
-terminals, because it has a special meaning.
+	Note:
+	On MS-Windows CTRL-V is used to paste text.  Use CTRL-Q instead of
+	CTRL-V.  On Unix, on the other hand, CTRL-Q does not work on some
+	terminals, because it has a special meaning.
 
 You can also use the command CTRL-V {digits} to insert a character with the
 decimal number {digits}.  For example, the character number 127 is the <Del>
 character (but not necessarily the <Del> key!).  To insert <Del> type:
-```
 
-CTRL-V 127
+	CTRL-V 127
 
 You can enter characters up to 255 this way.  When you type fewer than two
 digits, a non-digit will terminate the command.  To avoid the need of typing a
 non-digit, prepend one or two zeros to make three digits.
-All the next commands insert a <Tab> and then a dot:
+   All the next commands insert a <Tab> and then a dot:
 
-CTRL-V 9.
-CTRL-V 09.
-CTRL-V 009.
+	CTRL-V 9.
+	CTRL-V 09.
+	CTRL-V 009.
 
 To enter a character in hexadecimal, use an "x" after the CTRL-V:
-```
 
-CTRL-V x7f
+	CTRL-V x7f
 
 This also goes up to character 255 (CTRL-V xff).  You can use "o" to type a
 character as an octal number and two more methods allow you to type up to
 a 16 bit and a 32 bit number (e.g., for a Unicode character):
-```
 
-CTRL-V o123
-CTRL-V u1234
-CTRL-V U12345678
+	CTRL-V o123
+	CTRL-V u1234
+	CTRL-V U12345678
 
 
 ## <a id="" class="section-title" href="#">*24.9*	Digraphs</a> 
@@ -597,48 +547,44 @@ CTRL-V U12345678
 Some characters are not on the keyboard.  For example, the copyright character
 (©).  To type these characters in Vim, you use digraphs, where two characters
 represent one.  To enter a ©, for example, you press three keys:
-```
 
-CTRL-K Co
+	CTRL-K Co
 
 To find out what digraphs are available, use the following command:
-```
 
-:digraphs
+	:digraphs
 
 Vim will display the digraph table.  Here are three lines of it:
 
-AC ~_ 159  NS |  160  !I ¡  161  Ct ¢  162  Pd £  163  Cu ¤  164  Ye ¥  165 ~
-BB ¦  166  SE §  167  ': ¨  168  Co ©  169  -a ª  170  << «  171  NO ¬  172 ~
--- ­  173  Rg ®  174  'm ¯  175  DG °  176  +- ±  177  2S ²  178  3S ³  179 ~
+  AC ~_ 159  NS |  160  !I ¡  161  Ct ¢  162  Pd £  163  Cu ¤  164  Ye ¥  165 ~
+  BB ¦  166  SE §  167  ': ¨  168  Co ©  169  -a ª  170  << «  171  NO ¬  172 ~
+  -- ­  173  Rg ®  174  'm ¯  175  DG °  176  +- ±  177  2S ²  178  3S ³  179 ~
 
 This shows, for example, that the digraph you get by typing CTRL-K Pd is the
 character (£).  This is character number 163 (decimal).
-Pd is short for Pound.  Most digraphs are selected to give you a hint about
+   Pd is short for Pound.  Most digraphs are selected to give you a hint about
 the character they will produce.  If you look through the list you will
 understand the logic.
-You can exchange the first and second character, if there is no digraph for
+   You can exchange the first and second character, if there is no digraph for
 that combination.  Thus CTRL-K dP also works.  Since there is no digraph for
 "dP" Vim will also search for a "Pd" digraph.
 
-Note:
-The digraphs depend on the character set that Vim assumes you are
-using.  Always use ":digraphs" to find out which digraphs are currently
-available.
+	Note:
+	The digraphs depend on the character set that Vim assumes you are
+	using.  Always use ":digraphs" to find out which digraphs are currently
+	available.
 
 You can define your own digraphs.  Example:
-```
 
-:digraph a" ä
+	:digraph a" ä
 
 This defines that CTRL-K a" inserts an ä character.  You can also specify the
 character with a decimal number.  This defines the same digraph:
-```
 
-:digraph a" 228
+	:digraph a" 228
 
 More information about digraphs here: [digraphs](#digraphs)
-Another way to insert special characters is with a keymap.  More about that
+   Another way to insert special characters is with a keymap.  More about that
 here: [45.5](#45.5)
 
 
@@ -647,23 +593,21 @@ here: [45.5](#45.5)
 Insert mode offers a limited number of commands.  In Normal mode you have many
 more.  When you want to use one, you usually leave Insert mode with <Esc>,
 execute the Normal mode command, and re-enter Insert mode with "i" or "a".
-There is a quicker way.  With CTRL-O {command} you can execute any Normal
+   There is a quicker way.  With CTRL-O {command} you can execute any Normal
 mode command from Insert mode.  For example, to delete from the cursor to the
 end of the line:
-```
 
-CTRL-O D
+	CTRL-O D
 
 You can execute only one Normal mode command this way.  But you can specify a
 register or a count.  A more complicated example:
-```
 
-CTRL-O "g3dw
+	CTRL-O "g3dw
 
 This deletes up to the third word into register g.
 
 
-## <a id="Editing formatted text" class="section-title" href="#Editing formatted text">Next Chapter: |Usr_25.Txt|</a> 
+## <a id="Editing formatted text" class="section-title" href="#Editing formatted text">Next Chapter: [Usr_25.Txt](#Usr_25.Txt)</a> 
 
 Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

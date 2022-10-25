@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Treesitter
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -30,13 +30,10 @@ via a plugin like https://github.com/nvim-treesitter/nvim-treesitter.
 Parsers are searched for as `parser/{lang}.*` in any 'runtimepath' directory.
 If multiple parsers for the same language are found, the first one is used.
 (This typically implies the priority "user config > plugins > bundled".
-A parser can also be loaded manually using a full path:
+A parser can also be loaded manually using a full path: 
 ```
-
 vim.treesitter.require_language("python", "/path/to/python.so")
-
 ```
-
 
 
 ## <a id="treesitter-languagetree" class="section-title" href="#treesitter-languagetree">Language Trees</a> <span id="LanguageTree"></span>
@@ -46,11 +43,9 @@ file), multiple parsers may be needed to parse the full buffer. These are
 combined in a [LanguageTree](#LanguageTree) object.
 
 To create a LanguageTree (parser object) for a buffer and a given language,
-use
+use 
 ```
-
 tsparser = vim.treesitter.get_parser(bufnr, lang)
-
 ```
 
 `bufnr=0` can be used for current buffer. `lang` will default to 'filetype'.
@@ -58,11 +53,9 @@ Currently, the parser will be retained for the lifetime of a buffer but this
 is subject to change. A plugin should keep a reference to the parser object as
 long as it wants incremental updates.
 
-Whenever you need to access the current syntax tree, parse the buffer:
+Whenever you need to access the current syntax tree, parse the buffer: 
 ```
-
 tstree = tsparser:parse()
-
 ```
 
 This will return a table of immutable [treesitter-tree](#treesitter-tree)s that represent the
@@ -225,11 +218,9 @@ treesitter queries from Lua.
 ### <a id="treesitter-predicates" class="section-title" href="#treesitter-predicates">Treesitter Query Predicates</a>
 
 Predicates are special scheme nodes that are evaluated to conditionally capture
-nodes. For example, the [eq?](#eq?) predicate can be used as follows:
+nodes. For example, the [eq?](#eq?) predicate can be used as follows: 
 ```
-
 ((identifier) @foo (#eq? @foo "foo"))
-
 ```
 
 to only match identifier corresponding to the `"foo"` text.
@@ -237,21 +228,16 @@ to only match identifier corresponding to the `"foo"` text.
 The following predicates are built in:
 
 `eq?`                                            *treesitter-predicate-eq?*
-Match a string against the text corresponding to a node:
-```
-((identifier) @foo (#eq? @foo "foo"))
+Match a string against the text corresponding to a node: 
+```            ((identifier) @foo (#eq? @foo "foo"))
 ((node1) @left (node2) @right (#eq? @left @right))
-
 ```
 
 `match?`                                      *treesitter-predicate-match?*
 `vim-match?`                              *treesitter-predicate-vim-match?*
-Match a [regexp](#regexp) against the text corresponding to a node:
-```
-((identifier) @constant (#match? @constant "^[A-Z_]+$"))
-
-```
-         Note: The `^` and `$` anchors will match the start and end of the
+Match a [regexp](#regexp) against the text corresponding to a node: 
+```            ((identifier) @constant (#match? @constant "^[A-Z_]+$"))
+Note: The `^` and `$` anchors will match the start and end of the
 node's text.
 
 `lua-match?`                              *treesitter-predicate-lua-match?*
@@ -260,18 +246,14 @@ similar to `match?`
 
 `contains?`                                *treesitter-predicate-contains?*
 Match a string against parts of the text corresponding to a node:
-```
 ((identifier) @foo (#contains? @foo "foo"))
 ((identifier) @foo-bar (#contains @foo-bar "foo" "bar"))
-
 ```
 
 `any-of?`                                    *treesitter-predicate-any-of?*
 Match any of the given strings against the text corresponding to
-a node:
-```
-((identifier) @foo (#any-of? @foo "foo" "bar"))
-
+a node: 
+```            ((identifier) @foo (#any-of? @foo "foo" "bar"))
 ```
 
 This is the recommended way to check if the node matches one of many
@@ -289,11 +271,9 @@ predicates.
 ### <a id="treesitter-directives" class="section-title" href="#treesitter-directives">Treesitter Query Directives</a>
 
 Treesitter directives store metadata for a node or match and perform side
-effects. For example, the [set!](#set!) predicate sets metadata on the match or node:
+effects. For example, the [set!](#set!) predicate sets metadata on the match or node: 
 ```
-
 ((identifier) @foo (#set! "type" "parameter"))
-
 ```
 
 The following directives are built in:
@@ -308,11 +288,9 @@ Parameters: ~
 {key}
 {value}
 
-Examples:
-```
-((identifier) @foo (#set! @foo "kind" "parameter"))
+Examples: 
+```            ((identifier) @foo (#set! @foo "kind" "parameter"))
 ((node1) @left (node2) @right (#set! "type" "pair"))
-
 ```
 
 `offset!`                                      *treesitter-directive-offset!*
@@ -327,10 +305,8 @@ Parameters: ~
 {end_row}
 {end_col}
 
-Example:
-```
-((identifier) @constant (#offset! @constant 0 1 0 -1))
-
+Example: 
+```            ((identifier) @constant (#offset! @constant 0 1 0 -1))
 ```
 
 
@@ -360,38 +336,31 @@ Note: The order of the extensions, and the query that will be used as
 a base depends on your 'runtimepath' value.
 
 Note: These modeline comments must be at the top of the query, but can be
-repeated, for example, the following two modeline blocks are both valid:
+repeated, for example, the following two modeline blocks are both valid: 
 ```
-
 ;; inherits: foo,bar
 ;; extends
 
 ;; extends
 ;;
 ;; inherits: baz
-
 ```
-
 
 
 ## <a id="treesitter-highlight" class="section-title" href="#treesitter-highlight">Treesitter Syntax Highlighting</a> 
 
 Syntax highlighting is specified through queries named `highlights.scm`,
 which match a [tsnode| in the parsed |tstree](#tsnode| in the parsed |tstree) to a `capture` that can be
-assigned a highlight group. For example, the query
+assigned a highlight group. For example, the query 
 ```
-
 (parameters (identifier) @parameter)
-
 ```
 
 matches any `identifier` node inside a function `parameter` node (e.g., the
 `bar` in `foo(bar)`) to the capture named `@parameter`. It is also possible to
-match literal expressions (provided the parser returns them):
+match literal expressions (provided the parser returns them): 
 ```
-
 "return" @keyword.return
-
 ```
 
 Assuming a suitable parser and `highlights.scm` query is found in runtimepath,
@@ -413,18 +382,16 @@ queries that make them available.
 
 As an additional rule, capture highlights can always be specialized by
 language, by appending the language name after an additional dot. For
-instance, to highlight comments differently per language:
+instance, to highlight comments differently per language: 
 ```
-
 hi @comment.c guifg=Blue
 hi @comment.lua @guifg=DarkBlue
 hi link @comment.doc.java String
-
 ```
 
 The following captures are linked by default to standard [group-name](#group-name)s:
-```
-@text.literal      Comment
+
+```    @text.literal      Comment
 @text.reference    Identifier
 @text.title        Title
 @text.uri          Underlined
@@ -474,38 +441,31 @@ The following captures are linked by default to standard [group-name](#group-nam
 @preproc           PreProc
 @debug             Debug
 @tag               Tag
-
 ```
 
 ### <a id="treesitter-highlight-spell" class="section-title" href="#treesitter-highlight-spell">Note:</a>
 The special `@spell` capture can be used to indicate that a node should be
 spell checked by Nvim's builtin [spell](#spell) checker. For example, the following
-capture marks comments as to be checked:
+capture marks comments as to be checked: 
 ```
-
 (comment) @spell
-
 ```
 
 ### <a id="treesitter-highlight-conceal" class="section-title" href="#treesitter-highlight-conceal">Note:</a>
 Treesitter highlighting supports [conceal](#conceal) via the `conceal` metadata. By
 convention, nodes to be concealed are captured as `@conceal`, but any capture
 can be used. For example, the following query can be used to hide code block
-delimiters in Markdown:
+delimiters in Markdown: 
 ```
-
 (fenced_code_block_delimiter) @conceal (#set! conceal "")
-
 ```
 
 It is also possible to replace a node with a single character, which (unlike
 legacy syntax) can be given a custom highlight. For example, the following
 (ill-advised) query replaces the `!=` operator by a Unicode glyph, which is
-still highlighted the same as other operators:
+still highlighted the same as other operators: 
 ```
-
 "!=" @operator (#set! conceal "≠")
-
 ```
 
 Conceals specified in this way respect 'conceallevel'.
@@ -515,13 +475,10 @@ Treesitter uses [nvim_buf_set_extmark()](#nvim_buf_set_extmark()) to set highlig
 priority of 100. This enables plugins to set a highlighting priority lower or
 higher than tree-sitter. It is also possible to change the priority of an
 individual query pattern manually by setting its `"priority"` metadata
-attribute:
+attribute: 
 ```
-
 (super_important_node) @ImportantHighlight (#set! "priority" 105)
-
 ```
-
 
 
 ## <a id="lua-treesitter" class="section-title" href="#lua-treesitter">Vim Treesitter</a> 
@@ -667,16 +624,14 @@ Note: By default, disables regex syntax highlighting, which may be
 required for some plugins. In this case, add `vim.bo.syntax = 'on'` after
 the call to `start`.
 
-Example:
+Example: 
 ```
-
 vim.api.nvim_create_autocmd( 'FileType', { pattern = 'tex',
 callback = function(args)
 vim.treesitter.start(args.buf, 'latex')
 vim.bo[args.buf].syntax = 'on'  -- only if additional legacy syntax is needed
 end
 })
-
 ```
 
 
@@ -833,9 +788,8 @@ node.
 
 The iterator returns three values: a numeric id identifying the capture,
 the captured node, and metadata from any directives processing the match.
-The following example shows how to get captures by name:
+The following example shows how to get captures by name: 
 ```
-
 for id, node, metadata in query:iter_captures(tree:root(), bufnr, first, last) do
 local name = query.captures[id] -- name of the capture in the query
 -- typically useful info about the node:
@@ -843,7 +797,6 @@ local type = node:type() -- type of the captured node
 local row1, col1, row2, col2 = node:range() -- range of the capture
 ... use the info here ...
 end
-
 ```
 
 
@@ -868,9 +821,8 @@ for [Query:iter_captures()](#Query:iter_captures()) but the iterated values are 
 (1-based) index of the pattern in the query, a table mapping capture
 indices to nodes, and metadata from any directives processing the match.
 If the query has more than one pattern, the capture table might be sparse
-and e.g. `pairs()` method should be used over `ipairs` . Here is an example iterating over all captures in every match:
+and e.g. `pairs()` method should be used over `ipairs` . Here is an example iterating over all captures in every match: 
 ```
-
 for pattern, match, metadata in cquery:iter_matches(tree:root(), bufnr, first, last) do
 for id, node in pairs(match) do
 local name = query.captures[id]
@@ -881,7 +833,6 @@ local node_data = metadata[id] -- Node level metadata
 ... use the info here ...
 end
 end
-
 ```
 
 

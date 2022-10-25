@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Spell
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -18,7 +18,6 @@ Type [gO](#gO) to see the table of contents.
 ## <a id="spell-quickstart E756" class="section-title" href="#spell-quickstart E756">1. Quick Start</a> 
 
 This command switches on spell checking:
-```
 
 :setlocal spell spelllang=en_us
 
@@ -127,12 +126,9 @@ There are no normal mode commands to mark words as
 rare as this is a fairly uncommon command and all
 intuitive commands for this are already taken. If you
 want you can add mappings with e.g.:
-```
 nnoremap z?  :exe ':spellrare  ' .. expand('<cWORD>')<CR>
 nnoremap z/  :exe ':spellrare! ' .. expand('<cWORD>')<CR>
-
-```
-			[:spellundo|, |zuw|, or |zuW](#:spellundo|, |zuw|, or |zuW) can be used to undo this.
+[:spellundo|, |zuw|, or |zuW](#:spellundo|, |zuw|, or |zuW) can be used to undo this.
 
 :spellr[rare]! {word}	Add {word} as a rare word to the internal word
 list, similar to [zW](#zW).
@@ -147,12 +143,8 @@ After adding a word to 'spellfile' with the above commands its associated
 ".spl" file will automatically be updated and reloaded.  If you change
 'spellfile' manually you need to use the [:mkspell](#:mkspell) command.  This sequence of
 commands mostly works well:
-```
 :edit <file in 'spellfile'>
-
-```
-	(make changes to the spell file)
-```
+(make changes to the spell file)
 :mkspell! %
 
 More details about the 'spellfile' format below [spell-wordlist-format](#spell-wordlist-format).
@@ -377,7 +369,6 @@ The [zw](#zw) command turns existing entries in 'spellfile' into comment lines.
 This avoids having to write a new file every time, but results in the file
 only getting longer, never shorter.  To clean up the comment lines in all
 ".add" spell files do this:
-```
 :runtime spell/cleanadd.vim
 
 This deletes all comment lines, except the ones that start with "##".  Use
@@ -387,7 +378,6 @@ You can invoke this script as often as you like.  A variable is provided to
 skip updating files that have been changed recently.  Set it to the number of
 seconds that has passed since a file was changed before it will be cleaned.
 For example, to clean only files that were not changed in the last hour:
-```
 ### <a id="let g:spell_clean_limit = 60  60" class="section-title" href="#let g:spell_clean_limit = 60  60">Note:</a>
 The default is one second.
 
@@ -462,7 +452,6 @@ specifically for the language, especially 'spellcapcheck'.
 
 The distribution includes a few of these files.  Use this command to see what
 they do:
-```
 :next $VIMRUNTIME/spell/*.vim
 
 Note that the default scripts don't set 'spellcapcheck' if it was changed from
@@ -519,9 +508,8 @@ then Vim will try to guess.
 ### <a id=":mksp :mkspell" class="section-title" href="#:mksp :mkspell">Note:</a>
 :mksp[ell][!] [-ascii] {outname} {inname} ...
 Generate a Vim spell file from word lists.  Example:
-```
 :mkspell /tmp/nl nl_NL.words
-### <a id="E751" class="section-title" href="#E751"><</a>
+### <a id="E751" class="section-title" href="#E751">Note:</a>
 When {outname} ends in ".spl" it is used as the output
 file name.  Otherwise it should be a language name,
 such as "en", without the region name.  The file
@@ -542,11 +530,8 @@ list.
 
 Multiple {inname} arguments can be given to combine
 regions into one Vim spell file.  Example:
-```
 :mkspell ~/.config/nvim/spell/en /tmp/en_US /tmp/en_CA /tmp/en_AU
-
-```
-			This combines the English word lists for US, CA and AU
+This combines the English word lists for US, CA and AU
 into one en.spl file.
 ### <a id="Up to eight regions can be combined. E754 E755" class="section-title" href="#Up to eight regions can be combined. E754 E755">Note:</a>
 The REP and SAL items of the first .aff file where
@@ -596,7 +581,6 @@ wrote it somewhere else.
 When the Myspell files are updated you can merge the differences:
 1. Obtain the new Myspell files as xx_YY.new.aff and xx_UU.new.dic.
 2. Use [diff-mode](#diff-mode) to see what changed:
-```
 nvim -d xx_YY.orig.dic xx_YY.new.dic
 3. Take over the changes you like in xx_YY.dic.
 You may also need to change xx_YY.aff.
@@ -664,7 +648,6 @@ another location or another protocol, set the g:spellfile_URL variable to the
 directory that holds the spell files.  You can use http:// or ftp://, but you
 are taking a security risk then.  The [netrw](#netrw) plugin is used for getting the
 file, look there for the specific syntax of the URL.  Example:
-```
 let g:spellfile_URL = 'https://ftp.nluug.nl/vim/runtime/spell'
 You may need to escape special characters.
 
@@ -673,13 +656,11 @@ try again anyway restart Vim, or set g:spellfile_URL to another value (e.g.,
 prepend a space).
 
 To avoid using the "spellfile.vim" plugin do this in your vimrc file:
-```
 
 let loaded_spellfile_plugin = 1
 
 Instead of using the plugin you can define a [SpellFileMissing](#SpellFileMissing) autocommand to
 handle the missing file yourself.  You can use it like this:
-```
 
 :au SpellFileMissing * call Download_spell_file(expand('<amatch>'))
 

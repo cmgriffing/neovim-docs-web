@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Ui
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -77,9 +77,8 @@ event is itself an array whose first element is the event name and remaining
 elements are event-parameter tuples. Thus multiple events of the same kind can
 be sent contiguously without repeating the event name.
 
-Example of a typical "redraw" batch in a single RPC notification:
+Example of a typical "redraw" batch in a single RPC notification: 
 ```
-
 ['notification', 'redraw',
 [
 ['grid_resize', [2, 77, 36]],
@@ -127,7 +126,6 @@ for forward-compatibility. [api-contract](#api-contract)
 
 UI embedders (clients that start Nvim with [--embed](#--embed) and later call
 [nvim_ui_attach()|) must start Nvim without |--headless](#nvim_ui_attach()|) must start Nvim without |--headless):
-```
 nvim --embed
 Nvim will pause before loading startup files and reading buffers, so the UI
 has a chance to invoke requests and do early initialization. Startup will
@@ -147,7 +145,6 @@ to set [g:](#g:) variables visible to init.vim
 
 3. If the UI wants to do additional setup after user config is loaded,
 register a VimEnter autocmd:
-```
 ### <a id="nvim_command("autocmd VimEnter  call rpcrequest(1, 'vimenter')")" class="section-title" href="#nvim_command("autocmd VimEnter  call rpcrequest(1, 'vimenter')")">Note:</a>
 
 4. Now invoke [nvim_ui_attach()](#nvim_ui_attach()). The UI must handle user input by now:
@@ -409,7 +406,6 @@ Note that dst and src share a common region.
 
 If `rows` is bigger than 0, move a rectangle in the SR up, this can
 happen while scrolling down.
-```
 +-------------------------+
 [ (clipped above SR)      ](# (clipped above SR)      )            ^
 [=========================| dst_top    ](#=========================| dst_top    )
@@ -419,13 +415,12 @@ happen while scrolling down.
 [-------------------------| dst_bot    ](#-------------------------| dst_bot    )
 [ src (invalid)           |            ](# src (invalid)           |            )
 +=========================+ src_bot
-
 ```
 
 If `rows` is less than zero, move a rectangle in the SR down, this can
 happen while scrolling up.
-```
-+=========================+ src_top
+
+```		+=========================+ src_top
 [ src (invalid)           |            ](# src (invalid)           |            )
 [------------------------ | dst_top    ](#------------------------ | dst_top    )
 [ src (moved down) and dst|            ](# src (moved down) and dst|            )
@@ -434,7 +429,6 @@ happen while scrolling up.
 [=========================| dst_bot    ](#=========================| dst_bot    )
 [ (clipped below SR)      ](# (clipped below SR)      )            v
 +-------------------------+
-
 ```
 
 `cols` is always zero in this version of Nvim, and reserved for future
@@ -516,8 +510,8 @@ Note that dst and src share a common region.
 
 If count is bigger than 0, move a rectangle in the SR up, this can
 happen while scrolling down.
-```
-+-------------------------+
+
+```		+-------------------------+
 [ (clipped above SR)      ](# (clipped above SR)      )            ^
 [=========================| dst_top    ](#=========================| dst_top    )
 [ dst (still in SR)       |            ](# dst (still in SR)       |            )
@@ -526,13 +520,12 @@ happen while scrolling down.
 [-------------------------| dst_bot    ](#-------------------------| dst_bot    )
 [ src (cleared)           |            ](# src (cleared)           |            )
 +=========================+ src_bot
-
 ```
 
 If count is less than zero, move a rectangle in the SR down, this can
 happen while scrolling up.
-```
-+=========================+ src_top
+
+```		+=========================+ src_top
 [ src (cleared)           |            ](# src (cleared)           |            )
 [------------------------ | dst_top    ](#------------------------ | dst_top    )
 [ src (moved down) and dst|            ](# src (moved down) and dst|            )
@@ -541,9 +534,7 @@ happen while scrolling up.
 [=========================| dst_bot    ](#=========================| dst_bot    )
 [ (clipped below SR)      ](# (clipped below SR)      )            v
 +-------------------------+
-
 ```
-
 
 
 ## <a id="ui-hlstate" class="section-title" href="#ui-hlstate">Detailed Highlight State Extension</a> 
@@ -739,12 +730,10 @@ Hide the cmdline.
 
 ["cmdline_block_show", lines] ~
 Show a block of context to the current command line. For example if
-the user defines a [:function](#:function) interactively:
-```
-:function Foo()
+the user defines a [:function](#:function) interactively: 
+```	    :function Foo()
 :  echo "foo"
 :
-
 ```
 
 `lines` is a list of lines of highlighted chunks, in the same form as

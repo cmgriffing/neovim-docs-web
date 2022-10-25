@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Mbyte
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -38,19 +38,16 @@ LOCALE
 First of all, you must make sure your current locale is set correctly.  If
 your system has been installed to use the language, it probably works right
 away.  If not, you can often make it work by setting the $LANG environment
-variable in your shell:
+variable in your shell: 
 ```
-
 setenv LANG ja_JP.EUC
 
 Unfortunately, the name of the locale depends on your system.  Japanese might
 also be called "ja_JP.EUCjp" or just "ja".  To see what is currently used:
-```
 
 :language
 
 To change the locale inside Vim use:
-```
 
 :language ja_JP.EUC
 
@@ -84,7 +81,6 @@ For the GUI you must select fonts that work with UTF-8.  You can set 'guifont'
 and 'guifontwide'.  'guifont' is used for the single-width characters,
 'guifontwide' for the double-width characters. Thus the 'guifontwide' font
 must be exactly twice as wide as 'guifont'. Example for UTF-8:
-```
 
 :set guifont=-misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
 :set guifontwide=-misc-fixed-medium-r-normal-*-18-120-100-100-c-180-iso10646-1
@@ -179,7 +175,6 @@ csh:   setenv LANG ko
 You can put this in your ~/.profile or ~/.cshrc file to always use it.
 
 To use a locale in Vim only, use the [:language](#:language) command:
-```
 
 :language ko
 
@@ -291,7 +286,6 @@ The {name} can be any encoding name that your system supports.  It is passed
 to iconv() to convert between UTF-8 and the encoding of the file.
 For MS-Windows "cp{number}" means using codepage {number}.
 Examples:
-```
 :set fileencoding=8bit-cp1252
 :set fileencoding=2byte-cp932
 
@@ -475,12 +469,10 @@ language and [conversion-server](#conversion-server) if needed.
 The next 3 lines should be put in your ~/.Xdefaults file.  They are common for
 all X applications which uses [XIM|.  If you already use |XIM](#XIM|.  If you already use |XIM), you can skip
 this.
-```
 
 *international: True
 *.inputMethod: your_input_server_name
 *.preeditType: your_input_style
-
 ```
 
 input_server_name	is your [IM-server| name (check your |IM-server](#IM-server| name (check your |IM-server)
@@ -491,13 +483,11 @@ also [xim-input-style](#xim-input-style).
 *international may not be necessary if you use X11R6.
 *.inputMethod and *.preeditType are optional if you use X11R6.
 
-For example, when you are using kinput2 as [IM-server](#IM-server),
+For example, when you are using kinput2 as [IM-server](#IM-server), 
 ```
-
 *international: True
 *.inputMethod: kinput2
 *.preeditType: OverTheSpot
-
 ```
 
 When using [OverTheSpot](#OverTheSpot), GUI Vim always connects to the IM Server even in
@@ -514,13 +504,10 @@ If needed, you can set the XMODIFIERS environment variable:
 sh:  export XMODIFIERS="@im=input_server_name"
 csh: setenv XMODIFIERS "@im=input_server_name"
 
-For example, when you are using kinput2 as [IM-server](#IM-server) and sh,
+For example, when you are using kinput2 as [IM-server](#IM-server) and sh, 
 ```
-
 export XMODIFIERS="@im=kinput2"
-
 ```
-
 
 
 ## <a id="mbyte-keymap" class="section-title" href="#mbyte-keymap">Input With a Keymap</a> 
@@ -541,9 +528,8 @@ Here {keymap} is the value of the 'keymap' option.
 The file name with "utf-8" included is tried first.
 
 'runtimepath' is used to find these files.  To see an overview of all
-available keymap files, use this:
-```
-:echo globpath(&rtp, "keymap/*.vim")
+available keymap files, use this: 
+```	:echo globpath(&rtp, "keymap/*.vim")
 
 In Insert and Command-line mode you can use CTRL-^ to toggle between using the
 keyboard map or not. [i_CTRL-^| |c_CTRL-^](#i_CTRL-^| |c_CTRL-^)
@@ -560,15 +546,12 @@ It is possible to give the GUI cursor another color when the language mappings
 are being used.  This is disabled by default, to avoid that the cursor becomes
 invisible when you use a non-standard background color.  Here is an example to
 use a brightly colored cursor:
-```
 :highlight Cursor guifg=NONE guibg=Green
 :highlight lCursor guifg=NONE guibg=Cyan
-
 ```
 
 ### <a id="keymap-file-format :loadk :loadkeymap E105 E791" class="section-title" href="#keymap-file-format :loadk :loadkeymap E105 E791">Note:</a>
 The keymap file looks something like this:
-```
 
 " Maintainer:	name <email@address>
 " Last Changed:	2001 Jan 1
@@ -594,7 +577,6 @@ item.  This is done for each line, until the end of the file.
 These items are exactly the same as what can be used in a [:lmap](#:lmap) command,
 using "<buffer>" to make the mappings local to the buffer.
 You can check the result with this command:
-```
 :lmap
 The two items must be separated by white space.  You cannot include white
 space inside an item, use the special names "<Tab>" and "<Space>" instead.
@@ -602,12 +584,10 @@ The length of the two items together must not exceed 200 bytes.
 
 It's possible to have more than one character in the first column.  This works
 like a dead key.  Example:
-```
 'a	á
 Since Vim doesn't know if the next character after a quote is really an "a",
 it will wait for the next character.  To be able to insert a single quote,
 also add this line:
-```
 ''	'
 Since the mapping is defined with [:lmap](#:lmap) the resulting quote will not be
 used for the start of another character defined in the 'keymap'.
@@ -615,21 +595,14 @@ It can be used in a standard [:imap](#:imap) mapping.
 ### <a id="keymap-accents" class="section-title" href="#keymap-accents">The "accents" keymap uses this.</a>
 
 The first column can also be in [<>](#<>) form:
-
-```
-C-c>		Ctrl-C
-
-```
-A-c>		Alt-c
-
-```
-A-C>		Alt-C
+<C-c>		Ctrl-C
+<A-c>		Alt-c
+<A-C>		Alt-C
 Note that the Alt mappings may not work, depending on your keyboard and
 terminal.
 
 Although it's possible to have more than one character in the second column,
 this is unusual.  But you can use various ways to specify the character:
-```
 A	a		literal character
 A	<char-97>	decimal value
 A	<char-0x61>	hexadecimal value
@@ -644,7 +617,6 @@ conversion is done on the keymap file, not on the resulting character.
 The lines after "loadkeymap" are interpreted with 'cpoptions' set to "C".
 This means that continuation lines are not used and a backslash has a special
 meaning in the mappings.  Examples:
-```
 
 " a comment line
 \"	x	maps " to x
@@ -652,8 +624,6 @@ meaning in the mappings.  Examples:
 
 If you write a keymap file that will be useful for others, consider submitting
 it to the Vim maintainer for inclusion in the distribution:
-
-```
 maintainer@vim.org>
 
 
@@ -878,7 +848,6 @@ this:
 2. Set 'guifont' and 'guifontwide'
 
 See the documentation for each option for details.  Example:
-```
 
 :set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1
 
@@ -896,7 +865,6 @@ If your system does not provide support for typing UTF-8, you can use the
 character as a sequence of ASCII characters.  See [mbyte-keymap](#mbyte-keymap).
 
 If everything else fails, you can type any character as four hex bytes:
-```
 
 CTRL-V u 1234
 

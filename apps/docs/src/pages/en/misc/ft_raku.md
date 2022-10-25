@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Ft Raku
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -29,14 +29,11 @@ facilities, but using the features built in to Vim may be preferable.
 The natural way to produce these symbols in Vim is to use digraph shortcuts
 (:help [digraphs-use](#digraphs-use)). Many of them are defined; type `:digraphs` to get
 the list. A convenient way to read the list of digraphs is to save them in a
-file. From the shell:
-```
-vim +'redir >/tmp/vim-digraphs-listing.txt' +digraphs +'redir END' +q
+file. From the shell: 
+```        vim +'redir >/tmp/vim-digraphs-listing.txt' +digraphs +'redir END' +q
 
 Some of them are available with standard Vim digraphs:
-
-```
-< «    /0 ∅    !< ≮  ~
+<< «    /0 ∅    !< ≮  ~
 >> »    Ob ∘    !> ≯  ~
 ., …    00 ∞    (C ⊂  ~
 (U ∩    -: ÷    )C ⊃  ~
@@ -57,7 +54,6 @@ Numbers, subscripts and superscripts are available with 's' and 'S':
 
 But some don't come defined by default. Those are digraph definitions you can
 add in your ~/.vimrc file.
-```
 exec 'digraph \\ ' .. char2nr('∖')
 exec 'digraph \< ' .. char2nr('≼')
 exec 'digraph \> ' .. char2nr('≽')
@@ -75,7 +71,6 @@ exec 'digraph @@ ' .. char2nr('⚛')
 
 Alternatively, you can write Insert mode abbreviations that convert ASCII-
 based operators into their single-character Unicode equivalent.
-```
 iabbrev <buffer> !(<) ⊄
 iabbrev <buffer> !(<=) ⊈
 iabbrev <buffer> !(>) ⊅
@@ -134,7 +129,6 @@ iabbrev <buffer> o ∘
 iabbrev <buffer> pi π
 iabbrev <buffer> set() ∅
 iabbrev <buffer> tau τ
-
 ```
 
 vim:tw=78:ts=8:noet:ft=help:norl:

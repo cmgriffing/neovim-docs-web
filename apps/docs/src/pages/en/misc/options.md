@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Options
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -101,20 +101,16 @@ exactly as they appear in the option.  Remove flags
 one by one to avoid problems.
 Also see [:set-args](#:set-args) above.
 
-The {option} arguments to ":set" may be repeated.  For example:
-```
-:set ai nosi sw=3 ts=3
+The {option} arguments to ":set" may be repeated.  For example: 
+```	:set ai nosi sw=3 ts=3
 If you make an error in one of the arguments, an error message will be given
 and the following arguments will be ignored.
 
 ### <a id=":set-verbose" class="section-title" href="#:set-verbose">Note:</a>
 When 'verbose' is non-zero, displaying an option value will also tell where it
 was last set.  Example:
-```
 :verbose set shiftwidth cindent?
-
-```
-  shiftwidth=4 ~
+shiftwidth=4 ~
 Last set from modeline line 1 ~
 cindent ~
 Last set from /usr/local/share/vim/vim60/ftplugin/c.vim line 30 ~
@@ -142,7 +138,6 @@ backslash.  To include a backslash you have to use two.  Effectively this
 means that the number of backslashes in an option value is halved (rounded
 down).
 A few examples:
-```
 :set tags=tags\ /usr/tags	    results in "tags /usr/tags"
 :set tags=tags\\,file	    results in "tags\,file"
 :set tags=tags\\\ file	    results in "tags\ file"
@@ -150,16 +145,13 @@ A few examples:
 The "|" character separates a ":set" command from a following command.  To
 include the "[" in the option value, use "\](#" in the option value, use "\)" instead.  This example sets the
 'titlestring' option to "hi|there":
-```
 :set titlestring=hi\|there
 This sets the 'titlestring' option to "hi" and 'iconstring' to "there":
-```
 :set titlestring=hi|set iconstring=there
 
 Similarly, the double quote character starts a comment.  To include the '"' in
 the option value, use '\"' instead.  This example sets the 'titlestring'
 option to 'hi "there"':
-```
 :set titlestring=hi\ \"there\"
 
 For Win32 backslashes in file names are mostly not removed.  More precise: For
@@ -168,7 +160,6 @@ expanded) a backslash before a normal file name character is not removed.  But
 a backslash before a special character (space, backslash, comma, etc.) is used
 like explained above.
 There is one special situation, when the value starts with "\\":
-```
 :set dir=\\machine\path	    results in "\\machine\path"
 :set dir=\\\\machine\\path	    results in "\\machine\path"
 :set dir=\\path\\file	    results in "\\path\file" (wrong!)
@@ -181,10 +172,8 @@ result which is probably not what you want.  Avoid it.
 ### <a id="E539 E550 E551 E552" class="section-title" href="#E539 E550 E551 E552">Note:</a>
 Some options are a list of flags.  When you want to add a flag to such an
 option, without changing the existing ones, you can do it like this:
-```
 :set guioptions+=a
 Remove a flag from an option like this:
-```
 :set guioptions-=a
 This removes the 'a' flag from 'guioptions'.
 Note that you should add or remove one flag at a time.  If 'guioptions' has
@@ -198,7 +187,6 @@ name is replaced with its value.  If it does not exist the '$' and the name
 are not modified.  Any non-id character (not a letter, digit or '_') may
 follow the environment variable name.  That character and what follows is
 appended to the value of the environment variable.  Examples:
-```
 :set term=$TERM.new
 :set path=/usr/$INCLUDE,$HOME/include,.
 When adding or removing a string from an option with ":set opt-=val" or ":set
@@ -238,13 +226,11 @@ using these local window options.  Therefore Vim keeps a global value of the
 local window options, which is used when editing another buffer.  Each window
 has its own copy of these values.  Thus these are local to the window, but
 global to all buffers in the window.  With this you can do:
-```
 :e one
 :set list
 :e two
 Now the 'list' option will also be set in "two", since with the ":set list"
 command you have also set the global value.
-```
 :set nolist
 :e one
 :setlocal list
@@ -252,7 +238,6 @@ command you have also set the global value.
 Now the 'list' option is not set, because ":set nolist" resets the global
 value, ":setlocal list" only changes the local value and ":e two" gets the
 global value.  Note that if you do this next:
-```
 :e one
 You will get back the 'list' value as it was the last time you edited "one".
 The options local to a window are remembered for each buffer.  This also
@@ -310,31 +295,29 @@ value.
 
 For example, you have two windows, both on C source code.  They use the global
 'makeprg' option.  If you do this in one of the two windows:
-```
 :set makeprg=gmake
 then the other window will switch to the same value.  There is no need to set
 the 'makeprg' option in the other C source window too.
 However, if you start editing a Perl file in a new window, you want to use
 another 'makeprg' for it, without changing the value used for the C source
 files.  You use this command:
-```
 :setlocal makeprg=perlmake
 You can switch back to using the global value by making the local value empty:
-```
 :setlocal makeprg=
 This only works for a string option.  For a number or boolean option you need
 to use the "<" flag, like this:
+:setlocal autoread
 ```
-:setlocal autoread<
+
 Note that for non-boolean and non-number options using "<" copies the global
 value to the local value, it doesn't switch back to using the global value
-(that matters when the global value changes later).  You can also use:
+(that matters when the global value changes later).  You can also use: 
+```	:set path
 ```
-:set path<
+
 This will make the local value of 'path' empty, so that the global value is
-used.  Thus it does the same as:
-```
-:setlocal path=
+used.  Thus it does the same as: 
+```	:setlocal path=
 Note: In the future more global options can be made [global-local](#global-local).  Using
 ":setlocal" on a global option might work differently then.
 
@@ -343,12 +326,10 @@ Note: In the future more global options can be made [global-local](#global-local
 Some options ('completefunc', 'imactivatefunc', 'imstatusfunc', 'omnifunc',
 'operatorfunc', 'quickfixtextfunc' and 'tagfunc') are set to a function name
 or a function reference or a lambda function.  Examples:
-```
 set opfunc=MyOpFunc
 set opfunc=function("MyOpFunc")
 set opfunc=funcref("MyOpFunc")
 set opfunc={t\ ->\ MyOpFunc(t)}
-
 ```
 
 
@@ -357,14 +338,11 @@ Setting the filetype
 ### <a id=":setf :setfiletype" class="section-title" href="#:setf :setfiletype">:setf[iletype] [FALLBACK] {filetype}</a>
 Set the 'filetype' option to {filetype}, but only if
 not done yet in a sequence of (nested) autocommands.
-This is short for:
-```
-:if !did_filetype()
+This is short for: 
+```				:if !did_filetype()
 :  setlocal filetype={filetype}
 :endif
-
-```
-			This command is used in a filetype.vim file to avoid
+This command is used in a filetype.vim file to avoid
 setting the 'filetype' option twice, causing different
 settings and syntax files to be loaded.
 
@@ -394,7 +372,6 @@ option and after a space or comma.
 
 On Unix systems "~user" can be used too.  It is replaced by the home directory
 of user "user".  Example:
-```
 :set path=~mool/include,/usr/include,.
 
 On Unix systems the form "${HOME}" can be used too.  The name between {} can
@@ -411,10 +388,8 @@ If $HOMEDRIVE is not set then $USERPROFILE is used.
 
 This expanded value is not exported to the environment, this matters when
 running an external command:
-```
 :echo system('set | findstr ^HOME=')
 and
-```
 :echo luaeval('os.getenv("HOME")')
 should echo nothing (an empty string) despite exists('$HOME') being true.
 When setting $HOME to a non-empty string it will be exported to the
@@ -535,7 +510,7 @@ If an error is detected the rest of the line is skipped.
 
 If you want to include a ':' in a set command precede it with a '\'.  The
 backslash in front of the ':' will be removed.  Example:
-### <a id="/ vi:set fillchars=stl\:^,vert\:\[: / ~" class="section-title" href="#/ vi:set fillchars=stl\:^,vert\:\](#: / ~" class="section-title" href="#/ vi:set fillchars=stl\:^,vert\:\): / ~">Note:</a>
+### <a id="/ vi:set fillchars=stl\:^,vert\:\|: / ~" class="section-title" href="#/ vi:set fillchars=stl\:^,vert\:\|: / ~">Note:</a>
 This sets the 'fillchars' option to "stl:^,vert:\|".  Only a single backslash
 before the ':' is removed.  Thus to include "\:" you have to specify "\\:".
 ### <a id="E992" class="section-title" href="#E992">Note:</a>
@@ -553,7 +528,6 @@ this, for example.
 Hint: If you would like to do something else than setting an option, you could
 define an autocommand that checks the file for a specific string.  For
 example:
-```
 au BufReadPost * if getline(1) =~ "VAR" [ call SetVar() ](# call SetVar() ) endif
 And define a function SetVar() that does something with the line containing
 "VAR".
@@ -599,13 +573,10 @@ error, this is called a hidden option.  You can't get the value of a hidden
 option though, it is not stored.
 
 To test if option "foo" can be used with ":set" use something like this:
-```
 if exists('&foo')
 This also returns true for a hidden option.  To test if option "foo" is really
 supported use something like this:
-```
 if exists('+foo')
-
 ```
 
 ### <a id="E355" class="section-title" href="#E355">Note:</a>
@@ -711,12 +682,10 @@ further details see [arabic.txt](#arabic.txt).
 ### <a id="'autoindent' 'ai' 'noautoindent' 'noai'" class="section-title" href="#'autoindent' 'ai' 'noautoindent' 'noai'">Note:</a>
 'autoindent' 'ai'	boolean	(default on)
 local to buffer
-Copy indent from current line when starting a new line (typing <CR>
-in Insert mode or when using the "o" or "O" command).  If you do not
+Copy indent from current line when starting a new line (typing <CR
+```	in Insert mode or when using the "o" or "O" command).  If you do not
 type anything on the new line except <BS> or CTRL-D and then type
-
-```
-Esc>, CTRL-O or <CR>, the indent is deleted again.  Moving the cursor
+<Esc>, CTRL-O or <CR>, the indent is deleted again.  Moving the cursor
 to another line has the same effect, unless the 'I' flag is included
 in 'cpoptions'.
 When autoindent is on, formatting (with the "gq" command or when you
@@ -727,9 +696,7 @@ a different way.
 The 'autoindent' option is reset when the 'paste' option is set and
 restored when 'paste' is reset.
 {small difference from Vi: After the indent is deleted when typing
-
-```
-Esc> or <CR>, the cursor position when moving up or down is after the
+<Esc> or <CR>, the cursor position when moving up or down is after the
 deleted indent; Vi puts the cursor somewhere in the deleted indent}.
 
 ### <a id="'autoread' 'ar' 'noautoread' 'noar'" class="section-title" href="#'autoread' 'ar' 'noautoread' 'noar'">Note:</a>
@@ -742,10 +709,9 @@ from before it was deleted.  When it appears again then it is read.
 [timestamp](#timestamp)
 If this option has a local value, use this command to switch back to
 using the global value:
+:set autoread
 ```
-:set autoread<
 
-```
 
 ### <a id="'autowrite' 'aw' 'noautowrite' 'noaw'" class="section-title" href="#'autowrite' 'aw' 'noautowrite' 'noaw'">Note:</a>
 'autowrite' 'aw'	boolean	(default off)
@@ -788,14 +754,11 @@ However, if the color scheme sets 'background' itself the effect may
 be undone.  First delete the "g:colors_name" variable when needed.
 
 Normally this option would be set in the vimrc file.  Possibly
-depending on the terminal name.  Example:
-```
-:if $TERM ==# "xterm"
+depending on the terminal name.  Example: 
+```		:if $TERM ==# "xterm"
 :  set background=dark
 :endif
-
-```
-	When this option is set, the default settings for the highlight groups
+When this option is set, the default settings for the highlight groups
 will change.  To use other settings, place ":highlight" commands AFTER
 the setting of the 'background' option.
 This option is also used in the "$VIMRUNTIME/syntax/syntax.vim" file
@@ -937,19 +900,13 @@ use '//', instead of '\\'.
 - Environment variables are expanded [:set_env](#:set_env).
 - Careful with '\' characters, type one before a space, type two to
 get one in the option (see [option-backslash](#option-backslash)), for example:
-```
 :set bdir=c:\\tmp,\ dir\\,with\\,commas,\\\ dir\ with\ spaces
-
-```
-	- For backwards compatibility with Vim version 3.0 a '>' at the start
+- For backwards compatibility with Vim version 3.0 a '>' at the start
 of the option is removed.
 See also 'backup' and 'writebackup' options.
 If you want to hide your backup files on Unix, consider this value:
-```
 :set backupdir=./.backup,~/.backup,.,/tmp
-
-```
-	You must create a ".backup" directory in each directory and in your
+You must create a ".backup" directory in each directory and in your
 home directory for this to work properly.
 The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
 directories from the list.  This avoids problems when a future version
@@ -970,11 +927,8 @@ Only normal file name characters can be used; "/\*?[|<>" are illegal.
 If you like to keep a lot of backups, you could use a BufWritePre
 autocommand to change 'backupext' just before writing the file to
 include a timestamp.
-```
 ### <a id=":au BufWritePre  let &bex = '-' .. strftime("%Y%b%d%X") .. '~'" class="section-title" href="#:au BufWritePre  let &bex = '-' .. strftime("%Y%b%d%X") .. '~'">Note:</a>
-
-```
-	Use 'backupdir' to put the backup in a different directory.
+Use 'backupdir' to put the backup in a different directory.
 
 ### <a id="'backupskip' 'bsk'" class="section-title" href="#'backupskip' 'bsk'">Note:</a>
 'backupskip' 'bsk'	string	(default: "$TMPDIR/*,$TMP/*,$TEMP/*"
@@ -996,12 +950,9 @@ backups if you don't care about losing the file.
 
 Note that environment variables are not expanded.  If you want to use
 $HOME you must expand it explicitly, e.g.:
-```
 ### <a id=":let &backupskip = escape(expand('$HOME'), '\') .. '/tmp/'" class="section-title" href="#:let &backupskip = escape(expand('$HOME'), '\') .. '/tmp/'">Note:</a>
 
-
-```
-	Note that the default also makes sure that "crontab -e" works (when a
+Note that the default also makes sure that "crontab -e" works (when a
 backup would be made by renaming the original file crontab won't see
 the newly created file).  Also see 'backupcopy' and [crontab](#crontab).
 
@@ -1018,9 +969,7 @@ all	    All events.
 backspace   When hitting <BS> or <Del> and deleting results in an
 error.
 cursor	    Fail to move around using the cursor keys or
-
-```
-PageUp>/<PageDown> in [Insert-mode](#Insert-mode).
+<PageUp>/<PageDown> in [Insert-mode](#Insert-mode).
 complete    Error occurred when using [i_CTRL-X_CTRL-K](#i_CTRL-X_CTRL-K) or
 [i_CTRL-X_CTRL-T](#i_CTRL-X_CTRL-T).
 copy	    Cannot copy char from insert mode using [i_CTRL-Y](#i_CTRL-Y) or
@@ -1146,9 +1095,7 @@ current	Use the current directory.
 local to buffer
 This option specifies what happens when a buffer is no longer
 displayed in a window:
-
-```
-empty>	follow the global 'hidden' option
+<empty>	follow the global 'hidden' option
 hide		hide the buffer (don't unload it), even if 'hidden' is
 not set
 unload	unload the buffer, even if 'hidden' is set; the
@@ -1179,9 +1126,7 @@ But not when moving to a buffer with ":buffer".
 'buftype' 'bt'		string (default: "")
 local to buffer
 The value of this option specifies the type of a buffer:
-
-```
-empty>	normal buffer
+<empty>	normal buffer
 acwrite	buffer will always be written with [BufWriteCmd](#BufWriteCmd)s
 help		help buffer (do not set this manually)
 nofile	buffer is not related to a file, will not be written
@@ -1260,11 +1205,8 @@ in the current directory first.
 If the default value taken from $CDPATH is not what you want, include
 a modified version of the following command in your vimrc file to
 override it:
-```
 :let &cdpath = ',' .. substitute(substitute($CDPATH, '[, ]', '\\\0', 'g'), ':', ',', 'g')
-
-```
-	This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
 security reasons.
 (parts of 'cdpath' can be passed to the shell to expand file names).
 
@@ -1275,12 +1217,9 @@ The key used in Command-line Mode to open the command-line window.
 Only non-printable keys are allowed.
 The key can be specified as a single character, but it is difficult to
 type.  The preferred way is to use the <> notation.  Examples:
-```
 :exe "set cedit=\<C-Y>"
 :exe "set cedit=\<Esc>"
-
-```
-	[Nvi](#Nvi) also has this option, but it only uses the first character.
+[Nvi](#Nvi) also has this option, but it only uses the first character.
 See [cmdwin](#cmdwin).
 
 ### <a id="'channel'" class="section-title" href="#'channel'">Note:</a>
@@ -1310,7 +1249,6 @@ Conversion between "latin1", "unicode", "ucs-2", "ucs-4" and "utf-8"
 is done internally by Vim, 'charconvert' is not used for this.
 Also used for Unicode conversion.
 Example:
-```
 set charconvert=CharConvert()
 fun CharConvert()
 system("recode "
@@ -1318,9 +1256,7 @@ system("recode "
 \ .. " <" .. v:fname_in .. " >" .. v:fname_out)
 return v:shell_error
 endfun
-
-```
-	The related Vim variables are:
+The related Vim variables are:
 v:charconvert_from	name of the current encoding
 v:charconvert_to	name of the desired encoding
 v:fname_in		name of the input file
@@ -1377,10 +1313,9 @@ local to buffer
 Keywords that are interpreted as a C++ scope declaration by [cino-g](#cino-g).
 Useful e.g. for working with the Qt framework that defines additional
 scope declarations "signals", "public slots" and "private slots":
-```
 set cinscopedecls+=signals,public\ slots,private\ slots
 
-### <a id="'clipboard' 'cb'" class="section-title" href="#'clipboard' 'cb'"><</a>
+### <a id="'clipboard' 'cb'" class="section-title" href="#'clipboard' 'cb'">Note:</a>
 'clipboard' 'cb'	string	(default "")
 global
 This option is a list of comma-separated names.
@@ -1404,7 +1339,7 @@ operations which would normally go to the unnamed
 register.  When "unnamed" is also included to the
 option, yank and delete operations (but not put)
 will additionally copy the text into register
-### <a id="''. See [clipboard|." class="section-title" href="#''. See |clipboard](#clipboard|." class="section-title" href="#''. See |clipboard).">Note:</a>
+### <a id="''. See [clipboard](#clipboard)." class="section-title" href="#''. See [clipboard](#clipboard).">Note:</a>
 
 ### <a id="'cmdheight' 'ch'" class="section-title" href="#'cmdheight' 'ch'">Note:</a>
 'cmdheight' 'ch'	number	(default 1)
@@ -1437,12 +1372,10 @@ highlighted with ColorColumn [hl-ColorColumn](#hl-ColorColumn).  Useful to align
 text.  Will make screen redrawing slower.
 The screen column can be an absolute number, or a number preceded with
 '+' or '-', which is added to or subtracted from 'textwidth'.
-```
 
 :set cc=+1  " highlight column after 'textwidth'
 :set cc=+1,+2,+3  " highlight three columns after 'textwidth'
 :hi ColorColumn ctermbg=lightgrey guibg=lightgrey
-
 ```
 
 When 'textwidth' is zero then the items with '-' and '+' are not used.
@@ -1460,12 +1393,9 @@ When you set this option and Vim is unable to change the physical
 number of columns of the display, the display may be messed up.  For
 the GUI it is always possible and Vim limits the number of columns to
 what fits on the screen.  You can use this command to get the widest
-window possible:
-```
-:set columns=9999
-
-```
-	Minimum value is 12, maximum value is 10000.
+window possible: 
+```		:set columns=9999
+Minimum value is 12, maximum value is 10000.
 
 ### <a id="'comments' 'com' E524 E525" class="section-title" href="#'comments' 'com' E524 E525">Note:</a>
 'comments' 'com'	string	(default
@@ -1498,11 +1428,8 @@ k	scan the files given with the 'dictionary' option
 kspell  use the currently active spell checking [spell](#spell)
 k{dict}	scan the file {dict}.  Several "k" flags can be given,
 patterns are valid too.  For example:
-```
 ### <a id=":set cpt=k/usr/dict/,k~/spanish" class="section-title" href="#:set cpt=k/usr/dict/,k~/spanish">Note:</a>
-
-```
-	s	scan the files given with the 'thesaurus' option
+s	scan the files given with the 'thesaurus' option
 s{tsr}	scan the file {tsr}.  Several "s" flags can be given, patterns
 are valid too.
 i	scan current and included files
@@ -1701,14 +1628,10 @@ commands with a character argument, like [r|, |f](#r|, |f) and
 [t](#t).
 ### <a id="cpo-e" class="section-title" href="#cpo-e">Note:</a>
 e	When executing a register with ":@r", always add a
-
-```
-CR> to the last line, also when the register is not
+<CR> to the last line, also when the register is not
 linewise.  If this flag is not present, the register
 is not linewise and the last line does not end in a
-
-```
-CR>, then the last line is put on the command-line
+<CR>, then the last line is put on the command-line
 and can be edited before hitting <CR>.
 ### <a id="cpo-E" class="section-title" href="#cpo-E">Note:</a>
 E	It is an error when using "y", "d", "c", "g~", "gu" or
@@ -1737,13 +1660,9 @@ white space.
 ### <a id="cpo-K" class="section-title" href="#cpo-K">Note:</a>
 K	Don't wait for a key code to complete when it is
 halfway through a mapping.  This breaks mapping
-
-```
-F1><F1> when only part of the second <F1> has been
+<F1><F1> when only part of the second <F1> has been
 read.  It enables cancelling the mapping by typing
-
-```
-F1><Esc>.
+<F1><Esc>.
 ### <a id="cpo-l" class="section-title" href="#cpo-l">Note:</a>
 l	Backslash in a [] range in a search pattern is taken
 literally, only "\]", "\^", "\-" and "\\" are special.
@@ -1907,10 +1826,8 @@ Highlight the screen column of the cursor with CursorColumn
 slower.
 If you only want the highlighting in the current window you can use
 these autocommands:
-```
 ### <a id="au WinLeave  set nocursorline nocursorcolumn" class="section-title" href="#au WinLeave  set nocursorline nocursorcolumn">Note:</a>
 ### <a id="au WinEnter  set cursorline cursorcolumn" class="section-title" href="#au WinEnter  set cursorline cursorcolumn">Note:</a>
-
 ```
 
 
@@ -1966,28 +1883,17 @@ used to recognize the defined name after the match:
 See [option-backslash](#option-backslash) about inserting backslashes to include a space
 or backslash.
 The default value is for C programs.  For C++ this value would be
-useful, to include const type declarations:
-```
-### <a id="^\(#\sdefine\[[a-z]\sconst\s[a-z]\)" class="section-title" href="#^\(#\sdefine\](#[a-z]\sconst\s[a-z]\)" class="section-title" href="#^\(#\sdefine\)[a-z]\sconst\s[a-z]\)">Note:</a>
-
-```
-	You can also use "\ze" just before the name and continue the pattern
+useful, to include const type declarations: 
+#### <a id="^\(#\sdefine\|[a-z]\sconst\s[a-z]\)" class="section-title" href="#^\(#\sdefine\|[a-z]\sconst\s[a-z]\)">```</a>
+You can also use "\ze" just before the name and continue the pattern
 to check what is following.  E.g. for Javascript, if a function is
 defined with "func_name = function(args)":
-```
 ### <a id="^\s\ze\i\+\s=\sfunction(" class="section-title" href="#^\s\ze\i\+\s=\sfunction(">Note:</a>
-
-```
-	If the function is defined with "func_name : function() {...":
-```
+If the function is defined with "func_name : function() {...":
 ### <a id="^\s\ze\i\+\s[:]\s(function\s(" class="section-title" href="#^\s\ze\i\+\s[:]\s(function\s(">Note:</a>
-
-```
-	When using the ":set" command, you need to double the backslashes!
+When using the ":set" command, you need to double the backslashes!
 To avoid that use `:let` with a single quote string:
-```
 ### <a id="let &l:define = '^\s\ze\k\+\s=\sfunction('" class="section-title" href="#let &l:define = '^\s\ze\k\+\s=\sfunction('">Note:</a>
-
 ```
 
 
@@ -2136,20 +2042,18 @@ smallest possible diff
 patience   patience diff algorithm
 histogram  histogram diff algorithm
 
-Examples:
-```
-:set diffopt=internal,filler,context:4
+Examples: 
+```		:set diffopt=internal,filler,context:4
 :set diffopt=
 :set diffopt=internal,filler,foldcolumn:3
 :set diffopt-=internal  " do NOT use the internal diff parser
-
 ```
 
 ### <a id="'digraph' 'dg' 'nodigraph' 'nodg'" class="section-title" href="#'digraph' 'dg' 'nodigraph' 'nodg'">Note:</a>
 'digraph' 'dg'		boolean	(default off)
 global
-Enable the entering of digraphs in Insert mode with {char1} <BS>
-{char2}.  See [digraphs](#digraphs).
+Enable the entering of digraphs in Insert mode with {char1} <BS
+```	{char2}.  See [digraphs](#digraphs).
 
 ### <a id="'directory' 'dir'" class="section-title" href="#'directory' 'dir'">Note:</a>
 'directory' 'dir'	string	(default "$XDG_STATE_HOME/nvim/swap//")
@@ -2186,11 +2090,8 @@ name, precede it with a backslash.
 - Environment variables are expanded [:set_env](#:set_env).
 - Careful with '\' characters, type one before a space, type two to
 get one in the option (see [option-backslash](#option-backslash)), for example:
-```
 :set dir=c:\\tmp,\ dir\\,with\\,commas,\\\ dir\ with\ spaces
-
-```
-	- For backwards compatibility with Vim version 3.0 a '>' at the start
+- For backwards compatibility with Vim version 3.0 a '>' at the start
 of the option is removed.
 Using "." first in the list is recommended.  This means that editing
 the same file twice will result in a warning.  Using "/tmp" on Unix is
@@ -2329,18 +2230,14 @@ A list of autocommand event names, which are to be ignored.
 When set to "all" or when "all" is one of the items, all autocommand
 events are ignored, autocommands will not be executed.
 Otherwise this is a comma-separated list of event names.  Example:
-```
 :set ei=WinEnter,WinLeave
-
 ```
 
 ### <a id="'expandtab' 'et' 'noexpandtab' 'noet'" class="section-title" href="#'expandtab' 'et' 'noexpandtab' 'noet'">Note:</a>
 'expandtab' 'et'	boolean	(default off)
 local to buffer
 In Insert mode: Use the appropriate number of spaces to insert a
-
-```
-Tab>.  Spaces are used in indents with the '>' and '<' commands and
+<Tab>.  Spaces are used in indents with the '>' and '<' commands and
 when 'autoindent' is on.  To insert a real tab when 'expandtab' is
 on, use CTRL-V<Tab>.  See also [:retab| and |ins-expandtab](#:retab| and |ins-expandtab).
 This option is reset when the 'paste' option is set and restored when
@@ -2403,23 +2300,17 @@ For an empty file or a file with only ASCII characters most encodings
 will work and the first entry of 'fileencodings' will be used (except
 "ucs-bom", which requires the BOM to be present).  If you prefer
 another encoding use an BufReadPost autocommand event to test if your
-preferred encoding is to be used.  Example:
-```
-### <a id="au BufReadPost  if search('\S', 'w') == 0 [" class="section-title" href="#au BufReadPost  if search('\S', 'w') == 0 ](#" class="section-title" href="#au BufReadPost  if search('\S', 'w') == 0 )">Note:</a>
+preferred encoding is to be used.  Example: 
+#### <a id="au BufReadPost  if search('\S', 'w') == 0 |" class="section-title" href="#au BufReadPost  if search('\S', 'w') == 0 |">```</a>
 \ set fenc=iso-2022-jp | endif
-
-```
-	This sets 'fileencoding' to "iso-2022-jp" if the file does not contain
+This sets 'fileencoding' to "iso-2022-jp" if the file does not contain
 non-blank characters.
 When the [++enc](#++enc) argument is used then the value of 'fileencodings' is
 not used.
 Note that 'fileencodings' is not used for a new file, the global value
 of 'fileencoding' is used instead.  You can set it with:
-```
 :setglobal fenc=iso-8859-2
-
-```
-	This means that a non-existing file may get a different encoding than
+This means that a non-existing file may get a different encoding than
 an empty file.
 The special value "ucs-bom" can be used to check for a Unicode BOM
 (Byte Order Mark) at the start of the file.  It must not be preceded
@@ -2478,9 +2369,7 @@ is opened.  'fileformat' is set accordingly for that buffer.  The
 'fileformats' name will be used when a file is read into an existing
 buffer, no matter what 'fileformat' for that buffer is set to.
 - When more than one name is present, separated by commas, automatic
-
-```
-EOL> detection will be done when reading a file.  When starting to
+<EOL> detection will be done when reading a file.  When starting to
 edit a file, a check is done for the <EOL>:
 1. If all lines end in <CR><NL>, and 'fileformats' includes "dos",
 'fileformat' is set to "dos".
@@ -2512,9 +2401,7 @@ done:
 format will be used.
 - When 'fileformats' is set to one or more names, automatic detection
 is done.  This is based on the first <NL> in the file: If there is a
-
-```
-CR> in front of it, Dos format is used, otherwise Unix format is
+<CR> in front of it, Dos format is used, otherwise Unix format is
 used.
 Also see [file-formats](#file-formats).
 
@@ -2592,11 +2479,8 @@ If 'ambiwidth' is "double" then "horiz", "horizup", "horizdown",
 default to single-byte alternatives.
 
 Example:
-```
 :set fillchars=stl:^,stlnc:=,vert:│,fold:·,diff:-
-
-```
-	This is similar to the default, except that these characters will also
+This is similar to the default, except that these characters will also
 be used when there is highlighting.
 
 For the "stl", "stlnc", "foldopen", "foldclose" and "foldsep" items
@@ -2803,11 +2687,8 @@ automatic formatting.  This can be empty.  Don't insert
 it yet!
 
 Example:
-```
 :set formatexpr=mylang#Format()
-
-```
-	This will invoke the mylang#Format() function in the
+This will invoke the mylang#Format() function in the
 autoload/mylang.vim file in 'runtimepath'. [autoload](#autoload)
 
 The expression is also evaluated when 'textwidth' is set and adding
@@ -2916,11 +2797,8 @@ will be included.  Environment variables are expanded [:set_env](#:set_env).  Se
 [option-backslash](#option-backslash) about including spaces and backslashes.
 When your "grep" accepts the "-H" argument, use this to make ":grep"
 also work well with a single file:
-```
 :set grepprg=grep\ -nH
-
-```
-	Special value: When 'grepprg' is set to "internal" the [:grep](#:grep) command
+Special value: When 'grepprg' is set to "internal" the [:grep](#:grep) command
 works like [:vimgrep|, |:lgrep| like |:lvimgrep|, |:grepadd](#:vimgrep|, |:lgrep| like |:lvimgrep|, |:grepadd) like
 [:vimgrepadd| and |:lgrepadd| like |:lvimgrepadd](#:vimgrepadd| and |:lgrepadd| like |:lvimgrepadd).
 See also the section [:make_makeprg](#:make_makeprg), since most of the comments there
@@ -2935,20 +2813,14 @@ Configures the cursor style for each mode. Works in the GUI and many
 terminals.  See [tui-cursor-shape](#tui-cursor-shape).
 
 To disable cursor-styling, reset the option:
-```
 :set guicursor=
 
-
-```
-	To enable mode shapes, "Cursor" highlight, and blinking:
-```
+To enable mode shapes, "Cursor" highlight, and blinking:
 :set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
 \,sm:block-blinkwait175-blinkoff150-blinkon175
 
-
-```
-	The option is a comma-separated list of parts.  Each part consists of a
+The option is a comma-separated list of parts.  Each part consists of a
 mode-list and an argument-list:
 mode-list:argument-list,mode-list:argument-list,..
 The mode-list is a dash separated list of these modes:
@@ -2978,11 +2850,8 @@ the cursor starts blinking, blinkon is the time that
 the cursor is shown and blinkoff is the time that the
 cursor is not shown.  Times are in msec.  When one of
 the numbers is zero, there is no blinking. E.g.:
-```
 :set guicursor=n:blinkon0
-
-```
-			- Default is "blinkon0" for each mode.
+- Default is "blinkon0" for each mode.
 {group-name}
 Highlight group that decides the color and font of the
 cursor.
@@ -3020,10 +2889,8 @@ to do a common setting for all modes.  For example, to switch off
 blinking: "a:blinkon0"
 
 Examples of cursor highlighting:
-```
 :highlight Cursor gui=reverse guifg=NONE guibg=NONE
 :highlight Cursor gui=NONE guifg=bg guibg=fg
-
 ```
 
 ### <a id="'guifont' 'gfn'" class="section-title" href="#'guifont' 'gfn'">Note:</a>
@@ -3039,12 +2906,9 @@ The first valid font is used.
 Spaces after a comma are ignored.  To include a comma in a font name
 precede it with a backslash.  Setting an option requires an extra
 backslash before a space and a backslash.  See also
-[option-backslash](#option-backslash).  For example:
-```
-:set guifont=Screen15,\ 7x13,font\\,with\\,commas
-
-```
-	will make Vim try to use the font "Screen15" first, and if it fails it
+[option-backslash](#option-backslash).  For example: 
+```	    :set guifont=Screen15,\ 7x13,font\\,with\\,commas
+will make Vim try to use the font "Screen15" first, and if it fails it
 will try to use "7x13" and then "font,with,commas" instead.
 
 If none of the fonts can be loaded, Vim will keep the current setting.
@@ -3055,18 +2919,14 @@ the case of X).  The font names given should be "normal" fonts.  Vim
 will try to find the related bold and italic fonts.
 
 For Win32 and Mac OS:
-```
 ### <a id=":set guifont=" class="section-title" href="#:set guifont=">Note:</a>
-
-```
-	will bring up a font requester, where you can pick the font you want.
+will bring up a font requester, where you can pick the font you want.
 
 The font name depends on the GUI used.
 
 For Mac OSX you can use something like this:
-```
 :set guifont=Monaco:h10
-### <a id="E236" class="section-title" href="#E236"><</a>
+### <a id="E236" class="section-title" href="#E236">Note:</a>
 Note that the fonts must be mono-spaced (all characters have the same
 width).
 
@@ -3091,10 +2951,8 @@ Use a ':' to separate the options.
 - A '_' can be used in the place of a space, so you don't need to use
 backslashes to escape the spaces.
 - Examples:
-```
 :set guifont=courier_new:h12:w5:b:cRUSSIAN
 :set guifont=Andale_Mono:h7.5:w4.5
-
 ```
 
 ### <a id="'guifontwide' 'gfw' E231 E533 E534" class="section-title" href="#'guifontwide' 'gfw' E231 E533 E534">Note:</a>
@@ -3234,10 +3092,8 @@ global
 When non-empty describes the text to use in a tooltip for the GUI tab
 pages line.  When empty Vim will use a default tooltip.
 This option is otherwise just like 'guitablabel' above.
-You can include a line break.  Simplest method is to use [:let](#:let):
-```
-:let &guitabtooltip = "line one\nline two"
-
+You can include a line break.  Simplest method is to use [:let](#:let): 
+```		:let &guitabtooltip = "line one\nline two"
 ```
 
 
@@ -3272,12 +3128,9 @@ for which the desired help can be found.  The English help will always
 be used as a last resort.  You can add "en" to prefer English over
 another language, but that will only find tags that exist in that
 language and not in the English help.
-Example:
-```
-:set helplang=de,it
-
-```
-	This will first search German, then Italian and finally English help
+Example: 
+```		:set helplang=de,it
+This will first search German, then Italian and finally English help
 files.
 When using [CTRL-]](#CTRL-]) and ":help!" in a non-English help file Vim will
 try to find the tag in the current language before using this option.
@@ -3402,11 +3255,8 @@ Insert mode.  Valid values:
 2	:lmap is off and IM is ON
 To always reset the option to zero when leaving Insert mode with <Esc>
 this can be used:
-```
 :inoremap <ESC> <ESC>:set iminsert=0<CR>
-
-```
-	This makes :lmap and IM turn off automatically when leaving Insert
+This makes :lmap and IM turn off automatically when leaving Insert
 mode.
 Note that this option changes when using CTRL-^ in Insert mode
 [i_CTRL-^](#i_CTRL-^).
@@ -3466,11 +3316,8 @@ See [option-backslash](#option-backslash) about including spaces and backslashes
 local to buffer
 Expression to be used to transform the string found with the 'include'
 option to a file name.  Mostly useful to change "." to "/" for Java:
-```
 :set includeexpr=substitute(v:fname,'\\.','/','g')
-
-```
-	The "v:fname" variable will be set to the file name that was detected.
+The "v:fname" variable will be set to the file name that was detected.
 
 Also used for the [gf](#gf) command if an unmodified file name can't be
 found.  Allows doing "gf" on the name after an 'include' statement.
@@ -3505,13 +3352,11 @@ typing a search command. See also: 'hlsearch'.
 If you don't want to turn 'hlsearch' on, but want to highlight all
 matches while searching, you can turn on and off 'hlsearch' with
 autocmd.  Example:
-```
 augroup vimrc-incsearch-highlight
 autocmd!
 autocmd CmdlineEnter /,\? :set hlsearch
 autocmd CmdlineLeave /,\? :set nohlsearch
 augroup END
-
 ```
 
 CTRL-L can be used to add one character from after the current match
@@ -3542,12 +3387,9 @@ and [lispindent()](#lispindent()).
 The evaluation of the expression must not have side effects!  It must
 not change the text, jump to another window, etc.  Afterwards the
 cursor position is always restored, thus the cursor may be moved.
-Normally this option would be set to call a function:
-```
-:set indentexpr=GetMyIndent()
-
-```
-	Error messages will be suppressed, unless the 'debug' option contains
+Normally this option would be set to call a function: 
+```		:set indentexpr=GetMyIndent()
+Error messages will be suppressed, unless the 'debug' option contains
 "msg".
 See [indent-expression](#indent-expression).
 
@@ -3731,9 +3573,7 @@ Select mode or Visual mode, depending on "key" being
 present in 'selectmode').
 stopsel	Using a not-shifted special key stops selection.
 Special keys in this context are the cursor keys, <End>, <Home>,
-
-```
-PageUp> and <PageDown>.
+<PageUp> and <PageDown>.
 The 'keymodel' option is set by the [:behave](#:behave) command.
 
 ### <a id="'keywordprg' 'kp'" class="section-title" href="#'keywordprg' 'kp'">Note:</a>
@@ -3749,12 +3589,9 @@ When "man" or "man -s" is used, Vim will automatically translate
 a [count] for the "K" command to a section number.
 See [option-backslash](#option-backslash) about including spaces and backslashes.
 Example:
-```
 :set keywordprg=man\ -s
 :set keywordprg=:Man
-
-```
-	This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
 security reasons.
 
 ### <a id="'langmap' 'lmap' E357 E358" class="section-title" href="#'langmap' 'lmap' E357 E358">Note:</a>
@@ -3775,12 +3612,8 @@ security reasons.
 
 ### <a id="greek" class="section-title" href="#greek">	Example (for Greek, in UTF-8):</a>
 :set langmap=ΑA,ΒB,ΨC,ΔD,ΕE,ΦF,ΓG,ΗH,ΙI,ΞJ,ΚK,ΛL,ΜM,ΝN,ΟO,ΠP,QQ,ΡR,ΣS,ΤT,ΘU,ΩV,WW,ΧX,ΥY,ΖZ,αa,βb,ψc,δd,εe,φf,γg,ηh,ιi,ξj,κk,λl,μm,νn,οo,πp,qq,ρr,σs,τt,θu,ωv,ςw,χx,υy,ζz
-
-```
-	Example (exchanges meaning of z and y for commands):
-```
+Example (exchanges meaning of z and y for commands):
 :set langmap=zy,yz,ZY,YZ
-
 ```
 
 The 'langmap' option is a list of parts, separated with commas.  Each
@@ -3809,35 +3642,23 @@ Use a mapping to avoid having to type it each time!
 'langmenu' 'lm'		string	(default "")
 global
 Language to use for menu translation.  Tells which file is loaded
-from the "lang" directory in 'runtimepath':
-```
-"lang/menu_" .. &langmenu .. ".vim"
-
-```
-	(without the spaces).  For example, to always use the Dutch menus, no
+from the "lang" directory in 'runtimepath': 
+```		"lang/menu_" .. &langmenu .. ".vim"
+(without the spaces).  For example, to always use the Dutch menus, no
 matter what $LANG is set to:
-```
 :set langmenu=nl_NL.ISO_8859-1
-
-```
-	When 'langmenu' is empty, [v:lang](#v:lang) is used.
+When 'langmenu' is empty, [v:lang](#v:lang) is used.
 Only normal file name characters can be used, "/\*?[|<>" are illegal.
 If your $LANG is set to a non-English language but you do want to use
 the English menus:
-```
 :set langmenu=none
-
-```
-	This option must be set before loading menus, switching on filetype
+This option must be set before loading menus, switching on filetype
 detection or syntax highlighting.  Once the menus are defined setting
 this option has no effect.  But you could do this:
-```
 :source $VIMRUNTIME/delmenu.vim
 :set langmenu=de_DE.ISO_8859-1
 :source $VIMRUNTIME/menu.vim
-
-```
-	Warning: This deletes all menus that you defined yourself!
+Warning: This deletes all menus that you defined yourself!
 
 ### <a id="'langremap' 'lrm' 'nolangremap' 'nolrm'" class="section-title" href="#'langremap' 'lrm' 'nolangremap' 'nolrm'">Note:</a>
 'langremap' 'lrm'	boolean (default off)
@@ -3893,11 +3714,8 @@ option will cause the window size to be changed.  When you only want
 to use the size for the GUI, put the command in your [gvimrc](#gvimrc) file.
 Vim limits the number of lines to what fits on the screen.  You can
 use this command to get the tallest window possible:
-```
 :set lines=999
-
-```
-	Minimum value is 2, maximum value is 1000.
+Minimum value is 2, maximum value is 1000.
 
 ### <a id="'linespace' 'lsp'" class="section-title" href="#'linespace' 'lsp'">Note:</a>
 'linespace' 'lsp'	number	(default 0)
@@ -3952,9 +3770,7 @@ the 'listchars' option.
 The cursor is displayed at the start of the space a Tab character
 occupies, not at the end as usual in Normal mode.  To get this cursor
 position while displaying Tabs with spaces, use:
-```
-:set list lcs=tab:\ \ 
-
+:set list lcs=tab:\ \
 ```
 
 Note that list mode will also affect formatting (set with 'textwidth'
@@ -3977,24 +3793,17 @@ The third character is optional.
 
 tab:xy	The 'x' is always used, then 'y' as many times as will
 fit.  Thus "tab:>-" displays:
-```
->-
+
+```				>-
 >--
 etc.
 
 tab:xyz	The 'z' is always used, then 'x' is prepended, and
 then 'y' is used as many times as will fit.  Thus
 "tab:<->" displays:
-```
-
-```
->
-
-```
-->
-
-```
--->
+<>
+<->
+<-->
 etc.
 
 When "tab:" is omitted, a tab is shown as ^I.
@@ -4015,9 +3824,8 @@ lead:c	Character to show for leading spaces.  When omitted,
 leading spaces are blank.  Overrides the "space" and
 "multispace" settings for leading spaces.  You can
 combine it with "tab:", for example:
-```
 :set listchars+=tab:>-,lead:.
-### <a id="lcs-leadmultispace" class="section-title" href="#lcs-leadmultispace"><</a>
+### <a id="lcs-leadmultispace" class="section-title" href="#lcs-leadmultispace">Note:</a>
 leadmultispace:c...
 Like the [lcs-multispace](#lcs-multispace) value, but for leading
 spaces only.  Also overrides [lcs-lead](#lcs-lead) for leading
@@ -4051,23 +3859,19 @@ The characters ':' and ',' should not be used.  UTF-8 characters can
 be used.  All characters must be single width.
 
 Each character can be specified as hex:
-```
 set listchars=eol:\\x24
 set listchars=eol:\\u21b5
 set listchars=eol:\\U000021b5
-
-```
-	Note that a double backslash is used.  The number of hex characters
+Note that a double backslash is used.  The number of hex characters
 must be exactly 2 for \\x, 4 for \\u and 8 for \\U.
 
 Examples:
-```
 :set lcs=tab:>-,trail:-
 :set lcs=tab:>-,eol:<,nbsp:%
-:set lcs=extends:>,precedes:<
-
+:set lcs=extends:>,precedes:
 ```
-	[hl-NonText](#hl-NonText) highlighting will be used for "eol", "extends" and
+
+[hl-NonText](#hl-NonText) highlighting will be used for "eol", "extends" and
 "precedes". [hl-Whitespace](#hl-Whitespace) for "nbsp", "space", "tab", "multispace",
 "lead" and "trail".
 
@@ -4117,10 +3921,8 @@ and `:laddfile`.
 
 This would be mostly useful when you use MS-Windows.  If iconv is
 enabled, setting 'makeencoding' to "char" has the same effect as
-setting to the system locale encoding.  Example:
-```
-:set makeencoding=char	" system locale is used
-
+setting to the system locale encoding.  Example: 
+```		:set makeencoding=char	" system locale is used
 ```
 
 ### <a id="'makeprg' 'mp'" class="section-title" href="#'makeprg' 'mp'">Note:</a>
@@ -4134,18 +3936,12 @@ Environment variables are expanded [:set_env|.  See |option-backslash](#:set_env
 about including spaces and backslashes.
 Note that a '|' must be escaped twice: once for ":set" and once for
 the interpretation of a command.  When you use a filter called
-"myfilter" do it like this:
-```
-:set makeprg=gmake\ \\\|\ myfilter
-
-```
-	The placeholder "$*" can be given (even multiple times) to specify
+"myfilter" do it like this: 
+```	    :set makeprg=gmake\ \\\|\ myfilter
+The placeholder "$*" can be given (even multiple times) to specify
 where the arguments will be included, for example:
-```
 ### <a id=":set makeprg=latex\ \\\\nonstopmode\ \\\\input\\{$}" class="section-title" href="#:set makeprg=latex\ \\\\nonstopmode\ \\\\input\\{$}">Note:</a>
-
-```
-	This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
 security reasons.
 
 ### <a id="'matchpairs' 'mps'" class="section-title" href="#'matchpairs' 'mps'">Note:</a>
@@ -4158,19 +3954,13 @@ jump between two double quotes.
 The characters must be separated by a colon.
 The pairs must be separated by a comma.  Example for including '<' and
 '>' (for HTML):
-```
 :set mps+=<:>
 
-
-```
-	A more exotic example, to jump between the '=' and ';' in an
+A more exotic example, to jump between the '=' and ';' in an
 assignment, useful for languages like C and Java:
-```
 :au FileType c,cpp,java set mps+==:;
 
-
-```
-	For a more advanced way of using "%", see the matchit.vim plugin in
+For a more advanced way of using "%", see the matchit.vim plugin in
 the $VIMRUNTIME/plugin directory. [add-local-help](#add-local-help)
 
 ### <a id="'matchtime' 'mat'" class="section-title" href="#'matchtime' 'mat'">Note:</a>
@@ -4255,11 +4045,8 @@ slower.
 The languages for which these numbers are important are Italian and
 Hungarian.  The default works for when you have about 512 Mbyte.  If
 you have 1 Gbyte you could use:
-```
 :set mkspellmem=900000,3000,800
-
-```
-	If you have less than 512 Mbyte [:mkspell](#:mkspell) may fail for some
+If you have less than 512 Mbyte [:mkspell](#:mkspell) may fail for some
 languages, no matter what you set 'mkspellmem' to.
 
 This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox).
@@ -4332,9 +4119,7 @@ global
 
 Enables mouse support. For example, to enable the mouse in Normal mode
 and Visual mode:
-```
 :set mouse=nv
-
 ```
 
 To temporarily disable mouse support, hold the shift key while using
@@ -4433,9 +4218,8 @@ Nvim creates a default [popup-menu](#popup-menu) but you can redefine it.
 Note that you can further refine the meaning of buttons with mappings.
 See [mouse-overview](#mouse-overview).  But mappings are NOT used for modeless selection.
 
-Example:
-```
-:map <S-LeftMouse>     <RightMouse>
+Example: 
+```	   :map <S-LeftMouse>     <RightMouse>
 :map <S-LeftDrag>      <RightDrag>
 :map <S-LeftRelease>   <RightRelease>
 :map <2-S-LeftMouse>   <2-RightMouse>
@@ -4447,7 +4231,6 @@ Example:
 :map <4-S-LeftMouse>   <4-RightMouse>
 :map <4-S-LeftDrag>    <4-RightDrag>
 :map <4-S-LeftRelease> <4-RightRelease>
-
 ```
 
 Mouse commands requiring the CTRL modifier can be simulated by typing
@@ -4481,12 +4264,9 @@ is omitted, a default value is used (6 for horizontal scrolling and 3
 for vertical scrolling). You can disable mouse scrolling by using
 a count of 0.
 
-Example:
-```
-:set mousescroll=ver:5,hor:2
-
-```
-	Will make Nvim scroll 5 lines at a time when scrolling vertically, and
+Example: 
+```		:set mousescroll=ver:5,hor:2
+Will make Nvim scroll 5 lines at a time when scrolling vertically, and
 scroll 2 columns at a time when scrolling horizontally.
 
 ### <a id="'mouseshape' 'mouses' E547" class="section-title" href="#'mouseshape' 'mouses' E547">Note:</a>
@@ -4547,11 +4327,8 @@ Any modes not specified or shapes not available use the normal mouse
 pointer.
 
 Example:
-```
 :set mouseshape=s:udsizing,m:no
-
-```
-	will make the mouse turn to a sizing arrow over the status lines and
+will make the mouse turn to a sizing arrow over the status lines and
 indicate no input when the hit-enter prompt is displayed (since
 clicking the mouse has no effect in this state.)
 
@@ -4727,26 +4504,20 @@ the 'pastetoggle' option to toggle the 'paste' option with some key.
 global
 When non-empty, specifies the key sequence that toggles the 'paste'
 option.  This is like specifying a mapping:
-```
 :map {keys} :set invpaste<CR>
-
-```
-	Where {keys} is the value of 'pastetoggle'.
+Where {keys} is the value of 'pastetoggle'.
 The difference is that it will work even when 'paste' is set.
 'pastetoggle' works in Insert mode and Normal mode, but not in
 Command-line mode.
 Mappings are checked first, thus overrule 'pastetoggle'.  However,
 when 'paste' is on mappings are ignored in Insert mode, thus you can do
 this:
-```
 :map <F10> :set paste<CR>
 :map <F11> :set nopaste<CR>
 :imap <F10> <C-O>:set paste<CR>
 :imap <F11> <nop>
 :set pastetoggle=<F11>
-
-```
-	This will make <F10> start paste mode and <F11> stop paste mode.
+This will make <F10> start paste mode and <F11> stop paste mode.
 Note that typing <F10> in paste mode inserts "<F10>", since in paste
 mode everything is inserted literally, except the 'pastetoggle' key
 sequence.
@@ -4788,51 +4559,30 @@ provided that the file being searched for has a relative path (not
 starting with "/", "./" or "../").  The directories in the 'path'
 option may be relative or absolute.
 - Use commas to separate directory names:
-```
 :set path=.,/usr/local/include,/usr/include
-
-```
-	- Spaces can also be used to separate directory names (for backwards
+- Spaces can also be used to separate directory names (for backwards
 compatibility with version 3.0).  To have a space in a directory
 name, precede it with an extra backslash, and escape the space:
-```
 :set path=.,/dir/with\\\ space
-
-```
-	- To include a comma in a directory name precede it with an extra
+- To include a comma in a directory name precede it with an extra
 backslash:
-```
 :set path=.,/dir/with\\,comma
-
-```
-	- To search relative to the directory of the current file, use:
-```
+- To search relative to the directory of the current file, use:
 :set path=.
-
-```
-	- To search in the current directory use an empty string between two
+- To search in the current directory use an empty string between two
 commas:
-```
 :set path=,,
-
-```
-	- A directory name may end in a ':' or '/'.
+- A directory name may end in a ':' or '/'.
 - Environment variables are expanded [:set_env](#:set_env).
 - When using [netrw.vim](#netrw.vim) URLs can be used.  For example, adding
 "https://www.vim.org" will make ":find index.html" work.
 - Search upwards and downwards in a directory tree using "*", "**" and
 ";".  See [file-searching](#file-searching) for info and syntax.
 - Careful with '\' characters, type two to get one in the option:
-```
 :set path=.,c:\\include
-
-```
-	  Or just use '/' instead:
-```
+Or just use '/' instead:
 :set path=.,c:/include
-
-```
-	Don't forget "." or files won't even be found in the same directory as
+Don't forget "." or files won't even be found in the same directory as
 the file!
 The maximum length is limited.  How much depends on the system, mostly
 it is something like 256 or 1024 characters.
@@ -4841,23 +4591,14 @@ You can check if all the include files are found, using the value of
 The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
 directories from the list.  This avoids problems when a future version
 uses another default.  To remove the current directory use:
-```
 :set path-=
-
-```
-	To add the current directory use:
-```
+To add the current directory use:
 :set path+=
-
-```
-	To use an environment variable, you probably need to replace the
+To use an environment variable, you probably need to replace the
 separator.  Here is an example to append $INCL, in which directory
 names are separated with a semi-colon:
-```
 :let &path = &path .. "," .. substitute($INCL, ';', ',', 'g')
-
-```
-	Replace the ';' with a ':' or whatever separator is used.  Note that
+Replace the ';' with a ':' or whatever separator is used.  Note that
 this doesn't work when $INCL contains a comma or white space.
 
 ### <a id="'preserveindent' 'pi' 'nopreserveindent' 'nopi'" class="section-title" href="#'preserveindent' 'pi' 'nopreserveindent' 'nopi'">Note:</a>
@@ -4952,11 +4693,9 @@ transparent background. Values between 0-30 are typically most useful.
 It is possible to override the level for individual highlights within
 the popupmenu using [highlight-blend](#highlight-blend). For instance, to enable
 transparency but force the current selected element to be fully opaque:
-```
 
 :set pumblend=15
 :hi PmenuSel blend=0
-
 ```
 
 UI-dependent. Works best with RGB colors. 'termguicolors'
@@ -5179,10 +4918,8 @@ This option cannot be set in a modeline when 'modelineexpr' is off.
 
 The default ruler width is 17 characters.  To make the ruler 15
 characters wide, put "%15(" at the start and "%)" at the end.
-Example:
-```
-:set rulerformat=%15(%c%V\ %p%%%)
-
+Example: 
+```		:set rulerformat=%15(%c%V\ %p%%%)
 ```
 
 ### <a id="'runtimepath' 'rtp' vimfiles" class="section-title" href="#'runtimepath' 'rtp' vimfiles">Note:</a>
@@ -5261,12 +4998,9 @@ wildcards are allowed, but can significantly slow down searching for
 runtime files.  For speed, use as few items as possible and avoid
 wildcards.
 See [:runtime](#:runtime).
-Example:
-```
-:set runtimepath=~/vimruntime,/mygroup/vim,$VIMRUNTIME
-
-```
-	This will use the directory "~/vimruntime" first (containing your
+Example: 
+```		:set runtimepath=~/vimruntime,/mygroup/vim,$VIMRUNTIME
+This will use the directory "~/vimruntime" first (containing your
 personal Nvim runtime files), then "/mygroup/vim", and finally
 "$VIMRUNTIME" (the default runtime files).
 You can put a directory before $VIMRUNTIME to find files which replace
@@ -5327,12 +5061,11 @@ in the middle of the window (except at the start or end of the file or
 when long lines wrap).
 After using the local value, go back the global value with one of
 these two:
+setlocal scrolloff
 ```
-setlocal scrolloff<
-setlocal scrolloff=-1
 
-```
-	For scrolling horizontally see 'sidescrolloff'.
+setlocal scrolloff=-1
+For scrolling horizontally see 'sidescrolloff'.
 
 ### <a id="'scrollopt' 'sbo'" class="section-title" href="#'scrollopt' 'sbo'">Note:</a>
 'scrollopt' 'sbo'	string	(default "ver,jump")
@@ -5511,9 +5244,7 @@ patterns are also saved.  When not included, the value of
 :	Maximum number of items in the command-line history to be
 saved.  When not included, the value of 'history' is used.
 ### <a id="shada-<" class="section-title" href="#shada-<">Note:</a>
-
-```
-	Maximum number of lines saved for each register.  If zero then
+<	Maximum number of lines saved for each register.  If zero then
 registers are not saved.  When not included, all lines are
 saved.  '"' is the old name for this item.
 Also see the 's' item below: limit specified in KiB.
@@ -5556,17 +5287,13 @@ integer) + 3 bytes (item size: up to 16-bit integer because
 2^8 < 10240 < 2^16) + 10240 bytes (requested maximum item 
 contents size) = 10253 bytes.
 
-Example:
-```
-:set shada='50,<1000,s100,:0,n~/nvim/shada
-
+Example: 
+```	    :set shada='50,<1000,s100,:0,n~/nvim/shada
 ```
 
 '50		Marks will be remembered for the last 50 files you
 edited.
-
-```
-1000		Contents of registers (up to 1000 lines each) will be
+<1000		Contents of registers (up to 1000 lines each) will be
 remembered.
 s100		Items with contents occupying more then 100 KiB are 
 skipped.
@@ -5605,19 +5332,13 @@ See [option-backslash](#option-backslash) about including spaces and backslashes
 Environment variables are expanded [:set_env](#:set_env).
 
 If the name of the shell contains a space, you need to enclose it in
-quotes.  Example with quotes:
-```
-:set shell=\"c:\program\ files\unix\sh.exe\"\ -f
-
-```
-	Note the backslash before each quote (to avoid starting a comment) and 
+quotes.  Example with quotes: 
+```		:set shell=\"c:\program\ files\unix\sh.exe\"\ -f
+Note the backslash before each quote (to avoid starting a comment) and 
 each space (to avoid ending the option value), so better use [:let-&](#:let-&) 
 like this:
-```
 :let &shell='"C:\Program Files\unix\sh.exe" -f'
-
-```
-	Also note that the "-f" is not inside the quotes, because it is not 
+Also note that the "-f" is not inside the quotes, because it is not 
 part of the command name.
 ### <a id="shell-unquoting" class="section-title" href="#shell-unquoting">Note:</a>
 Rules regarding quotes:
@@ -5640,16 +5361,13 @@ Note that such processing is done after [:set](#:set) did its own round of
 unescaping, so to keep yourself sane use [:let-&](#:let-&) like shown above.
 ### <a id="shell-powershell" class="section-title" href="#shell-powershell">Note:</a>
 To use PowerShell:
-```
 let &shell = executable('pwsh') ? 'pwsh' : 'powershell'
 let &shellcmdflag = '-NoLogo -NoProfile -ExecutionPolicy RemoteSigned -Command [Console]::InputEncoding=[Console]::OutputEncoding=[System.Text.Encoding]::UTF8;'
 let &shellredir = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 let &shellpipe = '2>&1 | Out-File -Encoding UTF8 %s; exit $LastExitCode'
 set shellquote= shellxquote=
 
-
-```
-	This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
+This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
 security reasons.
 
 ### <a id="'shellcmdflag' 'shcf'" class="section-title" href="#'shellcmdflag' 'shcf'">Note:</a>
@@ -5754,11 +5472,8 @@ existing file names, thus this option needs to be set before opening
 any file for best results.  This might change in the future.
 'shellslash' only works when a backslash can be used as a path
 separator.  To test if this is so use:
-```
 if exists('+shellslash')
-
-```
-	Also see 'completeslash'.
+Also see 'completeslash'.
 
 ### <a id="'shelltemp' 'stmp' 'noshelltemp' 'nostmp'" class="section-title" href="#'shelltemp' 'stmp' 'noshelltemp' 'nostmp'">Note:</a>
 'shelltemp' 'stmp'	boolean	(default on)
@@ -5797,7 +5512,9 @@ security reasons.
 ### <a id="'shiftround' 'sr' 'noshiftround' 'nosr'" class="section-title" href="#'shiftround' 'sr' 'noshiftround' 'nosr'">Note:</a>
 'shiftround' 'sr'	boolean	(default off)
 global
-Round indent to multiple of 'shiftwidth'.  Applies to > and <
+Round indent to multiple of 'shiftwidth'.  Applies to > and
+```
+
 commands.  CTRL-T and CTRL-D in Insert mode always round the indent to
 a multiple of 'shiftwidth' (this is Vi compatible).
 
@@ -5869,18 +5586,12 @@ shm=at	Abbreviation, and truncate message when necessary.
 'showbreak' 'sbr'	string	(default "")
 global or local to window [global-local](#global-local)
 String to put at the start of lines that have been wrapped.  Useful
-values are "> " or "+++ ":
-```
-:set showbreak=>\ 
-
-```
-	Note the backslash to escape the trailing space.  It's easier like
+values are "> " or "+++ ": 
+```		:set showbreak=>\ 
+Note the backslash to escape the trailing space.  It's easier like
 this:
-```
 :let &showbreak = '+++ '
-
-```
-	Only printable single-cell characters are allowed, excluding <Tab> and
+Only printable single-cell characters are allowed, excluding <Tab> and
 comma (in a future version the comma might be used to separate the
 part that is shown at the end and at the start of a line).
 The [hl-NonText](#hl-NonText) highlight group determines the highlighting.
@@ -5889,9 +5600,7 @@ If you want the 'showbreak' to appear in between line numbers, add the
 "n" flag to 'cpoptions'.
 A window-local value overrules a global value.  If the global value is
 set and you want no value in the current window use NONE:
-```
 :setlocal showbreak=NONE
-
 ```
 
 ### <a id="'showcmd' 'sc' 'noshowcmd' 'nosc'" class="section-title" href="#'showcmd' 'sc' 'noshowcmd' 'nosc'">Note:</a>
@@ -5981,22 +5690,20 @@ to a large value (like 999) has the effect of keeping the cursor
 horizontally centered in the window, as long as one does not come too
 close to the beginning of the line.
 After using the local value, go back the global value with one of
-these two:
+these two: 
+```		setlocal sidescrolloff
 ```
-setlocal sidescrolloff<
-setlocal sidescrolloff=-1
 
-```
+setlocal sidescrolloff=-1
 
 Example: Try this together with 'sidescroll' and 'listchars' as
 in the following example to never allow the cursor to move
-onto the "extends" character:
+onto the "extends" character: 
+```
+:set nowrap sidescroll=1 listchars=extends:>,precedes:
 ```
 
-:set nowrap sidescroll=1 listchars=extends:>,precedes:<
 :set sidescrolloff=1
-
-```
 
 ### <a id="'signcolumn' 'scl'" class="section-title" href="#'signcolumn' 'scl'">Note:</a>
 'signcolumn' 'scl'	string	(default "auto")
@@ -6065,9 +5772,7 @@ reset.
 global
 When on, a <Tab> in front of a line inserts blanks according to
 'shiftwidth'.  'tabstop' or 'softtabstop' is used in other places.  A
-
-```
-BS> will delete a 'shiftwidth' worth of space at the start of the
+<BS> will delete a 'shiftwidth' worth of space at the start of the
 line.
 When off, a <Tab> always inserts blanks according to 'tabstop' or
 'softtabstop'.  'shiftwidth' is only used for shifting text left or
@@ -6083,9 +5788,7 @@ reset.
 local to buffer
 Number of spaces that a <Tab> counts for while performing editing
 operations, like inserting a <Tab> or using <BS>.  It "feels" like
-
-```
-Tab>s are being inserted, while in fact a mix of spaces and <Tab>s is
+<Tab>s are being inserted, while in fact a mix of spaces and <Tab>s is
 used.  This is useful to keep the 'ts' setting at its standard value
 of 8, while being able to edit like it is set to 'sts'.  However,
 commands like "x" still work on the actual characters.
@@ -6148,12 +5851,9 @@ security reasons.
 'spelllang' 'spl'	string	(default "en")
 local to buffer
 A comma-separated list of word list names.  When the 'spell' option is
-on spellchecking will be done for these languages.  Example:
-```
-set spelllang=en_us,nl,medical
-
-```
-	This means US English, Dutch and medical words are recognized.  Words
+on spellchecking will be done for these languages.  Example: 
+```		set spelllang=en_us,nl,medical
+This means US English, Dutch and medical words are recognized.  Words
 that are not recognized will be highlighted.
 The word list name must consist of alphanumeric characters, a dash or
 an underscore.  It should not include a comma or dot.  Using a dash is
@@ -6262,9 +5962,7 @@ Errors are silently ignored, unless you set the
 
 Only one of "best", "double" or "fast" may be used.  The others may
 appear several times in any order.  Example:
-```
 :set sps=file:~/.config/nvim/sugg,best,expr:MySuggest()
-
 ```
 
 This option cannot be set from a [modeline| or in the |sandbox](#modeline| or in the |sandbox), for
@@ -6325,12 +6023,9 @@ All fields except the {item} are optional.  A single percent sign can
 be given as "%%".
 
 When the option starts with "%!" then it is used as an expression,
-evaluated and the result is used as the option value.  Example:
-```
-:set statusline=%!MyStatusLine()
-
-```
-	The *g:statusline_winid* variable will be set to the [window-ID](#window-ID) of the
+evaluated and the result is used as the option value.  Example: 
+```		:set statusline=%!MyStatusLine()
+The *g:statusline_winid* variable will be set to the [window-ID](#window-ID) of the
 window that the status line belongs to.
 The result can contain %{} items that will be evaluated too.
 Note that the "%!" expression is evaluated in the context of the
@@ -6409,13 +6104,10 @@ return value of expr contains % items they will get expanded.
 The expression can contain the } character, the end of
 expression is denoted by %}.
 For example:
-```
 func! Stl_filename() abort
 return "%t"
 endfunc
-
-```
-	        `stl=%{Stl_filename()}`   results in `"%t"`
+`stl=%{Stl_filename()}`   results in `"%t"`
 `stl=%{%Stl_filename()%}` results in `"Name of current file"`
 %} -  End of `{%` expression
 ( -   Start of item group.  Can be used for setting the width and
@@ -6452,9 +6144,7 @@ modifier; "?" modifier may also be present, but its presence
 is a bug that denotes that new mouse button recognition was 
 added without modifying code that reacts on mouse clicks on 
 this label.
-
-```
- -   Where to truncate line if too long.  Default is at the start.
+< -   Where to truncate line if too long.  Default is at the start.
 No width fields allowed.
 = -   Separation point between alignment sections. Each section will
 be separated by an equal number of spaces.
@@ -6477,11 +6167,8 @@ When all items in a group becomes an empty string (i.e. flags that are
 not set) and a minwid is not set for the group, the whole group will
 become empty.  This will make a group like the following disappear
 completely from the statusline when none of the flags are set.
-```
 :set statusline=...%(\ [%M%R%H]%)...
-
-```
-	Beware that an expression is evaluated each and every time the status
+Beware that an expression is evaluated each and every time the status
 line is displayed.
 ### <a id="stl-%{ g:actual_curbuf g:actual_curwin" class="section-title" href="#stl-%{ g:actual_curbuf g:actual_curwin">Note:</a>
 While evaluating %{} the current buffer and current window will be set
@@ -6512,42 +6199,22 @@ edit your vimrc or whatever with "vim --clean" to get it right.
 
 Examples:
 Emulate standard status line with 'ruler' set
-```
 :set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-
-```
-	Similar, but add ASCII value of char under the cursor (like "ga")
-```
+Similar, but add ASCII value of char under the cursor (like "ga")
 :set statusline=%<%f%h%m%r%=%b\ 0x%B\ \ %l,%c%V\ %P
-
-```
-	Display byte count and byte value, modified flag in red.
-```
+Display byte count and byte value, modified flag in red.
 ### <a id=":set statusline=%<%f%=\ [%1%M%%n%R%H]\ %-19(%3l,%02c%03V%)%O'%02b'" class="section-title" href="#:set statusline=%<%f%=\ [%1%M%%n%R%H]\ %-19(%3l,%02c%03V%)%O'%02b'">Note:</a>
 :hi User1 term=inverse,bold cterm=inverse,bold ctermfg=red
-
-```
-	Display a ,GZ flag if a compressed file is loaded
-```
+Display a ,GZ flag if a compressed file is loaded
 :set statusline=...%r%{VarExists('b:gzflag','\ [GZ]')}%h...
-
-```
-	In the [:autocmd](#:autocmd)'s:
-```
+In the [:autocmd](#:autocmd)'s:
 :let b:gzflag = 1
-
-```
-	And:
-```
+And:
 :unlet b:gzflag
-
-```
-	And define this function:
-```
+And define this function:
 :function VarExists(var, val)
 :    if exists(a:var) [ return a:val | else | return '' ](# return a:val | else | return '' ) endif
 :endfunction
-
 ```
 
 ### <a id="'suffixes' 'su'" class="section-title" href="#'suffixes' 'su'">Note:</a>
@@ -6568,10 +6235,8 @@ uses another default.
 'suffixesadd' 'sua'	string	(default "")
 local to buffer
 Comma-separated list of suffixes, which are used when searching for a
-file for the "gf", "[I", etc. commands.  Example:
-```
-:set suffixesadd=.java
-
+file for the "gf", "[I", etc. commands.  Example: 
+```		:set suffixesadd=.java
 ```
 
 ### <a id="'swapfile' 'swf' 'noswapfile' 'noswf'" class="section-title" href="#'swapfile' 'swf' 'noswapfile' 'noswf'">Note:</a>
@@ -6649,18 +6314,12 @@ names.  Example:
 This will use the "c" syntax first, then the "doxygen" syntax.
 Note that the second one must be prepared to be loaded as an addition,
 otherwise it will be skipped.  More than one dot may appear.
-To switch off syntax highlighting for the current file, use:
-```
-:set syntax=OFF
-
-```
-	To switch syntax highlighting on according to the current value of the
+To switch off syntax highlighting for the current file, use: 
+```		:set syntax=OFF
+To switch syntax highlighting on according to the current value of the
 'filetype' option:
-```
 :set syntax=ON
-
-```
-	What actually happens when setting the 'syntax' option is that the
+What actually happens when setting the 'syntax' option is that the
 Syntax autocommand event is triggered with the value as argument.
 This option is not copied to another buffer, independent of the 's' or
 'S' flag in 'cpoptions'.
@@ -6747,11 +6406,8 @@ certain files, or retry all files with a linear search.  When
 
 Linear searching is done anyway, for one file, when Vim finds a line
 at the start of the file indicating that it's not sorted:
-```
 !_TAG_FILE_SORTED	0	/some comment/
-
-```
-	[The whitespace before and after the '0' must be a single <Tab>]
+[The whitespace before and after the '0' must be a single <Tab>]
 
 When a binary search was done and no match was found in any of the
 files listed in 'tags', and case is ignored or a pattern is used
@@ -7014,19 +6670,13 @@ expanded according to the rules used for 'statusline'.
 This option cannot be set in a modeline when 'modelineexpr' is off.
 
 Example:
-```
 ### <a id=":auto BufEnter  let &titlestring = hostname() .. "/" .. expand("%:p")" class="section-title" href="#:auto BufEnter  let &titlestring = hostname() .. "/" .. expand("%:p")">Note:</a>
 :set title titlestring=%<%F%=%l/%L-%P titlelen=70
-
-```
-	The value of 'titlelen' is used to align items in the middle or right
+The value of 'titlelen' is used to align items in the middle or right
 of the available space.
 Some people prefer to have the file name first:
-```
 :set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
-
-```
-	Note the use of "%{ }" and an expression to get the path of the file,
+Note the use of "%{ }" and an expression to get the path of the file,
 without the file name.  The "%( %)" constructs are used to add a
 separating space only when needed.
 NOTE: Use of special characters in 'titlestring' may cause the display
@@ -7076,20 +6726,14 @@ is kept in memory, higher numbers will cause more memory to be used.
 Nevertheless, a single change can already use a large amount of memory.
 Set to 0 for Vi compatibility: One level of undo and "u" undoes
 itself:
-```
 set ul=0
-
-```
-	But you can also get Vi compatibility by including the 'u' flag in
+But you can also get Vi compatibility by including the 'u' flag in
 'cpoptions', and still be able to use CTRL-R to repeat undo.
 Also see [undo-two-ways](#undo-two-ways).
 Set to -1 for no undo at all.  You might want to do this only for the
 current buffer:
-```
 setlocal ul=-1
-
-```
-	This helps when you run out of memory for a single change.
+This helps when you run out of memory for a single change.
 
 The local value is set to -123456 when the global value is to be used.
 
@@ -7144,11 +6788,8 @@ final value applying to all subsequent tabs.
 For example, when editing assembly language files where statements
 start in the 9th column and comments in the 41st, it may be useful
 to use the following:
-```
 :set varsofttabstop=8,32,8
-
-```
-	This will set soft tabstops with 8 and 8 + 32 spaces, and 8 more
+This will set soft tabstops with 8 and 8 + 32 spaces, and 8 more
 for every column thereafter.
 
 Note that the value of ['softtabstop'](#'softtabstop') will be ignored while
@@ -7160,11 +6801,8 @@ local to buffer
 A list of the number of spaces that a <Tab> in the file counts for,
 separated by commas.  Each value corresponds to one tab, with the
 final value applying to all subsequent tabs. For example:
-```
 :set vartabstop=4,20,10,8
-
-```
-	This will make the first tab 4 spaces wide, the second 20 spaces,
+This will make the first tab 4 spaces wide, the second 20 spaces,
 the third 10 spaces, and all following tabs 8 spaces.
 
 Note that the value of ['tabstop'](#'tabstop') will be ignored while 'vartabstop'
@@ -7285,19 +6923,14 @@ b    <BS>	 Normal and Visual
 s    <Space>	 Normal and Visual
 h    "h"	 Normal and Visual (not recommended)
 l    "l"	 Normal and Visual (not recommended)
-
-```
-    <Left>	 Normal and Visual
+<    <Left>	 Normal and Visual
 >    <Right>	 Normal and Visual
 ~    "~"	 Normal
 [    <Left>	 Insert and Replace
 ]    <Right>	 Insert and Replace
 For example:
-```
 :set ww=<,>,[,]
-
-```
-	allows wrap only when cursor keys are used.
+allows wrap only when cursor keys are used.
 When the movement keys are used in combination with a delete or change
 operator, the <EOL> also counts for a character.  This makes "3h"
 different from "3dh" when the cursor crosses the end of a line.  This
@@ -7319,9 +6952,7 @@ The character is not recognized when used inside a macro.  See
 'wildcharm' for that.
 Some keys will not work, such as CTRL-C, <CR> and Enter.
 Although 'wc' is a number option, you can set it to a special key:
-```
 :set wc=<Tab>
-
 ```
 
 
@@ -7332,13 +6963,10 @@ global
 recognized when used inside a macro.  You can find "spare" command-line
 keys suitable for this option by looking at [ex-edit-index](#ex-edit-index).  Normally
 you'll never actually type 'wildcharm', just use it in mappings that
-automatically invoke completion mode, e.g.:
-```
-:set wcm=<C-Z>
+automatically invoke completion mode, e.g.: 
+```		:set wcm=<C-Z>
 ### <a id=":cnoremap ss so $vim/sessions/.vim<C-Z>" class="section-title" href="#:cnoremap ss so $vim/sessions/.vim<C-Z>">Note:</a>
-
-```
-	Then after typing :ss you can use CTRL-P & CTRL-N.
+Then after typing :ss you can use CTRL-P & CTRL-N.
 
 ### <a id="'wildignore' 'wig'" class="section-title" href="#'wildignore' 'wig'">Note:</a>
 'wildignore' 'wig'	string	(default "")
@@ -7350,11 +6978,8 @@ directory names, and influences the result of [expand()|, |glob()](#expand()|, |
 The pattern is used like with [:autocmd|, see |autocmd-pattern](#:autocmd|, see |autocmd-pattern).
 Also see 'suffixes'.
 Example:
-```
 ### <a id=":set wildignore=.o,.obj" class="section-title" href="#:set wildignore=.o,.obj">Note:</a>
-
-```
-	The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
+The use of [:set+=| and |:set-=](#:set+=| and |:set-=) is preferred when adding or removing
 a pattern from the list.  This avoids problems when a future version
 uses another default.
 
@@ -7391,28 +7016,18 @@ CTRL-Y		- accept the currently selected match and stop
 completion.
 CTRL-E		- end completion, go back to what was there before
 selecting a match.
-
-```
-Left> <Right>	- select previous/next match (like CTRL-P/CTRL-N)
-
-```
-Down>		- in filename/menu name completion: move into a
+<Left> <Right>	- select previous/next match (like CTRL-P/CTRL-N)
+<Down>		- in filename/menu name completion: move into a
 subdirectory or submenu.
-
-```
-CR>		- in menu completion, when the cursor is just after a
+<CR>		- in menu completion, when the cursor is just after a
 dot: move into a submenu.
-
-```
-Up>		- in filename/menu name completion: move up into
+<Up>		- in filename/menu name completion: move up into
 parent directory or parent menu.
 
 If you want <Left> and <Right> to move the cursor instead of selecting
 a different match, use this:
-```
 :cnoremap <Left> <Space><BS><Left>
 :cnoremap <Right> <Space><BS><Right>
-
 ```
 
 [hl-WildMenu](#hl-WildMenu) highlights the current match.
@@ -7451,32 +7066,17 @@ complete till longest common string.
 and sort buffers by time last used (other than the
 current buffer).
 
-Examples:
-```
-:set wildmode=full
-
-```
-	Complete first full match, next match, etc.  (the default)
-```
+Examples: 
+```		:set wildmode=full
+Complete first full match, next match, etc.  (the default)
 :set wildmode=longest,full
-
-```
-	Complete longest common string, then each full match
-```
+Complete longest common string, then each full match
 :set wildmode=list:full
-
-```
-	List all matches and complete each full match
-```
+List all matches and complete each full match
 :set wildmode=list,full
-
-```
-	List all matches without completing, then each full match
-```
+List all matches without completing, then each full match
 :set wildmode=longest,list
-
-```
-	Complete longest common string, then list alternatives.
+Complete longest common string, then list alternatives.
 More info here: [cmdline-completion](#cmdline-completion).
 
 ### <a id="'wildoptions' 'wop'" class="section-title" href="#'wildoptions' 'wop'">Note:</a>
@@ -7563,11 +7163,8 @@ Other windows will be only 'winminheight' high.  This has the drawback
 that ":all" will create only two windows.  To avoid "vim -o 1 2 3 4"
 to create only two windows, set the option after startup is done,
 using the [VimEnter](#VimEnter) event:
-```
 ### <a id="au VimEnter  set winheight=999" class="section-title" href="#au VimEnter  set winheight=999">Note:</a>
-
-```
-	Minimum value is 1.
+Minimum value is 1.
 The height is not adjusted after one of the commands that change the
 height of the current window.
 'winheight' applies to the current window.  Use 'winminheight' to set
@@ -7591,9 +7188,7 @@ the popupmenu are determined by the current window.  Highlights in the
 message area cannot be overridden.
 
 Example: show a different color for non-current windows:
-```
 set winhighlight=Normal:MyNormal,NormalNC:MyNormalNC
-
 ```
 
 ### <a id="'winfixheight' 'wfh' 'nowinfixheight' 'nowfh'" class="section-title" href="#'winfixheight' 'wfh' 'nowinfixheight' 'nowfh'">Note:</a>
@@ -7664,12 +7259,9 @@ horizontally.
 The line will be broken in the middle of a word if necessary.  See
 'linebreak' to get the break at a word boundary.
 To make scrolling horizontally a bit more useful, try this:
-```
 :set sidescroll=5
 :set listchars+=precedes:<,extends:>
-
-```
-	See 'sidescroll', 'listchars' and [wrap-off](#wrap-off).
+See 'sidescroll', 'listchars' and [wrap-off](#wrap-off).
 This option can't be set from a [modeline](#modeline) when the 'diff' option is
 on.
 

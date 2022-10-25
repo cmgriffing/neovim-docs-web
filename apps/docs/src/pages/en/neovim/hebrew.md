@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Hebrew
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -31,71 +31,71 @@ See [rileft.txt](#rileft.txt) for further details.
 Details
 --------------
 +  Options:
-+  'rightleft' ('rl') sets window orientation to right-to-left.  This means
-that the logical text 'ABC' will be displayed as 'CBA', and will start
-drawing at the right edge of the window, not the left edge.
-+  'hkmap' ('hk') sets keyboard mapping to Hebrew, in insert/replace modes.
-+  'aleph' ('al'), numeric, holds the decimal code of Aleph, for keyboard
-mapping.
-+  'hkmapp' ('hkp') sets keyboard mapping to 'phonetic hebrew'
+   +  'rightleft' ('rl') sets window orientation to right-to-left.  This means
+      that the logical text 'ABC' will be displayed as 'CBA', and will start
+      drawing at the right edge of the window, not the left edge.
+   +  'hkmap' ('hk') sets keyboard mapping to Hebrew, in insert/replace modes.
+   +  'aleph' ('al'), numeric, holds the decimal code of Aleph, for keyboard
+      mapping.
+   +  'hkmapp' ('hkp') sets keyboard mapping to 'phonetic hebrew'
 
-NOTE: these three ('hkmap', 'hkmapp' and 'aleph') are obsolete.  You should
-use ":set keymap=hebrewp" instead.
+   NOTE: these three ('hkmap', 'hkmapp' and 'aleph') are obsolete.  You should
+	 use ":set keymap=hebrewp" instead.
 
-+  'delcombine' ('deco'), boolean, if editing UTF-8 encoded Hebrew, allows
-one to remove the niqud or te`amim by pressing 'x' on a character (with
-associated niqud).
+   +  'delcombine' ('deco'), boolean, if editing UTF-8 encoded Hebrew, allows
+      one to remove the niqud or te`amim by pressing 'x' on a character (with
+      associated niqud).
 
-+  'rightleftcmd' ('rlc') makes the command-prompt for searches show up on
-the right side.  It only takes effect if the window is 'rightleft'.
+   +  'rightleftcmd' ('rlc') makes the command-prompt for searches show up on
+      the right side.  It only takes effect if the window is 'rightleft'.
 
 +  Encoding:
-+  Under Unix, ISO 8859-8 encoding (Hebrew letters codes: 224-250).
-+  Under MS DOS, PC encoding (Hebrew letters codes: 128-154).
-These are defaults, that can be overridden using the 'aleph' option.
-+  You should prefer using UTF8, as it supports the combining-characters
-('deco' does nothing if UTF8 encoding is not active).
+   +  Under Unix, ISO 8859-8 encoding (Hebrew letters codes: 224-250).
+   +  Under MS DOS, PC encoding (Hebrew letters codes: 128-154).
+      These are defaults, that can be overridden using the 'aleph' option.
+   +  You should prefer using UTF8, as it supports the combining-characters
+      ('deco' does nothing if UTF8 encoding is not active).
 
 +  Vim arguments:
-+  'vim -H file' starts editing a Hebrew file, i.e. 'rightleft' and 'hkmap'
-are set.
+   +  'vim -H file' starts editing a Hebrew file, i.e. 'rightleft' and 'hkmap'
+      are set.
 
 +  Keyboard:
-+  The 'allowrevins' option enables the CTRL-_ command in Insert mode and
-in Command-line mode.
+   +  The 'allowrevins' option enables the CTRL-_ command in Insert mode and
+      in Command-line mode.
 
-+  CTRL-_ in insert/replace modes toggles 'revins' and 'hkmap' as follows:
+   +  CTRL-_ in insert/replace modes toggles 'revins' and 'hkmap' as follows:
 
-When in rightleft window, 'revins' and 'nohkmap' are toggled, since
-English will likely be inserted in this case.
+      When in rightleft window, 'revins' and 'nohkmap' are toggled, since
+      English will likely be inserted in this case.
 
-When in norightleft window, 'revins' 'hkmap' are toggled, since Hebrew
-will likely be inserted in this case.
+      When in norightleft window, 'revins' 'hkmap' are toggled, since Hebrew
+      will likely be inserted in this case.
 
-CTRL-_ moves the cursor to the end of the typed text.
+      CTRL-_ moves the cursor to the end of the typed text.
 
-+  CTRL-_ in command mode only toggles keyboard mapping (see Bugs below).
-This setting is independent of 'hkmap' option, which only applies to
-insert/replace mode.
+   +  CTRL-_ in command mode only toggles keyboard mapping (see Bugs below).
+      This setting is independent of 'hkmap' option, which only applies to
+      insert/replace mode.
 
-Note: On some keyboards, CTRL-_ is mapped to CTRL-?.
+      Note: On some keyboards, CTRL-_ is mapped to CTRL-?.
 
-+  Keyboard mapping while 'hkmap' is set (standard Israeli keyboard):
+   +  Keyboard mapping while 'hkmap' is set (standard Israeli keyboard):
 
-q w e r t y u i o p
-/ ' ק ר א ט ו ן ם פ
+	q w e r t y u i o p
+	/ ' ק ר א ט ו ן ם פ
 
-a s d f g h j k l ; '
-ש ד ג כ ע י ח ל ך ף ,
+	 a s d f g h j k l ; '
+	 ש ד ג כ ע י ח ל ך ף ,
 
-z x c v b n m , . /
-ז ס ב ה נ מ צ ת ץ .
+	  z x c v b n m , . /
+	  ז ס ב ה נ מ צ ת ץ .
 
-This is also the keymap when 'keymap=hebrew' is set.  The advantage of
-'keymap' is that it works properly when using UTF8, e.g. it inserts the
-correct characters; 'hkmap' does not.  The 'keymap' keyboard can also
-insert niqud and te`amim.  To see what those mappings are, look at the
-keymap file 'hebrew.vim' etc.
+      This is also the keymap when 'keymap=hebrew' is set.  The advantage of
+      'keymap' is that it works properly when using UTF8, e.g. it inserts the
+      correct characters; 'hkmap' does not.  The 'keymap' keyboard can also
+      insert niqud and te`amim.  To see what those mappings are, look at the
+      keymap file 'hebrew.vim' etc.
 
 
 Typing backwards
@@ -140,5 +140,5 @@ The result is that all Hebrew characters are displayed as ~x.  To solve this
 problem, set isprint=@,128-255.
 
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

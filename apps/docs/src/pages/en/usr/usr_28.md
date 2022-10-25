@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Usr 28
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -9,7 +9,7 @@ layout: "@layouts/MainLayout.astro"
 
 VIM USER MANUAL - by Bram Moolenaar
 
-Folding
+				   Folding
 
 
 Structured text can be separated in sections.  And sections in sub-sections.
@@ -27,8 +27,8 @@ This chapter explains the different ways this can be done.
 [28.9](#28.9)	Folding unchanged lines
 [28.10](#28.10)	Which fold method to use?
 
-Next chapter: [usr_29.txt](#usr_29.txt)  Moving through programs
-Previous chapter: [usr_27.txt](#usr_27.txt)  Search commands and patterns
+     Next chapter: [usr_29.txt](#usr_29.txt)  Moving through programs
+ Previous chapter: [usr_27.txt](#usr_27.txt)  Search commands and patterns
 Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 
@@ -37,19 +37,19 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 Folding is used to show a range of lines in the buffer as a single line on the
 screen.  Like a piece of paper which is folded to make it shorter:
 
-+------------------------+
-[ line 1		 ](# line 1		 )
-[ line 2		 ](# line 2		 )
-[ line 3		 ](# line 3		 )
-[_______________________ ](#_______________________ )
-\			 \
-\________________________\
-/ folded lines		  /
-/________________________/
-[ line 12		 ](# line 12		 )
-[ line 13		 ](# line 13		 )
-[ line 14		 ](# line 14		 )
-+------------------------+
+	+------------------------+
+	[ line 1		 ](# line 1		 )
+	[ line 2		 ](# line 2		 )
+	[ line 3		 ](# line 3		 )
+	[_______________________ ](#_______________________ )
+	\			 \
+	 \________________________\
+	 / folded lines		  /
+	/________________________/
+	[ line 12		 ](# line 12		 )
+	[ line 13		 ](# line 13		 )
+	[ line 14		 ](# line 14		 )
+	+------------------------+
 
 The text is still in the buffer, unchanged.  Only the way lines are displayed
 is affected by folding.
@@ -62,9 +62,8 @@ that indicates that there is a section.
 ## <a id="" class="section-title" href="#">*28.2*	Manual Folding</a> 
 
 Try it out: Position the cursor in a paragraph and type:
-```
 
-zfap
+	zfap
 
 You will see that the paragraph is replaced by a highlighted line.  You have
 created a fold.  [zf| is an operator and |ap](#zf| is an operator and |ap) a text object selection.  You
@@ -72,22 +71,20 @@ can use the [zf](#zf) operator with any movement command to create a fold for th
 text that it moved over.  [zf](#zf) also works in Visual mode.
 
 To view the text again, open the fold by typing:
-```
 
-zo
+	zo
 
 And you can close the fold again with:
-```
 
-zc
+	zc
 
 All the folding commands start with "z".  With some fantasy, this looks like a
 folded piece of paper, seen from the side.  The letter after the "z" has a
 mnemonic meaning to make it easier to remember the commands:
 
-zf	F-old creation
-zo	O-pen a fold
-zc	C-lose a fold
+	zf	F-old creation
+	zo	O-pen a fold
+	zc	C-lose a fold
 
 Folds can be nested: A region of text that contains folds can be folded
 again.  For example, you can fold each paragraph in this section, and then
@@ -97,28 +94,24 @@ were, some may be open and some may be closed.
 
 Suppose you have created several folds, and now want to view all the text.
 You could go to each fold and type "zo".  To do this faster, use this command:
-```
 
-zr
+	zr
 
 This will R-educe the folding.  The opposite is:
-```
 
-zm
+	zm
 
 This folds M-ore.  You can repeat "zr" and "zm" to open and close nested folds
 of several levels.
 
 If you have nested several levels deep, you can open all of them with:
-```
 
-zR
+	zR
 
 This R-educes folds until there are none left.  And you can close all folds
 with:
-```
 
-zM
+	zM
 
 This folds M-ore and M-ore.
 
@@ -153,9 +146,8 @@ use Visual selection:
 
 It is sometimes difficult to see or remember where a fold is located, thus
 where a [zo](#zo) command would actually work.  To see the defined folds:
-```
 
-:set foldcolumn=4
+	:set foldcolumn=4
 
 This will show a small column on the left of the window to indicate folds.
 A "+" is shown for a closed fold.  A "-" is shown at the start of each open
@@ -177,20 +169,17 @@ or right.  For example, the "0" command opens the fold under the cursor
 (if 'foldopen' contains "hor", which is the default).  The 'foldopen' option
 can be changed to open folds for specific commands.  If you want the line
 under the cursor always to be open, do this:
-```
 
-:set foldopen=all
+	:set foldopen=all
 
 Warning: You won't be able to move onto a closed fold then.  You might want to
 use this only temporarily and then set it back to the default:
-```
 
-:set foldopen&
+	:set foldopen&
 
 You can make folds close automatically when you move out of it:
-```
 
-:set foldclose=all
+	:set foldclose=all
 
 This will re-apply 'foldlevel' to all folds that don't contain the cursor.
 You have to try it out if you like how this feels.  Use [zm](#zm) to fold more and
@@ -207,23 +196,20 @@ When you abandon a file (starting to edit another one), the state of the folds
 is lost.  If you come back to the same file later, all manually opened and
 closed folds are back to their default.  When folds have been created
 manually, all folds are gone!  To save the folds use the [:mkview](#:mkview) command:
-```
 
-:mkview
+	:mkview
 
 This will store the settings and other things that influence the view on the
 file.  You can change what is stored with the 'viewoptions' option.
 When you come back to the same file later, you can load the view again:
-```
 
-:loadview
+	:loadview
 
 You can store up to ten views on one file.  For example, to save the current
 setup as the third view and load the second view:
-```
 
-:mkview 3
-:loadview 2
+	:mkview 3
+	:loadview 2
 
 Note that when you insert or delete lines the views might become invalid.
 Also check out the 'viewdir' option, which specifies where the views are
@@ -239,21 +225,20 @@ indent.  Lines with a larger indent will become nested folds.  This works well
 with many programming languages.
 
 Try this by setting the 'foldmethod' option:
-```
 
-:set foldmethod=indent
+	:set foldmethod=indent
 
 Then you can use the [zm| and |zr](#zm| and |zr) commands to fold more and reduce folding.
 It's easy to see on this example text:
 
 This line is not indented
-This line is indented once
-This line is indented twice
-This line is indented twice
-This line is indented once
+	This line is indented once
+		This line is indented twice
+		This line is indented twice
+	This line is indented once
 This line is not indented
-This line is indented once
-This line is indented once
+	This line is indented once
+	This line is indented once
 
 Note that the relation between the amount of indent and the fold depth depends
 on the 'shiftwidth' option.  Each 'shiftwidth' worth of indent adds one to the
@@ -261,9 +246,8 @@ depth of the fold.  This is called a fold level.
 
 When you use the [zr| and |zm](#zr| and |zm) commands you actually increase or decrease the
 'foldlevel' option.  You could also set it directly:
-```
 
-:set foldlevel=3
+	:set foldlevel=3
 
 This means that all folds with three times a 'shiftwidth' indent or more will
 be closed.  The lower the foldlevel, the more folds will be closed.  When
@@ -273,12 +257,12 @@ present in the file.
 
 Thus there are two ways to open and close the folds:
 (A) By setting the fold level.
-This gives a very quick way of "zooming out" to view the structure of the
-text, move the cursor, and "zoom in" on the text again.
+    This gives a very quick way of "zooming out" to view the structure of the
+    text, move the cursor, and "zoom in" on the text again.
 
 (B) By using [zo| and |zc](#zo| and |zc) commands to open or close specific folds.
-This allows opening only those folds that you want to be open, while other
-folds remain closed.
+    This allows opening only those folds that you want to be open, while other
+    folds remain closed.
 
 This can be combined: You can first close most folds by using [zm](#zm) a few times
 and then open a specific fold with [zo|.  Or open all folds with |zR](#zo|.  Or open all folds with |zR) and
@@ -297,20 +281,19 @@ This gives precise control over which lines are included in a fold.  The
 disadvantage is that the text needs to be modified.
 
 Try it:
-```
 
-:set foldmethod=marker
+	:set foldmethod=marker
 
 Example text, as it could appear in a C program:
 
-/* foobar () {{{ */
-int foobar()
-{
+	/* foobar () {{{ */
+	int foobar()
+	{
 ### <a id="/ return a value {{{ /" class="section-title" href="#/ return a value {{{ /">Note:</a>
-return 42;
+		return 42;
 ### <a id="/ }}} /" class="section-title" href="#/ }}} /">Note:</a>
-}
-/* }}} */
+	}
+	/* }}} */
 
 Notice that the folded line will display the text before the marker.  This is
 very useful to tell what the fold contains.
@@ -318,16 +301,16 @@ very useful to tell what the fold contains.
 It's quite annoying when the markers don't pair up correctly after moving some
 lines around.  This can be avoided by using numbered markers.  Example:
 
-/* global variables {{{1 */
-int varA, varB;
+	/* global variables {{{1 */
+	int varA, varB;
 
-/* functions {{{1 */
-/* funcA() {{{2 */
-void funcA() {}
+	/* functions {{{1 */
+	/* funcA() {{{2 */
+	void funcA() {}
 
-/* funcB() {{{2 */
-void funcB() {}
-/* }}}1 */
+	/* funcB() {{{2 */
+	void funcB() {}
+	/* }}}1 */
 
 At every numbered marker a fold at the specified level begins.  This will make
 any fold at a higher level stop here.  You can just use numbered start markers
@@ -342,11 +325,11 @@ More about folding with markers in the reference manual: [fold-marker](#fold-mar
 For each language Vim uses a different syntax file.  This defines the colors
 for various items in the file.  If you are reading this in Vim, in a terminal
 that supports colors, the colors you see are made with the "help" syntax file.
-In the syntax files it is possible to add syntax items that have the "fold"
+   In the syntax files it is possible to add syntax items that have the "fold"
 argument.  These define a fold region.  This requires writing a syntax file
 and adding these items in it.  That's not so easy to do.  But once it's done,
 all folding happens automatically.
-Here we'll assume you are using an existing syntax file.  Then there is
+   Here we'll assume you are using an existing syntax file.  Then there is
 nothing more to explain.  You can open and close folds as explained above.
 The folds will be created and deleted automatically when you edit the file.
 
@@ -360,10 +343,9 @@ line a user function is called to compute the fold level of a line.  You can
 use this for text where something in the text indicates which lines belong
 together.  An example is an e-mail message where the quoted text is indicated
 by a ">" before the line.  To fold these quotes use this:
-```
 
-:set foldmethod=expr
-:set foldexpr=strlen(substitute(substitute(getline(v:lnum),'\\s','',\"g\"),'[^>].*','',''))
+	:set foldmethod=expr
+	:set foldexpr=strlen(substitute(substitute(getline(v:lnum),'\\s','',\"g\"),'[^>].*','',''))
 
 You can try it out on this text:
 
@@ -373,23 +355,21 @@ You can try it out on this text:
 > > double quoted text I wrote
 
 Explanation for the 'foldexpr' used in the example (inside out):
-getline(v:lnum)			gets the current line
-substitute(...,'\\s','','g')		removes all white space from the line
+   getline(v:lnum)			gets the current line
+   substitute(...,'\\s','','g')		removes all white space from the line
 ### <a id="substitute(...,'[^>].','','')	removes everything after leading '>'s" class="section-title" href="#substitute(...,'[^>].','','')	removes everything after leading '>'s">Note:</a>
-strlen(...)				counts the length of the string, which
-is the number of '>'s found
+   strlen(...)				counts the length of the string, which
+					is the number of '>'s found
 
 Note that a backslash must be inserted before every space, double quote and
 backslash for the ":set" command.  If this confuses you, do
-```
 
-:set foldexpr
+	:set foldexpr
 
 to check the actual resulting value.  To correct a complicated expression, use
 the command-line completion:
-```
 
-:set foldexpr=<Tab>
+	:set foldexpr=<Tab>
 
 Where <Tab> is a real Tab.  Vim will fill in the previous value, which you can
 then edit.
@@ -404,9 +384,8 @@ More about folding by expression in the reference manual: [fold-expr](#fold-expr
 
 This is useful when you set the 'diff' option in the same window.  The
 [-d](#-d) option does this for you.  Example:
-```
 
-:setlocal diff foldmethod=diff scrollbind nowrap foldlevel=1
+	:setlocal diff foldmethod=diff scrollbind nowrap foldlevel=1
 
 Do this in every window that shows a different version of the same file.  You
 will clearly see the differences between the files, while the text that didn't
@@ -431,7 +410,7 @@ Then use the [:mkview](#:mkview) command to save and restore your folds.
 The marker method requires you to change the file.  If you are sharing the
 files with other people or you have to meet company standards, you might not
 be allowed to add them.
-The main advantage of markers is that you can put them exactly where you
+   The main advantage of markers is that you can put them exactly where you
 want them.  That avoids that a few lines are missed when you cut and paste
 folds.  And you can add a comment about what is contained in the fold.
 
@@ -443,12 +422,12 @@ each nesting level.
 Folding with expressions can make folds in almost any structured text.  It is
 quite simple to specify, especially if the start and end of a fold can easily
 be recognized.
-If you use the "expr" method to define folds, but they are not exactly how
+   If you use the "expr" method to define folds, but they are not exactly how
 you want them, you could switch to the "manual" method.  This will not remove
 the defined folds.  Then you can delete or add folds manually.
 
 
-## <a id="Moving through programs" class="section-title" href="#Moving through programs">Next Chapter: |Usr_29.Txt|</a> 
+## <a id="Moving through programs" class="section-title" href="#Moving through programs">Next Chapter: [Usr_29.Txt](#Usr_29.Txt)</a> 
 
 Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

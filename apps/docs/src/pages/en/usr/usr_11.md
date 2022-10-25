@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Usr 11
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -9,7 +9,7 @@ layout: "@layouts/MainLayout.astro"
 
 VIM USER MANUAL - by Bram Moolenaar
 
-Recovering from a crash
+			   Recovering from a crash
 
 
 Did your computer crash?  And you just spent hours editing?  Don't panic!  Vim
@@ -22,8 +22,8 @@ used.
 [11.3](#11.3)	Crashed or not?
 [11.4](#11.4)	Further reading
 
-Next chapter: [usr_12.txt](#usr_12.txt)  Clever tricks
-Previous chapter: [usr_10.txt](#usr_10.txt)  Making big changes
+     Next chapter: [usr_12.txt](#usr_12.txt)  Clever tricks
+ Previous chapter: [usr_10.txt](#usr_10.txt)  Making big changes
 Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 
@@ -32,47 +32,44 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 In most cases recovering a file is quite simple, assuming you know which file
 you were editing (and the harddisk is still working).  Start Vim on the file,
 with the "-r" argument added:
-```
 
-vim -r help.txt
+	vim -r help.txt
 
 Vim will read the swap file (used to store text you were editing) and may read
 bits and pieces of the original file.  If Vim recovered your changes you will
 see these messages (with different file names, of course):
 
-Using swap file ".help.txt.swp" ~
-Original file "~/vim/runtime/doc/help.txt" ~
-Recovery completed. You should check if everything is OK. ~
-(You might want to write out this file under another name ~
-and run diff with the original file to check for changes) ~
-You may want to delete the .swp file now. ~
+	Using swap file ".help.txt.swp" ~
+	Original file "~/vim/runtime/doc/help.txt" ~
+	Recovery completed. You should check if everything is OK. ~
+	(You might want to write out this file under another name ~
+	and run diff with the original file to check for changes) ~
+	You may want to delete the .swp file now. ~
 
 To be on the safe side, write this file under another name:
-```
 
-:write help.txt.recovered
+	:write help.txt.recovered
 
 Compare the file with the original file to check if you ended up with what you
 expected.  Diff mode is very useful for this [08.7](#08.7).  For example:
-```
 
-:write help.txt.recovered
-:edit #
-:diffsp help.txt
+	:write help.txt.recovered
+	:edit #
+	:diffsp help.txt
 
 Watch out for the original file to contain a more recent version (you saved
 the file just before the computer crashed).  And check that no lines are
 missing (something went wrong that Vim could not recover).
-If Vim produces warning messages when recovering, read them carefully.
+   If Vim produces warning messages when recovering, read them carefully.
 This is rare though.
 
 If the recovery resulted in text that is exactly the same as the file
 contents, you will get this message:
 
-Using swap file ".help.txt.swp" ~
-Original file "~/vim/runtime/doc/help.txt" ~
-Recovery completed. Buffer contents equals file contents. ~
-You may want to delete the .swp file now. ~
+	Using swap file ".help.txt.swp" ~
+	Original file "~/vim/runtime/doc/help.txt" ~
+	Recovery completed. Buffer contents equals file contents. ~
+	You may want to delete the .swp file now. ~
 
 This usually happens if you already recovered your changes, or you wrote the
 file after making changes.  It is safe to delete the swap file now.
@@ -84,9 +81,8 @@ about two hundred characters.  This is set with the 'updatetime' and
 the system went down, the changes after the last flush will be lost.
 
 If you were editing without a file name, give an empty string as argument:
-```
 
-vim -r ""
+	vim -r ""
 
 You must be in the right directory, otherwise Vim can't find the swap file.
 
@@ -96,36 +92,35 @@ You must be in the right directory, otherwise Vim can't find the swap file.
 Vim can store the swap file in several places.  Normally it is in the same
 directory as the original file.  To find it, change to the directory of the
 file, and use:
-```
 
-vim -r
+	vim -r
 
 Vim will list the swap files that it can find.  It will also look in other
 directories where the swap file for files in the current directory may be
 located.  It will not find swap files in any other directories though, it
 doesn't search the directory tree.
-The output could look like this:
+   The output could look like this:
 
-Swap files found: ~
-In current directory: ~
-1.    .main.c.swp ~
-owned by: mool   dated: Tue May 29 21:00:25 2001 ~
-file name: ~mool/vim/vim6/src/main.c ~
-modified: YES ~
-user name: mool   host name: masaka.moolenaar.net ~
-process ID: 12525 ~
-In directory ~/tmp: ~
--- none -- ~
-In directory /var/tmp: ~
--- none -- ~
-In directory /tmp: ~
--- none -- ~
+	Swap files found: ~
+	   In current directory: ~
+	1.    .main.c.swp ~
+		  owned by: mool   dated: Tue May 29 21:00:25 2001 ~
+		 file name: ~mool/vim/vim6/src/main.c ~
+		  modified: YES ~
+		 user name: mool   host name: masaka.moolenaar.net ~
+		process ID: 12525 ~
+	   In directory ~/tmp: ~
+	      -- none -- ~
+	   In directory /var/tmp: ~
+	      -- none -- ~
+	   In directory /tmp: ~
+	      -- none -- ~
 
 If there are several swap files that look like they may be the one you want to
 use, a list is given of these swap files and you are requested to enter the
 number of the one you want to use.  Carefully look at the dates to decide
 which one you want to use.
-In case you don't know which one to use, just try them one by one and check
+   In case you don't know which one to use, just try them one by one and check
 the resulting files if they are what you expected.
 
 
@@ -136,8 +131,7 @@ swap file name.  Vim will then find out the name of the original file from
 the swap file.
 
 Example:
-```
-vim -r .help.txt.swo
+	vim -r .help.txt.swo
 
 This is also handy when the swap file is in another directory than expected.
 Vim recognizes files with the pattern *.s[uvw][a-z] as swap files.
@@ -146,13 +140,13 @@ If this still does not work, see what file names Vim reports and rename the
 files accordingly.  Check the 'directory' option to see where Vim may have
 put the swap file.
 
-Note:
-Vim tries to find the swap file by searching the directories in the
-'dir' option, looking for files that match "filename.sw?".  If
-wildcard expansion doesn't work (e.g., when the 'shell' option is
-invalid), Vim does a desperate try to find the file "filename.swp".
-If that fails too, you will have to give the name of the swapfile
-itself to be able to recover the file.
+	Note:
+	Vim tries to find the swap file by searching the directories in the
+	'dir' option, looking for files that match "filename.sw?".  If
+	wildcard expansion doesn't work (e.g., when the 'shell' option is
+	invalid), Vim does a desperate try to find the file "filename.swp".
+	If that fails too, you will have to give the name of the swapfile
+	itself to be able to recover the file.
 
 
 ## <a id="ATTENTION E325" class="section-title" href="#ATTENTION E325">*11.3*	Crashed or Not?</a> 
@@ -161,61 +155,61 @@ Vim tries to protect you from doing stupid things.  Suppose you innocently
 start editing a file, expecting the contents of the file to show up.  Instead,
 Vim produces a very long message:
 
-E325: ATTENTION ~
-Found a swap file by the name ".main.c.swp" ~
-owned by: mool   dated: Tue May 29 21:09:28 2001 ~
-file name: ~mool/vim/vim6/src/main.c ~
-modified: no ~
-user name: mool   host name: masaka.moolenaar.net ~
-process ID: 12559 (still running) ~
-While opening file "main.c" ~
-dated: Tue May 29 19:46:12 2001 ~
-~
-(1) Another program may be editing the same file. ~
-If this is the case, be careful not to end up with two ~
-different instances of the same file when making changes. ~
-Quit, or continue with caution. ~
-~
-(2) An edit session for this file crashed. ~
-If this is the case, use ":recover" or "vim -r main.c" ~
-to recover the changes (see ":help recovery"). ~
-If you did this already, delete the swap file ".main.c.swp" ~
-to avoid this message. ~
+		E325: ATTENTION ~
+	Found a swap file by the name ".main.c.swp" ~
+		  owned by: mool   dated: Tue May 29 21:09:28 2001 ~
+		 file name: ~mool/vim/vim6/src/main.c ~
+		  modified: no ~
+		 user name: mool   host name: masaka.moolenaar.net ~
+		process ID: 12559 (still running) ~
+	While opening file "main.c" ~
+		     dated: Tue May 29 19:46:12 2001 ~
+ ~
+	(1) Another program may be editing the same file. ~
+	    If this is the case, be careful not to end up with two ~
+	    different instances of the same file when making changes. ~
+	    Quit, or continue with caution. ~
+ ~
+	(2) An edit session for this file crashed. ~
+	    If this is the case, use ":recover" or "vim -r main.c" ~
+	    to recover the changes (see ":help recovery"). ~
+	    If you did this already, delete the swap file ".main.c.swp" ~
+	    to avoid this message. ~
 
 You get this message, because, when starting to edit a file, Vim checks if a
 swap file already exists for that file.  If there is one, there must be
 something wrong.  It may be one of these two situations.
 
 1. Another edit session is active on this file.  Look in the message for the
-line with "process ID".  It might look like this:
+   line with "process ID".  It might look like this:
 
-process ID: 12559 (still running) ~
+		process ID: 12559 (still running) ~
 
-The text "(still running)" indicates that the process editing this file
-runs on the same computer.  When working on a non-Unix system you will not
-get this extra hint.  When editing a file over a network, you may not see
-the hint, because the process might be running on another computer.  In
-those two cases you must find out what the situation is yourself.
-If there is another Vim editing the same file, continuing to edit will
-result in two versions of the same file.  The one that is written last will
-overwrite the other one, resulting in loss of changes.  You better quit
-this Vim.
+   The text "(still running)" indicates that the process editing this file
+   runs on the same computer.  When working on a non-Unix system you will not
+   get this extra hint.  When editing a file over a network, you may not see
+   the hint, because the process might be running on another computer.  In
+   those two cases you must find out what the situation is yourself.
+      If there is another Vim editing the same file, continuing to edit will
+   result in two versions of the same file.  The one that is written last will
+   overwrite the other one, resulting in loss of changes.  You better quit
+   this Vim.
 
 2. The swap file might be the result from a previous crash of Vim or the
-computer.  Check the dates mentioned in the message.  If the date of the
-swap file is newer than the file you were editing, and this line appears:
+   computer.  Check the dates mentioned in the message.  If the date of the
+   swap file is newer than the file you were editing, and this line appears:
 
-modified: YES ~
+		modified: YES ~
 
-Then you very likely have a crashed edit session that is worth recovering.
-If the date of the file is newer than the date of the swap file, then
-either it was changed after the crash (perhaps you recovered it earlier,
-but didn't delete the swap file?), or else the file was saved before the
-crash but after the last write of the swap file (then you're lucky: you
-don't even need that old swap file).  Vim will warn you for this with this
-extra line:
+   Then you very likely have a crashed edit session that is worth recovering.
+      If the date of the file is newer than the date of the swap file, then
+   either it was changed after the crash (perhaps you recovered it earlier,
+   but didn't delete the swap file?), or else the file was saved before the
+   crash but after the last write of the swap file (then you're lucky: you
+   don't even need that old swap file).  Vim will warn you for this with this
+   extra line:
 
-NEWER than swap file! ~
+      NEWER than swap file! ~
 
 
 NOTE that in the following situation Vim knows the swap file is not useful and
@@ -232,7 +226,7 @@ UNREADABLE SWAP FILE ~
 
 Sometimes the line
 
-[cannot be read] ~
+	[cannot be read] ~
 
 will appear under the name of the swap file.  This can be good or bad,
 depending on circumstances.
@@ -259,44 +253,43 @@ that file, be prepared to redo your last changes.
 
 If dialogs are supported you will be asked to select one of six choices:
 
-Swap file ".main.c.swp" already exists! ~
-[O]pen Read-Only, (E)dit anyway, (R)ecover, (Q)uit, (A)bort, (D)elete it: ~
+  Swap file ".main.c.swp" already exists! ~
+  [O]pen Read-Only, (E)dit anyway, (R)ecover, (Q)uit, (A)bort, (D)elete it: ~
 
 O  Open the file readonly.  Use this when you just want to view the file and
-don't need to recover it.  You might want to use this when you know someone
-else is editing the file, but you just want to look in it and not make
-changes.
+   don't need to recover it.  You might want to use this when you know someone
+   else is editing the file, but you just want to look in it and not make
+   changes.
 
 E  Edit the file anyway.  Use this with caution!  If the file is being edited
-in another Vim, you might end up with two versions of the file.  Vim will
-try to warn you when this happens, but better be safe than sorry.
+   in another Vim, you might end up with two versions of the file.  Vim will
+   try to warn you when this happens, but better be safe than sorry.
 
 R  Recover the file from the swap file.  Use this if you know that the swap
-file contains changes that you want to recover.
+   file contains changes that you want to recover.
 
 Q  Quit.  This avoids starting to edit the file.  Use this if there is another
-Vim editing the same file.
-When you just started Vim, this will exit Vim.  When starting Vim with
-files in several windows, Vim quits only if there is a swap file for the
-first one.  When using an edit command, the file will not be loaded and you
-are taken back to the previously edited file.
+   Vim editing the same file.
+      When you just started Vim, this will exit Vim.  When starting Vim with
+   files in several windows, Vim quits only if there is a swap file for the
+   first one.  When using an edit command, the file will not be loaded and you
+   are taken back to the previously edited file.
 
 A  Abort.  Like Quit, but also abort further commands.  This is useful when
-loading a script that edits several files, such as a session with multiple
-windows.
+   loading a script that edits several files, such as a session with multiple
+   windows.
 
 D  Delete the swap file.  Use this when you are sure you no longer need it.
-For example, when it doesn't contain changes, or when the file itself is
-newer than the swap file.
-On Unix this choice is only offered when the process that created the
-swap file does not appear to be running.
+   For example, when it doesn't contain changes, or when the file itself is
+   newer than the swap file.
+      On Unix this choice is only offered when the process that created the
+   swap file does not appear to be running.
 
 If you do not get the dialog (you are running a version of Vim that does not
 support it), you will have to do it manually.  To recover the file, use this
 command:
-```
 
-:recover
+	:recover
 
 
 Vim cannot always detect that a swap file already exists for a file.  This is
@@ -313,16 +306,16 @@ For programmatic access to the swap file, see [swapinfo()](#swapinfo()).
 ## <a id="" class="section-title" href="#">*11.4*	Further Reading</a> 
 
 [swap-file](#swap-file)	An explanation about where the swap file will be created and
-what its name is.
+		what its name is.
 [:preserve](#:preserve)	Manually flushing the swap file to disk.
 [:swapname](#:swapname)	See the name of the swap file for the current file.
 'updatecount'	Number of key strokes after which the swap file is flushed to
-disk.
+		disk.
 'updatetime'	Timeout after which the swap file is flushed to disk.
 'directory'	List of directory names where to store the swap file.
 
 
-## <a id="Clever tricks" class="section-title" href="#Clever tricks">Next Chapter: |Usr_12.Txt|</a> 
+## <a id="Clever tricks" class="section-title" href="#Clever tricks">Next Chapter: [Usr_12.Txt](#Usr_12.Txt)</a> 
 
 Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

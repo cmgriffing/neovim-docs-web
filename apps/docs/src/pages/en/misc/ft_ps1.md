@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Ft Ps1
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -7,8 +7,8 @@ layout: "@layouts/MainLayout.astro"
 
 ## <a id="A Windows PowerShell syntax plugin for Vim" class="section-title" href="#A Windows PowerShell syntax plugin for Vim"> Ft Ps1 Txt</a> 
 
-Author:  Peter Provost <https://www.github.com/PProvost>
-License: Apache 2.0
+Author:  Peter Provost <https://www.github.com/PProvost
+```License: Apache 2.0
 URL:     https://github.com/PProvost/vim-ps1
 
 ### <a id="ps1-syntax" class="section-title" href="#ps1-syntax">INTRODUCTION</a>
@@ -31,17 +31,13 @@ and digital signatures in scripts.
 
 When 'foldmethod' is set to "syntax" then function script blocks will be
 folded unless you use the following in your .vimrc or before opening a script:
-```
 
 :let g:ps1_nofold_blocks = 1
-
 ```
 
-Digital signatures in scripts will also be folded unless you use:
+Digital signatures in scripts will also be folded unless you use: 
 ```
-
 :let g:ps1_nofold_sig = 1
-
 ```
 
 Note: syntax folding might slow down syntax highlighting significantly,
@@ -54,18 +50,14 @@ The powershell `:compiler` script configures [:make](#:make) to execute the scri
 PowerShell.
 
 It tries to pick a smart default PowerShell command: `pwsh` if available and
-`powershell` otherwise, but you can customize the command:
+`powershell` otherwise, but you can customize the command: 
 ```
-
 :let g:ps1_makeprg_cmd = '/path/to/pwsh'
-
 ```
 
-To configure whether to show the exception type information:
+To configure whether to show the exception type information: 
 ```
-
 :let g:ps1_efm_show_error_categories = 1
-
 ```
 
 

@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Arabic
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -12,10 +12,9 @@ VIM REFERENCE MANUAL	  by Nadim Shaikli
 
 ### <a id="Arabic" class="section-title" href="#Arabic">Arabic Language support (options & mappings) for Vim</a>
 
-These functions have been created by Nadim Shaikli <nadim-at-arabeyes.org>
-
-It is best to view this file with these settings within VIM's GUI:
+These functions have been created by Nadim Shaikli <nadim-at-arabeyes.org
 ```
+It is best to view this file with these settings within VIM's GUI:
 
 :set encoding=utf-8
 :set arabicshape
@@ -107,9 +106,7 @@ o  Setting the Arabic fonts
 
 +  For Vim GUI set the 'guifont' to your_ARABIC_FONT.  This is done
 by entering the following command in the Vim window.
-```
 :set guifont=your_ARABIC_FONT
-
 ```
 
 NOTE: the string 'your_ARABIC_FONT' is used to denote a complete
@@ -127,9 +124,8 @@ file.
 o  Setting the appropriate character Encoding
 To enable the correct Arabic encoding the following command needs
 to be appended,
-```
-:set encoding=utf-8
 
+```		:set encoding=utf-8
 ```
 
 to your vimrc file (entering the command manually into your Vim
@@ -140,7 +136,7 @@ Attempts to use Arabic without UTF-8 will result the following
 warning message,
 
 ### <a id="W17" class="section-title" href="#W17">Note:</a>
-Arabic requires UTF-8, do ':set encoding=utf-8'
+```     Arabic requires UTF-8, do ':set encoding=utf-8'
 
 o  Enable Arabic settings [short-cut]
 
@@ -150,9 +146,7 @@ Vim with the command-line option,
 % vim -A my_utf8_arabic_file ...
 
 or enable 'arabic' via the following command within Vim
-```
 :set arabic
-
 ```
 
 The two above noted possible invocations are the preferred manner
@@ -169,9 +163,8 @@ You may also append the command to your vimrc file and simply
 include ':set arabic' to it.
 
 You are also capable of disabling Arabic support via
-```
-:set noarabic
 
+```		:set noarabic
 ```
 
 which resets everything that the command had enabled without touching
@@ -191,13 +184,10 @@ and its support is preferred due to its level of offerings.
 
 For vertical window isolation while setting 'termbidi' an LTR
 vertical separator like "l" or "𝖨" may be used.  It may also be
-hidden by changing its color to the foreground color:
-```
-:set fillchars=vert:l
+hidden by changing its color to the foreground color: 
+```		:set fillchars=vert:l
 :hi WinSeparator ctermbg=White
-
-```
-	Note that this is a workaround, not a proper solution.
+Note that this is a workaround, not a proper solution.
 
 If, on the other hand, you'd like to be verbose and explicit and
 are opting not to use the 'arabic' short-cut command, here's what
@@ -208,9 +198,7 @@ is needed (i.e. if you use ':set arabic' you can skip this section) -
 To activate the Arabic keymap (i.e. to remap your English/Latin
 keyboard to look-n-feel like a standard Arabic one), set the
 'keymap' command to "arabic".  This is done by entering
-```
 :set keymap=arabic
-
 ```
 
 in your VIM window.  You can also append the 'keymap' set command to
@@ -232,9 +220,8 @@ and still retain the LAM (i.e. it reverts to treating the combined
 character as its natural two characters form -- this also pertains
 to harakat and their combined forms).  You can enable this option
 by entering
-```
-:set delcombine
 
+```		:set delcombine
 ```
 
 in our VIM window.  You can also append the 'delcombine' set command
@@ -264,15 +251,13 @@ Currently this is only applicable to search commands.
 This is controlled with the 'rightleftcmd' option.  The default is
 "search", which means that windows in which 'rightleft' is set will
 edit search commands in right-left mode.	To disable this behavior,
-```
-:set rightleftcmd=
 
+```		:set rightleftcmd=
 ```
 
 To enable right-left editing of search commands again,
-```
-:set rightleftcmd&
 
+```		:set rightleftcmd&
 ```
 
 +  Arabic Shaping Mode
@@ -280,9 +265,8 @@ To enable right-left editing of search commands again,
 To activate the required visual characters alterations (shaping,
 composing, combining) which the Arabic language requires, enable
 the 'arabicshape' command.  This is done by entering
-```
-:set arabicshape
 
+```		:set arabicshape
 ```
 
 in our VIM window.  You can also append the 'arabicshape' set
@@ -307,9 +291,8 @@ o  Keyboard
 +  CTRL-^ in insert/replace mode toggles between Arabic/Latin mode
 
 +  Keyboard mapping is based on the Microsoft's Arabic keymap (the
-de facto standard in the Arab world):
+de facto standard in the Arab world): 
 ```
-
 +---------------------------------------------------------------------+
 [!   |@   |#   |$   |%   |^   |&   |*   |(   |)   |_   |+   ||   |~  ّ ](#!   |@   |#   |$   |%   |^   |&   |*   |(   |)   |_   |+   ||   |~  ّ )
 [1 ١ |2 ٢ |3 ٣ |4 ٤ |5 ٥ |6 ٦ |7 ٧ |8 ٨ |9 ٩ |0 ٠ |-   |=   |\   |` ذ ](#1 ١ |2 ٢ |3 ٣ |4 ٤ |5 ٥ |6 ٦ |7 ٧ |8 ٨ |9 ٩ |0 ٠ |-   |=   |\   |` ذ )
@@ -323,7 +306,6 @@ de facto standard in the Arab world):
 [Z ~ |X  ْ |C { |V } |B لآ |N آ |M ' |< , |> . |? ؟ ](#Z ~ |X  ْ |C { |V } |B لآ |N آ |M ' |< , |> . |? ؟ )
 [z ئ |x ء |c ؤ |v ر |b لا |n ى |m ة |, و |. ز |/ ظ ](#z ئ |x ء |c ؤ |v ر |b لا |n ى |m ة |, و |. ز |/ ظ )
 +-------------------------------------------------+
-
 ```
 
 

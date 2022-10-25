@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Usr 09
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -9,7 +9,7 @@ layout: "@layouts/MainLayout.astro"
 
 VIM USER MANUAL - by Bram Moolenaar
 
-Using the GUI
+				Using the GUI
 
 
 Vim works in an ordinary terminal, while gVim has a Graphical User Interface
@@ -22,8 +22,8 @@ that the GUI offers.
 [09.3](#09.3)	The clipboard
 [09.4](#09.4)	Select mode
 
-Next chapter: [usr_10.txt](#usr_10.txt)  Making big changes
-Previous chapter: [usr_08.txt](#usr_08.txt)  Splitting windows
+     Next chapter: [usr_10.txt](#usr_10.txt)  Making big changes
+ Previous chapter: [usr_08.txt](#usr_08.txt)  Splitting windows
 Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 
@@ -31,33 +31,32 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 You might have an icon on your desktop that starts gvim.  Otherwise, one of
 these commands should do it:
-```
 
-gvim file.txt
-vim -g file.txt
+	gvim file.txt
+	vim -g file.txt
 
 If this doesn't work you don't have a version of Vim with GUI support.  You
 will have to install one first.
-Vim will open a window and display "file.txt" in it.  What the window looks
+   Vim will open a window and display "file.txt" in it.  What the window looks
 like depends on the version of Vim.  It should resemble the following picture
 (for as far as this can be shown in ASCII!).
 
-+----------------------------------------------------+
-[ file.txt + (~/dir) - VIM			   X ](# file.txt + (~/dir) - VIM			   X )	<- window title
-+----------------------------------------------------+
-[ File	Edit  Tools  Syntax  Buffers  Window  Help   ](# File	Edit  Tools  Syntax  Buffers  Window  Help   )	<- menubar
-+----------------------------------------------------+
-[ aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   ](# aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   )	<- toolbar
-[ aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   ](# aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   )
-+----------------------------------------------------+
-[ file text					 | ^ ](# file text					 | ^ )
-[ ~						 | # ](# ~						 | # )
-[ ~						 | # ](# ~						 | # )	<- scrollbar
-[ ~						 | # ](# ~						 | # )
-[ ~						 | # ](# ~						 | # )
-[ ~						 | # ](# ~						 | # )
-[						 | V ](#						 | V )
-+----------------------------------------------------+
+	+----------------------------------------------------+
+	[ file.txt + (~/dir) - VIM			   X ](# file.txt + (~/dir) - VIM			   X )	<- window title
+	+----------------------------------------------------+
+	[ File	Edit  Tools  Syntax  Buffers  Window  Help   ](# File	Edit  Tools  Syntax  Buffers  Window  Help   )	<- menubar
+	+----------------------------------------------------+
+	[ aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   ](# aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   )	<- toolbar
+	[ aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   ](# aaa  bbb  ccc  ddd  eee  fff	ggg  hhh  iii  jjj   )
+	+----------------------------------------------------+
+	[ file text					 | ^ ](# file text					 | ^ )
+	[ ~						 | # ](# ~						 | # )
+	[ ~						 | # ](# ~						 | # )	<- scrollbar
+	[ ~						 | # ](# ~						 | # )
+	[ ~						 | # ](# ~						 | # )
+	[ ~						 | # ](# ~						 | # )
+	[						 | V ](#						 | V )
+	+----------------------------------------------------+
 
 The largest space is occupied by the file text.  This shows the file in the
 same way as in a terminal.  With some different colors and another font
@@ -71,10 +70,10 @@ Vim will set the title to show the name of the current file.  First comes the
 name of the file.  Then some special characters and the directory of the file
 in parens.  These special characters can be present:
 
--	The file cannot be modified (e.g., a help file)
-+	The file contains changes
-=	The file is read-only
-=+	The file is read-only, contains changes anyway
+	-	The file cannot be modified (e.g., a help file)
+	+	The file contains changes
+	=	The file is read-only
+	=+	The file is read-only, contains changes anyway
 
 If nothing is shown you have an ordinary, unchanged file.
 
@@ -85,10 +84,10 @@ You know how menus work, right?  Vim has the usual items, plus a few more.
 Browse them to get an idea of what you can use them for.  A relevant submenu
 is Edit/Global Settings.  You will find these entries:
 
-Toggle Toolbar		make the toolbar appear/disappear
-Toggle Bottom Scrollbar	make a scrollbar appear/disappear at the bottom
-Toggle Left Scrollbar	make a scrollbar appear/disappear at the left
-Toggle Right Scrollbar	make a scrollbar appear/disappear at the right
+	Toggle Toolbar		make the toolbar appear/disappear
+	Toggle Bottom Scrollbar	make a scrollbar appear/disappear at the bottom
+	Toggle Left Scrollbar	make a scrollbar appear/disappear at the left
+	Toggle Right Scrollbar	make a scrollbar appear/disappear at the right
 
 
 THE TOOLBAR
@@ -100,9 +99,8 @@ pointer to the icon without clicking and don't move it for a second).
 The "Edit/Global Settings/Toggle Toolbar" menu item can be used to make the
 toolbar disappear.  If you never want a toolbar, use this command in your
 vimrc file:
-```
 
-:set guioptions-=T
+	:set guioptions-=T
 
 This removes the 'T' flag from the 'guioptions' option.  Other parts of the
 GUI can also be enabled or disabled with this option.  See the help for it.
@@ -112,7 +110,7 @@ THE SCROLLBARS
 
 By default there is one scrollbar on the right.  It does the obvious thing.
 When you split the window, each window will get its own scrollbar.
-You can make a horizontal scrollbar appear with the menu item
+   You can make a horizontal scrollbar appear with the menu item
 Edit/Global Settings/Toggle Bottom Scrollbar.  This is useful in diff mode, or
 when the 'wrap' option has been reset (more about that later).
 
@@ -120,10 +118,9 @@ When there are vertically split windows, only the windows on the right side
 will have a scrollbar.  However, when you move the cursor to a window on the
 left, it will be this one that the scrollbar controls.  This takes a bit of
 time to get used to.
-When you work with vertically split windows, consider adding a scrollbar on
+   When you work with vertically split windows, consider adding a scrollbar on
 the left.  This can be done with a menu item, or with the 'guioptions' option:
-```
-:set guioptions+=l
+	:set guioptions+=l
 
 This adds the 'l' flag to 'guioptions'.
 
@@ -134,17 +131,15 @@ Standards are wonderful.  In Microsoft Windows, you can use the mouse to
 select text in a standard manner.  The X Window system also has a standard
 system for using the mouse.  Unfortunately, these two standards are not the
 same.
-Fortunately, you can customize Vim.  You can make the behavior of the mouse
+   Fortunately, you can customize Vim.  You can make the behavior of the mouse
 work like an X Window system mouse or a Microsoft Windows mouse.  The following
 command makes the mouse behave like an X Window mouse:
-```
 
-:behave xterm
+	:behave xterm
 
 The following command makes the mouse work like a Microsoft Windows mouse:
-```
 
-:behave mswin
+	:behave mswin
 
 The default behavior of the mouse on Unix systems is xterm.  The default
 behavior on Windows systems is selected during the installation process.  For
@@ -158,7 +153,7 @@ Left mouse click		position the cursor
 Left mouse drag			select text in Visual mode
 Middle mouse click		paste text from the clipboard
 Right mouse click		extend the selected text until the mouse
-pointer
+				pointer
 
 
 MSWIN MOUSE BEHAVIOR
@@ -166,7 +161,7 @@ MSWIN MOUSE BEHAVIOR
 Left mouse click		position the cursor
 Left mouse drag			select text in Select mode (see [09.4](#09.4))
 Left mouse click, with Shift	extend the selected text until the mouse
-pointer
+				pointer
 Middle mouse click		paste text from the clipboard
 Right mouse click		display a pop-up menu
 
@@ -174,11 +169,11 @@ Right mouse click		display a pop-up menu
 The mouse can be further tuned.  Check out these options if you want to change
 the way how the mouse works:
 
-'mouse'			in which mode the mouse is used by Vim
-'mousemodel'		what effect a mouse click has
-'mousetime'		time between clicks for a double-click
-'mousehide'		hide the mouse while typing
-'selectmode'		whether the mouse starts Visual or Select mode
+	'mouse'			in which mode the mouse is used by Vim
+	'mousemodel'		what effect a mouse click has
+	'mousetime'		time between clicks for a double-click
+	'mousehide'		hide the mouse while typing
+	'selectmode'		whether the mouse starts Visual or Select mode
 
 
 ## <a id="" class="section-title" href="#">*09.3*	the Clipboard</a> 
@@ -191,7 +186,7 @@ In X-Windows there is the "current selection".  This is the text that is
 currently highlighted.  In Vim this is the Visual area (this assumes you are
 using the default option settings).  You can paste this selection in another
 application without any further action.
-For example, in this text select a few words with the mouse.  Vim will
+   For example, in this text select a few words with the mouse.  Vim will
 switch to Visual mode and highlight the text.  Now start another gvim, without
 a file name argument, so that it displays an empty window.  Click the middle
 mouse button.  The selected text will be inserted.
@@ -211,11 +206,11 @@ THE REAL CLIPBOARD
 Now for the other place with which text can be exchanged.  We call this the
 "real clipboard", to avoid confusion.  Often both the "current selection" and
 the "real clipboard" are called clipboard, you'll have to get used to that.
-To put text on the real clipboard, select a few different words in one of
+   To put text on the real clipboard, select a few different words in one of
 the gvims you have running.  Then use the Edit/Copy menu entry.  Now the text
 has been copied to the real clipboard.  You can't see this, unless you have
 some application that shows the clipboard contents (e.g., KDE's Klipper).
-Now select the other gvim, position the cursor somewhere and use the
+   Now select the other gvim, position the cursor somewhere and use the
 Edit/Paste menu.  You will see the text from the real clipboard is inserted.
 
 
@@ -229,10 +224,10 @@ Use one gvim with a text file and perform these actions:
 -  Use the Edit/Copy menu to get these words onto the clipboard.
 -  Select one other word in Visual mode.
 -  Use the Edit/Paste menu item.  What will happen is that the single selected
-word is replaced with the two words from the clipboard.
+   word is replaced with the two words from the clipboard.
 -  Move the mouse pointer somewhere else and click the middle button.  You
-will see that the word you just overwrote with the clipboard is inserted
-here.
+   will see that the word you just overwrote with the clipboard is inserted
+   here.
 
 If you use the "current selection" and the "real clipboard" with care, you can
 do a lot of useful editing with them.
@@ -243,26 +238,23 @@ USING THE KEYBOARD
 If you don't like using the mouse, you can access the current selection and
 ### <a id="The " register is for the current" class="section-title" href="#The " register is for the current">the real clipboard with two registers.</a>
 selection.
-To make text become the current selection, use Visual mode.  For example,
+   To make text become the current selection, use Visual mode.  For example,
 to select a whole line just press "V".
-To insert the current selection before the cursor:
-```
+   To insert the current selection before the cursor:
 
-"*P
+	"*P
 
 Notice the uppercase "P".  The lowercase "p" puts the text after the cursor.
 
 The "+ register is used for the real clipboard.  For example, to copy the text
 from the cursor position until the end of the line to the clipboard:
-```
 
-"+y$
+	"+y$
 
 Remember, "y" is yank, which is Vim's copy command.
-To insert the contents of the real clipboard before the cursor:
-```
+   To insert the contents of the real clipboard before the cursor:
 
-"+P
+	"+P
 
 It's the same as for the current selection, but uses the plus (+) register
 instead of the star (*) register.
@@ -278,9 +270,8 @@ replaces it.
 
 To start working with Select mode, you must first enable it (for MS-Windows
 it is probably already enabled, but you can do this anyway):
-```
 
-:set selectmode+=mouse
+	:set selectmode+=mouse
 
 Now use the mouse to select some text.  It is highlighted like in Visual mode.
 Now press a letter.  The selected text is deleted, and the single letter
@@ -295,7 +286,7 @@ do what you expect.  <S-End> and <S-Home> also work.
 You can tune the way Select mode works with the 'selectmode' option.
 
 
-## <a id="Making big changes" class="section-title" href="#Making big changes">Next Chapter: |Usr_10.Txt|</a> 
+## <a id="Making big changes" class="section-title" href="#Making big changes">Next Chapter: [Usr_10.Txt](#Usr_10.Txt)</a> 
 
 Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

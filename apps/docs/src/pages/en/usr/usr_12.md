@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Usr 12
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -9,7 +9,7 @@ layout: "@layouts/MainLayout.astro"
 
 VIM USER MANUAL - by Bram Moolenaar
 
-Clever tricks
+				Clever tricks
 
 
 By combining several commands you can make Vim do nearly everything.  In this
@@ -25,8 +25,8 @@ commands introduced in the previous chapters and a few more.
 [12.7](#12.7)	Trim blanks
 [12.8](#12.8)	Find where a word is used
 
-Next chapter: [usr_20.txt](#usr_20.txt)  Typing command-line commands quickly
-Previous chapter: [usr_11.txt](#usr_11.txt)  Recovering from a crash
+     Next chapter: [usr_20.txt](#usr_20.txt)  Typing command-line commands quickly
+ Previous chapter: [usr_11.txt](#usr_11.txt)  Recovering from a crash
 Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 
@@ -34,32 +34,28 @@ Table of contents: [usr_toc.txt](#usr_toc.txt)
 
 The substitute command can be used to replace all occurrences of a word with
 another word:
-```
 
-:%s/four/4/g
+	:%s/four/4/g
 
 The "%" range means to replace in all lines.  The "g" flag at the end causes
 all words in a line to be replaced.
-This will not do the right thing if your file also contains "thirtyfour".
+   This will not do the right thing if your file also contains "thirtyfour".
 It would be replaced with "thirty4".  To avoid this, use the "\<" item to
 match the start of a word:
-```
 
-:%s/\<four/4/g
+	:%s/\<four/4/g
 
 Obviously, this still goes wrong on "fourteen".  Use "\>" to match the end of
 a word:
-```
 
-:%s/\<four\>/4/g
+	:%s/\<four\>/4/g
 
 If you are programming, you might want to replace "four" in comments, but not
 in the code.  Since this is difficult to specify, add the "c" flag to have the
 substitute command prompt you for each replacement:
-```
 
 
-:%s/\<four\>/4/gc
+	:%s/\<four\>/4/gc
 
 
 REPLACING IN SEVERAL FILES
@@ -67,35 +63,34 @@ REPLACING IN SEVERAL FILES
 Suppose you want to replace a word in more than one file.  You could edit each
 file and type the command manually.  It's a lot faster to use record and
 playback.
-Let's assume you have a directory with C++ files, all ending in ".cpp".
+   Let's assume you have a directory with C++ files, all ending in ".cpp".
 There is a function called "GetResp" that you want to rename to "GetAnswer".
 
-vim *.cpp		Start Vim, defining the argument list to
-contain all the C++ files.  You are now in the
-first file.
-qq			Start recording into the q register
-:%s/\<GetResp\>/GetAnswer/g
-Do the replacements in the first file.
-:wnext			Write this file and move to the next one.
-q			Stop recording.
-@q			Execute the q register.  This will replay the
-substitution and ":wnext".  You can verify
-that this doesn't produce an error message.
-999@q			Execute the q register on the remaining files.
+	vim *.cpp		Start Vim, defining the argument list to
+				contain all the C++ files.  You are now in the
+				first file.
+	qq			Start recording into the q register
+	:%s/\<GetResp\>/GetAnswer/g
+				Do the replacements in the first file.
+	:wnext			Write this file and move to the next one.
+	q			Stop recording.
+	@q			Execute the q register.  This will replay the
+				substitution and ":wnext".  You can verify
+				that this doesn't produce an error message.
+	999@q			Execute the q register on the remaining files.
 
 At the last file you will get an error message, because ":wnext" cannot move
 to the next file.  This stops the execution, and everything is done.
 
-Note:
-When playing back a recorded sequence, an error stops the execution.
-Therefore, make sure you don't get an error message when recording.
+	Note:
+	When playing back a recorded sequence, an error stops the execution.
+	Therefore, make sure you don't get an error message when recording.
 
 There is one catch: If one of the .cpp files does not contain the word
 "GetResp", you will get an error and replacing will stop.  To avoid this, add
 the "e" flag to the substitute command:
-```
 
-:%s/\<GetResp\>/GetAnswer/ge
+	:%s/\<GetResp\>/GetAnswer/ge
 
 The "e" flag tells ":substitute" that not finding a match is not an error.
 
@@ -104,40 +99,39 @@ The "e" flag tells ":substitute" that not finding a match is not an error.
 
 You have a list of names in this form:
 
-Doe, John ~
-Smith, Peter ~
+	Doe, John ~
+	Smith, Peter ~
 
 You want to change that to:
 
-John Doe ~
-Peter Smith ~
+	John Doe ~
+	Peter Smith ~
 
 This can be done with just one command:
-```
 
-:%s/\([^,]*\), \(.*\)/\2 \1/
+	:%s/\([^,]*\), \(.*\)/\2 \1/
 
 Let's break this down in parts.  Obviously it starts with a substitute
 command.  The "%" is the line range, which stands for the whole file.  Thus
 the substitution is done in every line in the file.
-The arguments for the substitute command are "/from/to/".  The slashes
+   The arguments for the substitute command are "/from/to/".  The slashes
 separate the "from" pattern and the "to" string.  This is what the "from"
 pattern contains:
 ### <a id="\([^,]\), \(.\) ~" class="section-title" href="#\([^,]\), \(.\) ~">Note:</a>
 
-The first part between \( \) matches "Last"	\(     \)
-match anything but a comma			  [^,]
-any number of times				      *
-matches ", " literally					 ,
-The second part between \( \) matches "First"		   \(  \)
-any character					     .
-any number of times					      *
+	The first part between \( \) matches "Last"	\(     \)
+	    match anything but a comma			  [^,]
+	    any number of times				      *
+	matches ", " literally					 ,
+	The second part between \( \) matches "First"		   \(  \)
+	    any character					     .
+	    any number of times					      *
 
 In the "to" part we have "\2" and "\1".  These are called backreferences.
 They refer to the text matched by the "\( \)" parts in the pattern.  "\2"
 refers to the text matched by the second "\( \)", which is the "First" name.
 "\1" refers to the first "\( \)", which is the "Last" name.
-You can use up to nine backreferences in the "to" part of a substitute
+   You can use up to nine backreferences in the "to" part of a substitute
 command.  "\0" stands for the whole matched pattern.  There are a few more
 special items in a substitute command, see [sub-replace-special](#sub-replace-special).
 
@@ -146,45 +140,44 @@ special items in a substitute command, see [sub-replace-special](#sub-replace-sp
 
 In a Makefile you often have a list of files.  For example:
 
-OBJS = \ ~
-version.o \ ~
-pch.o \ ~
-getopt.o \ ~
-util.o \ ~
-getopt1.o \ ~
-inp.o \ ~
-patch.o \ ~
-backup.o ~
+	OBJS = \ ~
+		version.o \ ~
+		pch.o \ ~
+		getopt.o \ ~
+		util.o \ ~
+		getopt1.o \ ~
+		inp.o \ ~
+		patch.o \ ~
+		backup.o ~
 
 To sort this list, filter the text through the external sort command:
-```
 
-/^OBJS
-j
-:.,/^$/-1!sort
+	/^OBJS
+	j
+	:.,/^$/-1!sort
 
 This goes to the first line, where "OBJS" is the first thing in the line.
 Then it goes one line down and filters the lines until the next empty line.
 You could also select the lines in Visual mode and then use "!sort".  That's
 easier to type, but more work when there are many lines.
-The result is this:
+   The result is this:
 
-OBJS = \ ~
-backup.o ~
-getopt.o \ ~
-getopt1.o \ ~
-inp.o \ ~
-patch.o \ ~
-pch.o \ ~
-util.o \ ~
-version.o \ ~
+	OBJS = \ ~
+		backup.o ~
+		getopt.o \ ~
+		getopt1.o \ ~
+		inp.o \ ~
+		patch.o \ ~
+		pch.o \ ~
+		util.o \ ~
+		version.o \ ~
 
 
 Notice that a backslash at the end of each line is used to indicate the line
 continues.  After sorting, this is wrong!  The "backup.o" line that was at
 the end didn't have a backslash.  Now that it sorts to another place, it
 must have a backslash.
-The simplest solution is to add the backslash with "A \<Esc>".  You can
+   The simplest solution is to add the backslash with "A \<Esc>".  You can
 keep the backslash in the last line, if you make sure an empty line comes
 after it.  That way you don't have this problem again.
 
@@ -193,14 +186,12 @@ after it.  That way you don't have this problem again.
 
 The [:global| command can be combined with the |:move](#:global| command can be combined with the |:move) command to move all the
 lines before the first line, resulting in a reversed file.  The command is:
-```
 
-:global/^/move 0
+	:global/^/move 0
 
 Abbreviated:
-```
 
-:g/^/m 0
+	:g/^/m 0
 
 The "^" regular expression matches the beginning of the line (even if the line
 is blank).  The [:move](#:move) command moves the matching line to after the imaginary
@@ -212,26 +203,24 @@ the first.
 This also works on a range of lines.  First move to above the first line and
 mark it with "mt".  Then move the cursor to the last line in the range and
 type:
-```
 
-:'t+1,.g/^/m 't
+	:'t+1,.g/^/m 't
 
 
 ## <a id="" class="section-title" href="#">*12.5*	Count Words</a> 
 
 Sometimes you have to write a text with a maximum number of words.  Vim can
 count the words for you.
-When the whole file is what you want to count the words in, use this
+   When the whole file is what you want to count the words in, use this
 command:
-```
 
-g CTRL-G
+	g CTRL-G
 
 Do not type a space after the g, this is just used here to make the command
 easy to read.
-The output looks like this:
+   The output looks like this:
 
-Col 1 of 0; Line 141 of 157; Word 748 of 774; Byte 4489 of 4976 ~
+	Col 1 of 0; Line 141 of 157; Word 748 of 774; Byte 4489 of 4976 ~
 
 You can see on which word you are (748), and the total number of words in the
 file (774).
@@ -242,7 +231,7 @@ use your brain to compute the difference in the word position.  That's a good
 exercise, but there is an easier way.  With Visual mode, select the text you
 want to count words in.  Then type g CTRL-G.  The result:
 
-Selected 5 of 293 Lines; 70 of 1884 Words; 359 of 10928 Bytes ~
+	Selected 5 of 293 Lines; 70 of 1884 Words; 359 of 10928 Bytes ~
 
 For other ways to count words, lines and other items, see [count-items](#count-items).
 
@@ -252,38 +241,34 @@ For other ways to count words, lines and other items, see [count-items](#count-i
 While editing a shell script or C program, you are using a command or function
 that you want to find the man page for (this is on Unix).  Let's first use a
 simple way: Move the cursor to the word you want to find help on and press
-```
 
-K
+	K
 
 Nvim will run [:Man](#:Man) on the word.  If the man page is found, it is displayed.
 You can also use the [:Man](#:Man) command to open a window on a man page:
-```
 
-:Man csh
+	:Man csh
 
 You can scroll around and the text is highlighted.  This allows you to find
 the help you were looking for.  Use CTRL-W w to jump to the window with the
 text you were working on.
-To find a man page in a specific section, put the section number first.
+   To find a man page in a specific section, put the section number first.
 For example, to look in section 3 for "echo":
-```
 
-:Man 3 echo
+	:Man 3 echo
 
 To jump to another man page, which is in the text with the typical form
 "word(1)", press CTRL-] on it.  Further ":Man" commands will use the same
 window.
 
 To display a man page for the word under the cursor, use this:
-```
 
-K
+	K
 
 For example, you want to know the return value of "strstr()" while editing
 this line:
 
-if ( strstr (input, "aap") == ) ~
+	if ( strstr (input, "aap") == ) ~
 
 Move the cursor to somewhere on "strstr" and type "K".  A window will open
 to display the man page for strstr().
@@ -294,23 +279,21 @@ to display the man page for strstr().
 Some people find spaces and tabs at the end of a line useless, wasteful, and
 ugly.  To remove whitespace at the end of every line, execute the following
 command:
-```
 
-:%s/\s\+$//
+	:%s/\s\+$//
 
 The line range "%" is used, thus this works on the whole file.  The pattern
 that the ":substitute" command matches with is "\s\+$".  This finds white
 space characters (\s), 1 or more of them (\+), before the end-of-line ($).
 Later will be explained how you write patterns like this, see [usr_27.txt](#usr_27.txt).
-The "to" part of the substitute command is empty: "//".  Thus it replaces
+   The "to" part of the substitute command is empty: "//".  Thus it replaces
 with nothing, effectively deleting the matched white space.
 
 Another wasteful use of spaces is placing them before a tab.  Often these can
 be deleted without changing the amount of white space.  But not always!
 Therefore, you can best do this manually.  Use this search command:
-```
 
-/ 	
+	/ 	
 
 You cannot see it, but there is a space before a tab in this command.  Thus
 it's "/<Space><Tab>".   Now use "x" to delete the space and check that the
@@ -325,11 +308,10 @@ If you are a Unix user, you can use a combination of Vim and the grep command
 to edit all the files that contain a given word.  This is extremely useful if
 you are working on a program and want to view or edit all the files that
 contain a specific variable.
-For example, suppose you want to edit all the C program files that contain
+   For example, suppose you want to edit all the C program files that contain
 the word "frame_counter".  To do this you use the command:
-```
 
-vim `grep -l frame_counter *.c`
+	vim `grep -l frame_counter *.c`
 
 Let's look at this command in detail.  The grep command searches through a set
 of files for a given word.  Because the -l argument is specified, the command
@@ -337,7 +319,7 @@ will only list the files containing the word and not print the matching lines.
 The word it is searching for is "frame_counter".  Actually, this can be any
 regular expression.  (Note: What grep uses for regular expressions is not
 exactly the same as what Vim uses.)
-The entire command is enclosed in backticks (`).  This tells the Unix shell
+   The entire command is enclosed in backticks (`).  This tells the Unix shell
 to run this command and pretend that the results were typed on the command
 line.  So what happens is that the grep command is run and produces a list of
 files, these files are put on the Vim command line.  This results in Vim
@@ -349,12 +331,11 @@ FINDING EACH LINE
 
 The above command only finds the files in which the word is found.  You still
 have to find the word within the files.
-Vim has a built-in command that you can use to search a set of files for a
+   Vim has a built-in command that you can use to search a set of files for a
 given string.  If you want to find all occurrences of "error_string" in all C
 program files, for example, enter the following command:
-```
 
-:grep error_string *.c
+	:grep error_string *.c
 
 This causes Vim to search for the string "error_string" in all the specified
 files (*.c).  The editor will now open the first file where a match is found
@@ -362,11 +343,11 @@ and position the cursor on the first matching line.  To go to the next
 matching line (no matter in what file it is), use the ":cnext" command.  To go
 to the previous match, use the ":cprev" command.  Use ":clist" to see all the
 matches and where they are.
-The ":grep" command uses the external commands grep (on Unix) or findstr
+   The ":grep" command uses the external commands grep (on Unix) or findstr
 (on Windows).  You can change this by setting the option 'grepprg'.
 
 
-## <a id="Typing command-line commands quickly" class="section-title" href="#Typing command-line commands quickly">Next Chapter: |Usr_20.Txt|</a> 
+## <a id="Typing command-line commands quickly" class="section-title" href="#Typing command-line commands quickly">Next Chapter: [Usr_20.Txt](#Usr_20.Txt)</a> 
 
 Copyright: see [manual-copyright](#manual-copyright)  vim:tw=78:ts=8:noet:ft=help:norl:
 

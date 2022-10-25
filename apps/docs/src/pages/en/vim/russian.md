@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Russian
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -12,7 +12,7 @@ VIM REFERENCE MANUAL    by Vassily Ragosin
 
 ### <a id="russian Russian" class="section-title" href="#russian Russian">Russian language localization and support in Vim</a>
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="russian-intro" class="section-title" href="#russian-intro">1. Introduction</a> 
@@ -26,9 +26,8 @@ Russian text just as any other, without the need to tweak the settings.
 To switch between languages you can use your system native keyboard switcher,
 or use one of the Russian keymaps, included in the Vim distribution.  For
 example,
-```
-:set keymap=russian-jcukenwin
 
+```    :set keymap=russian-jcukenwin
 ```
 
 In the latter case, you can switch between languages even if you do not have
@@ -38,9 +37,8 @@ choose the latter option.  See [:map](#:map).
 
 For your convenience, to avoid switching between keyboards, when you need to
 enter Normal mode command, you can also set 'langmap' option:
-```
-:set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,
-фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
+    :set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,
+    фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz
 
 This is in utf-8, you cannot read this if your 'encoding' is not utf-8.
 You have to type this command in one line, it is wrapped for the sake of
@@ -53,7 +51,7 @@ If you wish to use messages, help files, menus and other items translated to
 Russian, you will need to install the RuVim Language Pack, available in
 different codepages from
 
-https://www.sourceforge.net/projects/ruvim/
+    https://www.sourceforge.net/projects/ruvim/
 
 After downloading an archive from RuVim project, unpack it into your
 $VIMRUNTIME directory.  We recommend using UTF-8 archive.
@@ -65,10 +63,10 @@ In order to use the Russian documentation, make sure you have set the
 ## <a id="russian-issues" class="section-title" href="#russian-issues">4. Known Issues</a> 
 
 -- If you are using Russian message translations in Win32 console, then
-you may see the output produced by "vim --help", "vim --version" commands
-and Win32 console window title appearing in a wrong codepage.  This problem
-is related to a bug in GNU gettext library and may be fixed in the future
-releases of gettext.
+   you may see the output produced by "vim --help", "vim --version" commands
+   and Win32 console window title appearing in a wrong codepage.  This problem
+   is related to a bug in GNU gettext library and may be fixed in the future
+   releases of gettext.
 
 
 ## <a id="" class="section-title" href="#">Vim Tw 78 Ts 8 Noet Ft Help Norl</a> 

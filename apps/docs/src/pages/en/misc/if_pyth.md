@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: If Pyth
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -22,9 +22,8 @@ Type [gO](#gO) to see the table of contents.
 ### <a id=":python :py E263 E264 E887" class="section-title" href="#:python :py E263 E264 E887">Note:</a>
 :[range]py[thon] {stmt}
 Execute Python statement {stmt}.  A simple check if
-the `:python` command is working:
-```
-:python print "Hello"
+the `:python` command is working: 
+```				:python print "Hello"
 
 :[range]py[thon] << [endmarker]
 {script}
@@ -39,7 +38,6 @@ If [endmarker] is omitted from after the "<<", a dot '.' must be used after
 {script}, like for the [:append| and |:insert](#:append| and |:insert) commands.
 
 Example:
-```
 function! IcecreamInitialize()
 python << EOF
 class StrawberryIcecream:
@@ -49,7 +47,6 @@ EOF
 endfunction
 
 To see what version of Python you have:
-```
 :python print(sys.version)
 
 There is no need to "import sys", it's done by default.
@@ -73,16 +70,13 @@ the line in the current turn. The default for [range]
 is the whole file: "1,$".
 
 Examples:
-```
 :pydo return "%s\t%d" % (line[::-1], len(line))
 :pydo if line: return "%4d: %s" % (linenr, line)
-
 ```
 
 One can use `:pydo` in possible conjunction with `:py` to filter a range using
-python. For example:
+python. For example: 
 ```
-
 :py3 << EOF
 needle = vim.eval('@a')
 replacement = vim.eval('@b')
@@ -91,7 +85,6 @@ def py_vim_string_replace(str):
 return str.replace(needle, replacement)
 EOF
 :'<,'>py3do return py_vim_string_replace(line)
-
 ```
 
 ### <a id=":pyfile :pyf" class="section-title" href="#:pyfile :pyf">Note:</a>
@@ -108,9 +101,8 @@ In the case of :pyfile, the code to execute is the contents of the given file.
 
 Python commands cannot be used in the [sandbox](#sandbox).
 
-To pass arguments you need to set sys.argv[] explicitly.  Example:
+To pass arguments you need to set sys.argv[] explicitly.  Example: 
 ```
-
 :python sys.argv = ["foo", "bar"]
 :pyfile myscript.py
 
@@ -128,7 +120,6 @@ to the next, just like the Python REPL.
 ### <a id="script-here" class="section-title" href="#script-here">Note:</a>
 When using a script language in-line, you might want to skip this when the
 language isn't supported.  Note that this mechanism doesn't work:
-```
 if has('python')
 python << EOF
 this will NOT work!
@@ -136,7 +127,6 @@ EOF
 endif
 
 Instead, put the Python command in a function and call that function:
-```
 if has('python')
 function DefPython()
 python << EOF
@@ -155,11 +145,9 @@ Python code gets all of its access to vim (with one exception - see
 [python-output](#python-output) below) via the "vim" module.  The vim module implements two
 methods, three constants, and one error object.  You need to import the vim
 module before using it:
-```
 :python import vim
 
 Overview
-```
 :py print "Hello"		# displays a message
 :py vim.command(cmd)		# execute an Ex command
 :py w = vim.windows[n]		# gets window "n"
@@ -184,22 +172,17 @@ Methods of the "vim" module
 ### <a id="python-command" class="section-title" href="#python-command">vim.command(str)</a>
 Executes the vim (ex-mode) command str.  Returns None.
 Examples:
-```
 :py vim.command("set tw=72")
 :py vim.command("%s/aaa/bbb/g")
-
-```
-	The following definition executes Normal mode commands:
-```
+The following definition executes Normal mode commands:
 def normal(str):
 vim.command("normal "+str)
 # Note the use of single quotes to delimit a string containing
 # double quotes
 normal('"a2dd"aP')
-### <a id="E659" class="section-title" href="#E659"><</a>
+### <a id="E659" class="section-title" href="#E659">Note:</a>
 The ":python" command cannot be used recursively with Python 2.2 and
 older.  This only works with Python 2.3 and later:
-```
 :py vim.command("python print 'Hello again Python'")
 
 ### <a id="python-eval" class="section-title" href="#python-eval">vim.eval(str)</a>
@@ -210,7 +193,6 @@ evaluator (see [expression](#expression)).  Returns the expression result as:
 - a dictionary if the Vim expression evaluates to a Vim dictionary
 Dictionaries and lists are recursively expanded.
 Examples:
-```
 :py text_width = vim.eval("&tw")
 :py str = vim.eval("12+12")		# NB result is a string! Use
 # string.atoi() to convert to
@@ -239,7 +221,6 @@ Error object of the "vim" module
 Upon encountering a Vim error, Python raises an exception of type
 vim.error.
 Example:
-```
 try:
 vim.command("put a")
 except vim.error:
@@ -254,25 +235,20 @@ to which the variables referred.
 ### <a id="python-buffers" class="section-title" href="#python-buffers">vim.buffers</a>
 A mapping object providing access to the list of vim buffers.  The
 object supports the following operations:
-```
 :py b = vim.buffers[i]	# Indexing (read-only)
 :py b in vim.buffers	# Membership test
 :py n = len(vim.buffers)	# Number of elements
 :py for b in vim.buffers:	# Iterating over buffer list
-
 ```
 
 ### <a id="python-windows" class="section-title" href="#python-windows">vim.windows</a>
 A sequence object providing access to the list of vim windows.  The
-object supports the following operations:
-```
-:py w = vim.windows[i]	# Indexing (read-only)
+object supports the following operations: 
+```	    :py w = vim.windows[i]	# Indexing (read-only)
 :py w in vim.windows	# Membership test
 :py n = len(vim.windows)	# Number of elements
 :py for w in vim.windows:	# Sequential access
-
-```
-	Note: vim.windows object always accesses current tab page.
+Note: vim.windows object always accesses current tab page.
 [python-tabpage|.windows objects are bound to parent |python-tabpage](#python-tabpage|.windows objects are bound to parent |python-tabpage)
 object and always use windows from that tab page (or throw vim.error
 in case tab page was deleted). You can keep a reference to both
@@ -282,12 +258,10 @@ they will not lose their properties in this case.
 ### <a id="python-tabpages" class="section-title" href="#python-tabpages">vim.tabpages</a>
 A sequence object providing access to the list of vim tab pages. The
 object supports the following operations:
-```
 :py t = vim.tabpages[i]	# Indexing (read-only)
 :py t in vim.tabpages	# Membership test
 :py n = len(vim.tabpages)	# Number of elements
 :py for t in vim.tabpages:	# Sequential access
-
 ```
 
 ### <a id="python-current" class="section-title" href="#python-current">vim.current</a>
@@ -310,9 +284,8 @@ respectively. Assigning triggers normal (with [autocommand](#autocommand)s)
 switching to given buffer, window or tab page. It is the only way to
 switch UI objects in python: you can't assign to
 [python-tabpage](#python-tabpage).window attribute. To switch without triggering
-autocommands use
-```
-py << EOF
+autocommands use 
+```	    py << EOF
 saved_eventignore = vim.options['eventignore']
 vim.options['eventignore'] = 'all'
 try:
@@ -320,7 +293,6 @@ vim.current.buffer = vim.buffers[2] # Switch to buffer 2
 finally:
 vim.options['eventignore'] = saved_eventignore
 EOF
-
 ```
 
 ### <a id="python-vars" class="section-title" href="#python-vars">vim.vars</a>
@@ -366,9 +338,8 @@ the list of paths found in 'runtimepath': with this directory in sys.path and
 vim.path_hooks in sys.path_hooks python will try to load module from
 {rtp}/python3 and {rtp}/pythonx for each {rtp} found in 'runtimepath'.
 
-Implementation is similar to the following, but written in C:
+Implementation is similar to the following, but written in C: 
 ```
-
 from imp import find_module, load_module
 import vim
 import sys
@@ -499,13 +470,11 @@ numbers s and e [inclusive](#inclusive).
 
 Note that when adding a line it must not contain a line break character '\n'.
 A trailing '\n' is allowed and ignored, so that you can do:
-```
 :py b.append(f.readlines())
 
 Buffer object type is available using "Buffer" attribute of vim module.
 
 Examples (assume b is the current buffer)
-```
 :py print b.name		# write the buffer file name
 :py b[0] = "hello!!!"		# replace the top line
 :py b[:] = None			# delete the whole buffer
@@ -518,7 +487,8 @@ Examples (assume b is the current buffer)
 :py r = b.range(1,5)		# a sub-range of the buffer
 :py b.vars["foo"] = "bar"	# assign b:foo variable
 :py b.options["ff"] = "dos"	# set fileformat
-:py del b.options["ar"]		# same as :set autoread<
+:py del b.options["ar"]		# same as :set autoread
+```
 
 
 ## <a id="python-range" class="section-title" href="#python-range">Range Objects</a> 
@@ -644,17 +614,14 @@ variants explicitly if Python 3 is required.
 {script}
 {endmarker}
 The `:py3` and `:python3` commands work similar to `:python`.  A
-simple check if the `:py3` command is working:
-```
-:py3 print("Hello")
-
+simple check if the `:py3` command is working: 
+```		:py3 print("Hello")
 ```
 
-To see what version of Python you have:
-```
-:py3 import sys
+To see what version of Python you have: 
+```		:py3 import sys
 :py3 print(sys.version)
-### <a id=":py3file" class="section-title" href="#:py3file"><</a>
+### <a id=":py3file" class="section-title" href="#:py3file">Note:</a>
 :[range]py3f[ile] {file}
 The `:py3file` command works similar to `:pyfile`.
 ### <a id=":py3do" class="section-title" href="#:py3do">Note:</a>
@@ -663,15 +630,12 @@ The `:py3do` command works similar to `:pydo`.
 
 ### <a id="E880" class="section-title" href="#E880">Note:</a>
 Raising SystemExit exception in python isn't endorsed way to quit vim, use:
-```
 :py vim.command("qall!")
-
 ```
 
 ### <a id="has-python" class="section-title" href="#has-python">Note:</a>
-You can test if Python is available with:
-```
-if has('pythonx')
+You can test if Python is available with: 
+```	if has('pythonx')
 echo 'there is Python'
 endif
 if has('python3')
@@ -690,14 +654,11 @@ all these commands are now synonymous to their "python3" equivalents.
 
 ### <a id=":pyx :pythonx" class="section-title" href="#:pyx :pythonx">Note:</a>
 `:pyx` and `:pythonx` work the same as `:python3`.  To check if `:pyx` works:
-```
 :pyx print("Hello")
 
 To see what version of Python is being used:
-```
 :pyx import sys
 :pyx print(sys.version)
-
 ```
 
 ### <a id=":pyxfile python_x-special-comments" class="section-title" href="#:pyxfile python_x-special-comments">Note:</a>
@@ -708,7 +669,6 @@ To see what version of Python is being used:
 
 ### <a id="has-pythonx" class="section-title" href="#has-pythonx">Note:</a>
 To check if `pyx*` functions and commands are available:
-```
 if has('pythonx')
 ### <a id="echo 'pyx commands are available. (Python ' .. &pyx .. ')'" class="section-title" href="#echo 'pyx commands are available. (Python ' .. &pyx .. ')'">Note:</a>
 endif

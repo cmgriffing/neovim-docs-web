@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Pi Paren
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -16,28 +16,24 @@ The functionality mentioned here is a [standard-plugin](#standard-plugin).
 This plugin is only available if 'compatible' is not set.
 
 You can avoid loading this plugin by setting the "loaded_matchparen" variable:
-```
-:let loaded_matchparen = 1
+	:let loaded_matchparen = 1
 
 The plugin installs CursorMoved, CursorMovedI and WinEnter autocommands to
 redefine the match highlighting.
 
 ### <a id=":NoMatchParen :DoMatchParen" class="section-title" href="#:NoMatchParen :DoMatchParen">Note:</a>
 To disable the plugin after it was loaded use this command:
-```
 
-:NoMatchParen
+	:NoMatchParen
 
 And to enable it again:
-```
 
-:DoMatchParen
+	:DoMatchParen
 
 The highlighting used is MatchParen.  You can specify different colors with
 the ":highlight" command.  Example:
-```
 
-:hi MatchParen ctermbg=blue guibg=lightblue
+	:hi MatchParen ctermbg=blue guibg=lightblue
 
 The characters to be matched come from the 'matchpairs' option.  You can
 change the value to highlight different matches.  Note that not everything is
@@ -53,13 +49,13 @@ The search is limited to avoid a delay when moving the cursor.  The limits
 are:
 - What is visible in the window.
 - 100 lines above or below the cursor to avoid a long delay when there are
-closed folds.
+  closed folds.
 - 'synmaxcol' times 2 bytes before or after the cursor to avoid a delay
-in a long line with syntax highlighting.
+  in a long line with syntax highlighting.
 - A timeout of 300 msec (60 msec in Insert mode). This can be changed with the
-g:matchparen_timeout and g:matchparen_insert_timeout variables and their
-buffer-local equivalents b:matchparen_timeout and
-b:matchparen_insert_timeout.
+  g:matchparen_timeout and g:matchparen_insert_timeout variables and their
+  buffer-local equivalents b:matchparen_timeout and
+  b:matchparen_insert_timeout.
 
 If you would like the [%| command to work better, the |matchit](#%| command to work better, the |matchit) plugin can be
 used.  This plugin also helps to skip matches in comments.  This is unrelated

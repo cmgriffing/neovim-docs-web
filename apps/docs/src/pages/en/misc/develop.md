@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Develop
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -123,9 +123,8 @@ reflects whether Python support is working.
 ### <a id="provider-reload" class="section-title" href="#provider-reload">Note:</a>
 Sometimes a GUI or other application may want to force a provider to
 "reload".  To reload a provider, undefine its "loaded" flag, then use
-[:runtime](#:runtime) to reload it:
+[:runtime](#:runtime) to reload it: 
 ```
-
 :unlet g:loaded_clipboard_provider
 :runtime autoload/provider/clipboard.vim
 
@@ -151,12 +150,10 @@ not "the user host terminal".
 in prose if possible.
 - Docstrings: do not start parameter descriptions with "The" or "A" unless it
 is critical to avoid ambiguity.
-```
 GOOD:
 /// @param dirname Path fragment before `pend`
 BAD:
 /// @param dirname The path fragment before `pend`
-
 ```
 
 
@@ -196,7 +193,6 @@ Docstring format:
 
 Example: the help for [nvim_open_win()](#nvim_open_win()) is generated from a docstring defined
 in src/nvim/api/win_config.c like this:
-```
 
 /// Opens a new window.
 /// ...
@@ -235,7 +231,6 @@ Docstring format:
 
 Example: the help for [vim.paste()](#vim.paste()) is generated from a docstring decorating
 vim.paste in runtime/lua/vim/_editor.lua like this:
-```
 
 --- Paste handler, invoked by [nvim_paste()](#nvim_paste()) when a conforming UI
 --- (such as the [TUI](#TUI)) pastes text into the editor.

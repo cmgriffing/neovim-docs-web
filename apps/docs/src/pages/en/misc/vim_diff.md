@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Vim Diff
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -79,9 +79,8 @@ session information.  [shada](#shada)
 - 'wildoptions' defaults to "pum,tagfile"
 
 - [man.lua| plugin is enabled, so |:Man](#man.lua| plugin is enabled, so |:Man) is available by default.
-- [matchit](#matchit) plugin is enabled. To disable it in your config:
-```
-:let loaded_matchit = 1
+- [matchit](#matchit) plugin is enabled. To disable it in your config: 
+```    :let loaded_matchit = 1
 
 - [g:vimsyn_embed](#g:vimsyn_embed) defaults to "l" to enable Lua highlighting
 
@@ -96,19 +95,15 @@ typing ":".
 If you don't like this you can disable the mouse in your [config](#config) using any of
 the following:
 - Disable mouse completely by unsetting the 'mouse' option:
-```
 set mouse=
 - Pressing <RightMouse> extends selection instead of showing popup-menu:
-```
 set mousemodel=extend
 - Pressing <A-LeftMouse> releases mouse until the cursor moves:
-```
 nnoremap <A-LeftMouse> <Cmd>
 \ set mouse=<Bar>
 \ echo 'mouse OFF until next cursor-move'<Bar>
 ### <a id="\ autocmd CursorMoved  ++once set mouse&<Bar>" class="section-title" href="#\ autocmd CursorMoved  ++once set mouse&<Bar>">Note:</a>
 \ echo 'mouse ON'<CR>
-
 ```
 
 
@@ -116,15 +111,14 @@ Default Mappings ~
 ### <a id="default-mappings" class="section-title" href="#default-mappings">Note:</a>
 Nvim creates the following default mappings at [startup](#startup). You can disable any
 of these in your config by simply removing the mapping, e.g. ":unmap Y".
-```
-nnoremap Y y$
+
+```	nnoremap Y y$
 nnoremap <C-L> <Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>
 inoremap <C-U> <C-G>u<C-U>
 inoremap <C-W> <C-G>u<C-W>
 xnoremap * y/\V<C-R>"<CR>
 xnoremap # y?\V<C-R>"<CR>
 nnoremap & :&&<CR>
-
 ```
 
 Default Autocommands ~
@@ -256,9 +250,7 @@ Highlight groups:
 
 Input/Mappings:
 ALT ([META|) chords always work (even in the |TUI|). Map |<M-](#META|) chords always work (even in the |TUI|). Map |<M-) with any key:
-
-```
-M-1>, <M-BS>, <M-Del>, <M-Ins>, <M-/>, <M-\>, <M-Space>, <M-Enter>, etc.
+<M-1>, <M-BS>, <M-Del>, <M-Ins>, <M-/>, <M-\>, <M-Space>, <M-Enter>, etc.
 Case-sensitive: <M-a> and <M-A> are two different keycodes.
 
 ALT may behave like <Esc> if not mapped. [i_ALT| |v_ALT| |c_ALT](#i_ALT| |v_ALT| |c_ALT)
@@ -317,12 +309,10 @@ with 0700 permissions. Vim mkdir will create /tmp/foo with 0755.
 structures.
 2. [string()](#string()) fails immediately on nested containers, not when recursion limit
 was exceeded.
-2. When [:echo](#:echo) encounters duplicate containers like
+2. When [:echo](#:echo) encounters duplicate containers like 
 ```
-
 let l = []
 echo [l, l]
-
 ```
 
 it does not use "[...]" (was: "[[], [...]]", now: "[[], []]"). "..." is
@@ -407,7 +397,7 @@ using [n| or |N](#n| or |N)
 [hl-VertSplit| superseded by |hl-WinSeparator](#hl-VertSplit| superseded by |hl-WinSeparator)
 Highlight groups names are allowed to contain the characters `.` and `@`.
 It is an error to define a highlight group with a name that doesn't match
-### <a id="the regexp `[a-zA-Z0-9_.@]` (see [group-name|)." class="section-title" href="#the regexp `[a-zA-Z0-9_.@]` (see |group-name](#group-name|)." class="section-title" href="#the regexp `[a-zA-Z0-9_.@]` (see |group-name)).">Note:</a>
+### <a id="the regexp `[a-zA-Z0-9_.@]` (see [group-name](#group-name))." class="section-title" href="#the regexp `[a-zA-Z0-9_.@]` (see [group-name](#group-name)).">Note:</a>
 
 Macro/[recording](#recording) behavior
 Replay of a macro recorded during :lmap produces the same actions as when it
@@ -473,20 +463,15 @@ colorscheme. [:colorscheme](#:colorscheme)
 
 TUI:
 ### <a id=":set-termcap" class="section-title" href="#:set-termcap">Note:</a>
-Start Nvim with 'verbose' level 3 to show terminal capabilities:
-```
-nvim -V3
-
+Start Nvim with 'verbose' level 3 to show terminal capabilities: 
+```	nvim -V3
 ```
 
 ### <a id="'term' E529 E530 E531" class="section-title" href="#'term' E529 E530 E531">Note:</a>
 'term' reflects the terminal type derived from [$TERM](#$TERM) and other environment
-checks.  For debugging only; not reliable during startup.
-```
-:echo &term
-
-```
-  "builtin_x" means one of the [builtin-terms](#builtin-terms) was chosen, because the expected
+checks.  For debugging only; not reliable during startup. 
+```	  :echo &term
+"builtin_x" means one of the [builtin-terms](#builtin-terms) was chosen, because the expected
 terminfo file was not found on the system.
 
 Nvim will use 256-colour capability on Linux virtual terminals.  Vim uses
@@ -579,25 +564,23 @@ Vim9script
 ### <a id="cscope_connection()" class="section-title" href="#cscope_connection()">Note:</a>
 ### <a id="js_encode()" class="section-title" href="#js_encode()">Note:</a>
 ### <a id="js_decode()" class="section-title" href="#js_decode()">Note:</a>
-### <a id="v:none (used by Vim to represent JavaScript "undefined"); use [v:null| instead." class="section-title" href="#v:none (used by Vim to represent JavaScript "undefined"); use |v:null](#v:null| instead." class="section-title" href="#v:none (used by Vim to represent JavaScript "undefined"); use |v:null) instead.">Note:</a>
+### <a id="v:none (used by Vim to represent JavaScript "undefined"); use [v:null](#v:null) instead." class="section-title" href="#v:none (used by Vim to represent JavaScript "undefined"); use [v:null](#v:null) instead.">Note:</a>
 ### <a id="v:sizeofint" class="section-title" href="#v:sizeofint">Note:</a>
 ### <a id="v:sizeoflong" class="section-title" href="#v:sizeoflong">Note:</a>
 ### <a id="v:sizeofpointer" class="section-title" href="#v:sizeofpointer">Note:</a>
 
 Events:
-### <a id="SigUSR1 Use [Signal| to detect `SIGUSR1` signal instead." class="section-title" href="#SigUSR1 Use |Signal](#Signal| to detect `SIGUSR1` signal instead." class="section-title" href="#SigUSR1 Use |Signal) to detect `SIGUSR1` signal instead.">Note:</a>
+### <a id="SigUSR1 Use [Signal](#Signal) to detect `SIGUSR1` signal instead." class="section-title" href="#SigUSR1 Use [Signal](#Signal) to detect `SIGUSR1` signal instead.">Note:</a>
 
 Highlight groups:
 ### <a id="hl-StatusLineTerm hl-StatusLineTermNC are unnecessary because Nvim" class="section-title" href="#hl-StatusLineTerm hl-StatusLineTermNC are unnecessary because Nvim">Note:</a>
 supports 'winhighlight' window-local highlights.
 For example, to mimic Vim's StatusLineTerm:
-```
 hi StatusLineTerm ctermfg=black ctermbg=green
 hi StatusLineTermNC ctermfg=green
 ### <a id="autocmd TermOpen,WinEnter  if &buftype=='terminal'" class="section-title" href="#autocmd TermOpen,WinEnter  if &buftype=='terminal'">Note:</a>
 \|setlocal winhighlight=StatusLine:StatusLineTerm,StatusLineNC:StatusLineTermNC
 \[else|setlocal winhighlight=](#else|setlocal winhighlight=)endif
-
 ```
 
 
@@ -629,8 +612,8 @@ esckeys
 ### <a id="'imactivatekey' 'imak'" class="section-title" href="#'imactivatekey' 'imak'">Note:</a>
 ### <a id="'imstatusfunc' 'imsf'" class="section-title" href="#'imstatusfunc' 'imsf'">Note:</a>
 ### <a id="'insertmode' 'im' Use the following script to emulate 'insertmode':" class="section-title" href="#'insertmode' 'im' Use the following script to emulate 'insertmode':">Note:</a>
-```
-### <a id="autocmd BufWinEnter  startinsert" class="section-title" href="#autocmd BufWinEnter  startinsert">Note:</a>
+
+#### <a id="autocmd BufWinEnter  startinsert" class="section-title" href="#autocmd BufWinEnter  startinsert">```</a>
 inoremap <Esc> <C-X><C-Z><C-]>
 inoremap <C-C> <C-X><C-Z>
 inoremap <C-L> <C-X><C-Z><C-]><Esc>
@@ -655,7 +638,6 @@ end
 end
 end)
 EOF
-
 ```
 
 ### <a id="'macatsui'" class="section-title" href="#'macatsui'">Note:</a>
@@ -689,7 +671,7 @@ Folds are not updated during insert-mode.
 
 Startup:
 --literal (file args are always literal; to expand wildcards on Windows, use
-### <a id="[:n| e.g. `nvim +"n "`)" class="section-title" href="#|:n](#:n| e.g. `nvim +"n "`)" class="section-title" href="#|:n) e.g. `nvim +"n "`)">Note:</a>
+### <a id="[:n](#:n) e.g. `nvim +"n "`)" class="section-title" href="#[:n](#:n) e.g. `nvim +"n "`)">Note:</a>
 Easy mode: eview, evim, nvim -y
 Restricted mode: rview, rvim, nvim -Z
 Vi mode: nvim -v

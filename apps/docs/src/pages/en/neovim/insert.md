@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Insert
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -22,15 +22,15 @@ user manual [usr_24.txt](#usr_24.txt).
 Also see 'virtualedit', for moving the cursor to positions where there is no
 character.  Useful for editing a table.
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="ins-special-keys" class="section-title" href="#ins-special-keys">1. Special Keys</a> 
 
 In Insert and Replace mode, the following characters have a special meaning;
 other characters are inserted directly.  To insert one of these special
-characters into the buffer, precede it with CTRL-V.  To insert a <Nul>
-character use "CTRL-V CTRL-@" or "CTRL-V 000".  On some systems, you have to
+characters into the buffer, precede it with CTRL-V.  To insert a <Nul
+```character use "CTRL-V CTRL-@" or "CTRL-V 000".  On some systems, you have to
 use "CTRL-V 003" to insert a CTRL-C.  Note: When CTRL-V is mapped you can
 often use CTRL-Q instead [i_CTRL-Q](#i_CTRL-Q).
 
@@ -41,19 +41,17 @@ all the time.
 char		action	~
 -----------------------------------------------------------------------
 ### <a id="i_CTRL-[ i_<Esc>" class="section-title" href="#i_CTRL-[ i_<Esc>">Note:</a>
-
-```
 Esc> or CTRL-[	End insert or Replace mode, go back to Normal mode.  Finish
-abbreviation.
-Note: If your <Esc> key is hard to hit, try CTRL-[ instead.
+		abbreviation.
+		Note: If your <Esc> key is hard to hit, try CTRL-[ instead.
 ### <a id="i_META i_ALT" class="section-title" href="#i_META i_ALT">Note:</a>
-ALT ([META](#META)) may act like <Esc> if the chord is not mapped.
-For example <A-x> acts like <Esc>x if <A-x> does not have an
-insert-mode mapping.
+		ALT ([META](#META)) may act like <Esc> if the chord is not mapped.
+		For example <A-x> acts like <Esc>x if <A-x> does not have an
+		insert-mode mapping.
 ### <a id="i_CTRL-C" class="section-title" href="#i_CTRL-C">Note:</a>
 CTRL-C		Quit insert mode, go back to Normal mode.  Do not check for
-abbreviations.  Does not trigger the [InsertLeave](#InsertLeave) autocommand
-event.
+		abbreviations.  Does not trigger the [InsertLeave](#InsertLeave) autocommand
+		event.
 
 ### <a id="i_CTRL-@" class="section-title" href="#i_CTRL-@">Note:</a>
 CTRL-@		Insert previously inserted text and stop insert.
@@ -62,225 +60,208 @@ CTRL-@		Insert previously inserted text and stop insert.
 CTRL-A		Insert previously inserted text.
 
 ### <a id="i_CTRL-H i_<BS> i_BS" class="section-title" href="#i_CTRL-H i_<BS> i_BS">Note:</a>
-
-```
 BS> or CTRL-H	Delete the character before the cursor (see [i_backspacing](#i_backspacing)
-about joining lines).
+		about joining lines).
 ### <a id="i_<Del> i_DEL" class="section-title" href="#i_<Del> i_DEL">Note:</a>
-
-```
 Del>		Delete the character under the cursor.  If the cursor is at
-the end of the line, and the 'backspace' option includes
-"eol" (the default), delete the <EOL>; the next line is
-appended after the current one.
+		the end of the line, and the 'backspace' option includes
+		"eol" (the default), delete the <EOL>; the next line is
+		appended after the current one.
 ### <a id="i_CTRL-W" class="section-title" href="#i_CTRL-W">Note:</a>
 CTRL-W		Delete the word before the cursor (see [i_backspacing](#i_backspacing) about
-joining lines).  See the section "word motions",
-[word-motions](#word-motions), for the definition of a word.
+		joining lines).  See the section "word motions",
+		[word-motions](#word-motions), for the definition of a word.
 ### <a id="i_CTRL-W-default" class="section-title" href="#i_CTRL-W-default">Note:</a>
-By default, sets a new undo point before deleting.
-[default-mappings](#default-mappings)
+		By default, sets a new undo point before deleting.
+		[default-mappings](#default-mappings)
 ### <a id="i_CTRL-U" class="section-title" href="#i_CTRL-U">Note:</a>
 CTRL-U		Delete all entered characters before the cursor in the current
-line.  If there are no newly entered characters and
-'backspace' is not empty, delete all characters before the
-cursor in the current line.
-If C-indenting is enabled the indent will be adjusted if the
-line becomes blank.
-See [i_backspacing](#i_backspacing) about joining lines.
+		line.  If there are no newly entered characters and
+		'backspace' is not empty, delete all characters before the
+		cursor in the current line.
+		If C-indenting is enabled the indent will be adjusted if the
+		line becomes blank.
+		See [i_backspacing](#i_backspacing) about joining lines.
 ### <a id="i_CTRL-U-default" class="section-title" href="#i_CTRL-U-default">Note:</a>
-By default, sets a new undo point before deleting.
-[default-mappings](#default-mappings)
+		By default, sets a new undo point before deleting.
+		[default-mappings](#default-mappings)
 ### <a id="i_CTRL-I i_<Tab> i_Tab" class="section-title" href="#i_CTRL-I i_<Tab> i_Tab">Note:</a>
-
-```
 Tab> or CTRL-I Insert a tab.  If the 'expandtab' option is on, the
-equivalent number of spaces is inserted (use CTRL-V <Tab> to
-avoid the expansion; use CTRL-Q <Tab> if CTRL-V is mapped
-[i_CTRL-Q](#i_CTRL-Q)).  See also the 'smarttab' option and
-[ins-expandtab](#ins-expandtab).
+		equivalent number of spaces is inserted (use CTRL-V <Tab> to
+		avoid the expansion; use CTRL-Q <Tab> if CTRL-V is mapped
+		[i_CTRL-Q](#i_CTRL-Q)).  See also the 'smarttab' option and
+		[ins-expandtab](#ins-expandtab).
 ### <a id="i_CTRL-J i_<NL>" class="section-title" href="#i_CTRL-J i_<NL>">Note:</a>
-
-```
 NL> or CTRL-J	Begin new line.
 ### <a id="i_CTRL-M i_<CR>" class="section-title" href="#i_CTRL-M i_<CR>">Note:</a>
-
-```
 CR> or CTRL-M	Begin new line.
 ### <a id="i_CTRL-K" class="section-title" href="#i_CTRL-K">Note:</a>
 CTRL-K {char1} [char2]
-Enter digraph (see [digraphs](#digraphs)).  When {char1} is a special
-key, the code for that key is inserted in <> form.  For
-example, the string "<S-Space>" can be entered by typing
-
-```
-C-K><S-Space> (two keys).  Neither char is considered for
-mapping.
+		Enter digraph (see [digraphs](#digraphs)).  When {char1} is a special
+		key, the code for that key is inserted in <> form.  For
+		example, the string "<S-Space>" can be entered by typing
+		<C-K><S-Space> (two keys).  Neither char is considered for
+		mapping.
 
 CTRL-N		Find next keyword (see [i_CTRL-N](#i_CTRL-N)).
 CTRL-P		Find previous keyword (see [i_CTRL-P](#i_CTRL-P)).
 
 ### <a id="i_CTRL-R" class="section-title" href="#i_CTRL-R">CTRL-R {register}</a>
-Insert the contents of a register.  Between typing CTRL-R and
-the second character, '"' will be displayed to indicate that
-you are expected to enter the name of a register.
-The text is inserted as if you typed it, but mappings and
-abbreviations are not used.  If you have options like
-'textwidth', 'formatoptions', or 'autoindent' set, this will
-influence what will be inserted.  This is different from what
-happens with the "p" command and pasting with the mouse.
-Special registers:
-'"'	the unnamed register, containing the text of
-the last delete or yank
-'%'	the current file name
-'#'	the alternate file name
+		Insert the contents of a register.  Between typing CTRL-R and
+		the second character, '"' will be displayed to indicate that
+		you are expected to enter the name of a register.
+		The text is inserted as if you typed it, but mappings and
+		abbreviations are not used.  If you have options like
+		'textwidth', 'formatoptions', or 'autoindent' set, this will
+		influence what will be inserted.  This is different from what
+		happens with the "p" command and pasting with the mouse.
+		Special registers:
+			'"'	the unnamed register, containing the text of
+				the last delete or yank
+			'%'	the current file name
+			'#'	the alternate file name
 ### <a id="''	the clipboard contents (X11: primary selection)" class="section-title" href="#''	the clipboard contents (X11: primary selection)">Note:</a>
-'+'	the clipboard contents
-'/'	the last search pattern
-':'	the last command-line
-'.'	the last inserted text
-'-'	the last small (less than a line) delete
+			'+'	the clipboard contents
+			'/'	the last search pattern
+			':'	the last command-line
+			'.'	the last inserted text
+			'-'	the last small (less than a line) delete
 ### <a id="i_CTRL-R_=" class="section-title" href="#i_CTRL-R_=">Note:</a>
-'='	the expression register: you are prompted to
-enter an expression (see [expression](#expression))
-Note that 0x80 (128 decimal) is used for
-special keys.  E.g., you can use this to move
-the cursor up:
-CTRL-R ="\<Up>"
-Use CTRL-R CTRL-R to insert text literally.
-When the result is a [List](#List) the items are used
-as lines.  They can have line breaks inside
-too.
-When the result is a Float it's automatically
-converted to a String.
-When append() or setline() is invoked the undo
-sequence will be broken.
-See [registers](#registers) about registers.
+			'='	the expression register: you are prompted to
+				enter an expression (see [expression](#expression))
+				Note that 0x80 (128 decimal) is used for
+				special keys.  E.g., you can use this to move
+				the cursor up:
+					CTRL-R ="\<Up>"
+				Use CTRL-R CTRL-R to insert text literally.
+				When the result is a [List](#List) the items are used
+				as lines.  They can have line breaks inside
+				too.
+				When the result is a Float it's automatically
+				converted to a String.
+				When append() or setline() is invoked the undo
+				sequence will be broken.
+		See [registers](#registers) about registers.
 
 ### <a id="i_CTRL-R_CTRL-R" class="section-title" href="#i_CTRL-R_CTRL-R">CTRL-R CTRL-R {register}</a>
-Insert the contents of a register.  Works like using a single
-CTRL-R, but the text is inserted literally, not as if typed.
-This differs when the register contains characters like <BS>.
-Example, where register a contains "ab^Hc":
-```
-CTRL-R a		results in "ac".
-CTRL-R CTRL-R a		results in "ab^Hc".
-
-```
+		Insert the contents of a register.  Works like using a single
+		CTRL-R, but the text is inserted literally, not as if typed.
+		This differs when the register contains characters like <BS>.
+		Example, where register a contains "ab^Hc":
+	CTRL-R a		results in "ac".
+	CTRL-R CTRL-R a		results in "ab^Hc".
 		Options 'textwidth', 'formatoptions', etc. still apply.  If
-you also want to avoid these, use CTRL-R CTRL-O, see below.
-The '.' register (last inserted text) is still inserted as
-typed.
-After this command, the '.' register contains the text from
-the register as if it was inserted by typing it.
+		you also want to avoid these, use CTRL-R CTRL-O, see below.
+		The '.' register (last inserted text) is still inserted as
+		typed.
+		After this command, the '.' register contains the text from
+		the register as if it was inserted by typing it.
 
 ### <a id="i_CTRL-R_CTRL-O" class="section-title" href="#i_CTRL-R_CTRL-O">CTRL-R CTRL-O {register}</a>
-Insert the contents of a register literally and don't
-auto-indent.  Does the same as pasting with the mouse
-[<MiddleMouse>](#<MiddleMouse>). When the register is linewise this will
-insert the text above the current line, like with `P`.
-Does not replace characters!
-The '.' register (last inserted text) is still inserted as
-typed.
-After this command, the '.' register contains the command
-typed and not the text. I.e., the literals "^R^O" and not the
-text from the register.
+		Insert the contents of a register literally and don't
+		auto-indent.  Does the same as pasting with the mouse
+		[<MiddleMouse>](#<MiddleMouse>). When the register is linewise this will
+		insert the text above the current line, like with `P`.
+		Does not replace characters!
+		The '.' register (last inserted text) is still inserted as
+		typed.
+		After this command, the '.' register contains the command
+		typed and not the text. I.e., the literals "^R^O" and not the
+		text from the register.
 
 ### <a id="i_CTRL-R_CTRL-P" class="section-title" href="#i_CTRL-R_CTRL-P">CTRL-R CTRL-P {register}</a>
-Insert the contents of a register literally and fix the
-indent, like [[<MiddleMouse>](#[<MiddleMouse>).
-Does not replace characters!
-The '.' register (last inserted text) is still inserted as
-typed.
-After this command, the '.' register contains the command
-typed and not the text. I.e., the literals "^R^P" and not the
-text from the register.
+		Insert the contents of a register literally and fix the
+		indent, like [[<MiddleMouse>](#[<MiddleMouse>).
+		Does not replace characters!
+		The '.' register (last inserted text) is still inserted as
+		typed.
+		After this command, the '.' register contains the command
+		typed and not the text. I.e., the literals "^R^P" and not the
+		text from the register.
 
 ### <a id="i_CTRL-T" class="section-title" href="#i_CTRL-T">Note:</a>
 CTRL-T		Insert one shiftwidth of indent at the start of the current
-line.  The indent is always rounded to a 'shiftwidth'.
+		line.  The indent is always rounded to a 'shiftwidth'.
 ### <a id="i_CTRL-D" class="section-title" href="#i_CTRL-D">Note:</a>
 CTRL-D		Delete one shiftwidth of indent at the start of the current
-line.  The indent is always rounded to a 'shiftwidth'.
+		line.  The indent is always rounded to a 'shiftwidth'.
 
 ### <a id="i_0_CTRL-D" class="section-title" href="#i_0_CTRL-D">Note:</a>
 0 CTRL-D	Delete all indent in the current line.
 
 ### <a id="i_^_CTRL-D" class="section-title" href="#i_^_CTRL-D">Note:</a>
 ^ CTRL-D	Delete all indent in the current line.  The indent is
-restored in the next line.  This is useful when inserting a
-label.
+		restored in the next line.  This is useful when inserting a
+		label.
 
 ### <a id="i_CTRL-V" class="section-title" href="#i_CTRL-V">Note:</a>
 CTRL-V		Insert next non-digit literally.  It's also possible to enter
-the decimal, octal or hexadecimal value of a character
-[i_CTRL-V_digit](#i_CTRL-V_digit).
-The characters typed right after CTRL-V are not considered for
-mapping.
-For special keys, the CTRL modifier may be included into the
-key to produce a control character.  If there is no control
-character for the key then its [key-notation](#key-notation) is inserted.
-Note: When CTRL-V is mapped (e.g., to paste text) you can
-often use CTRL-Q instead [i_CTRL-Q](#i_CTRL-Q).
+		the decimal, octal or hexadecimal value of a character
+		[i_CTRL-V_digit](#i_CTRL-V_digit).
+		The characters typed right after CTRL-V are not considered for
+		mapping.
+		For special keys, the CTRL modifier may be included into the
+		key to produce a control character.  If there is no control
+		character for the key then its [key-notation](#key-notation) is inserted.
+		Note: When CTRL-V is mapped (e.g., to paste text) you can
+		often use CTRL-Q instead [i_CTRL-Q](#i_CTRL-Q).
 
 ### <a id="i_CTRL-Q" class="section-title" href="#i_CTRL-Q">Note:</a>
 CTRL-Q		Same as CTRL-V.
-Note: Some terminal connections may eat CTRL-Q, it doesn't
-work then.  It does work in the GUI.
+		Note: Some terminal connections may eat CTRL-Q, it doesn't
+		work then.  It does work in the GUI.
 
 ### <a id="i_CTRL-SHIFT-V i_CTRL-SHIFT-Q" class="section-title" href="#i_CTRL-SHIFT-V i_CTRL-SHIFT-Q">CTRL-SHIFT-V</a>
 CTRL-SHIFT-Q	Works just like CTRL-V, but do not try to include the CTRL
-modifier into the key.
+		modifier into the key.
 
 CTRL-X		Enter CTRL-X mode.  This is a sub-mode where commands can
-be given to complete words or scroll the window.  See
-[i_CTRL-X| and |ins-completion](#i_CTRL-X| and |ins-completion).
+		be given to complete words or scroll the window.  See
+		[i_CTRL-X| and |ins-completion](#i_CTRL-X| and |ins-completion).
 
 ### <a id="i_CTRL-E" class="section-title" href="#i_CTRL-E">Note:</a>
 CTRL-E		Insert the character which is below the cursor.
 ### <a id="i_CTRL-Y" class="section-title" href="#i_CTRL-Y">Note:</a>
 CTRL-Y		Insert the character which is above the cursor.
-Note that for CTRL-E and CTRL-Y 'textwidth' is not used, to be
-able to copy characters from a long line.
+		Note that for CTRL-E and CTRL-Y 'textwidth' is not used, to be
+		able to copy characters from a long line.
 
 ### <a id="i_CTRL-_" class="section-title" href="#i_CTRL-_">Note:</a>
 CTRL-_		Switch between languages, as follows:
--  When in a rightleft window, revins and nohkmap are toggled,
-since English will likely be inserted in this case.
--  When in a norightleft window, revins and hkmap are toggled,
-since Hebrew will likely be inserted in this case.
+		-  When in a rightleft window, revins and nohkmap are toggled,
+		   since English will likely be inserted in this case.
+		-  When in a norightleft window, revins and hkmap are toggled,
+		   since Hebrew will likely be inserted in this case.
 
-CTRL-_ moves the cursor to the end of the typed text.
+		CTRL-_ moves the cursor to the end of the typed text.
 
-This command is only available when the 'allowrevins' option
-is set.
-Please refer to [rileft.txt](#rileft.txt) for more information about
-right-to-left mode.
+		This command is only available when the 'allowrevins' option
+		is set.
+		Please refer to [rileft.txt](#rileft.txt) for more information about
+		right-to-left mode.
 
 ### <a id="i_CTRL-^" class="section-title" href="#i_CTRL-^">Note:</a>
 CTRL-^		Toggle the use of typing language characters.
-When language [:lmap](#:lmap) mappings are defined:
-- If 'iminsert' is 1 (langmap mappings used) it becomes 0 (no
-langmap mappings used).
-- If 'iminsert' has another value it becomes 1, thus langmap
-mappings are enabled.
-When no language mappings are defined:
-- If 'iminsert' is 2 (Input Method used) it becomes 0 (no
-Input Method used).
-- If 'iminsert' has another value it becomes 2, thus the Input
-Method is enabled.
-When set to 1, the value of the "b:keymap_name" variable, the
-'keymap' option or "<lang>" appears in the status line.
-The language mappings are normally used to type characters
-that are different from what the keyboard produces.  The
-'keymap' option can be used to install a whole number of them.
+		When language [:lmap](#:lmap) mappings are defined:
+		- If 'iminsert' is 1 (langmap mappings used) it becomes 0 (no
+		  langmap mappings used).
+		- If 'iminsert' has another value it becomes 1, thus langmap
+		  mappings are enabled.
+		When no language mappings are defined:
+		- If 'iminsert' is 2 (Input Method used) it becomes 0 (no
+		  Input Method used).
+		- If 'iminsert' has another value it becomes 2, thus the Input
+		  Method is enabled.
+		When set to 1, the value of the "b:keymap_name" variable, the
+		'keymap' option or "<lang>" appears in the status line.
+		The language mappings are normally used to type characters
+		that are different from what the keyboard produces.  The
+		'keymap' option can be used to install a whole number of them.
 
 ### <a id="i_CTRL-]" class="section-title" href="#i_CTRL-]">Note:</a>
 CTRL-]		Trigger abbreviation, without inserting a character.
 
 ### <a id="i_<Insert>" class="section-title" href="#i_<Insert>">Note:</a>
-
-```
 Insert>	Toggle between Insert and Replace mode.
 -----------------------------------------------------------------------
 
@@ -292,7 +273,7 @@ item	    action ~
 indent	    allow backspacing over autoindent
 eol	    allow backspacing over end-of-line (join lines)
 start	    allow backspacing over the start position of insert; CTRL-W and
-CTRL-U stop once at the start position
+	    CTRL-U stop once at the start position
 
 When 'backspace' is empty, Vi compatible backspacing is used.  You cannot
 backspace over autoindent, before column 1 or before where insert started.
@@ -324,13 +305,9 @@ invalid for the mode, the value before it will be used and the "invalid"
 character is dealt with in the normal way.
 
 If you enter a value of 10, it will end up in the file as a 0.  The 10 is a
-
-```
 NL>, which is used internally to represent the <Nul> character.  When writing
 the buffer to a file, the <NL> character is translated into <Nul>.  The <NL>
 character is written at the end of each line.  Thus if you want to insert a
-
-```
 NL> character in a file you will have to make a line break.
 Also see 'fileformat'.
 
@@ -343,11 +320,11 @@ insert mode:
 
 ### <a id="i_CTRL-X_CTRL-E" class="section-title" href="#i_CTRL-X_CTRL-E">Note:</a>
 CTRL-X CTRL-E		scroll window one line up.
-When doing completion look here: [complete_CTRL-E](#complete_CTRL-E)
+			When doing completion look here: [complete_CTRL-E](#complete_CTRL-E)
 
 ### <a id="i_CTRL-X_CTRL-Y" class="section-title" href="#i_CTRL-X_CTRL-Y">Note:</a>
 CTRL-X CTRL-Y		scroll window one line down.
-When doing completion look here: [complete_CTRL-Y](#complete_CTRL-Y)
+			When doing completion look here: [complete_CTRL-Y](#complete_CTRL-Y)
 
 After CTRL-X is pressed, each CTRL-E (CTRL-Y) scrolls the window up (down) by
 one line unless that would cause the cursor to move from its current position
@@ -369,11 +346,7 @@ like an "i" command.
 
 char		action	~
 -----------------------------------------------------------------------
-
-```
 Up>		cursor one line up			     *i_<Up>*
-
-```
 Down>		cursor one line down			     *i_<Down>*
 ### <a id="i_CTRL-G_<Up>" class="section-title" href="#i_CTRL-G_<Up>">CTRL-G <Up>	cursor one line up, insert start column</a>
 ### <a id="i_CTRL-G_k" class="section-title" href="#i_CTRL-G_k">CTRL-G k	cursor one line up, insert start column</a>
@@ -381,55 +354,35 @@ Down>		cursor one line down			     *i_<Down>*
 ### <a id="i_CTRL-G_<Down>" class="section-title" href="#i_CTRL-G_<Down>">CTRL-G <Down>	cursor one line down, insert start column</a>
 ### <a id="i_CTRL-G_j" class="section-title" href="#i_CTRL-G_j">CTRL-G j	cursor one line down, insert start column</a>
 ### <a id="i_CTRL-G_CTRL-J" class="section-title" href="#i_CTRL-G_CTRL-J">CTRL-G CTRL-J	cursor one line down, insert start column</a>
-
-```
 Left>		cursor one character left		     *i_<Left>*
-
-```
 Right>		cursor one character right		     *i_<Right>*
-### <a id="i_<S-Left>" class="section-title" href="#i_<S-Left>"><S-Left>	cursor one word back (like "b" command)</a>
-### <a id="i_<C-Left>" class="section-title" href="#i_<C-Left>"><C-Left>	cursor one word back (like "b" command)</a>
-### <a id="i_<S-Right>" class="section-title" href="#i_<S-Right>"><S-Right>	cursor one word forward (like "w" command)</a>
-### <a id="i_<C-Right>" class="section-title" href="#i_<C-Right>"><C-Right>	cursor one word forward (like "w" command)</a>
-
-```
+### <a id="i_<S-Left>" class="section-title" href="#i_<S-Left>">S-Left>	cursor one word back (like "b" command)</a>
+### <a id="i_<C-Left>" class="section-title" href="#i_<C-Left>">C-Left>	cursor one word back (like "b" command)</a>
+### <a id="i_<S-Right>" class="section-title" href="#i_<S-Right>">S-Right>	cursor one word forward (like "w" command)</a>
+### <a id="i_<C-Right>" class="section-title" href="#i_<C-Right>">C-Right>	cursor one word forward (like "w" command)</a>
 Home>		cursor to first char in the line	     *i_<Home>*
-
-```
 End>		cursor to after last char in the line	     *i_<End>*
-### <a id="i_<C-Home>" class="section-title" href="#i_<C-Home>"><C-Home>	cursor to first char in the file</a>
-
-```
+### <a id="i_<C-Home>" class="section-title" href="#i_<C-Home>">C-Home>	cursor to first char in the file</a>
 C-End>		cursor to after last char in the file	     *i_<C-End>*
-### <a id="i_<LeftMouse>" class="section-title" href="#i_<LeftMouse>"><LeftMouse>	cursor to position of mouse click</a>
-
-```
+### <a id="i_<LeftMouse>" class="section-title" href="#i_<LeftMouse>">LeftMouse>	cursor to position of mouse click</a>
 S-Up>		move window one page up			     *i_<S-Up>*
-### <a id="i_<PageUp>" class="section-title" href="#i_<PageUp>"><PageUp>	move window one page up</a>
-### <a id="i_<S-Down>" class="section-title" href="#i_<S-Down>"><S-Down>	move window one page down</a>
-### <a id="i_<PageDown>" class="section-title" href="#i_<PageDown>"><PageDown>	move window one page down</a>
-### <a id="move window three lines down	i_<ScrollWheelDown>" class="section-title" href="#move window three lines down	i_<ScrollWheelDown>"><ScrollWheelDown></a>
-
-```
+### <a id="i_<PageUp>" class="section-title" href="#i_<PageUp>">PageUp>	move window one page up</a>
+### <a id="i_<S-Down>" class="section-title" href="#i_<S-Down>">S-Down>	move window one page down</a>
+### <a id="i_<PageDown>" class="section-title" href="#i_<PageDown>">PageDown>	move window one page down</a>
+### <a id="move window three lines down	i_<ScrollWheelDown>" class="section-title" href="#move window three lines down	i_<ScrollWheelDown>">ScrollWheelDown></a>
 S-ScrollWheelDown>  move window one page down		*i_<S-ScrollWheelDown>*
-
-```
 ScrollWheelUp>      move window three lines up		*i_<ScrollWheelUp>*
-
-```
 S-ScrollWheelUp>    move window one page up		*i_<S-ScrollWheelUp>*
-### <a id="move window six columns left	i_<ScrollWheelLeft>" class="section-title" href="#move window six columns left	i_<ScrollWheelLeft>"><ScrollWheelLeft></a>
-
-```
+### <a id="move window six columns left	i_<ScrollWheelLeft>" class="section-title" href="#move window six columns left	i_<ScrollWheelLeft>">ScrollWheelLeft></a>
 S-ScrollWheelLeft>  move window one page left		*i_<S-ScrollWheelLeft>*
-### <a id="move window six columns right	i_<ScrollWheelRight>" class="section-title" href="#move window six columns right	i_<ScrollWheelRight>"><ScrollWheelRight></a>
-### <a id="i_<S-ScrollWheelRight>" class="section-title" href="#i_<S-ScrollWheelRight>"><S-ScrollWheelRight> move window one page right</a>
+### <a id="move window six columns right	i_<ScrollWheelRight>" class="section-title" href="#move window six columns right	i_<ScrollWheelRight>">ScrollWheelRight></a>
+### <a id="i_<S-ScrollWheelRight>" class="section-title" href="#i_<S-ScrollWheelRight>">S-ScrollWheelRight> move window one page right</a>
 CTRL-O		execute one command, return to Insert mode   *i_CTRL-O*
 ### <a id="i_CTRL-\_CTRL-O" class="section-title" href="#i_CTRL-\_CTRL-O">CTRL-\ CTRL-O	like CTRL-O but don't move the cursor</a>
 ### <a id="i_CTRL-G_u" class="section-title" href="#i_CTRL-G_u">CTRL-G u	close undo sequence, start new change</a>
 ### <a id="i_CTRL-G_U" class="section-title" href="#i_CTRL-G_U">CTRL-G U	don't start a new undo block with the next</a>
-left/right cursor movement, if the cursor
-stays within the same line
+		left/right cursor movement, if the cursor
+		stays within the same line
 -----------------------------------------------------------------------
 
 The CTRL-O command sometimes has a side effect: If the cursor was beyond the
@@ -454,49 +407,45 @@ ignored.  That is because repeating the effect of the command after CTRL-O is
 too complicated.
 
 An example for using CTRL-G u:
-```
 
-:inoremap <C-H> <C-G>u<C-H>
+	:inoremap <C-H> <C-G>u<C-H>
 
 This redefines the backspace key to start a new undo sequence.  You can now
 undo the effect of the backspace key, without changing what you typed before
 that, with CTRL-O u.  Another example:
-```
 
-:inoremap <CR> <C-]><C-G>u<CR>
+	:inoremap <CR> <C-]><C-G>u<CR>
 
 This starts a new undo block at each line break.  It also expands
 abbreviations before this.
 
 An example for using CTRL-G U:
-```
 
-inoremap <Left>  <C-G>U<Left>
-inoremap <Right> <C-G>U<Right>
-inoremap <expr> <Home> col('.') == match(getline('.'), '\S') + 1 ?
-\ repeat('<C-G>U<Left>', col('.') - 1) :
-\ (col('.') < match(getline('.'), '\S') ?
-\     repeat('<C-G>U<Right>', match(getline('.'), '\S') + 0) :
-\     repeat('<C-G>U<Left>', col('.') - 1 - match(getline('.'), '\S')))
-inoremap <expr> <End> repeat('<C-G>U<Right>', col('$') - col('.'))
-inoremap ( ()<C-G>U<Left>
+	inoremap <Left>  <C-G>U<Left>
+	inoremap <Right> <C-G>U<Right>
+	inoremap <expr> <Home> col('.') == match(getline('.'), '\S') + 1 ?
+	 \ repeat('<C-G>U<Left>', col('.') - 1) :
+	 \ (col('.') < match(getline('.'), '\S') ?
+	 \     repeat('<C-G>U<Right>', match(getline('.'), '\S') + 0) :
+	 \     repeat('<C-G>U<Left>', col('.') - 1 - match(getline('.'), '\S')))
+	inoremap <expr> <End> repeat('<C-G>U<Right>', col('$') - col('.'))
+	inoremap ( ()<C-G>U<Left>
 
 This makes it possible to use the cursor keys in Insert mode, without starting
 a new undo block and therefore using [.](#.) (redo) will work as expected.  Also
 entering a text like (with the "(" mapping from above):
 
-Lorem ipsum (dolor
+   Lorem ipsum (dolor
 
 will be repeatable by using [.](#.) to the expected
 
-Lorem ipsum (dolor)
+   Lorem ipsum (dolor)
 
 
 Using CTRL-O splits undo: the text typed before and after it is undone
 separately.  If you want to avoid this (e.g., in a mapping) you might be able
 to use CTRL-R = [i_CTRL-R](#i_CTRL-R).  E.g., to call a function:
-```
-:imap <F2> <C-R>=MyFunc()<CR>
+	:imap <F2> <C-R>=MyFunc()<CR>
 
 When the 'whichwrap' option is set appropriately, the <Left> and <Right>
 keys on the first/last character in the line make the cursor wrap to the
@@ -504,14 +453,12 @@ previous/next line.
 
 The CTRL-G j and CTRL-G k commands can be used to insert text in front of a
 column.  Example:
-```
-int i;
-int j;
+   int i;
+   int j;
 Position the cursor on the first "int", type "istatic <C-G>j       ".  The
 result is:
-```
-static int i;
-int j;
+   static int i;
+	  int j;
 When inserting the same text in front of the column in every line, use the
 Visual blockwise command "I" [v_b_I](#v_b_I).
 
@@ -543,13 +490,13 @@ Long lines are broken if you enter a non-white character after the margin.
 The situations where a line will be broken can be restricted by adding
 characters to the 'formatoptions' option:
 "l"  Only break a line if it was not longer than 'textwidth' when the insert
-started.
+     started.
 "v"  Only break at a white character that has been entered during the
-current insert command.  This is mostly Vi-compatible.
+     current insert command.  This is mostly Vi-compatible.
 "lv" Only break if the line was not longer than 'textwidth' when the insert
-started and only at a white character that has been entered during the
-current insert command.  Only differs from "l" when entering non-white
-characters while crossing the 'textwidth' boundary.
+     started and only at a white character that has been entered during the
+     current insert command.  Only differs from "l" when entering non-white
+     characters while crossing the 'textwidth' boundary.
 
 Normally an internal function will be used to decide where to break the line.
 If you want to do it in a different way set the 'formatexpr' option to an
@@ -585,8 +532,6 @@ used for ">>" and the like.
 When the 'softtabstop' option is non-zero, a <Tab> inserts 'softtabstop'
 positions, and a <BS> used to delete white space, will delete 'softtabstop'
 positions.  This feels like 'tabstop' was set to 'softtabstop', but a real
-
-```
 Tab> character still takes 'tabstop' positions, so your file will still look
 correct when used by other applications.
 
@@ -634,8 +579,6 @@ characters further on in the file never appear to move.
 
 So if you type a <Tab> it may replace several normal characters, and if you
 type a letter on top of a <Tab> it may not replace anything at all, since the
-
-```
 Tab> will still line up to the same place as before.
 
 Typing a <NL> still doesn't cause characters later in the file to appear to
@@ -723,11 +666,10 @@ will generate an E565 error.
 
 The following mappings are suggested to make typing the completion commands
 a bit easier (although they will hide other commands):
-```
-:inoremap <C-]> <C-X><C-]>
-:inoremap <C-F> <C-X><C-F>
-:inoremap <C-D> <C-X><C-D>
-:inoremap <C-L> <C-X><C-L>
+    :inoremap <C-]> <C-X><C-]>
+    :inoremap <C-F> <C-X><C-F>
+    :inoremap <C-D> <C-X><C-D>
+    :inoremap <C-L> <C-X><C-L>
 
 As a special case, typing CTRL-R to perform register insertion (see
 [i_CTRL-R](#i_CTRL-R)) will not exit CTRL-X mode.  This is primarily to allow the use of
@@ -739,16 +681,15 @@ had been typed.
 For example, the following will map <Tab> to either actually insert a <Tab> if
 the current line is currently only whitespace, or start/continue a CTRL-N
 completion operation:
-```
 
-function! CleverTab()
+	function! CleverTab()
 ### <a id="if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s$'" class="section-title" href="#if strpart( getline('.'), 0, col('.')-1 ) =~ '^\s$'">Note:</a>
-return "\<Tab>"
-else
-return "\<C-N>"
-endif
-endfunction
-inoremap <Tab> <C-R>=CleverTab()<CR>
+	      return "\<Tab>"
+	   else
+	      return "\<C-N>"
+	   endif
+	endfunction
+	inoremap <Tab> <C-R>=CleverTab()<CR>
 
 
 
@@ -756,46 +697,46 @@ inoremap <Tab> <C-R>=CleverTab()<CR>
 
 ### <a id="i_CTRL-X_CTRL-L" class="section-title" href="#i_CTRL-X_CTRL-L">Note:</a>
 CTRL-X CTRL-L		Search backwards for a line that starts with the
-same characters as those in the current line before
-the cursor.  Indent is ignored.  The matching line is
-inserted in front of the cursor.
-The 'complete' option is used to decide which buffers
-are searched for a match.  Both loaded and unloaded
-buffers are used.
-CTRL-L	or
-CTRL-P		Search backwards for next matching line.  This line
-replaces the previous matching line.
+			same characters as those in the current line before
+			the cursor.  Indent is ignored.  The matching line is
+			inserted in front of the cursor.
+			The 'complete' option is used to decide which buffers
+			are searched for a match.  Both loaded and unloaded
+			buffers are used.
+	CTRL-L	or
+	CTRL-P		Search backwards for next matching line.  This line
+			replaces the previous matching line.
 
-CTRL-N		Search forward for next matching line.  This line
-replaces the previous matching line.
+	CTRL-N		Search forward for next matching line.  This line
+			replaces the previous matching line.
 
-CTRL-X CTRL-L	After expanding a line you can additionally get the
-line next to it by typing CTRL-X CTRL-L again, unless
-a double CTRL-X is used.  Only works for loaded
-buffers.
+	CTRL-X CTRL-L	After expanding a line you can additionally get the
+			line next to it by typing CTRL-X CTRL-L again, unless
+			a double CTRL-X is used.  Only works for loaded
+			buffers.
 
 ### <a id="compl-current" class="section-title" href="#compl-current">Completing keywords in current file</a>
 
 ### <a id="i_CTRL-X_CTRL-P" class="section-title" href="#i_CTRL-X_CTRL-P">Note:</a>
 ### <a id="i_CTRL-X_CTRL-N" class="section-title" href="#i_CTRL-X_CTRL-N">Note:</a>
 CTRL-X CTRL-N		Search forwards for words that start with the keyword
-in front of the cursor.  The found keyword is inserted
-in front of the cursor.
+			in front of the cursor.  The found keyword is inserted
+			in front of the cursor.
 
 CTRL-X CTRL-P		Search backwards for words that start with the keyword
-in front of the cursor.  The found keyword is inserted
-in front of the cursor.
+			in front of the cursor.  The found keyword is inserted
+			in front of the cursor.
 
-CTRL-N		Search forward for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-N		Search forward for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-P		Search backwards for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-P		Search backwards for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-X CTRL-N or
-CTRL-X CTRL-P	Further use of CTRL-X CTRL-N or CTRL-X CTRL-P will
-copy the words following the previous expansion in
-other contexts unless a double CTRL-X is used.
+	CTRL-X CTRL-N or
+	CTRL-X CTRL-P	Further use of CTRL-X CTRL-N or CTRL-X CTRL-P will
+			copy the words following the previous expansion in
+			other contexts unless a double CTRL-X is used.
 
 If there is a keyword in front of the cursor (a name made out of alphabetic
 characters and characters in 'iskeyword'), it is used as the search pattern,
@@ -808,10 +749,10 @@ matched string in Replace mode.
 
 If there is not a valid keyword character before the cursor, any keyword of
 at least two characters is matched.
-e.g., to get:
-printf("(%g, %g, %g)", vector[0], vector[1], vector[2]);
-just type:
-printf("(%g, %g, %g)", vector[0], ^P[1], ^P[2]);
+	e.g., to get:
+	    printf("(%g, %g, %g)", vector[0], vector[1], vector[2]);
+	just type:
+	    printf("(%g, %g, %g)", vector[0], ^P[1], ^P[2]);
 
 The search wraps around the end of the file, the value of 'wrapscan' is not
 used here.
@@ -822,12 +763,12 @@ matching keyword).
 
 Single character matches are never included, as they usually just get in
 the way of what you were really after.
-e.g., to get:
-printf("name = %s\n", name);
-just type:
-printf("name = %s\n", n^P);
-or even:
-printf("name = %s\n", ^P);
+	e.g., to get:
+		printf("name = %s\n", name);
+	just type:
+		printf("name = %s\n", n^P);
+	or even:
+		printf("name = %s\n", ^P);
 The 'n' in '\n' is skipped.
 
 After expanding a word, you can use CTRL-X CTRL-P or CTRL-X CTRL-N to get the
@@ -836,10 +777,10 @@ the text just expanded and further expand by getting an extra word.  This is
 useful if you need to repeat a sequence of complicated words.  Although CTRL-P
 and CTRL-N look just for strings of at least two characters, CTRL-X CTRL-P and
 CTRL-X CTRL-N can be used to expand words of just one character.
-e.g., to get:
-M&eacute;xico
-you can type:
-M^N^P^X^P^X^P
+	e.g., to get:
+		M&eacute;xico
+	you can type:
+		M^N^P^X^P^X^P
 CTRL-N starts the expansion and then CTRL-P takes back the single character
 "M", the next two CTRL-X CTRL-P's get the words "&eacute" and ";xico".
 
@@ -856,49 +797,48 @@ for those lines starting with this word.
 
 ### <a id="i_CTRL-X_CTRL-K" class="section-title" href="#i_CTRL-X_CTRL-K">Note:</a>
 CTRL-X CTRL-K		Search the files given with the 'dictionary' option
-for words that start with the keyword in front of the
-cursor.  This is like CTRL-N, but only the dictionary
-files are searched, not the current file.  The found
-keyword is inserted in front of the cursor.  This
-could potentially be pretty slow, since all matches
-are found before the first match is used.  By default,
-the 'dictionary' option is empty.
-For suggestions where to find a list of words, see the
-'dictionary' option.
-'ignorecase', 'smartcase' and 'infercase' apply.
+			for words that start with the keyword in front of the
+			cursor.  This is like CTRL-N, but only the dictionary
+			files are searched, not the current file.  The found
+			keyword is inserted in front of the cursor.  This
+			could potentially be pretty slow, since all matches
+			are found before the first match is used.  By default,
+			the 'dictionary' option is empty.
+			For suggestions where to find a list of words, see the
+			'dictionary' option.
+			'ignorecase', 'smartcase' and 'infercase' apply.
 
-CTRL-K	or
-CTRL-N		Search forward for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-K	or
+	CTRL-N		Search forward for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-P		Search backwards for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-P		Search backwards for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
 
 ### <a id="compl-thesaurus" class="section-title" href="#compl-thesaurus">Completing words in 'thesaurus'</a>
 
 ### <a id="i_CTRL-X_CTRL-T" class="section-title" href="#i_CTRL-X_CTRL-T">Note:</a>
 CTRL-X CTRL-T		Works as CTRL-X CTRL-K, but in a special way.  It uses
-the 'thesaurus' option instead of 'dictionary'.  If a
-match is found in the thesaurus file, all the
-remaining words on the same line are included as
-matches, even though they don't complete the word.
-Thus a word can be completely replaced.
+			the 'thesaurus' option instead of 'dictionary'.  If a
+			match is found in the thesaurus file, all the
+			remaining words on the same line are included as
+			matches, even though they don't complete the word.
+			Thus a word can be completely replaced.
 
-CTRL-T	or
-CTRL-N		Search forward for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-T	or
+	CTRL-N		Search forward for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-P		Search backwards for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-P		Search backwards for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
 In the file used by the 'thesaurus' option each line in the file should
 contain words with similar meaning, separated by non-keyword characters (white
 space is preferred).  Maximum line length is 510 bytes.
 
 For an example, imagine the 'thesaurus' file has a line like this:
-```
-angry furious mad enraged
+	angry furious mad enraged
 Placing the cursor after the letters "ang" and typing CTRL-X CTRL-T would
 complete the word "angry"; subsequent presses would change the word to
 "furious", "mad" etc.
@@ -921,31 +861,30 @@ invoked and what it should return.
 
 Here is an example that uses the "aiksaurus" command (provided by Magnus
 Groß):
-```
 
-func Thesaur(findstart, base)
-if a:findstart
-let line = getline('.')
-let start = col('.') - 1
-while start > 0 && line[start - 1] =~ '\a'
-let start -= 1
-endwhile
-return start
-else
-let res = []
-let h = ''
-for l in split(system('aiksaurus ' .. shellescape(a:base)), '\n')
-if l[:3] == '=== '
+	func Thesaur(findstart, base)
+	    if a:findstart
+		let line = getline('.')
+		let start = col('.') - 1
+		while start > 0 && line[start - 1] =~ '\a'
+		   let start -= 1
+		endwhile
+		return start
+	    else
+		let res = []
+		let h = ''
+		for l in split(system('aiksaurus ' .. shellescape(a:base)), '\n')
+		    if l[:3] == '=== '
 ### <a id="let h = substitute(l[4:], ' =$', '', '')" class="section-title" href="#let h = substitute(l[4:], ' =$', '', '')">Note:</a>
-elseif l[0] =~ '\a'
-call extend(res, map(split(l, ', '), {_, val -> {'word': val, 'menu': '('.h.')'}}))
-endif
-endfor
-return res
-endif
-endfunc
+		    elseif l[0] =~ '\a'
+			call extend(res, map(split(l, ', '), {_, val -> {'word': val, 'menu': '('.h.')'}}))
+		    endif
+		endfor
+		return res
+	    endif
+	endfunc
 
-set thesaurusfunc=Thesaur
+	set thesaurusfunc=Thesaur
 
 
 Completing keywords in the current and included files	*compl-keyword*
@@ -955,57 +894,57 @@ name.  The 'path' option is used to search for include files.
 
 ### <a id="i_CTRL-X_CTRL-I" class="section-title" href="#i_CTRL-X_CTRL-I">Note:</a>
 CTRL-X CTRL-I		Search for the first keyword in the current and
-included files that starts with the same characters
-as those before the cursor.  The matched keyword is
-inserted in front of the cursor.
+			included files that starts with the same characters
+			as those before the cursor.  The matched keyword is
+			inserted in front of the cursor.
 
-CTRL-N		Search forwards for next matching keyword.  This
-keyword replaces the previous matching keyword.
-Note: CTRL-I is the same as <Tab>, which is likely to
-be typed after a successful completion, therefore
-CTRL-I is not used for searching for the next match.
+	CTRL-N		Search forwards for next matching keyword.  This
+			keyword replaces the previous matching keyword.
+			Note: CTRL-I is the same as <Tab>, which is likely to
+			be typed after a successful completion, therefore
+			CTRL-I is not used for searching for the next match.
 
-CTRL-P		Search backward for previous matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-P		Search backward for previous matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-X CTRL-I	Further use of CTRL-X CTRL-I will copy the words
-following the previous expansion in other contexts
-unless a double CTRL-X is used.
+	CTRL-X CTRL-I	Further use of CTRL-X CTRL-I will copy the words
+			following the previous expansion in other contexts
+			unless a double CTRL-X is used.
 
 ### <a id="compl-tag" class="section-title" href="#compl-tag">Completing tags</a>
 ### <a id="i_CTRL-X_CTRL-]" class="section-title" href="#i_CTRL-X_CTRL-]">Note:</a>
 CTRL-X CTRL-]		Search for the first tag that starts with the same
-characters as before the cursor.  The matching tag is
-inserted in front of the cursor.  Alphabetic
-characters and characters in 'iskeyword' are used
-to decide which characters are included in the tag
-name (same as for a keyword).  See also [CTRL-]](#CTRL-]).
-The 'showfulltag' option can be used to add context
-from around the tag definition.
-CTRL-]	or
-CTRL-N		Search forwards for next matching tag.  This tag
-replaces the previous matching tag.
+			characters as before the cursor.  The matching tag is
+			inserted in front of the cursor.  Alphabetic
+			characters and characters in 'iskeyword' are used
+			to decide which characters are included in the tag
+			name (same as for a keyword).  See also [CTRL-]](#CTRL-]).
+			The 'showfulltag' option can be used to add context
+			from around the tag definition.
+	CTRL-]	or
+	CTRL-N		Search forwards for next matching tag.  This tag
+			replaces the previous matching tag.
 
-CTRL-P		Search backward for previous matching tag.  This tag
-replaces the previous matching tag.
+	CTRL-P		Search backward for previous matching tag.  This tag
+			replaces the previous matching tag.
 
 
 ### <a id="compl-filename" class="section-title" href="#compl-filename">Completing file names</a>
 ### <a id="i_CTRL-X_CTRL-F" class="section-title" href="#i_CTRL-X_CTRL-F">Note:</a>
 CTRL-X CTRL-F		Search for the first file name that starts with the
-same characters as before the cursor.  The matching
-file name is inserted in front of the cursor.
-Alphabetic characters and characters in 'isfname'
-are used to decide which characters are included in
-the file name.  Note: the 'path' option is not used
-here (yet).
-CTRL-F	or
-CTRL-N		Search forwards for next matching file name.  This
-file name replaces the previous matching file name.
+			same characters as before the cursor.  The matching
+			file name is inserted in front of the cursor.
+			Alphabetic characters and characters in 'isfname'
+			are used to decide which characters are included in
+			the file name.  Note: the 'path' option is not used
+			here (yet).
+	CTRL-F	or
+	CTRL-N		Search forwards for next matching file name.  This
+			file name replaces the previous matching file name.
 
-CTRL-P		Search backward for previous matching file name.
-This file name replaces the previous matching file
-name.
+	CTRL-P		Search backward for previous matching file name.
+			This file name replaces the previous matching file
+			name.
 
 
 ### <a id="compl-define" class="section-title" href="#compl-define">Completing definitions or macros</a>
@@ -1016,21 +955,21 @@ name.  The 'path' option is used to search for include files.
 
 ### <a id="i_CTRL-X_CTRL-D" class="section-title" href="#i_CTRL-X_CTRL-D">Note:</a>
 CTRL-X CTRL-D		Search in the current and included files for the
-first definition (or macro) name that starts with
-the same characters as before the cursor.  The found
-definition name is inserted in front of the cursor.
-CTRL-D	or
-CTRL-N		Search forwards for next matching macro name.  This
-macro name replaces the previous matching macro
-name.
+			first definition (or macro) name that starts with
+			the same characters as before the cursor.  The found
+			definition name is inserted in front of the cursor.
+	CTRL-D	or
+	CTRL-N		Search forwards for next matching macro name.  This
+			macro name replaces the previous matching macro
+			name.
 
-CTRL-P		Search backward for previous matching macro name.
-This macro name replaces the previous matching macro
-name.
+	CTRL-P		Search backward for previous matching macro name.
+			This macro name replaces the previous matching macro
+			name.
 
-CTRL-X CTRL-D	Further use of CTRL-X CTRL-D will copy the words
-following the previous expansion in other contexts
-unless a double CTRL-X is used.
+	CTRL-X CTRL-D	Further use of CTRL-X CTRL-D will copy the words
+			following the previous expansion in other contexts
+			unless a double CTRL-X is used.
 
 
 ### <a id="compl-vim" class="section-title" href="#compl-vim">Completing Vim commands</a>
@@ -1041,21 +980,20 @@ a Vim script.
 
 ### <a id="i_CTRL-X_CTRL-V" class="section-title" href="#i_CTRL-X_CTRL-V">Note:</a>
 CTRL-X CTRL-V		Guess what kind of item is in front of the cursor and
-find the first match for it.
-Note: When CTRL-V is mapped you can often use CTRL-Q
-instead of [i_CTRL-Q](#i_CTRL-Q).
-CTRL-V	or
-CTRL-N		Search forwards for next match.  This match replaces
-the previous one.
+			find the first match for it.
+			Note: When CTRL-V is mapped you can often use CTRL-Q
+			instead of [i_CTRL-Q](#i_CTRL-Q).
+	CTRL-V	or
+	CTRL-N		Search forwards for next match.  This match replaces
+			the previous one.
 
-CTRL-P		Search backwards for previous match.  This match
-replaces the previous one.
+	CTRL-P		Search backwards for previous match.  This match
+			replaces the previous one.
 
-CTRL-X CTRL-V	Further use of CTRL-X CTRL-V will do the same as
-CTRL-V.  This allows mapping a key to do Vim command
-completion, for example:
-```
-:imap <Tab> <C-X><C-V>
+	CTRL-X CTRL-V	Further use of CTRL-X CTRL-V will do the same as
+			CTRL-V.  This allows mapping a key to do Vim command
+			completion, for example:
+				:imap <Tab> <C-X><C-V>
 
 ### <a id="compl-function" class="section-title" href="#compl-function">User defined completion</a>
 
@@ -1065,13 +1003,13 @@ example [complete-functions](#complete-functions).
 
 ### <a id="i_CTRL-X_CTRL-U" class="section-title" href="#i_CTRL-X_CTRL-U">Note:</a>
 CTRL-X CTRL-U		Guess what kind of item is in front of the cursor and
-find the first match for it.
-CTRL-U	or
-CTRL-N		Use the next match.  This match replaces the previous
-one.
+			find the first match for it.
+	CTRL-U	or
+	CTRL-N		Use the next match.  This match replaces the previous
+			one.
 
-CTRL-P		Use the previous match.  This match replaces the
-previous one.
+	CTRL-P		Use the previous match.  This match replaces the
+			previous one.
 
 
 ### <a id="compl-omni" class="section-title" href="#compl-omni">Omni completion</a>
@@ -1086,13 +1024,13 @@ first version for C++.
 
 ### <a id="i_CTRL-X_CTRL-O" class="section-title" href="#i_CTRL-X_CTRL-O">Note:</a>
 CTRL-X CTRL-O		Guess what kind of item is in front of the cursor and
-find the first match for it.
-CTRL-O	or
-CTRL-N		Use the next match.  This match replaces the previous
-one.
+			find the first match for it.
+	CTRL-O	or
+	CTRL-N		Use the next match.  This match replaces the previous
+			one.
 
-CTRL-P		Use the previous match.  This match replaces the
-previous one.
+	CTRL-P		Use the previous match.  This match replaces the
+			previous one.
 
 
 ### <a id="compl-spelling" class="section-title" href="#compl-spelling">Spelling suggestions</a>
@@ -1108,39 +1046,39 @@ CTRL-Q to resume displaying.
 ### <a id="i_CTRL-X_CTRL-S i_CTRL-X_s" class="section-title" href="#i_CTRL-X_CTRL-S i_CTRL-X_s">Note:</a>
 CTRL-X CTRL-S   or
 CTRL-X s		Locate the word in front of the cursor and find the
-first spell suggestion for it.
-CTRL-S	or
-CTRL-N		Use the next suggestion.  This replaces the previous
-one.  Note that you can't use 's' here.
+			first spell suggestion for it.
+	CTRL-S	or
+	CTRL-N		Use the next suggestion.  This replaces the previous
+			one.  Note that you can't use 's' here.
 
-CTRL-P		Use the previous suggestion.  This replaces the
-previous one.
+	CTRL-P		Use the previous suggestion.  This replaces the
+			previous one.
 
 
 ### <a id="compl-generic" class="section-title" href="#compl-generic">Completing keywords from different sources</a>
 
 ### <a id="i_CTRL-N" class="section-title" href="#i_CTRL-N">Note:</a>
 CTRL-N			Find next match for words that start with the
-keyword in front of the cursor, looking in places
-specified with the 'complete' option.  The found
-keyword is inserted in front of the cursor.
+			keyword in front of the cursor, looking in places
+			specified with the 'complete' option.  The found
+			keyword is inserted in front of the cursor.
 
 ### <a id="i_CTRL-P" class="section-title" href="#i_CTRL-P">Note:</a>
 CTRL-P			Find previous match for words that start with the
-keyword in front of the cursor, looking in places
-specified with the 'complete' option.  The found
-keyword is inserted in front of the cursor.
+			keyword in front of the cursor, looking in places
+			specified with the 'complete' option.  The found
+			keyword is inserted in front of the cursor.
 
-CTRL-N		Search forward for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-N		Search forward for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-P		Search backwards for next matching keyword.  This
-keyword replaces the previous matching keyword.
+	CTRL-P		Search backwards for next matching keyword.  This
+			keyword replaces the previous matching keyword.
 
-CTRL-X CTRL-N or
-CTRL-X CTRL-P	Further use of CTRL-X CTRL-N or CTRL-X CTRL-P will
-copy the words following the previous expansion in
-other contexts unless a double CTRL-X is used.
+	CTRL-X CTRL-N or
+	CTRL-X CTRL-P	Further use of CTRL-X CTRL-N or CTRL-X CTRL-P will
+			copy the words following the previous expansion in
+			other contexts unless a double CTRL-X is used.
 
 
 ### <a id="compl-stop" class="section-title" href="#compl-stop">Stop completion</a>
@@ -1158,8 +1096,8 @@ The function is called in two different ways:
 - Later the function is called to actually find the matches.
 
 On the first invocation the arguments are:
-a:findstart  1
-a:base	empty
+   a:findstart  1
+   a:base	empty
 
 The function must return the column where the completion starts.  It must be a
 number between zero and the cursor column "col('.')".  This involves looking
@@ -1169,14 +1107,14 @@ cursor column will be replaced with the matches.  If the returned value is
 larger than the cursor column, the cursor column is used.
 
 Negative return values:
--2 	To cancel silently and stay in completion mode.
--3 	To cancel silently and leave completion mode.
-Another negative value: completion starts at the cursor column
+   -2 	To cancel silently and stay in completion mode.
+   -3 	To cancel silently and leave completion mode.
+   Another negative value: completion starts at the cursor column
 
 On the second invocation the arguments are:
-a:findstart  0
-a:base	the text with which matches should match; the text that was
-located in the first call (can be empty)
+   a:findstart  0
+   a:base	the text with which matches should match; the text that was
+		located in the first call (can be empty)
 
 The function must return a List with the matching words.  These matches
 usually include the "a:base" text.  When there are no matches return an empty
@@ -1185,49 +1123,47 @@ text may have been changed.
 
 In order to return more information than the matching words, return a Dict
 that contains the List.  The Dict can have these items:
-words		The List of matching words (mandatory).
-refresh		A string to control re-invocation of the function
-(optional).
-The only value currently recognized is "always", the
-effect is that the function is called whenever the
-leading text is changed.
+	words		The List of matching words (mandatory).
+	refresh		A string to control re-invocation of the function
+			(optional).
+			The only value currently recognized is "always", the
+			effect is that the function is called whenever the
+			leading text is changed.
 Other items are ignored.
 
 For acting upon end of completion, see the [CompleteDonePre](#CompleteDonePre) and
 [CompleteDone](#CompleteDone) autocommand event.
 
 For example, the function can contain this:
-```
-let matches = ... list of words ...
-return {'words': matches, 'refresh': 'always'}
-
+	let matches = ... list of words ...
+	return {'words': matches, 'refresh': 'always'}
 ```
 
 ### <a id="complete-items" class="section-title" href="#complete-items">Note:</a>
 Each list item can either be a string or a Dictionary.  When it is a string it
 is used as the completion.  When it is a Dictionary it can contain these
 items:
-word		the text that will be inserted, mandatory
-abbr		abbreviation of "word"; when not empty it is used in
-the menu instead of "word"
-menu		extra text for the popup menu, displayed after "word"
-or "abbr"
-info		more information about the item, can be displayed in a
-preview window
-kind		single letter indicating the type of completion
-icase		when non-zero case is to be ignored when comparing
-items to be equal; when omitted zero is used, thus
-items that only differ in case are added
-equal		when non-zero, always treat this item to be equal when
-comparing. Which means, "equal=1" disables filtering
-of this item.
-dup		when non-zero this match will be added even when an
-item with the same word is already present.
-empty		when non-zero this match will be added even when it is
-an empty string
-user_data 	custom data which is associated with the item and
-available in [v:completed_item](#v:completed_item); it can be any type;
-defaults to an empty string
+	word		the text that will be inserted, mandatory
+	abbr		abbreviation of "word"; when not empty it is used in
+			the menu instead of "word"
+	menu		extra text for the popup menu, displayed after "word"
+			or "abbr"
+	info		more information about the item, can be displayed in a
+			preview window
+	kind		single letter indicating the type of completion
+	icase		when non-zero case is to be ignored when comparing
+			items to be equal; when omitted zero is used, thus
+			items that only differ in case are added
+	equal		when non-zero, always treat this item to be equal when
+			comparing. Which means, "equal=1" disables filtering
+			of this item.
+	dup		when non-zero this match will be added even when an
+			item with the same word is already present.
+	empty		when non-zero this match will be added even when it is
+			an empty string
+	user_data 	custom data which is associated with the item and
+			available in [v:completed_item](#v:completed_item); it can be any type;
+			defaults to an empty string
 
 All of these except "icase", "equal", "dup" and "empty" must be a string.  If
 an item does not meet these requirements then an error message is given and
@@ -1245,11 +1181,11 @@ lines, but 'previewheight' is used when it has a value of 1 or 2.
 The "kind" item uses a single letter to indicate the kind of completion.  This
 may be used to show the completion differently (different color or icon).
 Currently these types can be used:
-v	variable
-f	function or method
-m	member of a struct or class
-t	typedef
-d	#define or macro
+	v	variable
+	f	function or method
+	m	member of a struct or class
+	t	typedef
+	d	#define or macro
 
 When searching for matches takes some time call [complete_add()](#complete_add()) to add each
 match to the total list.  These matches should then not appear in the returned
@@ -1260,59 +1196,55 @@ while still searching for matches.  Stop searching when it returns non-zero.
 The function is allowed to move the cursor, it is restored afterwards.
 The function is not allowed to move to another window or delete text.
 
-An example that completes the names of the months:
-```
-fun! CompleteMonths(findstart, base)
-if a:findstart
-" locate the start of the word
-let line = getline('.')
-let start = col('.') - 1
-while start > 0 && line[start - 1] =~ '\a'
-let start -= 1
-endwhile
-return start
-else
-" find months matching with "a:base"
-let res = []
-for m in split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec")
-if m =~ '^' .. a:base
-call add(res, m)
-endif
-endfor
-return res
-endif
-endfun
-set completefunc=CompleteMonths
-
+An example that completes the names of the months: 
+```	fun! CompleteMonths(findstart, base)
+	  if a:findstart
+	    " locate the start of the word
+	    let line = getline('.')
+	    let start = col('.') - 1
+	    while start > 0 && line[start - 1] =~ '\a'
+	      let start -= 1
+	    endwhile
+	    return start
+	  else
+	    " find months matching with "a:base"
+	    let res = []
+	    for m in split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec")
+	      if m =~ '^' .. a:base
+		call add(res, m)
+	      endif
+	    endfor
+	    return res
+	  endif
+	endfun
+	set completefunc=CompleteMonths
 ```
 
-The same, but now pretending searching for matches is slow:
-```
-fun! CompleteMonths(findstart, base)
-if a:findstart
-" locate the start of the word
-let line = getline('.')
-let start = col('.') - 1
-while start > 0 && line[start - 1] =~ '\a'
-let start -= 1
-endwhile
-return start
-else
-" find months matching with "a:base"
-for m in split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec")
-if m =~ '^' .. a:base
-call complete_add(m)
-endif
-sleep 300m	" simulate searching for next match
-if complete_check()
-break
-endif
-endfor
-return []
-endif
-endfun
-set completefunc=CompleteMonths
-
+The same, but now pretending searching for matches is slow: 
+```	fun! CompleteMonths(findstart, base)
+	  if a:findstart
+	    " locate the start of the word
+	    let line = getline('.')
+	    let start = col('.') - 1
+	    while start > 0 && line[start - 1] =~ '\a'
+	      let start -= 1
+	    endwhile
+	    return start
+	  else
+	    " find months matching with "a:base"
+	    for m in split("Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec")
+	      if m =~ '^' .. a:base
+		call complete_add(m)
+	      endif
+	      sleep 300m	" simulate searching for next match
+	      if complete_check()
+		break
+	      endif
+	    endfor
+	    return []
+	  endif
+	endfun
+	set completefunc=CompleteMonths
 ```
 
 
@@ -1333,10 +1265,10 @@ characters.
 There are three states:
 1. A complete match has been inserted, e.g., after using CTRL-N or CTRL-P.
 2. A cursor key has been used to select another match.  The match was not
-inserted then, only the entry in the popup menu is highlighted.
+   inserted then, only the entry in the popup menu is highlighted.
 3. Only part of a match has been inserted and characters were typed or the
-backspace key was used.  The list of matches was then adjusted for what is
-in front of the cursor.
+   backspace key was used.  The list of matches was then adjusted for what is
+   in front of the cursor.
 
 You normally start in the first state, with the first match being inserted.
 When "longest" is in 'completeopt' and there is more than one match you start
@@ -1347,55 +1279,39 @@ state.  This doesn't change the list of matches.
 
 When you are back at the original text then you are in the third state.  To
 get there right away you can use a mapping that uses CTRL-P right after
-starting the completion:
-```
-:imap <F7> <C-N><C-P>
-
+starting the completion: 
+```	:imap <F7> <C-N><C-P>
 ```
 
 ### <a id="popupmenu-keys" class="section-title" href="#popupmenu-keys">Note:</a>
 In the first state these keys have a special meaning:
-
-```
 BS> and CTRL-H   Delete one character, find the matches for the word before
-the cursor.  This reduces the list of matches, often to one
-entry, and switches to the second state.
+		  the cursor.  This reduces the list of matches, often to one
+		  entry, and switches to the second state.
 Any non-special character:
-Stop completion without changing the match and insert the
-typed character.
+		  Stop completion without changing the match and insert the
+		  typed character.
 
 In the second and third state these keys have a special meaning:
-
-```
 BS> and CTRL-H   Delete one character, find the matches for the shorter word
-before the cursor.  This may find more matches.
+		  before the cursor.  This may find more matches.
 CTRL-L		  Add one character from the current match, may reduce the
-number of matches.
+		  number of matches.
 any printable, non-white character:
-Add this character and reduce the number of matches.
+		  Add this character and reduce the number of matches.
 
 In all three states these can be used:
 CTRL-Y		  Yes: Accept the currently selected match and stop completion.
 CTRL-E		  End completion, go back to what was there before selecting a
-match (what was typed or longest common string).
-
-```
+		  match (what was typed or longest common string).
 PageUp>	  Select a match several entries back, but don't insert it.
-
-```
 PageDown>	  Select a match several entries further, but don't insert it.
-
-```
 Up>		  Select the previous match, as if CTRL-P was used, but don't
-insert it.
-
-```
+		  insert it.
 Down>		  Select the next match, as if CTRL-N was used, but don't
-insert it.
-
-```
+		  insert it.
 Space> or <Tab>  Stop completion without changing the match and insert the
-typed character.
+		  typed character.
 
 The behavior of the <Enter> key depends on the state you are in:
 first state:	  Use the text as it is and insert a line break.
@@ -1415,20 +1331,18 @@ PmenuThumb	thumb of the scrollbar  [hl-PmenuThumb](#hl-PmenuThumb)
 
 There are no special mappings for when the popup menu is visible.  However,
 you can use an Insert mode mapping that checks the [pumvisible()](#pumvisible()) function to
-do something different.  Example:
-```
-:inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>Down>"<CR>
+do something different.  Example: 
+```	:inoremap <Down> <C-R>=pumvisible() ? "\<lt>C-N>" : "\<lt>Down>"<CR>
 
 You can use of <expr> in mapping to have the popup menu used when typing a
 character and some condition is met.  For example, for typing a dot:
-```
-inoremap <expr> . MayComplete()
-func MayComplete()
-if (can complete)
-return ".\<C-X>\<C-O>"
-endif
-return '.'
-endfunc
+	inoremap <expr> . MayComplete()
+	func MayComplete()
+	    if (can complete)
+	      return ".\<C-X>\<C-O>"
+	    endif
+	    return '.'
+	endfunc
 
 See [:map-<expr>](#:map-<expr>) for more info.
 
@@ -1444,17 +1358,15 @@ in 'runtimepath'.  Thus for "java" it is autoload/javacomplete.vim.
 Completion of C code requires a tags file.  You should use Universal/
 Exuberant ctags, because it adds extra information that is needed for
 completion.  You can find it here:
-Universal Ctags: https://ctags.io
+	Universal Ctags: https://ctags.io
 
 Universal Ctags is preferred, Exuberant Ctags is no longer maintained.
 
 If you want to complete system functions you can do something like this.  Use
 ctags to generate a tags file for all the system header files:
-```
-% ctags -R -f ~/.config/nvim/systags /usr/include /usr/local/include
+	% ctags -R -f ~/.config/nvim/systags /usr/include /usr/local/include
 In your vimrc file add this tags file to the 'tags' option:
-```
-set tags+=~/.config/nvim/systags
+	set tags+=~/.config/nvim/systags
 
 When using CTRL-X CTRL-O after a name without any "." or "->" it is completed
 from the tags file directly.  This works for any identifier, also function
@@ -1488,19 +1400,17 @@ designed to support writing of XHTML 1.0 Strict files but will also work for
 other versions of HTML. Features:
 
 - after "<" complete tag name depending on context (no div suggestion inside
-of an a tag); '/>' indicates empty tags
+  of an a tag); '/>' indicates empty tags
 - inside of tag complete proper attributes (no width attribute for an a tag);
 ### <a id="show also type of attribute; '' indicates required attributes" class="section-title" href="#show also type of attribute; '' indicates required attributes">Note:</a>
 - when attribute has limited number of possible values help to complete them
 - complete names of entities
 - complete values of "class" and "id" attributes with data obtained from
-
-```
-style> tag and included CSS files
+  <style> tag and included CSS files
 - when completing value of "style" attribute or working inside of "style" tag
-switch to [ft-css-omni](#ft-css-omni) completion
+  switch to [ft-css-omni](#ft-css-omni) completion
 - when completing values of events attributes or working inside of "script"
-tag switch to [ft-javascript-omni](#ft-javascript-omni) completion
+  tag switch to [ft-javascript-omni](#ft-javascript-omni) completion
 - when used after "</" CTRL-X CTRL-O will close the last opened tag
 
 Note: When used first time completion menu will be shown with little delay
@@ -1542,8 +1452,6 @@ Complete:
 - keywords of language
 
 Completion works in separate JavaScript files (&ft==javascript), inside of
-
-```
 script> tag of (X)HTML and in values of event attributes (including scanning
 of external files).
 
@@ -1554,11 +1462,11 @@ Explorer and Mozilla Firefox. These two applications are covering over 90% of
 market. Theoretically standards are created by W3C organisation
 (https://www.w3.org/) but they are not always followed/implemented.
 
-IE	FF	W3C  Omni completion ~
-+/-	+/-	+    +		     ~
-+	+	-    +		     ~
-+	-	-    -		     ~
--	+	-    -		     ~
+		IE	FF	W3C  Omni completion ~
+		+/-	+/-	+    +		     ~
+		+	+	-    +		     ~
+		+	-	-    -		     ~
+		-	+	-    -		     ~
 
 Regardless from state of implementation in browsers but if element is defined
 in standards, completion plugin will place element in suggestion list. When
@@ -1572,30 +1480,28 @@ Completion of PHP code requires a tags file for completion of data from
 external files and for class aware completion. You should use Universal/
 Exuberant ctags version 5.5.4 or newer. You can find it here:
 
-Universal Ctags: https://ctags.io
+	Universal Ctags: https://ctags.io
 
 Script completes:
 
 - after $ variables name
-- if variable was declared as object add "->", if tags file is available show
-name of class
-- after "->" complete only function and variable names specific for given
-class. To find class location and contents tags file is required. Because
-PHP isn't strongly typed language user can use @var tag to declare class:
+  - if variable was declared as object add "->", if tags file is available show
+    name of class
+  - after "->" complete only function and variable names specific for given
+    class. To find class location and contents tags file is required. Because
+    PHP isn't strongly typed language user can use @var tag to declare class:
+
+	/* @var $myVar myClass */
+	$myVar->
 ```
 
-/* @var $myVar myClass */
-$myVar->
-
-```
-
-Still, to find myClass contents tags file is required.
+    Still, to find myClass contents tags file is required.
 
 - function names with additional info:
-- in case of built-in functions list of possible arguments and after | type
-data returned by function
-- in case of user function arguments and name of file where function was
-defined (if it is not current file)
+  - in case of built-in functions list of possible arguments and after | type
+    data returned by function
+  - in case of user function arguments and name of file where function was
+    defined (if it is not current file)
 
 - constants names
 - class names after "new" declaration
@@ -1620,42 +1526,33 @@ and modules defined in the current buffer.
 
 The completions provided by CTRL-X CTRL-O are sensitive to the context:
 
-CONTEXT			   COMPLETIONS PROVIDED ~
+	  CONTEXT			   COMPLETIONS PROVIDED ~
 
-1. Not inside a class definition    Classes, constants and globals
+ 1. Not inside a class definition    Classes, constants and globals
 
-2. Inside a class definition	     Methods or constants defined in the class
+ 2. Inside a class definition	     Methods or constants defined in the class
 
-3. After '.', '::' or ':'	     Methods applicable to the object being
-dereferenced
+ 3. After '.', '::' or ':'	     Methods applicable to the object being
+				       dereferenced
 
-4. After ':' or ':foo'		     Symbol name (beginning with "foo")
+ 4. After ':' or ':foo'		     Symbol name (beginning with "foo")
 
 Notes:
-- Vim will load/evaluate code in order to provide completions.  This may
-cause some code execution, which may be a concern. This is no longer
-enabled by default, to enable this feature add
-```
-let g:rubycomplete_buffer_loading = 1
-
-```
+ - Vim will load/evaluate code in order to provide completions.  This may
+   cause some code execution, which may be a concern. This is no longer
+   enabled by default, to enable this feature add 
+```     let g:rubycomplete_buffer_loading = 1
 - In context 1 above, Vim can parse the entire buffer to add a list of
-classes to the completion results. This feature is turned off by default,
-to enable it add
-```
-let g:rubycomplete_classes_in_global = 1
-
-```
+   classes to the completion results. This feature is turned off by default,
+   to enable it add
+     let g:rubycomplete_classes_in_global = 1
   to your vimrc
-- In context 2 above, anonymous classes are not supported.
-- In context 3 above, Vim will attempt to determine the methods supported by
-the object.
-- Vim can detect and load the Rails environment for files within a rails
-project. The feature is disabled by default, to enable it add
-```
-let g:rubycomplete_rails = 1
-
-```
+ - In context 2 above, anonymous classes are not supported.
+ - In context 3 above, Vim will attempt to determine the methods supported by
+   the object.
+ - Vim can detect and load the Rails environment for files within a rails
+   project. The feature is disabled by default, to enable it add
+     let g:rubycomplete_rails = 1
   to your vimrc
 
 
@@ -1670,18 +1567,16 @@ knows how to color highlight.  It can be used for any filetype and provides a
 minimal language-sensitive completion.
 
 To enable syntax code completion you can run:
-```
-setlocal omnifunc=syntaxcomplete#Complete
+    setlocal omnifunc=syntaxcomplete#Complete
 
 You can automate this by placing the following in your [init.vim](#init.vim) (after any
 ":filetype" command):
-```
-if has("autocmd") && exists("+omnifunc")
-autocmd Filetype *
-\	if &omnifunc == "" |
-\		setlocal omnifunc=syntaxcomplete#Complete |
-\	endif
-endif
+    if has("autocmd") && exists("+omnifunc")
+	autocmd Filetype *
+		    \	if &omnifunc == "" |
+		    \		setlocal omnifunc=syntaxcomplete#Complete |
+		    \	endif
+    endif
 
 The above will set completion to this script only if a specific plugin does
 not already exist for that filetype.
@@ -1691,8 +1586,7 @@ customize which syntax groups to include or exclude from the list.  Let's have
 a look at the PHP filetype to see how this works.
 
 If you edit a file called, index.php, run the following command:
-```
-syntax list
+    syntax list
 
 The first thing you will notice is that there are many different syntax groups.
 The PHP language can include elements from different languages like HTML,
@@ -1705,22 +1599,18 @@ If you wish non-filetype syntax items to also be included, you can use a
 regular expression syntax (added in version 13.0 of
 autoload/syntaxcomplete.vim) to add items.  Looking at the output from
 ":syntax list" while editing a PHP file I can see some of these entries:
-```
-htmlArg,htmlTag,htmlTagName,javaScriptStatement,javaScriptGlobalObjects
+    htmlArg,htmlTag,htmlTagName,javaScriptStatement,javaScriptGlobalObjects
 
 To pick up any JavaScript and HTML keyword syntax groups while editing a PHP
 file, you can use 3 different regexs, one for each language.  Or you can
 simply restrict the include groups to a particular value, without using
 a regex string:
-```
-let g:omni_syntax_group_include_php = 'php\w\+,javaScript\w\+,html\w\+'
-let g:omni_syntax_group_include_php = 'phpFunctions,phpMethods'
-
+    let g:omni_syntax_group_include_php = 'php\w\+,javaScript\w\+,html\w\+'
+    let g:omni_syntax_group_include_php = 'phpFunctions,phpMethods'
 ```
 
-The basic form of this variable is:
-```
-let g:omni_syntax_group_include_{filetype} = 'regex,comma,separated'
+The basic form of this variable is: 
+```    let g:omni_syntax_group_include_{filetype} = 'regex,comma,separated'
 
 The PHP language has an enormous number of items which it knows how to syntax
 highlight.  These items will be available within the omni completion list.
@@ -1731,14 +1621,12 @@ certain syntax groups you do not wish displayed you can use two different
 methods to identify these groups.  The first specifically lists the syntax
 groups by name.  The second uses a regular expression to identify both
 syntax groups.  Simply add one the following to your vimrc:
-```
-let g:omni_syntax_group_exclude_php = 'phpCoreConstant,phpConstant'
+    let g:omni_syntax_group_exclude_php = 'phpCoreConstant,phpConstant'
 ### <a id="let g:omni_syntax_group_exclude_php = 'php\wConstant'" class="section-title" href="#let g:omni_syntax_group_exclude_php = 'php\wConstant'">Note:</a>
 
 Add as many syntax groups to this list by comma separating them.  The basic
 form of this variable is:
-```
-let g:omni_syntax_group_exclude_{filetype} = 'regex,comma,separated'
+    let g:omni_syntax_group_exclude_{filetype} = 'regex,comma,separated'
 
 You can create as many of these variables as you need, varying only the
 filetype at the end of the variable name.
@@ -1750,48 +1638,41 @@ not provide the words you are expecting.  Setting the
 g:omni_syntax_use_iskeyword option to 0 will force the syntax plugin to break
 on word characters.   This can be controlled adding the following to your
 vimrc:
-```
-let g:omni_syntax_use_iskeyword = 0
+    let g:omni_syntax_use_iskeyword = 0
 
 For plugin developers, the plugin exposes a public function OmniSyntaxList.
 This function can be used to request a List of syntax items.  When editing a
 SQL file (:e syntax.sql) you can use the ":syntax list" command to see the
 various groups and syntax items.  For example:
-```
-syntax list
+    syntax list
 
 Yields data similar to this:
-sqlOperator    xxx some prior all like and any escape exists in is not ~
-or intersect minus between distinct ~
-links to Operator ~
-sqlType        xxx varbit varchar nvarchar bigint int uniqueidentifier ~
-date money long tinyint unsigned xml text smalldate ~
-double datetime nchar smallint numeric time bit char ~
-varbinary binary smallmoney ~
-image float integer timestamp real decimal ~
+    sqlOperator    xxx some prior all like and any escape exists in is not ~
+                       or intersect minus between distinct ~
+                       links to Operator ~
+    sqlType        xxx varbit varchar nvarchar bigint int uniqueidentifier ~
+                       date money long tinyint unsigned xml text smalldate ~
+                       double datetime nchar smallint numeric time bit char ~
+                       varbinary binary smallmoney ~
+                       image float integer timestamp real decimal ~
 
 There are two syntax groups listed here: sqlOperator and sqlType.  To retrieve
 a List of syntax items you can call OmniSyntaxList a number of different
 ways.  To retrieve all syntax items regardless of syntax group:
-```
-echo OmniSyntaxList( [] )
+    echo OmniSyntaxList( [] )
 
 To retrieve only the syntax items for the sqlOperator syntax group:
-```
-echo OmniSyntaxList( ['sqlOperator'] )
+    echo OmniSyntaxList( ['sqlOperator'] )
 
 To retrieve all syntax items for both the sqlOperator and sqlType groups:
-```
-echo OmniSyntaxList( ['sqlOperator', 'sqlType'] )
+    echo OmniSyntaxList( ['sqlOperator', 'sqlType'] )
 
 A regular expression can also be used:
-```
-echo OmniSyntaxList( ['sql\w\+'] )
+    echo OmniSyntaxList( ['sql\w\+'] )
 
 From within a plugin, you would typically assign the output to a List:
-```
-let myKeywords = []
-let myKeywords = OmniSyntaxList( ['sqlKeyword'] )
+    let myKeywords = []
+    let myKeywords = OmniSyntaxList( ['sqlKeyword'] )
 
 
 ### <a id="ft-sql-omni" class="section-title" href="#ft-sql-omni">SQL</a>
@@ -1817,9 +1698,9 @@ depends on a special [xml-omni-datafile| and two commands: |:XMLns](#xml-omni-da
 - after "<" complete the tag name, depending on context
 - inside of a tag complete proper attributes
 - when an attribute has a limited number of possible values help to complete
-them
+  them
 - complete names of entities (defined in [xml-omni-datafile](#xml-omni-datafile) and in the
-current file with "<!ENTITY" declarations)
+  current file with "<!ENTITY" declarations)
 - when used after "</" CTRL-X CTRL-O will close the last opened tag
 
 ### <a id="xml-omni-datafile" class="section-title" href="#xml-omni-datafile">Format of XML data file</a>
@@ -1836,8 +1717,8 @@ a compound from two parts:
 
 1. "g:xmldata_"  general prefix, constant for all data files
 2. "xhtml10s"    the name of the file and the name of the described XML
-dialect; it will be used as an argument for the [:XMLns](#:XMLns)
-command
+		 dialect; it will be used as an argument for the [:XMLns](#:XMLns)
+		 command
 
 Part two must be exactly the same as name of file.
 
@@ -1845,67 +1726,49 @@ The variable is a [Dictionary](#Dictionary).  Keys are tag names and each value 
 element [List](#List).  The first element of the List is also a List with the names
 of possible children.  The second element is a [Dictionary](#Dictionary) with the names of
 attributes as keys and the possible values of attributes as values.  Example:
-```
 
-let g:xmldata_crippled = {
-\ "vimxmlentities": ["amp", "lt", "gt", "apos", "quot"],
-\ 'vimxmlroot': ['tag1'],
-\ 'tag1':
-\ [ ['childoftag1a', 'childoftag1b'], {'attroftag1a': [],
-\ 'attroftag1b': ['valueofattr1', 'valueofattr2']}],
-\ 'childoftag1a':
-\ [ [], {'attrofchild': ['attrofchild']}],
-\ 'childoftag1b':
-\ [ ['childoftag1a'], {'attrofchild': []}],
-\ "vimxmltaginfo": {
-\ 'tag1': ['Menu info', 'Long information visible in preview window']},
-\ 'vimxmlattrinfo': {
-\ 'attrofchild': ['Menu info', 'Long information visible in preview window']}}
+    let g:xmldata_crippled = {
+    \ "vimxmlentities": ["amp", "lt", "gt", "apos", "quot"],
+    \ 'vimxmlroot': ['tag1'],
+    \ 'tag1':
+    \ [ ['childoftag1a', 'childoftag1b'], {'attroftag1a': [],
+    \ 'attroftag1b': ['valueofattr1', 'valueofattr2']}],
+    \ 'childoftag1a':
+    \ [ [], {'attrofchild': ['attrofchild']}],
+    \ 'childoftag1b':
+    \ [ ['childoftag1a'], {'attrofchild': []}],
+    \ "vimxmltaginfo": {
+    \ 'tag1': ['Menu info', 'Long information visible in preview window']},
+    \ 'vimxmlattrinfo': {
+    \ 'attrofchild': ['Menu info', 'Long information visible in preview window']}}
 
 This example would be put in the "autoload/xml/crippled.vim" file and could
 help to write this file:
-```
 
-
-```
-tag1 attroftag1b="valueofattr1">
-
-```
-childoftag1a attrofchild>
-&amp; &lt;
-
-```
-/childoftag1a>
-
-```
-childoftag1b attrofchild="5">
-
-```
-childoftag1a>
-&gt; &apos; &quot;
-
-```
-/childoftag1a>
-
-```
-/childoftag1b>
-
-```
-/tag1>
+    <tag1 attroftag1b="valueofattr1">
+        <childoftag1a attrofchild>
+                &amp; &lt;
+        </childoftag1a>
+        <childoftag1b attrofchild="5">
+            <childoftag1a>
+                &gt; &apos; &quot;
+            </childoftag1a>
+        </childoftag1b>
+    </tag1>
 
 In the example four special elements are visible:
 
 1. "vimxmlentities" - a special key with List containing entities of this XML
-dialect.
+   dialect.
 2. If the list containing possible values of attributes has one element and
-this element is equal to the name of the attribute this attribute will be
-treated as boolean and inserted as "attrname" and not as 'attrname="'
+   this element is equal to the name of the attribute this attribute will be
+   treated as boolean and inserted as "attrname" and not as 'attrname="'
 3. "vimxmltaginfo" - a special key with a Dictionary containing tag
-names as keys and two element List as values, for additional menu info and
-the long description.
+   names as keys and two element List as values, for additional menu info and
+   the long description.
 4. "vimxmlattrinfo" - special key with Dictionary containing attribute names
-as keys and two element List as values, for additional menu info and long
-description.
+   as keys and two element List as values, for additional menu info and long
+   description.
 
 Note: Tag names in the data file MUST not contain a namespace description.
 Check xsl.vim for an example.
@@ -1918,12 +1781,12 @@ variables/functions and can be used for personal editing functions.
 On [www| is the script |dtd2vim](#www| is the script |dtd2vim) which parses DTD and creates an XML data file
 for Vim XML omni completion.
 
-dtd2vim: https://www.vim.org/scripts/script.php?script_id=1462
+    dtd2vim: https://www.vim.org/scripts/script.php?script_id=1462
 
 Check the beginning of that file for usage details.
 The script requires perl and:
 
-perlSGML: https://savannah.nongnu.org/projects/perlsgml
+    perlSGML: https://savannah.nongnu.org/projects/perlsgml
 
 
 Commands
@@ -1936,10 +1799,9 @@ loading of the data file and connecting data with the proper namespace use
 (xhtml10s, xsl).  The second argument is the code of namespace (h, xsl).  When
 used without a second argument the dialect will be used as default - without
 namespace declaration.  For example to use XML completion in .xsl files:
-```
 
-:XMLns xhtml10s
-:XMLns xsl xsl
+	:XMLns xhtml10s
+	:XMLns xsl xsl
 
 
 ### <a id=":XMLent" class="section-title" href="#:XMLent">:XMLent {name}</a>
@@ -1947,26 +1809,19 @@ namespace declaration.  For example to use XML completion in .xsl files:
 By default entities will be completed from the data file of the default
 namespace.  The XMLent command should be used in case when there is no default
 namespace:
-```
 
-:XMLent xhtml10s
+	:XMLent xhtml10s
 
 Usage
 
 While used in this situation (after declarations from previous part, | is
 cursor position):
-```
 
-
-```
-|
+	<|
 
 Will complete to an appropriate XHTML tag, and in this situation:
-```
 
-
-```
-xsl:|
+	<xsl:|
 
 Will complete to an appropriate XSL tag.
 
@@ -1974,9 +1829,8 @@ Will complete to an appropriate XSL tag.
 The script xmlcomplete.vim, provided through the [autoload](#autoload) mechanism,
 has the xmlcomplete#GetLastOpenTag() function which can be used in XML files
 to get the name of the last open tag (b:unaryTagsStack has to be defined):
-```
 
-:echo xmlcomplete#GetLastOpenTag("b:unaryTagsStack")
+	:echo xmlcomplete#GetLastOpenTag("b:unaryTagsStack")
 
 
 ## <a id="inserting" class="section-title" href="#inserting">8. Insert Mode Commands</a> 
@@ -1986,50 +1840,48 @@ can all be undone and repeated with the "." command.
 
 ### <a id="a" class="section-title" href="#a">Note:</a>
 a			Append text after the cursor [count] times.  If the
-cursor is in the first column of an empty line Insert
-starts there.  But not when 'virtualedit' is set!
+			cursor is in the first column of an empty line Insert
+			starts there.  But not when 'virtualedit' is set!
 
 ### <a id="A" class="section-title" href="#A">Note:</a>
 A			Append text at the end of the line [count] times.
-For using "A" in Visual block mode see [v_b_A](#v_b_A).
+			For using "A" in Visual block mode see [v_b_A](#v_b_A).
 
-### <a id="i insert <Insert>" class="section-title" href="#i insert <Insert>"><insert>	or</a>
+### <a id="i insert <Insert>" class="section-title" href="#i insert <Insert>">insert>	or</a>
 i			Insert text before the cursor [count] times.
-When using CTRL-O in Insert mode [i_CTRL-O](#i_CTRL-O) the count
-is not supported.
+			When using CTRL-O in Insert mode [i_CTRL-O](#i_CTRL-O) the count
+			is not supported.
 
 ### <a id="I" class="section-title" href="#I">Note:</a>
 I			Insert text before the first non-blank in the line
-[count] times.
-When the 'H' flag is present in 'cpoptions' and the
-line only contains blanks, insert start just before
-the last blank.
-For using "I" in Visual block mode see [v_b_I](#v_b_I).
+			[count] times.
+			When the 'H' flag is present in 'cpoptions' and the
+			line only contains blanks, insert start just before
+			the last blank.
+			For using "I" in Visual block mode see [v_b_I](#v_b_I).
 
 ### <a id="gI" class="section-title" href="#gI">Note:</a>
 gI			Insert text in column 1 [count] times.
 
 ### <a id="gi" class="section-title" href="#gi">Note:</a>
 gi			Insert text in the same position as where Insert mode
-was stopped last time in the current buffer.
-This uses the ['^](#'^) mark.  It's different from "`^i"
-when the mark is past the end of the line.
-The position is corrected for inserted/deleted lines,
-but NOT for inserted/deleted characters.
-When the [:keepjumps| command modifier is used the |'^](#:keepjumps| command modifier is used the |'^)
-mark won't be changed.
+			was stopped last time in the current buffer.
+			This uses the ['^](#'^) mark.  It's different from "`^i"
+			when the mark is past the end of the line.
+			The position is corrected for inserted/deleted lines,
+			but NOT for inserted/deleted characters.
+			When the [:keepjumps| command modifier is used the |'^](#:keepjumps| command modifier is used the |'^)
+			mark won't be changed.
 
 ### <a id="o" class="section-title" href="#o">Note:</a>
 o			Begin a new line below the cursor and insert text,
-repeat [count] times.
+			repeat [count] times.
 
 ### <a id="O" class="section-title" href="#O">Note:</a>
 O			Begin a new line above the cursor and insert text,
-repeat [count] times.
+			repeat [count] times.
 
 These commands are used to start inserting text.  You can end insert mode with
-
-```
 Esc>.  See [mode-ins-repl](#mode-ins-repl) for the other special characters in Insert mode.
 The effect of [count] takes place after Insert mode is exited.
 
@@ -2048,17 +1900,17 @@ too long when appending characters a line break is automatically inserted.
 
 ### <a id=":a :append" class="section-title" href="#:a :append">Note:</a>
 :{range}a[ppend][!]	Insert several lines of text below the specified
-line.  If the {range} is missing, the text will be
-inserted after the current line.
-Adding [!] toggles 'autoindent' for the time this
-command is executed.
+			line.  If the {range} is missing, the text will be
+			inserted after the current line.
+			Adding [!] toggles 'autoindent' for the time this
+			command is executed.
 
 ### <a id=":i :in :insert" class="section-title" href="#:i :in :insert">Note:</a>
 :{range}i[nsert][!]	Insert several lines of text above the specified
-line.  If the {range} is missing, the text will be
-inserted before the current line.
-Adding [!] toggles 'autoindent' for the time this
-command is executed.
+			line.  If the {range} is missing, the text will be
+			inserted before the current line.
+			Adding [!] toggles 'autoindent' for the time this
+			command is executed.
 
 These two commands will keep on asking for lines, until you type a line
 containing only a ".".  Watch out for lines starting with a backslash, see
@@ -2075,62 +1927,60 @@ NOTE: These commands cannot be used with [:global| or |:vglobal](#:global| or |:
 
 ### <a id=":start :startinsert" class="section-title" href="#:start :startinsert">Note:</a>
 :star[tinsert][!]	Start Insert mode (or [Terminal-mode| in a |terminal](#Terminal-mode| in a |terminal)
-buffer) just after executing this command.
-Works like typing "i" in Normal mode.  When the ! is
-included it works like "A", append to the line.
-Otherwise insertion starts at the cursor position.
-Note that when using this command in a function or
-script, the insertion only starts after the function
-or script is finished.
-This command does not work from [:normal](#:normal).
+			buffer) just after executing this command.
+			Works like typing "i" in Normal mode.  When the ! is
+			included it works like "A", append to the line.
+			Otherwise insertion starts at the cursor position.
+			Note that when using this command in a function or
+			script, the insertion only starts after the function
+			or script is finished.
+			This command does not work from [:normal](#:normal).
 
 ### <a id=":stopi :stopinsert" class="section-title" href="#:stopi :stopinsert">Note:</a>
 :stopi[nsert]		Stop Insert mode or [Terminal-mode](#Terminal-mode) as soon as
-possible.  Works like typing <Esc> in Insert mode.
-Can be used in an autocommand, example:
-```
-:au BufEnter scratch stopinsert
-
+			possible.  Works like typing <Esc> in Insert mode.
+			Can be used in an autocommand, example:
+				:au BufEnter scratch stopinsert
 ```
 
 ### <a id="replacing-ex :startreplace" class="section-title" href="#replacing-ex :startreplace">Note:</a>
 :startr[eplace][!]	Start Replace mode just after executing this command.
-Works just like typing "R" in Normal mode.  When the
-! is included it acts just like "$R" had been typed
-(ie. begin replace mode at the end-of-line).  Other-
-wise replacement begins at the cursor position.
-Note that when using this command in a function or
-script that the replacement will only start after
-the function or script is finished.
+			Works just like typing "R" in Normal mode.  When the
+			! is included it acts just like "$R" had been typed
+			(ie. begin replace mode at the end-of-line).  Other-
+			wise replacement begins at the cursor position.
+			Note that when using this command in a function or
+			script that the replacement will only start after
+			the function or script is finished.
 
 ### <a id=":startgreplace" class="section-title" href="#:startgreplace">Note:</a>
 :startg[replace][!]	Just like [:startreplace](#:startreplace), but use Virtual Replace
-mode, like with [gR](#gR).
+			mode, like with [gR](#gR).
 
 
 ## <a id="inserting-file" class="section-title" href="#inserting-file">10. Inserting a File</a> 
 
 ### <a id=":r :re :read" class="section-title" href="#:r :re :read">Note:</a>
 :r[ead] [++opt] [name]
-Insert the file [name] (default: current file) below
-the cursor.
-See [++opt](#++opt) for the possible values of [++opt].
+			Insert the file [name] (default: current file) below
+			the cursor.
+			See [++opt](#++opt) for the possible values of [++opt].
 
 :{range}r[ead] [++opt] [name]
-Insert the file [name] (default: current file) below
-the specified line.
-See [++opt](#++opt) for the possible values of [++opt].
+			Insert the file [name] (default: current file) below
+			the specified line.
+			See [++opt](#++opt) for the possible values of [++opt].
 
 ### <a id=":r! :read!" class="section-title" href="#:r! :read!">Note:</a>
 :[range]r[ead] [++opt] !{cmd}
-Execute {cmd} and insert its standard output below
-the cursor or the specified line.  A temporary file is
-used to store the output of the command which is then
-read into the buffer.  'shellredir' is used to save
-the output of the command, which can be set to include
-stderr or not.  {cmd} is executed like with ":!{cmd}",
-any '!' is replaced with the previous command [:!](#:!).
-See [++opt](#++opt) for the possible values of [++opt].
+			Execute {cmd} and insert its standard output below
+			the cursor or the specified line.  A temporary file is
+			used to store the output of the command which is then
+			read into the buffer.  'shellredir' is used to save
+			the output of the command, which can be set to include
+			stderr or not.  {cmd} is executed like with ":!{cmd}",
+			any '!' is replaced with the previous command [:!](#:!).
+			See [++opt](#++opt) for the possible values of [++opt].
 
 These commands insert the contents of a file, or the output of a command,
 into the buffer.  They can be undone.  They cannot be repeated with the "."
@@ -2149,8 +1999,7 @@ be switched off by removing the 'a' flag from the 'cpoptions' option.
 Of the [++opt] arguments one is specifically for ":read", the ++edit argument.
 This is useful when the ":read" command is actually used to read a file into
 the buffer as if editing that file.  Use this command in an empty buffer:
-```
-:read ++edit filename
+	:read ++edit filename
 The effect is that the 'fileformat', 'fileencoding', 'bomb', etc. options are
 set to what has been detected for "filename".  Note that a single empty line
 remains, you may want to delete it.
@@ -2158,24 +2007,18 @@ remains, you may want to delete it.
 ### <a id="file-read" class="section-title" href="#file-read">Note:</a>
 The 'fileformat' option sets the <EOL> style for a file:
 'fileformat'    characters	   name				~
-"dos"		<CR><NL> or <NL>   DOS format
-"unix"	<NL>		   Unix format
-"mac"		<CR>		   Mac format
+  "dos"		<CR><NL> or <NL>   DOS format
+  "unix"	<NL>		   Unix format
+  "mac"		<CR>		   Mac format
 
 If 'fileformat' is "dos", a <CR> in front of an <NL> is ignored and a CTRL-Z
 at the end of the file is ignored.
 
 If 'fileformat' is "mac", a <NL> in the file is internally represented by a
-
-```
 CR>.  This is to avoid confusion with a <NL> which is used to represent a
-
-```
 NUL>.  See [CR-used-for-NL](#CR-used-for-NL).
 
 If the 'fileformats' option is not empty Vim tries to recognize the type of
-
-```
 EOL> (see [file-formats](#file-formats)).  However, the 'fileformat' option will not be
 changed, the detected format is only used while reading the file.
 A similar thing happens with 'fileencodings'.
@@ -2188,8 +2031,7 @@ On non-Macintosh systems, the message "[mac format]" is shown if a file is
 read in Mac format.
 
 An example on how to use ":r !":
-```
-:r !uuencode binfile binfile
+	:r !uuencode binfile binfile
 This command reads "binfile", uuencodes it and reads it into the current
 buffer.  Useful when you are editing e-mail and want to include a binary
 file.
@@ -2200,23 +2042,23 @@ file.  In the table is an explanation for some of the items.  The others are
 self explanatory.  Using the long or the short version depends on the
 'shortmess' option.
 
-long		short		meaning ~
-[readonly]	{RO}		the file is write protected
-[fifo/socket]			using a stream
-[fifo]				using a fifo stream
-[socket]			using a socket stream
-[CR missing]			reading with "dos" 'fileformat' and a
-NL without a preceding CR was found.
-[NL found]			reading with "mac" 'fileformat' and a
-NL was found (could be "unix" format)
-[long lines split]		at least one line was split in two
-[NOT converted]			conversion from 'fileencoding' to
-'encoding' was desired but not
-possible
-[converted]			conversion from 'fileencoding' to
-'encoding' done
-[READ ERRORS]			not all of the file could be read
+	long		short		meaning ~
+	[readonly]	{RO}		the file is write protected
+	[fifo/socket]			using a stream
+	[fifo]				using a fifo stream
+	[socket]			using a socket stream
+	[CR missing]			reading with "dos" 'fileformat' and a
+					NL without a preceding CR was found.
+	[NL found]			reading with "mac" 'fileformat' and a
+					NL was found (could be "unix" format)
+	[long lines split]		at least one line was split in two
+	[NOT converted]			conversion from 'fileencoding' to
+					'encoding' was desired but not
+					possible
+	[converted]			conversion from 'fileencoding' to
+					'encoding' done
+	[READ ERRORS]			not all of the file could be read
 
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

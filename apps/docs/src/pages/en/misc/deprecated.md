@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Deprecated
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -36,10 +36,8 @@ ENVIRONMENT VARIABLES
 - detect a parent Nvim (use [$NVIM](#$NVIM) instead)
 - Ignored if --listen is given.
 - Unset by [terminal| and |jobstart()](#terminal| and |jobstart()) unless explicitly given by the "env"
-option. Example:
-```
-call jobstart(['foo'], { 'env': { 'NVIM_LISTEN_ADDRESS': v:servername  } })
-
+option. Example: 
+```	call jobstart(['foo'], { 'env': { 'NVIM_LISTEN_ADDRESS': v:servername  } })
 ```
 
 

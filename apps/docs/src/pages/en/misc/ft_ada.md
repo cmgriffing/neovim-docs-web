@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Ft Ada
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -54,11 +54,9 @@ There are several options you can select in this Ada mode. See [ft-ada-options](
 for a complete list.
 
 To enable them, assign a value to the option.  For example, to turn one on:
-```
 > let g:ada_standard_types = 1
 
 To disable them use ":unlet".  Example:
-```
 > unlet g:ada_standard_types
 
 You can just use ":" and type these into the command line to set these
@@ -161,7 +159,6 @@ several versions available which differ in the licence terms used.
 The GNAT compiler plug-in will perform a compile on pressing <F7> and then
 immediately shows the result. You can set the project file to be used by
 setting:
-```
 > call g:gnat.Set_Project_File ('my_project.gpr')
 
 Setting a project file will also create a Vim session ([views-sessions](#views-sessions)) so -

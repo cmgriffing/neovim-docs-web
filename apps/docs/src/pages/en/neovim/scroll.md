@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Scroll
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -22,7 +22,7 @@ upwards in the buffer, the text in the window moves downwards on your screen.
 
 See section [03.7](#03.7) of the user manual for an introduction.
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="scroll-down" class="section-title" href="#scroll-down">1. Scrolling Downwards</a> 
@@ -33,35 +33,35 @@ seen):
 
 ### <a id="CTRL-E" class="section-title" href="#CTRL-E">Note:</a>
 CTRL-E			Scroll window [count] lines downwards in the buffer.
-The text moves upwards on the screen.
-Mnemonic: Extra lines.
+			The text moves upwards on the screen.
+			Mnemonic: Extra lines.
 
 ### <a id="CTRL-D" class="section-title" href="#CTRL-D">Note:</a>
 CTRL-D			Scroll window Downwards in the buffer.  The number of
-lines comes from the 'scroll' option (default: half a
-screen).  If [count] given, first set 'scroll' option
-to [count].  The cursor is moved the same number of
-lines down in the file (if possible; when lines wrap
-and when hitting the end of the file there may be a
-difference).  When the cursor is on the last line of
-the buffer nothing happens and a beep is produced.
-See also 'startofline' option.
-{difference from vi: Vim scrolls 'scroll' screen
-lines, instead of file lines; makes a difference when
-lines wrap}
+			lines comes from the 'scroll' option (default: half a
+			screen).  If [count] given, first set 'scroll' option
+			to [count].  The cursor is moved the same number of
+			lines down in the file (if possible; when lines wrap
+			and when hitting the end of the file there may be a
+			difference).  When the cursor is on the last line of
+			the buffer nothing happens and a beep is produced.
+			See also 'startofline' option.
+			{difference from vi: Vim scrolls 'scroll' screen
+			lines, instead of file lines; makes a difference when
+			lines wrap}
 
-### <a id="<S-Down> <kPageDown>" class="section-title" href="#<S-Down> <kPageDown>"><S-Down>	or</a>
-### <a id="<PageDown> CTRL-F" class="section-title" href="#<PageDown> CTRL-F"><PageDown>	or</a>
+### <a id="<S-Down> <kPageDown>" class="section-title" href="#<S-Down> <kPageDown>">S-Down>	or</a>
+### <a id="<PageDown> CTRL-F" class="section-title" href="#<PageDown> CTRL-F">PageDown>	or</a>
 CTRL-F			Scroll window [count] pages Forwards (downwards) in
-the buffer.  See also 'startofline' option.
-When there is only one window the 'window' option
-might be used.
+			the buffer.  See also 'startofline' option.
+			When there is only one window the 'window' option
+			might be used.
 
 ### <a id="z+" class="section-title" href="#z+">Note:</a>
 z+			Without [count]: Redraw with the line just below the
-window at the top of the window.  Put the cursor in
-that line, at the first non-blank in the line.
-With [count]: just like "z<CR>".
+			window at the top of the window.  Put the cursor in
+			that line, at the first non-blank in the line.
+			With [count]: just like "z<CR>".
 
 
 ## <a id="scroll-up" class="section-title" href="#scroll-up">2. Scrolling Upwards</a> 
@@ -72,39 +72,37 @@ seen):
 
 ### <a id="CTRL-Y" class="section-title" href="#CTRL-Y">Note:</a>
 CTRL-Y			Scroll window [count] lines upwards in the buffer.
-The text moves downwards on the screen.
-Note: When using the MS-Windows key bindings CTRL-Y is
-remapped to redo.
+			The text moves downwards on the screen.
+			Note: When using the MS-Windows key bindings CTRL-Y is
+			remapped to redo.
 
 ### <a id="CTRL-U" class="section-title" href="#CTRL-U">Note:</a>
 CTRL-U			Scroll window Upwards in the buffer.  The number of
-lines comes from the 'scroll' option (default: half a
-screen).  If [count] given, first set the 'scroll'
-option to [count].  The cursor is moved the same
-number of lines up in the file (if possible; when
-lines wrap and when hitting the end of the file there
-may be a difference).  When the cursor is on the first
-line of the buffer nothing happens and a beep is
-produced.  See also 'startofline' option.
+			lines comes from the 'scroll' option (default: half a
+			screen).  If [count] given, first set the 'scroll'
+			option to [count].  The cursor is moved the same
+			number of lines up in the file (if possible; when
+			lines wrap and when hitting the end of the file there
+			may be a difference).  When the cursor is on the first
+			line of the buffer nothing happens and a beep is
+			produced.  See also 'startofline' option.
 
-
-```
 S-Up>		or					*<S-Up>* *<kPageUp>*
-### <a id="<PageUp> CTRL-B" class="section-title" href="#<PageUp> CTRL-B"><PageUp>	or</a>
+### <a id="<PageUp> CTRL-B" class="section-title" href="#<PageUp> CTRL-B">PageUp>	or</a>
 CTRL-B			Scroll window [count] pages Backwards (upwards) in the
-buffer.  See also 'startofline' option.
-When there is only one window the 'window' option
-might be used.
+			buffer.  See also 'startofline' option.
+			When there is only one window the 'window' option
+			might be used.
 
 ### <a id="z^" class="section-title" href="#z^">Note:</a>
 z^			Without [count]: Redraw with the line just above the
-window at the bottom of the window.  Put the cursor in
-that line, at the first non-blank in the line.
-With [count]: First scroll the text to put the [count]
-line at the bottom of the window, then redraw with the
-line which is now at the top of the window at the
-bottom of the window.  Put the cursor in that line, at
-the first non-blank in the line.
+			window at the bottom of the window.  Put the cursor in
+			that line, at the first non-blank in the line.
+			With [count]: First scroll the text to put the [count]
+			line at the bottom of the window, then redraw with the
+			line which is now at the top of the window at the
+			bottom of the window.  Put the cursor in that line, at
+			the first non-blank in the line.
 
 
 ## <a id="scroll-cursor" class="section-title" href="#scroll-cursor">3. Scrolling Relative to Cursor</a> 
@@ -115,33 +113,33 @@ option may cause context lines to show above and below the cursor.
 
 ### <a id="z<CR>" class="section-title" href="#z<CR>">Note:</a>
 z<CR>			Redraw, line [count] at top of window (default
-cursor line).  Put cursor at first non-blank in the
-line.
+			cursor line).  Put cursor at first non-blank in the
+			line.
 
 ### <a id="zt" class="section-title" href="#zt">Note:</a>
 zt			Like "z<CR>", but leave the cursor in the same
-column.
+			column.
 
 ### <a id="zN<CR>" class="section-title" href="#zN<CR>">Note:</a>
 z{height}<CR>		Redraw, make window {height} lines tall.  This is
-useful to make the number of lines small when screen
-updating is very slow.  Cannot make the height more
-than the physical screen height.
+			useful to make the number of lines small when screen
+			updating is very slow.  Cannot make the height more
+			than the physical screen height.
 
 ### <a id="z." class="section-title" href="#z.">Note:</a>
 z.			Redraw, line [count] at center of window (default
-cursor line).  Put cursor at first non-blank in the
-line.
+			cursor line).  Put cursor at first non-blank in the
+			line.
 
 ### <a id="zz" class="section-title" href="#zz">Note:</a>
 zz			Like "z.", but leave the cursor in the same column.
-Careful: If caps-lock is on, this command becomes
-"ZZ": write buffer and exit!
+			Careful: If caps-lock is on, this command becomes
+			"ZZ": write buffer and exit!
 
 ### <a id="z-" class="section-title" href="#z-">Note:</a>
 z-			Redraw, line [count] at bottom of window (default
-cursor line).  Put cursor at first non-blank in the
-line.
+			cursor line).  Put cursor at first non-blank in the
+			line.
 
 ### <a id="zb" class="section-title" href="#zb">Note:</a>
 zb			Like "z-", but leave the cursor in the same column.
@@ -156,36 +154,36 @@ not used.
 
 z<Right>    or						*zl* *z<Right>*
 zl			Move the view on the text [count] characters to the
-right, thus scroll the text [count] characters to the
-left.  This only works when 'wrap' is off.
+			right, thus scroll the text [count] characters to the
+			left.  This only works when 'wrap' is off.
 
 z<Left>      or						*zh* *z<Left>*
 zh			Move the view on the text [count] characters to the
-left, thus scroll the text [count] characters to the
-right.  This only works when 'wrap' is off.
+			left, thus scroll the text [count] characters to the
+			right.  This only works when 'wrap' is off.
 
 ### <a id="zL" class="section-title" href="#zL">Note:</a>
 zL			Move the view on the text half a screenwidth to the
-right, thus scroll the text half a screenwidth to the
-left.  This only works when 'wrap' is off.
+			right, thus scroll the text half a screenwidth to the
+			left.  This only works when 'wrap' is off.
 
 ### <a id="zH" class="section-title" href="#zH">Note:</a>
 zH			Move the view on the text half a screenwidth to the
-left, thus scroll the text half a screenwidth to the
-right.  This only works when 'wrap' is off.
+			left, thus scroll the text half a screenwidth to the
+			right.  This only works when 'wrap' is off.
 
 For the following two commands the cursor is not moved in the text, only the
 text scrolls on the screen.
 
 ### <a id="zs" class="section-title" href="#zs">Note:</a>
 zs			Scroll the text horizontally to position the cursor
-at the start (left side) of the screen.  This only
-works when 'wrap' is off.
+			at the start (left side) of the screen.  This only
+			works when 'wrap' is off.
 
 ### <a id="ze" class="section-title" href="#ze">Note:</a>
 ze			Scroll the text horizontally to position the cursor
-at the end (right side) of the screen.  This only
-works when 'wrap' is off.
+			at the end (right side) of the screen.  This only
+			works when 'wrap' is off.
 
 
 ## <a id="scroll-binding" class="section-title" href="#scroll-binding">5. Scrolling Synchronously</a> 
@@ -223,10 +221,10 @@ option.
 
 ### <a id="syncbind :syncbind :sync" class="section-title" href="#syncbind :syncbind :sync">Note:</a>
 :syncbind		Force all 'scrollbind' windows to have the same
-relative offset.  I.e., when any of the 'scrollbind'
-windows is scrolled to the top of its buffer, all of
-the 'scrollbind' windows will also be at the top of
-their buffers.
+			relative offset.  I.e., when any of the 'scrollbind'
+			windows is scrolled to the top of its buffer, all of
+			the 'scrollbind' windows will also be at the top of
+			their buffers.
 
 ### <a id="scrollbind-quickadj" class="section-title" href="#scrollbind-quickadj">Note:</a>
 The 'scrollbind' flag is meaningful when using keyboard commands to vertically
@@ -250,9 +248,8 @@ how the horizontal scrollbar works).
 You can control the number of lines / columns to scroll by using the
 'mousescroll' option. You can also modify the default behavior by mapping
 the keys. For example, to scroll a page at a time in normal mode:
-```
-:map <ScrollWheelUp> <C-B>
-:map <ScrollWheelDown> <C-F>
+   :map <ScrollWheelUp> <C-B>
+   :map <ScrollWheelDown> <C-F>
 Scroll keys can also be combined with modifiers such as Shift, Ctrl, and Alt.
 
 When scrolling with a mouse, the window currently under the cursor is
@@ -260,5 +257,5 @@ scrolled. This allows you to scroll inactive windows. Note that when scroll
 keys are remapped to keyboard keys, the active window is affected regardless
 of the current cursor position.
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Pi Spec
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -26,7 +26,7 @@ email address and build a format string by itself.
 
 The spec_chglog plugin provides a map like the following:
 
-:map <buffer> <LocalLeader>c <Plug>SpecChangelog
+	:map <buffer> <LocalLeader>c <Plug>SpecChangelog
 
 It means that you may run the plugin inside a spec file by pressing
 your maplocalleader key (default is '\') plus 'c'.  If you do not have
@@ -46,16 +46,14 @@ done so.
 
 As you should know, you can easily set a map to access any Vim command (or
 anything, for that matter).  If you don't like the default map of
-
-```
 LocalLeader>c, you may just set up your own key.  The following line
 shows you how you could do this in your vimrc file, mapping the plugin to
 the <F5> key:
 
-au FileType spec map <buffer> <F5> <Plug>SpecChangelog
+	au FileType spec map <buffer> <F5> <Plug>SpecChangelog
 
 Note: the plugin will respect your desire to change the default mapping
-and won't set it.
+      and won't set it.
 
 This command will add a map only in the spec file buffers.
 
@@ -68,9 +66,8 @@ This command will add a map only in the spec file buffers.
 You can easily customize how your spec file entry will look like.  To do
 this just set the variable "spec_chglog_format" in your vimrc file like
 this:
-```
 
-let spec_chglog_format = "%a %b %d %Y My Name <my@email.com>"
+	let spec_chglog_format = "%a %b %d %Y My Name <my@email.com>"
 
 Note that "%a %b %d %Y" is the most used time format.  If you don't provide
 a format string, when you run the SpecChangelog command for the first
@@ -87,9 +84,8 @@ function man page.
 The plugin will usually insert new %changelog entry items (note that it's
 not the entry itself) after the existing ones.  If you set the
 spec_chglog_prepend variable
-```
 
-let spec_chglog_prepend = 1
+	let spec_chglog_prepend = 1
 
 it will insert new items before the existing ones.
 
@@ -103,20 +99,17 @@ change in the package or not.  If you have not updated the package
 version or release, it will ask you if it should update the package
 release for you.  To turn this feature on, just insert the following
 code in your vimrc:
-```
 
-let spec_chglog_release_info = 1
+	let spec_chglog_release_info = 1
 
 Then, the first item in your changelog entry will be something like:
-```
 
-+ name-1.0-1cl
+	+ name-1.0-1cl
 
 If you don't like the release updating feature and don't want to answer
 "No" each time it detects an old release, you may disable it with
-```
 
-let spec_chglog_never_increase_release = 1
+	let spec_chglog_never_increase_release = 1
 
 
 Good luck!!

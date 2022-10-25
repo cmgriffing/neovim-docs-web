@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Eval
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -28,7 +28,7 @@ Number		A 32 or 64 bit signed number.  [expr-number](#expr-number)
 The number of bits is available in [v:numbersize](#v:numbersize).
 Examples:  -123  0x10  0177  0o177  0b1011
 
-### <a id="A floating point number. [floating-point-format| Float" class="section-title" href="#A floating point number. |floating-point-format](#floating-point-format| Float" class="section-title" href="#A floating point number. |floating-point-format) Float">Float</a>
+### <a id="A floating point number. [floating-point-format](#floating-point-format) Float" class="section-title" href="#A floating point number. [floating-point-format](#floating-point-format) Float">Float</a>
 Examples: 123.456  1.15e-6  -1.1e3
 
 String		A NUL terminated string of 8-bit unsigned characters (bytes).
@@ -77,12 +77,9 @@ String "0b101"	-->	Number 5 ~
 String "-8"	-->	Number -8 ~
 String "+8"	-->	Number 0 ~
 
-To force conversion from String to Number, add zero to it:
-```
-:echo "0100" + 0
-
-```
-	64 ~
+To force conversion from String to Number, add zero to it: 
+```	:echo "0100" + 0
+64 ~
 
 To avoid a leading zero to cause octal conversion, or for using a different
 base, use [str2nr()](#str2nr()).
@@ -94,18 +91,14 @@ When TRUE is returned from a function it is the Number one, FALSE is the
 number zero.
 
 Note that in the command:
-```
 :if "foo"
 :" NOT executed
 "foo" is converted to 0, which means FALSE.  If the string starts with a
 non-zero number it means TRUE:
-```
 :if "8foo"
 :" executed
 To test for a non-empty string, use empty():
-```
 :if !empty("foo")
-
 ```
 
 ### <a id="non-zero-arg" class="section-title" href="#non-zero-arg">Note:</a>
@@ -137,19 +130,17 @@ You will not get an error if you try to change the type of a variable.
 A Funcref variable is obtained with the [function()| function, the |funcref()](#function()| function, the |funcref())
 function or created with the lambda expression [expr-lambda](#expr-lambda).  It can be used
 in an expression in the place of a function name, before the parenthesis
-around the arguments, to invoke the function it refers to.  Example:
+around the arguments, to invoke the function it refers to.  Example: 
 ```
-
 :let Fn = function("MyFunc")
 :echo Fn()
-### <a id="E704 E705 E707" class="section-title" href="#E704 E705 E707"><</a>
+### <a id="E704 E705 E707" class="section-title" href="#E704 E705 E707">Note:</a>
 A Funcref variable must start with a capital, "s:", "w:", "t:" or "b:".  You
 can use "g:" but the following name must still start with a capital.  You
 cannot have both a Funcref variable and a function with the same name.
 
 A special case is defining a function and directly assigning its Funcref to a
 Dictionary entry.  Example:
-```
 :function dict.init() dict
 :   let self.val = 0
 :endfunction
@@ -158,38 +149,31 @@ The key of the Dictionary can start with a lower case letter.  The actual
 function name is not used here.  Also see [numbered-function](#numbered-function).
 
 A Funcref can also be used with the [:call](#:call) command:
-```
 :call Fn()
 :call dict.init()
 
 The name of the referenced function can be obtained with [string()](#string()).
-```
 :let func = string(Fn)
 
 You can use [call()](#call()) to invoke a Funcref and use a list variable for the
 arguments:
-```
 :let r = call(Fn, mylist)
-
 ```
 
 ### <a id="Partial" class="section-title" href="#Partial">Note:</a>
 A Funcref optionally binds a Dictionary and/or arguments.  This is also called
 a Partial.  This is created by passing the Dictionary and/or arguments to
 function() or funcref().  When calling the function the Dictionary and/or
-arguments will be passed to the function.  Example:
+arguments will be passed to the function.  Example: 
 ```
-
 let Cb = function('Callback', ['foo'], myDict)
 call Cb('bar')
 
 This will invoke the function as if using:
-```
 call myDict.Callback('foo', 'bar')
 
 Note that binding a function to a Dictionary also happens when the function is
 a member of the Dictionary:
-```
 
 let myDict.myFunction = MyFunction
 call myDict.myFunction()
@@ -197,14 +181,12 @@ call myDict.myFunction()
 Here MyFunction() will get myDict passed as "self".  This happens when the
 "myFunction" member is accessed.  When assigning "myFunction" to otherDict
 and calling it, it will be bound to otherDict:
-```
 
 let otherDict.myFunction = myDict.myFunction
 call otherDict.myFunction()
 
 Now "self" will be "otherDict".  But when the dictionary was bound explicitly
 this won't happen:
-```
 
 let myDict.myFunction = function(MyFunction, myDict)
 let otherDict.myFunction = myDict.myFunction
@@ -224,13 +206,11 @@ List creation ~
 ### <a id="E696 E697" class="section-title" href="#E696 E697">Note:</a>
 A List is created with a comma-separated list of items in square brackets.
 Examples:
-```
 :let mylist = [1, two, 3, "four"]
 :let emptylist = []
 
 An item can be any expression.  Using a List for an item creates a
 List of Lists:
-```
 :let nestlist = [[11, 12], [21, 22], [31, 32]]
 
 An extra comma after the last item is ignored.
@@ -240,24 +220,19 @@ List index ~
 ### <a id="list-index E684" class="section-title" href="#list-index E684">Note:</a>
 An item in the List can be accessed by putting the index in square brackets
 after the List.  Indexes are zero-based, thus the first item has index zero.
-```
 :let item = mylist[0]		" get the first item: 1
 :let item = mylist[2]		" get the third item: 3
 
 When the resulting item is a list this can be repeated:
-```
 :let item = nestlist[0][1]	" get the first list, second item: 12
-
 ```
 
 A negative index is counted from the end.  Index -1 refers to the last item in
-the List, -2 to the last but one item, etc.
-```
-:let last = mylist[-1]		" get the last item: "four"
+the List, -2 to the last but one item, etc. 
+```	:let last = mylist[-1]		" get the last item: "four"
 
 To avoid an error for an invalid index use the [get()](#get()) function.  When an item
 is not available it returns zero or the default value you specify:
-```
 :echo get(mylist, idx)
 :echo get(mylist, idx, "NONE")
 
@@ -265,7 +240,6 @@ is not available it returns zero or the default value you specify:
 List concatenation ~
 
 Two lists can be concatenated with the "+" operator:
-```
 :let longlist = mylist + [5, 6]
 :let mylist += [7, 8]
 
@@ -277,12 +251,10 @@ Sublist ~
 ### <a id="sublist" class="section-title" href="#sublist">Note:</a>
 A part of the List can be obtained by specifying the first and last index,
 separated by a colon in square brackets:
-```
 :let shortlist = mylist[2:-1]	" get List [3, "four"]
 
 Omitting the first index is similar to zero.  Omitting the last index is
 similar to -1.
-```
 :let endlist = mylist[2:]	" from item 2 to the end: [3, "four"]
 :let shortlist = mylist[2:2]	" List with one item: [3]
 :let otherlist = mylist[:]	" make a copy of the List
@@ -293,7 +265,6 @@ message.
 
 If the second index is equal to or greater than the length of the list the
 length minus one is used:
-```
 :let mylist = [0, 1, 2, 3]
 :echo mylist[2:8]		" result: [2, 3]
 
@@ -307,32 +278,23 @@ List identity ~
 When variable "aa" is a list and you assign it to another variable "bb", both
 variables refer to the same list.  Thus changing the list "aa" will also
 change "bb":
-```
 :let aa = [1, 2, 3]
 :let bb = aa
 :call add(aa, 4)
 :echo bb
-
-```
-	[1, 2, 3, 4]
+[1, 2, 3, 4]
 
 Making a copy of a list is done with the [copy()](#copy()) function.  Using [:] also
 works, as explained above.  This creates a shallow copy of the list: Changing
 a list item in the list will also change the item in the copied list:
-```
 :let aa = [[1, 'a'], 2, 3]
 :let bb = copy(aa)
 :call add(aa, 4)
 :let aa[0][1] = 'aaa'
 :echo aa
-
-```
-	[[1, aaa], 2, 3, 4]
-```
+[[1, aaa], 2, 3, 4]
 :echo bb
-
-```
-	[[1, aaa], 2, 3]
+[[1, aaa], 2, 3]
 
 To make a completely independent list use [deepcopy()](#deepcopy()).  This also makes a
 copy of the values in the list, recursively.  Up to a hundred levels deep.
@@ -340,67 +302,46 @@ copy of the values in the list, recursively.  Up to a hundred levels deep.
 The operator "is" can be used to check if two variables refer to the same
 List.  "isnot" does the opposite.  In contrast "==" compares if two lists have
 the same value.
-```
 :let alist = [1, 2, 3]
 :let blist = [1, 2, 3]
 :echo alist is blist
-
-```
-	0
-```
+0
 :echo alist == blist
-
-```
-	1
+1
 
 Note about comparing lists: Two lists are considered equal if they have the
 same length and all items compare equal, as with using "==".  There is one
 exception: When comparing a number with a string they are considered
 different.  There is no automatic type conversion, as with using "==" on
 variables.  Example:
-```
 echo 4 == "4"
-
-```
-	1
-```
+1
 echo [4] == ["4"]
-
-```
-	0
+0
 
 Thus comparing Lists is more strict than comparing numbers and strings.  You
 can compare simple values this way too by putting them in a list:
-```
 
 :let a = 5
 :let b = "5"
 :echo a == b
-
-```
-	1
-```
+1
 :echo [a] == [b]
-
-```
-	0
+0
 
 
 List unpack ~
 
 To unpack the items in a list to individual variables, put the variables in
 square brackets, like list items:
-```
 :let [var1, var2] = mylist
 
 When the number of variables does not match the number of items in the list
 this produces an error.  To handle any extra items from the list append ";"
 and a variable name:
-```
 :let [var1, var2; rest] = mylist
 
 This works like:
-```
 :let var1 = mylist[0]
 :let var2 = mylist[1]
 :let rest = mylist[2:]
@@ -412,18 +353,15 @@ empty list then.
 List modification ~
 ### <a id="list-modification" class="section-title" href="#list-modification">Note:</a>
 To change a specific item of a list use [:let](#:let) this way:
-```
 :let list[4] = "four"
 :let listlist[0][3] = item
 
 To change part of a list you can specify the first and last item to be
 modified.  The value must at least have the number of items in the range:
-```
 :let list[3:5] = [3, 4, 5]
 
 Adding and removing items from a list is done with functions.  Here are a few
 examples:
-```
 :call insert(list, 'a')		" prepend item 'a'
 :call insert(list, 'a', 3)	" insert item 'a' before list[3]
 :call add(list, "new")		" append String item
@@ -436,7 +374,6 @@ examples:
 :call filter(list, 'v:val !~ "x"')  " remove items with an 'x'
 
 Changing the order of items in a list:
-```
 :call sort(list)		" sort a list alphabetically
 :call reverse(list)		" reverse the order of items
 :call uniq(sort(list))		" sort and remove duplicates
@@ -446,13 +383,11 @@ For loop ~
 
 The [:for| loop executes commands for each item in a |List|, |String| or |Blob](#:for| loop executes commands for each item in a |List|, |String| or |Blob).
 A variable is set to each item in sequence.  Example with a List:
-```
 :for item in mylist
 :   call Doit(item)
 :endfor
 
 This works like:
-```
 :let index = 0
 :while index < len(mylist)
 :   let item = mylist[index]
@@ -465,7 +400,6 @@ function will be a simpler method than a for loop.
 
 Just like the [:let| command, |:for](#:let| command, |:for) also accepts a list of variables.  This
 requires the argument to be a List of Lists.
-```
 :for [lnum, col] in [[1, 3], [2, 8], [3, 0]]
 :   call Doit(lnum, col)
 :endfor
@@ -474,7 +408,6 @@ This works like a [:let](#:let) command is done for each list item.  Again, the 
 must remain the same to avoid an error.
 
 It is also possible to put remaining items in a List variable:
-```
 :for [i, j; rest] in listlist
 :   call Doit(i, j)
 :   if !empty(rest)
@@ -486,7 +419,6 @@ For a Blob one byte at a time is used.
 
 For a String one character, including any composing characters, is used as a
 String.  Example:
-```
 for c in text
 echo 'This character is ' .. c
 endfor
@@ -495,7 +427,6 @@ endfor
 List functions ~
 ### <a id="E714" class="section-title" href="#E714">Note:</a>
 Functions that are useful with a List:
-```
 :let r = call(funcname, list)	" call a function with an argument list
 :if empty(list)			" check if list is empty
 :let l = len(list)		" number of items in list
@@ -512,7 +443,6 @@ Functions that are useful with a List:
 
 Don't forget that a combination of features can make things simple.  For
 example, to add up all the numbers in a list:
-```
 :exe 'let sum = ' .. join(nrlist, '+')
 
 
@@ -528,10 +458,9 @@ Dictionary creation ~
 A Dictionary is created with a comma-separated list of entries in curly
 braces.  Each entry has a key and a value, separated by a colon.  Each key can
 only appear once.  Examples:
-```
 :let mydict = {1: 'one', 2: 'two', 3: 'three'}
 :let emptydict = {}
-### <a id="E713 E716 E717" class="section-title" href="#E713 E716 E717"><</a>
+### <a id="E713 E716 E717" class="section-title" href="#E713 E716 E717">Note:</a>
 A key is always a String.  You can use a Number, it will be converted to a
 String automatically.  Thus the String '4' and the number 4 will find the same
 entry.  Note that the String '04' and the Number 04 are different, since the
@@ -541,13 +470,11 @@ empty string can also be used as a key.
 To avoid having to put quotes around every key the #{} form can be used.  This
 does require the key to consist only of ASCII letters, digits, '-' and '_'.
 Example:
-```
 :let mydict = #{zero: 0, one_key: 1, two-key: 2, 333: 3}
 Note that 333 here is the string "333".  Empty keys are not possible with #{}.
 
 A value can be any expression.  Using a Dictionary for a value creates a
 nested Dictionary:
-```
 :let nestdict = {1: {11: 'a', 12: 'b'}, 2: {21: 'c'}}
 
 An extra comma after the last entry is ignored.
@@ -556,7 +483,6 @@ An extra comma after the last entry is ignored.
 Accessing entries ~
 
 The normal way to access an entry is by putting the key in square brackets:
-```
 :let val = mydict["one"]
 :let mydict["four"] = 4
 
@@ -564,13 +490,11 @@ You can add new entries to an existing Dictionary this way, unlike Lists.
 
 For keys that consist entirely of letters, digits and underscore the following
 form can be used [expr-entry](#expr-entry):
-```
 :let val = mydict.one
 :let mydict.four = 4
 
 Since an entry can be any type, also a List and a Dictionary, the indexing and
 key lookup can be repeated:
-```
 :echo dict.key[idx].key
 
 
@@ -580,24 +504,20 @@ You may want to loop over the entries in a dictionary.  For this you need to
 turn the Dictionary into a List and pass it to [:for](#:for).
 
 Most often you want to loop over the keys, using the [keys()](#keys()) function:
-```
 :for key in keys(mydict)
 :   echo key .. ': ' .. mydict[key]
 :endfor
 
 The List of keys is unsorted.  You may want to sort them first:
-```
 :for key in sort(keys(mydict))
 
 To loop over the values use the [values()](#values()) function:
-```
 :for v in values(mydict)
 :   echo "value: " .. v
 :endfor
 
 If you want both the key and the value use the [items()](#items()) function.  It returns
 a List in which each item is a List with two items, the key and the value:
-```
 :for [key, value] in items(mydict)
 :   echo key .. ': ' .. value
 :endfor
@@ -608,7 +528,6 @@ Dictionary identity ~
 Just like Lists you need to use [copy()| and |deepcopy()](#copy()| and |deepcopy()) to make a copy of a
 Dictionary.  Otherwise, assignment results in referring to the same
 Dictionary:
-```
 :let onedict = {'a': 1, 'b': 2}
 :let adict = onedict
 :let adict['a'] = 11
@@ -623,19 +542,16 @@ Dictionary modification ~
 ### <a id="dict-modification" class="section-title" href="#dict-modification">Note:</a>
 To change an already existing entry of a Dictionary, or to add a new entry,
 use [:let](#:let) this way:
-```
 :let dict[4] = "four"
 :let dict['one'] = item
 
 Removing an entry from a Dictionary is done with [remove()| or |:unlet](#remove()| or |:unlet).
 Three ways to remove the entry with key "aaa" from dict:
-```
 :let i = remove(dict, 'aaa')
 :unlet dict.aaa
 :unlet dict['aaa']
 
 Merging a Dictionary with another is done with [extend()](#extend()):
-```
 :call extend(adict, bdict)
 This extends adict with all entries from bdict.  Duplicate keys cause entries
 in adict to be overwritten.  An optional third argument can change this.
@@ -644,11 +560,9 @@ expect ":echo adict" to show the items from bdict after the older entries in
 adict.
 
 Weeding out entries from a Dictionary can be done with [filter()](#filter()):
-```
 :call filter(dict, 'v:val =~ "x"')
 This removes all entries from "dict" with a value not matching 'x'.
 This can also be used to remove all entries:
-```
 call filter(dict, 0)
 
 
@@ -656,7 +570,6 @@ Dictionary function ~
 ### <a id="Dictionary-function self E725 E862" class="section-title" href="#Dictionary-function self E725 E862">Note:</a>
 When a function is defined with the "dict" attribute it can be used in a
 special way with a dictionary.  Example:
-```
 :function Mylen() dict
 :   return len(self.data)
 :endfunction
@@ -673,7 +586,6 @@ Funcref to a Dictionary, but the "self" variable is not available then.
 ### <a id="numbered-function anonymous-function" class="section-title" href="#numbered-function anonymous-function">Note:</a>
 To avoid the extra name for the function it can be defined and directly
 assigned to a Dictionary in this way:
-```
 :let mydict = {'data': [0, 1, 2, 3]}
 :function mydict.len()
 :   return len(self.data)
@@ -689,14 +601,12 @@ It is not necessary to use the "dict" attribute for a numbered function.
 
 If you get an error for a numbered function, you can find out what it is with
 a trick.  Assuming the function is 42, the command is:
-```
 :function g:42
 
 
 Functions for Dictionaries ~
 ### <a id="E715" class="section-title" href="#E715">Note:</a>
 Functions that can be used with a Dictionary:
-```
 :if has_key(dict, 'foo')	" TRUE if dict has entry with key "foo"
 :if empty(dict)			" TRUE if dict is empty
 :let l = len(dict)		" number of items in dict
@@ -719,16 +629,13 @@ value of an 8-bit byte, from 0 to 255.
 Blob creation ~
 
 A Blob can be created with a [blob-literal](#blob-literal):
-```
 :let b = 0zFF00ED015DAF
 Dots can be inserted between bytes (pair of hex characters) for readability,
 they don't change the value:
-```
 :let b = 0zFF00.ED01.5DAF
 
 A blob can be read from a file with [readfile()](#readfile()) passing the {type} argument
 set to "B", for example:
-```
 :let b = readfile('image.png', 'B')
 
 
@@ -736,19 +643,16 @@ Blob index ~
 ### <a id="blob-index E979" class="section-title" href="#blob-index E979">Note:</a>
 A byte in the Blob can be accessed by putting the index in square brackets
 after the Blob.  Indexes are zero-based, thus the first byte has index zero.
-```
 :let myblob = 0z00112233
 :let byte = myblob[0]		" get the first byte: 0x00
 :let byte = myblob[2]		" get the third byte: 0x22
 
 A negative index is counted from the end.  Index -1 refers to the last byte in
 the Blob, -2 to the last but one byte, etc.
-```
 :let last = myblob[-1]		" get the last byte: 0x33
 
 To avoid an error for an invalid index use the [get()](#get()) function.  When an item
 is not available it returns -1 or the default value you specify:
-```
 :echo get(myblob, idx)
 :echo get(myblob, idx, 999)
 
@@ -757,7 +661,6 @@ Blob iteration ~
 
 The [:for](#:for) loop executes commands for each byte of a Blob.  The loop variable is
 set to each byte in the Blob.  Example:
-```
 :for byte in 0z112233
 :   call Doit(byte)
 :endfor
@@ -767,7 +670,6 @@ This calls Doit() with 0x11, 0x22 and 0x33.
 Blob concatenation ~
 
 Two blobs can be concatenated with the "+" operator:
-```
 :let longblob = myblob + 0z4455
 :let myblob += 0z6677
 
@@ -778,14 +680,12 @@ Part of a blob ~
 
 A part of the Blob can be obtained by specifying the first and last index,
 separated by a colon in square brackets:
-```
 :let myblob = 0z00112233
 :let shortblob = myblob[1:2]	" get 0z1122
 :let shortblob = myblob[2:-1]	" get 0z2233
 
 Omitting the first index is similar to zero.  Omitting the last index is
 similar to -1.
-```
 :let endblob = myblob[2:]	" from item 2 to the end: 0z2233
 :let shortblob = myblob[2:2]	" Blob with one byte: 0z22
 :let otherblob = myblob[:]	" make a copy of the Blob
@@ -796,28 +696,24 @@ message.
 
 If the second index is equal to or greater than the length of the Blob the
 length minus one is used:
-```
 :echo myblob[2:8]		" result: 0z2233
 
 
 Blob modification ~
 ### <a id="blob-modification" class="section-title" href="#blob-modification">Note:</a>
 To change a specific byte of a blob use [:let](#:let) this way:
-```
 :let blob[4] = 0x44
 
 When the index is just one beyond the end of the Blob, it is appended. Any
 higher index is an error.
 
 To change a sequence of bytes the [:] notation can be used:
-```
 let blob[1:3] = 0z445566
 The length of the replaced bytes must be exactly the same as the value
 provided. *E972*
 
 To change part of a blob you can specify the first and last byte to be
 modified.  The value must have the same number of bytes in the range:
-```
 :let blob[3:5] = 0z334455
 
 You can also use the functions [add()|, |remove()| and |insert()](#add()|, |remove()| and |insert()).
@@ -826,40 +722,26 @@ You can also use the functions [add()|, |remove()| and |insert()](#add()|, |remo
 Blob identity ~
 
 Blobs can be compared for equality:
-```
 if blob == 0z001122
 And for equal identity:
-```
 if blob is otherblob
-### <a id="blob-identity E977" class="section-title" href="#blob-identity E977"><</a>
+### <a id="blob-identity E977" class="section-title" href="#blob-identity E977">Note:</a>
 When variable "aa" is a Blob and you assign it to another variable "bb", both
 variables refer to the same Blob.  Then the "is" operator returns true.
 
 When making a copy using [:] or [copy()](#copy()) the values are the same, but the
 identity is different:
-```
 :let blob = 0z112233
 :let blob2 = blob
 :echo blob == blob2
-
-```
-	1
-```
+1
 :echo blob is blob2
-
-```
-	1
-```
+1
 :let blob3 = blob[:]
 :echo blob == blob3
-
-```
-	1
-```
+1
 :echo blob is blob3
-
-```
-	0
+0
 
 Making a copy of a Blob is done with the [copy()](#copy()) function.  Using [:] also
 works, as explained above.
@@ -962,7 +844,6 @@ func{ti}on(expr1, ...)	function call with curly braces
 
 "..." indicates that the operations in this level can be concatenated.
 Example:
-```
 &nu || &list && &shell == "csh"
 
 All expressions within one level are parsed from left to right.
@@ -977,17 +858,14 @@ The expression before the '?' is evaluated to a number.  If it evaluates to
 [TRUE](#TRUE), the result is the value of the expression between the '?' and ':',
 otherwise the result is the value of the expression after the ':'.
 Example:
-```
 :echo lnum == 1 ? "top" : lnum
 
 Since the first expression is an "expr2", it cannot contain another ?:.  The
 other two expressions can, thus allow for recursive use of ?:.
 Example:
-```
 :echo lnum == 1 ? "top" : lnum == 1000 ? "last" : lnum
 
 To keep this readable, using [line-continuation](#line-continuation) is suggested:
-```
 :echo lnum == 1
 :\	? "top"
 :\	: lnum == 1000
@@ -1015,25 +893,21 @@ n1	n2		n1 || n2	n1 && n2 ~
 [TRUE|	|TRUE|		|TRUE|		|TRUE](#TRUE|	|TRUE|		|TRUE|		|TRUE)
 
 The operators can be concatenated, for example:
-```
 
 &nu || &list && &shell == "csh"
 
 Note that "&&" takes precedence over "||", so this has the meaning of:
-```
 
 &nu || (&list && &shell == "csh")
 
 Once the result is known, the expression "short-circuits", that is, further
 arguments are not evaluated.  This is like what happens in C.  For example:
-```
 
 let a = 1
 echo a || b
 
 This is valid even if there is no variable called "b" because "a" is [TRUE](#TRUE),
 so the result must be [TRUE](#TRUE).  Similarly below:
-```
 
 echo exists("b") && b == "yes"
 
@@ -1094,7 +968,6 @@ arguments must be equal (or the same).
 
 To compare Funcrefs to see if they refer to the same function, ignoring bound
 Dictionary and arguments, use [get()](#get()) to get the function name:
-```
 if get(Part1, 'name') == get(Part2, 'name')
 " Part1 and Part2 refer to the same function
 
@@ -1104,7 +977,6 @@ instance.  A copy of a [List| is different from the original |List](#List| is di
 using "is" without a [List|, |Dictionary| or |Blob](#List|, |Dictionary| or |Blob), it is equivalent to
 using "equal", using "isnot" is equivalent to using "not equal".  Except that
 a different type means the values are different:
-```
 echo 4 == '4'
 1
 echo 4 is '4'
@@ -1115,11 +987,9 @@ echo 0 is []
 
 When comparing a String with a Number, the String is converted to a Number,
 and the comparison is done on Numbers.  This means that:
-```
 echo 0 == 'x'
 1
 because 'x' converted to a Number is zero.  However:
-```
 echo [0] == ['x']
 0
 Inside a List or Dictionary this conversion is not used.
@@ -1151,7 +1021,7 @@ can be matched like an ordinary character.  Examples:
 
 ### <a id="expr5 expr6" class="section-title" href="#expr5 expr6">expr5 and expr6</a>
 ---------------
-### <a id="Number addition, [List| or |Blob| concatenation	expr-+" class="section-title" href="#Number addition, |List| or |Blob](#List| or |Blob| concatenation	expr-+" class="section-title" href="#Number addition, |List| or |Blob) concatenation	expr-+">expr6 + expr6</a>
+### <a id="Number addition, [List| or |Blob](#List| or |Blob) concatenation	expr-+" class="section-title" href="#Number addition, [List| or |Blob](#List| or |Blob) concatenation	expr-+">expr6 + expr6</a>
 expr6 - expr6   Number subtraction				*expr--*
 expr6 . expr6   String concatenation				*expr-.*
 expr6 .. expr6  String concatenation				*expr-..*
@@ -1174,17 +1044,13 @@ Note the difference between "+" and ".":
 "123" . "456" = "123456"
 
 Since '.' has the same precedence as '+' and '-', you need to read:
-```
 1 . 90 + 90.0
 As:
-```
 (1 . 90) + 90.0
 That works, since the String "190" is automatically converted to the Number
 190, which can be added to the Float 90.0.  However:
-```
 1 . 90 * 90.0
 Should be read as:
-```
 1 . (90 * 90.0)
 Since '.' has lower precedence than '*'.  This does NOT work, since this
 attempts to concatenate a Float and a String.
@@ -1192,17 +1058,13 @@ attempts to concatenate a Float and a String.
 When dividing a Number by zero the result depends on the value:
 0 / 0  = -0x80000000	(like NaN for Float)
 >0 / 0  =  0x7fffffff	(like positive infinity)
-
-```
-0 / 0  = -0x7fffffff	(like negative infinity)
+<0 / 0  = -0x7fffffff	(like negative infinity)
 (before Vim 7.2 it was always 0x7fffffff)
 
 When 64-bit Number support is enabled:
 0 / 0  = -0x8000000000000000	(like NaN for Float)
 >0 / 0  =  0x7fffffffffffffff	(like positive infinity)
-
-```
-0 / 0  = -0x7fffffffffffffff	(like negative infinity)
+<0 / 0  = -0x7fffffffffffffff	(like negative infinity)
 
 When the righthand side of '%' is zero, the result is 0.
 
@@ -1240,7 +1102,7 @@ expr8->(expr1, ...)[expr1]
 Evaluation is always from left to right.
 
 
-### <a id="item of String or [List|	expr-[] E111" class="section-title" href="#item of String or |List](#List|	expr-[] E111" class="section-title" href="#item of String or |List)	expr-[] E111">expr8[expr1]</a>
+### <a id="item of String or [List](#List)	expr-[] E111" class="section-title" href="#item of String or [List](#List)	expr-[] E111">expr8[expr1]</a>
 ### <a id="subscript" class="section-title" href="#subscript">Note:</a>
 In legacy Vim script:
 If expr8 is a Number or String this results in a String that contains the
@@ -1249,13 +1111,11 @@ automatically converted to a String), expr1 as a Number.  This doesn't
 recognize multibyte encodings, see `byteidx()` for an alternative, or use
 `split()` to turn the string into a list of characters.  Example, to get the
 byte under the cursor:
-```
 :let c = getline(".")[col(".") - 1]
 
 Index zero gives the first byte.  This is like it works in C.  Careful:
 text column numbers start with one!  Example, to get the byte under the
 cursor:
-```
 :let c = getline(".")[col(".") - 1]
 
 If the length of the String is less than the index, the result is an empty
@@ -1265,7 +1125,6 @@ compatibility).  Use [-1:] to get the last byte.
 If expr8 is a [List| then it results the item at index expr1.  See |list-index](#List| then it results the item at index expr1.  See |list-index)
 for possible index values.  If the index is out of range this results in an
 error.  Example:
-```
 :let item = mylist[-1]		" get last item
 
 Generally, if a [List](#List) index is equal to or higher than the length of the
@@ -1293,27 +1152,23 @@ If an index goes out of range for the string characters are omitted.  If
 expr1b is smaller than expr1a the result is an empty string.
 
 Examples:
-```
 :let c = name[-1:]		" last byte of a string
 :let c = name[0:-1]		" the whole string
 :let c = name[-2:-2]		" last but one byte of a string
 :let s = line(".")[4:]		" from the fifth byte to the end
 :let s = s[:-3]			" remove last two bytes
-
 ```
 
 ### <a id="slice" class="section-title" href="#slice">Note:</a>
 If expr8 is a [List| this results in a new |List](#List| this results in a new |List) with the items indicated by
 the indexes expr1a and expr1b.  This works like with a String, as explained
-just above. Also see [sublist](#sublist) below.  Examples:
-```
-:let l = mylist[:3]		" first four items
+just above. Also see [sublist](#sublist) below.  Examples: 
+```	:let l = mylist[:3]		" first four items
 :let l = mylist[4:4]		" List with one item
 :let l = mylist[:]		" shallow copy of a List
 
 If expr8 is a [Blob| this results in a new |Blob](#Blob| this results in a new |Blob) with the bytes in the
 indexes expr1a and expr1b, inclusive.  Examples:
-```
 :let b = 0zDEADBEEF
 :let bs = b[1:2]		" 0zADBE
 :let bs = b[]			" copy of 0zDEADBEEF
@@ -1323,7 +1178,6 @@ error.
 
 Watch out for confusion between a namespace and a variable followed by a colon
 for a sublist:
-```
 mylist[n:]     " uses variable n
 mylist[s:]     " uses namespace s:, error!
 
@@ -1340,7 +1194,6 @@ but it may start with a number.  Curly braces cannot be used.
 There must not be white space before or after the dot.
 
 Examples:
-```
 :let dict = {"one": 1, 2: "two"}
 :echo dict.one		" shows "1"
 :echo dict.2		" shows "two"
@@ -1360,40 +1213,30 @@ expr8->{lambda}([args])
 
 ### <a id="E260 E276" class="section-title" href="#E260 E276">Note:</a>
 For methods that are also available as global functions this is the same as:
-```
 name(expr8 [, args])
 There can also be methods specifically for the type of "expr8".
 
 This allows for chaining, passing the value that one method returns to the
 next method:
-```
 mylist->filter(filterexpr)->map(mapexpr)->sort()->join()
-
 ```
 
-Example of using a lambda:
-```
-GetPercentage()->{x -> x * 100}()->printf('%d%%')
-
+Example of using a lambda: 
+```	GetPercentage()->{x -> x * 100}()->printf('%d%%')
 ```
 
-When using -> the [expr7](#expr7) operators will be applied first, thus:
-```
--1.234->string()
+When using -> the [expr7](#expr7) operators will be applied first, thus: 
+```	-1.234->string()
 Is equivalent to:
-```
 (-1.234)->string()
 And NOT:
-```
 -(1.234->string())
-
 ```
 
 ### <a id="E274" class="section-title" href="#E274">Note:</a>
 "->name(" must not contain white space.  There can be white space before the
-"->" and after the "(", thus you can split the lines like this:
-```
-mylist
+"->" and after the "(", thus you can split the lines like this: 
+```	mylist
 \ ->filter(filterexpr)
 \ ->map(mapexpr)
 \ ->sort()
@@ -1448,15 +1291,12 @@ for floating point numbers.
 
 ### <a id="float-pi float-e" class="section-title" href="#float-pi float-e">Note:</a>
 A few useful values to copy&paste:
-```
 :let pi = 3.14159265359
 :let e  = 2.71828182846
 Or, if you don't want to write them in as floating-point literals, you can
 also use functions, like the following:
-```
 :let pi = acos(-1.0)
 :let e  = exp(1.0)
-
 ```
 
 ### <a id="floating-point-precision" class="section-title" href="#floating-point-precision">Note:</a>
@@ -1466,12 +1306,9 @@ runtime.
 
 The default for displaying a [Float](#Float) is to use 6 decimal places, like using
 printf("%g", f).  You can select something else when using the [printf()](#printf())
-function.  Example:
-```
-:echo printf('%.15e', atan(1))
-
-```
-	7.853981633974483e-01
+function.  Example: 
+```	:echo printf('%.15e', atan(1))
+7.853981633974483e-01
 
 
 
@@ -1520,7 +1357,6 @@ Note that "\000" and "\x00" force the end of the string.
 
 Hexadecimal starting with 0z or 0Z, with an arbitrary number of bytes.
 The sequence must be an even number of hex characters.  Example:
-```
 :let b = 0zFF00ED015DAF
 
 
@@ -1535,7 +1371,6 @@ meaning.  The only exception is that two quotes stand for one quote.
 
 Single quoted strings are useful for patterns, so that backslashes do not need
 to be doubled.  These two commands are equivalent:
-```
 if a =~ "\\s*"
 if a =~ '\s*'
 
@@ -1547,7 +1382,6 @@ if a =~ '\s*'
 &l:option		local option value
 
 Examples:
-```
 echo "tabstop is " .. &tabstop
 if &expandtab
 
@@ -1594,7 +1428,6 @@ are known inside the current Vim session.  Using expand() will first try using
 the environment variables known inside the current Vim session.  If that
 fails, a shell will be used to expand the variable.  This can be slow, but it
 does expand all variables that the shell knows about.  Example:
-```
 :echo $shell
 :echo expand("$shell")
 The first one probably doesn't echo anything, the second echoes the $shell
@@ -1624,68 +1457,48 @@ the following ways:
 1. The body of the lambda expression is an [expr1| and not a sequence of |Ex](#expr1| and not a sequence of |Ex)
 commands.
 2. The prefix "a:" should not be used for arguments.  E.g.:
-```
 :let F = {arg1, arg2 -> arg1 - arg2}
 :echo F(5, 2)
-
-```
-	3
+3
 
 The arguments are optional.  Example:
-```
 :let F = {-> 'error function'}
 :echo F('ignored')
-
-```
-	error function
+error function
 ### <a id="closure" class="section-title" href="#closure">Note:</a>
 Lambda expressions can access outer scope variables and arguments.  This is
 often called a closure.  Example where "i" and "a:arg" are used in a lambda
 while they already exist in the function scope.  They remain valid even after
 the function returns:
-```
 :function Foo(arg)
 :  let i = 3
 :  return {x -> x + i - a:arg}
 :endfunction
 :let Bar = Foo(4)
 :echo Bar(6)
-
-```
-	5
+5
 Note that the variables must exist in the outer scope before the lambda is
 defined for this to work.  See also [:func-closure](#:func-closure).
 
 Lambda and closure support can be checked with:
-```
 if has('lambda')
 
 Examples for using a lambda expression with [sort()|, |map()| and |filter()](#sort()|, |map()| and |filter()):
-```
 :echo map([1, 2, 3], {idx, val -> val + 1})
-
-```
-	[2, 3, 4]
-```
+[2, 3, 4]
 :echo sort([3,7,2,1,4], {a, b -> a - b})
-
-```
-	[1, 2, 3, 4, 7]
+[1, 2, 3, 4, 7]
 
 The lambda expression is also useful for jobs and timers:
-```
 :let timer = timer_start(500,
 \ {-> execute("echo 'Handler called'", "")},
 \ {'repeat': 3})
-
-```
-	Handler called
+Handler called
 Handler called
 Handler called
 
 Note that it is possible to cause memory to be used and not freed if the
 closure is referenced by the context it depends on:
-```
 function Function()
 let x = 0
 let F = {-> x}
@@ -1699,7 +1512,6 @@ Notice how execute() is used to execute an Ex command.  That's ugly though.
 
 Lambda expressions have internal names like '<lambda>42'.  If you get an error
 for a lambda expression, you can find what it is with the following command:
-```
 :function <lambda>42
 See also: [numbered-function](#numbered-function)
 
@@ -1732,11 +1544,9 @@ specified by what is prepended:
 
 The scope name by itself can be used as a [Dictionary](#Dictionary).  For example, to
 delete all script-local variables:
-```
 :for k in keys(s:)
 :    unlet s:[k]
 :endfor
-
 ```
 
 ### <a id="buffer-variable b:var b:" class="section-title" href="#buffer-variable b:var b:">Note:</a>
@@ -1752,15 +1562,12 @@ incremented for each change.  An undo command is also a change
 in this case.  Resetting 'modified' when writing the buffer is
 also counted.
 This can be used to perform an action only when the buffer has
-changed.  Example:
-```
-:if my_changedtick != b:changedtick
+changed.  Example: 
+```		    :if my_changedtick != b:changedtick
 :	let my_changedtick = b:changedtick
 :	call My_Update()
 :endif
-
-```
-		You cannot change or delete the b:changedtick variable.
+You cannot change or delete the b:changedtick variable.
 
 ### <a id="window-variable w:var w:" class="section-title" href="#window-variable w:var w:">Note:</a>
 A variable name that is preceded with "w:" is local to the current window.  It
@@ -1801,7 +1608,6 @@ Thus not in:
 
 Script variables can be used to avoid conflicts with global variable names.
 Take this example:
-```
 
 let s:counter = 0
 function MyCounter()
@@ -1815,7 +1621,6 @@ that script will not be changed, only the "s:counter" in the script where
 "Tick" was defined is used.
 
 Another example that does the same:
-```
 
 let s:counter = 0
 command Tick let s:counter = s:counter + 1 | echo s:counter
@@ -1826,7 +1631,6 @@ defined.
 
 The script variables are also available when a function is defined inside a
 function that is defined in a script.  Example:
-```
 
 let s:counter = 0
 function StartCounting(incr)
@@ -1848,7 +1652,6 @@ called, the s:counter variable will be accessible in MyCounter().
 When the same script is sourced again it will use the same script variables.
 They will remain valid as long as Vim is running.  This can be used to
 maintain a counter:
-```
 
 if !exists("s:counter")
 let s:counter = 1
@@ -1957,11 +1760,8 @@ Note: Plugins can modify the value to emulate the builtin
 ### <a id="v:count count-variable" class="section-title" href="#v:count count-variable">Note:</a>
 v:count		The count given for the last Normal mode command.  Can be used
 to get the count before a mapping.  Read-only.  Example:
-```
 :map _x :<C-U>echo "the count is " .. v:count<CR>
-
-```
-		Note: The <C-U> is required to remove the line range that you
+Note: The <C-U> is required to remove the line range that you
 get when typing ':' after a count.
 When there are two counts, as in "3d2w", they are multiplied,
 just like what happens in the command, "d6w" for the example.
@@ -1986,18 +1786,14 @@ one.  When multiple signals are caught the number increases.
 Can be used in an autocommand to check if Vim didn't
 terminate normally. {only works on Unix}
 Example:
-```
 :au VimLeave * if v:dying [ echo "\nAAAAaaaarrrggghhhh!!!\n" ](# echo "\nAAAAaaaarrrggghhhh!!!\n" ) endif
-
-```
-		Note: if another deadly signal is caught when v:dying is one,
+Note: if another deadly signal is caught when v:dying is one,
 VimLeave autocommands will not be executed.
 
 ### <a id="v:exiting exiting-variable" class="section-title" href="#v:exiting exiting-variable">Note:</a>
 v:exiting	Exit code, or [v:null| before invoking the |VimLeavePre](#v:null| before invoking the |VimLeavePre)
 and [VimLeave| autocmds.  See |:q|, |:x| and |:cquit](#VimLeave| autocmds.  See |:q|, |:x| and |:cquit).
 Example:
-```
 ### <a id=":au VimLeave  echo "Exit value is " .. v:exiting" class="section-title" href="#:au VimLeave  echo "Exit value is " .. v:exiting">Note:</a>
 
 ### <a id="v:echospace echospace-variable" class="section-title" href="#v:echospace echospace-variable">Note:</a>
@@ -2011,12 +1807,10 @@ available above the last line.
 v:errmsg	Last given error message.
 Modifiable (can be set).
 Example:
-```
 :let v:errmsg = ""
 :silent! next
 :if v:errmsg != ""
 :  ... handle error
-
 ```
 
 ### <a id="v:errors errors-variable assert-return" class="section-title" href="#v:errors errors-variable assert-return">Note:</a>
@@ -2025,23 +1819,17 @@ This is a list of strings.
 The assert functions append an item when an assert fails.
 The return value indicates this: a one is returned if an item
 was added to v:errors, otherwise zero is returned.
-To remove old results make it empty:
-```
-:let v:errors = []
-
-```
-		If v:errors is set to anything but a list it is made an empty
+To remove old results make it empty: 
+```	:let v:errors = []
+If v:errors is set to anything but a list it is made an empty
 list by the assert function.
 
 ### <a id="v:event event-variable" class="section-title" href="#v:event event-variable">Note:</a>
 v:event		Dictionary of event data for the current [autocommand](#autocommand).  Valid
 only during the event lifetime; storing or passing v:event is
 invalid!  Copy it instead:
-```
 ### <a id="au TextYankPost  let g:foo = deepcopy(v:event)" class="section-title" href="#au TextYankPost  let g:foo = deepcopy(v:event)">Note:</a>
-
-```
-		Keys vary by event; see the documentation for the specific
+Keys vary by event; see the documentation for the specific
 event, e.g. [DirChanged| or |TextYankPost](#DirChanged| or |TextYankPost).
 KEY		DESCRIPTION ~
 abort		Whether the event triggered during
@@ -2088,15 +1876,12 @@ status		Job status or exit code, -1 means "unknown". [TermClose](#TermClose)
 v:exception	The value of the exception most recently caught and not
 finished.  See also [v:throwpoint| and |throw-variables](#v:throwpoint| and |throw-variables).
 Example:
-```
 :try
 :  throw "oops"
 :catch /.*/
 :  echo "caught " .. v:exception
 :endtry
-
-```
-		Output: "caught oops".
+Output: "caught oops".
 
 ### <a id="v:false false-variable" class="section-title" href="#v:false false-variable">Note:</a>
 v:false		Special value used to put "false" in JSON and msgpack.  See
@@ -2131,9 +1916,7 @@ ask		Ask the user what to do, as if there
 was no autocommand.  Except that when
 only the timestamp changed nothing
 will happen.
-
-```
-empty>		Nothing, the autocommand should do
+<empty>		Nothing, the autocommand should do
 everything that needs to be done.
 The default is empty.  If another (invalid) value is used then
 Vim behaves like it is empty, there is no warning message.
@@ -2193,11 +1976,8 @@ v:hlsearch	Variable that indicates whether search highlighting is on.
 Setting it makes sense only if 'hlsearch' is enabled. Setting
 this variable to zero acts like the [:nohlsearch](#:nohlsearch) command,
 setting it to one acts like
-```
 let &hlsearch = &hlsearch
-
-```
-		Note that the value is restored when returning from a
+Note that the value is restored when returning from a
 function. [function-search-undo](#function-search-undo).
 
 ### <a id="v:insertmode insertmode-variable" class="section-title" href="#v:insertmode insertmode-variable">Note:</a>
@@ -2331,11 +2111,8 @@ character except for commands starting with <g> or <z>,
 in which case it is two characters.  Best used alongside
 [v:prevcount| and |v:register](#v:prevcount| and |v:register).  Useful if you want to cancel
 Operator-pending mode and then use the operator, e.g.:
-```
 :omap O <Esc>:call MyMotion(v:operator)<CR>
-
-```
-		The value remains set until another operator is entered, thus
+The value remains set until another operator is entered, thus
 don't expect it to be empty.
 v:operator is not set for [:delete|, |:yank](#:delete|, |:yank) or other Ex
 commands.
@@ -2346,11 +2123,8 @@ v:prevcount	The count given for the last but one Normal mode command.
 This is the v:count value of the previous command.  Useful if
 you want to cancel Visual or Operator-pending mode and then
 use the count, e.g.:
-```
 :vmap % <Esc>:call MyFilter(v:prevcount)<CR>
-
-```
-		Read-only.
+Read-only.
 
 ### <a id="v:profiling profiling-variable" class="section-title" href="#v:profiling profiling-variable">Note:</a>
 v:profiling	Normally zero.  Set to one after using ":profile start".
@@ -2395,14 +2169,11 @@ Read-only.
 $NVIM is set by [terminal| and |jobstart()](#terminal| and |jobstart()), and is thus
 a hint that the current environment is a subprocess of Nvim.
 Example:
-```
 if $NVIM
 echo nvim_get_chan_info(v:parent)
 endif
 
-
-```
-		Note the contents of $NVIM may change in the future.
+Note the contents of $NVIM may change in the future.
 
 ### <a id="v:searchforward searchforward-variable" class="section-title" href="#v:searchforward searchforward-variable">v:searchforward</a>
 Search direction:  1 after a forward search, 0 after a
@@ -2419,12 +2190,10 @@ This only works when the shell returns the error code to Vim.
 The value -1 is often used when the command could not be
 executed.  Read-only.
 Example:
-```
 :!mv foo bar
 :if v:shell_error
 :  echo 'could not rename "foo" to "bar"!'
 :endif
-
 ```
 
 ### <a id="v:statusmsg statusmsg-variable" class="section-title" href="#v:statusmsg statusmsg-variable">Note:</a>
@@ -2435,10 +2204,8 @@ Modifiable (can be set).
 v:stderr	[channel-id](#channel-id) corresponding to stderr. The value is always 2;
 use this variable to make your code more descriptive.
 Unlike stdin and stdout (see [stdioopen()](#stdioopen())), stderr is always
-open for writing. Example:
-```
-:call chansend(v:stderr, "error: toaster empty\n")
-
+open for writing. Example: 
+```			:call chansend(v:stderr, "error: toaster empty\n")
 ```
 
 ### <a id="v:swapname swapname-variable" class="section-title" href="#v:swapname swapname-variable">Note:</a>
@@ -2508,16 +2275,13 @@ Modifiable (can be set).
 v:throwpoint	The point where the exception most recently caught and not
 finished was thrown.  Not set when commands are typed.  See
 also [v:exception| and |throw-variables](#v:exception| and |throw-variables).
-Example:
-```
-:try
+Example: 
+```	:try
 :  throw "oops"
 :catch /.*/
 :  echo "Exception from" v:throwpoint
 :endtry
-
-```
-		Output: "Exception from test.vim, line 2"
+Output: "Exception from test.vim, line 2"
 
 ### <a id="v:true true-variable" class="section-title" href="#v:true true-variable">Note:</a>
 v:true		Special value used to put "true" in JSON and msgpack.  See
@@ -2536,9 +2300,7 @@ v:version	Vim version number: major version times 100 plus minor
 version.  Vim 5.0 is 500, Vim 5.1 is 501.
 Read-only.
 Use [has()](#has()) to check the Nvim (not Vim) version:
-```
 :if has("nvim-0.2.1")
-
 ```
 
 
@@ -2581,9 +2343,8 @@ You can find most information about defining functions in [userfunc.txt](#userfu
 
 In most places where you can use a variable, you can use a "curly braces name"
 variable.  This is a regular variable name with one or more expressions
-wrapped in braces {} like this:
-```
-my_{adjective}_variable
+wrapped in braces {} like this: 
+```	my_{adjective}_variable
 
 When Vim encounters this, it evaluates the expression inside the braces, puts
 that in place of the expression, and re-interprets the whole as a variable
@@ -2593,23 +2354,19 @@ name.  So in the above example, if the variable "adjective" was set to
 
 One application for this is to create a set of variables governed by an option
 value.  For example, the statement
-```
 echo my_{&background}_message
 
 would output the contents of "my_dark_message" or "my_light_message" depending
 on the current value of 'background'.
 
 You can use multiple brace pairs:
-```
 echo my_{adverb}_{adjective}_message
 ..or even nest them:
-```
 echo my_{ad{end_of_word}}_message
 where "end_of_word" is either "verb" or "jective".
 
 However, the expression inside the braces must evaluate to a valid single
 variable name, e.g. this is invalid:
-```
 :let foo='a + b'
 :echo c{foo}d
 .. since the result of expansion is "ca + bd", which is not a variable name.
@@ -2617,14 +2374,12 @@ variable name, e.g. this is invalid:
 ### <a id="curly-braces-function-names" class="section-title" href="#curly-braces-function-names">Note:</a>
 You can call and define functions by an evaluated name in a similar way.
 Example:
-```
 :let func_end='whizz'
 :call my_func_{func_end}(parameter)
 
 This would call the function "my_func_whizz(parameter)".
 
 This does NOT work:
-```
 :let i = 3
 :let @{i} = ''  " error
 :echo @{i}      " error
@@ -2646,11 +2401,8 @@ the index can be repeated.
 This cannot be used to add an item to a [List](#List).
 This cannot be used to set a byte in a String.  You
 can do that like this:
-```
 :let var = var[0:2] .. 'X' .. var[4:]
-
-```
-			When {var-name} is a [Blob](#Blob) then {idx} can be the
+When {var-name} is a [Blob](#Blob) then {idx} can be the
 length of the blob, in which case one byte is
 appended.
 
@@ -2695,11 +2447,8 @@ If the result of {expr1} ends in a <CR> or <NL>, the
 register will be linewise, otherwise it will be set to
 charwise.
 This can be used to clear the last search pattern:
-```
 :let @/ = ""
-
-```
-			This is different from searching for an empty string,
+This is different from searching for an empty string,
 that would match everywhere.
 
 :let @{reg-name} .= {expr1}
@@ -2714,7 +2463,6 @@ For an option local to a window or buffer the effect
 is just like using the [:set](#:set) command: both the local
 value and the global value are changed.
 Example:
-```
 :let &path = &path .. ',/usr/local/include'
 
 :let &{option-name} .= {expr1}
@@ -2749,21 +2497,15 @@ the [List](#List).
 Each name can be one of the items of the ":let"
 command as mentioned above.
 Example:
-```
 :let [s, item] = GetItem(s)
-
-```
-			Detail: {expr1} is evaluated first, then the
+Detail: {expr1} is evaluated first, then the
 assignments are done in sequence.  This matters if
 {name2} depends on {name1}.  Example:
-```
 :let x = [0, 1]
 :let i = 0
 :let [i, x[i]] = [1, 2]
 :echo x
-
-```
-			The result is [0, 2].
+The result is [0, 2].
 
 :let [{name1}, {name2}, ...] .= {expr1}
 :let [{name1}, {name2}, ...] += {expr1}
@@ -2777,9 +2519,7 @@ items than there are names.  A list of the remaining
 items is assigned to {lastname}.  If there are no
 remaining items {lastname} is set to an empty list.
 Example:
-```
 :let [a, b; rest] = ["aval", "bval", 3, 4]
-
 ```
 
 :let [{name}, ..., ; {lastname}] .= {expr1}
@@ -2807,16 +2547,13 @@ white space after {endmarker}!
 Without "trim" any white space characters in the lines
 of text are preserved.  If "trim" is specified before
 {endmarker}, then indentation is stripped so you can
-do:
-```
-let text =<< trim END
+do: 
+```				let text =<< trim END
 if ok
 echo 'done'
 endif
 END
-
-```
-			Results in: `["if ok", "  echo 'done'", "endif"]`
+Results in: `["if ok", "  echo 'done'", "endif"]`
 The marker must line up with "let" and the indentation
 of the first line is removed from all the text lines.
 Specifically: all the leading indentation exactly
@@ -2833,18 +2570,15 @@ followed by a comment.
 
 To avoid line continuation to be applied, consider
 adding 'C' to 'cpoptions':
-```
 set cpo+=C
 let var =<< END
 \ leading backslash
 END
 set cpo-=C
-
 ```
 
-Examples:
-```
-let var1 =<< END
+Examples: 
+```				let var1 =<< END
 Sample text 1
 Sample text 2
 Sample text 3
@@ -2854,7 +2588,6 @@ let data =<< trim DATA
 1 2 3 4
 5 6 7 8
 DATA
-
 ```
 
 ### <a id="E121" class="section-title" href="#E121">Note:</a>
@@ -2871,9 +2604,7 @@ v:	Vim variables.
 
 :let			List the values of all variables.  The type of the
 variable is indicated before the value:
-
-```
-nothing>	String
+<nothing>	String
 #	Number
 ### <a id="	Funcref" class="section-title" href="#	Funcref">Note:</a>
 
@@ -2884,19 +2615,13 @@ names can be given, they are all removed.  The name
 may also be a [List| or |Dictionary](#List| or |Dictionary) item.
 With [!] no error message is given for non-existing
 variables.
-One or more items from a [List](#List) can be removed:
-```
-:unlet list[3]	  " remove fourth item
+One or more items from a [List](#List) can be removed: 
+```				:unlet list[3]	  " remove fourth item
 :unlet list[3:]   " remove fourth item to last
-
-```
-			One item from a [Dictionary](#Dictionary) can be removed at a time:
-```
+One item from a [Dictionary](#Dictionary) can be removed at a time:
 :unlet dict['two']
 :unlet dict.two
-
-```
-			This is especially useful to clean up used global
+This is especially useful to clean up used global
 variables and script-local variables (these are not
 deleted when the script ends).  Function-local
 variables are automatically deleted when the function
@@ -2917,36 +2642,25 @@ variable, it is made empty.
 Similar to [:let](#:let), but additionally lock the variable
 after setting the value.  This is the same as locking
 the variable with [:lockvar| just after |:let](#:lockvar| just after |:let), thus:
-```
 :const x = 1
-
-```
-			is equivalent to:
-```
+is equivalent to:
 :let x = 1
 :lockvar! x
-
-```
-			This is useful if you want to make sure the variable
+This is useful if you want to make sure the variable
 is not modified.  If the value is a List or Dictionary
 literal then the items also cannot be changed:
-```
 const ll = [1, 2, 3]
 let ll[1] = 5  " Error!
-
-```
-			Nested references are not locked:
-```
+Nested references are not locked:
 let lvar = ['a']
 const lconst = [0, lvar]
 let lconst[0] = 2  " Error!
 let lconst[1][0] = 'b'  " OK
-### <a id="E995" class="section-title" href="#E995"><</a>
+### <a id="E995" class="section-title" href="#E995">Note:</a>
 [:const](#:const) does not allow to for changing a variable.
-```
 :let x = 1
 :const x = 2  " Error!
-### <a id="E996" class="section-title" href="#E996"><</a>
+### <a id="E996" class="section-title" href="#E996">Note:</a>
 Note that environment variables, option values and
 register values cannot be used here, since they cannot
 be locked.
@@ -2960,11 +2674,10 @@ the behavior is the same as [:let](#:let).
 Lock the internal variable {name}.  Locking means that
 it can no longer be changed (until it is unlocked).
 A locked variable can be deleted:
-```
 :lockvar v
 :let v = 'asdf'	  " fails!
 :unlet v	  " works
-### <a id="E741 E940" class="section-title" href="#E741 E940"><</a>
+### <a id="E741 E940" class="section-title" href="#E741 E940">Note:</a>
 If you try to change a locked variable you get an
 error message: "E741: Value is locked: {name}".
 If you try to lock or unlock a built-in variable you
@@ -2995,14 +2708,11 @@ Note that when two variables refer to the same [List](#List)
 and you lock one of them, the [List](#List) will also be
 locked when used through the other variable.
 Example:
-```
 :let l = [0, 1, 2, 3]
 :let cl = l
 :lockvar l
 :let cl[1] = 99		" won't work!
-
-```
-			You may want to make a copy of a list to avoid this.
+You may want to make a copy of a list to avoid this.
 See [deepcopy()](#deepcopy()).
 
 
@@ -3026,22 +2736,17 @@ part was not executed either.
 
 You can use this to remain compatible with older
 versions:
-```
 :if version >= 500
 :  version-5-specific-commands
 :endif
-
-```
-			The commands still need to be parsed to find the
+The commands still need to be parsed to find the
 `endif`.  Sometimes an older Vim has a problem with a
 new command.  For example, `:silent` is recognized as
 a `:substitute` command.  In that case `:execute` can
 avoid problems:
-```
 :if version >= 600
 :  execute "silent 1,$delete"
 :endif
-
 ```
 
 NOTE: The `:append` and `:insert` commands don't work
@@ -3062,14 +2767,12 @@ is no extra `:endif`.
 as long as {expr1} evaluates to non-zero.
 When an error is detected from a command inside the
 loop, execution continues after the `endwhile`.
-Example:
-```
-:let lnum = 1
+Example: 
+```				:let lnum = 1
 :while lnum <= line("$")
 :call FixLine(lnum)
 :let lnum = lnum + 1
 :endwhile
-
 ```
 
 NOTE: The `:append` and `:insert` commands don't work
@@ -3086,10 +2789,8 @@ Variable {var} is set to the value of each item.
 When an error is detected for a command inside the
 loop, execution continues after the `endfor`.
 Changing {object} inside the loop affects what items
-are used.  Make a copy if this is unwanted:
-```
-:for item in copy(mylist)
-
+are used.  Make a copy if this is unwanted: 
+```				:for item in copy(mylist)
 ```
 
 When {object} is a [List](#List) and not making a copy, Vim
@@ -3098,14 +2799,11 @@ before executing the commands with the current item.
 Thus the current item can be removed without effect.
 Removing any later item means it will not be found.
 Thus the following example works (an inefficient way
-to make a [List](#List) empty):
-```
-for item in mylist
+to make a [List](#List) empty): 
+```				for item in mylist
 call remove(mylist, 0)
 endfor
-
-```
-			Note that reordering the [List](#List) (e.g., with sort() or
+Note that reordering the [List](#List) (e.g., with sort() or
 reverse()) may have unexpected effects.
 
 When {object} is a [Blob](#Blob), Vim always makes a copy to
@@ -3120,11 +2818,9 @@ one character, plus any combining characters.
 Like `:for` above, but each item in {listlist} must be
 a list, of which each item is assigned to {var1},
 {var2}, etc.  Example:
-```
 :for [lnum, col] in [[1, 3], [2, 5], [3, 8]]
 :echo getline(lnum)[col]
 :endfor
-
 ```
 
 ### <a id=":continue :con E586" class="section-title" href="#:continue :con E586">Note:</a>
@@ -3163,11 +2859,9 @@ after the `:finally`.  Otherwise, or when the
 a corresponding `:finally` etc.  Then the script
 processing is terminated.  Whether a function
 definition has an "abort" argument does not matter.
-Example:
-```
-try [ call Unknown() | finally | echomsg "cleanup" ](# call Unknown() | finally | echomsg "cleanup" ) endtry
+Example: 
+```		try [ call Unknown() | finally | echomsg "cleanup" ](# call Unknown() | finally | echomsg "cleanup" ) endtry
 echomsg "not reached"
-
 ```
 
 Moreover, an error or interrupt (dynamically) inside
@@ -3184,11 +2878,9 @@ other errors are converted to a value of the form
 and {errmsg} is the message that is displayed if the
 error exception is not caught, always beginning with
 the error number.
-Examples:
-```
-try [ sleep 100 | catch /^Vim:Interrupt$/ ](# sleep 100 | catch /^Vim:Interrupt$/ ) endtry
+Examples: 
+```		try [ sleep 100 | catch /^Vim:Interrupt$/ ](# sleep 100 | catch /^Vim:Interrupt$/ ) endtry
 try [ edit | catch /^Vim(edit):E\d\+/ | echo "error" ](# edit | catch /^Vim(edit):E\d\+/ | echo "error" ) endtry
-
 ```
 
 ### <a id=":cat :catch E603 E604 E605" class="section-title" href="#:cat :catch E603 E604 E605">Note:</a>
@@ -3199,9 +2891,8 @@ matching {pattern} is being thrown and has not yet
 been caught by a previous `:catch`.  Otherwise, these
 commands are skipped.
 When {pattern} is omitted all errors are caught.
-Examples:
-```
-:catch /^Vim:Interrupt$/	 " catch interrupts (CTRL-C)
+Examples: 
+```		:catch /^Vim:Interrupt$/	 " catch interrupts (CTRL-C)
 :catch /^Vim\%((\a\+)\)\=:E/	 " catch all Vim errors
 :catch /^Vim\%((\a\+)\)\=:/	 " catch errors and interrupts
 :catch /^Vim(write):/		 " catch all errors in :write
@@ -3209,7 +2900,6 @@ Examples:
 :catch /my-exception/		 " catch user exception
 ### <a id=":catch /./" class="section-title" href="#:catch /./">Note:</a>
 :catch				 " same as /.*/
-
 ```
 
 Another character can be used instead of / around the
@@ -3246,12 +2936,9 @@ again for the next dynamically surrounding `:try`
 script), until a matching `:catch` has been found.
 If the exception is not caught, the command processing
 is terminated.
-Example:
-```
-:try [ throw "oops" | catch /^oo/ | echo "caught" ](# throw "oops" | catch /^oo/ | echo "caught" ) endtry
-
-```
-			Note that "catch" may need to be on a separate line
+Example: 
+```		:try [ throw "oops" | catch /^oo/ | echo "caught" ](# throw "oops" | catch /^oo/ | echo "caught" ) endtry
+Note that "catch" may need to be on a separate line
 for when an error causes the parsing to skip the whole
 line and not see the "|" that separates the commands.
 
@@ -3264,9 +2951,8 @@ cursor to the first column.
 Uses the highlighting set by the `:echohl` command.
 Cannot be followed by a comment.
 Example:
-```
 :echo "the value of 'shell' is" &shell
-### <a id=":echo-redraw" class="section-title" href="#:echo-redraw"><</a>
+### <a id=":echo-redraw" class="section-title" href="#:echo-redraw">Note:</a>
 A later redraw may make the message disappear again.
 And since Vim mostly postpones redrawing until it's
 finished with a sequence of commands this happens
@@ -3274,22 +2960,18 @@ quite often.  To avoid that a command from before the
 `:echo` causes a redraw afterwards (redraws are often
 postponed until you type something), force a redraw
 with the `:redraw` command.  Example:
-```
 :new [ redraw ](# redraw ) echo "there is a new window"
-### <a id=":echo-self-refer" class="section-title" href="#:echo-self-refer"><</a>
+### <a id=":echo-self-refer" class="section-title" href="#:echo-self-refer">Note:</a>
 When printing nested containers echo prints second
 occurrence of the self-referencing container using
 "[...@level]" (self-referencing [List](#List)) or
 "{...@level}" (self-referencing [Dict](#Dict)):
-```
 :let l = []
 :call add(l, l)
 :let l2 = []
 :call add(l2, [l2])
 :echo l l2
-
-```
-			echoes "[[...@0]] [[[...@0]]]". Echoing "[l]" will
+echoes "[[...@0]] [[[...@0]]]". Echoing "[l]" will
 echo "[[[...@1]]]" because l first occurs at second
 level.
 
@@ -3299,50 +2981,30 @@ level.
 Uses the highlighting set by the `:echohl` command.
 Cannot be followed by a comment.
 Example:
-```
 :echon "the value of 'shell' is " &shell
-
 ```
 
 Note the difference between using `:echo`, which is a
 Vim command, and `:!echo`, which is an external shell
-command:
-```
-:!echo %		--> filename
-
-```
-			The arguments of ":!" are expanded, see [:_%](#:_%).
-```
+command: 
+```		:!echo %		--> filename
+The arguments of ":!" are expanded, see [:_%](#:_%).
 :!echo "%"		--> filename or "filename"
-
-```
-			Like the previous example.  Whether you see the double
+Like the previous example.  Whether you see the double
 quotes or not depends on your 'shell'.
-```
 :echo %			--> nothing
-
-```
-			The '%' is an illegal character in an expression.
-```
+The '%' is an illegal character in an expression.
 :echo "%"		--> %
-
-```
-			This just echoes the '%' character.
-```
+This just echoes the '%' character.
 :echo expand("%")	--> filename
-
-```
-			This calls the expand() function to expand the '%'.
+This calls the expand() function to expand the '%'.
 
 ### <a id=":echoh :echohl" class="section-title" href="#:echoh :echohl">Note:</a>
 :echoh[l] {name}	Use the highlight group {name} for the following
 `:echo`, `:echon` and `:echomsg` commands.  Also used
 for the `input()` prompt.  Example:
-```
 :echohl WarningMsg [ echo "Don't panic!" ](# echo "Don't panic!" ) echohl None
-
-```
-			Don't forget to set the group back to "None",
+Don't forget to set the group back to "None",
 otherwise all following echo's will be highlighted.
 
 ### <a id=":echom :echomsg" class="section-title" href="#:echom :echomsg">Note:</a>
@@ -3358,11 +3020,8 @@ If expressions does not evaluate to a Number or
 String, string() is used to turn it into a string.
 Uses the highlighting set by the `:echohl` command.
 Example:
-```
 :echomsg "It's a Zizzer Zazzer Zuzz, as you can plainly see."
-
-```
-			See [:echo-redraw](#:echo-redraw) to avoid the message disappearing
+See [:echo-redraw](#:echo-redraw) to avoid the message disappearing
 when the screen is redrawn.
 ### <a id=":echoe :echoerr" class="section-title" href="#:echoe :echoerr">Note:</a>
 :echoe[rr] {expr1} ..	Echo the expression(s) as an error message, saving the
@@ -3373,25 +3032,17 @@ Spaces are placed between the arguments as with the
 the message is raised as an error exception instead
 (see [try-echoerr](#try-echoerr)).
 Example:
-```
 :echoerr "This script just failed!"
-
-```
-			If you just want a highlighted message use `:echohl`.
+If you just want a highlighted message use `:echohl`.
 And to get a beep:
-```
 :exe "normal \<Esc>"
-
 ```
 
 ### <a id=":eval" class="section-title" href="#:eval">Note:</a>
-:eval {expr}		Evaluate {expr} and discard the result.  Example:
-```
-:eval Getlist()->Filter()->append('$')
+:eval {expr}		Evaluate {expr} and discard the result.  Example: 
+```				:eval Getlist()->Filter()->append('$')
 
-
-```
-			The expression is supposed to have a side effect,
+The expression is supposed to have a side effect,
 since the resulting value is not used.  In the example
 the `append()` call appends the List with text to the
 buffer.  This is similar to `:call` but works with any
@@ -3415,36 +3066,26 @@ operator to concatenate strings into one argument.
 editing keys are not recognized.
 Cannot be followed by a comment.
 Examples:
-```
 :execute "buffer" nextbuf
 :execute "normal" count .. "w"
-
 ```
 
 ":execute" can be used to append a command to commands
-that don't accept a '|'.  Example:
-```
-:execute '!ls' | echo "theend"
+that don't accept a '|'.  Example: 
+```		:execute '!ls' | echo "theend"
 
-
-```
-			":execute" is also a nice way to avoid having to type
+":execute" is also a nice way to avoid having to type
 control characters in a Vim script for a ":normal"
 command:
-```
 :execute "normal ixxx\<Esc>"
-
-```
-			This has an <Esc> character, see [expr-string](#expr-string).
+This has an <Esc> character, see [expr-string](#expr-string).
 
 Be careful to correctly escape special characters in
 file names.  The [fnameescape()](#fnameescape()) function can be used
 for Vim commands, [shellescape()| for |:!](#shellescape()| for |:!) commands.
 Examples:
-```
 :execute "e " .. fnameescape(filename)
 :execute "!ls " .. shellescape(filename, 1)
-
 ```
 
 Note: The executed string may be any command-line, but
@@ -3455,21 +3096,17 @@ where blocks start and end.  Also "break" and
 "continue" should not be inside ":execute".
 This example does not work, because the ":execute" is
 not evaluated and Vim does not see the "while", and
-gives an error for finding an ":endwhile":
-```
-:if 0
+gives an error for finding an ":endwhile": 
+```		:if 0
 : execute 'while i > 5'
 :  echo "test"
 : endwhile
 :endif
-
 ```
 
 It is allowed to have a "while" or "if" command
-completely in the executed string:
-```
-:execute 'while i < 5 [ echo i | let i = i + 1 ](# echo i | let i = i + 1 ) endwhile'
-
+completely in the executed string: 
+```		:execute 'while i < 5 [ echo i | let i = i + 1 ](# echo i | let i = i + 1 ) endwhile'
 ```
 
 
@@ -3477,9 +3114,8 @@ completely in the executed string:
 ":execute", ":echo" and ":echon" cannot be followed by
 a comment directly, because they see the '"' as the
 start of a string.  But, you can use '|' followed by a
-comment.  Example:
-```
-:echo "foo" | "this is a comment
+comment.  Example: 
+```		:echo "foo" | "this is a comment
 
 
 ## <a id="exception-handling" class="section-title" href="#exception-handling">8. Exception Handling</a> 
@@ -3503,7 +3139,6 @@ a catch clause, or a [:finally](#:finally) command to start a finally clause.  T
 be none or multiple catch clauses, but there is at most one finally clause,
 which must not be followed by any catch clauses.  The lines before the catch
 clauses and the finally clause is called a try block.
-```
 
 :try
 :	...
@@ -3615,13 +3250,11 @@ a finally clause are also shown.  This information is also given in debug mode
 
 You can throw any number or string as an exception.  Use the [:throw](#:throw) command
 and pass the value to be thrown as argument:
-```
 :throw 4711
 :throw "string"
-### <a id="throw-expression" class="section-title" href="#throw-expression"><</a>
+### <a id="throw-expression" class="section-title" href="#throw-expression">Note:</a>
 You can also specify an expression argument.  The expression is then evaluated
 first, and the result is thrown:
-```
 :throw 4705 + strlen("string")
 :throw strpart("strings", 0, 6)
 
@@ -3629,7 +3262,6 @@ An exception might be thrown during evaluation of the argument of the ":throw"
 command.  Unless it is caught there, the expression evaluation is abandoned.
 The ":throw" command then does not throw a new exception.
 Example:
-```
 
 :function! Foo(arg)
 :  try
@@ -3648,7 +3280,6 @@ Example:
 
 This throws "arrgh", and "in Bar" is not displayed since Bar() is not
 executed.
-```
 :throw Foo("foo") + Bar()
 however displays "in Bar" and throws 4711.
 
@@ -3656,7 +3287,6 @@ Any other command that takes an expression as argument might also be
 abandoned by an (uncaught) exception during the expression evaluation.  The
 exception is then propagated to the caller of the command.
 Example:
-```
 
 :if Foo("arrgh")
 :  echo "then"
@@ -3672,7 +3302,6 @@ commands, see [try-conditionals](#try-conditionals).   The values to be caught b
 command can be specified as a pattern argument.  The subsequent catch clause
 gets executed when a matching exception is caught.
 Example:
-```
 
 :function! Foo(value)
 :  try
@@ -3691,7 +3320,6 @@ The first call to Foo() displays "Number thrown", the second "String thrown".
 An exception is matched against the ":catch" commands in the order they are
 specified.  Only the first match counts.  So you should place the more
 specific ":catch" first.  The following order does not make sense:
-```
 
 ### <a id="catch /./" class="section-title" href="#catch /./">	:</a>
 :    echo "String thrown"
@@ -3704,7 +3332,6 @@ never taken.
 ### <a id="throw-variables" class="section-title" href="#throw-variables">Note:</a>
 If you catch an exception by a general pattern, you may access the exact value
 in the variable [v:exception](#v:exception):
-```
 
 :  catch /^\d\+$/
 :    echo "Number thrown.  Value is" v:exception
@@ -3713,7 +3340,6 @@ You may also be interested where an exception was thrown.  This is stored in
 [v:throwpoint](#v:throwpoint).  Note that "v:exception" and "v:throwpoint" are valid for the
 exception most recently caught as long it is not finished.
 Example:
-```
 
 :function! Caught()
 :  if v:exception != ""
@@ -3745,7 +3371,6 @@ Example:
 :call Foo()
 
 This displays
-```
 
 Nothing caught
 Caught "4711" in function Foo, line 4
@@ -3754,20 +3379,17 @@ Nothing caught
 
 A practical example:  The following command ":LineNumber" displays the line
 number in the script or function where it has been used:
-```
 
 :function! LineNumber()
 ### <a id="return substitute(v:throwpoint, '.\D\(\d\+\).', '\1', "")" class="section-title" href="#return substitute(v:throwpoint, '.\D\(\d\+\).', '\1', "")">	:</a>
 :endfunction
 :command! LineNumber try [ throw "" | catch | echo LineNumber() ](# throw "" | catch | echo LineNumber() ) endtry
-
 ```
 
 ### <a id="try-nested" class="section-title" href="#try-nested">Note:</a>
 An exception that is not caught by a try conditional can be caught by
-a surrounding try conditional:
+a surrounding try conditional: 
 ```
-
 :try
 :  try
 :    throw "foo"
@@ -3787,7 +3409,6 @@ conditional.  The example displays "inner finally" and then "foo".
 ### <a id="throw-from-catch" class="section-title" href="#throw-from-catch">Note:</a>
 You can catch an exception and throw a new one to be caught elsewhere from the
 catch clause:
-```
 
 :function! Foo()
 :  throw "foo"
@@ -3813,7 +3434,6 @@ This displays "Caught foo, throw bar" and then "Caught bar".
 ### <a id="rethrow" class="section-title" href="#rethrow">Note:</a>
 There is no real rethrow in the Vim script language, but you may throw
 "v:exception" instead:
-```
 
 :function! Bar()
 :  try
@@ -3823,13 +3443,12 @@ There is no real rethrow in the Vim script language, but you may throw
 :    throw v:exception
 :  endtry
 :endfunction
-### <a id="try-echoerr" class="section-title" href="#try-echoerr"><</a>
+### <a id="try-echoerr" class="section-title" href="#try-echoerr">Note:</a>
 Note that this method cannot be used to "rethrow" Vim error or interrupt
 exceptions, because it is not possible to fake Vim internal exceptions.
 Trying so causes an error exception.  You should throw your own exception
 denoting the situation.  If you want to cause a Vim error exception containing
 the original error exception value, you can use the [:echoerr](#:echoerr) command:
-```
 
 :try
 :  try
@@ -3859,7 +3478,6 @@ normal control flow, on error, on an explicit ":throw", and on interrupt.
 to exceptions.  When not caught, they terminate the script after the finally
 clause has been executed.)
 Example:
-```
 
 :try
 :  let s:saved_ts = &ts
@@ -3880,7 +3498,6 @@ that function or script part.
 Cleanup code works also when the try block or a catch clause is left by
 a ":continue", ":break", ":return", or ":finish".
 Example:
-```
 
 :let first = 1
 :while 1
@@ -3903,7 +3520,6 @@ Example:
 :echo "end"
 
 This displays "first", "cleanup", "second", "cleanup", and "end".
-```
 
 :function! Foo()
 :  try
@@ -3927,7 +3543,6 @@ cleanup actions for the try conditional.  But, of course, interrupt and error
 exceptions might get raised from a finally clause.
 Example where an error in the finally clause stops an interrupt from
 working correctly:
-```
 
 :try
 :  try
@@ -3956,11 +3571,9 @@ exception.  No message is displayed and [v:errmsg](#v:errmsg) is not set then.  
 the right pattern for the ":catch" command, you have to know how the format of
 the error exception is.
 Error exceptions have the following format:
-```
 
 Vim({cmdname}):{errmsg}
 or
-```
 Vim:{errmsg}
 
 {cmdname} is the name of the command that failed; the second form is used when
@@ -3972,93 +3585,69 @@ a space.
 Examples:
 
 The command
-```
 :unlet novar
 normally produces the error message
-```
 E108: No such variable: "novar"
 which is converted inside try conditionals to an exception
-```
 Vim(unlet):E108: No such variable: "novar"
 
 The command
-```
 :dwim
 normally produces the error message
-```
 E492: Not an editor command: dwim
 which is converted inside try conditionals to an exception
-```
 Vim:E492: Not an editor command: dwim
 
 You can catch all ":unlet" errors by a
-```
 :catch /^Vim(unlet):/
 or all errors for misspelled command names by a
-```
 :catch /^Vim:E492:/
 
 Some error messages may be produced by different commands:
-```
 :function nofunc
 and
-```
 :delfunction nofunc
 both produce the error message
-```
 E128: Function name must start with a capital: nofunc
 which is converted inside try conditionals to an exception
-```
 Vim(function):E128: Function name must start with a capital: nofunc
 or
-```
 Vim(delfunction):E128: Function name must start with a capital: nofunc
 respectively.  You can catch the error by its number independently on the
 command that caused it if you use the following pattern:
-```
 :catch /^Vim(\a\+):E128:/
 
 Some commands like
-```
 :let x = novar
 produce multiple error messages, here:
-```
 E121: Undefined variable: novar
 E15: Invalid expression:  novar
 Only the first is used for the exception value, since it is the most specific
 one (see [except-several-errors](#except-several-errors)).  So you can catch it by
-```
 :catch /^Vim(\a\+):E121:/
 
 You can catch all errors related to the name "nofunc" by
-```
 :catch /\<nofunc\>/
 
 You can catch all Vim errors in the ":write" and ":read" commands by
-```
 :catch /^Vim(\(write\|read\)):E\d\+:/
 
 You can catch all Vim errors by the pattern
-```
 :catch /^Vim\((\a\+)\)\=:E\d\+:/
-
 ```
 
 ### <a id="catch-text" class="section-title" href="#catch-text">Note:</a>
-NOTE: You should never catch the error message text itself:
-```
-:catch /No such variable/
+NOTE: You should never catch the error message text itself: 
+```	:catch /No such variable/
 only works in the English locale, but not when the user has selected
 a different language by the [:language](#:language) command.  It is however helpful to
 cite the message text in a comment:
-```
 :catch /^Vim(\a\+):E108:/   " No such variable
 
 
 ### <a id="ignore-errors" class="section-title" href="#ignore-errors">Ignoring Errors</a>
 
 You can ignore errors in a specific Vim command by catching them locally:
-```
 
 :try
 :  write
@@ -4068,7 +3657,6 @@ You can ignore errors in a specific Vim command by catching them locally:
 But you are strongly recommended NOT to use this simple form, since it could
 catch more than you want.  With the ":write" command, some autocommands could
 be executed and cause errors not related to writing, for instance:
-```
 
 :au BufWritePre * unlet novar
 
@@ -4076,7 +3664,6 @@ There could even be such errors you are not responsible for as a script
 writer: a user of your script might have defined such autocommands.  You would
 then hide the error from the user.
 It is much better to use
-```
 
 :try
 :  write
@@ -4089,7 +3676,6 @@ intentionally.
 For a single command that does not cause execution of autocommands, you could
 even suppress the conversion of errors to exceptions by the ":silent!"
 command:
-```
 :silent! nunmap k
 This works also when a try conditional is active.
 
@@ -4100,7 +3686,6 @@ When there are active try conditionals, an interrupt (CTRL-C) is converted to
 the exception "Vim:Interrupt".  You can catch it like every exception.  The
 script is not terminated, then.
 Example:
-```
 
 :function! TASK1()
 :  sleep 10
@@ -4142,7 +3727,6 @@ command on that line.  See [debug-scripts](#debug-scripts).
 ### <a id="catch-all" class="section-title" href="#catch-all">Catching All</a>
 
 The commands
-```
 
 :catch /.*/
 :catch //
@@ -4152,7 +3736,6 @@ catch everything, error exceptions, interrupt exceptions and exceptions
 explicitly thrown by the [:throw](#:throw) command.  This is useful at the top level of
 a script in order to catch unexpected things.
 Example:
-```
 
 :try
 :
@@ -4175,7 +3758,6 @@ strongly encouraged to catch only for problems that you can really handle by
 specifying a pattern argument to the ":catch".
 Example: Catching all could make it nearly impossible to interrupt a script
 by pressing CTRL-C:
-```
 
 :while 1
 :  try
@@ -4188,7 +3770,6 @@ by pressing CTRL-C:
 ### <a id="except-autocmd" class="section-title" href="#except-autocmd">Exceptions and Autocommands</a>
 
 Exceptions may be used during execution of autocommands.  Example:
-```
 
 :autocmd User x try
 :autocmd User x   throw "Oops!"
@@ -4212,7 +3793,6 @@ command takes place.  If an exception is thrown and not caught in the sequence
 of autocommands, the sequence and the command that caused its execution are
 abandoned and the exception is propagated to the caller of the command.
 Example:
-```
 
 :autocmd BufWritePre * throw "FAIL"
 :autocmd BufWritePre * echo "Should not be displayed"
@@ -4227,10 +3807,8 @@ Here, the ":write" command does not write the file currently being edited (as
 you can see by checking 'modified'), since the exception from the BufWritePre
 autocommand abandons the ":write".  The exception is then caught and the
 script displays:
-```
 
 Caught: FAIL from BufWrite Auto commands for "*"
-
 ```
 
 ### <a id="except-autocmd-Post" class="section-title" href="#except-autocmd-Post">Note:</a>
@@ -4238,9 +3816,8 @@ For some commands, autocommands get executed after the main action of the
 command has taken place.  If this main action fails and the command is inside
 an active try conditional, the autocommands are skipped and an error exception
 is thrown that can be caught by the caller of the command.
-Example:
+Example: 
 ```
-
 :autocmd BufWritePost * echo "File successfully written!"
 :
 :try
@@ -4250,14 +3827,12 @@ Example:
 :endtry
 
 This just displays:
-```
 
 Vim(write):E212: Can't open file for writing (/i/m/p/o/s/s/i/b/l/e)
 
 If you really need to execute the autocommands even when the main action
 fails, trigger the event from the catch clause.
 Example:
-```
 
 ### <a id=" set noreadonly" class="section-title" href="# set noreadonly">	:autocmd BufWritePre</a>
 :autocmd BufWritePost * set readonly
@@ -4267,12 +3842,10 @@ Example:
 :catch
 :  doautocmd BufWritePost /i/m/p/o/s/s/i/b/l/e
 :endtry
-
 ```
 
-You can also use ":silent!":
+You can also use ":silent!": 
 ```
-
 :let x = "ok"
 :let v:errmsg = ""
 :autocmd BufWritePost * if v:errmsg != ""
@@ -4288,7 +3861,6 @@ This displays "after fail".
 
 If the main action of the command does not fail, exceptions from the
 autocommands will be catchable by the caller of the command:
-```
 
 :autocmd BufWritePost * throw ":-("
 :autocmd BufWritePost * echo "Should not be displayed"
@@ -4298,7 +3870,6 @@ autocommands will be catchable by the caller of the command:
 :catch
 :  echo v:exception
 :endtry
-
 ```
 
 ### <a id="except-autocmd-Cmd" class="section-title" href="#except-autocmd-Cmd">Note:</a>
@@ -4307,9 +3878,8 @@ autocommands.  Exceptions from that sequence will be catchable by the caller
 of the command.
 Example:  For the ":write" command, the caller cannot know whether the file
 had actually been written when the exception occurred.  You need to tell it in
-some way.
+some way. 
 ```
-
 :if !exists("cnt")
 :  let cnt = 0
 :
@@ -4340,20 +3910,16 @@ some way.
 
 When this script is sourced several times after making changes, it displays
 first
-```
 File successfully written!
 then
-```
 Error on writing (file contents not changed)
 then
-```
 Error after writing
 etc.
 
 ### <a id="except-autocmd-ill" class="section-title" href="#except-autocmd-ill">Note:</a>
 You cannot spread a try conditional over autocommands for different events.
 The following code is ill-formed:
-```
 
 ### <a id=" try" class="section-title" href="# try">	:autocmd BufWritePre</a>
 :
@@ -4379,7 +3945,6 @@ With the appropriate patterns in the ":catch" command, you can catch for
 base classes or derived classes of your hierarchy.  Additional information in
 parentheses can be cut out from [v:exception](#v:exception) with the ":substitute" command.
 Example:
-```
 
 :function! CheckRange(a, func)
 :  if a:a < 0
@@ -4487,7 +4052,6 @@ Syntax errors in the exception handling commands are never caught by any of
 the ":catch" commands of the try conditional they belong to.  Its finally
 clauses, however, is executed.
 Example:
-```
 
 :try
 :  try
@@ -4506,7 +4070,6 @@ Example:
 :endtry
 
 This displays:
-```
 inner finally
 outer catch-all caught "Vim(catch):E54: Unmatched \("
 outer finally
@@ -4517,7 +4080,6 @@ The ":try", ":catch", ":finally", and ":endtry" commands can be put on
 a single line, but then syntax errors may make it difficult to recognize the
 "catch" line, thus you better avoid this.
 Example:
-```
 :try [ unlet! foo # | catch ](# unlet! foo # | catch ) endtry
 raises an error exception for the trailing characters after the ":unlet!"
 argument, but does not see the ":catch" and ":endtry" commands, so that the
@@ -4528,31 +4090,24 @@ displayed.
 When several errors appear in a single command, the first error message is
 usually the most specific one and therefore converted to the error exception.
 Example:
-```
 echo novar
 causes
-```
 E121: Undefined variable: novar
 E15: Invalid expression: novar
 The value of the error exception inside try conditionals is:
-```
 Vim(echo):E121: Undefined variable: novar
-### <a id="except-syntax-error" class="section-title" href="#except-syntax-error"><</a>
+### <a id="except-syntax-error" class="section-title" href="#except-syntax-error">Note:</a>
 But when a syntax error is detected after a normal error in the same command,
 the syntax error is used for the exception being thrown.
 Example:
-```
 unlet novar #
 causes
-```
 E108: No such variable: "novar"
 E488: Trailing characters
 The value of the error exception inside try conditionals is:
-```
 Vim(unlet):E488: Trailing characters
 This is done because the syntax error might change the execution path in a way
 not intended by the user.  Example:
-```
 try
 try [ unlet novar # | catch | echo v:exception ](# unlet novar # | catch | echo v:exception ) endtry
 catch /.*/
@@ -4565,7 +4120,6 @@ a "E600: Missing :endtry" error message is given, see [except-single-line](#exce
 ## <a id="eval-examples" class="section-title" href="#eval-examples">9. Examples</a> 
 
 Printing in Binary ~
-```
 :" The function Nr2Bin() returns the binary string representation of a number.
 :func Nr2Bin(nr)
 :  let n = a:nr
@@ -4588,10 +4142,8 @@ Printing in Binary ~
 :endfunc
 
 Example of its use:
-```
 :echo Nr2Bin(32)
 result: "100000"
-```
 :echo String2Bin("32")
 result: "110011-110010"
 
@@ -4599,7 +4151,6 @@ result: "110011-110010"
 Sorting lines ~
 
 This example sorts lines with a specific compare function.
-```
 
 :func SortBuffer()
 :  let lines = getline(1, '$')
@@ -4608,9 +4159,7 @@ This example sorts lines with a specific compare function.
 :endfunction
 
 As a one-liner:
-```
 :call setline(1, sort(getline(1, '$'), function("Strcmp")))
-
 ```
 
 
@@ -4620,7 +4169,6 @@ There is no sscanf() function in Vim.  If you need to extract parts from a
 line, you can use matchstr() and substitute() to do it.  This example shows
 how to get the file name, line number and column number out of a line like
 "foobar.txt, 123, 45".
-```
 :" Set up the match bit
 ### <a id=":let mx='\(\f\+\),\s\(\d\+\),\s\(\d\+\)'" class="section-title" href="#:let mx='\(\f\+\),\s\(\d\+\),\s\(\d\+\)'">Note:</a>
 :"get the part matching the whole expression
@@ -4640,7 +4188,6 @@ The [:scriptnames](#:scriptnames) command can be used to get a list of all scrip
 have been sourced.  There is no equivalent function or variable for this
 (because it's rarely needed).  In case you need to manipulate the list this
 code can be used:
-```
 " Get the output of ":scriptnames" in the scriptnames_output variable.
 let scriptnames_output = ''
 redir => scriptnames_output

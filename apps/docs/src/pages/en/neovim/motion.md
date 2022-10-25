@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Motion
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -32,7 +32,7 @@ The 'virtualedit' option can be set to make it possible to move the cursor to
 positions where there is no character or within a multi-column character (like
 a tab).
 
-Type [gO](#gO) to see the table of contents.
+                                      Type [gO](#gO) to see the table of contents.
 
 
 ## <a id="operator" class="section-title" href="#operator">1. Motions and Operators</a> 
@@ -42,22 +42,22 @@ operate on the text that was moved over.  That is the text between the cursor
 position before and after the motion.  Operators are generally used to delete
 or change text.  The following operators are available:
 
-[c](#c)	c	change
-[d](#d)	d	delete
-[y](#y)	y	yank into register (does not change the text)
-[~](#~)	~	swap case (only if 'tildeop' is set)
-[g~](#g~)	g~	swap case
-[gu](#gu)	gu	make lowercase
-[gU](#gU)	gU	make uppercase
-[!](#!)	!	filter through an external program
-[=](#=)	=	filter through 'equalprg' or C-indenting if empty
-[gq](#gq)	gq	text formatting
-[gw](#gw)	gw	text formatting with no cursor movement
-[g?](#g?)	g?	ROT13 encoding
-[>](#>)	>	shift right
-[<](#<)	<	shift left
-[zf](#zf)	zf	define a fold
-[g@](#g@)	g@	call function set with the 'operatorfunc' option
+	[c](#c)	c	change
+	[d](#d)	d	delete
+	[y](#y)	y	yank into register (does not change the text)
+	[~](#~)	~	swap case (only if 'tildeop' is set)
+	[g~](#g~)	g~	swap case
+	[gu](#gu)	gu	make lowercase
+	[gU](#gU)	gU	make uppercase
+	[!](#!)	!	filter through an external program
+	[=](#=)	=	filter through 'equalprg' or C-indenting if empty
+	[gq](#gq)	gq	text formatting
+	[gw](#gw)	gw	text formatting with no cursor movement
+	[g?](#g?)	g?	ROT13 encoding
+	[>](#>)	>	shift right
+	[<](#<)	<	shift left
+	[zf](#zf)	zf	define a fold
+	[g@](#g@)	g@	call function set with the 'operatorfunc' option
 ### <a id="motion-count-multiplied" class="section-title" href="#motion-count-multiplied">Note:</a>
 If the motion includes a count and the operator also had a count before it,
 the two counts are multiplied.  For example: "2d3w" deletes six words.
@@ -87,16 +87,16 @@ check the v:event.inclusive flag of the [TextYankPost](#TextYankPost) event.
 Which motions are linewise, inclusive or exclusive is mentioned with the
 command.  There are however, two general exceptions:
 1. If the motion is exclusive and the end of the motion is in column 1, the
-end of the motion is moved to the end of the previous line and the motion
-becomes inclusive.  Example: "}" moves to the first line after a paragraph,
-but "d}" will not include that line.
+   end of the motion is moved to the end of the previous line and the motion
+   becomes inclusive.  Example: "}" moves to the first line after a paragraph,
+   but "d}" will not include that line.
 ### <a id="exclusive-linewise" class="section-title" href="#exclusive-linewise">Note:</a>
 2. If the motion is exclusive, the end of the motion is in column 1 and the
-start of the motion was at or before the first non-blank in the line, the
-motion becomes linewise.  Example: If a paragraph begins with some blanks
-and you do "d}" while standing on the first non-blank, all the lines of
-the paragraph are deleted, including the blanks.  If you do a put now, the
-deleted lines will be inserted below the cursor position.
+   start of the motion was at or before the first non-blank in the line, the
+   motion becomes linewise.  Example: If a paragraph begins with some blanks
+   and you do "d}" while standing on the first non-blank, all the lines of
+   the paragraph are deleted, including the blanks.  If you do a put now, the
+   deleted lines will be inserted below the cursor position.
 
 Note that when the operator is pending (the operator command is typed, but the
 motion isn't yet), a special set of mappings can be used.  See [:omap](#:omap).
@@ -111,14 +111,12 @@ strokes and has limited redo functionality.  See the chapter on Visual mode
 
 You can use a ":" command for a motion.  For example "d:call FindEnd()".
 But this can't be repeated with "." if the command is more than one line.
-This can be repeated:
-```
-d:call search("f")<CR>
+This can be repeated: 
+```	d:call search("f")<CR>
 This cannot be repeated:
-```
-d:if 1<CR>
-call search("f")<CR>
-endif<CR>
+	d:if 1<CR>
+	   call search("f")<CR>
+	endif<CR>
 Note that when using ":" any motion becomes charwise exclusive.
 
 ### <a id="forced-motion" class="section-title" href="#forced-motion">Note:</a>
@@ -127,39 +125,35 @@ FORCING A MOTION TO BE LINEWISE, CHARWISE OR BLOCKWISE
 When a motion is not of the type you would like to use, you can force another
 type by using "v", "V" or CTRL-V just after the operator.
 Example:
-```
-dj
+	dj
 deletes two lines
-```
-dvj
+	dvj
 deletes from the cursor position until the character below the cursor
-```
-d<C-V>j
+	d<C-V>j
 deletes the character under the cursor and the character below the cursor.
-```
 
 Be careful with forcing a linewise movement to be used charwise or blockwise,
 the column may not always be defined.
 
 ### <a id="o_v" class="section-title" href="#o_v">Note:</a>
 v		When used after an operator, before the motion command: Force
-the operator to work charwise, also when the motion is
-linewise.  If the motion was linewise, it will become
-[exclusive](#exclusive).
-If the motion already was charwise, toggle
-inclusive/exclusive.  This can be used to make an exclusive
-motion inclusive and an inclusive motion exclusive.
+		the operator to work charwise, also when the motion is
+		linewise.  If the motion was linewise, it will become
+		[exclusive](#exclusive).
+		If the motion already was charwise, toggle
+		inclusive/exclusive.  This can be used to make an exclusive
+		motion inclusive and an inclusive motion exclusive.
 
 ### <a id="o_V" class="section-title" href="#o_V">Note:</a>
 V		When used after an operator, before the motion command: Force
-the operator to work linewise, also when the motion is
-charwise.
+		the operator to work linewise, also when the motion is
+		charwise.
 
 ### <a id="o_CTRL-V" class="section-title" href="#o_CTRL-V">Note:</a>
 CTRL-V		When used after an operator, before the motion command: Force
-the operator to work blockwise.  This works like Visual block
-mode selection, with the corners defined by the cursor
-position before and after the motion.
+		the operator to work blockwise.  This works like Visual block
+		mode selection, with the corners defined by the cursor
+		position before and after the motion.
 
 
 ## <a id="left-right-motions" class="section-title" href="#left-right-motions">2. Left-Right Motions</a> 
@@ -170,227 +164,205 @@ may move to one of the next lines.  See 'whichwrap' option to make some of the
 commands move across line boundaries.
 
 h		or					*h*
-
-```
 Left>		or					*<Left>*
 CTRL-H		or					*CTRL-H* *<BS>*
-
-```
 BS>			[count] characters to the left.  [exclusive](#exclusive) motion.
-Note: If you prefer <BS> to delete a character, use
-the mapping:
-:map CTRL-V<BS>		X
-(to enter "CTRL-V<BS>" type the CTRL-V key, followed
-by the <BS> key)
+			Note: If you prefer <BS> to delete a character, use
+			the mapping:
+				:map CTRL-V<BS>		X
+			(to enter "CTRL-V<BS>" type the CTRL-V key, followed
+			by the <BS> key)
 
 l		or					*l*
-
-```
 Right>		or					*<Right>* *<Space>*
-
-```
 Space>			[count] characters to the right.  [exclusive](#exclusive) motion.
-See the 'whichwrap' option for adjusting the behavior
-at end of line
+			See the 'whichwrap' option for adjusting the behavior
+			at end of line
 
 ### <a id="0" class="section-title" href="#0">Note:</a>
 0			To the first character of the line.  [exclusive](#exclusive)
-motion.
+			motion.
 
 ### <a id="<Home> <kHome>" class="section-title" href="#<Home> <kHome>">Note:</a>
-
-```
 Home>			To the first character of the line.  [exclusive](#exclusive)
-motion.  When moving up or down next, stay in same
-TEXT column (if possible).  Most other commands stay
-in the same SCREEN column.  <Home> works like "1|",
-which differs from "0" when the line starts with a
-
-```
-Tab>.
+			motion.  When moving up or down next, stay in same
+			TEXT column (if possible).  Most other commands stay
+			in the same SCREEN column.  <Home> works like "1|",
+			which differs from "0" when the line starts with a
+			<Tab>.
 
 ### <a id="^" class="section-title" href="#^">Note:</a>
 ^			To the first non-blank character of the line.
-[exclusive](#exclusive) motion.  Any count is ignored.
+			[exclusive](#exclusive) motion.  Any count is ignored.
 
 ### <a id="$ <End> <kEnd>" class="section-title" href="#$ <End> <kEnd>">Note:</a>
 $  or <End>		To the end of the line.  When a count is given also go
-[count - 1] lines downward, or as far is possible.
-[inclusive](#inclusive) motion.  If a count of 2 or larger is
-given and the cursor is on the last line, that is an
-error and the cursor doesn't move.
-In Visual mode the cursor goes to just after the last
-character in the line.
-When 'virtualedit' is active, "$" may move the cursor
-back from past the end of the line to the last
-character in the line.
+			[count - 1] lines downward, or as far is possible.
+			[inclusive](#inclusive) motion.  If a count of 2 or larger is
+			given and the cursor is on the last line, that is an
+			error and the cursor doesn't move.
+			In Visual mode the cursor goes to just after the last
+			character in the line.
+			When 'virtualedit' is active, "$" may move the cursor
+			back from past the end of the line to the last
+			character in the line.
 
 ### <a id="g_" class="section-title" href="#g_">Note:</a>
 g_			To the last non-blank character of the line and
-[count - 1] lines downward [inclusive](#inclusive).
+			[count - 1] lines downward [inclusive](#inclusive).
 
 ### <a id="g0 g<Home>" class="section-title" href="#g0 g<Home>">Note:</a>
 g0 or g<Home>		When lines wrap ('wrap' on): To the first character of
-the screen line.  [exclusive](#exclusive) motion.  Differs from
-"0" when a line is wider than the screen.
-When lines don't wrap ('wrap' off): To the leftmost
-character of the current line that is on the screen.
-Differs from "0" when the first character of the line
-is not on the screen.
+			the screen line.  [exclusive](#exclusive) motion.  Differs from
+			"0" when a line is wider than the screen.
+			When lines don't wrap ('wrap' off): To the leftmost
+			character of the current line that is on the screen.
+			Differs from "0" when the first character of the line
+			is not on the screen.
 
 ### <a id="g^" class="section-title" href="#g^">Note:</a>
 g^			When lines wrap ('wrap' on): To the first non-blank
-character of the screen line.  [exclusive](#exclusive) motion.
-Differs from "^" when a line is wider than the screen.
-When lines don't wrap ('wrap' off): To the leftmost
-non-blank character of the current line that is on the
-screen.  Differs from "^" when the first non-blank
-character of the line is not on the screen.
+			character of the screen line.  [exclusive](#exclusive) motion.
+			Differs from "^" when a line is wider than the screen.
+			When lines don't wrap ('wrap' off): To the leftmost
+			non-blank character of the current line that is on the
+			screen.  Differs from "^" when the first non-blank
+			character of the line is not on the screen.
 
 ### <a id="gm" class="section-title" href="#gm">Note:</a>
 gm			Like "g0", but half a screenwidth to the right (or as
-much as possible).
+			much as possible).
 
 ### <a id="gM" class="section-title" href="#gM">Note:</a>
 gM			Like "g0", but to halfway the text of the line.
-With a count: to this percentage of text in the line.
-Thus "10gM" is near the start of the text and "90gM"
-is near the end of the text.
+			With a count: to this percentage of text in the line.
+			Thus "10gM" is near the start of the text and "90gM"
+			is near the end of the text.
 
 ### <a id="g$ g<End>" class="section-title" href="#g$ g<End>">Note:</a>
 g$ or g<End>		When lines wrap ('wrap' on): To the last character of
-the screen line and [count - 1] screen lines downward
-[inclusive](#inclusive).  Differs from "$" when a line is wider
-than the screen.
-When lines don't wrap ('wrap' off): To the rightmost
-character of the current line that is visible on the
-screen.  Differs from "$" when the last character of
-the line is not on the screen or when a count is used.
-Additionally, vertical movements keep the column,
-instead of going to the end of the line.
-When 'virtualedit' is enabled moves to the end of the
-screen line.
+			the screen line and [count - 1] screen lines downward
+			[inclusive](#inclusive).  Differs from "$" when a line is wider
+			than the screen.
+			When lines don't wrap ('wrap' off): To the rightmost
+			character of the current line that is visible on the
+			screen.  Differs from "$" when the last character of
+			the line is not on the screen or when a count is used.
+			Additionally, vertical movements keep the column,
+			instead of going to the end of the line.
+			When 'virtualedit' is enabled moves to the end of the
+			screen line.
 
 ### <a id="bar" class="section-title" href="#bar">Note:</a>
 |			To screen column [count] in the current line.
-[exclusive](#exclusive) motion.  Ceci n'est pas une pipe.
+			[exclusive](#exclusive) motion.  Ceci n'est pas une pipe.
 
 ### <a id="f" class="section-title" href="#f">Note:</a>
 f{char}			To [count]'th occurrence of {char} to the right.  The
-cursor is placed on {char} [inclusive](#inclusive).
-{char} can be entered as a digraph [digraph-arg](#digraph-arg).
-When 'encoding' is set to Unicode, composing
-characters may be used, see [utf-8-char-arg](#utf-8-char-arg).
-[:lmap](#:lmap) mappings apply to {char}.  The CTRL-^ command
-in Insert mode can be used to switch this on/off
-[i_CTRL-^](#i_CTRL-^).
+			cursor is placed on {char} [inclusive](#inclusive).
+			{char} can be entered as a digraph [digraph-arg](#digraph-arg).
+			When 'encoding' is set to Unicode, composing
+			characters may be used, see [utf-8-char-arg](#utf-8-char-arg).
+			[:lmap](#:lmap) mappings apply to {char}.  The CTRL-^ command
+			in Insert mode can be used to switch this on/off
+			[i_CTRL-^](#i_CTRL-^).
 
 ### <a id="F" class="section-title" href="#F">Note:</a>
 F{char}			To the [count]'th occurrence of {char} to the left.
-The cursor is placed on {char} [exclusive](#exclusive).
-{char} can be entered like with the [f](#f) command.
+			The cursor is placed on {char} [exclusive](#exclusive).
+			{char} can be entered like with the [f](#f) command.
 
 ### <a id="t" class="section-title" href="#t">Note:</a>
 t{char}			Till before [count]'th occurrence of {char} to the
-right.  The cursor is placed on the character left of
-{char} [inclusive](#inclusive).
-{char} can be entered like with the [f](#f) command.
+			right.  The cursor is placed on the character left of
+			{char} [inclusive](#inclusive).
+			{char} can be entered like with the [f](#f) command.
 
 ### <a id="T" class="section-title" href="#T">Note:</a>
 T{char}			Till after [count]'th occurrence of {char} to the
-left.  The cursor is placed on the character right of
-{char} [exclusive](#exclusive).
-{char} can be entered like with the [f](#f) command.
+			left.  The cursor is placed on the character right of
+			{char} [exclusive](#exclusive).
+			{char} can be entered like with the [f](#f) command.
 
 ### <a id=";" class="section-title" href="#;">Note:</a>
 ;			Repeat latest f, t, F or T [count] times. See [cpo-;](#cpo-;)
 
 ### <a id="," class="section-title" href="#,">Note:</a>
 ,			Repeat latest f, t, F or T in opposite direction
-[count] times. See also [cpo-;](#cpo-;)
+			[count] times. See also [cpo-;](#cpo-;)
 
 
 ## <a id="up-down-motions" class="section-title" href="#up-down-motions">3. Up-Down Motions</a> 
 
 k		or					*k*
-
-```
 Up>		or					*<Up>* *CTRL-P*
 CTRL-P			[count] lines upward [linewise](#linewise).
 
 j		or					*j*
-
-```
 Down>		or					*<Down>*
 CTRL-J		or					*CTRL-J*
-
-```
 NL>		or					*<NL>* *CTRL-N*
 CTRL-N			[count] lines downward [linewise](#linewise).
 
 gk		or					*gk* *g<Up>*
 g<Up>			[count] display lines upward.  [exclusive](#exclusive) motion.
-Differs from 'k' when lines wrap, and when used with
-an operator, because it's not linewise.
+			Differs from 'k' when lines wrap, and when used with
+			an operator, because it's not linewise.
 
 gj		or					*gj* *g<Down>*
 g<Down>			[count] display lines downward.  [exclusive](#exclusive) motion.
-Differs from 'j' when lines wrap, and when used with
-an operator, because it's not linewise.
+			Differs from 'j' when lines wrap, and when used with
+			an operator, because it's not linewise.
 
 ### <a id="-" class="section-title" href="#-">Note:</a>
 `-`  <minus>		[count] lines upward, on the first non-blank
-character [linewise](#linewise).
+			character [linewise](#linewise).
 
 +		or					*+*
 CTRL-M		or					*CTRL-M* *<CR>*
-
-```
 CR>			[count] lines downward, on the first non-blank
-character [linewise](#linewise).
+			character [linewise](#linewise).
 
 ### <a id="_" class="section-title" href="#_">Note:</a>
 _  <underscore>		[count] - 1 lines downward, on the first non-blank
-character [linewise](#linewise).
+			character [linewise](#linewise).
 
 ### <a id="G" class="section-title" href="#G">Note:</a>
 G			Goto line [count], default last line, on the first
-non-blank character [linewise](#linewise).  If 'startofline' not
-set, keep the same column.
-G is one of the [jump-motions](#jump-motions).
+			non-blank character [linewise](#linewise).  If 'startofline' not
+			set, keep the same column.
+			G is one of the [jump-motions](#jump-motions).
 
 ### <a id="<C-End>" class="section-title" href="#<C-End>">Note:</a>
-
-```
 C-End>			Goto line [count], default last line, on the last
-character [inclusive](#inclusive).
+			character [inclusive](#inclusive).
 
-### <a id="gg <C-Home>" class="section-title" href="#gg <C-Home>"><C-Home>	or</a>
+### <a id="gg <C-Home>" class="section-title" href="#gg <C-Home>">C-Home>	or</a>
 gg			Goto line [count], default first line, on the first
-non-blank character [linewise](#linewise).  If 'startofline' not
-set, keep the same column.
+			non-blank character [linewise](#linewise).  If 'startofline' not
+			set, keep the same column.
 
 ### <a id=":[range]" class="section-title" href="#:[range]">Note:</a>
 :[range]		Set the cursor on the last line number in [range].
-[range] can also be just one line number, e.g., ":1"
-or ":'m".
-In contrast with [G](#G) this command does not modify the
-[jumplist](#jumplist).
+			[range] can also be just one line number, e.g., ":1"
+			or ":'m".
+			In contrast with [G](#G) this command does not modify the
+			[jumplist](#jumplist).
 ### <a id="N%" class="section-title" href="#N%">Note:</a>
 {count}%		Go to {count} percentage in the file, on the first
-non-blank in the line [linewise](#linewise).  To compute the new
-line number this formula is used:
+			non-blank in the line [linewise](#linewise).  To compute the new
+			line number this formula is used:
 ### <a id="({count}  number-of-lines + 99) / 100" class="section-title" href="#({count}  number-of-lines + 99) / 100">Note:</a>
-See also 'startofline' option.
+			See also 'startofline' option.
 
 ### <a id=":go :goto go" class="section-title" href="#:go :goto go">:[range]go[to] [count]</a>
 [count]go		Go to [count] byte in the buffer.  Default [count] is
-one, start of the file.  When giving [range], the
-last number in it used as the byte count.  End-of-line
-characters are counted depending on the current
-'fileformat' setting.
-Also see the [line2byte()](#line2byte()) function, and the 'o'
-option in 'statusline'.
+			one, start of the file.  When giving [range], the
+			last number in it used as the byte count.  End-of-line
+			characters are counted depending on the current
+			'fileformat' setting.
+			Also see the [line2byte()](#line2byte()) function, and the 'o'
+			option in 'statusline'.
 
 These commands move to the specified line.  They stop when reaching the first
 or the last line.  The first two commands put the cursor in the same column
@@ -401,24 +373,24 @@ character of the line.
 
 ## <a id="word-motions" class="section-title" href="#word-motions">4. Word Motions</a> 
 
-### <a id="<S-Right> w" class="section-title" href="#<S-Right> w"><S-Right>	or</a>
+### <a id="<S-Right> w" class="section-title" href="#<S-Right> w">S-Right>	or</a>
 w			[count] words forward.  [exclusive](#exclusive) motion.
 
-### <a id="<C-Right> W" class="section-title" href="#<C-Right> W"><C-Right>	or</a>
+### <a id="<C-Right> W" class="section-title" href="#<C-Right> W">C-Right>	or</a>
 W			[count] WORDS forward.  [exclusive](#exclusive) motion.
 
 ### <a id="e" class="section-title" href="#e">Note:</a>
 e			Forward to the end of word [count] [inclusive](#inclusive).
-Does not stop in an empty line.
+			Does not stop in an empty line.
 
 ### <a id="E" class="section-title" href="#E">Note:</a>
 E			Forward to the end of WORD [count] [inclusive](#inclusive).
-Does not stop in an empty line.
+			Does not stop in an empty line.
 
-### <a id="<S-Left> b" class="section-title" href="#<S-Left> b"><S-Left>	or</a>
+### <a id="<S-Left> b" class="section-title" href="#<S-Left> b">S-Left>	or</a>
 b			[count] words backward.  [exclusive](#exclusive) motion.
 
-### <a id="<C-Left> B" class="section-title" href="#<C-Left> B"><C-Left>	or</a>
+### <a id="<C-Left> B" class="section-title" href="#<C-Left> B">C-Left>	or</a>
 B			[count] WORDS backward.  [exclusive](#exclusive) motion.
 
 ### <a id="ge" class="section-title" href="#ge">Note:</a>
@@ -473,24 +445,24 @@ between Vi and Vim.
 
 ### <a id="]]" class="section-title" href="#]]">Note:</a>
 ]]			[count] [section](#section)s forward or to the next '{' in the
-first column.  When used after an operator, then also
-stops below a '}' in the first column.  [exclusive](#exclusive)
-Note that [exclusive-linewise](#exclusive-linewise) often applies.
+			first column.  When used after an operator, then also
+			stops below a '}' in the first column.  [exclusive](#exclusive)
+			Note that [exclusive-linewise](#exclusive-linewise) often applies.
 
 ### <a id="][" class="section-title" href="#][">Note:</a>
 ][			[count] [section](#section)s forward or to the next '}' in the
-first column.  [exclusive](#exclusive)
-Note that [exclusive-linewise](#exclusive-linewise) often applies.
+			first column.  [exclusive](#exclusive)
+			Note that [exclusive-linewise](#exclusive-linewise) often applies.
 
 ### <a id="[[" class="section-title" href="#[[">Note:</a>
 [[			[count] [section](#section)s backward or to the previous '{' in
-the first column.  [exclusive](#exclusive)
-Note that [exclusive-linewise](#exclusive-linewise) often applies.
+			the first column.  [exclusive](#exclusive)
+			Note that [exclusive-linewise](#exclusive-linewise) often applies.
 
 ### <a id="[]" class="section-title" href="#[]">Note:</a>
 []			[count] [section](#section)s backward or to the previous '}' in
-the first column.  [exclusive](#exclusive)
-Note that [exclusive-linewise](#exclusive-linewise) often applies.
+			the first column.  [exclusive](#exclusive)
+			Note that [exclusive-linewise](#exclusive-linewise) often applies.
 
 These commands move over three kinds of text objects.
 
@@ -528,11 +500,10 @@ search direction.
 
 If your '{' or '}' are not in the first column, and you would like to use "[["
 and "]]" anyway, try these mappings:
-```
-:map [[ ?{<CR>w99[{
-:map ][ /}<CR>b99]}
-:map ]] j0[[%/{<CR>
-:map [] k$][%?}<CR>
+   :map [[ ?{<CR>w99[{
+   :map ][ /}<CR>b99]}
+   :map ]] j0[[%/{<CR>
+   :map [] k$][%?}<CR>
 [type these literally, see [<>](#<>)]
 
 
@@ -548,183 +519,183 @@ Also see `gn` and `gN`, operating on the last search pattern.
 
 ### <a id="v_aw aw" class="section-title" href="#v_aw aw">Note:</a>
 aw			"a word", select [count] words (see [word](#word)).
-Leading or trailing white space is included, but not
-counted.
-When used in Visual linewise mode "aw" switches to
-Visual charwise mode.
+			Leading or trailing white space is included, but not
+			counted.
+			When used in Visual linewise mode "aw" switches to
+			Visual charwise mode.
 
 ### <a id="v_iw iw" class="section-title" href="#v_iw iw">Note:</a>
 iw			"inner word", select [count] words (see [word](#word)).
-White space between words is counted too.
-When used in Visual linewise mode "iw" switches to
-Visual charwise mode.
+			White space between words is counted too.
+			When used in Visual linewise mode "iw" switches to
+			Visual charwise mode.
 
 ### <a id="v_aW aW" class="section-title" href="#v_aW aW">Note:</a>
 aW			"a WORD", select [count] WORDs (see [WORD](#WORD)).
-Leading or trailing white space is included, but not
-counted.
-When used in Visual linewise mode "aW" switches to
-Visual charwise mode.
+			Leading or trailing white space is included, but not
+			counted.
+			When used in Visual linewise mode "aW" switches to
+			Visual charwise mode.
 
 ### <a id="v_iW iW" class="section-title" href="#v_iW iW">Note:</a>
 iW			"inner WORD", select [count] WORDs (see [WORD](#WORD)).
-White space between words is counted too.
-When used in Visual linewise mode "iW" switches to
-Visual charwise mode.
+			White space between words is counted too.
+			When used in Visual linewise mode "iW" switches to
+			Visual charwise mode.
 
 ### <a id="v_as as" class="section-title" href="#v_as as">Note:</a>
 as			"a sentence", select [count] sentences (see
-[sentence](#sentence)).
-When used in Visual mode it is made charwise.
+			[sentence](#sentence)).
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_is is" class="section-title" href="#v_is is">Note:</a>
 is			"inner sentence", select [count] sentences (see
-[sentence](#sentence)).
-When used in Visual mode it is made charwise.
+			[sentence](#sentence)).
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_ap ap" class="section-title" href="#v_ap ap">Note:</a>
 ap			"a paragraph", select [count] paragraphs (see
-[paragraph](#paragraph)).
-Exception: a blank line (only containing white space)
-is also a paragraph boundary.
-When used in Visual mode it is made linewise.
+			[paragraph](#paragraph)).
+			Exception: a blank line (only containing white space)
+			is also a paragraph boundary.
+			When used in Visual mode it is made linewise.
 
 ### <a id="v_ip ip" class="section-title" href="#v_ip ip">Note:</a>
 ip			"inner paragraph", select [count] paragraphs (see
-[paragraph](#paragraph)).
-Exception: a blank line (only containing white space)
-is also a paragraph boundary.
-When used in Visual mode it is made linewise.
+			[paragraph](#paragraph)).
+			Exception: a blank line (only containing white space)
+			is also a paragraph boundary.
+			When used in Visual mode it is made linewise.
 
 ### <a id="v_a] v_a[ a] a[" class="section-title" href="#v_a] v_a[ a] a[">a]</a>
 a[			"a [] block", select [count] '[' ']' blocks.  This
-goes backwards to the [count] unclosed '[', and finds
-the matching ']'.  The enclosed text is selected,
-including the '[' and ']'.
-When used in Visual mode it is made charwise.
+			goes backwards to the [count] unclosed '[', and finds
+			the matching ']'.  The enclosed text is selected,
+			including the '[' and ']'.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_i] v_i[ i] i[" class="section-title" href="#v_i] v_i[ i] i[">i]</a>
 i[			"inner [] block", select [count] '[' ']' blocks.  This
-goes backwards to the [count] unclosed '[', and finds
-the matching ']'.  The enclosed text is selected,
-excluding the '[' and ']'.
-When used in Visual mode it is made charwise.
+			goes backwards to the [count] unclosed '[', and finds
+			the matching ']'.  The enclosed text is selected,
+			excluding the '[' and ']'.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_a) a) a(" class="section-title" href="#v_a) a) a(">a)</a>
 ### <a id="vab v_ab v_a( ab" class="section-title" href="#vab v_ab v_a( ab">a(</a>
 ab			"a block", select [count] blocks, from "[count] [(" to
-the matching ')', including the '(' and ')' (see
-[[(](#[()).  Does not include white space outside of the
-parenthesis.
-When used in Visual mode it is made charwise.
+			the matching ')', including the '(' and ')' (see
+			[[(](#[()).  Does not include white space outside of the
+			parenthesis.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_i) i) i(" class="section-title" href="#v_i) i) i(">i)</a>
 ### <a id="vib v_ib v_i( ib" class="section-title" href="#vib v_ib v_i( ib">i(</a>
 ib			"inner block", select [count] blocks, from "[count] [("
-to the matching ')', excluding the '(' and ')' (see
-[[(](#[()).  If the cursor is not inside a () block, then
-find the next "(".
-When used in Visual mode it is made charwise.
+			to the matching ')', excluding the '(' and ')' (see
+			[[(](#[()).  If the cursor is not inside a () block, then
+ 			find the next "(".
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_a> v_a< a> a<" class="section-title" href="#v_a> v_a< a> a<">a></a>
 a<			"a <> block", select [count] <> blocks, from the
-[count]'th unmatched '<' backwards to the matching
-'>', including the '<' and '>'.
-When used in Visual mode it is made charwise.
+			[count]'th unmatched '<' backwards to the matching
+			'>', including the '<' and '>'.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_i> v_i< i> i<" class="section-title" href="#v_i> v_i< i> i<">i></a>
 i<			"inner <> block", select [count] <> blocks, from
-the [count]'th unmatched '<' backwards to the matching
-'>', excluding the '<' and '>'.
-When used in Visual mode it is made charwise.
+			the [count]'th unmatched '<' backwards to the matching
+			'>', excluding the '<' and '>'.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_at at" class="section-title" href="#v_at at">Note:</a>
 at			"a tag block", select [count] tag blocks, from the
-[count]'th unmatched "<aaa>" backwards to the matching
-"</aaa>", including the "<aaa>" and "</aaa>".
-See [tag-blocks](#tag-blocks) about the details.
-When used in Visual mode it is made charwise.
+			[count]'th unmatched "<aaa>" backwards to the matching
+			"</aaa>", including the "<aaa>" and "</aaa>".
+			See [tag-blocks](#tag-blocks) about the details.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_it it" class="section-title" href="#v_it it">Note:</a>
 it			"inner tag block", select [count] tag blocks, from the
-[count]'th unmatched "<aaa>" backwards to the matching
-"</aaa>", excluding the "<aaa>" and "</aaa>".
-See [tag-blocks](#tag-blocks) about the details.
-When used in Visual mode it is made charwise.
+			[count]'th unmatched "<aaa>" backwards to the matching
+			"</aaa>", excluding the "<aaa>" and "</aaa>".
+			See [tag-blocks](#tag-blocks) about the details.
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_a} a} a{" class="section-title" href="#v_a} a} a{">a}</a>
 ### <a id="v_aB v_a{ aB" class="section-title" href="#v_aB v_a{ aB">a{</a>
 aB			"a Block", select [count] Blocks, from "[count] [{" to
-the matching '}', including the '{' and '}' (see
-[[{](#[{)).
-When used in Visual mode it is made charwise.
+			the matching '}', including the '{' and '}' (see
+			[[{](#[{)).
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_i} i} i{" class="section-title" href="#v_i} i} i{">i}</a>
 ### <a id="v_iB v_i{ iB" class="section-title" href="#v_iB v_i{ iB">i{</a>
 iB			"inner Block", select [count] Blocks, from "[count] [{"
-to the matching '}', excluding the '{' and '}' (see
-[[{](#[{)).
-When used in Visual mode it is made charwise.
+			to the matching '}', excluding the '{' and '}' (see
+			[[{](#[{)).
+			When used in Visual mode it is made charwise.
 
 ### <a id="v_aquote aquote" class="section-title" href="#v_aquote aquote">a"</a>
 ### <a id="v_a' a'" class="section-title" href="#v_a' a'">a'</a>
 ### <a id="v_a` a`" class="section-title" href="#v_a` a`">a`</a>
-"a quoted string".  Selects the text from the previous
-quote until the next quote.  The 'quoteescape' option
-is used to skip escaped quotes.
-Only works within one line.
-When the cursor starts on a quote, Vim will figure out
-which quote pairs form a string by searching from the
-start of the line.
-Any trailing white space is included, unless there is
-none, then leading white space is included.
-When used in Visual mode it is made charwise.
-Repeating this object in Visual mode another string is
-included.  A count is currently not used.
+			"a quoted string".  Selects the text from the previous
+			quote until the next quote.  The 'quoteescape' option
+			is used to skip escaped quotes.
+			Only works within one line.
+			When the cursor starts on a quote, Vim will figure out
+			which quote pairs form a string by searching from the
+			start of the line.
+			Any trailing white space is included, unless there is
+			none, then leading white space is included.
+			When used in Visual mode it is made charwise.
+			Repeating this object in Visual mode another string is
+			included.  A count is currently not used.
 
 ### <a id="v_iquote iquote" class="section-title" href="#v_iquote iquote">i"</a>
 ### <a id="v_i' i'" class="section-title" href="#v_i' i'">i'</a>
 ### <a id="v_i` i`" class="section-title" href="#v_i` i`">i`</a>
-Like a", a' and a`, but exclude the quotes and
-repeating won't extend the Visual selection.
-Special case: With a count of 2 the quotes are
-included, but no extra white space as with a"/a'/a`.
+			Like a", a' and a`, but exclude the quotes and
+			repeating won't extend the Visual selection.
+			Special case: With a count of 2 the quotes are
+			included, but no extra white space as with a"/a'/a`.
 
 When used after an operator:
 For non-block objects:
-For the "a" commands: The operator applies to the object and the white
-space after the object.  If there is no white space after the object
-or when the cursor was in the white space before the object, the white
-space before the object is included.
-For the "inner" commands: If the cursor was on the object, the
-operator applies to the object.  If the cursor was on white space, the
-operator applies to the white space.
+	For the "a" commands: The operator applies to the object and the white
+	space after the object.  If there is no white space after the object
+	or when the cursor was in the white space before the object, the white
+	space before the object is included.
+	For the "inner" commands: If the cursor was on the object, the
+	operator applies to the object.  If the cursor was on white space, the
+	operator applies to the white space.
 For a block object:
-The operator applies to the block where the cursor is in, or the block
-on which the cursor is on one of the braces.  For the "inner" commands
-the surrounding braces are excluded.  For the "a" commands, the braces
-are included.
+	The operator applies to the block where the cursor is in, or the block
+	on which the cursor is on one of the braces.  For the "inner" commands
+	the surrounding braces are excluded.  For the "a" commands, the braces
+	are included.
 
 When used in Visual mode:
 When start and end of the Visual area are the same (just after typing "v"):
-One object is selected, the same as for using an operator.
+	One object is selected, the same as for using an operator.
 When start and end of the Visual area are not the same:
-For non-block objects the area is extended by one object or the white
-space up to the next object, or both for the "a" objects.  The
-direction in which this happens depends on which side of the Visual
-area the cursor is.  For the block objects the block is extended one
-level outwards.
+	For non-block objects the area is extended by one object or the white
+	space up to the next object, or both for the "a" objects.  The
+	direction in which this happens depends on which side of the Visual
+	area the cursor is.  For the block objects the block is extended one
+	level outwards.
 
 For illustration, here is a list of delete commands, grouped from small to big
 objects.  Note that for a single character and a whole line the existing vi
 movement commands are used.
-"dl"	delete character (alias: "x")		[dl](#dl)
+	"dl"	delete character (alias: "x")		[dl](#dl)
 ### <a id="diw" class="section-title" href="#diw">	"diw"	delete inner word</a>
 ### <a id="daw" class="section-title" href="#daw">	"daw"	delete a word</a>
 ### <a id="diW" class="section-title" href="#diW">	"diW"	delete inner WORD (see [WORD](#WORD))</a>
 ### <a id="daW" class="section-title" href="#daW">	"daW"	delete a WORD (see [WORD](#WORD))</a>
-"dgn"   delete the next search pattern match    *dgn*
-"dd"	delete one line				[dd](#dd)
+	"dgn"   delete the next search pattern match    *dgn*
+	"dd"	delete one line				[dd](#dd)
 ### <a id="dis" class="section-title" href="#dis">	"dis"	delete inner sentence</a>
 ### <a id="das" class="section-title" href="#das">	"das"	delete a sentence</a>
 ### <a id="dib" class="section-title" href="#dib">	"dib"	delete inner '(' ')' block</a>
@@ -766,10 +737,10 @@ The text objects are tolerant about mistakes.  Stray end tags are ignored.
 
 Jumping to a mark can be done in two ways:
 1. With ` (backtick):	  The cursor is positioned at the specified location
-and the motion is [exclusive](#exclusive).
+			  and the motion is [exclusive](#exclusive).
 2. With ' (single quote): The cursor is positioned on the first non-blank
-character in the line of the specified location and
-the motion is linewise.
+			  character in the line of the specified location and
+			  the motion is linewise.
 ### <a id="mark-view" class="section-title" href="#mark-view">Note:</a>
 3. Apart from the above if 'jumpoptions' contains "view", they will also try to
 restore the mark view. This is the number of lines between the cursor position
@@ -778,84 +749,76 @@ set.
 
 ### <a id="m mark Mark" class="section-title" href="#m mark Mark">Note:</a>
 m{a-zA-Z}		Set mark {a-zA-Z} at cursor position (does not move
-the cursor, this is not a motion command).
+			the cursor, this is not a motion command).
 
 ### <a id="m' m`" class="section-title" href="#m' m`">Note:</a>
 m'  or  m`		Set the previous context mark.  This can be jumped to
-with the "''" or "``" command (does not move the
-cursor, this is not a motion command).
+			with the "''" or "``" command (does not move the
+			cursor, this is not a motion command).
 
 ### <a id="m[ m]" class="section-title" href="#m[ m]">Note:</a>
 m[  or  m]		Set the ['[| or |']](#'[| or |']) mark.  Useful when an operator is
-to be simulated by multiple commands.  (does not move
-the cursor, this is not a motion command).
+			to be simulated by multiple commands.  (does not move
+			the cursor, this is not a motion command).
 
 ### <a id="m< m>" class="section-title" href="#m< m>">Note:</a>
 m<  or  m>		Set the ['<| or |'>](#'<| or |'>) mark.  Useful to change what the
-`gv` command selects.  (does not move the cursor, this
-is not a motion command).
-Note that the Visual mode cannot be set, only the
-start and end position.
+			`gv` command selects.  (does not move the cursor, this
+			is not a motion command).
+			Note that the Visual mode cannot be set, only the
+			start and end position.
 
 ### <a id=":ma :mark E191" class="section-title" href="#:ma :mark E191">Note:</a>
 :[range]ma[rk] {a-zA-Z'}
-Set mark {a-zA-Z'} at last line number in [range],
-column 0.  Default is cursor line.
+			Set mark {a-zA-Z'} at last line number in [range],
+			column 0.  Default is cursor line.
 
 ### <a id=":k" class="section-title" href="#:k">Note:</a>
 :[range]k{a-zA-Z'}	Same as :mark, but the space before the mark name can
-be omitted.
+			be omitted.
 
 ### <a id="' 'a ` `a" class="section-title" href="#' 'a ` `a">Note:</a>
 '{a-z}  `{a-z}		Jump to the mark {a-z} in the current buffer.
 
 ### <a id="'A '0 `A `0" class="section-title" href="#'A '0 `A `0">Note:</a>
 '{A-Z0-9}  `{A-Z0-9}	To the mark {A-Z0-9} in the file where it was set (not
-a motion command when in another file).
+			a motion command when in another file).
 
 ### <a id="g' g'a g` g`a" class="section-title" href="#g' g'a g` g`a">Note:</a>
 g'{mark}  g`{mark}
-Jump to the {mark}, but don't change the jumplist when
-jumping within the current buffer.  Example:
-```
-g`"
-
-```
+			Jump to the {mark}, but don't change the jumplist when
+			jumping within the current buffer.  Example:
+				g`"
 			jumps to the last known position in a file.
-See also [:keepjumps](#:keepjumps).
+			See also [:keepjumps](#:keepjumps).
 
 ### <a id=":marks" class="section-title" href="#:marks">Note:</a>
 :marks			List all the current marks (not a motion command).
-The ['(|, |')|, |'{| and |'}](#'(|, |')|, |'{| and |'}) marks are not listed.
-The first column has number zero.
+			The ['(|, |')|, |'{| and |'}](#'(|, |')|, |'{| and |'}) marks are not listed.
+			The first column has number zero.
 ### <a id="E283" class="section-title" href="#E283">Note:</a>
 :marks {arg}		List the marks that are mentioned in {arg} (not a
-motion command).  For example:
-```
-:marks aB
-
-```
+			motion command).  For example:
+				:marks aB
 			to list marks 'a' and 'B'.
 
 ### <a id=":delm :delmarks" class="section-title" href="#:delm :delmarks">Note:</a>
 :delm[arks] {marks}	Delete the specified marks.  Marks that can be deleted
-include A-Z and 0-9.  You cannot delete the ' mark.
-They can be specified by giving the list of mark
-names, or with a range, separated with a dash.  Spaces
-are ignored.  Examples:
-```
-:delmarks a	      deletes mark a
-:delmarks a b 1    deletes marks a, b and 1
-:delmarks Aa       deletes marks A and a
-:delmarks p-z      deletes marks in the range p to z
-:delmarks ^.[]     deletes marks ^ . [ ]
-:delmarks \"	      deletes mark "
-
+			include A-Z and 0-9.  You cannot delete the ' mark.
+			They can be specified by giving the list of mark
+			names, or with a range, separated with a dash.  Spaces
+			are ignored.  Examples:
+			   :delmarks a	      deletes mark a
+			   :delmarks a b 1    deletes marks a, b and 1
+			   :delmarks Aa       deletes marks A and a
+			   :delmarks p-z      deletes marks in the range p to z
+			   :delmarks ^.[]     deletes marks ^ . [ ]
+			   :delmarks \"	      deletes mark "
 ```
 
 
 :delm[arks]!		Delete all marks for the current buffer, but not marks
-A-Z or 0-9.  Also clear the [changelist](#changelist).
+			A-Z or 0-9.  Also clear the [changelist](#changelist).
 
 A mark is not visible in any way.  It is just a position in the file that is
 remembered.  Do not confuse marks with named registers, they are totally
@@ -890,11 +853,11 @@ Numbered mark should be stored.  See [shada-file-marks](#shada-file-marks).
 
 ### <a id="'[ `[" class="section-title" href="#'[ `[">Note:</a>
 '[  `[			To the first character of the previously changed
-or yanked text.
+			or yanked text.
 
 ### <a id="'] `]" class="section-title" href="#'] `]">Note:</a>
 ']  `]			To the last character of the previously changed or
-yanked text.
+			yanked text.
 
 After executing an operator the Cursor is put at the beginning of the text
 that was operated upon.  After a put command ("p" or "P") the cursor is
@@ -910,148 +873,146 @@ was made yet in the current file.
 
 ### <a id="'< `<" class="section-title" href="#'< `<">Note:</a>
 '<  `<			To the first line or character of the last selected
-Visual area in the current buffer.  For block mode it
-may also be the last character in the first line (to
-be able to define the block).
+			Visual area in the current buffer.  For block mode it
+			may also be the last character in the first line (to
+			be able to define the block).
 
 ### <a id="'> `>" class="section-title" href="#'> `>">Note:</a>
 '>  `>			To the last line or character of the last selected
-Visual area in the current buffer.  For block mode it
-may also be the first character of the last line (to
-be able to define the block).  Note that 'selection'
-applies, the position may be just after the Visual
-area.
+			Visual area in the current buffer.  For block mode it
+			may also be the first character of the last line (to
+			be able to define the block).  Note that 'selection'
+			applies, the position may be just after the Visual
+			area.
 
 ### <a id="'' ``" class="section-title" href="#'' ``">Note:</a>
 ''  ``			To the position before the latest jump, or where the
-last "m'" or "m`" command was given.  Not set when the
-[:keepjumps](#:keepjumps) command modifier was used.
-Also see [restore-position](#restore-position).
+			last "m'" or "m`" command was given.  Not set when the
+			[:keepjumps](#:keepjumps) command modifier was used.
+			Also see [restore-position](#restore-position).
 
 ### <a id="'quote `quote" class="section-title" href="#'quote `quote">Note:</a>
 '"  `"			To the cursor position when last exiting the current
-buffer.  Defaults to the first character of the first
-line.  See [last-position-jump](#last-position-jump) for how to use this
-for each opened file.
-Only one position is remembered per buffer, not one
-for each window.  As long as the buffer is visible in
-a window the position won't be changed.  Mark is also 
-reset when [:wshada](#:wshada) is run.
+			buffer.  Defaults to the first character of the first
+			line.  See [last-position-jump](#last-position-jump) for how to use this
+			for each opened file.
+			Only one position is remembered per buffer, not one
+			for each window.  As long as the buffer is visible in
+			a window the position won't be changed.  Mark is also 
+			reset when [:wshada](#:wshada) is run.
 
 ### <a id="'^ `^" class="section-title" href="#'^ `^">Note:</a>
 '^  `^			To the position where the cursor was the last time
-when Insert mode was stopped.  This is used by the
-[gi| command.  Not set when the |:keepjumps](#gi| command.  Not set when the |:keepjumps) command
-modifier was used.
+			when Insert mode was stopped.  This is used by the
+			[gi| command.  Not set when the |:keepjumps](#gi| command.  Not set when the |:keepjumps) command
+			modifier was used.
 
 ### <a id="'. `." class="section-title" href="#'. `.">Note:</a>
 '.  `.			To the position where the last change was made.  The
-position is at or near where the change started.
-Sometimes a command is executed as several changes,
-then the position can be near the end of what the
-command changed.  For example when inserting a word,
-the position will be on the last character.
-To jump to older changes use [g;](#g;).
+			position is at or near where the change started.
+			Sometimes a command is executed as several changes,
+			then the position can be near the end of what the
+			command changed.  For example when inserting a word,
+			the position will be on the last character.
+			To jump to older changes use [g;](#g;).
 
 ### <a id="'( `(" class="section-title" href="#'( `(">Note:</a>
 '(  `(			To the start of the current sentence, like the [(](#()
-command.
+			command.
 
 ### <a id="') `)" class="section-title" href="#') `)">Note:</a>
 ')  `)			To the end of the current sentence, like the [)](#))
-command.
+			command.
 
 ### <a id="'{ `{" class="section-title" href="#'{ `{">Note:</a>
 '{  `{			To the start of the current paragraph, like the [{](#{)
-command.
+			command.
 
 ### <a id="'} `}" class="section-title" href="#'} `}">Note:</a>
 '}  `}			To the end of the current paragraph, like the [}](#})
-command.
+			command.
 
 These commands are not marks themselves, but jump to a mark:
 
 ### <a id="]'" class="section-title" href="#]'">Note:</a>
 ]'			[count] times to next line with a lowercase mark below
-the cursor, on the first non-blank character in the
-line.
+			the cursor, on the first non-blank character in the
+			line.
 
 ### <a id="]`" class="section-title" href="#]`">Note:</a>
 ]`			[count] times to lowercase mark after the cursor.
 
 ### <a id="['" class="section-title" href="#['">Note:</a>
 ['			[count] times to previous line with a lowercase mark
-before the cursor, on the first non-blank character in
-the line.
+			before the cursor, on the first non-blank character in
+			the line.
 
 ### <a id="[`" class="section-title" href="#[`">Note:</a>
 [`			[count] times to lowercase mark before the cursor.
 
 
 ### <a id=":loc :lock :lockmarks" class="section-title" href="#:loc :lock :lockmarks">:loc[kmarks] {command}</a>
-Execute {command} without adjusting marks.  This is
-useful when changing text in a way that the line count
-will be the same when the change has completed.
-WARNING: When the line count does change, marks below
-the change will keep their line number, thus move to
-another text line.
-These items will not be adjusted for deleted/inserted
-lines:
-- lower case letter marks 'a - 'z
-- upper case letter marks 'A - 'Z
-- numbered marks '0 - '9
-- last insert position '^
-- last change position '.
-- last affected text area '[ and ']
-- the Visual area '< and '>
-- line numbers in placed signs
-- line numbers in quickfix positions
-- positions in the [jumplist](#jumplist)
-- positions in the [tagstack](#tagstack)
-These items will still be adjusted:
-- previous context mark ''
-- the cursor position
-- the view of a window on a buffer
-- folds
-- diffs
+			Execute {command} without adjusting marks.  This is
+			useful when changing text in a way that the line count
+			will be the same when the change has completed.
+			WARNING: When the line count does change, marks below
+			the change will keep their line number, thus move to
+			another text line.
+			These items will not be adjusted for deleted/inserted
+			lines:
+			- lower case letter marks 'a - 'z
+			- upper case letter marks 'A - 'Z
+			- numbered marks '0 - '9
+			- last insert position '^
+			- last change position '.
+			- last affected text area '[ and ']
+			- the Visual area '< and '
+```			- line numbers in placed signs
+			- line numbers in quickfix positions
+			- positions in the [jumplist](#jumplist)
+			- positions in the [tagstack](#tagstack)
+			These items will still be adjusted:
+			- previous context mark ''
+			- the cursor position
+			- the view of a window on a buffer
+			- folds
+			- diffs
 
 ### <a id=":kee :keep :keepmarks" class="section-title" href="#:kee :keep :keepmarks">:kee[pmarks] {command}</a>
-Currently only has effect for the filter command
-[:range!](#:range!):
-- When the number of lines after filtering is equal to
-or larger than before, all marks are kept at the
-same line number.
-- When the number of lines decreases, the marks in the
-lines that disappeared are deleted.
-In any case the marks below the filtered text have
-their line numbers adjusted, thus stick to the text,
-as usual.
-When the 'R' flag is missing from 'cpoptions' this has
-the same effect as using ":keepmarks".
+			Currently only has effect for the filter command
+			[:range!](#:range!):
+			- When the number of lines after filtering is equal to
+			  or larger than before, all marks are kept at the
+			  same line number.
+			- When the number of lines decreases, the marks in the
+			  lines that disappeared are deleted.
+			In any case the marks below the filtered text have
+			their line numbers adjusted, thus stick to the text,
+			as usual.
+			When the 'R' flag is missing from 'cpoptions' this has
+			the same effect as using ":keepmarks".
 
 ### <a id=":keepj :keepjumps" class="section-title" href="#:keepj :keepjumps">Note:</a>
 :keepj[umps] {command}
-Moving around in {command} does not change the [''](#''),
-['.| and |'^| marks, the |jumplist](#'.| and |'^| marks, the |jumplist) or the
-[changelist](#changelist).
-Useful when making a change or inserting text
-automatically and the user doesn't want to go to this
-position.  E.g., when updating a "Last change"
-timestamp in the first line:
+			Moving around in {command} does not change the [''](#''),
+			['.| and |'^| marks, the |jumplist](#'.| and |'^| marks, the |jumplist) or the
+			[changelist](#changelist).
+			Useful when making a change or inserting text
+			automatically and the user doesn't want to go to this
+			position.  E.g., when updating a "Last change"
+			timestamp in the first line:
+
+				:let lnum = line(".")
+				:keepjumps normal gg
+				:call SetLastChange()
+				:keepjumps exe "normal " .. lnum .. "G"
 ```
 
-:let lnum = line(".")
-:keepjumps normal gg
-:call SetLastChange()
-:keepjumps exe "normal " .. lnum .. "G"
-
-```
-
-Note that ":keepjumps" must be used for every command.
-When invoking a function the commands in that function
-can still change the jumplist.  Also, for
-":keepjumps exe 'command '" the "command" won't keep
-jumps.  Instead use: ":exe 'keepjumps command'"
+			Note that ":keepjumps" must be used for every command.
+			When invoking a function the commands in that function
+			can still change the jumplist.  Also, for
+			":keepjumps exe 'command '" the "command" won't keep
+			jumps.  Instead use: ":exe 'keepjumps command'"
 
 
 ## <a id="jump-motions" class="section-title" href="#jump-motions">8. Jumps</a> 
@@ -1066,13 +1027,11 @@ commands that start editing a new file.
 
 ### <a id="CTRL-O" class="section-title" href="#CTRL-O">Note:</a>
 CTRL-O			Go to [count] Older cursor position in jump list
-(not a motion command).
+			(not a motion command).
 
-
-```
 Tab>		or					*CTRL-I* *<Tab>*
 CTRL-I			Go to [count] newer cursor position in jump list
-(not a motion command).
+			(not a motion command).
 
 ### <a id=":ju :jumps" class="section-title" href="#:ju :jumps">Note:</a>
 :ju[mps]		Print the jump list (not a motion command).
@@ -1088,11 +1047,11 @@ The maximum number of entries is fixed at 100.
 
 For example, after three jump commands you have this jump list:
 
-jump line  col file/text ~
-3	  1    0 some text ~
-2	 70    0 another line ~
-1  1154   23 end. ~
-> ~
+    jump line  col file/text ~
+      3	  1    0 some text ~
+      2	 70    0 another line ~
+      1  1154   23 end. ~
+   > ~
 
 The "file/text" column shows the file name, or the text at the jump if it is
 in the current file (an indent is removed and a long line is truncated to fit
@@ -1104,11 +1063,11 @@ shown when filtering the [:jumps| command using |:filter](#:jumps| command using
 You are currently in line 1167.  If you then use the CTRL-O command, the
 cursor is put in line 1154.  This results in:
 
-jump line  col file/text ~
-2	  1    0 some text ~
-1	 70    0 another line ~
->  0  1154   23 end. ~
-1  1167    0 foo bar ~
+    jump line  col file/text ~
+      2	  1    0 some text ~
+      1	 70    0 another line ~
+   >  0  1154   23 end. ~
+      1  1167    0 foo bar ~
 
 The pointer will be set at the last used jump position.  The next CTRL-O
 command will use the entry above it, the next CTRL-I command will use the
@@ -1135,12 +1094,12 @@ that calling setpos() does not do this.
 After the CTRL-O command that got you into line 1154 you could give another
 jump command (e.g., "G").  The jump list would then become:
 
-jump line  col file/text ~
-4	  1    0 some text ~
-3	 70    0 another line ~
-2  1167    0 foo bar ~
-1  1154   23 end. ~
-> ~
+    jump line  col file/text ~
+      4	  1    0 some text ~
+      3	 70    0 another line ~
+      2  1167    0 foo bar ~
+      1  1154   23 end. ~
+   > ~
 
 The line numbers will be adjusted for deleted and inserted lines.  This fails
 if you stop editing a file without writing, like with ":n!".
@@ -1176,21 +1135,21 @@ When the jumpoptions includes "stack", this is the behavior of Nvim as well.
 That is, given a jumplist like the following in which CTRL-O has been used to
 move back three times to location X
 
-jump line  col file/text
-2  1260    8 src/nvim/mark.c         <-- location X-2
-1   685    0 src/nvim/option_defs.h  <-- location X-1
+ jump line  col file/text
+   2  1260    8 src/nvim/mark.c         <-- location X-2
+   1   685    0 src/nvim/option_defs.h  <-- location X-1
 >  0   462   36 src/nvim/option_defs.h  <-- location X
-1   479   39 src/nvim/option_defs.h
-2   213    2 src/nvim/mark.c
-3   181    0 src/nvim/mark.c
+   1   479   39 src/nvim/option_defs.h
+   2   213    2 src/nvim/mark.c
+   3   181    0 src/nvim/mark.c
 
 jumping to (new) location Y results in the locations after the current
 locations being removed:
 
-jump line  col file/text
-3  1260    8 src/nvim/mark.c
-2   685    0 src/nvim/option_defs.h
-1   462   36 src/nvim/option_defs.h  <-- location X
+ jump line  col file/text
+   3  1260    8 src/nvim/mark.c
+   2   685    0 src/nvim/option_defs.h
+   1   462   36 src/nvim/option_defs.h  <-- location X
 > 
 
 Then, when yet another location Z is jumped to, the new location Y appears
@@ -1198,11 +1157,11 @@ directly after location X in the jumplist and location X remains in the same
 position relative to the locations (X-1, X-2, etc., ...) that had been before it
 prior to the original jump from X to Y:
 
-jump line  col file/text
-4  1260    8 src/nvim/mark.c         <-- location X-2
-3   685    0 src/nvim/option_defs.h  <-- location X-1
-2   462   36 src/nvim/option_defs.h  <-- location X
-1   100    0 src/nvim/option_defs.h  <-- location Y
+ jump line  col file/text
+   4  1260    8 src/nvim/mark.c         <-- location X-2
+   3   685    0 src/nvim/option_defs.h  <-- location X-1
+   2   462   36 src/nvim/option_defs.h  <-- location X
+   1   100    0 src/nvim/option_defs.h  <-- location Y
 > 
 
 ### <a id="changelist change-list-jumps E664" class="section-title" href="#changelist change-list-jumps E664">Change List Jumps</a>
@@ -1214,15 +1173,15 @@ also those that have been undone:
 
 ### <a id="g; E662" class="section-title" href="#g; E662">Note:</a>
 g;			Go to [count] older position in change list.
-If [count] is larger than the number of older change
-positions go to the oldest change.
-If there is no older change an error message is given.
-(not a motion command)
+			If [count] is larger than the number of older change
+			positions go to the oldest change.
+			If there is no older change an error message is given.
+			(not a motion command)
 
 ### <a id="g, E663" class="section-title" href="#g, E663">Note:</a>
 g,			Go to [count] newer position in change list.
-Just like [g;](#g;) but in the opposite direction.
-(not a motion command)
+			Just like [g;](#g;) but in the opposite direction.
+			(not a motion command)
 
 When using a count you jump as far back or forward as possible.  Thus you can
 use "999g;" to go to the first change for which the position is still
@@ -1246,85 +1205,84 @@ remembered.
 
 ### <a id=":changes" class="section-title" href="#:changes">Note:</a>
 :changes		Print the change list.  A ">" character indicates the
-current position.  Just after a change it is below the
-newest entry, indicating that `g;` takes you to the
-newest entry position.  The first column indicates the
-count needed to take you to this position.  Example:
+			current position.  Just after a change it is below the
+			newest entry, indicating that `g;` takes you to the
+			newest entry position.  The first column indicates the
+			count needed to take you to this position.  Example:
 
-change line  col text ~
-3     9    8 bla bla bla
-2    11   57 foo is a bar
-1    14   54 the latest changed line
-```
+				change line  col text ~
+				    3     9    8 bla bla bla
+				    2    11   57 foo is a bar
+				    1    14   54 the latest changed line
 
-The `3g;` command takes you to line 9.  Then the
-output of `:changes` is:
+			The `3g;` command takes you to line 9.  Then the
+			output of `:changes` is:
 
-change line  col text ~
->   0     9    8 bla bla bla
-1    11   57 foo is a bar
-2    14   54 the latest changed line
+				change line  col text ~
+				>   0     9    8 bla bla bla
+				    1    11   57 foo is a bar
+				    2    14   54 the latest changed line
 
-Now you can use "g," to go to line 11 and "2g," to go
-to line 14.
+			Now you can use "g," to go to line 11 and "2g," to go
+			to line 14.
 
 
 ## <a id="various-motions" class="section-title" href="#various-motions">9. Various Motions</a> 
 
 ### <a id="%" class="section-title" href="#%">Note:</a>
 %			Find the next item in this line after or under the
-cursor and jump to its match. [inclusive](#inclusive) motion.
-Items can be:
-([{}])		parenthesis or (curly/square) brackets
-(this can be changed with the
-'matchpairs' option)
+			cursor and jump to its match. [inclusive](#inclusive) motion.
+			Items can be:
+			([{}])		parenthesis or (curly/square) brackets
+					(this can be changed with the
+					'matchpairs' option)
 ### <a id="/ /" class="section-title" href="#/ /">Note:</a>
-#if, #ifdef, #else, #elif, #endif
-C preprocessor conditionals (when the
-cursor is on the # or no ([{
-is following)
-For other items the matchit plugin can be used, see
-[matchit](#matchit).  This plugin also helps to skip matches in
-comments.
+			#if, #ifdef, #else, #elif, #endif
+					C preprocessor conditionals (when the
+					cursor is on the # or no ([{
+					is following)
+			For other items the matchit plugin can be used, see
+			[matchit](#matchit).  This plugin also helps to skip matches in
+			comments.
 
-When 'cpoptions' contains "M" [cpo-M](#cpo-M) backslashes
-before parens and braces are ignored.  Without "M" the
-number of backslashes matters: an even number doesn't
-match with an odd number.  Thus in "( \) )" and "\( (
-\)" the first and last parenthesis match.
+			When 'cpoptions' contains "M" [cpo-M](#cpo-M) backslashes
+			before parens and braces are ignored.  Without "M" the
+			number of backslashes matters: an even number doesn't
+			match with an odd number.  Thus in "( \) )" and "\( (
+			\)" the first and last parenthesis match.
 
-When the '%' character is not present in 'cpoptions'
-[cpo-%](#cpo-%), parens and braces inside double quotes are
-ignored, unless the number of parens/braces in a line
-is uneven and this line and the previous one does not
-end in a backslash.  '(', '{', '[', ']', '}' and ')'
-are also ignored (parens and braces inside single
-quotes).  Note that this works fine for C, but not for
-Perl, where single quotes are used for strings.
+			When the '%' character is not present in 'cpoptions'
+			[cpo-%](#cpo-%), parens and braces inside double quotes are
+			ignored, unless the number of parens/braces in a line
+			is uneven and this line and the previous one does not
+			end in a backslash.  '(', '{', '[', ']', '}' and ')'
+			are also ignored (parens and braces inside single
+			quotes).  Note that this works fine for C, but not for
+			Perl, where single quotes are used for strings.
 
-Nothing special is done for matches in comments.  You
-can either use the [matchit](#matchit) plugin or put quotes around
-matches.
+			Nothing special is done for matches in comments.  You
+			can either use the [matchit](#matchit) plugin or put quotes around
+			matches.
 
-No count is allowed, {count}% jumps to a line {count}
-percentage down the file [N%](#N%).  Using '%' on
-#if/#else/#endif makes the movement linewise.
+			No count is allowed, {count}% jumps to a line {count}
+			percentage down the file [N%](#N%).  Using '%' on
+			#if/#else/#endif makes the movement linewise.
 
 ### <a id="[(" class="section-title" href="#[(">Note:</a>
 [(			Go to [count] previous unmatched '('.
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 ### <a id="[{" class="section-title" href="#[{">Note:</a>
 [{			Go to [count] previous unmatched '{'.
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 ### <a id="])" class="section-title" href="#])">Note:</a>
 ])			Go to [count] next unmatched ')'.
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 ### <a id="]}" class="section-title" href="#]}">Note:</a>
 ]}			Go to [count] next unmatched '}'.
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 The above four commands can be used to go to the start or end of the current
 code block.  It is like doing "%" on the '(', ')', '{' or '}' at the other
@@ -1334,44 +1292,43 @@ bring you back to the switch statement.
 
 ### <a id="]m" class="section-title" href="#]m">Note:</a>
 ]m			Go to [count] next start of a method (for Java or
-similar structured language).  When not before the
-start of a method, jump to the start or end of the
-class.  When no '{' is found after the cursor, this is
-an error.  [exclusive](#exclusive) motion.
+			similar structured language).  When not before the
+			start of a method, jump to the start or end of the
+			class.  When no '{' is found after the cursor, this is
+			an error.  [exclusive](#exclusive) motion.
 ### <a id="]M" class="section-title" href="#]M">Note:</a>
 ]M			Go to [count] next end of a method (for Java or
-similar structured language).  When not before the end
-of a method, jump to the start or end of the class.
-When no '}' is found after the cursor, this is an
-error. [exclusive](#exclusive) motion.
+			similar structured language).  When not before the end
+			of a method, jump to the start or end of the class.
+			When no '}' is found after the cursor, this is an
+			error. [exclusive](#exclusive) motion.
 ### <a id="[m" class="section-title" href="#[m">Note:</a>
 [m			Go to [count] previous start of a method (for Java or
-similar structured language).  When not after the
-start of a method, jump to the start or end of the
-class.  When no '{' is found before the cursor this is
-an error. [exclusive](#exclusive) motion.
+			similar structured language).  When not after the
+			start of a method, jump to the start or end of the
+			class.  When no '{' is found before the cursor this is
+			an error. [exclusive](#exclusive) motion.
 ### <a id="[M" class="section-title" href="#[M">Note:</a>
 [M			Go to [count] previous end of a method (for Java or
-similar structured language).  When not after the
-end of a method, jump to the start or end of the
-class.  When no '}' is found before the cursor this is
-an error. [exclusive](#exclusive) motion.
+			similar structured language).  When not after the
+			end of a method, jump to the start or end of the
+			class.  When no '}' is found before the cursor this is
+			an error. [exclusive](#exclusive) motion.
 
 The above two commands assume that the file contains a class with methods.
 The class definition is surrounded in '{' and '}'.  Each method in the class
 is also surrounded with '{' and '}'.  This applies to the Java language.  The
 file looks like this:
-```
 
-// comment
-class foo {
-int method_one() {
-body_one();
-}
-int method_two() {
-body_two();
-}
-}
+	// comment
+	class foo {
+		int method_one() {
+			body_one();
+		}
+		int method_two() {
+			body_two();
+		}
+	}
 
 [To try this out copy the text and put it in a new buffer, the help text above
 confuses the jump commands]
@@ -1383,11 +1340,11 @@ Using "3[m" will jump to the start of the class.
 
 ### <a id="[#" class="section-title" href="#[#">Note:</a>
 [#			Go to [count] previous unmatched "#if" or "#else".
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 ### <a id="]#" class="section-title" href="#]#">Note:</a>
 ]#			Go to [count] next unmatched "#else" or "#endif".
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 These two commands work in C programs that contain #if/#else/#endif
 constructs.  It brings you to the start or end of the #if/#else/#endif where
@@ -1395,41 +1352,39 @@ the current line is included.  You can then use "%" to go to the matching line.
 
 ### <a id="[star [/" class="section-title" href="#[star [/">Note:</a>
 [*  or  [/		Go to [count] previous start of a C comment "/*".
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 ### <a id="]star ]/" class="section-title" href="#]star ]/">Note:</a>
 ]*  or  ]/		Go to [count] next end of a C comment "*/".
-[exclusive](#exclusive) motion.
+			[exclusive](#exclusive) motion.
 
 
 ### <a id="H" class="section-title" href="#H">Note:</a>
 H			To line [count] from top (Home) of window (default:
-first line on the window) on the first non-blank
-character [linewise](#linewise).  See also 'startofline' option.
-Cursor is adjusted for 'scrolloff' option, unless an
-operator is pending, in which case the text may
-scroll.  E.g. "yH" yanks from the first visible line
-until the cursor line (inclusive).
+			first line on the window) on the first non-blank
+			character [linewise](#linewise).  See also 'startofline' option.
+			Cursor is adjusted for 'scrolloff' option, unless an
+			operator is pending, in which case the text may
+			scroll.  E.g. "yH" yanks from the first visible line
+			until the cursor line (inclusive).
 
 ### <a id="M" class="section-title" href="#M">Note:</a>
 M			To Middle line of window, on the first non-blank
-character [linewise](#linewise).  See also 'startofline' option.
+			character [linewise](#linewise).  See also 'startofline' option.
 
 ### <a id="L" class="section-title" href="#L">Note:</a>
 L			To line [count] from bottom of window (default: Last
-line on the window) on the first non-blank character
-[linewise](#linewise).  See also 'startofline' option.
-Cursor is adjusted for 'scrolloff' option, unless an
-operator is pending, in which case the text may
-scroll.  E.g. "yL" yanks from the cursor to the last
-visible line.
+			line on the window) on the first non-blank character
+			[linewise](#linewise).  See also 'startofline' option.
+			Cursor is adjusted for 'scrolloff' option, unless an
+			operator is pending, in which case the text may
+			scroll.  E.g. "yL" yanks from the cursor to the last
+			visible line.
 
-
-```
 LeftMouse>		Moves to the position on the screen where the mouse
-click is [exclusive|.  See also |<LeftMouse>](#exclusive|.  See also |<LeftMouse>).  If the
-position is in a status line, that window is made the
-active window and the cursor is not moved.
+			click is [exclusive|.  See also |<LeftMouse>](#exclusive|.  See also |<LeftMouse>).  If the
+			position is in a status line, that window is made the
+			active window and the cursor is not moved.
 
-vim:tw=78:ts=8:noet:ft=help:norl:
+ vim:tw=78:ts=8:noet:ft=help:norl:
 

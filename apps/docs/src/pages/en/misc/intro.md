@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Intro
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -284,8 +284,6 @@ text that is to be operated upon.
 See [Visual-mode](#Visual-mode).
 
 ### <a id="<character>" class="section-title" href="#<character>">Note:</a>
-
-```
 character>	A special character from the table below, optionally with
 modifiers, or a single ASCII character with modifiers.
 
@@ -317,154 +315,70 @@ with the ":map" command.
 
 notation	meaning		    equivalent	decimal value(s)	~
 ----------------------------------------------------------------------- ~
-
-```
 Nul>		zero			CTRL-@	  0 (stored as 10) *<Nul>*
-
-```
 BS>		backspace		CTRL-H	  8	*backspace*
-
-```
 Tab>		tab			CTRL-I	  9	*tab* *Tab*
 ### <a id="linefeed" class="section-title" href="#linefeed">Note:</a>
-
-```
 NL>		linefeed		CTRL-J	 10 (used for <Nul>)
-
-```
 CR>		carriage return		CTRL-M	 13	*carriage-return*
-### <a id="<Return>" class="section-title" href="#<Return>"><Return>	same as <CR></a>
-
-```
+### <a id="<Return>" class="section-title" href="#<Return>">Return>	same as <CR></a>
 Enter>		same as <CR>				*<Enter>*
-
-```
 Esc>		escape			CTRL-[	 27	*escape* *<Esc>*
-
-```
 Space>		space				 32	*space*
-
-```
 lt>		less-than		<	 60	*<lt>*
-
-```
 Bslash>	backslash		\	 92	*backslash* *<Bslash>*
-
-```
 Bar>		vertical bar		|	124	*<Bar>*
-
-```
 Del>		delete				127
-
-```
 CSI>		command sequence intro  ALT-Esc 155	*<CSI>*
 
-
-```
 EOL>		end-of-line (can be <CR>, <NL> or <CR><NL>,
 ### <a id="depends on system and 'fileformat')	<EOL>" class="section-title" href="#depends on system and 'fileformat')	<EOL>">Note:</a>
-### <a id="<Ignore>" class="section-title" href="#<Ignore>"><Ignore>	cancel wait-for-character</a>
-### <a id="no-op: do nothing (useful in mappings)	<Nop>" class="section-title" href="#no-op: do nothing (useful in mappings)	<Nop>"><Nop></a>
+### <a id="<Ignore>" class="section-title" href="#<Ignore>">Ignore>	cancel wait-for-character</a>
+### <a id="no-op: do nothing (useful in mappings)	<Nop>" class="section-title" href="#no-op: do nothing (useful in mappings)	<Nop>">Nop></a>
 
-
-```
 Up>		cursor-up			*cursor-up* *cursor_up*
-
-```
 Down>		cursor-down			*cursor-down* *cursor_down*
-
-```
 Left>		cursor-left			*cursor-left* *cursor_left*
-
-```
 Right>		cursor-right			*cursor-right* *cursor_right*
-
-```
 S-Up>		shift-cursor-up
-
-```
 S-Down>	shift-cursor-down
-
-```
 S-Left>	shift-cursor-left
-
-```
 S-Right>	shift-cursor-right
-
-```
 C-Left>	control-cursor-left
-
-```
 C-Right>	control-cursor-right
-### <a id="function_key function-key" class="section-title" href="#function_key function-key"><F1> - <F12>	function keys 1 to 12</a>
-
-```
+### <a id="function_key function-key" class="section-title" href="#function_key function-key">F1> - <F12>	function keys 1 to 12</a>
 S-F1> - <S-F12> shift-function keys 1 to 12	*<S-F1>*
-
-```
 Help>		help key
-
-```
 Undo>		undo key
-
-```
 Insert>	insert key
-
-```
 Home>		home				*home*
-
-```
 End>		end				*end*
-### <a id="page_up page-up" class="section-title" href="#page_up page-up"><PageUp>	page-up</a>
-### <a id="page_down page-down" class="section-title" href="#page_down page-down"><PageDown>	page-down</a>
-
-```
+### <a id="page_up page-up" class="section-title" href="#page_up page-up">PageUp>	page-up</a>
+### <a id="page_down page-down" class="section-title" href="#page_down page-down">PageDown>	page-down</a>
 kUp>		keypad cursor-up		*keypad-cursor-up*
-
-```
 kDown>		keypad cursor-down		*keypad-cursor-down*
-
-```
 kLeft>		keypad cursor-left		*keypad-cursor-left*
-### <a id="keypad-cursor-right" class="section-title" href="#keypad-cursor-right"><kRight>	keypad cursor-right</a>
-### <a id="keypad home (upper left)	keypad-home" class="section-title" href="#keypad home (upper left)	keypad-home"><kHome></a>
-
-```
+### <a id="keypad-cursor-right" class="section-title" href="#keypad-cursor-right">kRight>	keypad cursor-right</a>
+### <a id="keypad home (upper left)	keypad-home" class="section-title" href="#keypad home (upper left)	keypad-home">kHome></a>
 kEnd>		keypad end (lower left)		*keypad-end*
-### <a id="keypad-origin" class="section-title" href="#keypad-origin"><kOrigin>	keypad origin (middle)</a>
-
-```
+### <a id="keypad-origin" class="section-title" href="#keypad-origin">kOrigin>	keypad origin (middle)</a>
 kPageUp>	keypad page-up (upper right)	*keypad-page-up*
-
-```
 kPageDown>	keypad page-down (lower right)	*keypad-page-down*
-
-```
 kDel>		keypad delete 			*keypad-delete*
-
-```
 kPlus>		keypad +			*keypad-plus*
-### <a id="keypad-minus" class="section-title" href="#keypad-minus"><kMinus>	keypad -</a>
-### <a id="keypad-multiply" class="section-title" href="#keypad-multiply"><kMultiply>	keypad *</a>
-### <a id="keypad-divide" class="section-title" href="#keypad-divide"><kDivide>	keypad /</a>
-### <a id="keypad-point" class="section-title" href="#keypad-point"><kPoint>	keypad .</a>
-### <a id="keypad-comma" class="section-title" href="#keypad-comma"><kComma>	keypad ,</a>
-### <a id="keypad-equal" class="section-title" href="#keypad-equal"><kEqual>	keypad =</a>
-### <a id="keypad-enter" class="section-title" href="#keypad-enter"><kEnter>	keypad Enter</a>
-### <a id="keypad-0 keypad-9" class="section-title" href="#keypad-0 keypad-9"><k0> - <k9>	keypad 0 to 9</a>
-
-```
+### <a id="keypad-minus" class="section-title" href="#keypad-minus">kMinus>	keypad -</a>
+### <a id="keypad-multiply" class="section-title" href="#keypad-multiply">kMultiply>	keypad *</a>
+### <a id="keypad-divide" class="section-title" href="#keypad-divide">kDivide>	keypad /</a>
+### <a id="keypad-point" class="section-title" href="#keypad-point">kPoint>	keypad .</a>
+### <a id="keypad-comma" class="section-title" href="#keypad-comma">kComma>	keypad ,</a>
+### <a id="keypad-equal" class="section-title" href="#keypad-equal">kEqual>	keypad =</a>
+### <a id="keypad-enter" class="section-title" href="#keypad-enter">kEnter>	keypad Enter</a>
+### <a id="keypad-0 keypad-9" class="section-title" href="#keypad-0 keypad-9">k0> - <k9>	keypad 0 to 9</a>
 S-…>		shift-key			*shift* *<S-*
-
-```
 C-…>		control-key			*control* *ctrl* *<C-*
-
-```
 M-…>		alt-key or meta-key		*META* *ALT* *<M-*
-
-```
 A-…>		same as <M-…>			*<A-*
-### <a id="command-key or "super" key	<D-" class="section-title" href="#command-key or "super" key	<D-"><D-…></a>
+### <a id="command-key or "super" key	<D-" class="section-title" href="#command-key or "super" key	<D-">D-…></a>
 ----------------------------------------------------------------------- ~
 
 Note:
@@ -472,9 +386,7 @@ Note:
 - Availability of some keys (<Help>, <S-Right>, …) depends on the UI or host
 terminal.
 - If numlock is on the [TUI](#TUI) receives plain ASCII values, so mapping <k0>,
-
-```
-k1>, ..., <k9> and <kPoint> will not work.
+<k1>, ..., <k9> and <kPoint> will not work.
 - Nvim supports mapping multibyte chars with modifiers such as `<M-ä>`. Which
 combinations actually work depends on the the UI or host terminal.
 - When a key is pressed using a meta or alt modifier and no mapping exists for
@@ -491,39 +403,23 @@ the ":map" command.  The rules are:
 3.  Literal "<" is represented with "\<" or "<lt>".  When there is no
 confusion possible, "<" can be used directly.
 4.  "<key>" means the special key typed (see the table above).  Examples:
-
-```
-Esc>		Escape key
-
-```
-C-G>		CTRL-G
-
-```
-Up>			cursor up key
-
-```
-C-LeftMouse>	Control- left mouse click
-
-```
-S-F11>		Shifted function key 11
-
-```
-M-a>		Meta- a  ('a' with bit 8 set)
-
-```
-M-A>		Meta- A  ('A' with bit 8 set)
+<Esc>		Escape key
+<C-G>		CTRL-G
+<Up>			cursor up key
+<C-LeftMouse>	Control- left mouse click
+<S-F11>		Shifted function key 11
+<M-a>		Meta- a  ('a' with bit 8 set)
+<M-A>		Meta- A  ('A' with bit 8 set)
 
 The <> notation uses <lt> to escape the special meaning of key names.  Using a
 backslash also works, but only when 'cpoptions' does not include the 'B' flag.
 
 Examples for mapping CTRL-H to the six characters "<Home>":
-```
 :imap <C-H> \<Home>
 :imap <C-H> <lt>Home>
 The first one only works when the 'B' flag is not in 'cpoptions'.  The second
 one always works.
 To get a literal "<lt>" in a mapping:
-```
 :map <C-L> <lt>lt>
 
 The notation can be used in a double quoted strings, using "\<" at the start,
@@ -624,8 +520,6 @@ though, use ":visual".
 You will know you are back in Normal mode when you see the screen flash or
 hear the bell after you type <Esc>.  However, when pressing <Esc> after using
 CTRL-O in Insert mode you get a beep but you are still in Insert mode, type
-
-```
 Esc> again.
 
 ### <a id="i_esc" class="section-title" href="#i_esc">Note:</a>

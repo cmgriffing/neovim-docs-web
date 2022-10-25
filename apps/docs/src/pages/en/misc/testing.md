@@ -1,5 +1,5 @@
 ---
-title: Tree Sitter
+title: Testing
 description: Some page
 layout: "@layouts/MainLayout.astro"
 ---
@@ -58,10 +58,8 @@ NOT produce a beep or visual bell.
 Also see [assert_fails()|, |assert_nobeep()](#assert_fails()|, |assert_nobeep()) and
 [assert-return](#assert-return).
 
-Can also be used as a [method](#method):
-```
-GetCmd()->assert_beeps()
-
+Can also be used as a [method](#method): 
+```			GetCmd()->assert_beeps()
 ```
 
 ### <a id="assert_equal()" class="section-title" href="#assert_equal()">Note:</a>
@@ -75,19 +73,15 @@ Float 4.0.  The value of 'ignorecase' is not used here, case
 always matters.
 When {msg} is omitted an error in the form "Expected
 {expected} but got {actual}" is produced.
-Example:
-```
-assert_equal('foo', 'bar')
-
-```
-		Will result in a string to be added to [v:errors](#v:errors):
+Example: 
+```	assert_equal('foo', 'bar')
+Will result in a string to be added to [v:errors](#v:errors):
 test.vim line 12: Expected 'foo' but got 'bar' ~
 
 Can also be used as a [method](#method):
-```
 mylist->assert_equal([1, 2, 3])
 
-### <a id="assert_equalfile()" class="section-title" href="#assert_equalfile()"><</a>
+### <a id="assert_equalfile()" class="section-title" href="#assert_equalfile()">Note:</a>
 assert_equalfile({fname-one}, {fname-two})
 When the files {fname-one} and {fname-two} do not contain
 exactly the same text an error message is added to [v:errors](#v:errors).
@@ -96,7 +90,6 @@ When {fname-one} or {fname-two} does not exist the error will
 mention that.
 
 Can also be used as a [method](#method):
-```
 GetLog()->assert_equalfile('expected.log')
 
 ### <a id="assert_exception()" class="section-title" href="#assert_exception()">assert_exception({error} [, {msg}])</a>
@@ -105,7 +98,6 @@ message is added to [v:errors|.  Also see |assert-return](#v:errors|.  Also see 
 This can be used to assert that a command throws an exception.
 Using the error number, followed by a colon, avoids problems
 with translations:
-```
 try
 commandthatfails
 call assert_false(1, 'command should have failed')
@@ -121,7 +113,6 @@ Note that beeping is not considered an error, and some failing
 commands only beep.  Use [assert_beeps()](#assert_beeps()) for those.
 
 Can also be used as a [method](#method):
-```
 GetCmd()->assert_fails('E99:')
 
 ### <a id="assert_false()" class="section-title" href="#assert_false()">assert_false({actual} [, {msg}])</a>
@@ -134,7 +125,6 @@ When {msg} is omitted an error in the form
 "Expected False but got {actual}" is produced.
 
 Can also be used as a [method](#method):
-```
 GetResult()->assert_false()
 
 ### <a id="assert_inrange()" class="section-title" href="#assert_inrange()">assert_inrange({lower}, {upper}, {actual} [, {msg}])</a>
@@ -161,17 +151,12 @@ Use both to match the whole text.
 When {msg} is omitted an error in the form
 "Pattern {pattern} does not match {actual}" is produced.
 Example:
-```
 assert_match('^f.*o$', 'foobar')
-
-```
-		Will result in a string to be added to [v:errors](#v:errors):
+Will result in a string to be added to [v:errors](#v:errors):
 test.vim line 12: Pattern '^f.*o$' does not match 'foobar' ~
 
 Can also be used as a [method](#method):
-```
 ### <a id="getFile()->assert_match('foo.')" class="section-title" href="#getFile()->assert_match('foo.')">Note:</a>
-
 ```
 
 ### <a id="assert_nobeep()" class="section-title" href="#assert_nobeep()">assert_nobeep({cmd})</a>
@@ -179,10 +164,8 @@ Run {cmd} and add an error message to [v:errors](#v:errors) if it
 produces a beep or visual bell.
 Also see [assert_beeps()](#assert_beeps()).
 
-Can also be used as a [method](#method):
-```
-GetCmd()->assert_nobeep()
-
+Can also be used as a [method](#method): 
+```			GetCmd()->assert_nobeep()
 ```
 
 ### <a id="assert_notequal()" class="section-title" href="#assert_notequal()">Note:</a>
@@ -191,18 +174,16 @@ The opposite of `assert_equal()`: add an error message to
 [v:errors](#v:errors) when {expected} and {actual} are equal.
 Also see [assert-return](#assert-return).
 
-Can also be used as a [method](#method):
-```
-mylist->assert_notequal([1, 2, 3])
+Can also be used as a [method](#method): 
+```			mylist->assert_notequal([1, 2, 3])
 
-### <a id="assert_notmatch()" class="section-title" href="#assert_notmatch()"><</a>
+### <a id="assert_notmatch()" class="section-title" href="#assert_notmatch()">Note:</a>
 assert_notmatch({pattern}, {actual} [, {msg}])
 The opposite of `assert_match()`: add an error message to
 [v:errors](#v:errors) when {pattern} matches {actual}.
 Also see [assert-return](#assert-return).
 
 Can also be used as a [method](#method):
-```
 ### <a id="getFile()->assert_notmatch('bar.')" class="section-title" href="#getFile()->assert_notmatch('bar.')">Note:</a>
 
 
@@ -211,7 +192,6 @@ Report a test failure directly, using String {msg}.
 Always returns one.
 
 Can also be used as a [method](#method):
-```
 GetMessage()->assert_report()
 
 
@@ -225,9 +205,7 @@ When {msg} is omitted an error in the form "Expected True but
 got {actual}" is produced.
 
 Can also be used as a [method](#method):
-```
 GetResult()->assert_true()
-
 ```
 
 

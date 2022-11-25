@@ -49,7 +49,7 @@ export type Sidebar = Record<
 >;
 export const SIDEBAR: Sidebar = {
   en: {
-    Main: [{ text: "Introduction", link: "en/" }],
+    Main: [{ text: "Introduction", link: "" }],
     ...generatedConfig.sidebarLinks,
   },
 };

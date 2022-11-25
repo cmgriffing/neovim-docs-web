@@ -14,9 +14,9 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">                    LUV REFERENCE MANUAL</div>
 <div class="old-help-para">This file documents the Lua bindings for the LibUV library which is used for
-Nvim's event-loop and is accessible from Lua via <a href="lua.html#vim.loop">vim.loop</a> (e.g., <a href="luvref.html#uv.version()">uv.version()</a>
+Nvim's event-loop and is accessible from Lua via <a href="/neovim-docs-web/en/lua#vim.loop">vim.loop</a> (e.g., <a href="/neovim-docs-web/en/luvref#uv.version()">uv.version()</a>
 is exposed as <code>vim.loop.version()</code>).</div>
-<div class="old-help-para">For information about this manual, see <a href="luvref.html#luv-credits">luv-credits</a>.</div>
+<div class="old-help-para">For information about this manual, see <a href="/neovim-docs-web/en/luvref#luv-credits">luv-credits</a>.</div>
 <div class="old-help-para">For further examples, see <a href="https://github.com/luvit/luv/tree/master/examples">https://github.com/luvit/luv/tree/master/examples</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">INTRODUCTION<span class="help-heading-tags">                                                  <a name="luv"></a><span class="help-tag">luv</span> <a name="luv-intro"></a><span class="help-tag">luv-intro</span> <a name="uv"></a><span class="help-tag">uv</span></span></h2></div>
 <div class="old-help-para">The luv (<a href="https://github.com/luvit/luv">https://github.com/luvit/luv</a>) project provides access to the
@@ -52,7 +52,7 @@ uv.run() -- an explicit run call is necessary outside of luvit</pre></div>
 <div class="old-help-para">The luv library contains a single Lua module referred to hereafter as <code>uv</code> for
 simplicity. This module consists mostly of functions with names corresponding
 to their original libuv versions. For example, the libuv function
-<code>uv_tcp_bind</code> has a luv version at <a href="luvref.html#uv.tcp_bind()">uv.tcp_bind()</a>. Currently, only one
+<code>uv_tcp_bind</code> has a luv version at <a href="/neovim-docs-web/en/luvref#uv.tcp_bind()">uv.tcp_bind()</a>. Currently, only one
 non-function field exists: <code>uv.constants</code>, which is a table.</div>
 <div class="old-help-para">Functions vs Methods~</div>
 <div class="old-help-para">In addition to having simple functions, luv provides an optional method-style
@@ -74,7 +74,7 @@ asynchronously; if no callback is provided, they behave synchronously.</div>
 <div class="old-help-para">Pseudo-Types~</div>
 <div class="old-help-para">Some unique types are defined. These are not actual types in Lua, but they are
 used here to facilitate documenting consistent behavior:
-<div class="help-li" style=""> <code>fail</code>: an assertable <code>nil, string, string</code> tuple (see <a href="luvref.html#luv-error-handling">luv-error-handling</a>)
+<div class="help-li" style=""> <code>fail</code>: an assertable <code>nil, string, string</code> tuple (see <a href="/neovim-docs-web/en/luvref#luv-error-handling">luv-error-handling</a>)
 </div><div class="help-li" style=""> <code>callable</code>: a <code>function</code>; or a <code>table</code> or <code>userdata</code> with a <code>__call</code>
   metamethod
 </div><div class="help-li" style=""> <code>buffer</code>: a <code>string</code> or a sequential <code>table</code> of <code>string</code>s
@@ -87,33 +87,33 @@ used here to facilitate documenting consistent behavior:
 Low-level implementation details and unexposed C functions and types are not
 documented here except for when they are relevant to behavior seen in the Lua
 module.</div>
-<div class="old-help-para"><div class="help-li" style=""> <a href="luvref.html#luv-error-handling">luv-error-handling</a> — Error handling
-</div><div class="help-li" style=""> <a href="luvref.html#luv-version-checking">luv-version-checking</a> — Version checking
-</div><div class="help-li" style=""> <a href="luvref.html#uv_loop_t">uv_loop_t</a> — Event loop
-</div><div class="help-li" style=""> <a href="luvref.html#uv_req_t">uv_req_t</a> — Base request
-</div><div class="help-li" style=""> <a href="luvref.html#uv_handle_t">uv_handle_t</a> — Base handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_timer_t">uv_timer_t</a> — Timer handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_prepare_t">uv_prepare_t</a> — Prepare handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_check_t">uv_check_t</a> — Check handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_idle_t">uv_idle_t</a> — Idle handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_async_t">uv_async_t</a> — Async handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_poll_t">uv_poll_t</a> — Poll handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_signal_t">uv_signal_t</a> — Signal handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_process_t">uv_process_t</a> — Process handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_stream_t">uv_stream_t</a> — Stream handle
-</div><div class="help-li" style="margin-left: 4rem;"> <a href="luvref.html#uv_tcp_t">uv_tcp_t</a> — TCP handle
-</div><div class="help-li" style="margin-left: 4rem;"> <a href="luvref.html#uv_pipe_t">uv_pipe_t</a> — Pipe handle
-</div><div class="help-li" style="margin-left: 4rem;"> <a href="luvref.html#uv_tty_t">uv_tty_t</a> — TTY handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_udp_t">uv_udp_t</a> — UDP handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_fs_event_t">uv_fs_event_t</a> — FS Event handle
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="luvref.html#uv_fs_poll_t">uv_fs_poll_t</a> — FS Poll handle
-</div><div class="help-li" style=""> <a href="luvref.html#luv-file-system-operations">luv-file-system-operations</a> — File system operations
-</div><div class="help-li" style=""> <a href="luvref.html#luv-thread-pool-work-scheduling">luv-thread-pool-work-scheduling</a> — Thread pool work scheduling
-</div><div class="help-li" style=""> <a href="luvref.html#luv-dns-utility-functions">luv-dns-utility-functions</a> — DNS utility functions
-</div><div class="help-li" style=""> <a href="luvref.html#luv-threading-and-synchronization-utilities">luv-threading-and-synchronization-utilities</a> — Threading and
+<div class="old-help-para"><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-error-handling">luv-error-handling</a> — Error handling
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-version-checking">luv-version-checking</a> — Version checking
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#uv_loop_t">uv_loop_t</a> — Event loop
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#uv_req_t">uv_req_t</a> — Base request
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> — Base handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_timer_t">uv_timer_t</a> — Timer handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_prepare_t">uv_prepare_t</a> — Prepare handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_check_t">uv_check_t</a> — Check handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_idle_t">uv_idle_t</a> — Idle handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_async_t">uv_async_t</a> — Async handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_poll_t">uv_poll_t</a> — Poll handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_signal_t">uv_signal_t</a> — Signal handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_process_t">uv_process_t</a> — Process handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a> — Stream handle
+</div><div class="help-li" style="margin-left: 4rem;"> <a href="/neovim-docs-web/en/luvref#uv_tcp_t">uv_tcp_t</a> — TCP handle
+</div><div class="help-li" style="margin-left: 4rem;"> <a href="/neovim-docs-web/en/luvref#uv_pipe_t">uv_pipe_t</a> — Pipe handle
+</div><div class="help-li" style="margin-left: 4rem;"> <a href="/neovim-docs-web/en/luvref#uv_tty_t">uv_tty_t</a> — TTY handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_udp_t">uv_udp_t</a> — UDP handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_fs_event_t">uv_fs_event_t</a> — FS Event handle
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/luvref#uv_fs_poll_t">uv_fs_poll_t</a> — FS Poll handle
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-file-system-operations">luv-file-system-operations</a> — File system operations
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-thread-pool-work-scheduling">luv-thread-pool-work-scheduling</a> — Thread pool work scheduling
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-dns-utility-functions">luv-dns-utility-functions</a> — DNS utility functions
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-threading-and-synchronization-utilities">luv-threading-and-synchronization-utilities</a> — Threading and
   synchronization utilities
-</div><div class="help-li" style=""> <a href="luvref.html#luv-miscellaneous-utilities">luv-miscellaneous-utilities</a> — Miscellaneous utilities
-</div><div class="help-li" style=""> <a href="luvref.html#luv-metrics-operations">luv-metrics-operations</a> — Metrics operations
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-miscellaneous-utilities">luv-miscellaneous-utilities</a> — Miscellaneous utilities
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/luvref#luv-metrics-operations">luv-metrics-operations</a> — Metrics operations
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">ERROR HANDLING<span class="help-heading-tags">                                              <a name="luv-error-handling"></a><span class="help-tag">luv-error-handling</span></span></h2></div>
 <div class="old-help-para">In libuv, errors are negative numbered constants; however, these errors and
@@ -167,7 +167,7 @@ loop is not directly exposed to users in the Lua module.</div>
                 depending on the specified mode:</div>
 <div class="old-help-para"><div class="help-li" style=""> <code>"default"</code>: Runs the event loop until there are no more
                     active and referenced handles or requests. Returns <code>true</code>
-                    if <a href="luvref.html#uv.stop()">uv.stop()</a> was called and there are still active
+                    if <a href="/neovim-docs-web/en/luvref#uv.stop()">uv.stop()</a> was called and there are still active
                     handles or requests. Returns <code>false</code> in all other cases.
 </div></div>
 <div class="old-help-para"><div class="help-li" style=""> <code>"once"</code>: Poll for I/O once. Note that this function
@@ -220,7 +220,7 @@ loop is not directly exposed to users in the Lua module.</div>
                 requests, or closing handles in the loop; otherwise, <code>false</code>.</div>
 <div class="old-help-para">                Returns: <code>boolean</code> or <code>fail</code></div>
 <div class="old-help-para">uv.stop()                                                            <a name="uv.stop()"></a><code class="help-tag-right">uv.stop()</code></div>
-<div class="old-help-para">                Stop the event loop, causing <a href="luvref.html#uv.run()">uv.run()</a> to end as soon as
+<div class="old-help-para">                Stop the event loop, causing <a href="/neovim-docs-web/en/luvref#uv.run()">uv.run()</a> to end as soon as
                 possible. This will happen not sooner than the next loop
                 iteration. If this function was called before blocking for
                 I/O, the loop won't block for I/O on this iteration.</div>
@@ -242,12 +242,12 @@ loop is not directly exposed to users in the Lua module.</div>
 <div class="old-help-para">uv.now()                                                              <a name="uv.now()"></a><code class="help-tag-right">uv.now()</code></div>
 <div class="old-help-para">                Returns the current timestamp in milliseconds. The timestamp
                 is cached at the start of the event loop tick, see
-                <a href="luvref.html#uv.update_time()">uv.update_time()</a> for details and rationale.</div>
+                <a href="/neovim-docs-web/en/luvref#uv.update_time()">uv.update_time()</a> for details and rationale.</div>
 <div class="old-help-para">                The timestamp increases monotonically from some arbitrary
                 point in time. Don't make assumptions about the starting
                 point, you will only get disappointed.</div>
 <div class="old-help-para">                Returns: <code>integer</code></div>
-<div class="old-help-para">                Note: Use <a href="luvref.html#uv.hrtime()">uv.hrtime()</a> if you need sub-millisecond
+<div class="old-help-para">                Note: Use <a href="/neovim-docs-web/en/luvref#uv.hrtime()">uv.hrtime()</a> if you need sub-millisecond
                 granularity.</div>
 <div class="old-help-para">uv.update_time()                                              <a name="uv.update_time()"></a><code class="help-tag-right">uv.update_time()</code></div>
 <div class="old-help-para">                Update the event loop's concept of "now". Libuv caches the
@@ -261,7 +261,7 @@ loop is not directly exposed to users in the Lua module.</div>
 <div class="old-help-para">uv.walk({callback})                                                  <a name="uv.walk()"></a><code class="help-tag-right">uv.walk()</code></div>
 <div class="old-help-para">                Parameters:
 <div class="help-li" style=""> <code>callback</code>: <code>callable</code>
-</div><div class="help-li" style="margin-left: 3rem;"> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+</div><div class="help-li" style="margin-left: 3rem;"> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Walk the list of handles: <code>callback</code> will be executed with
                 each handle.</div>
@@ -278,20 +278,20 @@ end)</pre></div>
 <div class="old-help-para">uv.cancel({req})                                                   <a name="uv.cancel()"></a><code class="help-tag-right">uv.cancel()</code></div>
 <div class="old-help-para">                &gt; method form <code>req:cancel()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>req</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_req_t">uv_req_t</a>
+<div class="help-li" style=""> <code>req</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_req_t">uv_req_t</a>
 </div></div>
 <div class="old-help-para">                Cancel a pending request. Fails if the request is executing or
-                has finished executing. Only cancellation of <a href="luvref.html#uv_fs_t">uv_fs_t</a>,
+                has finished executing. Only cancellation of <a href="/neovim-docs-web/en/luvref#uv_fs_t">uv_fs_t</a>,
                 <code>uv_getaddrinfo_t</code>, <code>uv_getnameinfo_t</code> and <code>uv_work_t</code>
                 requests is currently supported.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.req_get_type({req})                                       <a name="uv.req_get_type()"></a><code class="help-tag-right">uv.req_get_type()</code></div>
 <div class="old-help-para">                &gt; method form <code>req:get_type()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>req</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_req_t">uv_req_t</a>
+<div class="help-li" style=""> <code>req</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_req_t">uv_req_t</a>
 </div></div>
 <div class="old-help-para">                Returns the name of the struct for a given request (e.g.
-                <code>"fs"</code> for <a href="luvref.html#uv_fs_t">uv_fs_t</a>) and the libuv enum integer for the
+                <code>"fs"</code> for <a href="/neovim-docs-web/en/luvref#uv_fs_t">uv_fs_t</a>) and the libuv enum integer for the
                 request's type (<code>uv_req_type</code>).</div>
 <div class="old-help-para">                Returns: <code>string, integer</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_handle_t</code> — Base handle<span class="help-heading-tags">                          <a name="luv-base-handle"></a><span class="help-tag">luv-base-handle</span> <a name="uv_handle_t"></a><span class="help-tag">uv_handle_t</span></span></h2></div>
@@ -300,30 +300,30 @@ defined here work with any handle type.</div>
 <div class="old-help-para">uv.is_active({handle})                                          <a name="uv.is_active()"></a><code class="help-tag-right">uv.is_active()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:is_active()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Returns <code>true</code> if the handle is active, <code>false</code> if it's
                 inactive. What "active” means depends on the type of handle:</div>
-<div class="old-help-para"><div class="help-li" style=""> A <a href="luvref.html#uv_async_t">uv_async_t</a> handle is always active and cannot be
-                    deactivated, except by closing it with <a href="luvref.html#uv.close()">uv.close()</a>.
+<div class="old-help-para"><div class="help-li" style=""> A <a href="/neovim-docs-web/en/luvref#uv_async_t">uv_async_t</a> handle is always active and cannot be
+                    deactivated, except by closing it with <a href="/neovim-docs-web/en/luvref#uv.close()">uv.close()</a>.
 </div></div>
-<div class="old-help-para"><div class="help-li" style=""> A <a href="luvref.html#uv_pipe_t">uv_pipe_t</a>, <a href="luvref.html#uv_tcp_t">uv_tcp_t</a>, <a href="luvref.html#uv_udp_t">uv_udp_t</a>, etc.
+<div class="old-help-para"><div class="help-li" style=""> A <a href="/neovim-docs-web/en/luvref#uv_pipe_t">uv_pipe_t</a>, <a href="/neovim-docs-web/en/luvref#uv_tcp_t">uv_tcp_t</a>, <a href="/neovim-docs-web/en/luvref#uv_udp_t">uv_udp_t</a>, etc.
                     handle - basically any handle that deals with I/O - is
                     active when it is doing something that involves I/O, like
                     reading, writing, connecting, accepting new connections,
                     etc.
 </div></div>
-<div class="old-help-para"><div class="help-li" style=""> A <a href="luvref.html#uv_check_t">uv_check_t</a>, <a href="luvref.html#uv_idle_t">uv_idle_t</a>, <a href="luvref.html#uv_timer_t">uv_timer_t</a>,
+<div class="old-help-para"><div class="help-li" style=""> A <a href="/neovim-docs-web/en/luvref#uv_check_t">uv_check_t</a>, <a href="/neovim-docs-web/en/luvref#uv_idle_t">uv_idle_t</a>, <a href="/neovim-docs-web/en/luvref#uv_timer_t">uv_timer_t</a>,
                     etc. handle is active when it has been started with a call
-                    to <a href="luvref.html#uv.check_start()">uv.check_start()</a>, <a href="luvref.html#uv.idle_start()">uv.idle_start()</a>,
-                    <a href="luvref.html#uv.timer_start()">uv.timer_start()</a> etc. until it has been stopped with a
+                    to <a href="/neovim-docs-web/en/luvref#uv.check_start()">uv.check_start()</a>, <a href="/neovim-docs-web/en/luvref#uv.idle_start()">uv.idle_start()</a>,
+                    <a href="/neovim-docs-web/en/luvref#uv.timer_start()">uv.timer_start()</a> etc. until it has been stopped with a
                     call to its respective stop function.
 </div></div>
 <div class="old-help-para">                Returns: <code>boolean</code> or <code>fail</code></div>
 <div class="old-help-para">uv.is_closing({handle})                                        <a name="uv.is_closing()"></a><code class="help-tag-right">uv.is_closing()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:is_closing()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Returns <code>true</code> if the handle is closing or closed, <code>false</code>
                 otherwise.</div>
@@ -334,7 +334,7 @@ defined here work with any handle type.</div>
 <div class="old-help-para">uv.close({handle} [, <code>{callback}</code>])                                   <a name="uv.close()"></a><code class="help-tag-right">uv.close()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:close([callback])</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code> or <code>nil</code>
 </div></div>
 <div class="old-help-para">                Request handle to be closed. <code>callback</code> will be called
@@ -351,35 +351,35 @@ defined here work with any handle type.</div>
 <div class="old-help-para">uv.ref({handle})                                                      <a name="uv.ref()"></a><code class="help-tag-right">uv.ref()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:ref()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Reference the given handle. References are idempotent, that
                 is, if a handle is already referenced calling this function
                 again will have no effect.</div>
 <div class="old-help-para">                Returns: Nothing.</div>
-<div class="old-help-para">                See <a href="luvref.html#luv-reference-counting">luv-reference-counting</a>.</div>
+<div class="old-help-para">                See <a href="/neovim-docs-web/en/luvref#luv-reference-counting">luv-reference-counting</a>.</div>
 <div class="old-help-para">uv.unref({handle})                                                  <a name="uv.unref()"></a><code class="help-tag-right">uv.unref()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:unref()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Un-reference the given handle. References are idempotent, that
                 is, if a handle is not referenced calling this function again
                 will have no effect.</div>
 <div class="old-help-para">                Returns: Nothing.</div>
-<div class="old-help-para">See <a href="luvref.html#luv-reference-counting">luv-reference-counting</a>.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/luvref#luv-reference-counting">luv-reference-counting</a>.</div>
 <div class="old-help-para">uv.has_ref({handle})                                              <a name="uv.has_ref()"></a><code class="help-tag-right">uv.has_ref()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:has_ref()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Returns <code>true</code> if the handle referenced, <code>false</code> if not.</div>
 <div class="old-help-para">                Returns: <code>boolean</code> or <code>fail</code></div>
-<div class="old-help-para">                See <a href="luvref.html#luv-reference-counting">luv-reference-counting</a>.</div>
+<div class="old-help-para">                See <a href="/neovim-docs-web/en/luvref#luv-reference-counting">luv-reference-counting</a>.</div>
 <div class="old-help-para">uv.send_buffer_size({handle} [, <code>{size}</code>])                 <a name="uv.send_buffer_size()"></a><code class="help-tag-right">uv.send_buffer_size()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:send_buffer_size([size])</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div><div class="help-li" style=""> <code>size</code>: <code>integer</code> or <code>nil</code> (default: <code>0</code>)
 </div></div>
 <div class="old-help-para">                Gets or sets the size of the send buffer that the operating
@@ -398,7 +398,7 @@ defined here work with any handle type.</div>
 <div class="old-help-para">uv.recv_buffer_size({handle} [, <code>{size}</code>])                 <a name="uv.recv_buffer_size()"></a><code class="help-tag-right">uv.recv_buffer_size()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:recv_buffer_size([size])</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div><div class="help-li" style=""> <code>size</code>: <code>integer</code> or <code>nil</code> (default: <code>0</code>)
 </div></div>
 <div class="old-help-para">                Gets or sets the size of the receive buffer that the operating
@@ -417,7 +417,7 @@ defined here work with any handle type.</div>
 <div class="old-help-para">uv.fileno({handle})                                                <a name="uv.fileno()"></a><code class="help-tag-right">uv.fileno()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:fileno()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Gets the platform dependent file descriptor equivalent.</div>
 <div class="old-help-para">                The following handles are supported: TCP, pipes, TTY, UDP and
@@ -432,26 +432,26 @@ defined here work with any handle type.</div>
 <div class="old-help-para">uv.handle_get_type({handle})                              <a name="uv.handle_get_type()"></a><code class="help-tag-right">uv.handle_get_type()</code></div>
 <div class="old-help-para">                &gt; method form <code>handle:get_type()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_handle_t">uv_handle_t</a>
+<div class="help-li" style=""> <code>handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a>
 </div></div>
 <div class="old-help-para">                Returns the name of the struct for a given handle (e.g.
-                <code>"pipe"</code> for <a href="luvref.html#uv_pipe_t">uv_pipe_t</a>) and the libuv enum integer for the
+                <code>"pipe"</code> for <a href="/neovim-docs-web/en/luvref#uv_pipe_t">uv_pipe_t</a>) and the libuv enum integer for the
                 handle's type (<code>uv_handle_type</code>).</div>
 <div class="old-help-para">                Returns: <code>string, integer</code></div>
 <div class="old-help-para"><h2 class="help-heading">REFERENCE COUNTING<span class="help-heading-tags">                                      <a name="luv-reference-counting"></a><span class="help-tag">luv-reference-counting</span></span></h2></div>
 <div class="old-help-para">The libuv event loop (if run in the default mode) will run until there are no
 active and referenced handles left. The user can force the loop to exit early
-by unreferencing handles which are active, for example by calling <a href="luvref.html#uv.unref()">uv.unref()</a>
-after calling <a href="luvref.html#uv.timer_start()">uv.timer_start()</a>.</div>
+by unreferencing handles which are active, for example by calling <a href="/neovim-docs-web/en/luvref#uv.unref()">uv.unref()</a>
+after calling <a href="/neovim-docs-web/en/luvref#uv.timer_start()">uv.timer_start()</a>.</div>
 <div class="old-help-para">A handle can be referenced or unreferenced, the refcounting scheme doesn't use
 a counter, so both operations are idempotent.</div>
-<div class="old-help-para">All handles are referenced when active by default, see <a href="luvref.html#uv.is_active()">uv.is_active()</a> for a
+<div class="old-help-para">All handles are referenced when active by default, see <a href="/neovim-docs-web/en/luvref#uv.is_active()">uv.is_active()</a> for a
 more detailed explanation on what being active involves.</div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_timer_t</code> — Timer handle<span class="help-heading-tags">                          <a name="luv-timer-handle"></a><span class="help-tag">luv-timer-handle</span> <a name="uv_timer_t"></a><span class="help-tag">uv_timer_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Timer handles are used to schedule callbacks to be called in the future.</div>
 <div class="old-help-para">uv.new_timer()                                                  <a name="uv.new_timer()"></a><code class="help-tag-right">uv.new_timer()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_timer_t">uv_timer_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_timer_t">uv_timer_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_timer_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para"><pre>-- Creating a simple setTimeout wrapper
@@ -537,11 +537,11 @@ end</pre></div>
 <div class="help-li" style=""> <code>timer</code>: <code>uv_timer_t userdata</code>
 </div></div>
 <div class="old-help-para">                Get the timer due value or 0 if it has expired. The time is
-                relative to <a href="luvref.html#uv.now()">uv.now()</a>.</div>
+                relative to <a href="/neovim-docs-web/en/luvref#uv.now()">uv.now()</a>.</div>
 <div class="old-help-para">                Returns: <code>integer</code></div>
 <div class="old-help-para">                Note: New in libuv version 1.40.0.</div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_prepare_t</code> — Prepare handle<span class="help-heading-tags">                  <a name="luv-prepare-handle"></a><span class="help-tag">luv-prepare-handle</span> <a name="uv_prepare_t"></a><span class="help-tag">uv_prepare_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Prepare handles will run the given callback once per loop iteration, right
 before polling for I/O.</div>
 <div class="old-help-para"><pre>local prepare = uv.new_prepare()
@@ -549,7 +549,7 @@ prepare:start(function()
   print("Before I/O polling")
 end)</pre></div>
 <div class="old-help-para">uv.new_prepare()                                              <a name="uv.new_prepare()"></a><code class="help-tag-right">uv.new_prepare()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_prepare_t">uv_prepare_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_prepare_t">uv_prepare_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_prepare_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">uv.prepare_start({prepare}, <code>{callback}</code>)                     <a name="uv.prepare_start()"></a><code class="help-tag-right">uv.prepare_start()</code></div>
@@ -568,7 +568,7 @@ end)</pre></div>
 <div class="old-help-para">                Stop the handle, the callback will no longer be called.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_check_t</code> — Check handle<span class="help-heading-tags">                          <a name="luv-check-handle"></a><span class="help-tag">luv-check-handle</span> <a name="uv_check_t"></a><span class="help-tag">uv_check_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Check handles will run the given callback once per loop iteration, right after
 polling for I/O.</div>
 <div class="old-help-para"><pre>local check = uv.new_check()
@@ -576,7 +576,7 @@ check:start(function()
   print("After I/O polling")
 end)</pre></div>
 <div class="old-help-para">uv.new_check()                                                  <a name="uv.new_check()"></a><code class="help-tag-right">uv.new_check()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_check_t">uv_check_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_check_t">uv_check_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_check_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">uv.check_start({check}, <code>{callback}</code>)                           <a name="uv.check_start()"></a><code class="help-tag-right">uv.check_start()</code></div>
@@ -595,9 +595,9 @@ end)</pre></div>
 <div class="old-help-para">                Stop the handle, the callback will no longer be called.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_idle_t</code> — Idle handle<span class="help-heading-tags">                              <a name="luv-idle-handle"></a><span class="help-tag">luv-idle-handle</span> <a name="uv_idle_t"></a><span class="help-tag">uv_idle_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Idle handles will run the given callback once per loop iteration, right before
-the <a href="luvref.html#uv_prepare_t">uv_prepare_t</a> handles.</div>
+the <a href="/neovim-docs-web/en/luvref#uv_prepare_t">uv_prepare_t</a> handles.</div>
 <div class="old-help-para">Note: The notable difference with prepare handles is that when there are
 active idle handles, the loop will perform a zero timeout poll instead of
 blocking for I/O.</div>
@@ -608,7 +608,7 @@ idle:start(function()
   print("Before I/O polling, no blocking")
 end)</pre></div>
 <div class="old-help-para">uv.new_idle()                                                    <a name="uv.new_idle()"></a><code class="help-tag-right">uv.new_idle()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_idle_t">uv_idle_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_idle_t">uv_idle_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_idle_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">uv.idle_start({idle}, <code>{callback}</code>)                              <a name="uv.idle_start()"></a><code class="help-tag-right">uv.idle_start()</code></div>
@@ -627,7 +627,7 @@ end)</pre></div>
 <div class="old-help-para">                Stop the handle, the callback will no longer be called.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_async_t</code> — Async handle<span class="help-heading-tags">                          <a name="luv-async-handle"></a><span class="help-tag">luv-async-handle</span> <a name="uv_async_t"></a><span class="help-tag">uv_async_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Async handles allow the user to "wakeup" the event loop and get a callback
 called from another thread.</div>
 <div class="old-help-para"><pre>local async
@@ -643,7 +643,7 @@ async:send()</pre></div>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>...</code>: <code>threadargs</code> passed to/from
                     <code>uv.async_send(async, ...)</code>
 </div></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_async_t">uv_async_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_async_t">uv_async_t</a>. Returns the Lua
                 userdata wrapping it. A <code>nil</code> callback is allowed.</div>
 <div class="old-help-para">                Returns: <code>uv_async_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">                Note: Unlike other handle initialization functions, this
@@ -665,14 +665,14 @@ async:send()</pre></div>
                 be called once. If <code>uv.async_send()</code> is called again after the
                 callback was called, it will be called again.</div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_poll_t</code> — Poll handle<span class="help-heading-tags">                              <a name="luv-poll-handle"></a><span class="help-tag">luv-poll-handle</span> <a name="uv_poll_t"></a><span class="help-tag">uv_poll_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Poll handles are used to watch file descriptors for readability and
 writability, similar to the purpose of poll(2)
 (<a href="https://linux.die.net/man/2/poll">https://linux.die.net/man/2/poll</a>).</div>
 <div class="old-help-para">The purpose of poll handles is to enable integrating external libraries that
 rely on the event loop to signal it about the socket status changes, like
 c-ares or libssh2. Using <code>uv_poll_t</code> for any other purpose is not recommended;
-<a href="luvref.html#uv_tcp_t">uv_tcp_t</a>, <a href="luvref.html#uv_udp_t">uv_udp_t</a>, etc. provide an implementation that is faster and more
+<a href="/neovim-docs-web/en/luvref#uv_tcp_t">uv_tcp_t</a>, <a href="/neovim-docs-web/en/luvref#uv_udp_t">uv_udp_t</a>, etc. provide an implementation that is faster and more
 scalable than what can be achieved with <code>uv_poll_t</code>, especially on Windows.</div>
 <div class="old-help-para">It is possible that poll handles occasionally signal that a file descriptor is
 readable or writable even when it isn't. The user should therefore always be
@@ -683,7 +683,7 @@ can cause libuv to busyloop or otherwise malfunction.</div>
 <div class="old-help-para">The user should not close a file descriptor while it is being polled by an
 active poll handle. This can cause the handle to report an error, but it might
 also start polling another socket. However the fd can be safely closed
-immediately after a call to <a href="luvref.html#uv.poll_stop()">uv.poll_stop()</a> or <a href="luvref.html#uv.close()">uv.close()</a>.</div>
+immediately after a call to <a href="/neovim-docs-web/en/luvref#uv.poll_stop()">uv.poll_stop()</a> or <a href="/neovim-docs-web/en/luvref#uv.close()">uv.close()</a>.</div>
 <div class="old-help-para">Note: On windows only sockets can be polled with poll handles. On Unix any
 file descriptor that would be accepted by poll(2) can be used.</div>
 <div class="old-help-para">uv.new_poll({fd})                                                <a name="uv.new_poll()"></a><code class="help-tag-right">uv.new_poll()</code></div>
@@ -698,7 +698,7 @@ file descriptor that would be accepted by poll(2) can be used.</div>
 <div class="help-li" style=""> <code>fd</code>: <code>integer</code>
 </div></div>
 <div class="old-help-para">                Initialize the handle using a socket descriptor. On Unix this
-                is identical to <a href="luvref.html#uv.new_poll()">uv.new_poll()</a>. On windows it takes a SOCKET
+                is identical to <a href="/neovim-docs-web/en/luvref#uv.new_poll()">uv.new_poll()</a>. On windows it takes a SOCKET
                 handle.</div>
 <div class="old-help-para">                The socket is set to non-blocking mode.</div>
 <div class="old-help-para">                Returns: <code>uv_poll_t userdata</code> or <code>fail</code></div>
@@ -734,7 +734,7 @@ file descriptor that would be accepted by poll(2) can be used.</div>
                 be called.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_signal_t</code> — Signal handle<span class="help-heading-tags">                      <a name="luv-signal-handle"></a><span class="help-tag">luv-signal-handle</span> <a name="uv_signal_t"></a><span class="help-tag">uv_signal_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Signal handles implement Unix style signal handling on a per-event loop bases.</div>
 <div class="old-help-para">Windows Notes:</div>
 <div class="old-help-para">Reception of some signals is emulated on Windows:
@@ -748,7 +748,7 @@ file descriptor that would be accepted by poll(2) can be used.</div>
     resized. SIGWINCH is emulated by libuv when the program uses a uv_tty_t
     handle to write to the console. SIGWINCH may not always be delivered in a
     timely manner; libuv will only detect size changes when the cursor is
-    being moved. When a readable <a href="luvref.html#uv_tty_t">uv_tty_t</a> handle is used in raw mode,
+    being moved. When a readable <a href="/neovim-docs-web/en/luvref#uv_tty_t">uv_tty_t</a> handle is used in raw mode,
     resizing the console buffer will also trigger a SIGWINCH signal.
 </div><div class="help-li" style=""> Watchers for other signals can be successfully created, but these signals
     are never received. These signals are: SIGILL, SIGABRT, SIGFPE, SIGSEGV,
@@ -775,7 +775,7 @@ uv.signal_start(signal, "sigint", function(signal)
   os.exit(1)
 end)</pre></div>
 <div class="old-help-para">uv.new_signal()                                                <a name="uv.new_signal()"></a><code class="help-tag-right">uv.new_signal()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_signal_t">uv_signal_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_signal_t">uv_signal_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_signal_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">uv.signal_start({signal}, <code>{signum}</code>, <code>{callback}</code>)              <a name="uv.signal_start()"></a><code class="help-tag-right">uv.signal_start()</code></div>
@@ -798,7 +798,7 @@ uv.signal_start_oneshot({signal}, <code>{signum}</code>, <code>{callback}</code>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>signum</code>: <code>string</code>
 </div></div>
-<div class="old-help-para">                Same functionality as <a href="luvref.html#uv.signal_start()">uv.signal_start()</a> but the signal
+<div class="old-help-para">                Same functionality as <a href="/neovim-docs-web/en/luvref#uv.signal_start()">uv.signal_start()</a> but the signal
                 handler is reset the moment the signal is received.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.signal_stop({signal})                                      <a name="uv.signal_stop()"></a><code class="help-tag-right">uv.signal_stop()</code></div>
@@ -809,7 +809,7 @@ uv.signal_start_oneshot({signal}, <code>{signum}</code>, <code>{callback}</code>
 <div class="old-help-para">                Stop the handle, the callback will no longer be called.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_process_t</code> — Process handle<span class="help-heading-tags">                  <a name="luv-process-handle"></a><span class="help-tag">luv-process-handle</span> <a name="uv_process_t"></a><span class="help-tag">uv_process_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Process handles will spawn a new process and allow the user to control it and
 establish communication channels with it using streams.</div>
 <div class="old-help-para">uv.disable_stdio_inheritance()                  <a name="uv.disable_stdio_inheritance()"></a><code class="help-tag-right">uv.disable_stdio_inheritance()</code></div>
@@ -913,7 +913,7 @@ end)</pre></div>
                     and will effectively enable the child to keep running
                     after the parent exits. Note that the child process will
                     still keep the parent's event loop alive unless the parent
-                    process calls <a href="luvref.html#uv.unref()">uv.unref()</a> on the child's process handle.
+                    process calls <a href="/neovim-docs-web/en/luvref#uv.unref()">uv.unref()</a> on the child's process handle.
 </div><div class="help-li" style=""> <code>options.hide</code> - If true, hide the subprocess console
                     window that would normally be created. This option is only
                     meaningful on Windows systems. On Unix it is silently
@@ -922,7 +922,7 @@ end)</pre></div>
 <div class="old-help-para">                The <code>options.stdio</code> entries can take many shapes.</div>
 <div class="old-help-para"><div class="help-li" style=""> If they are numbers, then the child process inherits that
                     same zero-indexed fd from the parent process.
-</div><div class="help-li" style=""> If <a href="luvref.html#uv_stream_t">uv_stream_t</a> handles are passed in, those are used as
+</div><div class="help-li" style=""> If <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a> handles are passed in, those are used as
                     a read-write pipe or inherited stream depending if the
                     stream has a valid fd.
 </div><div class="help-li" style=""> Including <code>nil</code> placeholders means to ignore that fd in
@@ -938,7 +938,7 @@ end)</pre></div>
 </div><div class="help-li" style=""> <code>signum</code>: <code>integer</code> or <code>string</code>
 </div></div>
 <div class="old-help-para">                Sends the specified signal to the given process handle. Check
-                the documentation on <a href="luvref.html#uv_signal_t">uv_signal_t</a> for signal support,
+                the documentation on <a href="/neovim-docs-web/en/luvref#uv_signal_t">uv_signal_t</a> for signal support,
                 specially on Windows.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.kill({pid}, <code>{signum}</code>)                                             <a name="uv.kill()"></a><code class="help-tag-right">uv.kill()</code></div>
@@ -947,7 +947,7 @@ end)</pre></div>
 </div><div class="help-li" style=""> <code>signum</code>: <code>integer</code> or <code>string</code>
 </div></div>
 <div class="old-help-para">                Sends the specified signal to the given PID. Check the
-                documentation on <a href="luvref.html#uv_signal_t">uv_signal_t</a> for signal support, specially
+                documentation on <a href="/neovim-docs-web/en/luvref#uv_signal_t">uv_signal_t</a> for signal support, specially
                 on Windows.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.process_get_pid({process})                             <a name="uv.process_get_pid()"></a><code class="help-tag-right">uv.process_get_pid()</code></div>
@@ -958,14 +958,14 @@ end)</pre></div>
 <div class="old-help-para">                Returns the handle's pid.</div>
 <div class="old-help-para">                Returns: <code>integer</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_stream_t</code> — Stream handle<span class="help-heading-tags">                      <a name="luv-stream-handle"></a><span class="help-tag">luv-stream-handle</span> <a name="uv_stream_t"></a><span class="help-tag">uv_stream_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">Stream handles provide an abstraction of a duplex communication channel.
 <code>uv_stream_t</code> is an abstract type, libuv provides 3 stream implementations
-in the form of <a href="luvref.html#uv_tcp_t">uv_tcp_t</a>, <a href="luvref.html#uv_pipe_t">uv_pipe_t</a> and <a href="luvref.html#uv_tty_t">uv_tty_t</a>.</div>
+in the form of <a href="/neovim-docs-web/en/luvref#uv_tcp_t">uv_tcp_t</a>, <a href="/neovim-docs-web/en/luvref#uv_pipe_t">uv_pipe_t</a> and <a href="/neovim-docs-web/en/luvref#uv_tty_t">uv_tty_t</a>.</div>
 <div class="old-help-para">uv.shutdown({stream} [, <code>{callback}</code>])                             <a name="uv.shutdown()"></a><code class="help-tag-right">uv.shutdown()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:shutdown([callback])</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code> or <code>nil</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>err</code>: <code>nil</code> or <code>string</code>
 </div></div>
@@ -976,7 +976,7 @@ in the form of <a href="luvref.html#uv_tcp_t">uv_tcp_t</a>, <a href="luvref.html
 <div class="old-help-para">uv.listen({stream}, <code>{backlog}</code>, <code>{callback}</code>)                         <a name="uv.listen()"></a><code class="help-tag-right">uv.listen()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:listen(backlog, callback)</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>backlog</code>: <code>integer</code>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>err</code>: <code>nil</code> or <code>string</code>
@@ -989,10 +989,10 @@ in the form of <a href="luvref.html#uv_tcp_t">uv_tcp_t</a>, <a href="luvref.html
 <div class="old-help-para">uv.accept({stream}, <code>{client_stream}</code>)                               <a name="uv.accept()"></a><code class="help-tag-right">uv.accept()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:accept(client_stream)</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
-</div><div class="help-li" style=""> <code>client_stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
+</div><div class="help-li" style=""> <code>client_stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div></div>
-<div class="old-help-para">                This call is used in conjunction with <a href="luvref.html#uv.listen()">uv.listen()</a> to accept
+<div class="old-help-para">                This call is used in conjunction with <a href="/neovim-docs-web/en/luvref#uv.listen()">uv.listen()</a> to accept
                 incoming connections. Call this function after receiving a
                 callback to accept the connection.</div>
 <div class="old-help-para">                When the connection callback is called it is guaranteed that
@@ -1007,14 +1007,14 @@ end)</pre></div>
 <div class="old-help-para">uv.read_start({stream}, <code>{callback}</code>)                            <a name="uv.read_start()"></a><code class="help-tag-right">uv.read_start()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:read_start(callback)</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>err</code>: <code>nil</code> or <code>string</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>data</code>: <code>string</code> or <code>nil</code>
 </div></div>
 <div class="old-help-para">                Read data from an incoming stream. The callback will be made
                 several times until there is no more data to read or
-                <a href="luvref.html#uv.read_stop()">uv.read_stop()</a> is called. When we've reached EOF, <code>data</code>
+                <a href="/neovim-docs-web/en/luvref#uv.read_stop()">uv.read_stop()</a> is called. When we've reached EOF, <code>data</code>
                 will be <code>nil</code>.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><pre>stream:read_start(function (err, chunk)
@@ -1029,7 +1029,7 @@ end)</pre></div>
 <div class="old-help-para">uv.read_stop({stream})                                          <a name="uv.read_stop()"></a><code class="help-tag-right">uv.read_stop()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:read_stop()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div></div>
 <div class="old-help-para">                Stop reading data from the stream. The read callback will no
                 longer be called.</div>
@@ -1039,7 +1039,7 @@ end)</pre></div>
 <div class="old-help-para">uv.write({stream}, <code>{data}</code> [, <code>{callback}</code>])                           <a name="uv.write()"></a><code class="help-tag-right">uv.write()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:write(data, [callback])</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>data</code>: <code>buffer</code>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code> or <code>nil</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>err</code>: <code>nil</code> or <code>string</code>
@@ -1054,9 +1054,9 @@ end)</pre></div>
 <div class="old-help-para">uv.write2({stream}, <code>{data}</code>, <code>{send_handle}</code> [, <code>{callback}</code>])          <a name="uv.write2()"></a><code class="help-tag-right">uv.write2()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:write2(data, send_handle, [callback])</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>data</code>: <code>buffer</code>
-</div><div class="help-li" style=""> <code>send_handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+</div><div class="help-li" style=""> <code>send_handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>callback</code>: <code>callable</code> or <code>nil</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>err</code>: <code>nil</code> or <code>string</code>
 </div></div>
@@ -1069,10 +1069,10 @@ end)</pre></div>
 <div class="old-help-para">uv.try_write({stream}, <code>{data}</code>)                                  <a name="uv.try_write()"></a><code class="help-tag-right">uv.try_write()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:try_write(data)</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>data</code>: <code>buffer</code>
 </div></div>
-<div class="old-help-para">                Same as <a href="luvref.html#uv.write()">uv.write()</a>, but won't queue a write request if it
+<div class="old-help-para">                Same as <a href="/neovim-docs-web/en/luvref#uv.write()">uv.write()</a>, but won't queue a write request if it
                 can't be completed immediately.</div>
 <div class="old-help-para">                Will return number of bytes written (can be less than the
                 supplied buffer size).</div>
@@ -1080,12 +1080,12 @@ end)</pre></div>
 <div class="old-help-para">uv.try_write2({stream}, <code>{data}</code>, <code>{send_handle}</code>)                 <a name="uv.try_write2()"></a><code class="help-tag-right">uv.try_write2()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:try_write2(data, send_handle)</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>data</code>: <code>buffer</code>
-</div><div class="help-li" style=""> <code>send_handle</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+</div><div class="help-li" style=""> <code>send_handle</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div></div>
-<div class="old-help-para">                Like <a href="luvref.html#uv.write2()">uv.write2()</a>, but with the properties of
-                <a href="luvref.html#uv.try_write()">uv.try_write()</a>. Not supported on Windows, where it returns
+<div class="old-help-para">                Like <a href="/neovim-docs-web/en/luvref#uv.write2()">uv.write2()</a>, but with the properties of
+                <a href="/neovim-docs-web/en/luvref#uv.try_write()">uv.try_write()</a>. Not supported on Windows, where it returns
                 <code>UV_EAGAIN</code>.</div>
 <div class="old-help-para">                Will return number of bytes written (can be less than the
                 supplied buffer size).</div>
@@ -1093,21 +1093,21 @@ end)</pre></div>
 <div class="old-help-para">uv.is_readable({stream})                                      <a name="uv.is_readable()"></a><code class="help-tag-right">uv.is_readable()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:is_readable()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div></div>
 <div class="old-help-para">                Returns <code>true</code> if the stream is readable, <code>false</code> otherwise.</div>
 <div class="old-help-para">                Returns: <code>boolean</code></div>
 <div class="old-help-para">uv.is_writable({stream})                                      <a name="uv.is_writable()"></a><code class="help-tag-right">uv.is_writable()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:is_writable()</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div></div>
 <div class="old-help-para">                Returns <code>true</code> if the stream is writable, <code>false</code> otherwise.</div>
 <div class="old-help-para">                Returns: <code>boolean</code></div>
 <div class="old-help-para">uv.stream_set_blocking({stream}, <code>{blocking}</code>)          <a name="uv.stream_set_blocking()"></a><code class="help-tag-right">uv.stream_set_blocking()</code></div>
 <div class="old-help-para">                &gt; method form <code>stream:set_blocking(blocking)</code></div>
 <div class="old-help-para">                Parameters:
-<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="luvref.html#uv_stream_t">uv_stream_t</a>
+<div class="help-li" style=""> <code>stream</code>: <code>userdata</code> for sub-type of <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a>
 </div><div class="help-li" style=""> <code>blocking</code>: <code>boolean</code>
 </div></div>
 <div class="old-help-para">                Enable or disable blocking mode for a stream.</div>
@@ -1118,7 +1118,7 @@ end)</pre></div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">                WARNING: Relying too much on this API is not recommended. It
                 is likely to change significantly in the future. Currently
-                this only works on Windows and only for <a href="luvref.html#uv_pipe_t">uv_pipe_t</a> handles.
+                this only works on Windows and only for <a href="/neovim-docs-web/en/luvref#uv_pipe_t">uv_pipe_t</a> handles.
                 Also libuv currently makes no ordering guarantee when the
                 blocking mode is changed after write requests have already
                 been submitted. Therefore it is recommended to set the
@@ -1129,13 +1129,13 @@ end)</pre></div>
 <div class="old-help-para">                Returns the stream's write queue size.</div>
 <div class="old-help-para">                Returns: <code>integer</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_tcp_t</code> — TCP handle<span class="help-heading-tags">                                  <a name="luv-tcp-handle"></a><span class="help-tag">luv-tcp-handle</span> <a name="uv_tcp_t"></a><span class="help-tag">uv_tcp_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> and <a href="luvref.html#uv_stream_t">uv_stream_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> and <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a> functions also apply.</div>
 <div class="old-help-para">TCP handles are used to represent both TCP streams and servers.</div>
 <div class="old-help-para">uv.new_tcp([{flags}])                                             <a name="uv.new_tcp()"></a><code class="help-tag-right">uv.new_tcp()</code></div>
 <div class="old-help-para">                Parameters:
 <div class="help-li" style=""> <code>flags</code>: <code>string</code> or <code>nil</code>
 </div></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_tcp_t">uv_tcp_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_tcp_t">uv_tcp_t</a>. Returns the Lua
                 userdata wrapping it. Flags may be a family string: <code>"unix"</code>,
                 <code>"inet"</code>, <code>"inet6"</code>, <code>"ipx"</code>, <code>"netlink"</code>, <code>"x25"</code>, <code>"ax25"</code>,
                 <code>"atmpvc"</code>, <code>"appletalk"</code>, or <code>"packet"</code>.</div>
@@ -1197,12 +1197,12 @@ end)</pre></div>
                 address and not a domain name. Any <code>flags</code> are set with a
                 table with field <code>ipv6only</code> equal to <code>true</code> or <code>false</code>.</div>
 <div class="old-help-para">                When the port is already taken, you can expect to see an
-                <code>EADDRINUSE</code> error from either <code>uv.tcp_bind()</code>, <a href="luvref.html#uv.listen()">uv.listen()</a>
-                or <a href="luvref.html#uv.tcp_connect()">uv.tcp_connect()</a>. That is, a successful call to this
-                function does not guarantee that the call to <a href="luvref.html#uv.listen()">uv.listen()</a> or
-                <a href="luvref.html#uv.tcp_connect()">uv.tcp_connect()</a> will succeed as well.</div>
+                <code>EADDRINUSE</code> error from either <code>uv.tcp_bind()</code>, <a href="/neovim-docs-web/en/luvref#uv.listen()">uv.listen()</a>
+                or <a href="/neovim-docs-web/en/luvref#uv.tcp_connect()">uv.tcp_connect()</a>. That is, a successful call to this
+                function does not guarantee that the call to <a href="/neovim-docs-web/en/luvref#uv.listen()">uv.listen()</a> or
+                <a href="/neovim-docs-web/en/luvref#uv.tcp_connect()">uv.tcp_connect()</a> will succeed as well.</div>
 <div class="old-help-para">                Use a port of <code>0</code> to let the OS assign an ephemeral port.  You
-                can look it up later using <a href="luvref.html#uv.tcp_getsockname()">uv.tcp_getsockname()</a>.</div>
+                can look it up later using <a href="/neovim-docs-web/en/luvref#uv.tcp_getsockname()">uv.tcp_getsockname()</a>.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.tcp_getpeername({tcp})                                 <a name="uv.tcp_getpeername()"></a><code class="help-tag-right">uv.tcp_getpeername()</code></div>
 <div class="old-help-para">                &gt; method form <code>tcp:getpeername()</code></div>
@@ -1243,7 +1243,7 @@ client:connect("127.0.0.1", 8080, function (err)
 end)</pre></div>
 <div class="old-help-para">uv.tcp_write_queue_size({tcp})                       <a name="uv.tcp_write_queue_size()"></a><code class="help-tag-right">uv.tcp_write_queue_size()</code></div>
 <div class="old-help-para">                &gt; method form <code>tcp:write_queue_size()</code></div>
-<div class="old-help-para">                DEPRECATED: Please use <a href="luvref.html#uv.stream_get_write_queue_size()">uv.stream_get_write_queue_size()</a>
+<div class="old-help-para">                DEPRECATED: Please use <a href="/neovim-docs-web/en/luvref#uv.stream_get_write_queue_size()">uv.stream_get_write_queue_size()</a>
                 instead.</div>
 <div class="old-help-para">uv.tcp_close_reset([{callback}])                          <a name="uv.tcp_close_reset()"></a><code class="help-tag-right">uv.tcp_close_reset()</code></div>
 <div class="old-help-para">                &gt; method form <code>tcp:close_reset([callback])</code></div>
@@ -1253,8 +1253,8 @@ end)</pre></div>
 </div></div>
 <div class="old-help-para">                Resets a TCP connection by sending a RST packet. This is
                 accomplished by setting the SO_LINGER socket option with a
-                linger interval of zero and then calling <a href="luvref.html#uv.close()">uv.close()</a>. Due to
-                some platform inconsistencies, mixing of <a href="luvref.html#uv.shutdown()">uv.shutdown()</a> and
+                linger interval of zero and then calling <a href="/neovim-docs-web/en/luvref#uv.close()">uv.close()</a>. Due to
+                some platform inconsistencies, mixing of <a href="/neovim-docs-web/en/luvref#uv.shutdown()">uv.shutdown()</a> and
                 <code>uv.tcp_close_reset()</code> calls is not allowed.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code>
                                                                <a name="uv.socketpair()"></a><code class="help-tag-right">uv.socketpair()</code>
@@ -1269,7 +1269,7 @@ uv.socketpair([{socktype}, [{protocol}, [{flags1}, [{flags2}]]]])</div>
 </div></div>
 <div class="old-help-para">                Create a pair of connected sockets with the specified
                 properties. The resulting handles can be passed to
-                <a href="luvref.html#uv.tcp_open()">uv.tcp_open()</a>, used with <a href="luvref.html#uv.spawn()">uv.spawn()</a>, or for any other
+                <a href="/neovim-docs-web/en/luvref#uv.tcp_open()">uv.tcp_open()</a>, used with <a href="/neovim-docs-web/en/luvref#uv.spawn()">uv.spawn()</a>, or for any other
                 purpose.</div>
 <div class="old-help-para">                When specified as a string, <code>socktype</code> must be one of
                 <code>"stream"</code>, <code>"dgram"</code>, <code>"raw"</code>, <code>"rdm"</code>, or <code>"seqpacket"</code>.</div>
@@ -1303,7 +1303,7 @@ sock2:read_start(function(err, chunk)
   print(chunk)
 end)</pre></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_pipe_t</code> — Pipe handle<span class="help-heading-tags">                              <a name="luv-pipe-handle"></a><span class="help-tag">luv-pipe-handle</span> <a name="uv_pipe_t"></a><span class="help-tag">uv_pipe_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> and <a href="luvref.html#uv_stream_t">uv_stream_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> and <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a> functions also apply.</div>
 <div class="old-help-para">Pipe handles provide an abstraction over local domain sockets on Unix and
 named pipes on Windows.</div>
 <div class="old-help-para"><pre>local pipe = uv.new_pipe(false)
@@ -1320,7 +1320,7 @@ end)</pre></div>
 <div class="old-help-para">                Parameters:
 <div class="help-li" style=""> <code>ipc</code>: <code>boolean</code> or <code>nil</code> (default: <code>false</code>)
 </div></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_pipe_t">uv_pipe_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_pipe_t">uv_pipe_t</a>. Returns the Lua
                 userdata wrapping it. The <code>ipc</code> argument is a boolean to
                 indicate if this pipe will be used for handle passing between
                 processes.</div>
@@ -1331,7 +1331,7 @@ end)</pre></div>
 <div class="help-li" style=""> <code>pipe</code>: <code>uv_pipe_t userdata</code>
 </div><div class="help-li" style=""> <code>fd</code>: <code>integer</code>
 </div></div>
-<div class="old-help-para">                Open an existing file descriptor or <a href="luvref.html#uv_handle_t">uv_handle_t</a> as a
+<div class="old-help-para">                Open an existing file descriptor or <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> as a
                 pipe.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">                Note: The file descriptor is set to non-blocking mode.</div>
@@ -1397,7 +1397,7 @@ end)</pre></div>
 <div class="help-li" style=""> <code>pipe</code>: <code>uv_pipe_t userdata</code>
 </div></div>
 <div class="old-help-para">                Used to receive handles over IPC pipes.</div>
-<div class="old-help-para">                First - call <a href="luvref.html#uv.pipe_pending_count()">uv.pipe_pending_count()</a>, if it's &gt; 0 then
+<div class="old-help-para">                First - call <a href="/neovim-docs-web/en/luvref#uv.pipe_pending_count()">uv.pipe_pending_count()</a>, if it's &gt; 0 then
                 initialize a handle of the given type, returned by
                 <code>uv.pipe_pending_type()</code> and call <code>uv.accept(pipe, handle)</code> .</div>
 <div class="old-help-para">                Returns: <code>string</code></div>
@@ -1450,7 +1450,7 @@ read_pipe:read_start(function(err, chunk)
   print(chunk)
 end)</pre></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_tty_t</code> — TTY handle<span class="help-heading-tags">                                  <a name="luv-tty-handle"></a><span class="help-tag">luv-tty-handle</span> <a name="uv_tty_t"></a><span class="help-tag">uv_tty_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> and <a href="luvref.html#uv_stream_t">uv_stream_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> and <a href="/neovim-docs-web/en/luvref#uv_stream_t">uv_stream_t</a> functions also apply.</div>
 <div class="old-help-para">TTY handles represent a stream for the console.</div>
 <div class="old-help-para"><pre>-- Simple echo program
 local stdin = uv.new_tty(0, true)
@@ -1507,7 +1507,7 @@ end)</pre></div>
                 default values for the next process to take over.</div>
 <div class="old-help-para">                This function is async signal-safe on Unix platforms but can
                 fail with error code <code>EBUSY</code> if you call it when execution is
-                inside <a href="luvref.html#uv.tty_set_mode()">uv.tty_set_mode()</a>.</div>
+                inside <a href="/neovim-docs-web/en/luvref#uv.tty_set_mode()">uv.tty_set_mode()</a>.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.tty_get_winsize({tty})                                 <a name="uv.tty_get_winsize()"></a><code class="help-tag-right">uv.tty_get_winsize()</code></div>
 <div class="old-help-para">                &gt; method form <code>tty:get_winsize()</code></div>
@@ -1537,7 +1537,7 @@ end)</pre></div>
                 <code>ENOTSUP</code>.</div>
 <div class="old-help-para">                Returns: <code>string</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_udp_t</code> — UDP handle<span class="help-heading-tags">                                  <a name="luv-udp-handle"></a><span class="help-tag">luv-udp-handle</span> <a name="uv_udp_t"></a><span class="help-tag">uv_udp_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">UDP handles encapsulate UDP communication for both clients and servers.</div>
 <div class="old-help-para">uv.new_udp([{flags}])                                             <a name="uv.new_udp()"></a><code class="help-tag-right">uv.new_udp()</code></div>
 <div class="old-help-para">                Parameters:
@@ -1545,7 +1545,7 @@ end)</pre></div>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>family</code>: <code>string</code> or <code>nil</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>mmsgs</code>: <code>integer</code> or <code>nil</code> (default: <code>1</code>)
 </div></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_udp_t">uv_udp_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_udp_t">uv_udp_t</a>. Returns the Lua
                 userdata wrapping it. The actual socket is created lazily.</div>
 <div class="old-help-para">                When specified, <code>family</code> must be one of <code>"unix"</code>, <code>"inet"</code>,
                 <code>"inet6"</code>, <code>"ipx"</code>, <code>"netlink"</code>, <code>"x25"</code>, <code>"ax25"</code>,
@@ -1710,7 +1710,7 @@ uv.udp_set_multicast_interface({udp}, <code>{interface_addr}</code>)</div>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>err</code>: <code>nil</code> or <code>string</code>
 </div></div>
 <div class="old-help-para">                Send data over the UDP socket. If the socket has not
-                previously been bound with <a href="luvref.html#uv.udp_bind()">uv.udp_bind()</a> it will be bound to
+                previously been bound with <a href="/neovim-docs-web/en/luvref#uv.udp_bind()">uv.udp_bind()</a> it will be bound to
                 <code>0.0.0.0</code> (the "all interfaces" IPv4 address) and a random
                 port number.</div>
 <div class="old-help-para">                Returns: <code>uv_udp_send_t userdata</code> or <code>fail</code></div>
@@ -1722,7 +1722,7 @@ uv.udp_set_multicast_interface({udp}, <code>{interface_addr}</code>)</div>
 </div><div class="help-li" style=""> <code>host</code>: <code>string</code>
 </div><div class="help-li" style=""> <code>port</code>: <code>integer</code>
 </div></div>
-<div class="old-help-para">                Same as <a href="luvref.html#uv.udp_send()">uv.udp_send()</a>, but won't queue a send request if it
+<div class="old-help-para">                Same as <a href="/neovim-docs-web/en/luvref#uv.udp_send()">uv.udp_send()</a>, but won't queue a send request if it
                 can't be completed immediately.</div>
 <div class="old-help-para">                Returns: <code>integer</code> or <code>fail</code></div>
 <div class="old-help-para">uv.udp_recv_start({udp}, <code>{callback}</code>)                       <a name="uv.udp_recv_start()"></a><code class="help-tag-right">uv.udp_recv_start()</code></div>
@@ -1741,7 +1741,7 @@ uv.udp_set_multicast_interface({udp}, <code>{interface_addr}</code>)</div>
 </div><div class="help-li" style="margin-left: 4rem;"> <code>mmsg_chunk</code>: <code>boolean</code> or <code>nil</code>
 </div></div>
 <div class="old-help-para">                Prepare for receiving data. If the socket has not previously
-                been bound with <a href="luvref.html#uv.udp_bind()">uv.udp_bind()</a> it is bound to <code>0.0.0.0</code> (the
+                been bound with <a href="/neovim-docs-web/en/luvref#uv.udp_bind()">uv.udp_bind()</a> it is bound to <code>0.0.0.0</code> (the
                 "all interfaces" IPv4 address) and a random port number.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para">uv.udp_recv_stop({udp})                                     <a name="uv.udp_recv_stop()"></a><code class="help-tag-right">uv.udp_recv_stop()</code></div>
@@ -1767,12 +1767,12 @@ uv.udp_set_multicast_interface({udp}, <code>{interface_addr}</code>)</div>
                 return an <code>ENOTCONN</code> error.</div>
 <div class="old-help-para">                Returns: <code>0</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_fs_event_t</code> — FS Event handle<span class="help-heading-tags">              <a name="luv-fs-event-handle"></a><span class="help-tag">luv-fs-event-handle</span> <a name="uv_fs_event_t"></a><span class="help-tag">uv_fs_event_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">FS Event handles allow the user to monitor a given path for changes, for
 example, if the file was renamed or there was a generic change in it. This
 handle uses the best backend for the job on each platform.</div>
 <div class="old-help-para">uv.new_fs_event()                                            <a name="uv.new_fs_event()"></a><code class="help-tag-right">uv.new_fs_event()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_fs_event_t">uv_fs_event_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_fs_event_t">uv_fs_event_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_fs_event_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">uv.fs_event_start({fs_event}, <code>{path}</code>, <code>{flags}</code>, <code>{callback}</code>) <a name="uv.fs_event_start()"></a><code class="help-tag">uv.fs_event_start()</code></div>
@@ -1803,12 +1803,12 @@ handle uses the best backend for the job on each platform.</div>
 <div class="old-help-para">                Get the path being monitored by the handle.</div>
 <div class="old-help-para">                Returns: <code>string</code> or <code>fail</code></div>
 <div class="old-help-para"><h2 class="help-heading"><code>uv_fs_poll_t</code> — FS Poll handle<span class="help-heading-tags">                  <a name="luv-fs-poll-handle"></a><span class="help-tag">luv-fs-poll-handle</span> <a name="uv_fs_poll_t"></a><span class="help-tag">uv_fs_poll_t</span></span></h2></div>
-<div class="old-help-para">&gt; <a href="luvref.html#uv_handle_t">uv_handle_t</a> functions also apply.</div>
+<div class="old-help-para">&gt; <a href="/neovim-docs-web/en/luvref#uv_handle_t">uv_handle_t</a> functions also apply.</div>
 <div class="old-help-para">FS Poll handles allow the user to monitor a given path for changes. Unlike
-<a href="luvref.html#uv_fs_event_t">uv_fs_event_t</a>, fs poll handles use <code>stat</code> to detect when a file has changed
+<a href="/neovim-docs-web/en/luvref#uv_fs_event_t">uv_fs_event_t</a>, fs poll handles use <code>stat</code> to detect when a file has changed
 so they can work on file systems where fs event handles can't.</div>
 <div class="old-help-para">uv.new_fs_poll()                                              <a name="uv.new_fs_poll()"></a><code class="help-tag-right">uv.new_fs_poll()</code></div>
-<div class="old-help-para">                Creates and initializes a new <a href="luvref.html#uv_fs_poll_t">uv_fs_poll_t</a>. Returns the Lua
+<div class="old-help-para">                Creates and initializes a new <a href="/neovim-docs-web/en/luvref#uv_fs_poll_t">uv_fs_poll_t</a>. Returns the Lua
                 userdata wrapping it.</div>
 <div class="old-help-para">                Returns: <code>uv_fs_poll_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">uv.fs_poll_start({fs_poll}, <code>{path}</code>, <code>{interval}</code>, <code>{callback}</code>) <a name="uv.fs_poll_start()"></a><code class="help-tag">uv.fs_poll_start()</code></div>
@@ -2010,7 +2010,7 @@ end)</pre></div>
 </div></div>
 <div class="old-help-para">                Equivalent to <code>scandir(3)</code>, with a slightly different API.
                 Returns a handle that the user can pass to
-                <a href="luvref.html#uv.fs_scandir_next()">uv.fs_scandir_next()</a>.</div>
+                <a href="/neovim-docs-web/en/luvref#uv.fs_scandir_next()">uv.fs_scandir_next()</a>.</div>
 <div class="old-help-para">                Note: This function can be used synchronously or
                 asynchronously. The request userdata is always synchronously
                 returned regardless of whether a callback is provided and the
@@ -2020,11 +2020,11 @@ end)</pre></div>
 <div class="old-help-para">                Parameters:
 <div class="help-li" style=""> <code>fs</code>: <code>uv_fs_t userdata</code>
 </div></div>
-<div class="old-help-para">                Called on a <a href="luvref.html#uv_fs_t">uv_fs_t</a> returned by <a href="luvref.html#uv.fs_scandir()">uv.fs_scandir()</a> to get the
+<div class="old-help-para">                Called on a <a href="/neovim-docs-web/en/luvref#uv_fs_t">uv_fs_t</a> returned by <a href="/neovim-docs-web/en/luvref#uv.fs_scandir()">uv.fs_scandir()</a> to get the
                 next directory entry data as a <code>name, type</code> pair. When there
                 are no more entries, <code>nil</code> is returned.</div>
 <div class="old-help-para">                Note: This function only has a synchronous version. See
-                <a href="luvref.html#uv.fs_opendir()">uv.fs_opendir()</a> and its related functions for an
+                <a href="/neovim-docs-web/en/luvref#uv.fs_opendir()">uv.fs_opendir()</a> and its related functions for an
                 asynchronous version.</div>
 <div class="old-help-para">                Returns: <code>string, string</code> or <code>nil</code> or <code>fail</code></div>
 <div class="old-help-para">uv.fs_stat({path} [, <code>{callback}</code>])                                 <a name="uv.fs_stat()"></a><code class="help-tag-right">uv.fs_stat()</code></div>
@@ -2084,7 +2084,7 @@ end)</pre></div>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>stat</code>: <code>table</code> or <code>nil</code> (see <code>uv.fs_stat</code>)
 </div></div>
 <div class="old-help-para">                Equivalent to <code>lstat(2)</code>.</div>
-<div class="old-help-para">                Returns (sync version): <code>table</code> or <code>fail</code> (see <a href="luvref.html#uv.fs_stat()">uv.fs_stat()</a>)</div>
+<div class="old-help-para">                Returns (sync version): <code>table</code> or <code>fail</code> (see <a href="/neovim-docs-web/en/luvref#uv.fs_stat()">uv.fs_stat()</a>)</div>
 <div class="old-help-para">                Returns (async version): <code>uv_fs_t userdata</code></div>
 <div class="old-help-para">uv.fs_rename({path}, <code>{new_path}</code> [, <code>{callback}</code>])                 <a name="uv.fs_rename()"></a><code class="help-tag-right">uv.fs_rename()</code></div>
 <div class="old-help-para">                Parameters:
@@ -2344,9 +2344,9 @@ uv.fs_sendfile({out_fd}, <code>{in_fd}</code>, <code>{in_offset}</code>, <code>{
 </div><div class="help-li" style=""> <code>entries</code>: <code>integer</code> or <code>nil</code>
 </div></div>
 <div class="old-help-para">                Opens path as a directory stream. Returns a handle that the
-                user can pass to <a href="luvref.html#uv.fs_readdir()">uv.fs_readdir()</a>. The <code>entries</code> parameter
+                user can pass to <a href="/neovim-docs-web/en/luvref#uv.fs_readdir()">uv.fs_readdir()</a>. The <code>entries</code> parameter
                 defines the maximum number of entries that should be returned
-                by each call to <a href="luvref.html#uv.fs_readdir()">uv.fs_readdir()</a>.</div>
+                by each call to <a href="/neovim-docs-web/en/luvref#uv.fs_readdir()">uv.fs_readdir()</a>.</div>
 <div class="old-help-para">                Returns (sync version): <code>luv_dir_t userdata</code> or <code>fail</code></div>
 <div class="old-help-para">                Returns (async version): <code>uv_fs_t userdata</code></div>
 <div class="old-help-para">uv.fs_readdir({dir} [, <code>{callback}</code>])                            <a name="uv.fs_readdir()"></a><code class="help-tag-right">uv.fs_readdir()</code></div>
@@ -2359,10 +2359,10 @@ uv.fs_sendfile({out_fd}, <code>{in_fd}</code>, <code>{in_offset}</code>, <code>{
 </div><div class="help-li" style="margin-left: 3rem;"> <code>entries</code>: <code>table</code> or <code>nil</code> (see below)
 </div></div>
 <div class="old-help-para">                Iterates over the directory stream <code>luv_dir_t</code> returned by a
-                successful <a href="luvref.html#uv.fs_opendir()">uv.fs_opendir()</a> call. A table of data tables is
+                successful <a href="/neovim-docs-web/en/luvref#uv.fs_opendir()">uv.fs_opendir()</a> call. A table of data tables is
                 returned where the number of entries <code>n</code> is equal to or less
                 than the <code>entries</code> parameter used in the associated
-                <a href="luvref.html#uv.fs_opendir()">uv.fs_opendir()</a> call.</div>
+                <a href="/neovim-docs-web/en/luvref#uv.fs_opendir()">uv.fs_opendir()</a> call.</div>
 <div class="old-help-para">                Returns (sync version): <code>table</code> or <code>fail</code>
 <div class="help-li" style=""> <code>[1, 2, 3, ..., n]</code> : <code>table</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>name</code> : <code>string</code>
@@ -2379,7 +2379,7 @@ uv.fs_sendfile({out_fd}, <code>{in_fd}</code>, <code>{in_offset}</code>, <code>{
 </div><div class="help-li" style="margin-left: 3rem;"> <code>success</code>: <code>boolean</code> or <code>nil</code>
 </div></div>
 <div class="old-help-para">                Closes a directory stream returned by a successful
-                <a href="luvref.html#uv.fs_opendir()">uv.fs_opendir()</a> call.</div>
+                <a href="/neovim-docs-web/en/luvref#uv.fs_opendir()">uv.fs_opendir()</a> call.</div>
 <div class="old-help-para">                Returns (sync version): <code>boolean</code> or <code>fail</code></div>
 <div class="old-help-para">                Returns (async version): <code>uv_fs_t userdata</code></div>
 <div class="old-help-para">uv.fs_statfs({path} [, <code>{callback}</code>])                             <a name="uv.fs_statfs()"></a><code class="help-tag-right">uv.fs_statfs()</code></div>
@@ -2631,7 +2631,7 @@ synchronization primitives. The API largely follows the pthreads API.</div>
 </div><div class="help-li" style="margin-left: 4rem;"> <code>irq</code> : <code>number</code>
 </div></div>
 <div class="old-help-para">uv.getpid()                                                        <a name="uv.getpid()"></a><code class="help-tag-right">uv.getpid()</code></div>
-<div class="old-help-para">                DEPRECATED: Please use <a href="luvref.html#uv.os_getpid()">uv.os_getpid()</a> instead.</div>
+<div class="old-help-para">                DEPRECATED: Please use <a href="/neovim-docs-web/en/luvref#uv.os_getpid()">uv.os_getpid()</a> instead.</div>
 <div class="old-help-para">uv.getuid()                                                        <a name="uv.getuid()"></a><code class="help-tag-right">uv.getuid()</code></div>
 <div class="old-help-para">                Returns the user ID of the process.</div>
 <div class="old-help-para">                Returns: <code>integer</code></div>
@@ -2677,7 +2677,7 @@ synchronization primitives. The API largely follows the pthreads API.</div>
 <div class="old-help-para">                WARNING: This function is meant for ad hoc debugging, there
                 are no API/ABI stability guarantees.</div>
 <div class="old-help-para">uv.print_active_handles()                            <a name="uv.print_active_handles()"></a><code class="help-tag-right">uv.print_active_handles()</code></div>
-<div class="old-help-para">                The same as <a href="luvref.html#uv.print_all_handles()">uv.print_all_handles()</a> except only active
+<div class="old-help-para">                The same as <a href="/neovim-docs-web/en/luvref#uv.print_all_handles()">uv.print_all_handles()</a> except only active
                 handles are printed.</div>
 <div class="old-help-para">                Returns: Nothing.</div>
 <div class="old-help-para">                Note: This is not available on Windows.</div>
@@ -2722,7 +2722,7 @@ synchronization primitives. The API largely follows the pthreads API.</div>
 <div class="old-help-para">                Retrieves a network interface identifier suitable for use in
                 an IPv6 scoped address. On Windows, returns the numeric
                 <code>ifindex</code> as a string. On all other platforms,
-                <a href="luvref.html#uv.if_indextoname()">uv.if_indextoname()</a> is used.</div>
+                <a href="/neovim-docs-web/en/luvref#uv.if_indextoname()">uv.if_indextoname()</a> is used.</div>
 <div class="old-help-para">                Returns: <code>string</code> or <code>fail</code></div>
 <div class="old-help-para">uv.loadavg()                                                      <a name="uv.loadavg()"></a><code class="help-tag-right">uv.loadavg()</code></div>
 <div class="old-help-para">                Returns the load average as a triad. Not supported on Windows.</div>
@@ -2832,7 +2832,7 @@ synchronization primitives. The API largely follows the pthreads API.</div>
 <div class="help-li" style=""> <code>errcode</code>: <code>integer</code>
 </div></div>
 <div class="old-help-para">                Returns the libuv error message and error name (both in string
-                form, see <code>err</code> and <code>name</code> in <a href="luvref.html#luv-error-handling">luv-error-handling</a>) equivalent
+                form, see <code>err</code> and <code>name</code> in <a href="/neovim-docs-web/en/luvref#luv-error-handling">luv-error-handling</a>) equivalent
                 to the given platform dependent error code: POSIX error codes
                 on Unix (the ones stored in errno), and Win32 error codes on
                 Windows (those returned by GetLastError() or
@@ -2844,7 +2844,7 @@ synchronization primitives. The API largely follows the pthreads API.</div>
                 the kernel’s event provider (e.g. <code>epoll_wait</code>). The call is
                 thread safe.</div>
 <div class="old-help-para">                The return value is the accumulated time spent idle in the
-                kernel’s event provider starting from when the <a href="luvref.html#uv_loop_t">uv_loop_t</a> was
+                kernel’s event provider starting from when the <a href="/neovim-docs-web/en/luvref#uv_loop_t">uv_loop_t</a> was
                 configured to collect the idle time.</div>
 <div class="old-help-para">                Note: The event loop will not begin accumulating the event
                 provider’s idle time until calling <code>loop_configure</code> with

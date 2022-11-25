@@ -13,8 +13,8 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">Highlighting matching parens</div>
-<div class="old-help-para">The functionality mentioned here is a <a href="usr_05.html#standard-plugin">standard-plugin</a>.
-This plugin is only available if <a href="vim_diff.html#'compatible'">'compatible'</a> is not set.</div>
+<div class="old-help-para">The functionality mentioned here is a <a href="/neovim-docs-web/en/usr_05#standard-plugin">standard-plugin</a>.
+This plugin is only available if <a href="/neovim-docs-web/en/vim_diff#'compatible'">'compatible'</a> is not set.</div>
 <div class="old-help-para">You can avoid loading this plugin by setting the "loaded_matchparen" variable:<pre>:let loaded_matchparen = 1</pre>
 The plugin installs CursorMoved, CursorMovedI and WinEnter autocommands to
 redefine the match highlighting.</div>
@@ -23,7 +23,7 @@ To disable the plugin after it was loaded use this command:<pre>:NoMatchParen</p
 And to enable it again:<pre>:DoMatchParen</pre>
 The highlighting used is MatchParen.  You can specify different colors with
 the ":highlight" command.  Example:<pre>:hi MatchParen ctermbg=blue guibg=lightblue</pre>
-The characters to be matched come from the <a href="options.html#'matchpairs'">'matchpairs'</a> option.  You can
+The characters to be matched come from the <a href="/neovim-docs-web/en/options#'matchpairs'">'matchpairs'</a> option.  You can
 change the value to highlight different matches.  Note that not everything is
 possible.  For example, you can't highlight single or double quotes, because
 the start and end are equal.</div>
@@ -36,14 +36,14 @@ are:
 <div class="help-li" style=""> What is visible in the window.
 </div><div class="help-li" style=""> 100 lines above or below the cursor to avoid a long delay when there are
   closed folds.
-</div><div class="help-li" style=""> <a href="options.html#'synmaxcol'">'synmaxcol'</a> times 2 bytes before or after the cursor to avoid a delay
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'synmaxcol'">'synmaxcol'</a> times 2 bytes before or after the cursor to avoid a delay
   in a long line with syntax highlighting.
 </div><div class="help-li" style=""> A timeout of 300 msec (60 msec in Insert mode). This can be changed with the
   g:matchparen_timeout and g:matchparen_insert_timeout variables and their
   buffer-local equivalents b:matchparen_timeout and
   b:matchparen_insert_timeout.
 </div></div>
-<div class="old-help-para">If you would like the <a href="motion.html#%25">%</a> command to work better, thematchit plugin can be
+<div class="old-help-para">If you would like the <a href="/neovim-docs-web/en/motion#%25">%</a> command to work better, thematchit plugin can be
 used.  This plugin also helps to skip matches in comments.  This is unrelated
 to the matchparen highlighting, they use a different mechanism.</div>
 

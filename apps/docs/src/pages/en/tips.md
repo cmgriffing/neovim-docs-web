@@ -17,50 +17,50 @@ layout: ../../layouts/MainLayout.astro
 You can find many more tips on the wiki.  The URL can be found on
 <a href="https://www.vim.org">https://www.vim.org</a></div>
 <div class="old-help-para">Don't forget to browse the user manual, it also contains lots of useful tips
-<a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a>.</div>
+<a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Editing C programs<span class="help-heading-tags">					<a name="C-editing"></a><span class="help-tag">C-editing</span></span></h2></div>
 <div class="old-help-para">There are quite a few features in Vim to help you edit C program files.  Here
 is an overview with tags to jump to:</div>
-<div class="old-help-para"><a href="usr_29.html#usr_29.txt">usr_29.txt</a>  		Moving through programs chapter in the user manual.
-<a href="usr_30.html#usr_30.txt">usr_30.txt</a>  		Editing programs chapter in the user manual.
-<a href="indent.html#C-indenting">C-indenting</a>  		Automatically set the indent of a line while typing
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_29#usr_29.txt">usr_29.txt</a>  		Moving through programs chapter in the user manual.
+<a href="/neovim-docs-web/en/usr_30#usr_30.txt">usr_30.txt</a>  		Editing programs chapter in the user manual.
+<a href="/neovim-docs-web/en/indent#C-indenting">C-indenting</a>  		Automatically set the indent of a line while typing
 			text.
-<a href="change.html#%3D">=</a>  			Re-indent a few lines.
-<a href="change.html#format-comments">format-comments</a>  	Format comments.</div>
-<div class="old-help-para"><a href="tagsrch.html#%3Acheckpath">:checkpath</a>  		Show all recursively included files.
-<a href="tagsrch.html#%5Bi">[i</a>  			Search for identifier under cursor in current and
+<a href="/neovim-docs-web/en/change#%3D">=</a>  			Re-indent a few lines.
+<a href="/neovim-docs-web/en/change#format-comments">format-comments</a>  	Format comments.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/tagsrch#%3Acheckpath">:checkpath</a>  		Show all recursively included files.
+<a href="/neovim-docs-web/en/tagsrch#%5Bi">[i</a>  			Search for identifier under cursor in current and
 			included files.
-<a href="tagsrch.html#%5B_CTRL-I">[_CTRL-I</a>  		Jump to match for "[i"
-<a href="tagsrch.html#%5BI">[I</a>  			List all lines in current and included files where
+<a href="/neovim-docs-web/en/tagsrch#%5B_CTRL-I">[_CTRL-I</a>  		Jump to match for "[i"
+<a href="/neovim-docs-web/en/tagsrch#%5BI">[I</a>  			List all lines in current and included files where
 			identifier under the cursor matches.
-<a href="tagsrch.html#%5Bd">[d</a>  			Search for define under cursor in current and included
+<a href="/neovim-docs-web/en/tagsrch#%5Bd">[d</a>  			Search for define under cursor in current and included
 			files.</div>
-<div class="old-help-para"><a href="tagsrch.html#CTRL-%5D">CTRL-]</a>  		Jump to tag under cursor (e.g., definition of a
+<div class="old-help-para"><a href="/neovim-docs-web/en/tagsrch#CTRL-%5D">CTRL-]</a>  		Jump to tag under cursor (e.g., definition of a
 			function).
-<a href="tagsrch.html#CTRL-T">CTRL-T</a>  		Jump back to before a <code>CTRL-]</code> command.
-<a href="tagsrch.html#%3Atselect">:tselect</a>  		Select one tag out of a list of matching tags.</div>
-<div class="old-help-para"><a href="pattern.html#gd">gd</a>  			Go to Declaration of local variable under cursor.
-<a href="pattern.html#gD">gD</a>  			Go to Declaration of global variable under cursor.</div>
-<div class="old-help-para"><a href="editing.html#gf">gf</a>  			Go to file name under the cursor.</div>
-<div class="old-help-para"><a href="motion.html#%25">%</a>  			Go to matching (), {}, [], /*/, #if, #else, #endif.
-<a href="motion.html#%5B%2F">[/</a>  			Go to previous start of comment.
-<a href="motion.html#%5D%2F">]/</a>  			Go to next end of comment.
-<a href="motion.html#%5B%23">[#</a>  			Go back to unclosed #if, #ifdef, or #else.
-<a href="motion.html#%5D%23">]#</a>  			Go forward to unclosed #else or #endif.
-<a href="motion.html#%5B(">[(</a>  			Go back to unclosed '('
-<a href="motion.html#%5D)">])</a>  			Go forward to unclosed ')'
-<a href="motion.html#%5B%7B">[{</a>  			Go back to unclosed '{'
-<a href="motion.html#%5D%7D">]}</a>  			Go forward to unclosed '}'</div>
-<div class="old-help-para"><a href="motion.html#v_ab">v_ab</a>  			Select "a block" from "[(" to "])", including braces
-<a href="motion.html#v_ib">v_ib</a>  			Select "inner block" from "[(" to "])"
-<a href="motion.html#v_aB">v_aB</a>  			Select "a block" from "[{" to "]}", including brackets
-<a href="motion.html#v_iB">v_iB</a>  			Select "inner block" from "[{" to "]}"</div>
+<a href="/neovim-docs-web/en/tagsrch#CTRL-T">CTRL-T</a>  		Jump back to before a <code>CTRL-]</code> command.
+<a href="/neovim-docs-web/en/tagsrch#%3Atselect">:tselect</a>  		Select one tag out of a list of matching tags.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/pattern#gd">gd</a>  			Go to Declaration of local variable under cursor.
+<a href="/neovim-docs-web/en/pattern#gD">gD</a>  			Go to Declaration of global variable under cursor.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/editing#gf">gf</a>  			Go to file name under the cursor.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/motion#%25">%</a>  			Go to matching (), {}, [], /*/, #if, #else, #endif.
+<a href="/neovim-docs-web/en/motion#%5B%2F">[/</a>  			Go to previous start of comment.
+<a href="/neovim-docs-web/en/motion#%5D%2F">]/</a>  			Go to next end of comment.
+<a href="/neovim-docs-web/en/motion#%5B%23">[#</a>  			Go back to unclosed #if, #ifdef, or #else.
+<a href="/neovim-docs-web/en/motion#%5D%23">]#</a>  			Go forward to unclosed #else or #endif.
+<a href="/neovim-docs-web/en/motion#%5B(">[(</a>  			Go back to unclosed '('
+<a href="/neovim-docs-web/en/motion#%5D)">])</a>  			Go forward to unclosed ')'
+<a href="/neovim-docs-web/en/motion#%5B%7B">[{</a>  			Go back to unclosed '{'
+<a href="/neovim-docs-web/en/motion#%5D%7D">]}</a>  			Go forward to unclosed '}'</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/motion#v_ab">v_ab</a>  			Select "a block" from "[(" to "])", including braces
+<a href="/neovim-docs-web/en/motion#v_ib">v_ib</a>  			Select "inner block" from "[(" to "])"
+<a href="/neovim-docs-web/en/motion#v_aB">v_aB</a>  			Select "a block" from "[{" to "]}", including brackets
+<a href="/neovim-docs-web/en/motion#v_iB">v_iB</a>  			Select "inner block" from "[{" to "]}"</div>
 <div class="old-help-para"><h2 class="help-heading">Finding where identifiers are used<span class="help-heading-tags">			<a name="ident-search"></a><span class="help-tag">ident-search</span></span></h2></div>
-<div class="old-help-para">You probably already know that <a href="tagsrch.html#tags">tags</a> can be used to jump to the place where a
+<div class="old-help-para">You probably already know that <a href="/neovim-docs-web/en/tagsrch#tags">tags</a> can be used to jump to the place where a
 function or variable is defined.  But sometimes you wish you could jump to all
 the places where a function or variable is being used.  This is possible in
 two ways:
-1. Using the <a href="quickfix.html#%3Agrep">:grep</a> command.  This should work on most Unix systems,
+1. Using the <a href="/neovim-docs-web/en/quickfix#%3Agrep">:grep</a> command.  This should work on most Unix systems,
    but can be slow (it reads all files) and only searches in one directory.
 2. Using ID utils.  This is fast and works in multiple directories.  It uses a
    database to store locations.  You will need some additional programs for
@@ -72,7 +72,7 @@ two ways:
 </div><div class="help-li" style=""> An identifier database file called "ID" in the current directory.  You can
   create it with the shell command "mkid file1 file2 ..".
 </div></div>
-<div class="old-help-para">Put this in your <a href="starting.html#init.vim">init.vim</a>:<pre>map _u :call ID_search()&lt;Bar&gt;execute "/\\&lt;" .. g:word .. "\\&gt;"&lt;CR&gt;
+<div class="old-help-para">Put this in your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>:<pre>map _u :call ID_search()&lt;Bar&gt;execute "/\\&lt;" .. g:word .. "\\&gt;"&lt;CR&gt;
 map _n :n&lt;Bar&gt;execute "/\\&lt;" .. g:word .. "\\&gt;"&lt;CR&gt;
 
 function! ID_search()
@@ -90,13 +90,13 @@ archive file on your closest gnu-ftp-mirror).</div>
 <div class="old-help-para"><h2 class="help-heading">Scrolling in Insert mode<span class="help-heading-tags">				<a name="scroll-insert"></a><span class="help-tag">scroll-insert</span></span></h2></div>
 <div class="old-help-para">If you are in insert mode and you want to see something that is just off the
 screen, you can use <code>CTRL-X</code> <code>CTRL-E</code> and <code>CTRL-X</code> <code>CTRL-Y</code> to scroll the screen.
-						<a href="insert.html#i_CTRL-X_CTRL-E">i_CTRL-X_CTRL-E</a></div>
+						<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-E">i_CTRL-X_CTRL-E</a></div>
 <div class="old-help-para">To make this easier, you could use these mappings:<pre>:inoremap &lt;C-E&gt; &lt;C-X&gt;&lt;C-E&gt;
 :inoremap &lt;C-Y&gt; &lt;C-X&gt;&lt;C-Y&gt;</pre>
 You then lose the ability to copy text from the line above/below the cursor
-<a href="insert.html#i_CTRL-E">i_CTRL-E</a>.</div>
-<div class="old-help-para">Also consider setting <a href="options.html#'scrolloff'">'scrolloff'</a> to a larger value, so that you can always see
-some context around the cursor.  If <a href="options.html#'scrolloff'">'scrolloff'</a> is bigger than half the window
+<a href="/neovim-docs-web/en/insert#i_CTRL-E">i_CTRL-E</a>.</div>
+<div class="old-help-para">Also consider setting <a href="/neovim-docs-web/en/options#'scrolloff'">'scrolloff'</a> to a larger value, so that you can always see
+some context around the cursor.  If <a href="/neovim-docs-web/en/options#'scrolloff'">'scrolloff'</a> is bigger than half the window
 height, the cursor will always be in the middle and the text is scrolled when
 the cursor is moved up/down.</div>
 <div class="old-help-para"><h2 class="help-heading">Smooth scrolling<span class="help-heading-tags">					<a name="scroll-smooth"></a><span class="help-tag">scroll-smooth</span></span></h2></div>
@@ -114,10 +114,10 @@ of substitutions is the number of items.  Examples:<pre>:%s/./&amp;/gn          
 :%s/^//n                lines
 :%s/the/&amp;/gn                "the" anywhere
 :%s/\&lt;the\&gt;/&amp;/gn        "the" as a word</pre>
-You might want to reset <a href="options.html#'hlsearch'">'hlsearch'</a> or do ":nohlsearch".
+You might want to reset <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a> or do ":nohlsearch".
 Add the 'e' flag if you don't want an error when there are no matches.</div>
-<div class="old-help-para">An alternative is using <a href="editing.html#v_g_CTRL-G">v_g_CTRL-G</a> in Visual mode.</div>
-<div class="old-help-para">If you want to find matches in multiple files use <a href="quickfix.html#%3Avimgrep">:vimgrep</a>.</div>
+<div class="old-help-para">An alternative is using <a href="/neovim-docs-web/en/editing#v_g_CTRL-G">v_g_CTRL-G</a> in Visual mode.</div>
+<div class="old-help-para">If you want to find matches in multiple files use <a href="/neovim-docs-web/en/quickfix#%3Avimgrep">:vimgrep</a>.</div>
 <div class="old-help-para">							<a name="count-bytes"></a><code class="help-tag-right">count-bytes</code>
 If you want to count bytes, you can use this:</div>
 <div class="old-help-para">	Visually select the characters (block is also possible)
@@ -136,7 +136,7 @@ Breaking up saving the position:
 	't	go to the line previously at the top of the window
 	zt	scroll to move this line to the top of the window
 s	jump to the original position of the cursor</div>
-<div class="old-help-para">For something more advanced see <a href="builtin.html#winsaveview()">winsaveview()</a> and <a href="builtin.html#winrestview()">winrestview()</a>.</div>
+<div class="old-help-para">For something more advanced see <a href="/neovim-docs-web/en/builtin#winsaveview()">winsaveview()</a> and <a href="/neovim-docs-web/en/builtin#winrestview()">winrestview()</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Renaming files<span class="help-heading-tags">						<a name="rename-files"></a><span class="help-tag">rename-files</span></span></h2></div>
 <div class="old-help-para">Say I have a directory with the following files in them (directory picked at
 random :-):</div>
@@ -158,7 +158,7 @@ digraph.c
 <div class="old-help-para">	Execute Vim on all files you want to change, and source the script for
 	each argument:<pre>vim *.let
 argdo source subs.vim</pre>
-See <a href="editing.html#%3Aargdo">:argdo</a>.</div>
+See <a href="/neovim-docs-web/en/editing#%3Aargdo">:argdo</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Speeding up external commands<span class="help-heading-tags">				<a name="speed-up"></a><span class="help-tag">speed-up</span></span></h2></div>
 <div class="old-help-para">In some situations, execution of an external command can be very slow.  This
 can also slow down wildcard expansion on Unix.  Here are a few suggestions to
@@ -171,7 +171,7 @@ example, setting the prompt).  Put the stuff that is not needed after these
 lines:<pre>if ($?prompt == 0) then
         exit 0
 endif</pre>
-Another way is to include the "-f" flag in the <a href="options.html#'shell'">'shell'</a> option, e.g.:<pre>:set shell=csh\ -f</pre>
+Another way is to include the "-f" flag in the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a> option, e.g.:<pre>:set shell=csh\ -f</pre>
 (the backslash is needed to include the space in the option).
 This will make csh completely skip the use of the .cshrc file.  This may cause
 some things to stop working though.</div>
@@ -210,11 +210,11 @@ be able to give comments to the parts of the mapping.<pre>:let m =     ":map _f 
 :let m ..= "{dd"                      " remove the empty line
 :let m ..= "5lDJ"                      " put text after bullet
 :execute m                              |" define the mapping</pre>
-(&lt;&gt; notation <a href="intro.html#%3C%3E">&lt;&gt;</a>.  Note that this is all typed literally.  ^W is "^" "W", not
+(&lt;&gt; notation <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a>.  Note that this is all typed literally.  ^W is "^" "W", not
 <a name="_ctrl-w.)"></a><h3 class="help-heading">CTRL-W.)</h3></div>
 <div class="old-help-para">Note that the last comment starts with |<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+tips.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/tips.html%0D%0DContext%3A%0D%0D%60%60%60%0D(%3C%3E%20notation%20%7C%3C%3E%7C.%20%20Note%20that%20this%20is%20all%20typed%20literally.%20%20%5EW%20is%20%22%5E%22%20%22W%22%2C%20not%0ACTRL-W.)%0A%0ANote%20that%20the%20last%20comment%20starts%20with%20%7C%22%2C%20because%20the%20%22%3Aexecute%22%20command%0Adoesn't%20accept%20a%20comment%20directly.%0A%0AYou%20also%20need%20to%20set%20'textwidth'%20to%20a%20non-zero%20value%2C%20e.g.%2C%20%3E%0D%60%60%60">",</a> because the ":execute" command
 doesn't accept a comment directly.</div>
-<div class="old-help-para">You also need to set <a href="options.html#'textwidth'">'textwidth'</a> to a non-zero value, e.g.,<pre>:set tw=70</pre>
+<div class="old-help-para">You also need to set <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> to a non-zero value, e.g.,<pre>:set tw=70</pre>
 A mapping that does about the same, but takes the indent for the list from the
 first line (Note: this mapping is a single long line with a lot of spaces):<pre>:map _f :set ai&lt;CR&gt;}{a                                                          &lt;Esc&gt;WWmmkD`mi&lt;CR&gt;&lt;Esc&gt;kkddpJgq}'mJO&lt;Esc&gt;j</pre></div>
 <div class="old-help-para">							<a name="collapse"></a><code class="help-tag-right">collapse</code>
@@ -228,16 +228,16 @@ files a bit slower and requires the "gzip" program.</div>
 <div class="old-help-para">(1) Compress all the help files: "gzip doc/*.txt".</div>
 <div class="old-help-para">(2) Edit "doc/tags" and change the ".txt" to ".txt.gz":<pre>:%s=\(\t.*\.txt\)\t=\1.gz\t=</pre>
 (3) Add this line to your vimrc:<pre>set helpfile={dirname}/help.txt.gz</pre>
-Where <code>{dirname}</code> is the directory where the help files are.  The <a href="pi_gzip.html#gzip">gzip</a> plugin
+Where <code>{dirname}</code> is the directory where the help files are.  The <a href="/neovim-docs-web/en/pi_gzip#gzip">gzip</a> plugin
 will take care of decompressing the files.
 You must make sure that $VIMRUNTIME is set to where the other Vim files are,
 when they are not in the same location as the compressed "doc" directory.  See
-<a href="starting.html#%24VIMRUNTIME">$VIMRUNTIME</a>.</div>
+<a href="/neovim-docs-web/en/starting#%24VIMRUNTIME">$VIMRUNTIME</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Hex editing<span class="help-heading-tags">					<a name="hex-editing"></a><span class="help-tag">hex-editing</span> <a name="using-xxd"></a><span class="help-tag">using-xxd</span></span></h2></div>
-<div class="old-help-para">See section <a href="usr_23.html#23.3">23.3</a> of the user manual.</div>
+<div class="old-help-para">See section <a href="/neovim-docs-web/en/usr_23#23.3">23.3</a> of the user manual.</div>
 <div class="old-help-para">If one has a particular extension that one uses for binary files (such as exe,
 bin, etc), you may find it helpful to automate the process with the following
-bit of autocmds for your <a href="starting.html#init.vim">init.vim</a>.  Change that "*.bin" to whatever
+bit of autocmds for your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>.  Change that "*.bin" to whatever
 comma-separated list of extension(s) you find yourself wanting to edit:<pre>" vim -b : edit binary using xxd-format!
 augroup Binary
   au!
@@ -268,20 +268,20 @@ string you can use the &lt;&gt; notation by preceding it with a backslash.  Don'
 forget to double the number of existing backslashes and put a backslash before
 '"'.
 <pre>autocmd BufNewFile,BufReadPre * exe "normal O\&lt;C-R&gt;%\&lt;Esc&gt;:.g/\\./s/\\./\\\\./g\&lt;CR&gt;0\"9y$u:menu Buffers.\&lt;C-R&gt;9 :buffer \&lt;C-R&gt;%\&lt;C-V&gt;\&lt;CR&gt;\&lt;CR&gt;"</pre>
-For a real buffer menu, user functions should be used (see <a href="userfunc.html#%3Afunction">:function</a>), but
+For a real buffer menu, user functions should be used (see <a href="/neovim-docs-web/en/userfunc#%3Afunction">:function</a>), but
 then the &lt;&gt; notation isn't used, which defeats using it as an example here.</div>
 <div class="old-help-para"><h2 class="help-heading">Highlighting matching parens<span class="help-heading-tags">					<a name="match-parens"></a><span class="help-tag">match-parens</span></span></h2></div>
 <div class="old-help-para">This example shows the use of a few advanced tricks:
-<div class="help-li" style=""> using the <a href="autocmd.html#CursorMoved">CursorMoved</a> autocommand event
-</div><div class="help-li" style=""> using <a href="builtin.html#searchpairpos()">searchpairpos()</a> to find a matching paren
-</div><div class="help-li" style=""> using <a href="builtin.html#synID()">synID()</a> to detect whether the cursor is in a string or comment
-</div><div class="help-li" style=""> using <a href="pattern.html#%3Amatch">:match</a> to highlight something
-</div><div class="help-li" style=""> using a <a href="pattern.html#pattern">pattern</a> to match a specific position in the file.
+<div class="help-li" style=""> using the <a href="/neovim-docs-web/en/autocmd#CursorMoved">CursorMoved</a> autocommand event
+</div><div class="help-li" style=""> using <a href="/neovim-docs-web/en/builtin#searchpairpos()">searchpairpos()</a> to find a matching paren
+</div><div class="help-li" style=""> using <a href="/neovim-docs-web/en/builtin#synID()">synID()</a> to detect whether the cursor is in a string or comment
+</div><div class="help-li" style=""> using <a href="/neovim-docs-web/en/pattern#%3Amatch">:match</a> to highlight something
+</div><div class="help-li" style=""> using a <a href="/neovim-docs-web/en/pattern#pattern">pattern</a> to match a specific position in the file.
 </div></div>
 <div class="old-help-para">This should be put in a Vim script file, since it uses script-local variables.
 It skips matches in strings or comments, unless the cursor started in string
 or comment.  This requires syntax highlighting.</div>
-<div class="old-help-para">A slightly more advanced version is used in the <a href="pi_paren.html#matchparen">matchparen</a> plugin.
+<div class="old-help-para">A slightly more advanced version is used in the <a href="/neovim-docs-web/en/pi_paren#matchparen">matchparen</a> plugin.
 <pre>let s:paren_hl_on = 0
 function s:Highlight_Matching_Paren()
   if s:paren_hl_on

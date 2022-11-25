@@ -17,7 +17,7 @@ Command-line mode		<a name="cmdline"></a><code class="help-tag-right">cmdline</c
 <div class="old-help-para">Command-line mode is used to enter Ex commands (":"), search patterns
 ("/" and "?"), and filter commands ("!").</div>
 <div class="old-help-para">Basic command line editing is explained in chapter 20 of the user manual
-<a href="usr_20.html#usr_20.txt">usr_20.txt</a>.</div>
+<a href="/neovim-docs-web/en/usr_20#usr_20.txt">usr_20.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Command-line editing<span class="help-heading-tags">					<a name="cmdline-editing"></a><span class="help-tag">cmdline-editing</span></span></h2></div>
 <div class="old-help-para">Normally characters are inserted in front of the cursor position.  You can
 move around in the command-line with the left and right cursor keys.  With the
@@ -29,7 +29,7 @@ For example, to define tcsh style editing keys:		<a name="tcsh-style"></a><code 
 :cnoremap &lt;C-B&gt; &lt;Left&gt;
 :cnoremap &lt;Esc&gt;b &lt;S-Left&gt;
 :cnoremap &lt;Esc&gt;f &lt;S-Right&gt;</pre>
-(&lt;&gt; notation <a href="intro.html#%3C%3E">&lt;&gt;</a>; type all this literally)</div>
+(&lt;&gt; notation <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a>; type all this literally)</div>
 <div class="old-help-para">							<a name="cmdline-too-long"></a><code class="help-tag-right">cmdline-too-long</code>
 When the command line is getting longer than what fits on the screen, only the
 part that fits will be shown.  The cursor can only move in this visible part,
@@ -41,11 +41,11 @@ history tables:
 <div class="help-li" style=""> one for ':' commands
 </div><div class="help-li" style=""> one for search strings
 </div><div class="help-li" style=""> one for expressions
-</div><div class="help-li" style=""> one for input lines, typed for the <a href="builtin.html#input()">input()</a> function.
+</div><div class="help-li" style=""> one for input lines, typed for the <a href="/neovim-docs-web/en/builtin#input()">input()</a> function.
 </div><div class="help-li" style=""> one for debug mode commands
 These are completely separate.  Each history can only be accessed when
 entering the same type of line.
-Use the <a href="options.html#'history'">'history'</a> option to set the number of lines that are remembered.
+Use the <a href="/neovim-docs-web/en/options#'history'">'history'</a> option to set the number of lines that are remembered.
 Notes:
 </div><div class="help-li" style=""> When you enter a command-line that is exactly the same as an older one, the
   old one is removed (to avoid repeated commands moving older commands out of
@@ -57,15 +57,15 @@ Notes:
   remembered (to avoid that long mappings trash the history).
 </div></div>
 <div class="old-help-para">There is an automatic completion of names on the command-line; see
-<a href="cmdline.html#cmdline-completion">cmdline-completion</a>.</div>
+<a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>.</div>
 <div class="old-help-para">							<a name="c_CTRL-V"></a><code class="help-tag-right">c_CTRL-V</code>
 CTRL-V		Insert next non-digit literally.  Up to three digits form the
 		decimal value of a single byte.  The non-digit and the three
 		digits are not considered for mapping.  This works the same
-		way as in Insert mode (see above, <a href="insert.html#i_CTRL-V">i_CTRL-V</a>).
+		way as in Insert mode (see above, <a href="/neovim-docs-web/en/insert#i_CTRL-V">i_CTRL-V</a>).
 		For special keys, the CTRL modifier may be included into the
 		key to produce a control character.  If there is no control
-		character for the key then its <a href="intro.html#key-notation">key-notation</a> is inserted.
+		character for the key then its <a href="/neovim-docs-web/en/intro#key-notation">key-notation</a> is inserted.
 		Note: Under Windows <code>CTRL-V</code> is often mapped to paste text.
 		Use <code>CTRL-Q</code> instead then.
 							<a name="c_CTRL-Q"></a><code class="help-tag-right">c_CTRL-Q</code>
@@ -98,8 +98,8 @@ CTRL-E or <code>&lt;End&gt;</code>					<a name="c_CTRL-E"></a><code class="help-
 <code>&lt;Del&gt;</code>		Delete the character under the cursor (at end of line:
 		character before the cursor).
 							<a name="c_CTRL-W"></a><code class="help-tag-right">c_CTRL-W</code>
-CTRL-W		Delete the <a href="motion.html#word">word</a> before the cursor.  This depends on the
-		<a href="options.html#'iskeyword'">'iskeyword'</a> option.
+CTRL-W		Delete the <a href="/neovim-docs-web/en/motion#word">word</a> before the cursor.  This depends on the
+		<a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option.
 							<a name="c_CTRL-U"></a><code class="help-tag-right">c_CTRL-U</code>
 CTRL-U		Remove all characters between the cursor position and
 		the beginning of the line.  Previous versions of vim
@@ -109,7 +109,7 @@ CTRL-U		Remove all characters between the cursor position and
 <code>&lt;Insert&gt;</code>	Toggle between insert and overstrike.</div>
 <div class="old-help-para"><code>{char1}</code> <code>&lt;BS&gt;</code> <code>{char2}</code>	or				<a name="c_digraph"></a><code class="help-tag-right">c_digraph</code>
 CTRL-K <code>{char1}</code> <code>{char2}</code>					<a name="c_CTRL-K"></a><code class="help-tag-right">c_CTRL-K</code>
-		enter digraph (see <a href="digraph.html#digraphs">digraphs</a>).  When <code>{char1}</code> is a special
+		enter digraph (see <a href="/neovim-docs-web/en/digraph#digraphs">digraphs</a>).  When <code>{char1}</code> is a special
 		key, the code for that key is inserted in &lt;&gt; form.</div>
 <div class="old-help-para">CTRL-R <code>{register}</code>					<a name="c_CTRL-R"></a><code class="help-tag-right">c_CTRL-R</code> <a name="c_%3CC-R%3E"></a><code class="help-tag">c_&lt;C-R&gt;</code>
 		Insert the contents of a numbered or named register.  Between
@@ -118,7 +118,7 @@ CTRL-K <code>{char1}</code> <code>{char2}</code>					<a name="c_CTRL-K"></a><cod
 		register.
 		The text is inserted as if you typed it, but mappings and
 		abbreviations are not used.  Command-line completion through
-		<a href="options.html#'wildchar'">'wildchar'</a> is not triggered though.  And characters that end
+		<a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> is not triggered though.  And characters that end
 		the command line are inserted literally (<code>&lt;Esc&gt;</code>, <code>&lt;CR&gt;</code>, <code>&lt;NL&gt;</code>,
 		<code>&lt;C-C&gt;</code>).  A <code>&lt;BS&gt;</code> or <code>CTRL-W</code> could still end the command line
 		though, and remaining characters will then be interpreted in
@@ -136,11 +136,11 @@ CTRL-K <code>{char1}</code> <code>{char2}</code>					<a name="c_CTRL-K"></a><cod
 			'.'	the last inserted text
 							<a name="c_CTRL-R_%3D"></a><code class="help-tag-right">c_CTRL-R_=</code>
 			'='	the expression register: you are prompted to
-				enter an expression (see <a href="eval.html#expression">expression</a>)
+				enter an expression (see <a href="/neovim-docs-web/en/eval#expression">expression</a>)
 				(doesn't work at the expression prompt; some
 				things such as changing the buffer or current
 				window are not allowed to avoid side effects)
-				When the result is a <a href="eval.html#List">List</a> the items are used
+				When the result is a <a href="/neovim-docs-web/en/eval#List">List</a> the items are used
 				as lines.  They can have line breaks inside
 				too.
 				When the result is a Float it's automatically
@@ -149,8 +149,8 @@ CTRL-K <code>{char1}</code> <code>{char2}</code>					<a name="c_CTRL-K"></a><cod
 				cursor and not insert anything, you must make
 				sure the expression evaluates to an empty
 				string.  E.g.:<pre>&lt;C-R&gt;&lt;C-R&gt;=setcmdpos(2)[-1]&lt;CR&gt;</pre></div>
-<div class="old-help-para">		See <a href="change.html#registers">registers</a> about registers.
-		Implementation detail: When using the <a href="eval.html#expression">expression</a> register
+<div class="old-help-para">		See <a href="/neovim-docs-web/en/change#registers">registers</a> about registers.
+		Implementation detail: When using the <a href="/neovim-docs-web/en/eval#expression">expression</a> register
 		and invoking setcmdpos(), this sets the position before
 		inserting the resulting string.  Use <code>CTRL-R</code> <code>CTRL-R</code> to set the
 		position afterwards.</div>
@@ -162,11 +162,11 @@ CTRL-R <code>CTRL-L</code>				<a name="c_CTRL-R_CTRL-L"></a><code class="help-ta
 		Insert the object under the cursor:
 			<code>CTRL-F</code>	the Filename under the cursor
 			<code>CTRL-P</code>	the Filename under the cursor, expanded with
-				<a href="options.html#'path'">'path'</a> as in <a href="editing.html#gf">gf</a>
+				<a href="/neovim-docs-web/en/options#'path'">'path'</a> as in <a href="/neovim-docs-web/en/editing#gf">gf</a>
 			<code>CTRL-W</code>	the Word under the cursor
-			<code>CTRL-A</code>	the WORD under the cursor; see <a href="motion.html#WORD">WORD</a>
+			<code>CTRL-A</code>	the WORD under the cursor; see <a href="/neovim-docs-web/en/motion#WORD">WORD</a>
 			<code>CTRL-L</code>	the line under the cursor</div>
-<div class="old-help-para">		When <a href="options.html#'incsearch'">'incsearch'</a> is set the cursor position at the end of the
+<div class="old-help-para">		When <a href="/neovim-docs-web/en/options#'incsearch'">'incsearch'</a> is set the cursor position at the end of the
 		currently displayed match is used.  With <code>CTRL-W</code> the part of
 		the word that was already typed is not inserted again.</div>
 <div class="old-help-para">					<a name="c_CTRL-R_CTRL-R"></a><code class="help-tag-right">c_CTRL-R_CTRL-R</code> <a name="c_%3CC-R%3E_%3CC-R%3E"></a><code class="help-tag">c_&lt;C-R&gt;_&lt;C-R&gt;</code>
@@ -174,7 +174,7 @@ CTRL-R <code>CTRL-L</code>				<a name="c_CTRL-R_CTRL-L"></a><code class="help-ta
 CTRL-R <code>CTRL-R</code> <code>{register CTRL-F CTRL-P CTRL-W CTRL-A CTRL-L}</code>
 CTRL-R <code>CTRL-O</code> <code>{register CTRL-F CTRL-P CTRL-W CTRL-A CTRL-L}</code>
 		Insert register or object under the cursor.  Works like
-		<a href="cmdline.html#c_CTRL-R">c_CTRL-R</a> but inserts the text literally.  For example, if
+		<a href="/neovim-docs-web/en/cmdline#c_CTRL-R">c_CTRL-R</a> but inserts the text literally.  For example, if
 		register a contains "xy^Hz" (where ^H is a backspace),
 		"CTRL-R a" will insert "xz" while "CTRL-R <code>CTRL-R</code> a" will
 		insert "xy^Hz".</div>
@@ -182,14 +182,14 @@ CTRL-R <code>CTRL-O</code> <code>{register CTRL-F CTRL-P CTRL-W CTRL-A CTRL-L}</
 		Evaluate <code>{expr}</code> and replace the whole command line with the
 		result.  You will be prompted for the expression, type <code>&lt;Enter&gt;</code>
 		to finish it.  It's most useful in mappings though.  See
-		<a href="eval.html#expression">expression</a>.
-		See <a href="cmdline.html#c_CTRL-R_%3D">c_CTRL-R_=</a> for inserting the result of an expression.
-		Useful functions are <a href="builtin.html#getcmdtype()">getcmdtype()</a>, <a href="builtin.html#getcmdline()">getcmdline()</a> and
-		<a href="builtin.html#getcmdpos()">getcmdpos()</a>.
+		<a href="/neovim-docs-web/en/eval#expression">expression</a>.
+		See <a href="/neovim-docs-web/en/cmdline#c_CTRL-R_%3D">c_CTRL-R_=</a> for inserting the result of an expression.
+		Useful functions are <a href="/neovim-docs-web/en/builtin#getcmdtype()">getcmdtype()</a>, <a href="/neovim-docs-web/en/builtin#getcmdline()">getcmdline()</a> and
+		<a href="/neovim-docs-web/en/builtin#getcmdpos()">getcmdpos()</a>.
 		The cursor position is unchanged, except when the cursor was
 		at the end of the line, then it stays at the end.
-		<a href="builtin.html#setcmdpos()">setcmdpos()</a> can be used to set the cursor position.
-		The <a href="eval.html#sandbox">sandbox</a> is used for evaluating the expression to avoid
+		<a href="/neovim-docs-web/en/builtin#setcmdpos()">setcmdpos()</a> can be used to set the cursor position.
+		The <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a> is used for evaluating the expression to avoid
 		nasty side effects.
 		Example:<pre>:cmap &lt;F7&gt; &lt;C-\&gt;eAppendSome()&lt;CR&gt;
 :func AppendSome()
@@ -205,17 +205,17 @@ CTRL-Y		When there is a modeless selection, copy the selection into
 		the clipboard.
 		If there is no selection <code>CTRL-Y</code> is inserted as a character.</div>
 <div class="old-help-para">							<a name="c_CTRL-Z"></a><code class="help-tag-right">c_CTRL-Z</code>
-CTRL-Z		Trigger <a href="options.html#'wildmode'">'wildmode'</a>. Same as <a href="options.html#'wildcharm'">'wildcharm'</a>, but always available.</div>
+CTRL-Z		Trigger <a href="/neovim-docs-web/en/options#'wildmode'">'wildmode'</a>. Same as <a href="/neovim-docs-web/en/options#'wildcharm'">'wildcharm'</a>, but always available.</div>
 <div class="old-help-para">CTRL-M or <code>CTRL-J</code>		<a name="c_CTRL-M"></a><code class="help-tag-right">c_CTRL-M</code> <a name="c_CTRL-J"></a><code class="help-tag">c_CTRL-J</code> <a name="c_%3CNL%3E"></a><code class="help-tag">c_&lt;NL&gt;</code> <a name="c_%3CCR%3E"></a><code class="help-tag">c_&lt;CR&gt;</code> <a name="c_CR"></a><code class="help-tag">c_CR</code>
 <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>	start entered command</div>
 <div class="old-help-para"><code>CTRL-[</code>						<a name="c_CTRL-%5B"></a><code class="help-tag-right">c_CTRL-[</code> <a name="c_%3CEsc%3E"></a><code class="help-tag">c_&lt;Esc&gt;</code> <a name="c_Esc"></a><code class="help-tag">c_Esc</code>
-<code>&lt;Esc&gt;</code>		When typed and 'x' not present in <a href="options.html#'cpoptions'">'cpoptions'</a>, quit
+<code>&lt;Esc&gt;</code>		When typed and 'x' not present in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>, quit
 		Command-line mode without executing.  In macros or when 'x'
-		present in <a href="options.html#'cpoptions'">'cpoptions'</a>, start entered command.
+		present in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>, start entered command.
 		Note: If your <code>&lt;Esc&gt;</code> key is hard to hit on your keyboard, train
 		yourself to use <code>CTRL-[</code>.
 						<a name="c_META"></a><code class="help-tag-right">c_META</code> <a name="c_ALT"></a><code class="help-tag">c_ALT</code>
-		ALT (<a href="intro.html#META">META</a>) may act like <code>&lt;Esc&gt;</code> if the chord is not mapped.
+		ALT (<a href="/neovim-docs-web/en/intro#META">META</a>) may act like <code>&lt;Esc&gt;</code> if the chord is not mapped.
 		For example <code>&lt;A-x&gt;</code> acts like <code>&lt;Esc&gt;</code>x if <code>&lt;A-x&gt;</code> does not have a
 		command-line mode mapping.
 							<a name="c_CTRL-C"></a><code class="help-tag-right">c_CTRL-C</code>
@@ -232,26 +232,26 @@ CTRL-C		quit command-line without executing</div>
 						<a name="c_%3CS-Down%3E"></a><code class="help-tag-right">c_&lt;S-Down&gt;</code> <a name="c_%3CPageDown%3E"></a><code class="help-tag">c_&lt;PageDown&gt;</code>
 <code>&lt;S-Down&gt;</code> or <code>&lt;PageDown&gt;</code>
 		recall more recent command-line from history</div>
-<div class="old-help-para">CTRL-D		command-line completion (see <a href="cmdline.html#cmdline-completion">cmdline-completion</a>)
-<a href="options.html#'wildchar'">'wildchar'</a> option
-		command-line completion (see <a href="cmdline.html#cmdline-completion">cmdline-completion</a>)
-CTRL-N		command-line completion (see <a href="cmdline.html#cmdline-completion">cmdline-completion</a>)
-CTRL-P		command-line completion (see <a href="cmdline.html#cmdline-completion">cmdline-completion</a>)
-CTRL-A		command-line completion (see <a href="cmdline.html#cmdline-completion">cmdline-completion</a>)
-CTRL-L		command-line completion (see <a href="cmdline.html#cmdline-completion">cmdline-completion</a>)</div>
+<div class="old-help-para">CTRL-D		command-line completion (see <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>)
+<a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> option
+		command-line completion (see <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>)
+CTRL-N		command-line completion (see <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>)
+CTRL-P		command-line completion (see <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>)
+CTRL-A		command-line completion (see <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>)
+CTRL-L		command-line completion (see <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a>)</div>
 <div class="old-help-para">							<a name="c_CTRL-_"></a><code class="help-tag-right">c_CTRL-_</code>
 CTRL-_		Switch between Hebrew and English keyboard mode, which is
 		private to the command-line and not related to hkmap.
 		This is useful when Hebrew text entry is required in the
 		command-line, searches, abbreviations, etc.  Applies only if
-		the <a href="options.html#'allowrevins'">'allowrevins'</a> option is set.
-		See <a href="rileft.html#rileft.txt">rileft.txt</a>.</div>
+		the <a href="/neovim-docs-web/en/options#'allowrevins'">'allowrevins'</a> option is set.
+		See <a href="/neovim-docs-web/en/rileft#rileft.txt">rileft.txt</a>.</div>
 <div class="old-help-para">							<a name="c_CTRL-%5E"></a><code class="help-tag-right">c_CTRL-^</code>
-<code>CTRL-^</code>		Toggle the use of language <a href="map.html#%3Almap">:lmap</a> mappings and/or Input
+<code>CTRL-^</code>		Toggle the use of language <a href="/neovim-docs-web/en/map#%3Almap">:lmap</a> mappings and/or Input
 		Method.
-		When typing a pattern for a search command and <a href="options.html#'imsearch'">'imsearch'</a> is
-		not -1, VAL is the value of <a href="options.html#'imsearch'">'imsearch'</a>, otherwise VAL is the
-		value of <a href="options.html#'iminsert'">'iminsert'</a>.
+		When typing a pattern for a search command and <a href="/neovim-docs-web/en/options#'imsearch'">'imsearch'</a> is
+		not -1, VAL is the value of <a href="/neovim-docs-web/en/options#'imsearch'">'imsearch'</a>, otherwise VAL is the
+		value of <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a>.
 		When language mappings are defined:
 <div class="help-li" style=""> If VAL is 1 (langmap mappings used) it becomes 0 (no langmap
 		  mappings used).
@@ -264,7 +264,7 @@ CTRL-_		Switch between Hebrew and English keyboard mode, which is
 		  is enabled.
 		These language mappings are normally used to type characters
 		that are different from what the keyboard produces.  The
-		<a href="options.html#'keymap'">'keymap'</a> option can be used to install a whole number of them.
+		<a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option can be used to install a whole number of them.
 		When entering a command line, langmap mappings are switched
 		off, since you are expected to type a command.  After
 		switching it on with <code>CTRL-^</code>, the new state is not used again
@@ -272,7 +272,7 @@ CTRL-_		Switch between Hebrew and English keyboard mode, which is
 </div></div>
 <div class="old-help-para">						<a name="c_CTRL-%5D"></a><code class="help-tag-right">c_CTRL-]</code>
 <code>CTRL-]</code>		Trigger abbreviation, without inserting a character.</div>
-<div class="old-help-para">For Emacs-style editing on the command-line see <a href="tips.html#emacs-keys">emacs-keys</a>.</div>
+<div class="old-help-para">For Emacs-style editing on the command-line see <a href="/neovim-docs-web/en/tips#emacs-keys">emacs-keys</a>.</div>
 <div class="old-help-para">The <code>&lt;Up&gt;</code> and <code>&lt;Down&gt;</code> keys take the current command-line as a search string.
 The beginning of the next/previous command-lines are compared with this
 string.  The first line that matches is the new command-line.  When typing
@@ -326,29 +326,29 @@ delay when there are very many matches.</div>
 <div class="old-help-para">							<a name="c_CTRL-D"></a><code class="help-tag-right">c_CTRL-D</code>
 CTRL-D		List names that match the pattern in front of the cursor.
 		When showing file names, directories are highlighted (see
-		<a href="syntax.html#highlight-groups">highlight-groups</a>).  Names where <a href="options.html#'suffixes'">'suffixes'</a> matches are moved
+		<a href="/neovim-docs-web/en/syntax#highlight-groups">highlight-groups</a>).  Names where <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> matches are moved
 		to the end.
-		The <a href="options.html#'wildoptions'">'wildoptions'</a> option can be set to "tagfile" to list the
+		The <a href="/neovim-docs-web/en/options#'wildoptions'">'wildoptions'</a> option can be set to "tagfile" to list the
 		file of matching tags.
 					<a name="c_CTRL-I"></a><code class="help-tag-right">c_CTRL-I</code> <a name="c_wildchar"></a><code class="help-tag">c_wildchar</code> <a name="c_%3CTab%3E"></a><code class="help-tag">c_&lt;Tab&gt;</code>
-<a href="options.html#'wildchar'">'wildchar'</a> option
+<a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> option
 		A match is done on the pattern in front of the cursor.  The
 		match (if there are several, the first match) is inserted
 		in place of the pattern.  (Note: does not work inside a
-		macro, because <code>&lt;Tab&gt;</code> or <code>&lt;Esc&gt;</code> are mostly used as <a href="options.html#'wildchar'">'wildchar'</a>,
+		macro, because <code>&lt;Tab&gt;</code> or <code>&lt;Esc&gt;</code> are mostly used as <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a>,
 		and these have a special meaning in some macros.) When typed
 		again and there were multiple matches, the next
 		match is inserted.  After the last match, the first is used
 		again (wrap around).
-		The behavior can be changed with the <a href="options.html#'wildmode'">'wildmode'</a> option.
+		The behavior can be changed with the <a href="/neovim-docs-web/en/options#'wildmode'">'wildmode'</a> option.
 							<a name="c_%3CS-Tab%3E"></a><code class="help-tag-right">c_&lt;S-Tab&gt;</code>
-<code>&lt;S-Tab&gt;</code>		Like <a href="options.html#'wildchar'">'wildchar'</a> or <code>&lt;Tab&gt;</code>, but begin with the last match and
+<code>&lt;S-Tab&gt;</code>		Like <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> or <code>&lt;Tab&gt;</code>, but begin with the last match and
 		then go to the previous match.
 							<a name="c_CTRL-N"></a><code class="help-tag-right">c_CTRL-N</code>
-CTRL-N		After using <a href="options.html#'wildchar'">'wildchar'</a> which got multiple matches, go to next
+CTRL-N		After using <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> which got multiple matches, go to next
 		match.  Otherwise recall more recent command-line from history.
 							<a name="c_CTRL-P"></a><code class="help-tag-right">c_CTRL-P</code>
-CTRL-P		After using <a href="options.html#'wildchar'">'wildchar'</a> which got multiple matches, go to
+CTRL-P		After using <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> which got multiple matches, go to
 		previous match.  Otherwise recall older command-line from
 		history.
 							<a name="c_CTRL-A"></a><code class="help-tag-right">c_CTRL-A</code>
@@ -361,51 +361,51 @@ CTRL-L		A match is done on the pattern in front of the cursor.  If
 		inserted in place of the pattern.  If the result is shorter
 		than the pattern, no completion is done.
 							<a name="%2F_CTRL-L"></a><code class="help-tag-right">/_CTRL-L</code>
-		When <a href="options.html#'incsearch'">'incsearch'</a> is set, entering a search pattern for "/" or
+		When <a href="/neovim-docs-web/en/options#'incsearch'">'incsearch'</a> is set, entering a search pattern for "/" or
 		"?" and the current match is displayed then <code>CTRL-L</code> will add
 		one character from the end of the current match.  If
-		<a href="options.html#'ignorecase'">'ignorecase'</a> and <a href="options.html#'smartcase'">'smartcase'</a> are set and the command line has
+		<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> and <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> are set and the command line has
 		no uppercase characters, the added character is converted to
 		lowercase.
 	                                            <a name="c_CTRL-G"></a><code class="help-tag-right">c_CTRL-G</code> <a name="%2F_CTRL-G"></a><code class="help-tag">/_CTRL-G</code>
-CTRL-G		When <a href="options.html#'incsearch'">'incsearch'</a> is set, entering a search pattern for "/" or
+CTRL-G		When <a href="/neovim-docs-web/en/options#'incsearch'">'incsearch'</a> is set, entering a search pattern for "/" or
 		"?" and the current match is displayed then <code>CTRL-G</code> will move
-		to the next match (does not take <a href="pattern.html#search-offset">search-offset</a> into account)
+		to the next match (does not take <a href="/neovim-docs-web/en/pattern#search-offset">search-offset</a> into account)
 		Use <code>CTRL-T</code> to move to the previous match.  Hint: on a regular
 		keyboard T is above G.
 	                                            <a name="c_CTRL-T"></a><code class="help-tag-right">c_CTRL-T</code> <a name="%2F_CTRL-T"></a><code class="help-tag">/_CTRL-T</code>
-CTRL-T		When <a href="options.html#'incsearch'">'incsearch'</a> is set, entering a search pattern for "/" or
+CTRL-T		When <a href="/neovim-docs-web/en/options#'incsearch'">'incsearch'</a> is set, entering a search pattern for "/" or
 		"?" and the current match is displayed then <code>CTRL-T</code> will move
-		to the previous match (does not take <a href="pattern.html#search-offset">search-offset</a> into
+		to the previous match (does not take <a href="/neovim-docs-web/en/pattern#search-offset">search-offset</a> into
 		account).
 		Use <code>CTRL-G</code> to move to the next match.  Hint: on a regular
 		keyboard T is above G.</div>
-<div class="old-help-para">The <a href="options.html#'wildchar'">'wildchar'</a> option defaults to <code>&lt;Tab&gt;</code> (<code>CTRL-E</code> when in Vi compatible mode; in
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> option defaults to <code>&lt;Tab&gt;</code> (<code>CTRL-E</code> when in Vi compatible mode; in
 a previous version <code>&lt;Esc&gt;</code> was used).  In the pattern standard wildcards '' and
 '?' are accepted when matching file names.  '' matches any string, '?'
 matches exactly one character.</div>
-<div class="old-help-para">When repeating <a href="options.html#'wildchar'">'wildchar'</a> or <code>CTRL-N</code> you cycle through the matches, eventually
+<div class="old-help-para">When repeating <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> or <code>CTRL-N</code> you cycle through the matches, eventually
 ending up back to what was typed.  If the first match is not what you wanted,
 you can use <code>&lt;S-Tab&gt;</code> or <code>CTRL-P</code> to go straight back to what you typed.</div>
-<div class="old-help-para">The <a href="options.html#'wildignorecase'">'wildignorecase'</a> option can be set to ignore case in filenames.</div>
-<div class="old-help-para">The <a href="options.html#'wildmenu'">'wildmenu'</a> option can be set to show the matches just above the command
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'wildignorecase'">'wildignorecase'</a> option can be set to ignore case in filenames.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a> option can be set to show the matches just above the command
 line.</div>
 <div class="old-help-para">If you like tcsh's autolist completion, you can use this mapping:
 	:cnoremap X <code>&lt;C-L&gt;</code><code>&lt;C-D&gt;</code>
 (Where X is the command key to use, <code>&lt;C-L&gt;</code> is <code>CTRL-L</code> and <code>&lt;C-D&gt;</code> is <code>CTRL-D</code>)
 This will find the longest match and then list all matching files.</div>
-<div class="old-help-para">If you like tcsh's autolist completion, you can use the <a href="options.html#'wildmode'">'wildmode'</a> option to
+<div class="old-help-para">If you like tcsh's autolist completion, you can use the <a href="/neovim-docs-web/en/options#'wildmode'">'wildmode'</a> option to
 emulate it.  For example, this mimics autolist=ambiguous:
 	:set wildmode=longest,list
-This will find the longest match with the first <a href="options.html#'wildchar'">'wildchar'</a>, then list all
+This will find the longest match with the first <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a>, then list all
 matching files with the next.</div>
 <div class="old-help-para">					<a name="complete-script-local-functions"></a><code class="help-tag-right">complete-script-local-functions</code>
 When completing user function names, prepend "s:" to find script-local
 functions.</div>
 <div class="old-help-para">							<a name="suffixes"></a><code class="help-tag-right">suffixes</code>
-For file name completion you can use the <a href="options.html#'suffixes'">'suffixes'</a> option to set a priority
+For file name completion you can use the <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> option to set a priority
 between files with almost the same name.  If there are multiple matches,
-those files with an extension that is in the <a href="options.html#'suffixes'">'suffixes'</a> option are ignored.
+those files with an extension that is in the <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> option are ignored.
 The default is ".bak,~,.o,.h,.info,.swp,.obj", which means that files ending
 in ".bak", "~", ".o", ".h", ".info", ".swp" and ".obj" are sometimes ignored.</div>
 <div class="old-help-para">An empty entry, two consecutive commas, match a file name that does not
@@ -417,18 +417,18 @@ contain a ".", thus has no suffix.  This is useful to ignore "prog" and prefer
    test*	test.i test.h test.c		test.i and test.c</div>
 <div class="old-help-para">It is impossible to ignore suffixes with two dots.</div>
 <div class="old-help-para">If there is more than one matching file (after ignoring the ones matching
-the <a href="options.html#'suffixes'">'suffixes'</a> option) the first file name is inserted.  You can see that
-there is only one match when you type <a href="options.html#'wildchar'">'wildchar'</a> twice and the completed
+the <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> option) the first file name is inserted.  You can see that
+there is only one match when you type <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> twice and the completed
 match stays the same.  You can get to the other matches by entering
-<a href="options.html#'wildchar'">'wildchar'</a>, <code>CTRL-N</code> or <code>CTRL-P</code>.  All files are included, also the ones with
-extensions matching the <a href="options.html#'suffixes'">'suffixes'</a> option.</div>
-<div class="old-help-para">To completely ignore files with some extension use <a href="options.html#'wildignore'">'wildignore'</a>.</div>
+<a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a>, <code>CTRL-N</code> or <code>CTRL-P</code>.  All files are included, also the ones with
+extensions matching the <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> option.</div>
+<div class="old-help-para">To completely ignore files with some extension use <a href="/neovim-docs-web/en/options#'wildignore'">'wildignore'</a>.</div>
 <div class="old-help-para">To match only files that end at the end of the typed text append a "$".  For
 example, to match only files that end in ".c":<pre>:e *.c$</pre>
 This will not match a file ending in ".cpp".  Without the "$" it does match.</div>
-<div class="old-help-para">The old value of an option can be obtained by hitting <a href="options.html#'wildchar'">'wildchar'</a> just after
-the '='.  For example, typing <a href="options.html#'wildchar'">'wildchar'</a> after ":set dir=" will insert the
-current value of <a href="options.html#'dir'">'dir'</a>.  This overrules file name completion for the options
+<div class="old-help-para">The old value of an option can be obtained by hitting <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> just after
+the '='.  For example, typing <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> after ":set dir=" will insert the
+current value of <a href="/neovim-docs-web/en/options#'dir'">'dir'</a>.  This overrules file name completion for the options
 that take a file name.</div>
 <div class="old-help-para">If you would like using <code>&lt;S-Tab&gt;</code> for <code>CTRL-P</code> in an xterm, put this command in
 your .cshrc:<pre>xmodmap -e "keysym Tab = Tab Find"</pre>
@@ -511,14 +511,14 @@ followed by another Vim command:
     :windo
     :write !
     :[range]!
-    a user defined command without the "-bar" argument <a href="map.html#%3Acommand">:command</a></div>
+    a user defined command without the "-bar" argument <a href="/neovim-docs-web/en/map#%3Acommand">:command</a></div>
 <div class="old-help-para">Note that this is confusing (inherited from Vi): With ":g" the '|' is included
 in the command, with ":s" it is not.</div>
 <div class="old-help-para">To be able to use another command anyway, use the ":execute" command.
 Example (append the output of "ls" and jump to the first line):<pre>:execute 'r !ls' | '[</pre>
-There is one exception: When the 'b' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>, with the
+There is one exception: When the 'b' flag is present in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>, with the
 ":map" and ":abbr" commands and friends <code>CTRL-V</code> needs to be used instead of
-'\'.  You can also use "&lt;Bar&gt;" instead.  See also <a href="map.html#map_bar">map_bar</a>.</div>
+'\'.  You can also use "&lt;Bar&gt;" instead.  See also <a href="/neovim-docs-web/en/map#map_bar">map_bar</a>.</div>
 <div class="old-help-para">Examples:<pre>:!ls | wc                view the output of two commands
 :r !ls | wc                insert the same output in the text
 :%g/foo/p|&gt;                moves all matching lines one shiftwidth
@@ -541,7 +541,7 @@ A colon is allowed between the range and the command name.  It is ignored
 (this is Vi compatible).  For example:<pre>:1,$:s/pat/string</pre>
 When the character '%' or '#' is used where a file name is expected, they are
 expanded to the current and alternate file name (see the chapter "editing
-files" <a href="cmdline.html#%3A_%25">:_%</a> <a href="cmdline.html#%3A_%23">:_#</a>).</div>
+files" <a href="/neovim-docs-web/en/cmdline#%3A_%25">:_%</a> <a href="/neovim-docs-web/en/cmdline#%3A_%23">:_#</a>).</div>
 <div class="old-help-para">Trailing spaces in filenames will be ignored, unless escaped with a backslash
 or <code>CTRL-V</code>.  Note that the ":next" command uses spaces to separate file names.
 Escape the spaces to include them in a file name.  Example:<pre>:next foo\ bar goes\ to school\</pre>
@@ -549,7 +549,7 @@ starts editing the three files "foo bar", "goes to" and "school ".</div>
 <div class="old-help-para">When you want to use the special characters '"' or '|' in a command, or want
 to use '%' or '#' in a file name, precede them with a backslash.  The
 backslash is not required in a range and in the ":substitute" command.
-See also <a href="editing.html#%60%3D">`=</a>.</div>
+See also <a href="/neovim-docs-web/en/editing#%60%3D">`=</a>.</div>
 <div class="old-help-para">							<a name="%3A_%21"></a><code class="help-tag-right">:_!</code>
 The '!' (bang) character after an Ex command makes the command behave in a
 different way.  The '!' should be placed immediately after the command, without
@@ -563,7 +563,7 @@ argument for the command, which has a different meaning.  For example:
 <div class="old-help-para">Some Ex commands accept a line range in front of them.  This is noted as
 [range].  It consists of one or more line specifiers, separated with ',' or
 ';'.</div>
-<div class="old-help-para">The basics are explained in section <a href="usr_10.html#10.3">10.3</a> of the user manual.</div>
+<div class="old-help-para">The basics are explained in section <a href="/neovim-docs-web/en/usr_10#10.3">10.3</a> of the user manual.</div>
 <div class="old-help-para">						<a name="%3A%2C"></a><code class="help-tag-right">:,</code> <a name="%3A%3B"></a><code class="help-tag">:;</code>
 When separated with ';' the cursor position will be set to that line
 before interpreting the next line specifier.  This doesn't happen for ','.
@@ -583,9 +583,9 @@ one(s) will be ignored.</div>
 	'T		position of mark T (uppercase); when the mark is in
 			another file it cannot be used in a range
 	/{pattern}[/]	the next line where <code>{pattern}</code> matches	  <a name="%3A%2F"></a><code class="help-tag-right">:/</code>
-				also see <a href="cmdline.html#%3Arange-pattern">:range-pattern</a> below
+				also see <a href="/neovim-docs-web/en/cmdline#%3Arange-pattern">:range-pattern</a> below
 	?{pattern}[?]	the previous line where <code>{pattern}</code> matches <a name="%3A%3F"></a><code class="help-tag">:?</code>
-				also see <a href="cmdline.html#%3Arange-pattern">:range-pattern</a> below
+				also see <a href="/neovim-docs-web/en/cmdline#%3Arange-pattern">:range-pattern</a> below
 	\/		the next line where the previously used search
 			pattern matches
 	\?		the previous line where the previously used search
@@ -625,8 +625,8 @@ Examples:<pre>/pat1//pat2/        Find line containing "pat2" after line contain
                 the cursor in line 7.</pre>
 The <code>{number}</code> must be between 0 and the number of lines in the file.  When
 using a 0 (zero) this is interpreted as a 1 by most commands.  Commands that
-use it as a count do use it as a zero (<a href="tagsrch.html#%3Atag">:tag</a>, <a href="tagsrch.html#%3Apop">:pop</a>, etc).  Some commands
-interpret the zero as "before the first line" (<a href="insert.html#%3Aread">:read</a>, search pattern, etc).</div>
+use it as a count do use it as a zero (<a href="/neovim-docs-web/en/tagsrch#%3Atag">:tag</a>, <a href="/neovim-docs-web/en/tagsrch#%3Apop">:pop</a>, etc).  Some commands
+interpret the zero as "before the first line" (<a href="/neovim-docs-web/en/insert#%3Aread">:read</a>, search pattern, etc).</div>
 <div class="old-help-para">Examples:<pre>.+3                three lines below the cursor
 /that/+1        the line below the next line containing "that"
 .,$                from current line until end of file
@@ -643,7 +643,7 @@ a file name can also be a number).  The count cannot be negative.</div>
 :23d 4                delete lines 23, 24, 25 and 26</pre>
 Folds and Range</div>
 <div class="old-help-para">When folds are active the line numbers are rounded off to include the whole
-closed fold.  See <a href="fold.html#fold-behavior">fold-behavior</a>.</div>
+closed fold.  See <a href="/neovim-docs-web/en/fold#fold-behavior">fold-behavior</a>.</div>
 <div class="old-help-para">Reverse Range						<a name="E493"></a><code class="help-tag-right">E493</code></div>
 <div class="old-help-para">A range should have the lower line number first.  If this is not the case, Vim
 will ask you if it should swap the line numbers.
@@ -667,21 +667,21 @@ three lines:<pre>3:d&lt;CR&gt;                is translated into: .,.+2d&lt;CR&g
 <div class="old-help-para"><h2 class="help-heading">5. Ex command-line flags<span class="help-heading-tags">				<a name="ex-flags"></a><span class="help-tag">ex-flags</span></span></h2></div>
 <div class="old-help-para">These flags are supported by a selection of Ex commands.  They print the line
 that the cursor ends up after executing the command:</div>
-<div class="old-help-para">	l	output like for <a href="various.html#%3Alist">:list</a>
+<div class="old-help-para">	l	output like for <a href="/neovim-docs-web/en/various#%3Alist">:list</a>
 	#	add line number
-	p	output like for <a href="various.html#%3Aprint">:print</a></div>
-<div class="old-help-para">The flags can be combined, thus "l#" uses both a line number and <a href="various.html#%3Alist">:list</a> style
+	p	output like for <a href="/neovim-docs-web/en/various#%3Aprint">:print</a></div>
+<div class="old-help-para">The flags can be combined, thus "l#" uses both a line number and <a href="/neovim-docs-web/en/various#%3Alist">:list</a> style
 output.</div>
 <div class="old-help-para"><h2 class="help-heading">6. Ex special characters<span class="help-heading-tags">				<a name="cmdline-special"></a><span class="help-tag">cmdline-special</span></span></h2></div>
 <div class="old-help-para">Note: These are special characters in the executed command line.  If you want
 to insert special things while typing you can use the <code>CTRL-R</code> command.  For
 example, "%" stands for the current file name, while <code>CTRL-R</code> % inserts the
-current file name right away.  See <a href="cmdline.html#c_CTRL-R">c_CTRL-R</a>.</div>
+current file name right away.  See <a href="/neovim-docs-web/en/cmdline#c_CTRL-R">c_CTRL-R</a>.</div>
 <div class="old-help-para">Note:  If you want to avoid the effects of special characters in a Vim script
-you may want to use <a href="builtin.html#fnameescape()">fnameescape()</a>.  Also see <a href="editing.html#%60%3D">`=</a>.</div>
+you may want to use <a href="/neovim-docs-web/en/builtin#fnameescape()">fnameescape()</a>.  Also see <a href="/neovim-docs-web/en/editing#%60%3D">`=</a>.</div>
 <div class="old-help-para">In Ex commands, at places where a file name can be used, the following
 characters have a special meaning.  These can also be used in the expression
-function <a href="builtin.html#expand()">expand()</a>.
+function <a href="/neovim-docs-web/en/builtin#expand()">expand()</a>.
 	%	Is replaced with the current file name.		  <a name="%3A_%25"></a><code class="help-tag-right">:_%</code> <a name="c_%25"></a><code class="help-tag">c_%</code>
 	#	Is replaced with the alternate file name.	  <a name="%3A_%23"></a><code class="help-tag-right">:_#</code> <a name="c_%23"></a><code class="help-tag">c_#</code>
 		This is remembered for every window.
@@ -691,11 +691,11 @@ function <a href="builtin.html#expand()">expand()</a>.
 		concatenated, separated by spaces.  Each space in a name
 		is preceded with a backslash.
 	#&lt;n	(where n is a number &gt; 0) is replaced with old	  <a name="%3A_%23%3C"></a><code class="help-tag-right">:_#&lt;</code> <a name="c_%23%3C"></a><code class="help-tag">c_#&lt;</code>
-		file name n.  See <a href="starting.html#%3Aoldfiles">:oldfiles</a> or <a href="eval.html#v%3Aoldfiles">v:oldfiles</a> to get the
+		file name n.  See <a href="/neovim-docs-web/en/starting#%3Aoldfiles">:oldfiles</a> or <a href="/neovim-docs-web/en/eval#v%3Aoldfiles">v:oldfiles</a> to get the
 		number.							<a name="E809"></a><code class="help-tag-right">E809</code></div>
 <div class="old-help-para">Note that these, except "#&lt;n", give the file name as it was typed.  If an
 absolute path is needed (when using the file name from a different directory),
-you need to add ":p".  See <a href="cmdline.html#filename-modifiers">filename-modifiers</a>.</div>
+you need to add ":p".  See <a href="/neovim-docs-web/en/cmdline#filename-modifiers">filename-modifiers</a>.</div>
 <div class="old-help-para">The "#&lt;n" item returns an absolute path, but it will start with "~/" for files
 below your home directory.</div>
 <div class="old-help-para">Note that backslashes are inserted before spaces, so that the command will
@@ -709,22 +709,22 @@ it, no matter how many backslashes.
 <div class="help-column_heading">	you type:		result</div>	   #			alternate.file
 	   \#			#
 	   \\#			\#
-Also see <a href="editing.html#%60%3D">`=</a>.</div>
+Also see <a href="/neovim-docs-web/en/editing#%60%3D">`=</a>.</div>
 <div class="old-help-para">							<a name="E499"></a><code class="help-tag-right">E499</code> <a name="E500"></a><code class="help-tag">E500</code>
 Note: these are typed literally, they are not special keys!
 							<a name="%3A%3Ccword%3E"></a><code class="help-tag-right">:&lt;cword&gt;</code> <a name="%3Ccword%3E"></a><code class="help-tag">&lt;cword&gt;</code>
-	<code>&lt;cword&gt;</code>    is replaced with the word under the cursor (like <a href="pattern.html#star">star</a>)
+	<code>&lt;cword&gt;</code>    is replaced with the word under the cursor (like <a href="/neovim-docs-web/en/pattern#star">star</a>)
 							<a name="%3A%3CcWORD%3E"></a><code class="help-tag-right">:&lt;cWORD&gt;</code> <a name="%3CcWORD%3E"></a><code class="help-tag">&lt;cWORD&gt;</code>
-	<code>&lt;cWORD&gt;</code>    is replaced with the WORD under the cursor (see <a href="motion.html#WORD">WORD</a>)
+	<code>&lt;cWORD&gt;</code>    is replaced with the WORD under the cursor (see <a href="/neovim-docs-web/en/motion#WORD">WORD</a>)
 							<a name="%3A%3Ccexpr%3E"></a><code class="help-tag-right">:&lt;cexpr&gt;</code> <a name="%3Ccexpr%3E"></a><code class="help-tag">&lt;cexpr&gt;</code>
 	<code>&lt;cexpr&gt;</code>    is replaced with the word under the cursor, including more
 		   to form a C expression.  E.g., when the cursor is on "arg"
 		   of "ptr-&gt;arg" then the result is "ptr-&gt;arg"; when the
 		   cursor is on "]" of "list[idx]" then the result is
-		   "list[idx]".  This is used for <a href="eval.html#v%3Abeval_text">v:beval_text</a>.
+		   "list[idx]".  This is used for <a href="/neovim-docs-web/en/eval#v%3Abeval_text">v:beval_text</a>.
 							<a name="%3A%3Ccfile%3E"></a><code class="help-tag-right">:&lt;cfile&gt;</code> <a name="%3Ccfile%3E"></a><code class="help-tag">&lt;cfile&gt;</code>
 	<code>&lt;cfile&gt;</code>    is replaced with the path name under the cursor (like what
-		   <a href="editing.html#gf">gf</a> uses)
+		   <a href="/neovim-docs-web/en/editing#gf">gf</a> uses)
 							<a name="%3A%3Cafile%3E"></a><code class="help-tag-right">:&lt;afile&gt;</code> <a name="%3Cafile%3E"></a><code class="help-tag">&lt;afile&gt;</code>
 	<code>&lt;afile&gt;</code>    When executing autocommands, is replaced with the file name
 		   of the buffer being manipulated, or the file for a read or
@@ -776,7 +776,7 @@ Note: these are typed literally, they are not special keys!
 <a name="%3A_%25%3A"></a><code class="help-tag">:_%:</code> <a name="%3A%3A8"></a><code class="help-tag">::8</code> <a name="%3A%3Ap"></a><code class="help-tag">::p</code> <a name="%3A%3A."></a><code class="help-tag">::.</code> <a name="%3A%3A~"></a><code class="help-tag">::~</code> <a name="%3A%3Ah"></a><code class="help-tag">::h</code> <a name="%3A%3At"></a><code class="help-tag">::t</code> <a name="%3A%3Ar"></a><code class="help-tag">::r</code> <a name="%3A%3Ae"></a><code class="help-tag">::e</code> <a name="%3A%3As"></a><code class="help-tag">::s</code> <a name="%3A%3Ags"></a><code class="help-tag">::gs</code> <a name="%3A%3AS"></a><code class="help-tag">::S</code>
      <a name="%25%3A8"></a><code class="help-tag">%:8</code> <a name="%25%3Ap"></a><code class="help-tag">%:p</code> <a name="%25%3A."></a><code class="help-tag">%:.</code> <a name="%25%3A~"></a><code class="help-tag">%:~</code> <a name="%25%3Ah"></a><code class="help-tag">%:h</code> <a name="%25%3At"></a><code class="help-tag">%:t</code> <a name="%25%3Ar"></a><code class="help-tag">%:r</code> <a name="%25%3Ae"></a><code class="help-tag">%:e</code> <a name="%25%3As"></a><code class="help-tag">%:s</code> <a name="%25%3Ags"></a><code class="help-tag">%:gs</code> <a name="%25%3AS"></a><code class="help-tag">%:S</code>
 The file name modifiers can be used after "%", "#", "#n", "&lt;cfile&gt;", "&lt;sfile&gt;",
-"&lt;afile&gt;" or "&lt;abuf&gt;".  They are also used with the <a href="builtin.html#fnamemodify()">fnamemodify()</a> function.
+"&lt;afile&gt;" or "&lt;abuf&gt;".  They are also used with the <a href="/neovim-docs-web/en/builtin#fnamemodify()">fnamemodify()</a> function.
 These modifiers can be given, in this order:
 	:p	Make file name a full path.  Must be the first modifier.  Also
 		changes "~/" (and "~user/" for Unix) to the path for the home
@@ -818,7 +818,7 @@ These modifiers can be given, in this order:
 		one) as much as possible are included.
 	:s?pat?sub?
 		Substitute the first occurrence of "pat" with "sub".  This
-		works like the <a href="change.html#%3As">:s</a> command.  "pat" is a regular expression.
+		works like the <a href="/neovim-docs-web/en/change#%3As">:s</a> command.  "pat" is a regular expression.
 		Any character can be used for '?', but it must not occur in
 		"pat" or "sub".
 		After this, the previous modifiers can be used again.  For
@@ -827,7 +827,7 @@ These modifiers can be given, in this order:
 		Substitute all occurrences of "pat" with "sub".  Otherwise
 		this works like ":s".
 	:S	Escape special characters for use with a shell command (see
-		<a href="builtin.html#shellescape()">shellescape()</a>). Must be the last one. Examples:<pre>:!dir &lt;cfile&gt;:S
+		<a href="/neovim-docs-web/en/builtin#shellescape()">shellescape()</a>). Must be the last one. Examples:<pre>:!dir &lt;cfile&gt;:S
 :call system('chmod +w -- ' . expand('%:S'))</pre>
 Examples, when the file name is "src/version.c", current dir
 "/home/mool/vim":<pre>:p                        /home/mool/vim/src/version.c
@@ -880,10 +880,10 @@ Examples: (alternate file name is "?readme?")
 	:e #.*		:e <code>{files matching "?readme?.*"}</code>
 	:cd <code>&lt;cfile&gt;</code>	:cd <code>{file name under cursor}</code>
 	:cd <code>&lt;cfile&gt;</code>*	:cd <code>{file name under cursor plus "*" and then expanded}</code>
-Also see <a href="editing.html#%60%3D">`=</a>.</div>
+Also see <a href="/neovim-docs-web/en/editing#%60%3D">`=</a>.</div>
 <div class="old-help-para">When the expanded argument contains a "!" and it is used for a shell command
 (":!cmd", ":r !cmd" or ":w !cmd"), the "!" is escaped with a backslash to
-avoid it being expanded into a previously used command.  When the <a href="options.html#'shell'">'shell'</a>
+avoid it being expanded into a previously used command.  When the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a>
 option contains "sh", this is done twice, to avoid the shell trying to expand
 the "!".</div>
 <div class="old-help-para">							<a name="filename-backslash"></a><code class="help-tag-right">filename-backslash</code>
@@ -901,14 +901,14 @@ for the file "$home" in the root directory.  A few examples:</div>
 	\$home		file "$home" in current directory
 	/\$home		file "$home" in root directory
 	\\$home		file "\\", followed by expanded $home</div>
-<div class="old-help-para">Also see <a href="editing.html#%60%3D">`=</a>.</div>
+<div class="old-help-para">Also see <a href="/neovim-docs-web/en/editing#%60%3D">`=</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">7. Command-line window<span class="help-heading-tags">				<a name="cmdline-window"></a><span class="help-tag">cmdline-window</span> <a name="cmdwin"></a><span class="help-tag">cmdwin</span></span></h2>							<a name="command-line-window"></a><code class="help-tag-right">command-line-window</code>
 In the command-line window the command line can be edited just like editing
 text in any window.  It is a special kind of window, because you cannot leave
 it in a normal way.</div>
 <div class="old-help-para"><h3 class="help-heading">OPEN<span class="help-heading-tags">						<a name="c_CTRL-F"></a><span class="help-tag">c_CTRL-F</span> <a name="q%3A"></a><span class="help-tag">q:</span> <a name="q%2F"></a><span class="help-tag">q/</span> <a name="q%3F"></a><span class="help-tag">q?</span></span></h3></div>
 <div class="old-help-para">There are two ways to open the command-line window:
-1. From Command-line mode, use the key specified with the <a href="options.html#'cedit'">'cedit'</a> option.
+1. From Command-line mode, use the key specified with the <a href="/neovim-docs-web/en/options#'cedit'">'cedit'</a> option.
 2. From Normal mode, use the "q:", "q/" or "q?" command.
    This starts editing an Ex command-line ("q:") or search string ("q/" or
    "q?").  Note that this is not possible while recording is in progress (the
@@ -916,9 +916,9 @@ it in a normal way.</div>
 <div class="old-help-para">When the window opens it is filled with the command-line history.  The last
 line contains the command as typed so far.  The left column will show a
 character that indicates the type of command-line being edited, see
-<a href="cmdline.html#cmdwin-char">cmdwin-char</a>.</div>
+<a href="/neovim-docs-web/en/cmdline#cmdwin-char">cmdwin-char</a>.</div>
 <div class="old-help-para">Vim will be in Normal mode when the editor is opened.</div>
-<div class="old-help-para">The height of the window is specified with <a href="options.html#'cmdwinheight'">'cmdwinheight'</a> (or smaller if there
+<div class="old-help-para">The height of the window is specified with <a href="/neovim-docs-web/en/options#'cmdwinheight'">'cmdwinheight'</a> (or smaller if there
 is no room).  The window is always full width and is positioned just above the
 command-line.</div>
 <div class="old-help-para"><a name="_edit"></a><h3 class="help-heading">EDIT</h3></div>
@@ -958,15 +958,15 @@ command-line window open again, you may find this mapping useful:<pre>:autocmd C
 <div class="old-help-para">The command-line window cannot be used when there already is a command-line
 window (no nesting).</div>
 <div class="old-help-para">Some options are set when the command-line window is opened:
-<a href="options.html#'filetype'">'filetype'</a>	"vim", when editing an Ex command-line; this starts Vim syntax
+<a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>	"vim", when editing an Ex command-line; this starts Vim syntax
 		highlighting if it was enabled
-<a href="options.html#'rightleft'">'rightleft'</a>	off
-<a href="options.html#'modifiable'">'modifiable'</a>	on
-<a href="options.html#'buftype'">'buftype'</a>	"nofile"
-<a href="options.html#'swapfile'">'swapfile'</a>	off</div>
+<a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a>	off
+<a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a>	on
+<a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a>	"nofile"
+<a href="/neovim-docs-web/en/options#'swapfile'">'swapfile'</a>	off</div>
 <div class="old-help-para">It is allowed to write the buffer contents to a file.  This is an easy way to
 save the command-line history and read it back later.</div>
-<div class="old-help-para">If the <a href="options.html#'wildchar'">'wildchar'</a> option is set to <code>&lt;Tab&gt;</code>, and the command-line window is used
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a> option is set to <code>&lt;Tab&gt;</code>, and the command-line window is used
 for an Ex command, then two mappings will be added to use <code>&lt;Tab&gt;</code> for completion
 in the command-line window, like this:<pre>:inoremap &lt;buffer&gt; &lt;Tab&gt; &lt;C-X&gt;&lt;C-V&gt;
 :nnoremap &lt;buffer&gt; &lt;Tab&gt; a&lt;C-X&gt;&lt;C-V&gt;</pre>
@@ -979,28 +979,28 @@ You could put these lines in your vimrc file.</div>
 another window, or drag statuslines of other windows.  You can drag the
 statusline of the command-line window itself and the statusline above it.
 Thus you can resize the command-line window, but not others.</div>
-<div class="old-help-para">The <a href="builtin.html#getcmdwintype()">getcmdwintype()</a> function returns the type of the command-line being
-edited as described in <a href="cmdline.html#cmdwin-char">cmdwin-char</a>.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/builtin#getcmdwintype()">getcmdwintype()</a> function returns the type of the command-line being
+edited as described in <a href="/neovim-docs-web/en/cmdline#cmdwin-char">cmdwin-char</a>.</div>
 <div class="old-help-para">Nvim defines this default CmdWinEnter autocmd in the "nvim_cmdwin" group:<pre>autocmd CmdWinEnter [:&gt;] syntax sync minlines=1 maxlines=1</pre></div>
-<div class="old-help-para">You can disable this in your config with "autocmd! nvim_cmdwin". <a href="vim_diff.html#default-autocmds">default-autocmds</a></div>
+<div class="old-help-para">You can disable this in your config with "autocmd! nvim_cmdwin". <a href="/neovim-docs-web/en/vim_diff#default-autocmds">default-autocmds</a></div>
 <div class="old-help-para"><a name="_autocommands"></a><h3 class="help-heading">AUTOCOMMANDS</h3></div>
-<div class="old-help-para">Two autocommand events are used: <a href="autocmd.html#CmdwinEnter">CmdwinEnter</a> and <a href="autocmd.html#CmdwinLeave">CmdwinLeave</a>.  You can use
+<div class="old-help-para">Two autocommand events are used: <a href="/neovim-docs-web/en/autocmd#CmdwinEnter">CmdwinEnter</a> and <a href="/neovim-docs-web/en/autocmd#CmdwinLeave">CmdwinLeave</a>.  You can use
 the Cmdwin events to do settings specifically for the command-line window.
 Be careful not to cause side effects!
 Example:<pre>:au CmdwinEnter :  let b:cpt_save = &amp;cpt | set cpt=.
 :au CmdwinLeave :  let &amp;cpt = b:cpt_save</pre>
-This sets <a href="options.html#'complete'">'complete'</a> to use completion in the current window for <a href="insert.html#i_CTRL-N">i_CTRL-N</a>.
+This sets <a href="/neovim-docs-web/en/options#'complete'">'complete'</a> to use completion in the current window for <a href="/neovim-docs-web/en/insert#i_CTRL-N">i_CTRL-N</a>.
 Another example:<pre>:au CmdwinEnter [/?]  startinsert</pre>
 This will make Vim start in Insert mode in the command-line window.</div>
 <div class="old-help-para">					<a name="cmdline-char"></a><code class="help-tag-right">cmdline-char</code> <a name="cmdwin-char"></a><code class="help-tag">cmdwin-char</code>
 The character used for the pattern indicates the type of command-line:
 	:	normal Ex command
-	&gt;	debug mode command <a href="repeat.html#debug-mode">debug-mode</a>
+	&gt;	debug mode command <a href="/neovim-docs-web/en/repeat#debug-mode">debug-mode</a>
 	/	forward search string
 	?	backward search string
-	=	expression for "= <a href="eval.html#expr-register">expr-register</a>
-	@	string for <a href="builtin.html#input()">input()</a>
-	-		text for <a href="insert.html#%3Ainsert">:insert</a> or <a href="insert.html#%3Aappend">:append</a></div>
+	=	expression for "= <a href="/neovim-docs-web/en/eval#expr-register">expr-register</a>
+	@	string for <a href="/neovim-docs-web/en/builtin#input()">input()</a>
+	-		text for <a href="/neovim-docs-web/en/insert#%3Ainsert">:insert</a> or <a href="/neovim-docs-web/en/insert#%3Aappend">:append</a></div>
 
   
   

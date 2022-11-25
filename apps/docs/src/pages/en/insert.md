@@ -17,8 +17,8 @@ Inserting and replacing text				<a name="mode-ins-repl"></a><code class="help-ta
 <div class="old-help-para">Most of this file is about Insert and Replace mode.  At the end are a few
 commands for inserting text in other ways.</div>
 <div class="old-help-para">An overview of the most often used commands can be found in chapter 24 of the
-user manual <a href="usr_24.html#usr_24.txt">usr_24.txt</a>.</div>
-<div class="old-help-para">Also see <a href="options.html#'virtualedit'">'virtualedit'</a>, for moving the cursor to positions where there is no
+user manual <a href="/neovim-docs-web/en/usr_24#usr_24.txt">usr_24.txt</a>.</div>
+<div class="old-help-para">Also see <a href="/neovim-docs-web/en/options#'virtualedit'">'virtualedit'</a>, for moving the cursor to positions where there is no
 character.  Useful for editing a table.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Special keys<span class="help-heading-tags">						<a name="ins-special-keys"></a><span class="help-tag">ins-special-keys</span></span></h2></div>
 <div class="old-help-para">In Insert and Replace mode, the following characters have a special meaning;
@@ -26,77 +26,77 @@ other characters are inserted directly.  To insert one of these special
 characters into the buffer, precede it with <code>CTRL-V</code>.  To insert a <code>&lt;Nul&gt;</code>
 character use "CTRL-V <code>CTRL-@</code>" or "CTRL-V 000".  On some systems, you have to
 use "CTRL-V 003" to insert a <code>CTRL-C</code>.  Note: When <code>CTRL-V</code> is mapped you can
-often use <code>CTRL-Q</code> instead <a href="insert.html#i_CTRL-Q">i_CTRL-Q</a>.</div>
+often use <code>CTRL-Q</code> instead <a href="/neovim-docs-web/en/insert#i_CTRL-Q">i_CTRL-Q</a>.</div>
 <div class="old-help-para">If you are working in a special language mode when inserting text, see the
-<a href="options.html#'langmap'">'langmap'</a> option, <a href="options.html#'langmap'">'langmap'</a>, on how to avoid switching this mode on and off
+<a href="/neovim-docs-web/en/options#'langmap'">'langmap'</a> option, <a href="/neovim-docs-web/en/options#'langmap'">'langmap'</a>, on how to avoid switching this mode on and off
 all the time.</div>
 <div class="old-help-para"><div class="help-column_heading">char		action</div><h3 class="help-heading"><span class="help-heading-tags">						<a name="i_CTRL-%5B"></a><span class="help-tag">i_CTRL-[</span> <a name="i_%3CEsc%3E"></a><span class="help-tag">i_&lt;Esc&gt;</span></span></h3><code>&lt;Esc&gt;</code> or <code>CTRL-[</code>	End insert or Replace mode, go back to Normal mode.  Finish
 		abbreviation.
 		Note: If your <code>&lt;Esc&gt;</code> key is hard to hit, try <code>CTRL-[</code> instead.
 						<a name="i_META"></a><code class="help-tag-right">i_META</code> <a name="i_ALT"></a><code class="help-tag">i_ALT</code>
-		ALT (<a href="intro.html#META">META</a>) may act like <code>&lt;Esc&gt;</code> if the chord is not mapped.
+		ALT (<a href="/neovim-docs-web/en/intro#META">META</a>) may act like <code>&lt;Esc&gt;</code> if the chord is not mapped.
 		For example <code>&lt;A-x&gt;</code> acts like <code>&lt;Esc&gt;</code>x if <code>&lt;A-x&gt;</code> does not have an
 		insert-mode mapping.
 						<a name="i_CTRL-C"></a><code class="help-tag-right">i_CTRL-C</code>
 CTRL-C		Quit insert mode, go back to Normal mode.  Do not check for
-		abbreviations.  Does not trigger the <a href="autocmd.html#InsertLeave">InsertLeave</a> autocommand
+		abbreviations.  Does not trigger the <a href="/neovim-docs-web/en/autocmd#InsertLeave">InsertLeave</a> autocommand
 		event.</div>
 <div class="old-help-para">						<a name="i_CTRL-%40"></a><code class="help-tag-right">i_CTRL-@</code>
 <code>CTRL-@</code>		Insert previously inserted text and stop insert.</div>
 <div class="old-help-para">						<a name="i_CTRL-A"></a><code class="help-tag-right">i_CTRL-A</code>
 CTRL-A		Insert previously inserted text.</div>
 <div class="old-help-para">						<a name="i_CTRL-H"></a><code class="help-tag-right">i_CTRL-H</code> <a name="i_%3CBS%3E"></a><code class="help-tag">i_&lt;BS&gt;</code> <a name="i_BS"></a><code class="help-tag">i_BS</code>
-<code>&lt;BS&gt;</code> or <code>CTRL-H</code>	Delete the character before the cursor (see <a href="insert.html#i_backspacing">i_backspacing</a>
+<code>&lt;BS&gt;</code> or <code>CTRL-H</code>	Delete the character before the cursor (see <a href="/neovim-docs-web/en/insert#i_backspacing">i_backspacing</a>
 		about joining lines).
 						<a name="i_%3CDel%3E"></a><code class="help-tag-right">i_&lt;Del&gt;</code> <a name="i_DEL"></a><code class="help-tag">i_DEL</code>
 <code>&lt;Del&gt;</code>		Delete the character under the cursor.  If the cursor is at
-		the end of the line, and the <a href="options.html#'backspace'">'backspace'</a> option includes
+		the end of the line, and the <a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a> option includes
 		"eol" (the default), delete the <code>&lt;EOL&gt;</code>; the next line is
 		appended after the current one.
 						<a name="i_CTRL-W"></a><code class="help-tag-right">i_CTRL-W</code>
-CTRL-W		Delete the word before the cursor (see <a href="insert.html#i_backspacing">i_backspacing</a> about
+CTRL-W		Delete the word before the cursor (see <a href="/neovim-docs-web/en/insert#i_backspacing">i_backspacing</a> about
 		joining lines).  See the section "word motions",
-		<a href="motion.html#word-motions">word-motions</a>, for the definition of a word.
+		<a href="/neovim-docs-web/en/motion#word-motions">word-motions</a>, for the definition of a word.
 						<a name="i_CTRL-W-default"></a><code class="help-tag-right">i_CTRL-W-default</code>
 		By default, sets a new undo point before deleting.
-		<a href="vim_diff.html#default-mappings">default-mappings</a>
+		<a href="/neovim-docs-web/en/vim_diff#default-mappings">default-mappings</a>
 						<a name="i_CTRL-U"></a><code class="help-tag-right">i_CTRL-U</code>
 CTRL-U		Delete all entered characters before the cursor in the current
 		line.  If there are no newly entered characters and
-		<a href="options.html#'backspace'">'backspace'</a> is not empty, delete all characters before the
+		<a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a> is not empty, delete all characters before the
 		cursor in the current line.
 		If C-indenting is enabled the indent will be adjusted if the
 		line becomes blank.
-		See <a href="insert.html#i_backspacing">i_backspacing</a> about joining lines.
+		See <a href="/neovim-docs-web/en/insert#i_backspacing">i_backspacing</a> about joining lines.
 						<a name="i_CTRL-U-default"></a><code class="help-tag-right">i_CTRL-U-default</code>
 		By default, sets a new undo point before deleting.
-		<a href="vim_diff.html#default-mappings">default-mappings</a>
+		<a href="/neovim-docs-web/en/vim_diff#default-mappings">default-mappings</a>
 						<a name="i_CTRL-I"></a><code class="help-tag-right">i_CTRL-I</code> <a name="i_%3CTab%3E"></a><code class="help-tag">i_&lt;Tab&gt;</code> <a name="i_Tab"></a><code class="help-tag">i_Tab</code>
-<code>&lt;Tab&gt;</code> or <code>CTRL-I</code> Insert a tab.  If the <a href="options.html#'expandtab'">'expandtab'</a> option is on, the
+<code>&lt;Tab&gt;</code> or <code>CTRL-I</code> Insert a tab.  If the <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a> option is on, the
 		equivalent number of spaces is inserted (use <code>CTRL-V</code> <code>&lt;Tab&gt;</code> to
 		avoid the expansion; use <code>CTRL-Q</code> <code>&lt;Tab&gt;</code> if <code>CTRL-V</code> is mapped
-		<a href="insert.html#i_CTRL-Q">i_CTRL-Q</a>).  See also the <a href="options.html#'smarttab'">'smarttab'</a> option and
-		<a href="insert.html#ins-expandtab">ins-expandtab</a>.
+		<a href="/neovim-docs-web/en/insert#i_CTRL-Q">i_CTRL-Q</a>).  See also the <a href="/neovim-docs-web/en/options#'smarttab'">'smarttab'</a> option and
+		<a href="/neovim-docs-web/en/insert#ins-expandtab">ins-expandtab</a>.
 						<a name="i_CTRL-J"></a><code class="help-tag-right">i_CTRL-J</code> <a name="i_%3CNL%3E"></a><code class="help-tag">i_&lt;NL&gt;</code>
 <code>&lt;NL&gt;</code> or <code>CTRL-J</code>	Begin new line.
 						<a name="i_CTRL-M"></a><code class="help-tag-right">i_CTRL-M</code> <a name="i_%3CCR%3E"></a><code class="help-tag">i_&lt;CR&gt;</code>
 <code>&lt;CR&gt;</code> or <code>CTRL-M</code>	Begin new line.
 						<a name="i_CTRL-K"></a><code class="help-tag-right">i_CTRL-K</code>
 CTRL-K <code>{char1}</code> [char2]
-		Enter digraph (see <a href="digraph.html#digraphs">digraphs</a>).  When <code>{char1}</code> is a special
+		Enter digraph (see <a href="/neovim-docs-web/en/digraph#digraphs">digraphs</a>).  When <code>{char1}</code> is a special
 		key, the code for that key is inserted in &lt;&gt; form.  For
 		example, the string "&lt;S-Space&gt;" can be entered by typing
 		<code>&lt;C-K&gt;</code><code>&lt;S-Space&gt;</code> (two keys).  Neither char is considered for
 		mapping.</div>
-<div class="old-help-para">CTRL-N		Find next keyword (see <a href="insert.html#i_CTRL-N">i_CTRL-N</a>).
-CTRL-P		Find previous keyword (see <a href="insert.html#i_CTRL-P">i_CTRL-P</a>).</div>
+<div class="old-help-para">CTRL-N		Find next keyword (see <a href="/neovim-docs-web/en/insert#i_CTRL-N">i_CTRL-N</a>).
+CTRL-P		Find previous keyword (see <a href="/neovim-docs-web/en/insert#i_CTRL-P">i_CTRL-P</a>).</div>
 <div class="old-help-para">CTRL-R <code>{register}</code>				<a name="i_CTRL-R"></a><code class="help-tag-right">i_CTRL-R</code>
 		Insert the contents of a register.  Between typing <code>CTRL-R</code> and
 		the second character, '"' will be displayed to indicate that
 		you are expected to enter the name of a register.
 		The text is inserted as if you typed it, but mappings and
 		abbreviations are not used.  If you have options like
-		<a href="options.html#'textwidth'">'textwidth'</a>, <a href="options.html#'formatoptions'">'formatoptions'</a>, or <a href="options.html#'autoindent'">'autoindent'</a> set, this will
+		<a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>, <a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a>, or <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> set, this will
 		influence what will be inserted.  This is different from what
 		happens with the "p" command and pasting with the mouse.
 		Special registers:
@@ -112,27 +112,27 @@ CTRL-P		Find previous keyword (see <a href="insert.html#i_CTRL-P">i_CTRL-P</a>).
 			'-'	the last small (less than a line) delete
 							<a name="i_CTRL-R_%3D"></a><code class="help-tag-right">i_CTRL-R_=</code>
 			'='	the expression register: you are prompted to
-				enter an expression (see <a href="eval.html#expression">expression</a>)
+				enter an expression (see <a href="/neovim-docs-web/en/eval#expression">expression</a>)
 				Note that 0x80 (128 decimal) is used for
 				special keys.  E.g., you can use this to move
 				the cursor up:
 					<code>CTRL-R</code> ="\&lt;Up&gt;"
 				Use <code>CTRL-R</code> <code>CTRL-R</code> to insert text literally.
-				When the result is a <a href="eval.html#List">List</a> the items are used
+				When the result is a <a href="/neovim-docs-web/en/eval#List">List</a> the items are used
 				as lines.  They can have line breaks inside
 				too.
 				When the result is a Float it's automatically
 				converted to a String.
 				When append() or setline() is invoked the undo
 				sequence will be broken.
-		See <a href="change.html#registers">registers</a> about registers.</div>
+		See <a href="/neovim-docs-web/en/change#registers">registers</a> about registers.</div>
 <div class="old-help-para">CTRL-R <code>CTRL-R</code> <code>{register}</code>			<a name="i_CTRL-R_CTRL-R"></a><code class="help-tag-right">i_CTRL-R_CTRL-R</code>
 		Insert the contents of a register.  Works like using a single
 		<code>CTRL-R</code>, but the text is inserted literally, not as if typed.
 		This differs when the register contains characters like <code>&lt;BS&gt;</code>.
 		Example, where register a contains "ab^Hc":<pre>CTRL-R a                results in "ac".
 CTRL-R CTRL-R a                results in "ab^Hc".</pre></div>
-<div class="old-help-para">		Options <a href="options.html#'textwidth'">'textwidth'</a>, <a href="options.html#'formatoptions'">'formatoptions'</a>, etc. still apply.  If
+<div class="old-help-para">		Options <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>, <a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a>, etc. still apply.  If
 		you also want to avoid these, use <code>CTRL-R</code> <code>CTRL-O</code>, see below.
 		The '.' register (last inserted text) is still inserted as
 		typed.
@@ -141,7 +141,7 @@ CTRL-R CTRL-R a                results in "ab^Hc".</pre></div>
 <div class="old-help-para">CTRL-R <code>CTRL-O</code> <code>{register}</code>			<a name="i_CTRL-R_CTRL-O"></a><code class="help-tag-right">i_CTRL-R_CTRL-O</code>
 		Insert the contents of a register literally and don't
 		auto-indent.  Does the same as pasting with the mouse
-		<a href="change.html#%3CMiddleMouse%3E">&lt;MiddleMouse&gt;</a>. When the register is linewise this will
+		<a href="/neovim-docs-web/en/change#%3CMiddleMouse%3E">&lt;MiddleMouse&gt;</a>. When the register is linewise this will
 		insert the text above the current line, like with <code>P</code>.
 		Does not replace characters!
 		The '.' register (last inserted text) is still inserted as
@@ -151,7 +151,7 @@ CTRL-R CTRL-R a                results in "ab^Hc".</pre></div>
 		text from the register.</div>
 <div class="old-help-para">CTRL-R <code>CTRL-P</code> <code>{register}</code>			<a name="i_CTRL-R_CTRL-P"></a><code class="help-tag-right">i_CTRL-R_CTRL-P</code>
 		Insert the contents of a register literally and fix the
-		indent, like <a href="change.html#%5B%3CMiddleMouse%3E">[&lt;MiddleMouse&gt;</a>.
+		indent, like <a href="/neovim-docs-web/en/change#%5B%3CMiddleMouse%3E">[&lt;MiddleMouse&gt;</a>.
 		Does not replace characters!
 		The '.' register (last inserted text) is still inserted as
 		typed.
@@ -160,10 +160,10 @@ CTRL-R CTRL-R a                results in "ab^Hc".</pre></div>
 		text from the register.</div>
 <div class="old-help-para">						<a name="i_CTRL-T"></a><code class="help-tag-right">i_CTRL-T</code>
 CTRL-T		Insert one shiftwidth of indent at the start of the current
-		line.  The indent is always rounded to a <a href="options.html#'shiftwidth'">'shiftwidth'</a>.
+		line.  The indent is always rounded to a <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>.
 						<a name="i_CTRL-D"></a><code class="help-tag-right">i_CTRL-D</code>
 CTRL-D		Delete one shiftwidth of indent at the start of the current
-		line.  The indent is always rounded to a <a href="options.html#'shiftwidth'">'shiftwidth'</a>.</div>
+		line.  The indent is always rounded to a <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>.</div>
 <div class="old-help-para">						<a name="i_0_CTRL-D"></a><code class="help-tag-right">i_0_CTRL-D</code>
 0 <code>CTRL-D</code>	Delete all indent in the current line.</div>
 <div class="old-help-para">						<a name="i_%5E_CTRL-D"></a><code class="help-tag-right">i_^_CTRL-D</code>
@@ -173,14 +173,14 @@ CTRL-D		Delete one shiftwidth of indent at the start of the current
 <div class="old-help-para">						<a name="i_CTRL-V"></a><code class="help-tag-right">i_CTRL-V</code>
 CTRL-V		Insert next non-digit literally.  It's also possible to enter
 		the decimal, octal or hexadecimal value of a character
-		<a href="insert.html#i_CTRL-V_digit">i_CTRL-V_digit</a>.
+		<a href="/neovim-docs-web/en/insert#i_CTRL-V_digit">i_CTRL-V_digit</a>.
 		The characters typed right after <code>CTRL-V</code> are not considered for
 		mapping.
 		For special keys, the CTRL modifier may be included into the
 		key to produce a control character.  If there is no control
-		character for the key then its <a href="intro.html#key-notation">key-notation</a> is inserted.
+		character for the key then its <a href="/neovim-docs-web/en/intro#key-notation">key-notation</a> is inserted.
 		Note: When <code>CTRL-V</code> is mapped (e.g., to paste text) you can
-		often use <code>CTRL-Q</code> instead <a href="insert.html#i_CTRL-Q">i_CTRL-Q</a>.</div>
+		often use <code>CTRL-Q</code> instead <a href="/neovim-docs-web/en/insert#i_CTRL-Q">i_CTRL-Q</a>.</div>
 <div class="old-help-para">						<a name="i_CTRL-Q"></a><code class="help-tag-right">i_CTRL-Q</code>
 CTRL-Q		Same as <code>CTRL-V</code>.
 		Note: Some terminal connections may eat <code>CTRL-Q</code>, it doesn't
@@ -189,12 +189,12 @@ CTRL-Q		Same as <code>CTRL-V</code>.
 		modifier into the key.</div>
 <div class="old-help-para">CTRL-X		Enter <code>CTRL-X</code> mode.  This is a sub-mode where commands can
 		be given to complete words or scroll the window.  See
-		<a href="insert.html#i_CTRL-X">i_CTRL-X</a> and <a href="insert.html#ins-completion">ins-completion</a>.</div>
+		<a href="/neovim-docs-web/en/insert#i_CTRL-X">i_CTRL-X</a> and <a href="/neovim-docs-web/en/insert#ins-completion">ins-completion</a>.</div>
 <div class="old-help-para">						<a name="i_CTRL-E"></a><code class="help-tag-right">i_CTRL-E</code>
 CTRL-E		Insert the character which is below the cursor.
 						<a name="i_CTRL-Y"></a><code class="help-tag-right">i_CTRL-Y</code>
 CTRL-Y		Insert the character which is above the cursor.
-		Note that for <code>CTRL-E</code> and <code>CTRL-Y</code> <a href="options.html#'textwidth'">'textwidth'</a> is not used, to be
+		Note that for <code>CTRL-E</code> and <code>CTRL-Y</code> <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> is not used, to be
 		able to copy characters from a long line.</div>
 <div class="old-help-para">						<a name="i_CTRL-_"></a><code class="help-tag-right">i_CTRL-_</code>
 CTRL-_		Switch between languages, as follows:
@@ -204,27 +204,27 @@ CTRL-_		Switch between languages, as follows:
 		   since Hebrew will likely be inserted in this case.
 </div></div>
 <div class="old-help-para">		<code>CTRL-_</code> moves the cursor to the end of the typed text.</div>
-<div class="old-help-para">		This command is only available when the <a href="options.html#'allowrevins'">'allowrevins'</a> option
+<div class="old-help-para">		This command is only available when the <a href="/neovim-docs-web/en/options#'allowrevins'">'allowrevins'</a> option
 		is set.
-		Please refer to <a href="rileft.html#rileft.txt">rileft.txt</a> for more information about
+		Please refer to <a href="/neovim-docs-web/en/rileft#rileft.txt">rileft.txt</a> for more information about
 		right-to-left mode.</div>
 <div class="old-help-para">						<a name="i_CTRL-%5E"></a><code class="help-tag-right">i_CTRL-^</code>
 <code>CTRL-^</code>		Toggle the use of typing language characters.
-		When language <a href="map.html#%3Almap">:lmap</a> mappings are defined:
-<div class="help-li" style=""> If <a href="options.html#'iminsert'">'iminsert'</a> is 1 (langmap mappings used) it becomes 0 (no
+		When language <a href="/neovim-docs-web/en/map#%3Almap">:lmap</a> mappings are defined:
+<div class="help-li" style=""> If <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> is 1 (langmap mappings used) it becomes 0 (no
 		  langmap mappings used).
-</div><div class="help-li" style=""> If <a href="options.html#'iminsert'">'iminsert'</a> has another value it becomes 1, thus langmap
+</div><div class="help-li" style=""> If <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> has another value it becomes 1, thus langmap
 		  mappings are enabled.
 		When no language mappings are defined:
-</div><div class="help-li" style=""> If <a href="options.html#'iminsert'">'iminsert'</a> is 2 (Input Method used) it becomes 0 (no
+</div><div class="help-li" style=""> If <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> is 2 (Input Method used) it becomes 0 (no
 		  Input Method used).
-</div><div class="help-li" style=""> If <a href="options.html#'iminsert'">'iminsert'</a> has another value it becomes 2, thus the Input
+</div><div class="help-li" style=""> If <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> has another value it becomes 2, thus the Input
 		  Method is enabled.
 		When set to 1, the value of the "b:keymap_name" variable, the
-		<a href="options.html#'keymap'">'keymap'</a> option or "&lt;lang&gt;" appears in the status line.
+		<a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option or "&lt;lang&gt;" appears in the status line.
 		The language mappings are normally used to type characters
 		that are different from what the keyboard produces.  The
-		<a href="options.html#'keymap'">'keymap'</a> option can be used to install a whole number of them.
+		<a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option can be used to install a whole number of them.
 </div></div>
 <div class="old-help-para">						<a name="i_CTRL-%5D"></a><code class="help-tag-right">i_CTRL-]</code>
 <code>CTRL-]</code>		Trigger abbreviation, without inserting a character.</div>
@@ -232,17 +232,17 @@ CTRL-_		Switch between languages, as follows:
 <code>&lt;Insert&gt;</code>	Toggle between Insert and Replace mode.
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+insert.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/insert.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0A%09%09%09%09%09%09%2Ai_%3CInsert%3E%2A%0A%3CInsert%3E%09Toggle%20between%20Insert%20and%20Replace%20mode.%0A-----------------------------------------------------------------------%0A%0A%09%09%09%09%09%09%2Ai_backspacing%2A%0AThe%20effect%20of%20the%20%3CBS%3E%2C%20CTRL-W%2C%20and%20CTRL-U%20depend%20on%20the%20'backspace'%20option%0A(unless%20'revins'%20is%20set).%20%20This%20is%20a%20comma-separated%20list%20of%20items%3A%0D%60%60%60">-----------------------------------------------------------------------</a></div>
 <div class="old-help-para">						<a name="i_backspacing"></a><code class="help-tag-right">i_backspacing</code>
-The effect of the <code>&lt;BS&gt;</code>, <code>CTRL-W</code>, and <code>CTRL-U</code> depend on the <a href="options.html#'backspace'">'backspace'</a> option
-(unless <a href="options.html#'revins'">'revins'</a> is set).  This is a comma-separated list of items:</div>
+The effect of the <code>&lt;BS&gt;</code>, <code>CTRL-W</code>, and <code>CTRL-U</code> depend on the <a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a> option
+(unless <a href="/neovim-docs-web/en/options#'revins'">'revins'</a> is set).  This is a comma-separated list of items:</div>
 <div class="old-help-para"><div class="help-column_heading">item	    action</div>indent	    allow backspacing over autoindent
 eol	    allow backspacing over end-of-line (join lines)
 start	    allow backspacing over the start position of insert; <code>CTRL-W</code> and
 	    <code>CTRL-U</code> stop once at the start position</div>
-<div class="old-help-para">When <a href="options.html#'backspace'">'backspace'</a> is empty, Vi compatible backspacing is used.  You cannot
+<div class="old-help-para">When <a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a> is empty, Vi compatible backspacing is used.  You cannot
 backspace over autoindent, before column 1 or before where insert started.</div>
 <div class="old-help-para">For backwards compatibility the values "0", "1", "2" and "3" are also allowed,
-see <a href="options.html#'backspace'">'backspace'</a>.</div>
-<div class="old-help-para">If the <a href="options.html#'backspace'">'backspace'</a> option does contain "eol" and the cursor is in column 1
+see <a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a>.</div>
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a> option does contain "eol" and the cursor is in column 1
 when one of the three keys is used, the current line is joined with the
 previous line.  This effectively deletes the <code>&lt;EOL&gt;</code> in front of the cursor.</div>
 <div class="old-help-para">						<a name="i_CTRL-V_digit"></a><code class="help-tag-right">i_CTRL-V_digit</code>
@@ -265,18 +265,18 @@ character is dealt with in the normal way.</div>
 the buffer to a file, the <code>&lt;NL&gt;</code> character is translated into <code>&lt;Nul&gt;</code>.  The <code>&lt;NL&gt;</code>
 character is written at the end of each line.  Thus if you want to insert a
 <code>&lt;NL&gt;</code> character in a file you will have to make a line break.
-Also see <a href="options.html#'fileformat'">'fileformat'</a>.</div>
+Also see <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a>.</div>
 <div class="old-help-para">						<a name="i_CTRL-X"></a><code class="help-tag-right">i_CTRL-X</code> <a name="insert_expand"></a><code class="help-tag">insert_expand</code>
 CTRL-X enters a sub-mode where several commands can be used.  Most of these
-commands do keyword completion; see <a href="insert.html#ins-completion">ins-completion</a>.</div>
+commands do keyword completion; see <a href="/neovim-docs-web/en/insert#ins-completion">ins-completion</a>.</div>
 <div class="old-help-para">Two commands can be used to scroll the window up or down, without exiting
 insert mode:</div>
 <div class="old-help-para">						<a name="i_CTRL-X_CTRL-E"></a><code class="help-tag-right">i_CTRL-X_CTRL-E</code>
 CTRL-X <code>CTRL-E</code>		scroll window one line up.
-			When doing completion look here: <a href="insert.html#complete_CTRL-E">complete_CTRL-E</a></div>
+			When doing completion look here: <a href="/neovim-docs-web/en/insert#complete_CTRL-E">complete_CTRL-E</a></div>
 <div class="old-help-para">						<a name="i_CTRL-X_CTRL-Y"></a><code class="help-tag-right">i_CTRL-X_CTRL-Y</code>
 CTRL-X <code>CTRL-Y</code>		scroll window one line down.
-			When doing completion look here: <a href="insert.html#complete_CTRL-Y">complete_CTRL-Y</a></div>
+			When doing completion look here: <a href="/neovim-docs-web/en/insert#complete_CTRL-Y">complete_CTRL-Y</a></div>
 <div class="old-help-para">After <code>CTRL-X</code> is pressed, each <code>CTRL-E</code> (<code>CTRL-Y</code>) scrolls the window up (down) by
 one line unless that would cause the cursor to move from its current position
 in the file.  As soon as another key is pressed, <code>CTRL-X</code> mode is exited and
@@ -360,15 +360,15 @@ inoremap &lt;expr&gt; &lt;Home&gt; col('.') == match(getline('.'), '\S') + 1 ?
 inoremap &lt;expr&gt; &lt;End&gt; repeat('&lt;C-G&gt;U&lt;Right&gt;', col('$') - col('.'))
 inoremap ( ()&lt;C-G&gt;U&lt;Left&gt;</pre>
 This makes it possible to use the cursor keys in Insert mode, without starting
-a new undo block and therefore using <a href="repeat.html#.">.</a> (redo) will work as expected.  Also
+a new undo block and therefore using <a href="/neovim-docs-web/en/repeat#.">.</a> (redo) will work as expected.  Also
 entering a text like (with the "(" mapping from above):</div>
 <div class="old-help-para">   Lorem ipsum (dolor</div>
-<div class="old-help-para">will be repeatable by using <a href="repeat.html#.">.</a> to the expected</div>
+<div class="old-help-para">will be repeatable by using <a href="/neovim-docs-web/en/repeat#.">.</a> to the expected</div>
 <div class="old-help-para">   Lorem ipsum (dolor)</div>
 <div class="old-help-para">Using <code>CTRL-O</code> splits undo: the text typed before and after it is undone
 separately.  If you want to avoid this (e.g., in a mapping) you might be able
-to use <code>CTRL-R</code> = <a href="insert.html#i_CTRL-R">i_CTRL-R</a>.  E.g., to call a function:<pre>:imap &lt;F2&gt; &lt;C-R&gt;=MyFunc()&lt;CR&gt;</pre>
-When the <a href="options.html#'whichwrap'">'whichwrap'</a> option is set appropriately, the <code>&lt;Left&gt;</code> and <code>&lt;Right&gt;</code>
+to use <code>CTRL-R</code> = <a href="/neovim-docs-web/en/insert#i_CTRL-R">i_CTRL-R</a>.  E.g., to call a function:<pre>:imap &lt;F2&gt; &lt;C-R&gt;=MyFunc()&lt;CR&gt;</pre>
+When the <a href="/neovim-docs-web/en/options#'whichwrap'">'whichwrap'</a> option is set appropriately, the <code>&lt;Left&gt;</code> and <code>&lt;Right&gt;</code>
 keys on the first/last character in the line make the cursor wrap to the
 previous/next line.</div>
 <div class="old-help-para">The <code>CTRL-G</code> j and <code>CTRL-G</code> k commands can be used to insert text in front of a
@@ -378,70 +378,70 @@ Position the cursor on the first "int", type "istatic <code>&lt;C-G&gt;</code>j 
 result is:<pre>static int i;
        int j;</pre>
 When inserting the same text in front of the column in every line, use the
-Visual blockwise command "I" <a href="visual.html#v_b_I">v_b_I</a>.</div>
-<div class="old-help-para"><h2 class="help-heading">3. <a href="options.html#'textwidth'">'textwidth'</a> and <a href="options.html#'wrapmargin'">'wrapmargin'</a> options<span class="help-heading-tags">			<a name="ins-textwidth"></a><span class="help-tag">ins-textwidth</span></span></h2></div>
-<div class="old-help-para">The <a href="options.html#'textwidth'">'textwidth'</a> option can be used to automatically break a line before it
-gets too long.  Set the <a href="options.html#'textwidth'">'textwidth'</a> option to the desired maximum line
+Visual blockwise command "I" <a href="/neovim-docs-web/en/visual#v_b_I">v_b_I</a>.</div>
+<div class="old-help-para"><h2 class="help-heading">3. <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> and <a href="/neovim-docs-web/en/options#'wrapmargin'">'wrapmargin'</a> options<span class="help-heading-tags">			<a name="ins-textwidth"></a><span class="help-tag">ins-textwidth</span></span></h2></div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> option can be used to automatically break a line before it
+gets too long.  Set the <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> option to the desired maximum line
 length.  If you then type more characters (not spaces or tabs), the
 last word will be put on a new line (unless it is the only word on the
-line).  If you set <a href="options.html#'textwidth'">'textwidth'</a> to 0, this feature is disabled.</div>
-<div class="old-help-para">The <a href="options.html#'wrapmargin'">'wrapmargin'</a> option does almost the same.  The difference is that
-<a href="options.html#'textwidth'">'textwidth'</a> has a fixed width while <a href="options.html#'wrapmargin'">'wrapmargin'</a> depends on the width of the
-screen.  When using <a href="options.html#'wrapmargin'">'wrapmargin'</a> this is equal to using <a href="options.html#'textwidth'">'textwidth'</a> with a
-value equal to (columns - <a href="options.html#'wrapmargin'">'wrapmargin'</a>), where columns is the width of the
+line).  If you set <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> to 0, this feature is disabled.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'wrapmargin'">'wrapmargin'</a> option does almost the same.  The difference is that
+<a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> has a fixed width while <a href="/neovim-docs-web/en/options#'wrapmargin'">'wrapmargin'</a> depends on the width of the
+screen.  When using <a href="/neovim-docs-web/en/options#'wrapmargin'">'wrapmargin'</a> this is equal to using <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> with a
+value equal to (columns - <a href="/neovim-docs-web/en/options#'wrapmargin'">'wrapmargin'</a>), where columns is the width of the
 screen.</div>
-<div class="old-help-para">When <a href="options.html#'textwidth'">'textwidth'</a> and <a href="options.html#'wrapmargin'">'wrapmargin'</a> are both set, <a href="options.html#'textwidth'">'textwidth'</a> is used.</div>
+<div class="old-help-para">When <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> and <a href="/neovim-docs-web/en/options#'wrapmargin'">'wrapmargin'</a> are both set, <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> is used.</div>
 <div class="old-help-para">If you don't really want to break the line, but view the line wrapped at a
-convenient place, see the <a href="options.html#'linebreak'">'linebreak'</a> option.</div>
+convenient place, see the <a href="/neovim-docs-web/en/options#'linebreak'">'linebreak'</a> option.</div>
 <div class="old-help-para">The line is only broken automatically when using Insert mode, or when
 appending to a line.  When in replace mode and the line length is not
 changed, the line will not be broken.</div>
 <div class="old-help-para">Long lines are broken if you enter a non-white character after the margin.
 The situations where a line will be broken can be restricted by adding
-characters to the <a href="options.html#'formatoptions'">'formatoptions'</a> option:
-"l"  Only break a line if it was not longer than <a href="options.html#'textwidth'">'textwidth'</a> when the insert
+characters to the <a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a> option:
+"l"  Only break a line if it was not longer than <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> when the insert
      started.
 "v"  Only break at a white character that has been entered during the
      current insert command.  This is mostly Vi-compatible.
-"lv" Only break if the line was not longer than <a href="options.html#'textwidth'">'textwidth'</a> when the insert
+"lv" Only break if the line was not longer than <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> when the insert
      started and only at a white character that has been entered during the
      current insert command.  Only differs from "l" when entering non-white
-     characters while crossing the <a href="options.html#'textwidth'">'textwidth'</a> boundary.</div>
+     characters while crossing the <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> boundary.</div>
 <div class="old-help-para">Normally an internal function will be used to decide where to break the line.
-If you want to do it in a different way set the <a href="options.html#'formatexpr'">'formatexpr'</a> option to an
+If you want to do it in a different way set the <a href="/neovim-docs-web/en/options#'formatexpr'">'formatexpr'</a> option to an
 expression that will take care of the line break.</div>
 <div class="old-help-para">If you want to format a block of text, you can use the "gq" operator.  Type
 "gq" and a movement command to move the cursor to the end of the block.  In
 many cases, the command "gq}" will do what you want (format until the end of
 paragraph).  Alternatively, you can use "gqap", which will format the whole
 paragraph, no matter where the cursor currently is.  Or you can use Visual
-mode: hit "v", move to the end of the block, and type "gq".  See also <a href="change.html#gq">gq</a>.</div>
-<div class="old-help-para"><h2 class="help-heading">4. <a href="options.html#'expandtab'">'expandtab'</a>, <a href="options.html#'smarttab'">'smarttab'</a> and <a href="options.html#'softtabstop'">'softtabstop'</a> options<span class="help-heading-tags">	<a name="ins-expandtab"></a><span class="help-tag">ins-expandtab</span></span></h2></div>
-<div class="old-help-para">If the <a href="options.html#'expandtab'">'expandtab'</a> option is on, spaces will be used to fill the amount of
+mode: hit "v", move to the end of the block, and type "gq".  See also <a href="/neovim-docs-web/en/change#gq">gq</a>.</div>
+<div class="old-help-para"><h2 class="help-heading">4. <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a>, <a href="/neovim-docs-web/en/options#'smarttab'">'smarttab'</a> and <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> options<span class="help-heading-tags">	<a name="ins-expandtab"></a><span class="help-tag">ins-expandtab</span></span></h2></div>
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a> option is on, spaces will be used to fill the amount of
 whitespace of the tab.  If you want to enter a real <code>&lt;Tab&gt;</code>, type <code>CTRL-V</code> first
-(use <code>CTRL-Q</code> when <code>CTRL-V</code> is mapped <a href="insert.html#i_CTRL-Q">i_CTRL-Q</a>).
-The <a href="options.html#'expandtab'">'expandtab'</a> option is off by default.  Note that in Replace mode, a single
+(use <code>CTRL-Q</code> when <code>CTRL-V</code> is mapped <a href="/neovim-docs-web/en/insert#i_CTRL-Q">i_CTRL-Q</a>).
+The <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a> option is off by default.  Note that in Replace mode, a single
 character is replaced with several spaces.  The result of this is that the
 number of characters in the line increases.  Backspacing will delete one
 space at a time.  The original character will be put back for only one space
 that you backspace over (the last one).</div>
 <div class="old-help-para">							<a name="ins-smarttab"></a><code class="help-tag-right">ins-smarttab</code>
-When the <a href="options.html#'smarttab'">'smarttab'</a> option is on, a <code>&lt;Tab&gt;</code> inserts <a href="options.html#'shiftwidth'">'shiftwidth'</a> positions at
-the beginning of a line and <a href="options.html#'tabstop'">'tabstop'</a> positions in other places.  This means
-that often spaces instead of a <code>&lt;Tab&gt;</code> character are inserted.  When <a href="options.html#'smarttab'">'smarttab'</a>
-is off, a <code>&lt;Tab&gt;</code> always inserts <a href="options.html#'tabstop'">'tabstop'</a> positions, and <a href="options.html#'shiftwidth'">'shiftwidth'</a> is only
+When the <a href="/neovim-docs-web/en/options#'smarttab'">'smarttab'</a> option is on, a <code>&lt;Tab&gt;</code> inserts <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> positions at
+the beginning of a line and <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> positions in other places.  This means
+that often spaces instead of a <code>&lt;Tab&gt;</code> character are inserted.  When <a href="/neovim-docs-web/en/options#'smarttab'">'smarttab'</a>
+is off, a <code>&lt;Tab&gt;</code> always inserts <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> positions, and <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> is only
 used for "&gt;&gt;" and the like.</div>
 <div class="old-help-para">							<a name="ins-softtabstop"></a><code class="help-tag-right">ins-softtabstop</code>
-When the <a href="options.html#'softtabstop'">'softtabstop'</a> option is non-zero, a <code>&lt;Tab&gt;</code> inserts <a href="options.html#'softtabstop'">'softtabstop'</a>
-positions, and a <code>&lt;BS&gt;</code> used to delete white space, will delete <a href="options.html#'softtabstop'">'softtabstop'</a>
-positions.  This feels like <a href="options.html#'tabstop'">'tabstop'</a> was set to <a href="options.html#'softtabstop'">'softtabstop'</a>, but a real
-<code>&lt;Tab&gt;</code> character still takes <a href="options.html#'tabstop'">'tabstop'</a> positions, so your file will still look
+When the <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> option is non-zero, a <code>&lt;Tab&gt;</code> inserts <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>
+positions, and a <code>&lt;BS&gt;</code> used to delete white space, will delete <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>
+positions.  This feels like <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> was set to <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>, but a real
+<code>&lt;Tab&gt;</code> character still takes <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> positions, so your file will still look
 correct when used by other applications.</div>
-<div class="old-help-para">If <a href="options.html#'softtabstop'">'softtabstop'</a> is non-zero, a <code>&lt;BS&gt;</code> will try to delete as much white space to
-move to the previous <a href="options.html#'softtabstop'">'softtabstop'</a> position, except when the previously
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> is non-zero, a <code>&lt;BS&gt;</code> will try to delete as much white space to
+move to the previous <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> position, except when the previously
 inserted character is a space, then it will only delete the character before
 the cursor.  Otherwise you cannot always delete a single character before the
-cursor.  You will have to delete <a href="options.html#'softtabstop'">'softtabstop'</a> characters first, and then type
+cursor.  You will have to delete <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> characters first, and then type
 extra spaces to get where you want to be.</div>
 <div class="old-help-para"><h2 class="help-heading">5. Replace mode<span class="help-heading-tags">				<a name="Replace"></a><span class="help-tag">Replace</span> <a name="Replace-mode"></a><span class="help-tag">Replace-mode</span> <a name="mode-replace"></a><span class="help-tag">mode-replace</span></span></h2></div>
 <div class="old-help-para">Enter Replace mode with the "R" command in normal mode.</div>
@@ -457,7 +457,7 @@ columns will become smaller.</div>
 happens is that you delete the changes.  The characters that were replaced
 are restored.  If you had typed past the existing text, the characters you
 added are deleted.  This is effectively a character-at-a-time undo.</div>
-<div class="old-help-para">If the <a href="options.html#'expandtab'">'expandtab'</a> option is on, a <code>&lt;Tab&gt;</code> will replace one character with
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a> option is on, a <code>&lt;Tab&gt;</code> will replace one character with
 several spaces.  The result of this is that the number of characters in the
 line increases.  Backspacing will delete one space at a time.  The original
 character will be put back for only one space that you backspace over (the
@@ -479,12 +479,12 @@ before the cursor are shifted sideways as normal, but characters later in the
 line still remain still.  <code>CTRL-T</code> will hide some of the old line under the
 shifted characters, but <code>CTRL-D</code> will reveal them again.</div>
 <div class="old-help-para">As with Replace mode, using <code>&lt;BS&gt;</code> etc will bring back the characters that were
-replaced.  This still works in conjunction with <a href="options.html#'smartindent'">'smartindent'</a>, <code>CTRL-T</code> and
-CTRL-D, <a href="options.html#'expandtab'">'expandtab'</a>, <a href="options.html#'smarttab'">'smarttab'</a>, <a href="options.html#'softtabstop'">'softtabstop'</a>, etc.</div>
-<div class="old-help-para">In <a href="options.html#'list'">'list'</a> mode, Virtual Replace mode acts as if it was not in <a href="options.html#'list'">'list'</a> mode,
-unless "L" is in <a href="options.html#'cpoptions'">'cpoptions'</a>.</div>
+replaced.  This still works in conjunction with <a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a>, <code>CTRL-T</code> and
+CTRL-D, <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a>, <a href="/neovim-docs-web/en/options#'smarttab'">'smarttab'</a>, <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>, etc.</div>
+<div class="old-help-para">In <a href="/neovim-docs-web/en/options#'list'">'list'</a> mode, Virtual Replace mode acts as if it was not in <a href="/neovim-docs-web/en/options#'list'">'list'</a> mode,
+unless "L" is in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.</div>
 <div class="old-help-para">Note that the only situations for which characters beyond the cursor should
-appear to move are in List mode <a href="options.html#'list'">'list'</a>, and occasionally when <a href="options.html#'wrap'">'wrap'</a> is set
+appear to move are in List mode <a href="/neovim-docs-web/en/options#'list'">'list'</a>, and occasionally when <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> is set
 (and the line changes length to become shorter or wider than the width of the
 screen).  In other cases spaces may be inserted to avoid following characters
 to move.</div>
@@ -495,27 +495,27 @@ entering new data while keeping all the columns aligned.</div>
 keyword or line that has been typed.  This is useful if you are using
 complicated keywords (e.g., function names with capitals and underscores).</div>
 <div class="old-help-para">Completion can be done for:</div>
-<div class="old-help-para">1. Whole lines						<a href="insert.html#i_CTRL-X_CTRL-L">i_CTRL-X_CTRL-L</a>
-2. keywords in the current file				<a href="insert.html#i_CTRL-X_CTRL-N">i_CTRL-X_CTRL-N</a>
-3. keywords in <a href="options.html#'dictionary'">'dictionary'</a>				<a href="insert.html#i_CTRL-X_CTRL-K">i_CTRL-X_CTRL-K</a>
-4. keywords in <a href="options.html#'thesaurus'">'thesaurus'</a>, thesaurus-style		<a href="insert.html#i_CTRL-X_CTRL-T">i_CTRL-X_CTRL-T</a>
-5. keywords in the current and included files		<a href="insert.html#i_CTRL-X_CTRL-I">i_CTRL-X_CTRL-I</a>
-6. tags							<a href="insert.html#i_CTRL-X_CTRL-%5D">i_CTRL-X_CTRL-]</a>
-7. file names						<a href="insert.html#i_CTRL-X_CTRL-F">i_CTRL-X_CTRL-F</a>
-8. definitions or macros				<a href="insert.html#i_CTRL-X_CTRL-D">i_CTRL-X_CTRL-D</a>
-9. Vim command-line					<a href="insert.html#i_CTRL-X_CTRL-V">i_CTRL-X_CTRL-V</a>
-10. User defined completion				<a href="insert.html#i_CTRL-X_CTRL-U">i_CTRL-X_CTRL-U</a>
-11. omni completion					<a href="insert.html#i_CTRL-X_CTRL-O">i_CTRL-X_CTRL-O</a>
-12. Spelling suggestions				<a href="insert.html#i_CTRL-X_s">i_CTRL-X_s</a>
-13. keywords in <a href="options.html#'complete'">'complete'</a>				<a href="insert.html#i_CTRL-N">i_CTRL-N</a> <a href="insert.html#i_CTRL-P">i_CTRL-P</a></div>
-<div class="old-help-para">Additionally, <a href="insert.html#i_CTRL-X_CTRL-Z">i_CTRL-X_CTRL-Z</a> stops completion without changing the text.</div>
+<div class="old-help-para">1. Whole lines						<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-L">i_CTRL-X_CTRL-L</a>
+2. keywords in the current file				<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-N">i_CTRL-X_CTRL-N</a>
+3. keywords in <a href="/neovim-docs-web/en/options#'dictionary'">'dictionary'</a>				<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-K">i_CTRL-X_CTRL-K</a>
+4. keywords in <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a>, thesaurus-style		<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-T">i_CTRL-X_CTRL-T</a>
+5. keywords in the current and included files		<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-I">i_CTRL-X_CTRL-I</a>
+6. tags							<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-%5D">i_CTRL-X_CTRL-]</a>
+7. file names						<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-F">i_CTRL-X_CTRL-F</a>
+8. definitions or macros				<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-D">i_CTRL-X_CTRL-D</a>
+9. Vim command-line					<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-V">i_CTRL-X_CTRL-V</a>
+10. User defined completion				<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-U">i_CTRL-X_CTRL-U</a>
+11. omni completion					<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-O">i_CTRL-X_CTRL-O</a>
+12. Spelling suggestions				<a href="/neovim-docs-web/en/insert#i_CTRL-X_s">i_CTRL-X_s</a>
+13. keywords in <a href="/neovim-docs-web/en/options#'complete'">'complete'</a>				<a href="/neovim-docs-web/en/insert#i_CTRL-N">i_CTRL-N</a> <a href="/neovim-docs-web/en/insert#i_CTRL-P">i_CTRL-P</a></div>
+<div class="old-help-para">Additionally, <a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-Z">i_CTRL-X_CTRL-Z</a> stops completion without changing the text.</div>
 <div class="old-help-para">All these, except <code>CTRL-N</code> and <code>CTRL-P</code>, are done in <code>CTRL-X</code> mode.  This is a
 sub-mode of Insert and Replace modes.  You enter <code>CTRL-X</code> mode by typing <code>CTRL-X</code>
 and one of the <code>CTRL-X</code> commands.  You exit <code>CTRL-X</code> mode by typing a key that is
 not a valid <code>CTRL-X</code> mode command.  Valid keys are the <code>CTRL-X</code> command itself,
 CTRL-N (next), and <code>CTRL-P</code> (previous).</div>
-<div class="old-help-para">To get the current completion information, <a href="builtin.html#complete_info()">complete_info()</a> can be used.
-Also see the <a href="options.html#'infercase'">'infercase'</a> option if you want to adjust the case of the match.</div>
+<div class="old-help-para">To get the current completion information, <a href="/neovim-docs-web/en/builtin#complete_info()">complete_info()</a> can be used.
+Also see the <a href="/neovim-docs-web/en/options#'infercase'">'infercase'</a> option if you want to adjust the case of the match.</div>
 <div class="old-help-para">							<a name="complete_CTRL-E"></a><code class="help-tag-right">complete_CTRL-E</code>
 When completion is active you can use <code>CTRL-E</code> to stop it and go back to the
 originally typed text.  The <code>CTRL-E</code> will not be inserted.</div>
@@ -525,11 +525,11 @@ accept the currently selected entry.  The <code>CTRL-Y</code> is not inserted.  
 space, Enter, or some other unprintable character will leave completion mode
 and insert that typed character.</div>
 <div class="old-help-para">When the popup menu is displayed there are a few more special keys, see
-<a href="insert.html#popupmenu-keys">popupmenu-keys</a>.</div>
+<a href="/neovim-docs-web/en/insert#popupmenu-keys">popupmenu-keys</a>.</div>
 <div class="old-help-para">Note: The keys that are valid in <code>CTRL-X</code> mode are not mapped.  This allows for
 <code>:map &lt;C-F&gt; &lt;C-X&gt;&lt;C-F&gt;</code> to work.  The key that ends <code>CTRL-X</code> mode (any key that
 is not a valid <code>CTRL-X</code> mode command) is mapped. Also, when doing completion
-with <a href="options.html#'complete'">'complete'</a> mappings apply as usual.</div>
+with <a href="/neovim-docs-web/en/options#'complete'">'complete'</a> mappings apply as usual.</div>
 <div class="old-help-para">								<a name="E565"></a><code class="help-tag-right">E565</code>
 Note: While completion is active Insert mode can't be used recursively and
 buffer text cannot be changed.  Mappings that somehow invoke ":normal i.."
@@ -540,7 +540,7 @@ a bit easier (although they will hide other commands):<pre>:inoremap &lt;C-]&gt;
 :inoremap &lt;C-D&gt; &lt;C-X&gt;&lt;C-D&gt;
 :inoremap &lt;C-L&gt; &lt;C-X&gt;&lt;C-L&gt;</pre>
 As a special case, typing <code>CTRL-R</code> to perform register insertion (see
-<a href="insert.html#i_CTRL-R">i_CTRL-R</a>) will not exit <code>CTRL-X</code> mode.  This is primarily to allow the use of
+<a href="/neovim-docs-web/en/insert#i_CTRL-R">i_CTRL-R</a>) will not exit <code>CTRL-X</code> mode.  This is primarily to allow the use of
 the '=' register to call some function to determine the next operation.  If
 the contents of the register (or result of the '=' register evaluation) are
 not valid <code>CTRL-X</code> mode keys, then <code>CTRL-X</code> mode will be exited as if those keys
@@ -561,7 +561,7 @@ CTRL-X <code>CTRL-L</code>		Search backwards for a line that starts with the
 			same characters as those in the current line before
 			the cursor.  Indent is ignored.  The matching line is
 			inserted in front of the cursor.
-			The <a href="options.html#'complete'">'complete'</a> option is used to decide which buffers
+			The <a href="/neovim-docs-web/en/options#'complete'">'complete'</a> option is used to decide which buffers
 			are searched for a match.  Both loaded and unloaded
 			buffers are used.
 	<code>CTRL-L</code>	or
@@ -591,7 +591,7 @@ CTRL-X <code>CTRL-N</code>		Search forwards for words that start with the keywor
 			copy the words following the previous expansion in
 			other contexts unless a double <code>CTRL-X</code> is used.</div>
 <div class="old-help-para">If there is a keyword in front of the cursor (a name made out of alphabetic
-characters and characters in <a href="options.html#'iskeyword'">'iskeyword'</a>), it is used as the search pattern,
+characters and characters in <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>), it is used as the search pattern,
 with "\&lt;" prepended (meaning: start of a word).  Otherwise "\&lt;\k\k" is used
 as search pattern (start of any keyword of at least two characters).</div>
 <div class="old-help-para">In Replace mode, the number of characters that are replaced depends on the
@@ -603,7 +603,7 @@ at least two characters is matched.
 	    printf("(%g, %g, %g)", vector[0], vector[1], vector[2]);
 	just type:
 	    printf("(%g, %g, %g)", vector[0], ^P[1], ^P[2]);</div>
-<div class="old-help-para">The search wraps around the end of the file, the value of <a href="options.html#'wrapscan'">'wrapscan'</a> is not
+<div class="old-help-para">The search wraps around the end of the file, the value of <a href="/neovim-docs-web/en/options#'wrapscan'">'wrapscan'</a> is not
 used here.</div>
 <div class="old-help-para">Multiple repeats of the same completion are skipped; thus a different match
 will be inserted at each <code>CTRL-N</code> and <code>CTRL-P</code> (unless there is only one
@@ -629,34 +629,34 @@ CTRL-X <code>CTRL-N</code> can be used to expand words of just one character.
 		M^N^P^X^P^X^P
 CTRL-N starts the expansion and then <code>CTRL-P</code> takes back the single character
 "M", the next two <code>CTRL-X</code> <code>CTRL-P</code>'s get the words "&amp;eacute" and ";xico".</div>
-<div class="old-help-para">If the previous expansion was split, because it got longer than <a href="options.html#'textwidth'">'textwidth'</a>,
+<div class="old-help-para">If the previous expansion was split, because it got longer than <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>,
 then just the text in the current line will be used.</div>
 <div class="old-help-para">If the match found is at the end of a line, then the first word in the next
 line will be inserted and the message "Word from other line" displayed, if
 this word is accepted the next <code>CTRL-X</code> <code>CTRL-P</code> or <code>CTRL-X</code> <code>CTRL-N</code> will search
 for those lines starting with this word.</div>
-<div class="old-help-para">Completing keywords in <a href="options.html#'dictionary'">'dictionary'</a>			<a name="compl-dictionary"></a><code class="help-tag-right">compl-dictionary</code></div>
+<div class="old-help-para">Completing keywords in <a href="/neovim-docs-web/en/options#'dictionary'">'dictionary'</a>			<a name="compl-dictionary"></a><code class="help-tag-right">compl-dictionary</code></div>
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-K"></a><code class="help-tag-right">i_CTRL-X_CTRL-K</code>
-CTRL-X <code>CTRL-K</code>		Search the files given with the <a href="options.html#'dictionary'">'dictionary'</a> option
+CTRL-X <code>CTRL-K</code>		Search the files given with the <a href="/neovim-docs-web/en/options#'dictionary'">'dictionary'</a> option
 			for words that start with the keyword in front of the
 			cursor.  This is like <code>CTRL-N</code>, but only the dictionary
 			files are searched, not the current file.  The found
 			keyword is inserted in front of the cursor.  This
 			could potentially be pretty slow, since all matches
 			are found before the first match is used.  By default,
-			the <a href="options.html#'dictionary'">'dictionary'</a> option is empty.
+			the <a href="/neovim-docs-web/en/options#'dictionary'">'dictionary'</a> option is empty.
 			For suggestions where to find a list of words, see the
-			<a href="options.html#'dictionary'">'dictionary'</a> option.
-			<a href="options.html#'ignorecase'">'ignorecase'</a>, <a href="options.html#'smartcase'">'smartcase'</a> and <a href="options.html#'infercase'">'infercase'</a> apply.</div>
+			<a href="/neovim-docs-web/en/options#'dictionary'">'dictionary'</a> option.
+			<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a>, <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> and <a href="/neovim-docs-web/en/options#'infercase'">'infercase'</a> apply.</div>
 <div class="old-help-para">	<code>CTRL-K</code>	or
 	<code>CTRL-N</code>		Search forward for next matching keyword.  This
 			keyword replaces the previous matching keyword.</div>
 <div class="old-help-para">	<code>CTRL-P</code>		Search backwards for next matching keyword.  This
 			keyword replaces the previous matching keyword.</div>
-<div class="old-help-para">Completing words in <a href="options.html#'thesaurus'">'thesaurus'</a>				<a name="compl-thesaurus"></a><code class="help-tag-right">compl-thesaurus</code></div>
+<div class="old-help-para">Completing words in <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a>				<a name="compl-thesaurus"></a><code class="help-tag-right">compl-thesaurus</code></div>
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-T"></a><code class="help-tag-right">i_CTRL-X_CTRL-T</code>
 CTRL-X <code>CTRL-T</code>		Works as <code>CTRL-X</code> <code>CTRL-K</code>, but in a special way.  It uses
-			the <a href="options.html#'thesaurus'">'thesaurus'</a> option instead of <a href="options.html#'dictionary'">'dictionary'</a>.  If a
+			the <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a> option instead of <a href="/neovim-docs-web/en/options#'dictionary'">'dictionary'</a>.  If a
 			match is found in the thesaurus file, all the
 			remaining words on the same line are included as
 			matches, even though they don't complete the word.
@@ -666,10 +666,10 @@ CTRL-X <code>CTRL-T</code>		Works as <code>CTRL-X</code> <code>CTRL-K</code>, bu
 			keyword replaces the previous matching keyword.</div>
 <div class="old-help-para">	<code>CTRL-P</code>		Search backwards for next matching keyword.  This
 			keyword replaces the previous matching keyword.</div>
-<div class="old-help-para">In the file used by the <a href="options.html#'thesaurus'">'thesaurus'</a> option each line in the file should
+<div class="old-help-para">In the file used by the <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a> option each line in the file should
 contain words with similar meaning, separated by non-keyword characters (white
 space is preferred).  Maximum line length is 510 bytes.</div>
-<div class="old-help-para">For an example, imagine the <a href="options.html#'thesaurus'">'thesaurus'</a> file has a line like this:<pre>angry furious mad enraged</pre>
+<div class="old-help-para">For an example, imagine the <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a> file has a line like this:<pre>angry furious mad enraged</pre>
 Placing the cursor after the letters "ang" and typing <code>CTRL-X</code> <code>CTRL-T</code> would
 complete the word "angry"; subsequent presses would change the word to
 "furious", "mad" etc.</div>
@@ -678,11 +678,11 @@ functions by keyword.</div>
 <div class="old-help-para">An English word list was added to this github issue:
 <a href="https://github.com/vim/vim/issues/629#issuecomment-443293282">https://github.com/vim/vim/issues/629#issuecomment-443293282</a>
 Unpack thesaurus_pkg.zip, put the thesaurus.txt file somewhere, e.g.
-~/.vim/thesaurus/english.txt, and the <a href="options.html#'thesaurus'">'thesaurus'</a> option to this file name.</div>
-<div class="old-help-para">Completing keywords with <a href="options.html#'thesaurusfunc'">'thesaurusfunc'</a>		<a name="compl-thesaurusfunc"></a><code class="help-tag-right">compl-thesaurusfunc</code></div>
-<div class="old-help-para">If the <a href="options.html#'thesaurusfunc'">'thesaurusfunc'</a> option is set, then the user specified function is
-invoked to get the list of completion matches and the <a href="options.html#'thesaurus'">'thesaurus'</a> option is
-not used. See <a href="insert.html#complete-functions">complete-functions</a> for an explanation of how the function is
+~/.vim/thesaurus/english.txt, and the <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a> option to this file name.</div>
+<div class="old-help-para">Completing keywords with <a href="/neovim-docs-web/en/options#'thesaurusfunc'">'thesaurusfunc'</a>		<a name="compl-thesaurusfunc"></a><code class="help-tag-right">compl-thesaurusfunc</code></div>
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'thesaurusfunc'">'thesaurusfunc'</a> option is set, then the user specified function is
+invoked to get the list of completion matches and the <a href="/neovim-docs-web/en/options#'thesaurus'">'thesaurus'</a> option is
+not used. See <a href="/neovim-docs-web/en/insert#complete-functions">complete-functions</a> for an explanation of how the function is
 invoked and what it should return.</div>
 <div class="old-help-para">Here is an example that uses the "aiksaurus" command (provided by Magnus
 Groß):<pre>func Thesaur(findstart, base)
@@ -709,8 +709,8 @@ endfunc
 
 set thesaurusfunc=Thesaur</pre>
 Completing keywords in the current and included files	<a name="compl-keyword"></a><code class="help-tag">compl-keyword</code></div>
-<div class="old-help-para">The <a href="options.html#'include'">'include'</a> option is used to specify a line that contains an include file
-name.  The <a href="options.html#'path'">'path'</a> option is used to search for include files.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'include'">'include'</a> option is used to specify a line that contains an include file
+name.  The <a href="/neovim-docs-web/en/options#'path'">'path'</a> option is used to search for include files.</div>
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-I"></a><code class="help-tag-right">i_CTRL-X_CTRL-I</code>
 CTRL-X <code>CTRL-I</code>		Search for the first keyword in the current and
 			included files that starts with the same characters
@@ -731,10 +731,10 @@ CTRL-X <code>CTRL-I</code>		Search for the first keyword in the current and
 CTRL-X <code>CTRL-]</code>		Search for the first tag that starts with the same
 			characters as before the cursor.  The matching tag is
 			inserted in front of the cursor.  Alphabetic
-			characters and characters in <a href="options.html#'iskeyword'">'iskeyword'</a> are used
+			characters and characters in <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> are used
 			to decide which characters are included in the tag
-			name (same as for a keyword).  See also <a href="tagsrch.html#CTRL-%5D">CTRL-]</a>.
-			The <a href="options.html#'showfulltag'">'showfulltag'</a> option can be used to add context
+			name (same as for a keyword).  See also <a href="/neovim-docs-web/en/tagsrch#CTRL-%5D">CTRL-]</a>.
+			The <a href="/neovim-docs-web/en/options#'showfulltag'">'showfulltag'</a> option can be used to add context
 			from around the tag definition.
 	<code>CTRL-]</code>	or
 	<code>CTRL-N</code>		Search forwards for next matching tag.  This tag
@@ -746,9 +746,9 @@ CTRL-X <code>CTRL-]</code>		Search for the first tag that starts with the same
 CTRL-X <code>CTRL-F</code>		Search for the first file name that starts with the
 			same characters as before the cursor.  The matching
 			file name is inserted in front of the cursor.
-			Alphabetic characters and characters in <a href="options.html#'isfname'">'isfname'</a>
+			Alphabetic characters and characters in <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a>
 			are used to decide which characters are included in
-			the file name.  Note: the <a href="options.html#'path'">'path'</a> option is not used
+			the file name.  Note: the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option is not used
 			here (yet).
 	<code>CTRL-F</code>	or
 	<code>CTRL-N</code>		Search forwards for next matching file name.  This
@@ -757,9 +757,9 @@ CTRL-X <code>CTRL-F</code>		Search for the first file name that starts with the
 			This file name replaces the previous matching file
 			name.</div>
 <div class="old-help-para">Completing definitions or macros			<a name="compl-define"></a><code class="help-tag-right">compl-define</code></div>
-<div class="old-help-para">The <a href="options.html#'define'">'define'</a> option is used to specify a line that contains a definition.
-The <a href="options.html#'include'">'include'</a> option is used to specify a line that contains an include file
-name.  The <a href="options.html#'path'">'path'</a> option is used to search for include files.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'define'">'define'</a> option is used to specify a line that contains a definition.
+The <a href="/neovim-docs-web/en/options#'include'">'include'</a> option is used to specify a line that contains an include file
+name.  The <a href="/neovim-docs-web/en/options#'path'">'path'</a> option is used to search for include files.</div>
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-D"></a><code class="help-tag-right">i_CTRL-X_CTRL-D</code>
 CTRL-X <code>CTRL-D</code>		Search in the current and included files for the
 			first definition (or macro) name that starts with
@@ -783,7 +783,7 @@ a Vim script.</div>
 CTRL-X <code>CTRL-V</code>		Guess what kind of item is in front of the cursor and
 			find the first match for it.
 			Note: When <code>CTRL-V</code> is mapped you can often use <code>CTRL-Q</code>
-			instead of <a href="insert.html#i_CTRL-Q">i_CTRL-Q</a>.
+			instead of <a href="/neovim-docs-web/en/insert#i_CTRL-Q">i_CTRL-Q</a>.
 	<code>CTRL-V</code>	or
 	<code>CTRL-N</code>		Search forwards for next match.  This match replaces
 			the previous one.</div>
@@ -794,8 +794,8 @@ CTRL-X <code>CTRL-V</code>		Guess what kind of item is in front of the cursor an
 			completion, for example:<pre>:imap &lt;Tab&gt; &lt;C-X&gt;&lt;C-V&gt;</pre>
 User defined completion					<a name="compl-function"></a><code class="help-tag-right">compl-function</code></div>
 <div class="old-help-para">Completion is done by a function that can be defined by the user with the
-<a href="options.html#'completefunc'">'completefunc'</a> option.  See below for how the function is called and an
-example <a href="insert.html#complete-functions">complete-functions</a>.</div>
+<a href="/neovim-docs-web/en/options#'completefunc'">'completefunc'</a> option.  See below for how the function is called and an
+example <a href="/neovim-docs-web/en/insert#complete-functions">complete-functions</a>.</div>
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-U"></a><code class="help-tag-right">i_CTRL-X_CTRL-U</code>
 CTRL-X <code>CTRL-U</code>		Guess what kind of item is in front of the cursor and
 			find the first match for it.
@@ -806,9 +806,9 @@ CTRL-X <code>CTRL-U</code>		Guess what kind of item is in front of the cursor an
 			previous one.</div>
 <div class="old-help-para">Omni completion						<a name="compl-omni"></a><code class="help-tag-right">compl-omni</code></div>
 <div class="old-help-para">Completion is done by a function that can be defined by the user with the
-<a href="options.html#'omnifunc'">'omnifunc'</a> option.  This is to be used for filetype-specific completion.</div>
-<div class="old-help-para">See below for how the function is called and an example <a href="insert.html#complete-functions">complete-functions</a>.
-For remarks about specific filetypes see <a href="insert.html#compl-omni-filetypes">compl-omni-filetypes</a>.
+<a href="/neovim-docs-web/en/options#'omnifunc'">'omnifunc'</a> option.  This is to be used for filetype-specific completion.</div>
+<div class="old-help-para">See below for how the function is called and an example <a href="/neovim-docs-web/en/insert#complete-functions">complete-functions</a>.
+For remarks about specific filetypes see <a href="/neovim-docs-web/en/insert#compl-omni-filetypes">compl-omni-filetypes</a>.
 More completion scripts will appear, check www.vim.org.  Currently there is a
 first version for C++.</div>
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-O"></a><code class="help-tag-right">i_CTRL-X_CTRL-O</code>
@@ -839,12 +839,12 @@ CTRL-X s		Locate the word in front of the cursor and find the
 <div class="old-help-para">							<a name="i_CTRL-N"></a><code class="help-tag-right">i_CTRL-N</code>
 CTRL-N			Find next match for words that start with the
 			keyword in front of the cursor, looking in places
-			specified with the <a href="options.html#'complete'">'complete'</a> option.  The found
+			specified with the <a href="/neovim-docs-web/en/options#'complete'">'complete'</a> option.  The found
 			keyword is inserted in front of the cursor.</div>
 <div class="old-help-para">							<a name="i_CTRL-P"></a><code class="help-tag-right">i_CTRL-P</code>
 CTRL-P			Find previous match for words that start with the
 			keyword in front of the cursor, looking in places
-			specified with the <a href="options.html#'complete'">'complete'</a> option.  The found
+			specified with the <a href="/neovim-docs-web/en/options#'complete'">'complete'</a> option.  The found
 			keyword is inserted in front of the cursor.</div>
 <div class="old-help-para">	<code>CTRL-N</code>		Search forward for next matching keyword.  This
 			keyword replaces the previous matching keyword.</div>
@@ -858,7 +858,7 @@ CTRL-P			Find previous match for words that start with the
 <div class="old-help-para">							<a name="i_CTRL-X_CTRL-Z"></a><code class="help-tag-right">i_CTRL-X_CTRL-Z</code>
 CTRL-X <code>CTRL-Z</code>		Stop completion without changing the text.</div>
 <div class="old-help-para"><h3 class="help-heading">FUNCTIONS FOR FINDING COMPLETIONS<span class="help-heading-tags">			<a name="complete-functions"></a><span class="help-tag">complete-functions</span></span></h3></div>
-<div class="old-help-para">This applies to <a href="options.html#'completefunc'">'completefunc'</a>, <a href="options.html#'thesaurusfunc'">'thesaurusfunc'</a> and <a href="options.html#'omnifunc'">'omnifunc'</a>.</div>
+<div class="old-help-para">This applies to <a href="/neovim-docs-web/en/options#'completefunc'">'completefunc'</a>, <a href="/neovim-docs-web/en/options#'thesaurusfunc'">'thesaurusfunc'</a> and <a href="/neovim-docs-web/en/options#'omnifunc'">'omnifunc'</a>.</div>
 <div class="old-help-para">The function is called in two different ways:
 <div class="help-li" style=""> First the function is called to find the start of the text to be completed.
 </div><div class="help-li" style=""> Later the function is called to actually find the matches.
@@ -893,8 +893,8 @@ that contains the List.  The Dict can have these items:
 			effect is that the function is called whenever the
 			leading text is changed.
 Other items are ignored.</div>
-<div class="old-help-para">For acting upon end of completion, see the <a href="autocmd.html#CompleteDonePre">CompleteDonePre</a> and
-<a href="autocmd.html#CompleteDone">CompleteDone</a> autocommand event.</div>
+<div class="old-help-para">For acting upon end of completion, see the <a href="/neovim-docs-web/en/autocmd#CompleteDonePre">CompleteDonePre</a> and
+<a href="/neovim-docs-web/en/autocmd#CompleteDone">CompleteDone</a> autocommand event.</div>
 <div class="old-help-para">For example, the function can contain this:<pre>let matches = ... list of words ...
 return {'words': matches, 'refresh': 'always'}</pre></div>
 <div class="old-help-para">						<a name="complete-items"></a><code class="help-tag-right">complete-items</code>
@@ -920,7 +920,7 @@ items:
 	empty		when non-zero this match will be added even when it is
 			an empty string
 	user_data 	custom data which is associated with the item and
-			available in <a href="eval.html#v%3Acompleted_item">v:completed_item</a>; it can be any type;
+			available in <a href="/neovim-docs-web/en/eval#v%3Acompleted_item">v:completed_item</a>; it can be any type;
 			defaults to an empty string</div>
 <div class="old-help-para">All of these except "icase", "equal", "dup" and "empty" must be a string.  If
 an item does not meet these requirements then an error message is given and
@@ -928,11 +928,11 @@ further items in the list are not used.  You can mix string and Dictionary
 items in the returned list.</div>
 <div class="old-help-para">The "menu" item is used in the popup menu and may be truncated, thus it should
 be relatively short.  The "info" item can be longer, it will  be displayed in
-the preview window when "preview" appears in <a href="options.html#'completeopt'">'completeopt'</a>.  The "info" item
+the preview window when "preview" appears in <a href="/neovim-docs-web/en/options#'completeopt'">'completeopt'</a>.  The "info" item
 will also remain displayed after the popup menu has been removed.  This is
 useful for function arguments.  Use a single space for "info" to remove
 existing text in the preview window.  The size of the preview window is three
-lines, but <a href="options.html#'previewheight'">'previewheight'</a> is used when it has a value of 1 or 2.</div>
+lines, but <a href="/neovim-docs-web/en/options#'previewheight'">'previewheight'</a> is used when it has a value of 1 or 2.</div>
 <div class="old-help-para">The "kind" item uses a single letter to indicate the kind of completion.  This
 may be used to show the completion differently (different color or icon).
 Currently these types can be used:
@@ -941,9 +941,9 @@ Currently these types can be used:
 	m	member of a struct or class
 	t	typedef
 	d	#define or macro</div>
-<div class="old-help-para">When searching for matches takes some time call <a href="builtin.html#complete_add()">complete_add()</a> to add each
+<div class="old-help-para">When searching for matches takes some time call <a href="/neovim-docs-web/en/builtin#complete_add()">complete_add()</a> to add each
 match to the total list.  These matches should then not appear in the returned
-list!  Call <a href="builtin.html#complete_check()">complete_check()</a> now and then to allow the user to press a key
+list!  Call <a href="/neovim-docs-web/en/builtin#complete_check()">complete_check()</a> now and then to allow the user to press a key
 while still searching for matches.  Stop searching when it returns non-zero.</div>
 <div class="old-help-para">							<a name="E840"></a><code class="help-tag-right">E840</code>
 The function is allowed to move the cursor, it is restored afterwards.
@@ -996,13 +996,13 @@ set completefunc=CompleteMonths</pre></div>
 <div class="old-help-para"><h3 class="help-heading">INSERT COMPLETION POPUP MENU<span class="help-heading-tags">				<a name="ins-completion-menu"></a><span class="help-tag">ins-completion-menu</span></span></h3>							<a name="popupmenu-completion"></a><code class="help-tag-right">popupmenu-completion</code>
 Vim can display the matches in a simplistic popup menu.</div>
 <div class="old-help-para">The menu is used when:
-<div class="help-li" style=""> The <a href="options.html#'completeopt'">'completeopt'</a> option contains "menu" or "menuone".
+<div class="help-li" style=""> The <a href="/neovim-docs-web/en/options#'completeopt'">'completeopt'</a> option contains "menu" or "menuone".
 </div><div class="help-li" style=""> The terminal supports at least 8 colors.
 </div><div class="help-li" style=""> There are at least two matches.  One if "menuone" is used.
 </div></div>
-<div class="old-help-para">The <a href="options.html#'pumheight'">'pumheight'</a> option can be used to set a maximum height.  The default is to
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'pumheight'">'pumheight'</a> option can be used to set a maximum height.  The default is to
 use all space available.
-The <a href="options.html#'pumwidth'">'pumwidth'</a> option can be used to set a minimum width.  The default is 15
+The <a href="/neovim-docs-web/en/options#'pumwidth'">'pumwidth'</a> option can be used to set a minimum width.  The default is 15
 characters.</div>
 <div class="old-help-para">There are three states:
 1. A complete match has been inserted, e.g., after using <code>CTRL-N</code> or <code>CTRL-P</code>.
@@ -1012,7 +1012,7 @@ characters.</div>
    backspace key was used.  The list of matches was then adjusted for what is
    in front of the cursor.</div>
 <div class="old-help-para">You normally start in the first state, with the first match being inserted.
-When "longest" is in <a href="options.html#'completeopt'">'completeopt'</a> and there is more than one match you start
+When "longest" is in <a href="/neovim-docs-web/en/options#'completeopt'">'completeopt'</a> and there is more than one match you start
 in the third state.</div>
 <div class="old-help-para">If you select another match, e.g., with <code>CTRL-N</code> or <code>CTRL-P</code>, you go to the first
 state.  This doesn't change the list of matches.</div>
@@ -1054,12 +1054,12 @@ third state:	  Use the text as it is and insert a line break.</div>
 list of matches then the <code>&lt;Enter&gt;</code> key inserts that match.  If you typed
 something else then <code>&lt;Enter&gt;</code> inserts a line break.</div>
 <div class="old-help-para">The colors of the menu can be changed with these highlight groups:
-Pmenu		normal item  <a href="syntax.html#hl-Pmenu">hl-Pmenu</a>
-PmenuSel	selected item  <a href="syntax.html#hl-PmenuSel">hl-PmenuSel</a>
-PmenuSbar	scrollbar  <a href="syntax.html#hl-PmenuSbar">hl-PmenuSbar</a>
-PmenuThumb	thumb of the scrollbar  <a href="syntax.html#hl-PmenuThumb">hl-PmenuThumb</a></div>
+Pmenu		normal item  <a href="/neovim-docs-web/en/syntax#hl-Pmenu">hl-Pmenu</a>
+PmenuSel	selected item  <a href="/neovim-docs-web/en/syntax#hl-PmenuSel">hl-PmenuSel</a>
+PmenuSbar	scrollbar  <a href="/neovim-docs-web/en/syntax#hl-PmenuSbar">hl-PmenuSbar</a>
+PmenuThumb	thumb of the scrollbar  <a href="/neovim-docs-web/en/syntax#hl-PmenuThumb">hl-PmenuThumb</a></div>
 <div class="old-help-para">There are no special mappings for when the popup menu is visible.  However,
-you can use an Insert mode mapping that checks the <a href="builtin.html#pumvisible()">pumvisible()</a> function to
+you can use an Insert mode mapping that checks the <a href="/neovim-docs-web/en/builtin#pumvisible()">pumvisible()</a> function to
 do something different.  Example:<pre>:inoremap &lt;Down&gt; &lt;C-R&gt;=pumvisible() ? "\&lt;lt&gt;C-N&gt;" : "\&lt;lt&gt;Down&gt;"&lt;CR&gt;</pre>
 You can use of <code>&lt;expr&gt;</code> in mapping to have the popup menu used when typing a
 character and some condition is met.  For example, for typing a dot:<pre>inoremap &lt;expr&gt; . MayComplete()
@@ -1069,10 +1069,10 @@ func MayComplete()
     endif
     return '.'
 endfunc</pre>
-See <a href="map.html#%3Amap-%3Cexpr%3E">:map-&lt;expr&gt;</a> for more info.</div>
+See <a href="/neovim-docs-web/en/map#%3Amap-%3Cexpr%3E">:map-&lt;expr&gt;</a> for more info.</div>
 <div class="old-help-para"><h3 class="help-heading">FILETYPE-SPECIFIC REMARKS FOR OMNI COMPLETION<span class="help-heading-tags">	    <a name="compl-omni-filetypes"></a><span class="help-tag">compl-omni-filetypes</span></span></h3></div>
 <div class="old-help-para">The file used for <code>{filetype}</code> should be autoload/{filetype}complete.vim
-in <a href="options.html#'runtimepath'">'runtimepath'</a>.  Thus for "java" it is autoload/javacomplete.vim.</div>
+in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  Thus for "java" it is autoload/javacomplete.vim.</div>
 <div class="old-help-para">C							<a name="ft-c-omni"></a><code class="help-tag-right">ft-c-omni</code></div>
 <div class="old-help-para">Completion of C code requires a tags file.  You should use Universal/
 Exuberant ctags, because it adds extra information that is needed for
@@ -1081,7 +1081,7 @@ completion.  You can find it here:
 <div class="old-help-para">Universal Ctags is preferred, Exuberant Ctags is no longer maintained.</div>
 <div class="old-help-para">If you want to complete system functions you can do something like this.  Use
 ctags to generate a tags file for all the system header files:<pre>% ctags -R -f ~/.config/nvim/systags /usr/include /usr/local/include</pre>
-In your vimrc file add this tags file to the <a href="options.html#'tags'">'tags'</a> option:<pre>set tags+=~/.config/nvim/systags</pre>
+In your vimrc file add this tags file to the <a href="/neovim-docs-web/en/options#'tags'">'tags'</a> option:<pre>set tags+=~/.config/nvim/systags</pre>
 When using <code>CTRL-X</code> <code>CTRL-O</code> after a name without any "." or "-&gt;" it is completed
 from the tags file directly.  This works for any identifier, also function
 names.  If you want to complete a local variable name, which does not appear
@@ -1111,27 +1111,27 @@ other versions of HTML. Features:</div>
 </div><div class="help-li" style=""> complete values of "class" and "id" attributes with data obtained from
   <code>&lt;style&gt;</code> tag and included CSS files
 </div><div class="help-li" style=""> when completing value of "style" attribute or working inside of "style" tag
-  switch to <a href="insert.html#ft-css-omni">ft-css-omni</a> completion
+  switch to <a href="/neovim-docs-web/en/insert#ft-css-omni">ft-css-omni</a> completion
 </div><div class="help-li" style=""> when completing values of events attributes or working inside of "script"
-  tag switch to <a href="insert.html#ft-javascript-omni">ft-javascript-omni</a> completion
+  tag switch to <a href="/neovim-docs-web/en/insert#ft-javascript-omni">ft-javascript-omni</a> completion
 </div><div class="help-li" style=""> when used after "&lt;/" <code>CTRL-X</code> <code>CTRL-O</code> will close the last opened tag
 </div></div>
 <div class="old-help-para">Note: When used first time completion menu will be shown with little delay
 <div class="help-li" style=""> this is time needed for loading of data file.
 Note: Completion may fail in badly formatted documents. In such case try to
-run <a href="quickfix.html#%3Amake">:make</a> command to detect formatting problems.
+run <a href="/neovim-docs-web/en/quickfix#%3Amake">:make</a> command to detect formatting problems.
 </div></div>
 <div class="old-help-para">HTML flavor						<a name="html-flavor"></a><code class="help-tag-right">html-flavor</code></div>
 <div class="old-help-para">The default HTML completion depends on the filetype.  For HTML files it is
-HTML 4.01 Transitional (<a href="options.html#'filetype'">'filetype'</a> is "html"), for XHTML it is XHTML 1.0
-Strict (<a href="options.html#'filetype'">'filetype'</a> is "xhtml").</div>
+HTML 4.01 Transitional (<a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> is "html"), for XHTML it is XHTML 1.0
+Strict (<a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> is "xhtml").</div>
 <div class="old-help-para">When doing completion outside of any other tag you will have possibility to
 choose DOCTYPE and the appropriate data file will be loaded and used for all
 next completions.</div>
-<div class="old-help-para">More about format of data file in <a href="insert.html#xml-omni-datafile">xml-omni-datafile</a>. Some of the data files
-may be found on the Vim website (<a href="intro.html#www">www</a>).</div>
+<div class="old-help-para">More about format of data file in <a href="/neovim-docs-web/en/insert#xml-omni-datafile">xml-omni-datafile</a>. Some of the data files
+may be found on the Vim website (<a href="/neovim-docs-web/en/intro#www">www</a>).</div>
 <div class="old-help-para">Note that b:html_omni_flavor may point to a file with any XML data.  This
-makes possible to mix PHP (<a href="insert.html#ft-php-omni">ft-php-omni</a>) completion with any XML dialect
+makes possible to mix PHP (<a href="/neovim-docs-web/en/insert#ft-php-omni">ft-php-omni</a>) completion with any XML dialect
 (assuming you have data file for it).  Without setting that variable XHTML 1.0
 Strict will be used.</div>
 <div class="old-help-para"><h3 class="help-heading">JAVASCRIPT<span class="help-heading-tags">					       <a name="ft-javascript-omni"></a><span class="help-tag">ft-javascript-omni</span></span></h3></div>
@@ -1189,7 +1189,7 @@ should not be noticeable.</div>
 automatically switch to HTML/CSS/JavaScript completion. Note: contrary to
 original HTML files completion of tags (and only tags) isn't context aware.</div>
 <div class="old-help-para"><h3 class="help-heading">RUBY<span class="help-heading-tags">						 <a name="ft-ruby-omni"></a><span class="help-tag">ft-ruby-omni</span></span></h3></div>
-<div class="old-help-para">NOTE: <a href="insert.html#compl-omni">compl-omni</a> for Ruby code requires <a href="provider.html#provider-ruby">provider-ruby</a> to be installed.</div>
+<div class="old-help-para">NOTE: <a href="/neovim-docs-web/en/insert#compl-omni">compl-omni</a> for Ruby code requires <a href="/neovim-docs-web/en/provider#provider-ruby">provider-ruby</a> to be installed.</div>
 <div class="old-help-para">Ruby completion will parse your buffer on demand in order to provide a list of
 completions.  These completions will be drawn from modules loaded by "require"
 and modules defined in the current buffer.</div>
@@ -1225,7 +1225,7 @@ does this by populating the omni completion list with the text Vim already
 knows how to color highlight.  It can be used for any filetype and provides a
 minimal language-sensitive completion.</div>
 <div class="old-help-para">To enable syntax code completion you can run:<pre>setlocal omnifunc=syntaxcomplete#Complete</pre>
-You can automate this by placing the following in your <a href="starting.html#init.vim">init.vim</a> (after any
+You can automate this by placing the following in your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> (after any
 ":filetype" command):<pre>if has("autocmd") &amp;&amp; exists("+omnifunc")
     autocmd Filetype *
                 \        if &amp;omnifunc == "" |
@@ -1292,7 +1292,7 @@ let myKeywords = OmniSyntaxList( ['sqlKeyword'] )</pre>
 <div class="old-help-para">Completion for the SQL language includes statements, functions, keywords.
 It will also dynamically complete tables, procedures, views and column lists
 with data pulled directly from within a database.  For detailed instructions
-and a tutorial see <a href="ft_sql.html#omni-sql-completion">omni-sql-completion</a>.</div>
+and a tutorial see <a href="/neovim-docs-web/en/ft_sql#omni-sql-completion">omni-sql-completion</a>.</div>
 <div class="old-help-para">The SQL completion plugin can be used in conjunction with other completion
 plugins.  For example, the PHP filetype has its own completion plugin.
 Since PHP is often used to generate dynamic website by accessing a database,
@@ -1300,18 +1300,18 @@ the SQL completion plugin can also be enabled.  This allows you to complete
 PHP code and SQL code at the same time.</div>
 <div class="old-help-para"><h3 class="help-heading">XML<span class="help-heading-tags">							<a name="ft-xml-omni"></a><span class="help-tag">ft-xml-omni</span></span></h3></div>
 <div class="old-help-para">Vim 7 provides a mechanism for context aware completion of XML files.  It
-depends on a special <a href="insert.html#xml-omni-datafile">xml-omni-datafile</a> and two commands: <a href="insert.html#%3AXMLns">:XMLns</a> and
-<a href="insert.html#%3AXMLent">:XMLent</a>.  Features are:</div>
+depends on a special <a href="/neovim-docs-web/en/insert#xml-omni-datafile">xml-omni-datafile</a> and two commands: <a href="/neovim-docs-web/en/insert#%3AXMLns">:XMLns</a> and
+<a href="/neovim-docs-web/en/insert#%3AXMLent">:XMLent</a>.  Features are:</div>
 <div class="old-help-para"><div class="help-li" style=""> after "&lt;" complete the tag name, depending on context
 </div><div class="help-li" style=""> inside of a tag complete proper attributes
 </div><div class="help-li" style=""> when an attribute has a limited number of possible values help to complete
   them
-</div><div class="help-li" style=""> complete names of entities (defined in <a href="insert.html#xml-omni-datafile">xml-omni-datafile</a> and in the
+</div><div class="help-li" style=""> complete names of entities (defined in <a href="/neovim-docs-web/en/insert#xml-omni-datafile">xml-omni-datafile</a> and in the
   current file with "&lt;!ENTITY" declarations)
 </div><div class="help-li" style=""> when used after "&lt;/" <code>CTRL-X</code> <code>CTRL-O</code> will close the last opened tag
 </div></div>
 <div class="old-help-para">Format of XML data file					<a name="xml-omni-datafile"></a><code class="help-tag-right">xml-omni-datafile</code></div>
-<div class="old-help-para">XML data files are stored in the "autoload/xml" directory in <a href="options.html#'runtimepath'">'runtimepath'</a>.
+<div class="old-help-para">XML data files are stored in the "autoload/xml" directory in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.
 Vim distribution provides examples of data files in the
 "$VIMRUNTIME/autoload/xml" directory.  They have a meaningful name which will
 be used in commands.  It should be a unique name which will not create
@@ -1321,12 +1321,12 @@ XHTML 1.0 Strict.</div>
 a compound from two parts:</div>
 <div class="old-help-para">1. "g:xmldata_"  general prefix, constant for all data files
 2. "xhtml10s"    the name of the file and the name of the described XML
-		 dialect; it will be used as an argument for the <a href="insert.html#%3AXMLns">:XMLns</a>
+		 dialect; it will be used as an argument for the <a href="/neovim-docs-web/en/insert#%3AXMLns">:XMLns</a>
 		 command</div>
 <div class="old-help-para">Part two must be exactly the same as name of file.</div>
-<div class="old-help-para">The variable is a <a href="eval.html#Dictionary">Dictionary</a>.  Keys are tag names and each value is a two
-element <a href="eval.html#List">List</a>.  The first element of the List is also a List with the names
-of possible children.  The second element is a <a href="eval.html#Dictionary">Dictionary</a> with the names of
+<div class="old-help-para">The variable is a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>.  Keys are tag names and each value is a two
+element <a href="/neovim-docs-web/en/eval#List">List</a>.  The first element of the List is also a List with the names
+of possible children.  The second element is a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> with the names of
 attributes as keys and the possible values of attributes as values.  Example:<pre>let g:xmldata_crippled = {
 \ "vimxmlentities": ["amp", "lt", "gt", "apos", "quot"],
 \ 'vimxmlroot': ['tag1'],
@@ -1369,7 +1369,7 @@ Check xsl.vim for an example.
 Note: All data and functions are publicly available as global
 variables/functions and can be used for personal editing functions.</div>
 <div class="old-help-para">DTD -&gt; Vim							<a name="dtd2vim"></a><code class="help-tag-right">dtd2vim</code></div>
-<div class="old-help-para">On <a href="intro.html#www">www</a> is the script <a href="insert.html#dtd2vim">dtd2vim</a> which parses DTD and creates an XML data file
+<div class="old-help-para">On <a href="/neovim-docs-web/en/intro#www">www</a> is the script <a href="/neovim-docs-web/en/insert#dtd2vim">dtd2vim</a> which parses DTD and creates an XML data file
 for Vim XML omni completion.</div>
 <div class="old-help-para">    dtd2vim: <a href="https://www.vim.org/scripts/script.php?script_id=1462">https://www.vim.org/scripts/script.php?script_id=1462</a></div>
 <div class="old-help-para">Check the beginning of that file for usage details.
@@ -1379,7 +1379,7 @@ The script requires perl and:</div>
 <div class="old-help-para">:XMLns <code>{name}</code> [{namespace}]					<a name="%3AXMLns"></a><code class="help-tag-right">:XMLns</code></div>
 <div class="old-help-para">Vim has to know which data file should be used and with which namespace.  For
 loading of the data file and connecting data with the proper namespace use
-<a href="insert.html#%3AXMLns">:XMLns</a> command.  The first (obligatory) argument is the name of the data
+<a href="/neovim-docs-web/en/insert#%3AXMLns">:XMLns</a> command.  The first (obligatory) argument is the name of the data
 (xhtml10s, xsl).  The second argument is the code of namespace (h, xsl).  When
 used without a second argument the dialect will be used as default - without
 namespace declaration.  For example to use XML completion in .xsl files:<pre>:XMLns xhtml10s
@@ -1393,7 +1393,7 @@ Usage</div>
 cursor position):<pre>&lt;|</pre>
 Will complete to an appropriate XHTML tag, and in this situation:<pre>&lt;xsl:|</pre>
 Will complete to an appropriate XSL tag.</div>
-<div class="old-help-para">The script xmlcomplete.vim, provided through the <a href="userfunc.html#autoload">autoload</a> mechanism,
+<div class="old-help-para">The script xmlcomplete.vim, provided through the <a href="/neovim-docs-web/en/userfunc#autoload">autoload</a> mechanism,
 has the xmlcomplete#GetLastOpenTag() function which can be used in XML files
 to get the name of the last open tag (b:unaryTagsStack has to be defined):<pre>:echo xmlcomplete#GetLastOpenTag("b:unaryTagsStack")</pre>
 <h2 class="help-heading">8. Insert mode commands<span class="help-heading-tags">					<a name="inserting"></a><span class="help-tag">inserting</span></span></h2></div>
@@ -1402,31 +1402,31 @@ can all be undone and repeated with the "." command.</div>
 <div class="old-help-para">							<a name="a"></a><code class="help-tag-right">a</code>
 a			Append text after the cursor [count] times.  If the
 			cursor is in the first column of an empty line Insert
-			starts there.  But not when <a href="options.html#'virtualedit'">'virtualedit'</a> is set!</div>
+			starts there.  But not when <a href="/neovim-docs-web/en/options#'virtualedit'">'virtualedit'</a> is set!</div>
 <div class="old-help-para">							<a name="A"></a><code class="help-tag-right">A</code>
 A			Append text at the end of the line [count] times.
-			For using "A" in Visual block mode see <a href="visual.html#v_b_A">v_b_A</a>.</div>
+			For using "A" in Visual block mode see <a href="/neovim-docs-web/en/visual#v_b_A">v_b_A</a>.</div>
 <div class="old-help-para"><code>&lt;insert&gt;</code>	or				<a name="i"></a><code class="help-tag-right">i</code> <a name="insert"></a><code class="help-tag">insert</code> <a name="%3CInsert%3E"></a><code class="help-tag">&lt;Insert&gt;</code>
 i			Insert text before the cursor [count] times.
-			When using <code>CTRL-O</code> in Insert mode <a href="insert.html#i_CTRL-O">i_CTRL-O</a> the count
+			When using <code>CTRL-O</code> in Insert mode <a href="/neovim-docs-web/en/insert#i_CTRL-O">i_CTRL-O</a> the count
 			is not supported.</div>
 <div class="old-help-para">							<a name="I"></a><code class="help-tag-right">I</code>
 I			Insert text before the first non-blank in the line
 			[count] times.
-			When the 'H' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a> and the
+			When the 'H' flag is present in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> and the
 			line only contains blanks, insert start just before
 			the last blank.
-			For using "I" in Visual block mode see <a href="visual.html#v_b_I">v_b_I</a>.</div>
+			For using "I" in Visual block mode see <a href="/neovim-docs-web/en/visual#v_b_I">v_b_I</a>.</div>
 <div class="old-help-para">							<a name="gI"></a><code class="help-tag-right">gI</code>
 gI			Insert text in column 1 [count] times.</div>
 <div class="old-help-para">							<a name="gi"></a><code class="help-tag-right">gi</code>
 gi			Insert text in the same position as where Insert mode
 			was stopped last time in the current buffer.
-			This uses the <a href="motion.html#'%5E">'^</a> mark.  It's different from "`^i"
+			This uses the <a href="/neovim-docs-web/en/motion#'%5E">'^</a> mark.  It's different from "`^i"
 			when the mark is past the end of the line.
 			The position is corrected for inserted/deleted lines,
 			but NOT for inserted/deleted characters.
-			When the <a href="motion.html#%3Akeepjumps">:keepjumps</a> command modifier is used the <a href="motion.html#'%5E">'^</a>
+			When the <a href="/neovim-docs-web/en/motion#%3Akeepjumps">:keepjumps</a> command modifier is used the <a href="/neovim-docs-web/en/motion#'%5E">'^</a>
 			mark won't be changed.</div>
 <div class="old-help-para">							<a name="o"></a><code class="help-tag-right">o</code>
 o			Begin a new line below the cursor and insert text,
@@ -1435,40 +1435,40 @@ o			Begin a new line below the cursor and insert text,
 O			Begin a new line above the cursor and insert text,
 			repeat [count] times.</div>
 <div class="old-help-para">These commands are used to start inserting text.  You can end insert mode with
-<code>&lt;Esc&gt;</code>.  See <a href="insert.html#mode-ins-repl">mode-ins-repl</a> for the other special characters in Insert mode.
+<code>&lt;Esc&gt;</code>.  See <a href="/neovim-docs-web/en/insert#mode-ins-repl">mode-ins-repl</a> for the other special characters in Insert mode.
 The effect of [count] takes place after Insert mode is exited.</div>
-<div class="old-help-para">When <a href="options.html#'autoindent'">'autoindent'</a> is on, the indent for a new line is obtained from the
-previous line.  When <a href="options.html#'smartindent'">'smartindent'</a> or <a href="options.html#'cindent'">'cindent'</a> is on, the indent for a line
+<div class="old-help-para">When <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> is on, the indent for a new line is obtained from the
+previous line.  When <a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a> or <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> is on, the indent for a line
 is automatically adjusted for C programs.</div>
-<div class="old-help-para"><a href="options.html#'formatoptions'">'formatoptions'</a> can be set to copy the comment leader when opening a new
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a> can be set to copy the comment leader when opening a new
 line.</div>
-<div class="old-help-para"><a href="options.html#'textwidth'">'textwidth'</a> can be set to the maximum width for a line.  When a line becomes
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> can be set to the maximum width for a line.  When a line becomes
 too long when appending characters a line break is automatically inserted.</div>
 <div class="old-help-para"><h2 class="help-heading">9. Ex insert commands<span class="help-heading-tags">					<a name="inserting-ex"></a><span class="help-tag">inserting-ex</span></span></h2></div>
 <div class="old-help-para">							<a name="%3Aa"></a><code class="help-tag-right">:a</code> <a name="%3Aappend"></a><code class="help-tag">:append</code>
 :{range}a[ppend][!]	Insert several lines of text below the specified
 			line.  If the <code>{range}</code> is missing, the text will be
 			inserted after the current line.
-			Adding [!] toggles <a href="options.html#'autoindent'">'autoindent'</a> for the time this
+			Adding [!] toggles <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> for the time this
 			command is executed.</div>
 <div class="old-help-para">							<a name="%3Ai"></a><code class="help-tag-right">:i</code> <a name="%3Ain"></a><code class="help-tag">:in</code> <a name="%3Ainsert"></a><code class="help-tag">:insert</code>
 :{range}i[nsert][!]	Insert several lines of text above the specified
 			line.  If the <code>{range}</code> is missing, the text will be
 			inserted before the current line.
-			Adding [!] toggles <a href="options.html#'autoindent'">'autoindent'</a> for the time this
+			Adding [!] toggles <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> for the time this
 			command is executed.</div>
 <div class="old-help-para">These two commands will keep on asking for lines, until you type a line
 containing only a ".".  Watch out for lines starting with a backslash, see
-<a href="repeat.html#line-continuation">line-continuation</a>.</div>
-<div class="old-help-para">When in Ex mode (see <a href="starting.html#-e">-e</a>) a backslash at the end of the line can be used to
+<a href="/neovim-docs-web/en/repeat#line-continuation">line-continuation</a>.</div>
+<div class="old-help-para">When in Ex mode (see <a href="/neovim-docs-web/en/starting#-e">-e</a>) a backslash at the end of the line can be used to
 insert a NUL character.  To be able to have a line ending in a backslash use
 two backslashes.  This means that the number of backslashes is halved, but
 only at the end of the line.</div>
-<div class="old-help-para">NOTE: These commands cannot be used with <a href="repeat.html#%3Aglobal">:global</a> or <a href="repeat.html#%3Avglobal">:vglobal</a>.
+<div class="old-help-para">NOTE: These commands cannot be used with <a href="/neovim-docs-web/en/repeat#%3Aglobal">:global</a> or <a href="/neovim-docs-web/en/repeat#%3Avglobal">:vglobal</a>.
 ":append" and ":insert" don't work properly in between ":if" and
 ":endif", ":for" and ":endfor", ":while" and ":endwhile".</div>
 <div class="old-help-para">							<a name="%3Astart"></a><code class="help-tag-right">:start</code> <a name="%3Astartinsert"></a><code class="help-tag">:startinsert</code>
-:star[tinsert][!]	Start Insert mode (or <a href="intro.html#Terminal-mode">Terminal-mode</a> in a <a href="nvim_terminal_emulator.html#terminal">terminal</a>
+:star[tinsert][!]	Start Insert mode (or <a href="/neovim-docs-web/en/intro#Terminal-mode">Terminal-mode</a> in a <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal">terminal</a>
 			buffer) just after executing this command.
 			Works like typing "i" in Normal mode.  When the ! is
 			included it works like "A", append to the line.
@@ -1476,9 +1476,9 @@ only at the end of the line.</div>
 			Note that when using this command in a function or
 			script, the insertion only starts after the function
 			or script is finished.
-			This command does not work from <a href="various.html#%3Anormal">:normal</a>.</div>
+			This command does not work from <a href="/neovim-docs-web/en/various#%3Anormal">:normal</a>.</div>
 <div class="old-help-para">							<a name="%3Astopi"></a><code class="help-tag-right">:stopi</code> <a name="%3Astopinsert"></a><code class="help-tag">:stopinsert</code>
-:stopi[nsert]		Stop Insert mode or <a href="intro.html#Terminal-mode">Terminal-mode</a> as soon as
+:stopi[nsert]		Stop Insert mode or <a href="/neovim-docs-web/en/intro#Terminal-mode">Terminal-mode</a> as soon as
 			possible.  Works like typing <code>&lt;Esc&gt;</code> in Insert mode.
 			Can be used in an autocommand, example:<pre>:au BufEnter scratch stopinsert</pre></div>
 <div class="old-help-para">					<a name="replacing-ex"></a><code class="help-tag-right">replacing-ex</code> <a name="%3Astartreplace"></a><code class="help-tag">:startreplace</code>
@@ -1491,28 +1491,28 @@ only at the end of the line.</div>
 			script that the replacement will only start after
 			the function or script is finished.</div>
 <div class="old-help-para">							<a name="%3Astartgreplace"></a><code class="help-tag-right">:startgreplace</code>
-:startg[replace][!]	Just like <a href="insert.html#%3Astartreplace">:startreplace</a>, but use Virtual Replace
-			mode, like with <a href="change.html#gR">gR</a>.</div>
+:startg[replace][!]	Just like <a href="/neovim-docs-web/en/insert#%3Astartreplace">:startreplace</a>, but use Virtual Replace
+			mode, like with <a href="/neovim-docs-web/en/change#gR">gR</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">10. Inserting a file<span class="help-heading-tags">					<a name="inserting-file"></a><span class="help-tag">inserting-file</span></span></h2></div>
 <div class="old-help-para">							<a name="%3Ar"></a><code class="help-tag-right">:r</code> <a name="%3Are"></a><code class="help-tag">:re</code> <a name="%3Aread"></a><code class="help-tag">:read</code>
 :r[ead] [++opt] [name]
 			Insert the file [name] (default: current file) below
 			the cursor.
-			See <a href="editing.html#%2B%2Bopt">++opt</a> for the possible values of [++opt].</div>
+			See <a href="/neovim-docs-web/en/editing#%2B%2Bopt">++opt</a> for the possible values of [++opt].</div>
 <div class="old-help-para">:{range}r[ead] [++opt] [name]
 			Insert the file [name] (default: current file) below
 			the specified line.
-			See <a href="editing.html#%2B%2Bopt">++opt</a> for the possible values of [++opt].</div>
+			See <a href="/neovim-docs-web/en/editing#%2B%2Bopt">++opt</a> for the possible values of [++opt].</div>
 <div class="old-help-para">							<a name="%3Ar%21"></a><code class="help-tag-right">:r!</code> <a name="%3Aread%21"></a><code class="help-tag">:read!</code>
 :[range]r[ead] [++opt] !{cmd}
 			Execute <code>{cmd}</code> and insert its standard output below
 			the cursor or the specified line.  A temporary file is
 			used to store the output of the command which is then
-			read into the buffer.  <a href="options.html#'shellredir'">'shellredir'</a> is used to save
+			read into the buffer.  <a href="/neovim-docs-web/en/options#'shellredir'">'shellredir'</a> is used to save
 			the output of the command, which can be set to include
 			stderr or not.  <code>{cmd}</code> is executed like with ":!{cmd}",
-			any '!' is replaced with the previous command <a href="various.html#%3A%21">:!</a>.
-			See <a href="editing.html#%2B%2Bopt">++opt</a> for the possible values of [++opt].</div>
+			any '!' is replaced with the previous command <a href="/neovim-docs-web/en/various#%3A%21">:!</a>.
+			See <a href="/neovim-docs-web/en/editing#%2B%2Bopt">++opt</a> for the possible values of [++opt].</div>
 <div class="old-help-para">These commands insert the contents of a file, or the output of a command,
 into the buffer.  They can be undone.  They cannot be repeated with the "."
 command.  They work on a line basis, insertion starts below the line in which
@@ -1523,27 +1523,27 @@ first new line.  Unless in Ex mode, then the cursor is left on the last new
 line (sorry, this is Vi compatible).</div>
 <div class="old-help-para">If a file name is given with ":r", it becomes the alternate file.  This can be
 used, for example, when you want to edit that file instead: ":e! #".  This can
-be switched off by removing the 'a' flag from the <a href="options.html#'cpoptions'">'cpoptions'</a> option.</div>
+be switched off by removing the 'a' flag from the <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> option.</div>
 <div class="old-help-para">Of the [++opt] arguments one is specifically for ":read", the ++edit argument.
 This is useful when the ":read" command is actually used to read a file into
 the buffer as if editing that file.  Use this command in an empty buffer:<pre>:read ++edit filename</pre>
-The effect is that the <a href="options.html#'fileformat'">'fileformat'</a>, <a href="options.html#'fileencoding'">'fileencoding'</a>, <a href="options.html#'bomb'">'bomb'</a>, etc. options are
+The effect is that the <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a>, <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>, <a href="/neovim-docs-web/en/options#'bomb'">'bomb'</a>, etc. options are
 set to what has been detected for "filename".  Note that a single empty line
 remains, you may want to delete it.</div>
 <div class="old-help-para">							<a name="file-read"></a><code class="help-tag-right">file-read</code>
-The <a href="options.html#'fileformat'">'fileformat'</a> option sets the <code>&lt;EOL&gt;</code> style for a file:
-<div class="help-column_heading"><a href="options.html#'fileformat'">'fileformat'</a>    characters	   name</div>  "dos"		<code>&lt;CR&gt;</code><code>&lt;NL&gt;</code> or <code>&lt;NL&gt;</code>   DOS format
+The <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> option sets the <code>&lt;EOL&gt;</code> style for a file:
+<div class="help-column_heading"><a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a>    characters	   name</div>  "dos"		<code>&lt;CR&gt;</code><code>&lt;NL&gt;</code> or <code>&lt;NL&gt;</code>   DOS format
   "unix"	<code>&lt;NL&gt;</code>		   Unix format
   "mac"		<code>&lt;CR&gt;</code>		   Mac format</div>
-<div class="old-help-para">If <a href="options.html#'fileformat'">'fileformat'</a> is "dos", a <code>&lt;CR&gt;</code> in front of an <code>&lt;NL&gt;</code> is ignored and a <code>CTRL-Z</code>
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> is "dos", a <code>&lt;CR&gt;</code> in front of an <code>&lt;NL&gt;</code> is ignored and a <code>CTRL-Z</code>
 at the end of the file is ignored.</div>
-<div class="old-help-para">If <a href="options.html#'fileformat'">'fileformat'</a> is "mac", a <code>&lt;NL&gt;</code> in the file is internally represented by a
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> is "mac", a <code>&lt;NL&gt;</code> in the file is internally represented by a
 <code>&lt;CR&gt;</code>.  This is to avoid confusion with a <code>&lt;NL&gt;</code> which is used to represent a
-<code>&lt;NUL&gt;</code>.  See <a href="pattern.html#CR-used-for-NL">CR-used-for-NL</a>.</div>
-<div class="old-help-para">If the <a href="options.html#'fileformats'">'fileformats'</a> option is not empty Vim tries to recognize the type of
-<code>&lt;EOL&gt;</code> (see <a href="editing.html#file-formats">file-formats</a>).  However, the <a href="options.html#'fileformat'">'fileformat'</a> option will not be
+<code>&lt;NUL&gt;</code>.  See <a href="/neovim-docs-web/en/pattern#CR-used-for-NL">CR-used-for-NL</a>.</div>
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'fileformats'">'fileformats'</a> option is not empty Vim tries to recognize the type of
+<code>&lt;EOL&gt;</code> (see <a href="/neovim-docs-web/en/editing#file-formats">file-formats</a>).  However, the <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> option will not be
 changed, the detected format is only used while reading the file.
-A similar thing happens with <a href="options.html#'fileencodings'">'fileencodings'</a>.</div>
+A similar thing happens with <a href="/neovim-docs-web/en/options#'fileencodings'">'fileencodings'</a>.</div>
 <div class="old-help-para">On non-Win32 systems the message "[dos format]" is shown if a file is read in
 DOS format, to remind you that something unusual is done.
 On Macintosh and Win32 the message "[unix format]" is shown if a file is read
@@ -1558,21 +1558,21 @@ file.</div>
 When reading a file Vim will display a message with information about the read
 file.  In the table is an explanation for some of the items.  The others are
 self explanatory.  Using the long or the short version depends on the
-<a href="options.html#'shortmess'">'shortmess'</a> option.</div>
+<a href="/neovim-docs-web/en/options#'shortmess'">'shortmess'</a> option.</div>
 <div class="old-help-para"><div class="help-column_heading">	long		short		meaning</div>	[readonly]	<code>{RO}</code>		the file is write protected
 	[fifo/socket]			using a stream
 	[fifo]				using a fifo stream
 	[socket]			using a socket stream
-	[CR missing]			reading with "dos" <a href="options.html#'fileformat'">'fileformat'</a> and a
+	[CR missing]			reading with "dos" <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> and a
 					NL without a preceding CR was found.
-	[NL found]			reading with "mac" <a href="options.html#'fileformat'">'fileformat'</a> and a
+	[NL found]			reading with "mac" <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> and a
 					NL was found (could be "unix" format)
 	[long lines split]		at least one line was split in two
-	[NOT converted]			conversion from <a href="options.html#'fileencoding'">'fileencoding'</a> to
-					<a href="options.html#'encoding'">'encoding'</a> was desired but not
+	[NOT converted]			conversion from <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> to
+					<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> was desired but not
 					possible
-	[converted]			conversion from <a href="options.html#'fileencoding'">'fileencoding'</a> to
-					<a href="options.html#'encoding'">'encoding'</a> done
+	[converted]			conversion from <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> to
+					<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> done
 	[READ ERRORS]			not all of the file could be read</div>
 
   

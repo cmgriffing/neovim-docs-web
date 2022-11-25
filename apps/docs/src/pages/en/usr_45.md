@@ -17,13 +17,13 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">The messages in Vim can be given in several languages.  This chapter explains
 how to change which one is used.  Also, the different ways to work with files
 in various languages is explained.</div>
-<div class="old-help-para"><a href="usr_45.html#45.1">45.1</a>  	Language for Messages
-<a href="usr_45.html#45.2">45.2</a>  	Language for Menus
-<a href="usr_45.html#45.3">45.3</a>  	Using another encoding
-<a href="usr_45.html#45.4">45.4</a>  	Editing files with a different encoding
-<a href="usr_45.html#45.5">45.5</a>  	Entering language text</div>
-<div class="old-help-para">Previous chapter: <a href="usr_44.html#usr_44.txt">usr_44.txt</a>  Your own syntax highlighted
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_45#45.1">45.1</a>  	Language for Messages
+<a href="/neovim-docs-web/en/usr_45#45.2">45.2</a>  	Language for Menus
+<a href="/neovim-docs-web/en/usr_45#45.3">45.3</a>  	Using another encoding
+<a href="/neovim-docs-web/en/usr_45#45.4">45.4</a>  	Editing files with a different encoding
+<a href="/neovim-docs-web/en/usr_45#45.5">45.5</a>  	Entering language text</div>
+<div class="old-help-para">Previous chapter: <a href="/neovim-docs-web/en/usr_44#usr_44.txt">usr_44.txt</a>  Your own syntax highlighted
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Language for Messages</h2></div>
 <div class="old-help-para">When you start Vim, it checks the environment to find out what language you
 are using.  Mostly this should work fine, and you get the messages in your
@@ -51,7 +51,7 @@ should give you a hint where it is found on your system.
    Be careful to type the name exactly as it should be.  Upper and lowercase
 matter, and the '-' and '_' characters are easily confused.</div>
 <div class="old-help-para">You can also set the language separately for messages, edited text and the
-time format.  See <a href="mlang.html#%3Alanguage">:language</a>.</div>
+time format.  See <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a>.</div>
 <div class="old-help-para"><a name="_do-it-yourself-message-translation"></a><h3 class="help-heading">DO-IT-YOURSELF MESSAGE TRANSLATION</h3></div>
 <div class="old-help-para">If translated messages are not available for your language, you could write
 them yourself.  To do this, get the source code for Vim and the GNU gettext
@@ -75,9 +75,9 @@ this way:<pre>:set langmenu=none</pre>
 It is also possible to specify a language:<pre>:set langmenu=nl_NL.ISO_8859-1</pre>
 Like above, differences between "-" and "_" matter.  However, upper/lowercase
 differences are ignored here.
-   The <a href="options.html#'langmenu'">'langmenu'</a> option must be set before the menus are loaded.  Once the
-menus have been defined changing <a href="options.html#'langmenu'">'langmenu'</a> has no direct effect.  Therefore,
-put the command to set <a href="options.html#'langmenu'">'langmenu'</a> in your vimrc file.
+   The <a href="/neovim-docs-web/en/options#'langmenu'">'langmenu'</a> option must be set before the menus are loaded.  Once the
+menus have been defined changing <a href="/neovim-docs-web/en/options#'langmenu'">'langmenu'</a> has no direct effect.  Therefore,
+put the command to set <a href="/neovim-docs-web/en/options#'langmenu'">'langmenu'</a> in your vimrc file.
    If you really want to switch menu language while running Vim, you can do it
 this way:<pre>:source $VIMRUNTIME/delmenu.vim
 :set langmenu=de_DE.ISO_8859-1
@@ -92,7 +92,7 @@ want to use, you can do your own translations.  The simplest way to do this is
 by copying one of the existing language files, and change it.
    First find out the name of your language with the ":language" command.  Use
 this name, but with all letters made lowercase.  Then copy the file to your
-own runtime directory, as found early in <a href="options.html#'runtimepath'">'runtimepath'</a>.  For example, for Unix
+own runtime directory, as found early in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  For example, for Unix
 you would do:<pre>:!cp $VIMRUNTIME/lang/menu_ko_kr.euckr.vim ~/.config/nvim/lang/menu_nl_be.iso_8859-1.vim</pre>
 You will find hints for the translation in "$VIMRUNTIME/lang/README.txt".</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="45.3"></a><span class="help-tag">45.3</span>  	Using another encoding</span></h2></div>
@@ -121,9 +121,9 @@ to use Unicode, and how to handle interfacing with the rest of the system.
    Let's start with the GUI version of Vim, which is able to display Unicode
 characters.  This should work:<pre>:set encoding=utf-8
 :set guifont=-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1</pre>
-The <a href="options.html#'encoding'">'encoding'</a> option tells Vim the encoding of the characters that you use.
+The <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option tells Vim the encoding of the characters that you use.
 This applies to the text in buffers (files you are editing), registers, Vim
-script files, etc.  You can regard <a href="options.html#'encoding'">'encoding'</a> as the setting for the internals
+script files, etc.  You can regard <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> as the setting for the internals
 of Vim.
    This example assumes you have this font on your system.  The name in the
 example is for the X Window System.  This font is in a package that is used to
@@ -141,7 +141,7 @@ comes with XFree86 is one of them.  Let's use that as an example.
    First of all, the xterm must have been compiled with Unicode support.
    Start the xterm with the "-u8" argument.  You might also need so specify a
 font.  Example:<pre>xterm -u8 -fn -misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1</pre>
-Now you can run Vim inside this terminal.  Set <a href="options.html#'encoding'">'encoding'</a> to "utf-8" as
+Now you can run Vim inside this terminal.  Set <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> to "utf-8" as
 before.  That's all.</div>
 <div class="old-help-para"><a name="_using-unicode-in-an-ordinary-terminal"></a><h3 class="help-heading">USING UNICODE IN AN ORDINARY TERMINAL</h3></div>
 <div class="old-help-para">Suppose you want to work with Unicode files, but don't have a terminal with
@@ -156,10 +156,10 @@ Vim will display a line with the code of the character.  This gives you a hint
 about what character it is.  You can look it up in a Unicode table.  You could
 actually view a file that way, if you have lots of time at hand.</div>
 <div class="old-help-para">	Note:
-	Since <a href="options.html#'encoding'">'encoding'</a> is used for all text inside Vim, changing it makes
+	Since <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is used for all text inside Vim, changing it makes
 	all non-ASCII text invalid.  You will notice this when using registers
-	and the <a href="starting.html#shada-file">shada-file</a> (e.g., a remembered search pattern).  It's
-	recommended to set <a href="options.html#'encoding'">'encoding'</a> in your vimrc file, and leave it alone.</div>
+	and the <a href="/neovim-docs-web/en/starting#shada-file">shada-file</a> (e.g., a remembered search pattern).  It's
+	recommended to set <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> in your vimrc file, and leave it alone.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="45.4"></a><span class="help-tag">45.4</span>  	Editing files with a different encoding</span></h2></div>
 <div class="old-help-para">Suppose you have setup Vim to use Unicode, and you want to edit a file that is
 in 16-bit Unicode.  Sounds simple, right?  Well, Vim actually uses utf-8
@@ -167,7 +167,7 @@ encoding internally, thus the 16-bit encoding must be converted, since there
 is a difference between the character set (Unicode) and the encoding (utf-8 or
 16-bit).
    Vim will try to detect what kind of file you are editing.  It uses the
-encoding names in the <a href="options.html#'fileencodings'">'fileencodings'</a> option.  When using Unicode, the default
+encoding names in the <a href="/neovim-docs-web/en/options#'fileencodings'">'fileencodings'</a> option.  When using Unicode, the default
 value is: "ucs-bom,utf-8,latin1".  This means that Vim checks the file to see
 if it's one of these encodings:</div>
 <div class="old-help-para">	ucs-bom		File must start with a Byte Order Mark (BOM).  This
@@ -177,27 +177,27 @@ if it's one of these encodings:</div>
 			bytes is illegal in utf-8.
 	latin1		The good old 8-bit encoding.  Always works.</div>
 <div class="old-help-para">When you start editing that 16-bit Unicode file, and it has a BOM, Vim will
-detect this and convert the file to utf-8 when reading it.  The <a href="options.html#'fileencoding'">'fileencoding'</a>
+detect this and convert the file to utf-8 when reading it.  The <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>
 option (without s at the end) is set to the detected value.  In this case it
 is "utf-16le".  That means it's Unicode, 16-bit and little-endian.  This
 file format is common on MS-Windows (e.g., for registry files).
-   When writing the file, Vim will compare <a href="options.html#'fileencoding'">'fileencoding'</a> with <a href="options.html#'encoding'">'encoding'</a>.  If
+   When writing the file, Vim will compare <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> with <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.  If
 they are different, the text will be converted.
-   An empty value for <a href="options.html#'fileencoding'">'fileencoding'</a> means that no conversion is to be done.
-Thus the text is assumed to be encoded with <a href="options.html#'encoding'">'encoding'</a>.</div>
-<div class="old-help-para">If the default <a href="options.html#'fileencodings'">'fileencodings'</a> value is not good for you, set it to the
+   An empty value for <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> means that no conversion is to be done.
+Thus the text is assumed to be encoded with <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.</div>
+<div class="old-help-para">If the default <a href="/neovim-docs-web/en/options#'fileencodings'">'fileencodings'</a> value is not good for you, set it to the
 encodings you want Vim to try.  Only when a value is found to be invalid will
 the next one be used.  Putting "latin1" first doesn't work, because it is
 never illegal.  An example, to fall back to Japanese when the file doesn't
 have a BOM and isn't utf-8:<pre>:set fileencodings=ucs-bom,utf-8,sjis</pre>
-See <a href="mbyte.html#encoding-values">encoding-values</a> for suggested values.  Other values may work as well.
+See <a href="/neovim-docs-web/en/mbyte#encoding-values">encoding-values</a> for suggested values.  Other values may work as well.
 This depends on the conversion available.</div>
 <div class="old-help-para"><a name="_forcing-an-encoding"></a><h3 class="help-heading">FORCING AN ENCODING</h3></div>
 <div class="old-help-para">If the automatic detection doesn't work you must tell Vim what encoding the
 file is.  Example:<pre>:edit ++enc=koi8-r russian.txt</pre>
 The "++enc" part specifies the name of the encoding to be used for this file
 only.  Vim will convert the file from the specified encoding, Russian in this
-example, to <a href="options.html#'encoding'">'encoding'</a>.  <a href="options.html#'fileencoding'">'fileencoding'</a> will also be set to the specified
+example, to <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.  <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> will also be set to the specified
 encoding, so that the reverse conversion can be done when writing the file.
    The same argument can be used when writing the file.  This way you can
 actually use Vim to convert a file.  Example:<pre>:write ++enc=utf-8 russian.txt</pre></div>
@@ -211,7 +211,7 @@ actually use Vim to convert a file.  Example:<pre>:write ++enc=utf-8 russian.txt
 have thousands of characters, Unicode has over hundred thousand.  So how do
 you type these characters?
    First of all, when you don't use too many of the special characters, you
-can use digraphs.  This was already explained in <a href="usr_24.html#24.9">24.9</a>.
+can use digraphs.  This was already explained in <a href="/neovim-docs-web/en/usr_24#24.9">24.9</a>.
    When you use a language that uses many more characters than keys on your
 keyboard, you will want to use an Input Method (IM).  This requires learning
 the translation from typed keys to resulting character.  When you need an IM
@@ -223,17 +223,17 @@ similar number of characters.  It's possible to map keys to characters.  Vim
 uses keymaps for this.
    Suppose you want to type Hebrew.  You can load the keymap like this:<pre>:set keymap=hebrew</pre>
 Vim will try to find a keymap file for you.  This depends on the value of
-<a href="options.html#'encoding'">'encoding'</a>.  If no matching file was found, you will get an error message.</div>
+<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.  If no matching file was found, you will get an error message.</div>
 <div class="old-help-para">Now you can type Hebrew in Insert mode.  In Normal mode, and when typing a ":"
 command, Vim automatically switches to English.  You can use this command to
 switch between Hebrew and English:<pre>CTRL-^</pre>
 This only works in Insert mode and Command-line mode.  In Normal mode it does
 something completely different (jumps to alternate file).
    The usage of the keymap is indicated in the mode message, if you have the
-<a href="options.html#'showmode'">'showmode'</a> option set.  In the GUI Vim will indicate the usage of keymaps with
+<a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option set.  In the GUI Vim will indicate the usage of keymaps with
 a different cursor color.
-   You can also change the usage of the keymap with the <a href="options.html#'iminsert'">'iminsert'</a> and
-<a href="options.html#'imsearch'">'imsearch'</a> options.</div>
+   You can also change the usage of the keymap with the <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> and
+<a href="/neovim-docs-web/en/options#'imsearch'">'imsearch'</a> options.</div>
 <div class="old-help-para">To see the list of mappings, use this command:<pre>:lmap</pre>
 To find out which keymap files are available, in the GUI you can use the
 Edit/Keymap menu.  Otherwise you can use this command:<pre>:echo globpath(&amp;rtp, "keymap/*.vim")</pre>
@@ -251,15 +251,15 @@ from existing keymaps (unless you want to replace an existing keymap file).
 an underscore.  Examples:</div>
 <div class="old-help-para"><div class="help-column_heading">	keymap/hebrew.vim</div><div class="help-column_heading">	keymap/hebrew_utf-8.vim</div></div>
 <div class="old-help-para">The contents of the file should be self-explanatory.  Look at a few of the
-keymaps that are distributed with Vim.  For the details, see <a href="mbyte.html#mbyte-keymap">mbyte-keymap</a>.</div>
+keymaps that are distributed with Vim.  For the details, see <a href="/neovim-docs-web/en/mbyte#mbyte-keymap">mbyte-keymap</a>.</div>
 <div class="old-help-para"><a name="_last-resort"></a><h3 class="help-heading">LAST RESORT</h3></div>
 <div class="old-help-para">If all other methods fail, you can enter any character with <code>CTRL-V</code>:</div>
 <div class="old-help-para"><div class="help-column_heading">	encoding   type			range</div>	8-bit	   <code>CTRL-V</code> 123		decimal 0-255
 	8-bit	   <code>CTRL-V</code> x a1		hexadecimal 00-ff
 	16-bit     <code>CTRL-V</code> u 013b	hexadecimal 0000-ffff
 	31-bit	   <code>CTRL-V</code> U 001303a4	hexadecimal 00000000-7fffffff</div>
-<div class="old-help-para">Don't type the spaces.  See <a href="insert.html#i_CTRL-V_digit">i_CTRL-V_digit</a> for the details.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">Don't type the spaces.  See <a href="/neovim-docs-web/en/insert#i_CTRL-V_digit">i_CTRL-V_digit</a> for the details.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

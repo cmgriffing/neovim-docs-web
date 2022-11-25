@@ -70,17 +70,31 @@ fs.outputFileSync(
 function preprocessHtmlFile(fileContents: string): string {
   const dom = new JSDOM(fileContents);
 
-  const { document } = dom.window as any;
+  const { document } = dom.window;
 
   const content = document.querySelector(".help-body .col-wide");
 
-  const title = content.querySelector("h1")?.textContent || "";
+  const title = content?.querySelector("h1")?.textContent || "";
+
+  const scrubbedContent = content?.innerHTML?.replaceAll(
+    new RegExp('href="([^#"]*)', "gm"),
+    function replacer(match) {
+      if (match.indexOf("://") > -1) {
+        return match;
+      }
+
+      const scrubbedLink = match.replace('href="', "").replace(".html", "");
+
+      // this is env based
+      return `href="/neovim-docs-web/en/${scrubbedLink}`;
+    }
+  );
 
   return `---
 title: ${title}
 layout: ../../layouts/MainLayout.astro
 ---
-${content?.innerHTML}
+${scrubbedContent}
   `;
 }
 

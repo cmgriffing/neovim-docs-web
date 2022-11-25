@@ -23,7 +23,7 @@ by double-clicking them.</div>
 <h3 class="help-heading"><span class="help-heading-tags">								      <a name="%3ATutor"></a><span class="help-tag">:Tutor</span></span></h3>:Tutor <code>{tutorial}</code>	Opens a tutorial. Command-line completion for
 			<code>{tutorial}</code> is provided, the candidates are a list of
 			'.tutor' files found in the 'tutor/'  folder in
-			the <a href="options.html#'runtimepath'">'runtimepath'</a>. Tutorials prefixed with 'vim-' will
+			the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>. Tutorials prefixed with 'vim-' will
 			always be shown first.</div>
 <div class="old-help-para">			If no <code>{tutorial}</code> is provided, the command starts the
 			'vim-01-beginner' tutorial, which is equivalent to
@@ -31,7 +31,7 @@ by double-clicking them.</div>
 <div class="old-help-para"><h2 class="help-heading">2. Creating tutorials<span class="help-heading-tags">                                        <a name="vim-tutor-create"></a><span class="help-tag">vim-tutor-create</span></span></h2></div>
 <div class="old-help-para">Writing vim-tutor-mode tutorials is easy. For an overview of the format used,
 please consult the 'tutor.tutor' file:<pre>:Tutor tutor</pre></div>
-<div class="old-help-para">New tutorials must be placed in the 'tutor/' folder in the <a href="options.html#'runtimepath'">'runtimepath'</a>
+<div class="old-help-para">New tutorials must be placed in the 'tutor/' folder in the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>
 to be detected by the :Tutor command.</div>
 <div class="old-help-para">It is recommended to use a less formal style when writing tutorials than in
 regular documentation (unless the content requires it).</div>

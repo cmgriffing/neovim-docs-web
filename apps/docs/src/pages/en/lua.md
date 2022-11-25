@@ -24,16 +24,16 @@ Lua engine <a name="Lua"></a><code class="help-tag">Lua</code>
 <div class="help-para">
 The Lua 5.1 script engine is builtin and always available. Try this command to
 get an idea of what lurks beneath:<pre>:lua print(vim.inspect(package.loaded))</pre>
-Nvim includes a "standard library" <a href="lua.html#lua-stdlib">lua-stdlib</a> for Lua.  It complements the
-"editor stdlib" (<a href="builtin.html#builtin-functions">builtin-functions</a> andEx-commands) and the <a href="api.html#API">API</a>, all of
-which can be used from Lua code (<a href="lua.html#lua-vimscript">lua-vimscript</a> <a href="lua.html#vim.api">vim.api</a>). Together these
+Nvim includes a "standard library" <a href="/neovim-docs-web/en/lua#lua-stdlib">lua-stdlib</a> for Lua.  It complements the
+"editor stdlib" (<a href="/neovim-docs-web/en/builtin#builtin-functions">builtin-functions</a> andEx-commands) and the <a href="/neovim-docs-web/en/api#API">API</a>, all of
+which can be used from Lua code (<a href="/neovim-docs-web/en/lua#lua-vimscript">lua-vimscript</a> <a href="/neovim-docs-web/en/lua#vim.api">vim.api</a>). Together these
 "namespaces" form the Nvim programming interface.
 
 </div>
 <div class="help-para">
-The <a href="repeat.html#%3Asource">:source</a> and <a href="repeat.html#%3Aruntime">:runtime</a> commands can run Lua scripts. Lua modules can be
+The <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a> and <a href="/neovim-docs-web/en/repeat#%3Aruntime">:runtime</a> commands can run Lua scripts. Lua modules can be
 loaded with <code>require('name')</code>, which by convention usually returns a table.
-See <a href="lua.html#lua-require">lua-require</a> for how Nvim finds and loads Lua modules.
+See <a href="/neovim-docs-web/en/lua#lua-require">lua-require</a> for how Nvim finds and loads Lua modules.
 
 </div>
 <div class="help-para">
@@ -67,11 +67,11 @@ programming": tables, closures, and coroutines.
 <a href="https://www.lua.org/doc/cacm2018.pdf">https://www.lua.org/doc/cacm2018.pdf</a>
 <div class="help-li" style=""> Tables are the "object" or container datastructure: they represent both
   lists and maps, you can extend them to represent your own datatypes and
-  change their behavior using <a href="luaref.html#luaref-metatable">luaref-metatable</a> (like Python's "datamodel").
+  change their behavior using <a href="/neovim-docs-web/en/luaref#luaref-metatable">luaref-metatable</a> (like Python's "datamodel").
 </div><div class="help-li" style=""> EVERY scope in Lua is a closure: a function is a closure, a module is
-  a closure, a <code>do</code> block (<a href="luaref.html#luaref-do">luaref-do</a>) is a closure--and they all work the
+  a closure, a <code>do</code> block (<a href="/neovim-docs-web/en/luaref#luaref-do">luaref-do</a>) is a closure--and they all work the
   same. A Lua module is literally just a big closure discovered on the "path"
-  (where your modules are found: <a href="luaref.html#package.cpath">package.cpath</a>).
+  (where your modules are found: <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a>).
 </div><div class="help-li" style=""> Stackful coroutines enable cooperative multithreading, generators, and
   versatile control for both Lua and its host (Nvim).
 </div>
@@ -131,11 +131,11 @@ Nvim tends to prefer the keyword args style.
 <div class="help-para">
 Lua intentionally does not support regular expressions, instead it has limited
 "patterns" which avoid the performance pitfalls of extended regex.
-<a href="luaref.html#luaref-patterns">luaref-patterns</a>
+<a href="/neovim-docs-web/en/luaref#luaref-patterns">luaref-patterns</a>
 
 </div>
 <div class="help-para">
-Examples using <a href="luaref.html#string.match()">string.match()</a>:<pre>print(string.match("foo123bar123", "%d+"))
+Examples using <a href="/neovim-docs-web/en/luaref#string.match()">string.match()</a>:<pre>print(string.match("foo123bar123", "%d+"))
 -- 123
 
 print(string.match("foo123bar123", "[^%d]+"))
@@ -146,7 +146,7 @@ print(string.match("foo123bar123", "[abc]+"))
 
 print(string.match("foo.bar", "%.bar"))
 -- .bar</pre>
-For more complex matching you can use Vim regex from Lua via <a href="lua.html#vim.regex()">vim.regex()</a>.
+For more complex matching you can use Vim regex from Lua via <a href="/neovim-docs-web/en/lua#vim.regex()">vim.regex()</a>.
 
 </div>
 <div class="help-para">
@@ -155,13 +155,13 @@ For more complex matching you can use Vim regex from Lua via <a href="lua.html#v
 
 </div>
 <div class="help-para">
-Modules are searched for under the directories specified in <a href="options.html#'runtimepath'">'runtimepath'</a>, in
+Modules are searched for under the directories specified in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>, in
 the order they appear.  Any "." in the module name is treated as a directory
 separator when searching.  For a module <code>foo.bar</code>, each directory is searched
 for <code>lua/foo/bar.lua</code>, then <code>lua/foo/bar/init.lua</code>.  If no files are found,
 the directories are searched again for a shared library with a name matching
 <code>lua/foo/bar.?</code>, where <code>?</code> is a list of suffixes (such as <code>so</code> or <code>dll</code>) derived from
-the initial value of <a href="luaref.html#package.cpath">package.cpath</a>. If still no files are found, Nvim falls
+the initial value of <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a>. If still no files are found, Nvim falls
 back to Lua's default search mechanism. The first script found is run and
 <code>require()</code> returns the value returned by the script if any, else <code>true</code>.
 
@@ -174,7 +174,7 @@ documentation at <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require
 
 </div>
 <div class="help-para">
-For example, if <a href="options.html#'runtimepath'">'runtimepath'</a> is <code>foo,bar</code> and <a href="luaref.html#package.cpath">package.cpath</a> was
+For example, if <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> is <code>foo,bar</code> and <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a> was
 <code>./?.so;./?.dll</code> at startup, <code>require('mod')</code> searches these paths in order
 and loads the first module found ("first wins"):<pre>foo/lua/mod.lua
 foo/lua/mod/init.lua
@@ -188,32 +188,32 @@ bar/lua/mod.dll</pre>
 </div>
 <div class="help-para">
                                                         <a name="lua-package-path"></a><code class="help-tag-right">lua-package-path</code>
-Nvim automatically adjusts <a href="luaref.html#package.path">package.path</a> and <a href="luaref.html#package.cpath">package.cpath</a> according to the
-effective <a href="options.html#'runtimepath'">'runtimepath'</a> value. Adjustment happens whenever <a href="options.html#'runtimepath'">'runtimepath'</a> is
+Nvim automatically adjusts <a href="/neovim-docs-web/en/luaref#package.path">package.path</a> and <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a> according to the
+effective <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> value. Adjustment happens whenever <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> is
 changed. <code>package.path</code> is adjusted by simply appending <code>/lua/?.lua</code> and
-<code>/lua/?/init.lua</code> to each directory from <a href="options.html#'runtimepath'">'runtimepath'</a> (<code>/</code> is actually the
+<code>/lua/?/init.lua</code> to each directory from <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> (<code>/</code> is actually the
 first character of <code>package.config</code>).
 
 </div>
 <div class="help-para">
-Similarly to <a href="luaref.html#package.path">package.path</a>, modified directories from <a href="options.html#'runtimepath'">'runtimepath'</a> are also
-added to <a href="luaref.html#package.cpath">package.cpath</a>. In this case, instead of appending <code>/lua/?.lua</code> and
+Similarly to <a href="/neovim-docs-web/en/luaref#package.path">package.path</a>, modified directories from <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> are also
+added to <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a>. In this case, instead of appending <code>/lua/?.lua</code> and
 <code>/lua/?/init.lua</code> to each runtimepath, all unique <code>?</code>-containing suffixes of
-the existing <a href="luaref.html#package.cpath">package.cpath</a> are used. Example:
+the existing <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a> are used. Example:
 
 </div>
 <div class="help-para">
 <div class="help-li" style=""> 1. Given that
-</div><div class="help-li" style="margin-left: 3rem;"> <a href="options.html#'runtimepath'">'runtimepath'</a> contains <code>/foo/bar,/xxx;yyy/baz,/abc</code>;
-</div><div class="help-li" style="margin-left: 3rem;"> initial <a href="luaref.html#package.cpath">package.cpath</a> (defined at compile-time or derived from
+</div><div class="help-li" style="margin-left: 3rem;"> <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> contains <code>/foo/bar,/xxx;yyy/baz,/abc</code>;
+</div><div class="help-li" style="margin-left: 3rem;"> initial <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a> (defined at compile-time or derived from
      <code>$LUA_CPATH</code> / <code>$LUA_INIT</code>) contains <code>./?.so;/def/ghi/a?d/j/g.elf;/def/?.so</code>.
 </div><div class="help-li" style=""> 2. It finds <code>?</code>-containing suffixes <code>/?.so</code>, <code>/a?d/j/g.elf</code> and <code>/?.so</code>, in
      order: parts of the path starting from the first path component containing
      question mark and preceding path separator.
 </div><div class="help-li" style=""> 3. The suffix of <code>/def/?.so</code>, namely <code>/?.so</code> is not unique, as it’s the same
-     as the suffix of the first path from <a href="luaref.html#package.path">package.path</a> (i.e. <code>./?.so</code>). Which
+     as the suffix of the first path from <a href="/neovim-docs-web/en/luaref#package.path">package.path</a> (i.e. <code>./?.so</code>). Which
      leaves <code>/?.so</code> and <code>/a?d/j/g.elf</code>, in this order.
-</div><div class="help-li" style=""> 4. <a href="options.html#'runtimepath'">'runtimepath'</a> has three paths: <code>/foo/bar</code>, <code>/xxx;yyy/baz</code> and <code>/abc</code>. The
+</div><div class="help-li" style=""> 4. <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> has three paths: <code>/foo/bar</code>, <code>/xxx;yyy/baz</code> and <code>/abc</code>. The
      second one contains a semicolon which is a paths separator so it is out,
      leaving only <code>/foo/bar</code> and <code>/abc</code>, in order.
 </div><div class="help-li" style=""> 5. The cartesian product of paths from 4. and suffixes from 3. is taken,
@@ -223,7 +223,7 @@ the existing <a href="luaref.html#package.cpath">package.cpath</a> are used. Exa
 </div><div class="help-li" style="margin-left: 3rem;"> <code>/foo/bar/lua/a?d/j/g.elf</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>/abc/lua/?.so</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>/abc/lua/a?d/j/g.elf</code>
-</div><div class="help-li" style=""> 6. New paths are prepended to the original <a href="luaref.html#package.cpath">package.cpath</a>.
+</div><div class="help-li" style=""> 6. New paths are prepended to the original <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a>.
 </div>
 </div>
 <div class="help-para">
@@ -234,22 +234,22 @@ Note:
 
 </div>
 <div class="help-para">
-<div class="help-li" style=""> To track <a href="options.html#'runtimepath'">'runtimepath'</a> updates, paths added at previous update are
+<div class="help-li" style=""> To track <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> updates, paths added at previous update are
   remembered and removed at the next update, while all paths derived from the
-  new <a href="options.html#'runtimepath'">'runtimepath'</a> are prepended as described above. This allows removing
-  paths when path is removed from <a href="options.html#'runtimepath'">'runtimepath'</a>, adding paths when they are
-  added and reordering <a href="luaref.html#package.path">package.path</a>/|package.cpath| content if <a href="options.html#'runtimepath'">'runtimepath'</a>
+  new <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> are prepended as described above. This allows removing
+  paths when path is removed from <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>, adding paths when they are
+  added and reordering <a href="/neovim-docs-web/en/luaref#package.path">package.path</a>/|package.cpath| content if <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>
   was reordered.
 </div>
 </div>
 <div class="help-para">
 <div class="help-li" style=""> Although adjustments happen automatically, Nvim does not track current
-  values of <a href="luaref.html#package.path">package.path</a> or <a href="luaref.html#package.cpath">package.cpath</a>. If you happen to delete some
-  paths from there you can set <a href="options.html#'runtimepath'">'runtimepath'</a> to trigger an update:<pre>let &amp;runtimepath = &amp;runtimepath</pre>
-</div><div class="help-li" style=""> Skipping paths from <a href="options.html#'runtimepath'">'runtimepath'</a> which contain semicolons applies both to
-  <a href="luaref.html#package.path">package.path</a> and <a href="luaref.html#package.cpath">package.cpath</a>. Given that there are some badly written
+  values of <a href="/neovim-docs-web/en/luaref#package.path">package.path</a> or <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a>. If you happen to delete some
+  paths from there you can set <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> to trigger an update:<pre>let &amp;runtimepath = &amp;runtimepath</pre>
+</div><div class="help-li" style=""> Skipping paths from <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> which contain semicolons applies both to
+  <a href="/neovim-docs-web/en/luaref#package.path">package.path</a> and <a href="/neovim-docs-web/en/luaref#package.cpath">package.cpath</a>. Given that there are some badly written
   plugins using shell, which will not work with paths containing semicolons,
-  it is better to not have them in <a href="options.html#'runtimepath'">'runtimepath'</a> at all.
+  it is better to not have them in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> at all.
 </div>
 </div>
 <div class="help-para">
@@ -261,8 +261,8 @@ Note:
 These commands execute a Lua chunk from either the command line (:lua, :luado)
 or a file (:luafile) on the given line [range]. As always in Lua, each chunk
 has its own scope (closure), so only global variables are shared between
-command calls. The <a href="lua.html#lua-stdlib">lua-stdlib</a> modules, user modules, and anything else on
-<a href="luaref.html#package.path">package.path</a> are available.
+command calls. The <a href="/neovim-docs-web/en/lua#lua-stdlib">lua-stdlib</a> modules, user modules, and anything else on
+<a href="/neovim-docs-web/en/luaref#package.path">package.path</a> are available.
 
 </div>
 <div class="help-para">
@@ -297,7 +297,7 @@ arguments separated by " " (space) instead of "\t" (tab).
 <code>{endmarker}</code>
     Executes Lua script <code>{script}</code> from within Vimscript. <code>{endmarker}</code> must NOT
     be preceded by whitespace. You can omit [endmarker] after the "&lt;&lt;" and use
-    a dot "." after <code>{script}</code> (similar to <a href="insert.html#%3Aappend">:append</a>, <a href="insert.html#%3Ainsert">:insert</a>).
+    a dot "." after <code>{script}</code> (similar to <a href="/neovim-docs-web/en/insert#%3Aappend">:append</a>, <a href="/neovim-docs-web/en/insert#%3Ainsert">:insert</a>).
 
 </div>
 <div class="help-para">
@@ -340,8 +340,8 @@ endfunction</pre>
                                                                     <a name="%3Aluafile"></a><code class="help-tag-right">:luafile</code>
 :luafile <code>{file}</code>
     Execute Lua script in <code>{file}</code>.
-    The whole argument is used as the filename (like <a href="editing.html#%3Aedit">:edit</a>), spaces do not
-    need to be escaped. Alternatively you can <a href="repeat.html#%3Asource">:source</a> Lua files.
+    The whole argument is used as the filename (like <a href="/neovim-docs-web/en/editing#%3Aedit">:edit</a>), spaces do not
+    need to be escaped. Alternatively you can <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a> Lua files.
 
 </div>
 <div class="help-para">
@@ -368,7 +368,7 @@ end</pre>
 <div class="help-para">
 Lua nils, numbers, strings, tables and booleans are converted to their
 respective Vimscript types. If a Lua string contains a NUL byte, it will be
-converted to a <a href="eval.html#Blob">Blob</a>. Conversion of other Lua types is an error.
+converted to a <a href="/neovim-docs-web/en/eval#Blob">Blob</a>. Conversion of other Lua types is an error.
 
 </div>
 <div class="help-para">
@@ -397,14 +397,14 @@ cases there is the following agreement:
    be a dictionary.
 3. Table with string keys, at least one of which contains NUL byte, is also
    considered to be a dictionary, but this time it is converted to
-   a <a href="builtin.html#msgpack-special-map">msgpack-special-map</a>.
+   a <a href="/neovim-docs-web/en/builtin#msgpack-special-map">msgpack-special-map</a>.
                                                              <a name="lua-special-tbl"></a><code class="help-tag-right">lua-special-tbl</code>
 4. Table with <code>vim.type_idx</code> key may be a dictionary, a list or floating-point
    value:
 <div class="help-li" style=""> <code>{[vim.type_idx]=vim.types.float, [vim.val_idx]=1}</code> is converted to
      a floating-point 1.0. Note that by default integral Lua numbers are
-     converted to <a href="eval.html#Number">Number</a>s, non-integral are converted to <a href="eval.html#Float">Float</a>s. This
-     variant allows integral <a href="eval.html#Float">Float</a>s.
+     converted to <a href="/neovim-docs-web/en/eval#Number">Number</a>s, non-integral are converted to <a href="/neovim-docs-web/en/eval#Float">Float</a>s. This
+     variant allows integral <a href="/neovim-docs-web/en/eval#Float">Float</a>s.
 </div><div class="help-li" style=""> <code>{[vim.type_idx]=vim.types.dictionary}</code> is converted to an empty
      dictionary, <code>{[vim.type_idx]=vim.types.dictionary, [42]=1, a=2}</code> is
      converted to a dictionary <code>{'a': 42}</code>: non-string keys are ignored.
@@ -427,7 +427,7 @@ Examples:<pre>:echo luaeval('math.pi')
 <div class="help-para">
 Note: Second argument to <code>luaeval</code> is converted ("marshalled") from Vimscript
 to Lua, so changes to Lua containers do not affect values in Vimscript. Return
-value is also always converted. When converting, <a href="builtin.html#msgpack-special-dict">msgpack-special-dict</a>s are
+value is also always converted. When converting, <a href="/neovim-docs-web/en/builtin#msgpack-special-dict">msgpack-special-dict</a>s are
 treated specially.
 
 </div>
@@ -451,12 +451,12 @@ value).
 
 </div>
 <div class="help-para">
-The <code>v:lua</code> prefix may be used to call Lua functions as <a href="eval.html#method">method</a>s. For
+The <code>v:lua</code> prefix may be used to call Lua functions as <a href="/neovim-docs-web/en/eval#method">method</a>s. For
 example:<pre>arg1-&gt;v:lua.somemod.func(arg2)</pre>
 
 </div>
 <div class="help-para">
-You can use <code>v:lua</code> in "func" options like <a href="options.html#'tagfunc'">'tagfunc'</a>, <a href="options.html#'omnifunc'">'omnifunc'</a>, etc.
+You can use <code>v:lua</code> in "func" options like <a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a>, <a href="/neovim-docs-web/en/options#'omnifunc'">'omnifunc'</a>, etc.
 For example consider the following Lua omnifunc handler:<pre>function mymod.omnifunc(findstart, base)
   if findstart == 1 then
     return 0
@@ -471,7 +471,7 @@ or use the require syntax as specified above to access it from a package.
 </div>
 <div class="help-para">
 Note: <code>v:lua</code> without a call is not allowed in a Vimscript expression:
-<a href="eval.html#Funcref">Funcref</a>s cannot represent Lua functions. The following are errors:<pre>let g:Myvar = v:lua.myfunc        " Error
+<a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>s cannot represent Lua functions. The following are errors:<pre>let g:Myvar = v:lua.myfunc        " Error
 call SomeFunc(v:lua.mycallback)   " Error
 let g:foo = v:lua                 " Error
 let g:foo = v:['lua']             " Error</pre>
@@ -521,12 +521,12 @@ management. Try this command to see available functions:<pre>:lua print(vim.insp
 </div>
 <div class="help-para">
 Internally, <code>vim.loop</code> wraps the "luv" Lua bindings for the LibUV library;
-see <a href="luvref.html#luv-intro">luv-intro</a> for a full reference manual.
+see <a href="/neovim-docs-web/en/luvref#luv-intro">luv-intro</a> for a full reference manual.
 
 </div>
 <div class="help-para">
                                                     <a name="E5560"></a><code class="help-tag-right">E5560</code> <a name="lua-loop-callbacks"></a><code class="help-tag">lua-loop-callbacks</code>
-It is an error to directly invoke <code>vim.api</code> functions (except <a href="api.html#api-fast">api-fast</a>) in
+It is an error to directly invoke <code>vim.api</code> functions (except <a href="/neovim-docs-web/en/api#api-fast">api-fast</a>) in
 <code>vim.loop</code> callbacks. For example, this is an error:<pre>local timer = vim.loop.new_timer()
 timer:start(1000, 0, function()
   vim.api.nvim_command('echomsg "test"')
@@ -534,14 +534,14 @@ end)</pre>
 
 </div>
 <div class="help-para">
-To avoid the error use <a href="lua.html#vim.schedule_wrap()">vim.schedule_wrap()</a> to defer the callback:<pre>local timer = vim.loop.new_timer()
+To avoid the error use <a href="/neovim-docs-web/en/lua#vim.schedule_wrap()">vim.schedule_wrap()</a> to defer the callback:<pre>local timer = vim.loop.new_timer()
 timer:start(1000, 0, vim.schedule_wrap(function()
   vim.api.nvim_command('echomsg "test"')
 end))</pre>
 
 </div>
 <div class="help-para">
-(For one-shot timers, see <a href="lua.html#vim.defer_fn()">vim.defer_fn()</a>, which automatically adds the
+(For one-shot timers, see <a href="/neovim-docs-web/en/lua#vim.defer_fn()">vim.defer_fn()</a>, which automatically adds the
 wrapping.)
 
 </div>
@@ -569,7 +569,7 @@ Example: File-change detection                                    <a name="watch
     3. Use ":Watch %" to watch any file.
     4. Try editing the file from another text editor.
     5. Observe that the file reloads in Nvim (because on_change() calls
-       <a href="editing.html#%3Achecktime">:checktime</a>).<pre>local w = vim.loop.new_fs_event()
+       <a href="/neovim-docs-web/en/editing#%3Achecktime">:checktime</a>).<pre>local w = vim.loop.new_fs_event()
 local function on_change(err, fname, status)
   -- Do work...
   vim.api.nvim_command('checktime')
@@ -635,7 +635,7 @@ A subset of the <code>vim.*</code> API is available in threads. This includes:
 <div class="help-para">
 <div class="help-li" style=""> <code>vim.loop</code> with a separate event loop per thread.
 </div><div class="help-li" style=""> <code>vim.mpack</code> and <code>vim.json</code> (useful for serializing messages between threads)
-</div><div class="help-li" style=""> <code>require</code> in threads can use lua packages from the global <a href="luaref.html#package.path">package.path</a>
+</div><div class="help-li" style=""> <code>require</code> in threads can use lua packages from the global <a href="/neovim-docs-web/en/luaref#package.path">package.path</a>
 </div><div class="help-li" style=""> <code>print()</code> and <code>vim.inspect</code>
 </div><div class="help-li" style=""> <code>vim.diff</code>
 </div><div class="help-li" style=""> most utility functions in <code>vim.*</code> for working with pure lua values
@@ -669,11 +669,11 @@ If you want to exclude visual selections from highlighting on yank, use
 vim.highlight.on_yank({opts})                        <a name="vim.highlight.on_yank()"></a><code class="help-tag-right">vim.highlight.on_yank()</code>
     Highlights the yanked text. The fields of the optional dict <code>{opts}</code>
     control the highlight:
-<div class="help-li" style=""> <code>{higroup}</code> highlight group for yanked region (default <a href="syntax.html#hl-IncSearch">hl-IncSearch</a>)
+<div class="help-li" style=""> <code>{higroup}</code> highlight group for yanked region (default <a href="/neovim-docs-web/en/syntax#hl-IncSearch">hl-IncSearch</a>)
 </div><div class="help-li" style=""> <code>{timeout}</code> time in ms before highlight is cleared (default <code>150</code>)
 </div><div class="help-li" style=""> <code>{on_macro}</code> highlight when executing macro (default <code>false</code>)
 </div><div class="help-li" style=""> <code>{on_visual}</code> highlight when yanking visual selection (default <code>true</code>)
-</div><div class="help-li" style=""> <code>{event}</code> event structure (default <a href="eval.html#v%3Aevent">v:event</a>)
+</div><div class="help-li" style=""> <code>{event}</code> event structure (default <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a>)
 </div>
 </div>
 <div class="help-para">
@@ -694,7 +694,7 @@ vim.highlight.range({bufnr}, <code>{ns}</code>, <code>{hlgroup}</code>, <code>{s
 </div><div class="help-li" style=""> <code>{finish}</code>  finish position (tuple <code>{line,col}</code>)
 </div><div class="help-li" style=""> <code>{opts}</code>    optional parameters:
 </div><div class="help-li" style="margin-left: 3rem;"> <code>regtype</code>: type of range (characterwise, linewise,
-                            or blockwise, see <a href="builtin.html#setreg()">setreg()</a>), default <code>'v'</code>
+                            or blockwise, see <a href="/neovim-docs-web/en/builtin#setreg()">setreg()</a>), default <code>'v'</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>inclusive</code>: range includes end position,
                             default <code>false</code>
 </div><div class="help-li" style="margin-left: 3rem;"> <code>priority</code>: priority of highlight, default
@@ -727,8 +727,8 @@ matching within a single line.
 <div class="help-para">
 vim.regex({re})                                                  <a name="vim.regex()"></a><code class="help-tag-right">vim.regex()</code>
     Parse the Vim regex <code>{re}</code> and return a regex object. Regexes are "magic"
-    and case-sensitive by default, regardless of <a href="options.html#'magic'">'magic'</a> and <a href="options.html#'ignorecase'">'ignorecase'</a>.
-    They can be controlled with flags, see <a href="pattern.html#%2Fmagic">/magic</a> and <a href="pattern.html#%2Fignorecase">/ignorecase</a>.
+    and case-sensitive by default, regardless of <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> and <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a>.
+    They can be controlled with flags, see <a href="/neovim-docs-web/en/pattern#%2Fmagic">/magic</a> and <a href="/neovim-docs-web/en/pattern#%2Fignorecase">/ignorecase</a>.
 
 </div>
 <div class="help-para">
@@ -748,7 +748,7 @@ regex:match_str({str})                                     <a name="regex%3Amatc
 regex:match_line({bufnr}, <code>{line_idx}</code> [, <code>{start}</code>, <code>{end}</code>])  <a name="regex%3Amatch_line()"></a><code class="help-tag">regex:match_line()</code>
     Match line <code>{line_idx}</code> (zero-based) in buffer <code>{bufnr}</code>. If <code>{start}</code> and <code>{end}</code>
     are supplied, match only this byte index range. Otherwise see
-    <a href="lua.html#regex%3Amatch_str()">regex:match_str()</a>. If <code>{start}</code> is used, then the returned byte indices
+    <a href="/neovim-docs-web/en/lua#regex%3Amatch_str()">regex:match_str()</a>. If <code>{start}</code> is used, then the returned byte indices
     will be relative <code>{start}</code>.
 
 </div>
@@ -835,7 +835,7 @@ vim.diff('a\n', 'b\nc\n', {result_type = 'indices'})
 </div>
 <div class="help-para">
 The <a name="vim.mpack"></a><code class="help-tag">vim.mpack</code> module provides encoding and decoding of Lua objects to and
-from msgpack-encoded strings. Supports <a href="lua.html#vim.NIL">vim.NIL</a> and <a href="lua.html#vim.empty_dict()">vim.empty_dict()</a>.
+from msgpack-encoded strings. Supports <a href="/neovim-docs-web/en/lua#vim.NIL">vim.NIL</a> and <a href="/neovim-docs-web/en/lua#vim.empty_dict()">vim.empty_dict()</a>.
 
 </div>
 <div class="help-para">
@@ -856,13 +856,13 @@ vim.mpack.decode({str})                                     <a name="vim.mpack.d
 <div class="help-para">
 vim.spell.check({str})                                     <a name="vim.spell.check()"></a><code class="help-tag-right">vim.spell.check()</code>
     Check <code>{str}</code> for spelling errors. Similar to the Vimscript function
-    <a href="builtin.html#spellbadword()">spellbadword()</a>.
+    <a href="/neovim-docs-web/en/builtin#spellbadword()">spellbadword()</a>.
 
 </div>
 <div class="help-para">
-    Note: The behaviour of this function is dependent on: <a href="options.html#'spelllang'">'spelllang'</a>,
-    <a href="options.html#'spellfile'">'spellfile'</a>, <a href="options.html#'spellcapcheck'">'spellcapcheck'</a> and <a href="options.html#'spelloptions'">'spelloptions'</a> which can all be local to
-    the buffer. Consider calling this with <a href="api.html#nvim_buf_call()">nvim_buf_call()</a>.
+    Note: The behaviour of this function is dependent on: <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a>,
+    <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>, <a href="/neovim-docs-web/en/options#'spellcapcheck'">'spellcapcheck'</a> and <a href="/neovim-docs-web/en/options#'spelloptions'">'spelloptions'</a> which can all be local to
+    the buffer. Consider calling this with <a href="/neovim-docs-web/en/api#nvim_buf_call()">nvim_buf_call()</a>.
 
 </div>
 <div class="help-para">
@@ -897,7 +897,7 @@ vim.spell.check({str})                                     <a name="vim.spell.ch
 </div>
 <div class="help-para">
 vim.api.{func}({...})                                                <a name="vim.api"></a><code class="help-tag-right">vim.api</code>
-    Invokes Nvim <a href="api.html#API">API</a> function <code>{func}</code> with arguments <code>{...}</code>.
+    Invokes Nvim <a href="/neovim-docs-web/en/api#API">API</a> function <code>{func}</code> with arguments <code>{...}</code>.
     Example: call the "nvim_get_current_line()" API function:<pre>print(tostring(vim.api.nvim_get_current_line()))</pre>
 vim.version()                                                    <a name="vim.version"></a><code class="help-tag-right">vim.version</code>
     Gets the version of the current Nvim build.
@@ -907,14 +907,14 @@ vim.version()                                                    <a name="vim.ve
 vim.in_fast_event()                                      <a name="vim.in_fast_event()"></a><code class="help-tag-right">vim.in_fast_event()</code>
     Returns true if the code is executing as part of a "fast" event handler,
     where most of the API is disabled. These are low-level events (e.g.
-    <a href="lua.html#lua-loop-callbacks">lua-loop-callbacks</a>) which can be invoked whenever Nvim polls for input.
+    <a href="/neovim-docs-web/en/lua#lua-loop-callbacks">lua-loop-callbacks</a>) which can be invoked whenever Nvim polls for input.
     When this is <code>false</code> most API functions are callable (but may be subject
-    to other restrictions such as <a href="eval.html#textlock">textlock</a>).
+    to other restrictions such as <a href="/neovim-docs-web/en/eval#textlock">textlock</a>).
 
 </div>
 <div class="help-para">
 vim.NIL                                                              <a name="vim.NIL"></a><code class="help-tag-right">vim.NIL</code>
-    Special value representing NIL in <a href="api.html#RPC">RPC</a> and <a href="eval.html#v%3Anull">v:null</a> in Vimscript
+    Special value representing NIL in <a href="/neovim-docs-web/en/api#RPC">RPC</a> and <a href="/neovim-docs-web/en/eval#v%3Anull">v:null</a> in Vimscript
     conversion, and similar cases. Lua <code>nil</code> cannot be used as part of a Lua
     table representing a Dictionary or Array, because it is treated as
     missing: <code>{"foo", nil}</code> is the same as <code>{"foo"}</code>.
@@ -935,22 +935,22 @@ vim.empty_dict()                                            <a name="vim.empty_d
 </div>
 <div class="help-para">
 vim.rpcnotify({channel}, <code>{method}</code> [, <code>{args}</code>...])             <a name="vim.rpcnotify()"></a><code class="help-tag-right">vim.rpcnotify()</code>
-    Sends <code>{event}</code> to <code>{channel}</code> via <a href="api.html#RPC">RPC</a> and returns immediately. If <code>{channel}</code>
+    Sends <code>{event}</code> to <code>{channel}</code> via <a href="/neovim-docs-web/en/api#RPC">RPC</a> and returns immediately. If <code>{channel}</code>
     is 0, the event is broadcast to all channels.
 
 </div>
 <div class="help-para">
-    This function also works in a fast callback <a href="lua.html#lua-loop-callbacks">lua-loop-callbacks</a>.
+    This function also works in a fast callback <a href="/neovim-docs-web/en/lua#lua-loop-callbacks">lua-loop-callbacks</a>.
 
 </div>
 <div class="help-para">
 vim.rpcrequest({channel}, <code>{method}</code> [, <code>{args}</code>...])           <a name="vim.rpcrequest()"></a><code class="help-tag-right">vim.rpcrequest()</code>
-    Sends a request to <code>{channel}</code> to invoke <code>{method}</code> via <a href="api.html#RPC">RPC</a> and blocks until
+    Sends a request to <code>{channel}</code> to invoke <code>{method}</code> via <a href="/neovim-docs-web/en/api#RPC">RPC</a> and blocks until
     a response is received.
 
 </div>
 <div class="help-para">
-    Note: NIL values as part of the return value is represented as <a href="lua.html#vim.NIL">vim.NIL</a>
+    Note: NIL values as part of the return value is represented as <a href="/neovim-docs-web/en/lua#vim.NIL">vim.NIL</a>
     special value
 
 </div>
@@ -981,7 +981,7 @@ vim.str_byteindex({str}, <code>{index}</code> [, <code>{use_utf16}</code>])     
 
 </div>
 <div class="help-para">
-    Invalid UTF-8 and NUL is treated like by <a href="lua.html#vim.str_byteindex()">vim.str_byteindex()</a>.
+    Invalid UTF-8 and NUL is treated like by <a href="/neovim-docs-web/en/lua#vim.str_byteindex()">vim.str_byteindex()</a>.
     An <code>{index}</code> in the middle of a UTF-16 sequence is rounded upwards to
     the end of that sequence.
 
@@ -1011,7 +1011,7 @@ vim.iconv({str}, <code>{from}</code>, <code>{to}</code>[, <code>{opts}</code>]) 
 <div class="help-para">
 vim.schedule({callback})                                      <a name="vim.schedule()"></a><code class="help-tag-right">vim.schedule()</code>
     Schedules <code>{callback}</code> to be invoked soon by the main event-loop. Useful
-    to avoid <a href="eval.html#textlock">textlock</a> or other temporary restrictions.
+    to avoid <a href="/neovim-docs-web/en/eval#textlock">textlock</a> or other temporary restrictions.
 
 </div>
 <div class="help-para">
@@ -1021,7 +1021,7 @@ vim.defer_fn({fn}, <code>{timeout}</code>)                                   <a 
 
 </div>
 <div class="help-para">
-    Note: The <code>{fn}</code> is <a href="lua.html#vim.schedule_wrap()">vim.schedule_wrap()</a>ped automatically, so API functions are
+    Note: The <code>{fn}</code> is <a href="/neovim-docs-web/en/lua#vim.schedule_wrap()">vim.schedule_wrap()</a>ped automatically, so API functions are
     safe to call.
 
 </div>
@@ -1033,7 +1033,7 @@ vim.defer_fn({fn}, <code>{timeout}</code>)                                   <a 
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Returns:</div>
-        <a href="lua.html#vim.loop">vim.loop</a>.new_timer() object
+        <a href="/neovim-docs-web/en/lua#vim.loop">vim.loop</a>.new_timer() object
 
 </div>
 <div class="help-para">
@@ -1052,8 +1052,8 @@ vim.wait({time} [, <code>{callback}</code>, <code>{interval}</code>, <code>{fast
 <div class="help-li" style=""> <code>{time}</code>      Number of milliseconds to wait
 </div><div class="help-li" style=""> <code>{callback}</code>  Optional callback. Waits until <code>{callback}</code> returns true
 </div><div class="help-li" style=""> <code>{interval}</code>  (Approximate) number of milliseconds to wait between polls
-</div><div class="help-li" style=""> <code>{fast_only}</code> If true, only <a href="api.html#api-fast">api-fast</a> events will be processed.
-                        If called from while in an <a href="api.html#api-fast">api-fast</a> event, will
+</div><div class="help-li" style=""> <code>{fast_only}</code> If true, only <a href="/neovim-docs-web/en/api#api-fast">api-fast</a> events will be processed.
+                        If called from while in an <a href="/neovim-docs-web/en/api#api-fast">api-fast</a> event, will
                         automatically be set to <code>true</code>.
 </div>
 </div>
@@ -1102,7 +1102,7 @@ end</pre>
 </div>
 <div class="help-para">
 vim.ui_attach({ns}, <code>{options}</code>, <code>{callback}</code>)                <a name="vim.ui_attach()"></a><code class="help-tag-right">vim.ui_attach()</code>
-    Attach to ui events, similar to <a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a> but receive events
+    Attach to ui events, similar to <a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a> but receive events
     as lua callback. Can be used to implement screen elements like
     popupmenu or message handling in lua.
 
@@ -1113,7 +1113,7 @@ vim.ui_attach({ns}, <code>{options}</code>, <code>{callback}</code>)            
 
 </div>
 <div class="help-para">
-    <code>{callback}</code> receives event name plus additional parameters. See <a href="ui.html#ui-popupmenu">ui-popupmenu</a>
+    <code>{callback}</code> receives event name plus additional parameters. See <a href="/neovim-docs-web/en/ui#ui-popupmenu">ui-popupmenu</a>
     and the sections below for event format for respective events.
 
 </div>
@@ -1121,12 +1121,12 @@ vim.ui_attach({ns}, <code>{options}</code>, <code>{callback}</code>)            
     WARNING: This api is considered experimental.  Usability will vary for
     different screen elements. In particular <code>ext_messages</code> behavior is subject
     to further changes and usability improvements.  This is expected to be
-    used to handle messages when setting <a href="options.html#'cmdheight'">'cmdheight'</a> to zero (which is
+    used to handle messages when setting <a href="/neovim-docs-web/en/options#'cmdheight'">'cmdheight'</a> to zero (which is
     likewise experimental).
 
 </div>
 <div class="help-para">
-    Example (stub for a <a href="ui.html#ui-popupmenu">ui-popupmenu</a> implementation):<pre>ns = vim.api.nvim_create_namespace('my_fancy_pum')
+    Example (stub for a <a href="/neovim-docs-web/en/ui#ui-popupmenu">ui-popupmenu</a> implementation):<pre>ns = vim.api.nvim_create_namespace('my_fancy_pum')
 
 vim.ui_attach(ns, {ext_popupmenu=true}, function(event, ...)
   if event == "popupmenu_show" then
@@ -1140,21 +1140,21 @@ vim.ui_attach(ns, {ext_popupmenu=true}, function(event, ...)
   end
 end)</pre>
 vim.ui_detach({ns})                                           <a name="vim.ui_detach()"></a><code class="help-tag-right">vim.ui_detach()</code>
-    Detach a callback previously attached with <a href="lua.html#vim.ui_attach()">vim.ui_attach()</a> for the
+    Detach a callback previously attached with <a href="/neovim-docs-web/en/lua#vim.ui_attach()">vim.ui_attach()</a> for the
     given namespace <code>{ns}</code>.
 
 </div>
 <div class="help-para">
 vim.type_idx                                                    <a name="vim.type_idx"></a><code class="help-tag-right">vim.type_idx</code>
-    Type index for use in <a href="lua.html#lua-special-tbl">lua-special-tbl</a>. Specifying one of the values from
-    <a href="lua.html#vim.types">vim.types</a> allows typing the empty table (it is unclear whether empty Lua
+    Type index for use in <a href="/neovim-docs-web/en/lua#lua-special-tbl">lua-special-tbl</a>. Specifying one of the values from
+    <a href="/neovim-docs-web/en/lua#vim.types">vim.types</a> allows typing the empty table (it is unclear whether empty Lua
     table represents empty list or empty array) and forcing integral numbers
-    to be <a href="eval.html#Float">Float</a>. See <a href="lua.html#lua-special-tbl">lua-special-tbl</a> for more details.
+    to be <a href="/neovim-docs-web/en/eval#Float">Float</a>. See <a href="/neovim-docs-web/en/lua#lua-special-tbl">lua-special-tbl</a> for more details.
 
 </div>
 <div class="help-para">
 vim.val_idx                                                      <a name="vim.val_idx"></a><code class="help-tag-right">vim.val_idx</code>
-    Value index for tables representing <a href="eval.html#Float">Float</a>s. A table representing
+    Value index for tables representing <a href="/neovim-docs-web/en/eval#Float">Float</a>s. A table representing
     floating-point value 1.0 looks like this:<pre>{
   [vim.type_idx] = vim.types.float,
   [vim.val_idx] = 1.0,
@@ -1162,15 +1162,15 @@ vim.val_idx                                                      <a name="vim.va
 
 </div>
 <div class="help-para">
-    See also <a href="lua.html#vim.type_idx">vim.type_idx</a> and <a href="lua.html#lua-special-tbl">lua-special-tbl</a>.
+    See also <a href="/neovim-docs-web/en/lua#vim.type_idx">vim.type_idx</a> and <a href="/neovim-docs-web/en/lua#lua-special-tbl">lua-special-tbl</a>.
 
 </div>
 <div class="help-para">
 vim.types                                                          <a name="vim.types"></a><code class="help-tag-right">vim.types</code>
-    Table with possible values for <a href="lua.html#vim.type_idx">vim.type_idx</a>. Contains two sets of
-    key-value pairs: first maps possible values for <a href="lua.html#vim.type_idx">vim.type_idx</a> to
+    Table with possible values for <a href="/neovim-docs-web/en/lua#vim.type_idx">vim.type_idx</a>. Contains two sets of
+    key-value pairs: first maps possible values for <a href="/neovim-docs-web/en/lua#vim.type_idx">vim.type_idx</a> to
     human-readable strings, second maps human-readable type names to values
-    for <a href="lua.html#vim.type_idx">vim.type_idx</a>. Currently contains pairs for <code>float</code>, <code>array</code> and
+    for <a href="/neovim-docs-web/en/lua#vim.type_idx">vim.type_idx</a>. Currently contains pairs for <code>float</code>, <code>array</code> and
         <code>dictionary</code> types.
 
 </div>
@@ -1218,16 +1218,16 @@ See also <a href="https://github.com/nanotee/nvim-lua-guide">https://github.com/
 </div>
 <div class="help-para">
 vim.call({func}, <code>{...}</code>)                                           <a name="vim.call()"></a><code class="help-tag-right">vim.call()</code>
-    Invokes <a href="eval.html#vim-function">vim-function</a> or <a href="eval.html#user-function">user-function</a> <code>{func}</code> with arguments <code>{...}</code>.
-    See also <a href="lua.html#vim.fn">vim.fn</a>.
+    Invokes <a href="/neovim-docs-web/en/eval#vim-function">vim-function</a> or <a href="/neovim-docs-web/en/eval#user-function">user-function</a> <code>{func}</code> with arguments <code>{...}</code>.
+    See also <a href="/neovim-docs-web/en/lua#vim.fn">vim.fn</a>.
     Equivalent to:<pre>vim.fn[func]({...})</pre>
 vim.cmd({command})
-    See <a href="lua.html#vim.cmd()">vim.cmd()</a>.
+    See <a href="/neovim-docs-web/en/lua#vim.cmd()">vim.cmd()</a>.
 
 </div>
 <div class="help-para">
 vim.fn.{func}({...})                                                  <a name="vim.fn"></a><code class="help-tag-right">vim.fn</code>
-    Invokes <a href="eval.html#vim-function">vim-function</a> or <a href="eval.html#user-function">user-function</a> <code>{func}</code> with arguments <code>{...}</code>.
+    Invokes <a href="/neovim-docs-web/en/eval#vim-function">vim-function</a> or <a href="/neovim-docs-web/en/eval#user-function">user-function</a> <code>{func}</code> with arguments <code>{...}</code>.
     To call autoload functions, use the syntax:<pre>vim.fn['some#function']({...})</pre>
 
 </div>
@@ -1239,8 +1239,8 @@ vim.fn.{func}({...})                                                  <a name="v
 
 </div>
 <div class="help-para">
-    Note: <a href="eval.html#v%3Anull">v:null</a> values as part of the return value is represented as
-    <a href="lua.html#vim.NIL">vim.NIL</a> special value
+    Note: <a href="/neovim-docs-web/en/eval#v%3Anull">v:null</a> values as part of the return value is represented as
+    <a href="/neovim-docs-web/en/lua#vim.NIL">vim.NIL</a> special value
 
 </div>
 <div class="help-para">
@@ -1249,13 +1249,13 @@ vim.fn.{func}({...})                                                  <a name="v
 
 </div>
 <div class="help-para">
-    Note: The majority of functions cannot run in <a href="api.html#api-fast">api-fast</a> callbacks with some
+    Note: The majority of functions cannot run in <a href="/neovim-docs-web/en/api#api-fast">api-fast</a> callbacks with some
     undocumented exceptions which are allowed.
 
 </div>
 <div class="help-para">
                                                            <a name="lua-vim-variables"></a><code class="help-tag-right">lua-vim-variables</code>
-The Vim editor global dictionaries <a href="eval.html#g%3A">g:</a> <a href="eval.html#w%3A">w:</a> <a href="eval.html#b%3A">b:</a> <a href="eval.html#t%3A">t:</a> <a href="eval.html#v%3A">v:</a> can be accessed
+The Vim editor global dictionaries <a href="/neovim-docs-web/en/eval#g%3A">g:</a> <a href="/neovim-docs-web/en/eval#w%3A">w:</a> <a href="/neovim-docs-web/en/eval#b%3A">b:</a> <a href="/neovim-docs-web/en/eval#t%3A">t:</a> <a href="/neovim-docs-web/en/eval#v%3A">v:</a> can be accessed
 from Lua conveniently and idiomatically by referencing the <code>vim.*</code> Lua tables
 described below. In this way you can easily read and modify global Vimscript
 variables from Lua.
@@ -1282,41 +1282,41 @@ local my_dict = vim.g.my_dict   --
 my_dict.field1 = 'value'        -- Instead do
 vim.g.my_dict = my_dict         --</pre>
 vim.g                                                                  <a name="vim.g"></a><code class="help-tag-right">vim.g</code>
-    Global (<a href="eval.html#g%3A">g:</a>) editor variables.
+    Global (<a href="/neovim-docs-web/en/eval#g%3A">g:</a>) editor variables.
     Key with no value returns <code>nil</code>.
 
 </div>
 <div class="help-para">
 vim.b                                                                  <a name="vim.b"></a><code class="help-tag-right">vim.b</code>
-    Buffer-scoped (<a href="eval.html#b%3A">b:</a>) variables for the current buffer.
+    Buffer-scoped (<a href="/neovim-docs-web/en/eval#b%3A">b:</a>) variables for the current buffer.
     Invalid or unset key returns <code>nil</code>. Can be indexed with
     an integer to access variables for a specific buffer.
 
 </div>
 <div class="help-para">
 vim.w                                                                  <a name="vim.w"></a><code class="help-tag-right">vim.w</code>
-    Window-scoped (<a href="eval.html#w%3A">w:</a>) variables for the current window.
+    Window-scoped (<a href="/neovim-docs-web/en/eval#w%3A">w:</a>) variables for the current window.
     Invalid or unset key returns <code>nil</code>. Can be indexed with
     an integer to access variables for a specific window.
 
 </div>
 <div class="help-para">
 vim.t                                                                  <a name="vim.t"></a><code class="help-tag-right">vim.t</code>
-    Tabpage-scoped (<a href="eval.html#t%3A">t:</a>) variables for the current tabpage.
+    Tabpage-scoped (<a href="/neovim-docs-web/en/eval#t%3A">t:</a>) variables for the current tabpage.
     Invalid or unset key returns <code>nil</code>. Can be indexed with
     an integer to access variables for a specific tabpage.
 
 </div>
 <div class="help-para">
 vim.v                                                                  <a name="vim.v"></a><code class="help-tag-right">vim.v</code>
-    <a href="eval.html#v%3A">v:</a> variables.
+    <a href="/neovim-docs-web/en/eval#v%3A">v:</a> variables.
     Invalid or unset key returns <code>nil</code>.
 
 </div>
 <div class="help-para">
 vim.env                                                              <a name="vim.env"></a><code class="help-tag-right">vim.env</code>
     Environment variables defined in the editor session.
-    See <a href="options.html#expand-env">expand-env</a> and <a href="eval.html#%3Alet-environment">:let-environment</a> for the Vimscript behavior.
+    See <a href="/neovim-docs-web/en/options#expand-env">expand-env</a> and <a href="/neovim-docs-web/en/eval#%3Alet-environment">:let-environment</a> for the Vimscript behavior.
     Invalid or unset key returns <code>nil</code>.
     Example:<pre>vim.env.FOO = 'bar'
 print(vim.env.TERM)</pre>
@@ -1330,8 +1330,8 @@ print(vim.env.TERM)</pre>
 
 </div>
 <div class="help-para">
-Vim options can be accessed through <a href="lua.html#vim.o">vim.o</a>, which behaves like Vimscript
-<a href="options.html#%3Aset">:set</a>.
+Vim options can be accessed through <a href="/neovim-docs-web/en/lua#vim.o">vim.o</a>, which behaves like Vimscript
+<a href="/neovim-docs-web/en/options#%3Aset">:set</a>.
 
 </div>
 <div class="help-para">
@@ -1351,15 +1351,15 @@ Vim options can be accessed through <a href="lua.html#vim.o">vim.o</a>, which be
 
 </div>
 <div class="help-para">
-Similarly, there is <a href="lua.html#vim.bo">vim.bo</a> and <a href="lua.html#vim.wo">vim.wo</a> for setting buffer-scoped and
+Similarly, there is <a href="/neovim-docs-web/en/lua#vim.bo">vim.bo</a> and <a href="/neovim-docs-web/en/lua#vim.wo">vim.wo</a> for setting buffer-scoped and
 window-scoped options. Note that this must NOT be confused with
-<a href="options.html#local-options">local-options</a> and <a href="options.html#%3Asetlocal">:setlocal</a>. There is also <a href="lua.html#vim.go">vim.go</a> that only accesses the
-global value of a <a href="options.html#global-local">global-local</a> option, see <a href="options.html#%3Asetglobal">:setglobal</a>.
+<a href="/neovim-docs-web/en/options#local-options">local-options</a> and <a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a>. There is also <a href="/neovim-docs-web/en/lua#vim.go">vim.go</a> that only accesses the
+global value of a <a href="/neovim-docs-web/en/options#global-local">global-local</a> option, see <a href="/neovim-docs-web/en/options#%3Asetglobal">:setglobal</a>.
 
 </div>
 <div class="help-para">
 vim.o                                                                  <a name="vim.o"></a><code class="help-tag-right">vim.o</code>
-    Get or set <a href="options.html#options">options</a>. Like <code>:set</code>. Invalid key is an error.
+    Get or set <a href="/neovim-docs-web/en/options#options">options</a>. Like <code>:set</code>. Invalid key is an error.
 
 </div>
 <div class="help-para">
@@ -1375,13 +1375,13 @@ print(vim.o.foo)     -- error: invalid key</pre>
 </div>
 <div class="help-para">
 vim.go                                                                <a name="vim.go"></a><code class="help-tag-right">vim.go</code>
-    Get or set global <a href="options.html#options">options</a>. Like <code>:setglobal</code>. Invalid key is
+    Get or set global <a href="/neovim-docs-web/en/options#options">options</a>. Like <code>:setglobal</code>. Invalid key is
     an error.
 
 </div>
 <div class="help-para">
-    Note: this is different from <a href="lua.html#vim.o">vim.o</a> because this accesses the global
-    option value and thus is mostly useful for use with <a href="options.html#global-local">global-local</a>
+    Note: this is different from <a href="/neovim-docs-web/en/lua#vim.o">vim.o</a> because this accesses the global
+    option value and thus is mostly useful for use with <a href="/neovim-docs-web/en/options#global-local">global-local</a>
     options.
 
 </div>
@@ -1393,7 +1393,7 @@ print(vim.go.bar)     -- error: invalid key</pre>
 </div>
 <div class="help-para">
 vim.bo[{bufnr}]                                                                <a name="vim.bo"></a><code class="help-tag-right">vim.bo</code>
-    Get or set buffer-scoped <a href="options.html#options">options</a> for the buffer with number <code>{bufnr}</code>.
+    Get or set buffer-scoped <a href="/neovim-docs-web/en/options#options">options</a> for the buffer with number <code>{bufnr}</code>.
     Like <code>:set</code> and <code>:setlocal</code>. If [{bufnr}] is omitted then the current
     buffer is used. Invalid <code>{bufnr}</code> or key is an error.
 
@@ -1411,13 +1411,13 @@ print(vim.bo.baz)                 -- error: invalid key</pre>
 </div>
 <div class="help-para">
 vim.wo[{winid}]                                                                <a name="vim.wo"></a><code class="help-tag-right">vim.wo</code>
-    Get or set window-scoped <a href="options.html#options">options</a> for the window with handle <code>{winid}</code>.
+    Get or set window-scoped <a href="/neovim-docs-web/en/options#options">options</a> for the window with handle <code>{winid}</code>.
     Like <code>:set</code>. If [{winid}] is omitted then the current window is used.
     Invalid <code>{winid}</code> or key is an error.
 
 </div>
 <div class="help-para">
-    Note: this does not access <a href="options.html#local-options">local-options</a> (<code>:setlocal</code>) instead use:<pre>nvim_get_option_value(OPTION, { scope = 'local', win = winid })
+    Note: this does not access <a href="/neovim-docs-web/en/options#local-options">local-options</a> (<code>:setlocal</code>) instead use:<pre>nvim_get_option_value(OPTION, { scope = 'local', win = winid })
 nvim_set_option_value(OPTION, VALUE, { scope = 'local', win = winid }</pre>
 
 </div>
@@ -1436,7 +1436,7 @@ print(vim.wo.quux)             -- error: invalid key</pre>
 
 </div>
 <div class="help-para">
-A special interface <a href="lua.html#vim.opt">vim.opt</a> exists for conveniently interacting with list-
+A special interface <a href="/neovim-docs-web/en/lua#vim.opt">vim.opt</a> exists for conveniently interacting with list-
 and map-style option from Lua: It allows accessing them as Lua tables and
 offers object-oriented method for adding and removing entries.
 
@@ -1462,15 +1462,15 @@ offers object-oriented method for adding and removing entries.
 
 </div>
 <div class="help-para">
-    To replicate the behavior of <a href="options.html#%3Aset%2B%3D">:set+=</a>, use:<pre>vim.opt.wildignore:append { "*.pyc", "node_modules" }</pre>
+    To replicate the behavior of <a href="/neovim-docs-web/en/options#%3Aset%2B%3D">:set+=</a>, use:<pre>vim.opt.wildignore:append { "*.pyc", "node_modules" }</pre>
 
 </div>
 <div class="help-para">
-    To replicate the behavior of <a href="options.html#%3Aset%5E%3D">:set^=</a>, use:<pre>vim.opt.wildignore:prepend { "new_first_value" }</pre>
+    To replicate the behavior of <a href="/neovim-docs-web/en/options#%3Aset%5E%3D">:set^=</a>, use:<pre>vim.opt.wildignore:prepend { "new_first_value" }</pre>
 
 </div>
 <div class="help-para">
-    To replicate the behavior of <a href="options.html#%3Aset-%3D">:set-=</a>, use:<pre>vim.opt.wildignore:remove { "node_modules" }</pre>
+    To replicate the behavior of <a href="/neovim-docs-web/en/options#%3Aset-%3D">:set-=</a>, use:<pre>vim.opt.wildignore:remove { "node_modules" }</pre>
 
 </div>
 <div class="help-para">
@@ -1490,8 +1490,8 @@ offers object-oriented method for adding and removing entries.
 
 </div>
 <div class="help-para">
-Note that <a href="lua.html#vim.opt">vim.opt</a> returns an <code>Option</code> object, not the value of the option,
-which is accessed through <a href="lua.html#vim.opt%3Aget()">vim.opt:get()</a>:
+Note that <a href="/neovim-docs-web/en/lua#vim.opt">vim.opt</a> returns an <code>Option</code> object, not the value of the option,
+which is accessed through <a href="/neovim-docs-web/en/lua#vim.opt%3Aget()">vim.opt:get()</a>:
 
 </div>
 <div class="help-para">
@@ -1515,8 +1515,8 @@ which is accessed through <a href="lua.html#vim.opt%3Aget()">vim.opt:get()</a>:
 
 </div>
 <div class="help-para">
-In any of the above examples, to replicate the behavior <a href="options.html#%3Asetlocal">:setlocal</a>, use
-<code>vim.opt_local</code>. Additionally, to replicate the behavior of <a href="options.html#%3Asetglobal">:setglobal</a>, use
+In any of the above examples, to replicate the behavior <a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a>, use
+<code>vim.opt_local</code>. Additionally, to replicate the behavior of <a href="/neovim-docs-web/en/options#%3Asetglobal">:setglobal</a>, use
 <code>vim.opt_global</code>.
 
 </div>
@@ -1575,7 +1575,7 @@ Option:append(value)
 
 </div>
 <div class="help-para">
-    Append a value to string-style options. See <a href="options.html#%3Aset%2B%3D">:set+=</a>
+    Append a value to string-style options. See <a href="/neovim-docs-web/en/options#%3Aset%2B%3D">:set+=</a>
 
 </div>
 <div class="help-para">
@@ -1590,7 +1590,7 @@ Option:prepend(value)
 
 </div>
 <div class="help-para">
-    Prepend a value to string-style options. See <a href="options.html#%3Aset%5E%3D">:set^=</a>
+    Prepend a value to string-style options. See <a href="/neovim-docs-web/en/options#%3Aset%5E%3D">:set^=</a>
 
 </div>
 <div class="help-para">
@@ -1605,7 +1605,7 @@ Option:remove(value)
 
 </div>
 <div class="help-para">
-    Remove a value from string-style options. See <a href="options.html#%3Aset-%3D">:set-=</a>
+    Remove a value from string-style options. See <a href="/neovim-docs-web/en/options#%3Aset-%3D">:set-=</a>
 
 </div>
 <div class="help-para">
@@ -1660,15 +1660,15 @@ vim.cmd.colorscheme('blue')</pre>
 <div class="help-column_heading">    Parameters:</div>
 <div class="help-li" style=""> <code>{command}</code>  string|table Command(s) to execute. If a string, executes
                    multiple lines of Vim script at once. In this case, it is
-                   an alias to <a href="api.html#nvim_exec()">nvim_exec()</a>, where <code>output</code> is set to false.
-                   Thus it works identical to <a href="repeat.html#%3Asource">:source</a>. If a table, executes
+                   an alias to <a href="/neovim-docs-web/en/api#nvim_exec()">nvim_exec()</a>, where <code>output</code> is set to false.
+                   Thus it works identical to <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a>. If a table, executes
                    a single command. In this case, it is an alias to
-                   <a href="api.html#nvim_cmd()">nvim_cmd()</a> where <code>opts</code> is empty.
+                   <a href="/neovim-docs-web/en/api#nvim_cmd()">nvim_cmd()</a> where <code>opts</code> is empty.
 </div>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="vimindex.html#ex-cmd-index">ex-cmd-index</a>
+        <a href="/neovim-docs-web/en/vimindex#ex-cmd-index">ex-cmd-index</a>
 
 </div>
 <div class="help-para">
@@ -1683,7 +1683,7 @@ defer_fn(<code>{fn}</code>, <code>{timeout}</code>)                             
 
 </div>
 <div class="help-para">
-    Use to do a one-shot timer that calls <code>fn</code> Note: The <code>{fn}</code> is <a href="lua.html#vim.schedule_wrap()">vim.schedule_wrap()</a>ped automatically, so API functions
+    Use to do a one-shot timer that calls <code>fn</code> Note: The <code>{fn}</code> is <a href="/neovim-docs-web/en/lua#vim.schedule_wrap()">vim.schedule_wrap()</a>ped automatically, so API functions
     are safe to call.
 
 </div>
@@ -1734,13 +1734,13 @@ notify(<code>{msg}</code>, <code>{level}</code>, <code>{opts}</code>)           
 <div class="help-para">
     This function can be overridden by plugins to display notifications using
     a custom provider (such as the system notification provider). By default,
-    writes to <a href="message.html#%3Amessages">:messages</a>.
+    writes to <a href="/neovim-docs-web/en/message#%3Amessages">:messages</a>.
 
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Parameters:</div>
 <div class="help-li" style=""> <code>{msg}</code>    (string) Content of the notification to show to the user.
-</div><div class="help-li" style=""> <code>{level}</code>  (number|nil) One of the values from <a href="lua.html#vim.log.levels">vim.log.levels</a>.
+</div><div class="help-li" style=""> <code>{level}</code>  (number|nil) One of the values from <a href="/neovim-docs-web/en/lua#vim.log.levels">vim.log.levels</a>.
 </div><div class="help-li" style=""> <code>{opts}</code>   (table|nil) Optional parameters. Unused by default.
 </div>
 </div>
@@ -1750,14 +1750,14 @@ notify_once(<code>{msg}</code>, <code>{level}</code>, <code>{opts}</code>)      
 
 </div>
 <div class="help-para">
-    Like <a href="lua.html#vim.notify()">vim.notify()</a>, but subsequent calls with the same message will not
+    Like <a href="/neovim-docs-web/en/lua#vim.notify()">vim.notify()</a>, but subsequent calls with the same message will not
     display a notification.
 
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Parameters:</div>
 <div class="help-li" style=""> <code>{msg}</code>    (string) Content of the notification to show to the user.
-</div><div class="help-li" style=""> <code>{level}</code>  (number|nil) One of the values from <a href="lua.html#vim.log.levels">vim.log.levels</a>.
+</div><div class="help-li" style=""> <code>{level}</code>  (number|nil) One of the values from <a href="/neovim-docs-web/en/lua#vim.log.levels">vim.log.levels</a>.
 </div><div class="help-li" style=""> <code>{opts}</code>   (table|nil) Optional parameters. Unused by default.
 </div>
 </div>
@@ -1773,13 +1773,13 @@ on_key(<code>{fn}</code>, <code>{ns_id}</code>)                                 
 
 </div>
 <div class="help-para">
-    The Nvim command-line option <a href="starting.html#-w">-w</a> is related but does not support
+    The Nvim command-line option <a href="/neovim-docs-web/en/starting#-w">-w</a> is related but does not support
     callbacks and cannot be toggled dynamically.
 
 </div>
 <div class="help-para">
     Note:
-        <code>{fn}</code> will not be cleared by <a href="api.html#nvim_buf_clear_namespace()">nvim_buf_clear_namespace()</a>
+        <code>{fn}</code> will not be cleared by <a href="/neovim-docs-web/en/api#nvim_buf_clear_namespace()">nvim_buf_clear_namespace()</a>
 
 </div>
 <div class="help-para">
@@ -1791,10 +1791,10 @@ on_key(<code>{fn}</code>, <code>{ns_id}</code>)                                 
 <div class="help-column_heading">    Parameters:</div>
 <div class="help-li" style=""> <code>{fn}</code>     (function) Callback function. It should take one string
                  argument. On each key press, Nvim passes the key char to
-                 fn(). <a href="insert.html#i_CTRL-V">i_CTRL-V</a> If <code>{fn}</code> is nil, it removes the callback for
+                 fn(). <a href="/neovim-docs-web/en/insert#i_CTRL-V">i_CTRL-V</a> If <code>{fn}</code> is nil, it removes the callback for
                  the associated <code>{ns_id}</code>
 </div><div class="help-li" style=""> <code>{ns_id}</code>  number? Namespace ID. If nil or 0, generates and returns a
-                 new <a href="api.html#nvim_create_namespace()">nvim_create_namespace()</a> id.
+                 new <a href="/neovim-docs-web/en/api#nvim_create_namespace()">nvim_create_namespace()</a> id.
 </div>
 </div>
 <div class="help-para">
@@ -1810,8 +1810,8 @@ on_key(<code>{fn}</code>, <code>{ns_id}</code>)                                 
 </div>
 <div class="help-para">
 paste(<code>{lines}</code>, <code>{phase}</code>)                                          <a name="vim.paste()"></a><code class="help-tag-right">vim.paste()</code>
-    Paste handler, invoked by <a href="api.html#nvim_paste()">nvim_paste()</a> when a conforming UI (such as the
-    <a href="term.html#TUI">TUI</a>) pastes text into the editor.
+    Paste handler, invoked by <a href="/neovim-docs-web/en/api#nvim_paste()">nvim_paste()</a> when a conforming UI (such as the
+    <a href="/neovim-docs-web/en/term#TUI">TUI</a>) pastes text into the editor.
 
 </div>
 <div class="help-para">
@@ -1828,8 +1828,8 @@ end)(vim.paste)</pre>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Parameters:</div>
-<div class="help-li" style=""> <code>{lines}</code>  string[] # <a href="builtin.html#readfile()">readfile()</a>-style list of lines to paste.
-                 <a href="channel.html#channel-lines">channel-lines</a>
+<div class="help-li" style=""> <code>{lines}</code>  string[] # <a href="/neovim-docs-web/en/builtin#readfile()">readfile()</a>-style list of lines to paste.
+                 <a href="/neovim-docs-web/en/channel#channel-lines">channel-lines</a>
 </div><div class="help-li" style=""> <code>{phase}</code>  paste_phase -1: "non-streaming" paste: the call contains all
                  lines. If paste is "streamed", <code>phase</code> indicates the stream state:
 </div><div class="help-li" style="margin-left: 3rem;"> 1: starts the paste (exactly once)
@@ -1844,7 +1844,7 @@ end)(vim.paste)</pre>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="provider.html#paste">paste</a> @alias paste_phase -1 | 1 | 2 | 3
+        <a href="/neovim-docs-web/en/provider#paste">paste</a> @alias paste_phase -1 | 1 | 2 | 3
 
 </div>
 <div class="help-para">
@@ -1860,7 +1860,7 @@ local hl_normal = vim.pretty_print(vim.api.nvim_get_hl_by_name("Normal", true))<
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#vim.inspect()">vim.inspect()</a>
+        <a href="/neovim-docs-web/en/lua#vim.inspect()">vim.inspect()</a>
 
 </div>
 <div class="help-para">
@@ -1875,7 +1875,7 @@ region(<code>{bufnr}</code>, <code>{pos1}</code>, <code>{pos2}</code>, <code>{re
 </div><div class="help-li" style=""> <code>{pos1}</code>       integer[] (line, column) tuple marking beginning of
                      region
 </div><div class="help-li" style=""> <code>{pos2}</code>       integer[] (line, column) tuple marking end of region
-</div><div class="help-li" style=""> <code>{regtype}</code>    (string) type of selection, see <a href="builtin.html#setreg()">setreg()</a>
+</div><div class="help-li" style=""> <code>{regtype}</code>    (string) type of selection, see <a href="/neovim-docs-web/en/builtin#setreg()">setreg()</a>
 </div><div class="help-li" style=""> <code>{inclusive}</code>  (boolean) indicating whether the selection is
                      end-inclusive
 </div>
@@ -1903,9 +1903,9 @@ schedule_wrap(<code>{cb}</code>)                                      <a name="v
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#lua-loop-callbacks">lua-loop-callbacks</a>
-        <a href="lua.html#vim.schedule()">vim.schedule()</a>
-        <a href="lua.html#vim.in_fast_event()">vim.in_fast_event()</a>
+        <a href="/neovim-docs-web/en/lua#lua-loop-callbacks">lua-loop-callbacks</a>
+        <a href="/neovim-docs-web/en/lua#vim.schedule()">vim.schedule()</a>
+        <a href="/neovim-docs-web/en/lua#vim.in_fast_event()">vim.in_fast_event()</a>
 
 </div>
 <div class="help-para">
@@ -2012,7 +2012,7 @@ gsplit(<code>{s}</code>, <code>{sep}</code>, <code>{plain}</code>)              
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#vim.split()">vim.split()</a>
+        <a href="/neovim-docs-web/en/lua#vim.split()">vim.split()</a>
         <a href="https://www.lua.org/pil/20.2.html">https://www.lua.org/pil/20.2.html</a>
         <a href="http://lua-users.org/wiki/StringLibraryTutorial">http://lua-users.org/wiki/StringLibraryTutorial</a>
 
@@ -2056,7 +2056,7 @@ list_extend(<code>{dst}</code>, <code>{src}</code>, <code>{start}</code>, <code>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#vim.tbl_extend()">vim.tbl_extend()</a>
+        <a href="/neovim-docs-web/en/lua#vim.tbl_extend()">vim.tbl_extend()</a>
 
 </div>
 <div class="help-para">
@@ -2079,7 +2079,7 @@ list_slice(<code>{list}</code>, <code>{start}</code>, <code>{finish}</code>)    
 </div>
 <div class="help-para">
 pesc(<code>{s}</code>)                                                         <a name="vim.pesc()"></a><code class="help-tag-right">vim.pesc()</code>
-    Escapes magic chars in <a href="lua.html#lua-patterns">lua-patterns</a>.
+    Escapes magic chars in <a href="/neovim-docs-web/en/lua#lua-patterns">lua-patterns</a>.
 
 </div>
 <div class="help-para">
@@ -2128,7 +2128,7 @@ split("|x|y|z|", "|", {trimempty=true}) =&gt; {'x', 'y', 'z'}</pre>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#vim.gsplit()">vim.gsplit()</a>
+        <a href="/neovim-docs-web/en/lua#vim.gsplit()">vim.gsplit()</a>
 
 </div>
 <div class="help-para">
@@ -2227,7 +2227,7 @@ tbl_deep_extend(<code>{behavior}</code>, <code>{...}</code>)                    
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#vim.tbl_extend()">vim.tbl_extend()</a>
+        <a href="/neovim-docs-web/en/lua#vim.tbl_extend()">vim.tbl_extend()</a>
 
 </div>
 <div class="help-para">
@@ -2252,7 +2252,7 @@ tbl_extend(<code>{behavior}</code>, <code>{...}</code>)                         
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="builtin.html#extend()">extend()</a>
+        <a href="/neovim-docs-web/en/builtin#extend()">extend()</a>
 
 </div>
 <div class="help-para">
@@ -2342,8 +2342,8 @@ tbl_islist(<code>{t}</code>)                                             <a name
 </div>
 <div class="help-para">
     Empty table <code>{}</code> is assumed to be an array, unless it was created by
-    <a href="lua.html#vim.empty_dict()">vim.empty_dict()</a> or returned as a dict-like <a href="api.html#API">API</a> or Vimscript result,
-    for example from <a href="builtin.html#rpcrequest()">rpcrequest()</a> or <a href="lua.html#vim.fn">vim.fn</a>.
+    <a href="/neovim-docs-web/en/lua#vim.empty_dict()">vim.empty_dict()</a> or returned as a dict-like <a href="/neovim-docs-web/en/api#API">API</a> or Vimscript result,
+    for example from <a href="/neovim-docs-web/en/builtin#rpcrequest()">rpcrequest()</a> or <a href="/neovim-docs-web/en/lua#vim.fn">vim.fn</a>.
 
 </div>
 <div class="help-para">
@@ -2570,13 +2570,13 @@ end)</pre>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Parameters:</div>
-<div class="help-li" style=""> <code>{opts}</code>        (table) Additional options. See <a href="builtin.html#input()">input()</a>
+<div class="help-li" style=""> <code>{opts}</code>        (table) Additional options. See <a href="/neovim-docs-web/en/builtin#input()">input()</a>
 </div><div class="help-li" style="margin-left: 3rem;"> prompt (string|nil) Text of the prompt
 </div><div class="help-li" style="margin-left: 3rem;"> default (string|nil) Default reply to the input
 </div><div class="help-li" style="margin-left: 3rem;"> completion (string|nil) Specifies type of completion
                         supported for input. Supported types are the same that
                         can be supplied to a user-defined command using the
-                        "-complete=" argument. See <a href="map.html#%3Acommand-completion">:command-completion</a>
+                        "-complete=" argument. See <a href="/neovim-docs-web/en/map#%3Acommand-completion">:command-completion</a>
 </div><div class="help-li" style="margin-left: 3rem;"> highlight (function) Function that will be used for
                         highlighting user inputs.
 </div><div class="help-li" style=""> <code>{on_confirm}</code>  (function) ((input|nil) -&gt; ()) Called once the user
@@ -2637,7 +2637,7 @@ add(<code>{filetypes}</code>)                                          <a name="
     Filetype mappings can be added either by extension or by filename (either
     the "tail" or the full file path). The full file path is checked first,
     followed by the file name. If a match is not found using the filename,
-    then the filename is matched against the list of <a href="lua.html#lua-patterns">lua-patterns</a> (sorted by
+    then the filename is matched against the list of <a href="/neovim-docs-web/en/lua#lua-patterns">lua-patterns</a> (sorted by
     priority) until a match is found. Lastly, if pattern matching does not
     find a filetype, then the file extension is used.
 
@@ -2807,12 +2807,12 @@ vim.keymap.del({'n', 'i', 'v'}, '&lt;leader&gt;w', { buffer = 5 })</pre>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="lua.html#vim.keymap.set()">vim.keymap.set()</a>
+        <a href="/neovim-docs-web/en/lua#vim.keymap.set()">vim.keymap.set()</a>
 
 </div>
 <div class="help-para">
 set(<code>{mode}</code>, <code>{lhs}</code>, <code>{rhs}</code>, <code>{opts}</code>)                           <a name="vim.keymap.set()"></a><code class="help-tag-right">vim.keymap.set()</code>
-    Add a new <a href="map.html#mapping">mapping</a>. Examples:<pre>-- Can add mapping to Lua functions
+    Add a new <a href="/neovim-docs-web/en/map#mapping">mapping</a>. Examples:<pre>-- Can add mapping to Lua functions
 vim.keymap.set('n', 'lhs', function() print("real lua function") end)
 
 -- Can use it to map multiple modes
@@ -2841,14 +2841,14 @@ vim.keymap.set('n', '[%', '&lt;Plug&gt;(MatchitNormalMultiBackward)')</pre>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Parameters:</div>
-<div class="help-li" style=""> <code>{mode}</code>  string|table Same mode short names as <a href="api.html#nvim_set_keymap()">nvim_set_keymap()</a>. Can
+<div class="help-li" style=""> <code>{mode}</code>  string|table Same mode short names as <a href="/neovim-docs-web/en/api#nvim_set_keymap()">nvim_set_keymap()</a>. Can
                 also be list of modes to create mapping on multiple modes.
-</div><div class="help-li" style=""> <code>{lhs}</code>   (string) Left-hand side <a href="map.html#%7Blhs%7D">{lhs}</a> of the mapping.
-</div><div class="help-li" style=""> <code>{rhs}</code>   string|function Right-hand side <a href="map.html#%7Brhs%7D">{rhs}</a> of the mapping. Can
+</div><div class="help-li" style=""> <code>{lhs}</code>   (string) Left-hand side <a href="/neovim-docs-web/en/map#%7Blhs%7D">{lhs}</a> of the mapping.
+</div><div class="help-li" style=""> <code>{rhs}</code>   string|function Right-hand side <a href="/neovim-docs-web/en/map#%7Brhs%7D">{rhs}</a> of the mapping. Can
                 also be a Lua function.
-</div><div class="help-li" style=""> <code>{opts}</code>  (table|nil) A table of <a href="map.html#%3Amap-arguments">:map-arguments</a>.
+</div><div class="help-li" style=""> <code>{opts}</code>  (table|nil) A table of <a href="/neovim-docs-web/en/map#%3Amap-arguments">:map-arguments</a>.
 </div><div class="help-li" style="margin-left: 3rem;"> Accepts options accepted by the <code>{opts}</code> parameter in
-                  <a href="api.html#nvim_set_keymap()">nvim_set_keymap()</a>, with the following notable differences:
+                  <a href="/neovim-docs-web/en/api#nvim_set_keymap()">nvim_set_keymap()</a>, with the following notable differences:
 </div><div class="help-li" style="margin-left: 4rem;"> replace_keycodes: Defaults to <code>true</code> if "expr" is <code>true</code>.
 </div><div class="help-li" style="margin-left: 4rem;"> noremap: Always overridden with the inverse of "remap"
                     (see below).
@@ -2860,13 +2860,13 @@ vim.keymap.set('n', '[%', '&lt;Plug&gt;(MatchitNormalMultiBackward)')</pre>
 </div><div class="help-li" style="margin-left: 3rem;"> buffer: (number or boolean) Add a mapping to the given
                     buffer. When <code>0</code> or <code>true</code>, use the current buffer.
 </div><div class="help-li" style="margin-left: 3rem;"> remap: (boolean) Make the mapping recursive. This is the
-                    inverse of the "noremap" option from <a href="api.html#nvim_set_keymap()">nvim_set_keymap()</a>.
+                    inverse of the "noremap" option from <a href="/neovim-docs-web/en/api#nvim_set_keymap()">nvim_set_keymap()</a>.
                     Defaults to <code>false</code>.
 </div>
 </div>
 <div class="help-para">
 <div class="help-column_heading">    See also:</div>
-        <a href="api.html#nvim_set_keymap()">nvim_set_keymap()</a>
+        <a href="/neovim-docs-web/en/api#nvim_set_keymap()">nvim_set_keymap()</a>
 
 </div>
 <div class="help-para">
@@ -2898,7 +2898,7 @@ dir(<code>{path}</code>)                                                     <a 
 <div class="help-column_heading">    Parameters:</div>
 <div class="help-li" style=""> <code>{path}</code>  (string) An absolute or relative path to the directory to
                 iterate over. The path is first normalized
-                <a href="lua.html#vim.fs.normalize()">vim.fs.normalize()</a>.
+                <a href="/neovim-docs-web/en/lua#vim.fs.normalize()">vim.fs.normalize()</a>.
 </div>
 </div>
 <div class="help-para">

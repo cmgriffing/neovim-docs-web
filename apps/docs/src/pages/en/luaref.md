@@ -37,8 +37,8 @@ layout: ../../layouts/MainLayout.astro
 
 </div>
 <div class="help-para">
-                 See <a href="luaref.html#luaref-doc">luaref-doc</a> for information on this manual.
-                 See <a href="luaref.html#luaref-copyright">luaref-copyright</a> for copyright and licenses.
+                 See <a href="/neovim-docs-web/en/luaref#luaref-doc">luaref-doc</a> for information on this manual.
+                 See <a href="/neovim-docs-web/en/luaref#luaref-copyright">luaref-copyright</a> for copyright and licenses.
 
 </div>
 <div class="help-para">
@@ -75,7 +75,7 @@ Lua's official web site, www.lua.org.
 <div class="help-para">
 Like any other reference manual, this document is dry in places. For a
 discussion of the decisions behind the design of Lua, see references at
-<a href="luaref.html#luaref-bibliography">luaref-bibliography</a>. For a detailed introduction to programming in Lua, see
+<a href="/neovim-docs-web/en/luaref#luaref-bibliography">luaref-bibliography</a>. For a detailed introduction to programming in Lua, see
 Roberto's book, Programming in Lua.
 
 </div>
@@ -250,12 +250,12 @@ numbers. (It is easy to build Lua interpreters that use other internal
 representations for numbers, such as single-precision float or long integers;
 see file <code>luaconf.h</code>.) String represents arrays of characters. Lua is 8-bit
 clean: strings may contain any 8-bit character, including embedded zeros
-(<code>\0</code>) (see <a href="luaref.html#luaref-literal">luaref-literal</a>).
+(<code>\0</code>) (see <a href="/neovim-docs-web/en/luaref#luaref-literal">luaref-literal</a>).
 
 </div>
 <div class="help-para">
 Lua can call (and manipulate) functions written in Lua and functions written
-in C (see <a href="luaref.html#luaref-langFuncCalls">luaref-langFuncCalls</a>).
+in C (see <a href="/neovim-docs-web/en/luaref#luaref-langFuncCalls">luaref-langFuncCalls</a>).
 
 </div>
 <div class="help-para">
@@ -264,7 +264,7 @@ The type userdata is provided to allow arbitrary C data to be stored in Lua
 variables. This type corresponds to a block of raw memory and has no
 pre-defined operations in Lua, except assignment and identity test. However,
 by using metatables, the programmer can define operations for userdata values
-(see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>). Userdata values cannot be created or modified
+(see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>). Userdata values cannot be created or modified
 in Lua, only through the C API. This guarantees the integrity of data owned by
 the host program.
 
@@ -272,7 +272,7 @@ the host program.
 <div class="help-para">
                                                                  <a name="luaref-thread"></a><code class="help-tag-right">luaref-thread</code>
 The type <code>thread</code> represents independent threads of execution and it is used to
-implement coroutines (see <a href="luaref.html#luaref-langCoro">luaref-langCoro</a>). Do not confuse Lua threads with
+implement coroutines (see <a href="/neovim-docs-web/en/luaref#luaref-langCoro">luaref-langCoro</a>). Do not confuse Lua threads with
 operating-system threads. Lua supports coroutines on all systems, even those
 that do not support threads.
 
@@ -287,13 +287,13 @@ used to represent ordinary arrays, symbol tables, sets, records, graphs,
 trees, etc. To represent records, Lua uses the field name as an index. The
 language supports this representation by providing <code>a.name</code> as syntactic sugar
 for <code>a["name"]</code>. There are several convenient ways to create tables in Lua
-(see <a href="luaref.html#luaref-langTableConst">luaref-langTableConst</a>).
+(see <a href="/neovim-docs-web/en/luaref#luaref-langTableConst">luaref-langTableConst</a>).
 
 </div>
 <div class="help-para">
 Like indices, the value of a table field can be of any type (except <code>nil</code>). In
 particular, because functions are first-class values, table fields may contain
-functions. Thus tables may also carry methods (see <a href="luaref.html#luaref-langFuncDefs">luaref-langFuncDefs</a>).
+functions. Thus tables may also carry methods (see <a href="/neovim-docs-web/en/luaref#luaref-langFuncDefs">luaref-langFuncDefs</a>).
 
 </div>
 <div class="help-para">
@@ -305,7 +305,7 @@ values; these operations do not imply any kind of copy.
 </div>
 <div class="help-para">
 The library function <code>type</code> returns a string describing the type of a given
-value (see <a href="luaref.html#luaref-type()">luaref-type()</a>).
+value (see <a href="/neovim-docs-web/en/luaref#luaref-type()">luaref-type()</a>).
 
 </div>
 <div class="help-para">
@@ -320,7 +320,7 @@ string to a number, following the usual conversion rules. Conversely, whenever
 a number is used where a string is expected, the number is converted to a
 string, in a reasonable format. For complete control of how numbers are
 converted to strings, use the <code>format</code> function from the string library (see
-<a href="luaref.html#string.format()">string.format()</a>).
+<a href="/neovim-docs-web/en/luaref#string.format()">string.format()</a>).
 
 </div>
 <div class="help-para">
@@ -340,14 +340,14 @@ function's formal parameter, which is a particular form of local variable):
 
 </div>
 <div class="help-para">
-Name denotes identifiers, as defined in <a href="luaref.html#luaref-langLexConv">luaref-langLexConv</a>.
+Name denotes identifiers, as defined in <a href="/neovim-docs-web/en/luaref#luaref-langLexConv">luaref-langLexConv</a>.
 
 </div>
 <div class="help-para">
 Any variable is assumed to be global unless explicitly declared as a local
-(see <a href="luaref.html#luaref-langLocalDec">luaref-langLocalDec</a>). Local variables are lexically scoped: local
+(see <a href="/neovim-docs-web/en/luaref#luaref-langLocalDec">luaref-langLocalDec</a>). Local variables are lexically scoped: local
 variables can be freely accessed by functions defined inside their scope (see
-<a href="luaref.html#luaref-langVisibRules">luaref-langVisibRules</a>).
+<a href="/neovim-docs-web/en/luaref#luaref-langVisibRules">luaref-langVisibRules</a>).
 
 </div>
 <div class="help-para">
@@ -363,7 +363,7 @@ Square brackets are used to index a table:
 The first expression (<code>prefixexp</code>) should result in a table value; the second
 expression (<code>exp</code>) identifies a specific entry inside that table. The
 expression denoting the table to be indexed has a restricted syntax; see
-<a href="luaref.html#luaref-langExpressions">luaref-langExpressions</a> for details.
+<a href="/neovim-docs-web/en/luaref#luaref-langExpressions">luaref-langExpressions</a> for details.
 
 </div>
 <div class="help-para">
@@ -373,14 +373,14 @@ The syntax <code>var.NAME</code> is just syntactic sugar for <code>var["NAME"]</
 </div>
 <div class="help-para">
 All global variables live as fields in ordinary Lua tables, called environment
-tables or simply environments (see <a href="luaref.html#luaref-langEnvironments">luaref-langEnvironments</a>). Each function
+tables or simply environments (see <a href="/neovim-docs-web/en/luaref#luaref-langEnvironments">luaref-langEnvironments</a>). Each function
 has its own reference to an environment, so that all global variables in this
 function will refer to this environment table. When a function is created, it
 inherits the environment from the function that created it. To get the
 environment table of a Lua function, you call <code>getfenv</code> (see
-<a href="luaref.html#lua_getfenv()">lua_getfenv()</a>). To replace it, you call <code>setfenv</code> (see <a href="luaref.html#luaref-setfenv()">luaref-setfenv()</a>).
+<a href="/neovim-docs-web/en/luaref#lua_getfenv()">lua_getfenv()</a>). To replace it, you call <code>setfenv</code> (see <a href="/neovim-docs-web/en/luaref#luaref-setfenv()">luaref-setfenv()</a>).
 (You can only manipulate the environment of C functions through the debug
-library; see <a href="luaref.html#luaref-libDebug">luaref-libDebug</a>.)
+library; see <a href="/neovim-docs-web/en/luaref#luaref-libDebug">luaref-libDebug</a>.)
 
 </div>
 <div class="help-para">
@@ -397,7 +397,7 @@ not defined in Lua. We use it here only for explanatory purposes.)
 <div class="help-para">
 The meaning of accesses to global variables and table fields can be changed
 via metatables. An access to an indexed variable <code>t[i]</code> is equivalent to a
-call <code>gettable_event(t,i)</code>. (See <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a> for a complete
+call <code>gettable_event(t,i)</code>. (See <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a> for a complete
 description of the <code>gettable_event</code> function. This function is not defined or
 callable in Lua. We use it here only for explanatory purposes.)
 
@@ -431,7 +431,7 @@ There are no empty statements and thus <code>;;</code> is not legal.
 </div>
 <div class="help-para">
 Lua handles a chunk as the body of an anonymous function with a variable
-number of arguments (see <a href="luaref.html#luaref-langFuncDefs">luaref-langFuncDefs</a>). As such, chunks can define
+number of arguments (see <a href="/neovim-docs-web/en/luaref#luaref-langFuncDefs">luaref-langFuncDefs</a>). As such, chunks can define
 local variables, receive arguments, and return values.
 
 </div>
@@ -468,7 +468,7 @@ A block may be explicitly delimited to produce a single statement:
 <div class="help-para">
 Explicit blocks are useful to control the scope of variable declarations.
 Explicit blocks are also sometimes used to add a <code>return</code> or <code>break</code> statement
-in the middle of another block (see <a href="luaref.html#luaref-langContStructs">luaref-langContStructs</a>).
+in the middle of another block (see <a href="/neovim-docs-web/en/luaref#luaref-langContStructs">luaref-langContStructs</a>).
 
 </div>
 <div class="help-para">
@@ -486,7 +486,7 @@ explist1 ::= exp { , exp }</pre>
 
 </div>
 <div class="help-para">
-Expressions are discussed in <a href="luaref.html#luaref-langExpressions">luaref-langExpressions</a>.
+Expressions are discussed in <a href="/neovim-docs-web/en/luaref#luaref-langExpressions">luaref-langExpressions</a>.
 
 </div>
 <div class="help-para">
@@ -496,7 +496,7 @@ thrown away. If there are fewer values than needed, the list is extended with
 as many <code>nil</code>s as needed. If the list of expressions ends with a function
 call, then all values returned by this call enter in the list of values,
 before the adjustment (except when the call is enclosed in parentheses; see
-<a href="luaref.html#luaref-langExpressions">luaref-langExpressions</a>).
+<a href="/neovim-docs-web/en/luaref#luaref-langExpressions">luaref-langExpressions</a>).
 
 </div>
 <div class="help-para">
@@ -519,7 +519,7 @@ exchanges the values of <code>x</code> and <code>y</code>.
 <div class="help-para">
 The meaning of assignments to global variables and table fields can be changed
 via metatables. An assignment to an indexed variable <code>t[i] = val</code> is
-equivalent to <code>settable_event(t,i,val)</code>. (See <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a> for a
+equivalent to <code>settable_event(t,i,val)</code>. (See <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a> for a
 complete description of the <code>settable_event</code> function. This function is not
 defined or callable in Lua. We use it here only for explanatory purposes.)
 
@@ -552,7 +552,7 @@ stat ::=  if  exp then block { elseif exp then block }
 
 </div>
 <div class="help-para">
-Lua also has a <code>for</code> statement, in two flavors (see <a href="luaref.html#luaref-langForStat">luaref-langForStat</a>).
+Lua also has a <code>for</code> statement, in two flavors (see <a href="/neovim-docs-web/en/luaref#luaref-langForStat">luaref-langForStat</a>).
 
 </div>
 <div class="help-para">
@@ -706,7 +706,7 @@ To allow possible side-effects, function calls can be executed as statements:
 </div>
 <div class="help-para">
 In this case, all returned values are thrown away. Function calls are
-explained in <a href="luaref.html#luaref-langFuncCalls">luaref-langFuncCalls</a>.
+explained in <a href="/neovim-docs-web/en/luaref#luaref-langFuncCalls">luaref-langFuncCalls</a>.
 
 </div>
 <div class="help-para">
@@ -723,19 +723,19 @@ namelist ::= Name { , Name }</pre>
 </div>
 <div class="help-para">
 If present, an initial assignment has the same semantics of a multiple
-assignment (see <a href="luaref.html#luaref-langAssign">luaref-langAssign</a>). Otherwise, all variables are initialized
+assignment (see <a href="/neovim-docs-web/en/luaref#luaref-langAssign">luaref-langAssign</a>). Otherwise, all variables are initialized
 with <code>nil</code>.
 
 </div>
 <div class="help-para">
-A chunk is also a block (see <a href="luaref.html#luaref-langChunks">luaref-langChunks</a>), and so local variables can be
+A chunk is also a block (see <a href="/neovim-docs-web/en/luaref#luaref-langChunks">luaref-langChunks</a>), and so local variables can be
 declared in a chunk outside any explicit block. The scope of such local
 variables extends until the end of the chunk.
 
 </div>
 <div class="help-para">
 The visibility rules for local variables are explained in
-<a href="luaref.html#luaref-langVisibRules">luaref-langVisibRules</a>.
+<a href="/neovim-docs-web/en/luaref#luaref-langVisibRules">luaref-langVisibRules</a>.
 
 </div>
 <div class="help-para">
@@ -758,26 +758,26 @@ prefixexp ::= var | functioncall | ( exp )</pre>
 
 </div>
 <div class="help-para">
-Numbers and literal strings are explained in <a href="luaref.html#luaref-langLexConv">luaref-langLexConv</a>; variables are
-explained in <a href="luaref.html#luaref-langVariables">luaref-langVariables</a>; function definitions are explained in
-<a href="luaref.html#luaref-langFuncDefs">luaref-langFuncDefs</a>; function calls are explained in <a href="luaref.html#luaref-langFuncCalls">luaref-langFuncCalls</a>;
-table constructors are explained in <a href="luaref.html#luaref-langTableConst">luaref-langTableConst</a>. Vararg expressions,
+Numbers and literal strings are explained in <a href="/neovim-docs-web/en/luaref#luaref-langLexConv">luaref-langLexConv</a>; variables are
+explained in <a href="/neovim-docs-web/en/luaref#luaref-langVariables">luaref-langVariables</a>; function definitions are explained in
+<a href="/neovim-docs-web/en/luaref#luaref-langFuncDefs">luaref-langFuncDefs</a>; function calls are explained in <a href="/neovim-docs-web/en/luaref#luaref-langFuncCalls">luaref-langFuncCalls</a>;
+table constructors are explained in <a href="/neovim-docs-web/en/luaref#luaref-langTableConst">luaref-langTableConst</a>. Vararg expressions,
 denoted by three dots (<code>...</code>), can only be used inside vararg functions;
-they are explained in <a href="luaref.html#luaref-langFuncDefs">luaref-langFuncDefs</a>.
+they are explained in <a href="/neovim-docs-web/en/luaref#luaref-langFuncDefs">luaref-langFuncDefs</a>.
 
 </div>
 <div class="help-para">
-Binary operators comprise arithmetic operators (see <a href="luaref.html#luaref-langArithOp">luaref-langArithOp</a>),
-relational operators (see <a href="luaref.html#luaref-langRelOp">luaref-langRelOp</a>), logical operators (see
-<a href="luaref.html#luaref-langLogOp">luaref-langLogOp</a>), and the concatenation operator (see <a href="luaref.html#luaref-langConcat">luaref-langConcat</a>).
-Unary operators comprise the unary minus (see <a href="luaref.html#luaref-langArithOp">luaref-langArithOp</a>), the unary
-<code>not</code> (see <a href="luaref.html#luaref-langLogOp">luaref-langLogOp</a>), and the unary length operator (see
-<a href="luaref.html#luaref-langLength">luaref-langLength</a>).
+Binary operators comprise arithmetic operators (see <a href="/neovim-docs-web/en/luaref#luaref-langArithOp">luaref-langArithOp</a>),
+relational operators (see <a href="/neovim-docs-web/en/luaref#luaref-langRelOp">luaref-langRelOp</a>), logical operators (see
+<a href="/neovim-docs-web/en/luaref#luaref-langLogOp">luaref-langLogOp</a>), and the concatenation operator (see <a href="/neovim-docs-web/en/luaref#luaref-langConcat">luaref-langConcat</a>).
+Unary operators comprise the unary minus (see <a href="/neovim-docs-web/en/luaref#luaref-langArithOp">luaref-langArithOp</a>), the unary
+<code>not</code> (see <a href="/neovim-docs-web/en/luaref#luaref-langLogOp">luaref-langLogOp</a>), and the unary length operator (see
+<a href="/neovim-docs-web/en/luaref#luaref-langLength">luaref-langLength</a>).
 
 </div>
 <div class="help-para">
 Both function calls and vararg expressions may result in multiple values. If
-the expression is used as a statement (see <a href="luaref.html#luaref-langFuncStat">luaref-langFuncStat</a>)
+the expression is used as a statement (see <a href="/neovim-docs-web/en/luaref#luaref-langFuncStat">luaref-langFuncStat</a>)
 (only possible for function calls), then its return list is adjusted to zero
 elements, thus discarding all returned values. If the expression is used as
 the last (or the only) element of a list of expressions, then no adjustment is
@@ -822,7 +822,7 @@ return any values.)
 Lua supports the usual arithmetic operators: the binary <code>+</code> (addition),
 <code>-</code> (subtraction), <code>*</code> (multiplication), <code>/</code> (division), <code>%</code> (modulo)
 and <code>^</code> (exponentiation); and unary <code>-</code> (negation). If the operands are numbers,
-or strings that can be converted to numbers (see <a href="luaref.html#luaref-langCoercion">luaref-langCoercion</a>), then all
+or strings that can be converted to numbers (see <a href="/neovim-docs-web/en/luaref#luaref-langCoercion">luaref-langCoercion</a>), then all
 operations have the usual meaning. Exponentiation works for any exponent. For
 instance, <code>x^(-0.5)</code> computes the inverse of the square root of <code>x</code>. Modulo is
 defined as
@@ -860,11 +860,11 @@ different from any previously existing object.
 </div>
 <div class="help-para">
 You can change the way that Lua compares tables and userdata using the "eq"
-metamethod (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+metamethod (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
-The conversion rules of coercion <a href="luaref.html#luaref-langCoercion">luaref-langCoercion</a> do not apply to
+The conversion rules of coercion <a href="/neovim-docs-web/en/luaref#luaref-langCoercion">luaref-langCoercion</a> do not apply to
 equality comparisons. Thus, <code>"0"==0</code> evaluates to <code>false</code>, and <code>t[0]</code> and
 <code>t["0"]</code> denote different entries in a table.
 
@@ -877,7 +877,7 @@ The operator <code>~=</code> is exactly the negation of equality (<code>==</code
 The order operators work as follows. If both arguments are numbers, then they
 are compared as such. Otherwise, if both arguments are strings, then their
 values are compared according to the current locale. Otherwise, Lua tries to
-call the "lt" or the "le" metamethod (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+call the "lt" or the "le" metamethod (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -891,7 +891,7 @@ The logical operators in Lua are
 
 </div>
 <div class="help-para">
-Like the control structures (see <a href="luaref.html#luaref-langContStructs">luaref-langContStructs</a>), all logical operators
+Like the control structures (see <a href="/neovim-docs-web/en/luaref#luaref-langContStructs">luaref-langContStructs</a>), all logical operators
 consider both <code>false</code> and <code>nil</code> as false and anything else as true.
 
 </div>
@@ -926,8 +926,8 @@ false or nil        --&gt; nil
 <div class="help-para">
 The string concatenation operator in Lua is denoted by two dots (<code>..</code>).
 If both operands are strings or numbers, then they are converted to strings
-according to the rules mentioned in <a href="luaref.html#luaref-langCoercion">luaref-langCoercion</a>. Otherwise, the
-"concat" metamethod is called (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+according to the rules mentioned in <a href="/neovim-docs-web/en/luaref#luaref-langCoercion">luaref-langCoercion</a>. Otherwise, the
+"concat" metamethod is called (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -1018,8 +1018,8 @@ end</pre>
 <div class="help-para">
 If the last field in the list has the form <code>exp</code> and the expression is a
 function call, then all values returned by the call enter the list
-consecutively (see <a href="luaref.html#luaref-langFuncCalls">luaref-langFuncCalls</a>). To avoid this, enclose the function
-call in parentheses (see <a href="luaref.html#luaref-langExpressions">luaref-langExpressions</a>).
+consecutively (see <a href="/neovim-docs-web/en/luaref#luaref-langFuncCalls">luaref-langFuncCalls</a>). To avoid this, enclose the function
+call in parentheses (see <a href="/neovim-docs-web/en/luaref#luaref-langExpressions">luaref-langExpressions</a>).
 
 </div>
 <div class="help-para">
@@ -1042,7 +1042,7 @@ In a function call, first <code>prefixexp</code> and <code>args</code> are evalu
 of <code>prefixexp</code> has type <code>function</code>, then this function is called with the given
 arguments. Otherwise, the <code>prefixexp</code> "call" metamethod is called, having as
 first parameter the value of <code>prefixexp</code>, followed by the original call
-arguments (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+arguments (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -1238,7 +1238,7 @@ g(5, r())        a=5, b=1,   ... --&gt;  2  3</pre>
 
 </div>
 <div class="help-para">
-Results are returned using the <code>return</code> statement (see <a href="luaref.html#luaref-langContStructs">luaref-langContStructs</a>).
+Results are returned using the <code>return</code> statement (see <a href="/neovim-docs-web/en/luaref#luaref-langContStructs">luaref-langContStructs</a>).
 If control reaches the end of a function without encountering
 a <code>return</code> statement, then the function returns with no results.
 
@@ -1322,15 +1322,15 @@ them share the same <code>x</code>.
 <div class="help-para">
 Because Lua is an embedded extension language, all Lua actions start from
 C code in the host program calling a function from the Lua library (see
-<a href="luaref.html#lua_pcall()">lua_pcall()</a>). Whenever an error occurs during Lua compilation or
+<a href="/neovim-docs-web/en/luaref#lua_pcall()">lua_pcall()</a>). Whenever an error occurs during Lua compilation or
 execution, control returns to C, which can take appropriate measures (such as
 print an error message).
 
 </div>
 <div class="help-para">
 Lua code can explicitly generate an error by calling the <code>error</code> function (see
-<a href="luaref.html#luaref-error()">luaref-error()</a>). If you need to catch errors in Lua, you can use
-the <code>pcall</code> function (see <a href="luaref.html#luaref-pcall()">luaref-pcall()</a>).
+<a href="/neovim-docs-web/en/luaref#luaref-error()">luaref-error()</a>). If you need to catch errors in Lua, you can use
+the <code>pcall</code> function (see <a href="/neovim-docs-web/en/luaref#luaref-pcall()">luaref-pcall()</a>).
 
 </div>
 <div class="help-para">
@@ -1356,12 +1356,12 @@ performs the addition.
 </div>
 <div class="help-para">
 You can query the metatable of any value through the <code>getmetatable</code> function
-(see <a href="luaref.html#luaref-getmetatable()">luaref-getmetatable()</a>).
+(see <a href="/neovim-docs-web/en/luaref#luaref-getmetatable()">luaref-getmetatable()</a>).
 
 </div>
 <div class="help-para">
 You can replace the metatable of tables through the <code>setmetatable</code> function (see
-<a href="luaref.html#luaref-setmetatable()">luaref-setmetatable()</a>). You cannot change the metatable of other types from Lua
+<a href="/neovim-docs-web/en/luaref#luaref-setmetatable()">luaref-setmetatable()</a>). You cannot change the metatable of other types from Lua
 (except using the debug library); you must use the C API for that.
 
 </div>
@@ -1395,7 +1395,7 @@ by a Lua function describing how the interpreter executes that operation.
 The code shown here in Lua is only illustrative; the real behavior is hard
 coded in the interpreter and it is much more efficient than this simulation.
 All functions used in these descriptions (<code>rawget</code>, <code>tonumber</code>, etc.) are
-described in <a href="luaref.html#luaref-libBasic">luaref-libBasic</a>. In particular, to retrieve the metamethod of a
+described in <a href="/neovim-docs-web/en/luaref#luaref-libBasic">luaref-libBasic</a>. In particular, to retrieve the metamethod of a
 given object, we use the expression
 <pre>metatable(obj)[event]</pre>
 
@@ -1718,20 +1718,20 @@ convenience feature for programmers to associate a table to a userdata.
 <div class="help-para">
 Environments associated with threads are called global environments. They are
 used as the default environment for their threads and non-nested functions
-created by the thread (through <code>loadfile</code> <a href="luaref.html#luaref-loadfile()">luaref-loadfile()</a>, <code>loadstring</code>
-<a href="luaref.html#luaref-loadstring()">luaref-loadstring()</a> or <code>load</code> <a href="luaref.html#luaref-load()">luaref-load()</a>) and can be directly accessed by C
-code (see <a href="luaref.html#luaref-apiPseudoIndices">luaref-apiPseudoIndices</a>).
+created by the thread (through <code>loadfile</code> <a href="/neovim-docs-web/en/luaref#luaref-loadfile()">luaref-loadfile()</a>, <code>loadstring</code>
+<a href="/neovim-docs-web/en/luaref#luaref-loadstring()">luaref-loadstring()</a> or <code>load</code> <a href="/neovim-docs-web/en/luaref#luaref-load()">luaref-load()</a>) and can be directly accessed by C
+code (see <a href="/neovim-docs-web/en/luaref#luaref-apiPseudoIndices">luaref-apiPseudoIndices</a>).
 
 </div>
 <div class="help-para">
 Environments associated with C functions can be directly accessed by C code
-(see <a href="luaref.html#luaref-apiPseudoIndices">luaref-apiPseudoIndices</a>). They are used as the default environment for
+(see <a href="/neovim-docs-web/en/luaref#luaref-apiPseudoIndices">luaref-apiPseudoIndices</a>). They are used as the default environment for
 other C functions created by the function.
 
 </div>
 <div class="help-para">
 Environments associated with Lua functions are used to resolve all accesses to
-global variables within the function (see <a href="luaref.html#luaref-langVariables">luaref-langVariables</a>). They are
+global variables within the function (see <a href="/neovim-docs-web/en/luaref#luaref-langVariables">luaref-langVariables</a>). They are
 used as the default environment for other Lua functions created by the
 function.
 
@@ -1739,7 +1739,7 @@ function.
 <div class="help-para">
 You can change the environment of a Lua function or the running thread by
 calling <code>setfenv</code>. You can get the environment of a Lua function or the
-running thread by calling <code>getfenv</code> (see <a href="luaref.html#lua_getfenv()">lua_getfenv()</a>). To manipulate the
+running thread by calling <code>getfenv</code> (see <a href="/neovim-docs-web/en/luaref#lua_getfenv()">lua_getfenv()</a>). To manipulate the
 environment of other objects (userdata, C functions, other threads) you must
 use the C API.
 
@@ -1783,8 +1783,8 @@ allocation.
 
 </div>
 <div class="help-para">
-You can change these numbers by calling <code>lua_gc</code> (see <a href="luaref.html#lua_gc()">lua_gc()</a>) in C or
-<code>collectgarbage</code> (see <a href="luaref.html#luaref-collectgarbage()">luaref-collectgarbage()</a>) in Lua. Both get percentage
+You can change these numbers by calling <code>lua_gc</code> (see <a href="/neovim-docs-web/en/luaref#lua_gc()">lua_gc()</a>) in C or
+<code>collectgarbage</code> (see <a href="/neovim-docs-web/en/luaref#luaref-collectgarbage()">luaref-collectgarbage()</a>) in Lua. Both get percentage
 points as arguments (so an argument of 100 means a real value of 1). With
 these functions you can also control the collector directly (e.g., stop and
 restart it).
@@ -1797,7 +1797,7 @@ restart it).
 </div>
 <div class="help-para">
 Using the C API, you can set garbage-collector metamethods for userdata (see
-<a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>). These metamethods are also called finalizers.
+<a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>). These metamethods are also called finalizers.
 Finalizers allow you to coordinate Lua's garbage collection with external
 resource management (such as closing files, network or database connections,
 or freeing your own memory).
@@ -1868,14 +1868,14 @@ explicitly calling a yield function.
 </div>
 <div class="help-para">
 You create a coroutine with a call to <code>coroutine.create</code> (see
-<a href="luaref.html#coroutine.create()">coroutine.create()</a>). Its sole argument is a function that is the main
+<a href="/neovim-docs-web/en/luaref#coroutine.create()">coroutine.create()</a>). Its sole argument is a function that is the main
 function of the coroutine. The <code>create</code> function only creates a new coroutine
 and returns a handle to it (an object of type <code>thread</code>); it does not start the
 coroutine execution.
 
 </div>
 <div class="help-para">
-When you first call <code>coroutine.resume</code> (see <a href="luaref.html#coroutine.resume()">coroutine.resume()</a>),
+When you first call <code>coroutine.resume</code> (see <a href="/neovim-docs-web/en/luaref#coroutine.resume()">coroutine.resume()</a>),
 passing as its first argument the thread returned by <code>coroutine.create</code>, the
 coroutine starts its execution, at the first line of its main function. Extra
 arguments passed to <code>coroutine.resume</code> are passed on to the coroutine main
@@ -1894,7 +1894,7 @@ error message.
 </div>
 <div class="help-para">
 A coroutine yields by calling <code>coroutine.yield</code> (see
-<a href="luaref.html#coroutine.yield()">coroutine.yield()</a>). When a coroutine yields, the corresponding
+<a href="/neovim-docs-web/en/luaref#coroutine.yield()">coroutine.yield()</a>). When a coroutine yields, the corresponding
 <code>coroutine.resume</code> returns immediately, even if the yield happens inside
 nested function calls (that is, not in the main function, but in a function
 directly or indirectly called by the main function). In the case of a yield,
@@ -1906,7 +1906,7 @@ its execution from the point where it yielded, with the call to
 </div>
 <div class="help-para">
 Like <code>coroutine.create</code>, the <code>coroutine.wrap</code> function (see
-<a href="luaref.html#coroutine.wrap()">coroutine.wrap()</a>) also creates a coroutine, but instead of returning
+<a href="/neovim-docs-web/en/luaref#coroutine.wrap()">coroutine.wrap()</a>) also creates a coroutine, but instead of returning
 the coroutine itself, it returns a function that, when called, resumes the
 coroutine. Any arguments passed to this function go as extra arguments to
 <code>coroutine.resume</code>. <code>coroutine.wrap</code> returns all the values returned by
@@ -1989,7 +1989,7 @@ Whenever Lua calls C, the called function gets a new stack, which is
 independent of previous stacks and of stacks of C functions that are still
 active. This stack initially contains any arguments to the C function and it
 is where the C function pushes its results to be returned to the caller (see
-<a href="luaref.html#lua_CFunction()">lua_CFunction()</a>).
+<a href="/neovim-docs-web/en/luaref#lua_CFunction()">lua_CFunction()</a>).
 
 </div>
 <div class="help-para">
@@ -2015,7 +2015,7 @@ if <code>1 &lt;= abs(index) &lt;= top</code>).
 When you interact with Lua API, you are responsible for ensuring consistency.
 In particular, you are responsible for controlling stack overflow. You can
 use the function <code>lua_checkstack</code> to grow the stack size (see
-<a href="luaref.html#lua_checkstack()">lua_checkstack()</a>).
+<a href="/neovim-docs-web/en/luaref#lua_checkstack()">lua_checkstack()</a>).
 
 </div>
 <div class="help-para">
@@ -2047,7 +2047,7 @@ Unless otherwise noted, any function that accepts valid indices can also be
 called with pseudo-indices, which represent some Lua values that are
 accessible to the C code but which are not in the stack. Pseudo-indices are
 used to access the thread environment, the function environment, the registry,
-and the upvalues of a C function (see <a href="luaref.html#luaref-apiCClosures">luaref-apiCClosures</a>).
+and the upvalues of a C function (see <a href="/neovim-docs-web/en/luaref#luaref-apiCClosures">luaref-apiCClosures</a>).
 
 </div>
 <div class="help-para">
@@ -2071,7 +2071,7 @@ global variable, do
 <div class="help-para">
 When a C function is created, it is possible to associate some values with it,
 thus creating a C closure; these values are called upvalues and are accessible
-to the function whenever it is called (see <a href="luaref.html#lua_pushcclosure()">lua_pushcclosure()</a>).
+to the function whenever it is called (see <a href="/neovim-docs-web/en/luaref#lua_pushcclosure()">lua_pushcclosure()</a>).
 
 </div>
 <div class="help-para">
@@ -2123,13 +2123,13 @@ Almost any function in the API may raise an error, for instance due to a
 memory allocation error. The following functions run in protected mode (that
 is, they create a protected environment to run), so they never raise an error:
 <code>lua_newstate</code>, <code>lua_close</code>, <code>lua_load</code>, <code>lua_pcall</code>, and <code>lua_cpcall</code> (see
-<a href="luaref.html#lua_newstate()">lua_newstate()</a>, <a href="luaref.html#lua_close()">lua_close()</a>, <a href="luaref.html#lua_load()">lua_load()</a>,
-<a href="luaref.html#lua_pcall()">lua_pcall()</a>, and <a href="luaref.html#lua_cpcall()">lua_cpcall()</a>).
+<a href="/neovim-docs-web/en/luaref#lua_newstate()">lua_newstate()</a>, <a href="/neovim-docs-web/en/luaref#lua_close()">lua_close()</a>, <a href="/neovim-docs-web/en/luaref#lua_load()">lua_load()</a>,
+<a href="/neovim-docs-web/en/luaref#lua_pcall()">lua_pcall()</a>, and <a href="/neovim-docs-web/en/luaref#lua_cpcall()">lua_cpcall()</a>).
 
 </div>
 <div class="help-para">
 Inside a C function you can raise an error by calling <code>lua_error</code>  (see
-<a href="luaref.html#lua_error()">lua_error()</a>).
+<a href="/neovim-docs-web/en/luaref#lua_error()">lua_error()</a>).
 
 </div>
 <div class="help-para">
@@ -2153,7 +2153,7 @@ lua_Alloc                                                          <a name="lua_
         The type of the memory-allocation function used by Lua states. The
         allocator function must provide a functionality similar to <code>realloc</code>,
         but not exactly the same. Its arguments are <code>ud</code>, an opaque pointer
-        passed to <code>lua_newstate</code> (see <a href="luaref.html#lua_newstate()">lua_newstate()</a>); <code>ptr</code>, a pointer
+        passed to <code>lua_newstate</code> (see <a href="/neovim-docs-web/en/luaref#lua_newstate()">lua_newstate()</a>); <code>ptr</code>, a pointer
         to the block being allocated/reallocated/freed; <code>osize</code>, the original
         size of the block; <code>nsize</code>, the new size of the block. <code>ptr</code> is <code>NULL</code>
         if and only if <code>osize</code> is zero. When <code>nsize</code> is zero, the allocator
@@ -2169,7 +2169,7 @@ lua_Alloc                                                          <a name="lua_
 <div class="help-para">
         Here is a simple implementation for the allocator function. It is used
         in the auxiliary library by <code>luaL_newstate</code> (see
-        <a href="luaref.html#luaL_newstate()">luaL_newstate()</a>).
+        <a href="/neovim-docs-web/en/luaref#luaL_newstate()">luaL_newstate()</a>).
 <pre>static void *l_alloc (void *ud, void *ptr, size_t osize,
                                            size_t nsize) {
   (void)ud;  (void)osize;  /* not used */
@@ -2277,7 +2277,7 @@ lua_CFunction                             <a name="luaref-cfunction"></a><code c
         following protocol, which defines the way parameters and results are
         passed: a C function receives its arguments from Lua in its stack in
         direct order (the first argument is pushed first). So, when the
-        function starts, <code>lua_gettop(L)</code> (see <a href="luaref.html#lua_gettop()">lua_gettop()</a>) returns the
+        function starts, <code>lua_gettop(L)</code> (see <a href="/neovim-docs-web/en/luaref#lua_gettop()">lua_gettop()</a>) returns the
         number of arguments received by the function. The first argument (if
         any) is at index 1 and its last argument is at index <code>lua_gettop(L)</code>.
         To return values to Lua, a C function just pushes them onto the stack,
@@ -2345,7 +2345,7 @@ lua_concat                                                        <a name="lua_c
         leaves the result at the top. If <code>n</code> is 1, the result is the single
         string on the stack (that is, the function does nothing); if <code>n</code> is 0,
         the result is the empty string. Concatenation is done following the
-        usual semantics of Lua (see <a href="luaref.html#luaref-langConcat">luaref-langConcat</a>).
+        usual semantics of Lua (see <a href="/neovim-docs-web/en/luaref#luaref-langConcat">luaref-langConcat</a>).
 
 </div>
 <div class="help-para">
@@ -2357,7 +2357,7 @@ lua_cpcall                                                        <a name="lua_c
         Calls the C function <code>func</code> in protected mode. <code>func</code> starts with only
         one element in its stack, a light userdata containing <code>ud</code>. In case of
         errors, <code>lua_cpcall</code> returns the same error codes as <code>lua_pcall</code> (see
-        <a href="luaref.html#lua_pcall()">lua_pcall()</a>), plus the error object on the top of the stack;
+        <a href="/neovim-docs-web/en/luaref#lua_pcall()">lua_pcall()</a>), plus the error object on the top of the stack;
         otherwise, it returns zero, and does not change the stack. All values
         returned by <code>func</code> are discarded.
 
@@ -2372,7 +2372,7 @@ lua_createtable                                              <a name="lua_create
         has space pre-allocated for <code>narr</code> array elements and <code>nrec</code> non-array
         elements. This pre-allocation is useful when you know exactly how many
         elements the table will have. Otherwise you can use the function
-        <code>lua_newtable</code>  (see <a href="luaref.html#lua_newtable()">lua_newtable()</a>).
+        <code>lua_newtable</code>  (see <a href="/neovim-docs-web/en/luaref#lua_newtable()">lua_newtable()</a>).
 
 </div>
 <div class="help-para">
@@ -2385,7 +2385,7 @@ lua_dump                                                            <a name="lua
         of the stack and produces a binary chunk that, if loaded again,
         results in a function equivalent to the one dumped. As it produces
         parts of the chunk, <code>lua_dump</code> calls function <code>writer</code> (see
-        <a href="luaref.html#lua_Writer()">lua_Writer()</a>) with the given <code>data</code> to write them.
+        <a href="/neovim-docs-web/en/luaref#lua_Writer()">lua_Writer()</a>) with the given <code>data</code> to write them.
 
 </div>
 <div class="help-para">
@@ -2417,7 +2417,7 @@ lua_error                                                          <a name="lua_
 <div class="help-para">
         Generates a Lua error. The error message (which can actually be a Lua
         value of any type) must be on the stack top. This function does a long
-        jump, and therefore never returns (see <a href="luaref.html#luaL_error()">luaL_error()</a>).
+        jump, and therefore never returns (see <a href="/neovim-docs-web/en/luaref#luaL_error()">luaL_error()</a>).
 
 </div>
 <div class="help-para">
@@ -2450,12 +2450,12 @@ lua_gc                                                                <a name="l
                           function returns 1 if the step finished a
                           garbage-collection cycle.
 </div><div class="help-li" style=""> <code>LUA_GCSETPAUSE</code>  sets <code>data</code> /100 as the new value for the
-                          <code>pause</code> of the collector (see <a href="luaref.html#luaref-langGC">luaref-langGC</a>).
+                          <code>pause</code> of the collector (see <a href="/neovim-docs-web/en/luaref#luaref-langGC">luaref-langGC</a>).
                           The function returns the previous value of the
                           pause.
 </div><div class="help-li" style=""> <code>LUA_GCSETSTEPMUL</code>sets <code>data</code> /100 as the new value for the
                           <code>step</code> <code>multiplier</code>  of the collector (see
-                          <a href="luaref.html#luaref-langGC">luaref-langGC</a>). The function returns the
+                          <a href="/neovim-docs-web/en/luaref#luaref-langGC">luaref-langGC</a>). The function returns the
                           previous value of the step multiplier.
 </div>
 </div>
@@ -2467,7 +2467,7 @@ lua_getallocf                                                  <a name="lua_geta
 <div class="help-para">
         Returns the memory-allocation function of a given state. If <code>ud</code> is
         not <code>NULL</code>, Lua stores in <code>*ud</code> the opaque pointer passed to
-        <code>lua_newstate</code> (see <a href="luaref.html#lua_newstate()">lua_newstate()</a>).
+        <code>lua_newstate</code> (see <a href="/neovim-docs-web/en/luaref#lua_newstate()">lua_newstate()</a>).
 
 </div>
 <div class="help-para">
@@ -2488,7 +2488,7 @@ lua_getfield                                                    <a name="lua_get
 <div class="help-para">
         Pushes onto the stack the value <code>t[k]</code>, where <code>t</code> is the value at the
         given valid index <code>index</code>. As in Lua, this function may trigger a
-        metamethod for the "index" event (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+        metamethod for the "index" event (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -2528,7 +2528,7 @@ lua_gettable                                                    <a name="lua_get
 <div class="help-para">
         This function pops the key from the stack (putting the resulting value
         in its place). As in Lua, this function may trigger a metamethod for
-        the "index" event (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+        the "index" event (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -2711,13 +2711,13 @@ lua_load                                                            <a name="lua
 </div>
 <div class="help-para">
         The <code>lua_load</code> function uses a user-supplied <code>reader</code> function to read
-        the chunk (see <a href="luaref.html#lua_Reader()">lua_Reader()</a>). The <code>data</code> argument is an opaque
+        the chunk (see <a href="/neovim-docs-web/en/luaref#lua_Reader()">lua_Reader()</a>). The <code>data</code> argument is an opaque
         value passed to the reader function.
 
 </div>
 <div class="help-para">
         The <code>chunkname</code> argument gives a name to the chunk, which is used for
-        error messages and in debug information (see <a href="luaref.html#luaref-apiDebug">luaref-apiDebug</a>).
+        error messages and in debug information (see <a href="/neovim-docs-web/en/luaref#luaref-apiDebug">luaref-apiDebug</a>).
 
 </div>
 <div class="help-para">
@@ -2741,7 +2741,7 @@ lua_newtable                                                    <a name="lua_new
 <div class="help-para">
         Creates a new empty table and pushes it onto the stack. It is
         equivalent to <code>lua_createtable(L, 0, 0)</code> (see
-        <a href="luaref.html#lua_createtable()">lua_createtable()</a>).
+        <a href="/neovim-docs-web/en/luaref#lua_createtable()">lua_createtable()</a>).
 
 </div>
 <div class="help-para">
@@ -2751,7 +2751,7 @@ lua_newthread                                                  <a name="lua_newt
 </div>
 <div class="help-para">
         Creates a new thread, pushes it on the stack, and returns a pointer to
-        a <code>lua_State</code>  (see <a href="luaref.html#lua_State()">lua_State()</a>) that represents this new
+        a <code>lua_State</code>  (see <a href="/neovim-docs-web/en/luaref#lua_State()">lua_State()</a>) that represents this new
         thread. The new state returned by this function shares with the
         original state all global objects (such as tables), but has an
         independent execution stack.
@@ -2814,7 +2814,7 @@ while (lua_next(L, t) != 0) {
 </div>
 <div class="help-para">
         While traversing a table, do not call <code>lua_tolstring</code> (see
-        <a href="luaref.html#lua_tolstring()">lua_tolstring()</a>) directly on a key, unless you know that the
+        <a href="/neovim-docs-web/en/luaref#lua_tolstring()">lua_tolstring()</a>) directly on a key, unless you know that the
         key is actually a string. Recall that <code>lua_tolstring</code> <code>changes</code> the
         value at the given index; this confuses the next call to <code>lua_next</code>.
 
@@ -2857,7 +2857,7 @@ lua_pcall                                                          <a name="lua_
 </div>
 <div class="help-para">
         Both <code>nargs</code> and <code>nresults</code> have the same meaning as in <code>lua_call</code>
-        (see <a href="luaref.html#lua_call()">lua_call()</a>). If there are no errors during the call,
+        (see <a href="/neovim-docs-web/en/luaref#lua_call()">lua_call()</a>). If there are no errors during the call,
         <code>lua_pcall</code> behaves exactly like <code>lua_call</code>. However, if there is any
         error, <code>lua_pcall</code> catches it, pushes a single value on the stack (the
         error message), and returns an error code. Like <code>lua_call</code>,
@@ -2923,7 +2923,7 @@ lua_pushcclosure                                            <a name="lua_pushccl
 </div>
 <div class="help-para">
         When a C function is created, it is possible to associate some values
-        with it, thus creating a C closure (see <a href="luaref.html#luaref-apiCClosures">luaref-apiCClosures</a>); these
+        with it, thus creating a C closure (see <a href="/neovim-docs-web/en/luaref#luaref-apiCClosures">luaref-apiCClosures</a>); these
         values are then accessible to the function whenever it is called. To
         associate values with a C function, first these values should be
         pushed onto the stack (when there are multiple values, the first value
@@ -2947,7 +2947,7 @@ lua_pushcfunction                                          <a name="lua_pushcfun
 <div class="help-para">
         Any function to be registered in Lua must follow the correct protocol
         to receive its parameters and return its results (see
-        <a href="luaref.html#lua_CFunction()">lua_CFunction()</a>).
+        <a href="/neovim-docs-web/en/luaref#lua_CFunction()">lua_CFunction()</a>).
 
 </div>
 <div class="help-para">
@@ -3073,7 +3073,7 @@ lua_pushvfstring                                            <a name="lua_pushvfs
 
 </div>
 <div class="help-para">
-        Equivalent to <code>lua_pushfstring</code> (see <a href="luaref.html#lua_pushfstring()">lua_pushfstring()</a>), except
+        Equivalent to <code>lua_pushfstring</code> (see <a href="/neovim-docs-web/en/luaref#lua_pushfstring()">lua_pushfstring()</a>), except
         that it receives a <code>va_list</code> instead of a variable number of
         arguments.
 
@@ -3096,7 +3096,7 @@ lua_rawget                                                        <a name="lua_r
 
 </div>
 <div class="help-para">
-        Similar to <code>lua_gettable</code> (see <a href="luaref.html#lua_gettable()">lua_gettable()</a>), but does a raw
+        Similar to <code>lua_gettable</code> (see <a href="/neovim-docs-web/en/luaref#lua_gettable()">lua_gettable()</a>), but does a raw
         access (i.e., without metamethods).
 
 </div>
@@ -3117,7 +3117,7 @@ lua_rawset                                                        <a name="lua_r
 
 </div>
 <div class="help-para">
-        Similar to <code>lua_settable</code> (see <a href="luaref.html#lua_settable()">lua_settable()</a>), but does a raw
+        Similar to <code>lua_settable</code> (see <a href="/neovim-docs-web/en/luaref#lua_settable()">lua_settable()</a>), but does a raw
         assignment (i.e., without metamethods).
 
 </div>
@@ -3144,7 +3144,7 @@ lua_Reader                                                        <a name="lua_R
 
 </div>
 <div class="help-para">
-        The reader function used by <code>lua_load</code> (see <a href="luaref.html#lua_load()">lua_load()</a>). Every
+        The reader function used by <code>lua_load</code> (see <a href="/neovim-docs-web/en/luaref#lua_load()">lua_load()</a>). Every
         time it needs another piece of the chunk, <code>lua_load</code> calls the reader,
         passing along its <code>data</code> parameter. The reader must return a pointer
         to a block of memory with a new piece of the chunk and set <code>size</code> to
@@ -3201,15 +3201,15 @@ lua_resume                                                        <a name="lua_r
 </div>
 <div class="help-para">
         To start a coroutine, you first create a new thread (see
-        <a href="luaref.html#lua_newthread()">lua_newthread()</a>); then you push onto its stack the main
+        <a href="/neovim-docs-web/en/luaref#lua_newthread()">lua_newthread()</a>); then you push onto its stack the main
         function plus any arguments; then you call <code>lua_resume</code> (see
-        <a href="luaref.html#lua_resume()">lua_resume()</a>) with <code>narg</code> being the number of arguments. This
+        <a href="/neovim-docs-web/en/luaref#lua_resume()">lua_resume()</a>) with <code>narg</code> being the number of arguments. This
         call returns when the coroutine suspends or finishes its execution.
         When it returns, the stack contains all values passed to <code>lua_yield</code>
-        (see <a href="luaref.html#lua_yield()">lua_yield()</a>), or all values returned by the body function.
+        (see <a href="/neovim-docs-web/en/luaref#lua_yield()">lua_yield()</a>), or all values returned by the body function.
         <code>lua_resume</code> returns <code>LUA_YIELD</code> if the coroutine yields, 0 if the
         coroutine finishes its execution without errors, or an error code in
-        case of errors (see <a href="luaref.html#lua_pcall()">lua_pcall()</a>). In case of errors, the stack
+        case of errors (see <a href="/neovim-docs-web/en/luaref#lua_pcall()">lua_pcall()</a>). In case of errors, the stack
         is not unwound, so you can use the debug API over it. The error
         message is on the top of the stack. To restart a coroutine, you put on
         its stack only the values to be passed as results from <code>lua_yield</code>,
@@ -3251,7 +3251,7 @@ lua_setfield                                                    <a name="lua_set
 <div class="help-para">
         This function pops the value from the stack. As in Lua, this function
         may trigger a metamethod for the "newindex" event (see
-        <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+        <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -3289,7 +3289,7 @@ lua_settable                                                    <a name="lua_set
 <div class="help-para">
         This function pops both the key and the value from the stack. As in
         Lua, this function may trigger a metamethod for the "newindex" event
-        (see <a href="luaref.html#luaref-langMetatables">luaref-langMetatables</a>).
+        (see <a href="/neovim-docs-web/en/luaref#luaref-langMetatables">luaref-langMetatables</a>).
 
 </div>
 <div class="help-para">
@@ -3318,7 +3318,7 @@ lua_State                                                          <a name="lua_
 <div class="help-para">
         A pointer to this state must be passed as the first argument to every
         function in the library, except to <code>lua_newstate</code> (see
-        <a href="luaref.html#lua_newstate()">lua_newstate()</a>), which creates a Lua state from scratch.
+        <a href="/neovim-docs-web/en/luaref#lua_newstate()">lua_newstate()</a>), which creates a Lua state from scratch.
 
 </div>
 <div class="help-para">
@@ -3347,7 +3347,7 @@ lua_toboolean                                                  <a name="lua_tobo
         any Lua value different from <code>false</code> and <code>nil</code>; otherwise it returns
         0. It also returns 0 when called with a non-valid index. (If you want
            to accept only actual boolean values, use <code>lua_isboolean</code>
-           <a href="luaref.html#lua_isboolean()">lua_isboolean()</a> to test the value's type.)
+           <a href="/neovim-docs-web/en/luaref#lua_isboolean()">lua_isboolean()</a> to test the value's type.)
 
 </div>
 <div class="help-para">
@@ -3367,9 +3367,9 @@ lua_tointeger                                                  <a name="lua_toin
 </div>
 <div class="help-para">
         Converts the Lua value at the given acceptable index to the signed
-        integral type <code>lua_Integer</code> (see <a href="luaref.html#lua_Integer()">lua_Integer()</a>). The Lua value
+        integral type <code>lua_Integer</code> (see <a href="/neovim-docs-web/en/luaref#lua_Integer()">lua_Integer()</a>). The Lua value
         must be a number or a string convertible to a number (see
-        <a href="luaref.html#luaref-langCoercion">luaref-langCoercion</a>); otherwise, <code>lua_tointeger</code> returns 0.
+        <a href="/neovim-docs-web/en/luaref#luaref-langCoercion">luaref-langCoercion</a>); otherwise, <code>lua_tointeger</code> returns 0.
 
 </div>
 <div class="help-para">
@@ -3388,7 +3388,7 @@ lua_tolstring                                                  <a name="lua_tols
         Lua value must be a string or a number; otherwise, the function
         returns <code>NULL</code>. If the value is a number, then <code>lua_tolstring</code>  also
         <code>changes the actual value in the stack to a</code> <code>string</code>. (This change
-        confuses <code>lua_next</code> <a href="luaref.html#lua_next()">lua_next()</a> when <code>lua_tolstring</code> is applied
+        confuses <code>lua_next</code> <a href="/neovim-docs-web/en/luaref#lua_next()">lua_next()</a> when <code>lua_tolstring</code> is applied
         to keys during a table traversal.)
 
 </div>
@@ -3408,8 +3408,8 @@ lua_tonumber                                                    <a name="lua_ton
 </div>
 <div class="help-para">
         Converts the Lua value at the given acceptable index to the C type
-        <code>lua_Number</code> (see <a href="luaref.html#lua_Number()">lua_Number()</a>). The Lua value must be a number
-        or a string convertible to a number (see <a href="luaref.html#luaref-langCoercion">luaref-langCoercion</a>);
+        <code>lua_Number</code> (see <a href="/neovim-docs-web/en/luaref#lua_Number()">lua_Number()</a>). The Lua value must be a number
+        or a string convertible to a number (see <a href="/neovim-docs-web/en/luaref#luaref-langCoercion">luaref-langCoercion</a>);
         otherwise, <code>lua_tonumber</code> returns 0.
 
 </div>
@@ -3436,7 +3436,7 @@ lua_tostring                                                    <a name="lua_tos
 
 </div>
 <div class="help-para">
-        Equivalent to <code>lua_tolstring</code> (see <a href="luaref.html#lua_tolstring()">lua_tolstring()</a>) with <code>len</code>
+        Equivalent to <code>lua_tolstring</code> (see <a href="/neovim-docs-web/en/luaref#lua_tolstring()">lua_tolstring()</a>) with <code>len</code>
         equal to <code>NULL</code>.
 
 </div>
@@ -3447,7 +3447,7 @@ lua_tothread                                                    <a name="lua_tot
 </div>
 <div class="help-para">
         Converts the value at the given acceptable index to a Lua thread
-        (represented as <code>lua_State*</code> <a href="luaref.html#lua_State()">lua_State()</a>). This value must be a
+        (represented as <code>lua_State*</code> <a href="/neovim-docs-web/en/luaref#lua_State()">lua_State()</a>). This value must be a
         thread; otherwise, the function returns <code>NULL</code>.
 
 </div>
@@ -3495,7 +3495,7 @@ lua_Writer                                                        <a name="lua_W
 
 </div>
 <div class="help-para">
-        The writer function used by <code>lua_dump</code> (see <a href="luaref.html#lua_dump()">lua_dump()</a>). Every
+        The writer function used by <code>lua_dump</code> (see <a href="/neovim-docs-web/en/luaref#lua_dump()">lua_dump()</a>). Every
         time it produces another piece of chunk, <code>lua_dump</code> calls the writer,
         passing along the buffer to be written (<code>p</code>), its size (<code>sz</code>), and the
         <code>data</code> parameter supplied to <code>lua_dump</code>.
@@ -3538,7 +3538,7 @@ lua_yield                                                          <a name="lua_
 <div class="help-para">
         When a C function calls <code>lua_yield</code> in that way, the running coroutine
         suspends its execution, and the call to <code>lua_resume</code> (see
-        <a href="luaref.html#lua_resume()">lua_resume()</a>) that started this coroutine returns. The
+        <a href="/neovim-docs-web/en/luaref#lua_resume()">lua_resume()</a>) that started this coroutine returns. The
         parameter <code>nresults</code> is the number of values from the stack that are
         passed as results to <code>lua_resume</code>.
 
@@ -3593,9 +3593,9 @@ lua_Debug                                                          <a name="lua_
 </div>
 <div class="help-para">
 A structure used to carry different pieces of information about an active
-function. <code>lua_getstack</code> (see <a href="luaref.html#lua_getstack()">lua_getstack()</a>) fills only the private part
+function. <code>lua_getstack</code> (see <a href="/neovim-docs-web/en/luaref#lua_getstack()">lua_getstack()</a>) fills only the private part
 of this structure, for later use. To fill the other fields of <code>lua_Debug</code> with
-useful information, call <code>lua_getinfo</code> (see <a href="luaref.html#lua_getinfo()">lua_getinfo()</a>).
+useful information, call <code>lua_getinfo</code> (see <a href="/neovim-docs-web/en/luaref#lua_getinfo()">lua_getinfo()</a>).
 
 </div>
 <div class="help-para">
@@ -3671,8 +3671,8 @@ lua_getinfo                                                      <a name="lua_ge
 <div class="help-para">
         To get information about a function invocation, the parameter <code>ar</code>
         must be a valid activation record that was filled by a previous call
-        to <code>lua_getstack</code> (see <a href="luaref.html#lua_getstack()">lua_getstack()</a>) or given as argument to
-        a hook (see <a href="luaref.html#lua_Hook()">lua_Hook()</a>).
+        to <code>lua_getstack</code> (see <a href="/neovim-docs-web/en/luaref#lua_getstack()">lua_getstack()</a>) or given as argument to
+        a hook (see <a href="/neovim-docs-web/en/luaref#lua_Hook()">lua_Hook()</a>).
 
 </div>
 <div class="help-para">
@@ -3719,8 +3719,8 @@ lua_getlocal                                                    <a name="lua_get
 <div class="help-para">
         Gets information about a local variable of a given activation record.
         The parameter <code>ar</code> must be a valid activation record that was filled
-        by a previous call to <code>lua_getstack</code> (see <a href="luaref.html#lua_getstack()">lua_getstack()</a>) or
-        given as argument to a hook (see <a href="luaref.html#lua_Hook()">lua_Hook()</a>). The index <code>n</code>
+        by a previous call to <code>lua_getstack</code> (see <a href="/neovim-docs-web/en/luaref#lua_getstack()">lua_getstack()</a>) or
+        given as argument to a hook (see <a href="/neovim-docs-web/en/luaref#lua_Hook()">lua_Hook()</a>). The index <code>n</code>
         selects which local variable to inspect (1 is the first parameter or
         active local variable, and so on, until the last active local
         variable). <code>lua_getlocal</code> pushes the variable's value onto the stack
@@ -3748,7 +3748,7 @@ lua_getstack                                                    <a name="lua_get
 
 </div>
 <div class="help-para">
-        This function fills parts of a <code>lua_Debug</code> (see <a href="luaref.html#lua_Debug()">lua_Debug()</a>)
+        This function fills parts of a <code>lua_Debug</code> (see <a href="/neovim-docs-web/en/luaref#lua_Debug()">lua_Debug()</a>)
         structure with an identification of the <code>activation record</code> of the
         function executing at a given level. Level 0 is the current running
         function, whereas level <code>n+1</code> is the function that has called level
@@ -3793,7 +3793,7 @@ lua_Hook                                                            <a name="lua
         <code>LUA_HOOKTAILRET</code>, <code>LUA_HOOKLINE</code>, and <code>LUA_HOOKCOUNT</code>. Moreover, for
         line events, the field <code>currentline</code> is also set. To get the value of
         any other field in <code>ar</code>, the hook must call <code>lua_getinfo</code> (see
-        <a href="luaref.html#lua_getinfo()">lua_getinfo()</a>). For return events, <code>event</code> may be
+        <a href="/neovim-docs-web/en/luaref#lua_getinfo()">lua_getinfo()</a>). For return events, <code>event</code> may be
         <code>LUA_HOOKRET</code>, the normal value, or <code>LUA_HOOKTAILRET</code>. In the latter
         case, Lua is simulating a return from a function that did a tail call;
         in this case, it is useless to call <code>lua_getinfo</code>.
@@ -3851,7 +3851,7 @@ lua_setlocal                                                    <a name="lua_set
 <div class="help-para">
         Sets the value of a local variable of a given activation record.
         Parameters <code>ar</code> and <code>n</code> are as in <code>lua_getlocal</code> (see
-        <a href="luaref.html#lua_getlocal()">lua_getlocal()</a>). <code>lua_setlocal</code> assigns the value at the top of
+        <a href="/neovim-docs-web/en/luaref#lua_getlocal()">lua_getlocal()</a>). <code>lua_setlocal</code> assigns the value at the top of
         the stack to the variable and returns its name. It also pops the value
         from the stack.
 
@@ -3870,7 +3870,7 @@ lua_setupvalue                                                <a name="lua_setup
         Sets the value of a closure's upvalue. It assigns the value at the top
         of the stack to the upvalue and returns its name. It also pops the
         value from the stack. Parameters <code>funcindex</code> and <code>n</code> are as in the
-        <code>lua_getupvalue</code> (see <a href="luaref.html#lua_getupvalue()">lua_getupvalue()</a>).
+        <code>lua_getupvalue</code> (see <a href="/neovim-docs-web/en/luaref#lua_getupvalue()">lua_getupvalue()</a>).
 
 </div>
 <div class="help-para">
@@ -3949,7 +3949,7 @@ luaL_addchar                                                    <a name="luaL_ad
 
 </div>
 <div class="help-para">
-        Adds the character <code>c</code> to the buffer <code>B</code> (see <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>).
+        Adds the character <code>c</code> to the buffer <code>B</code> (see <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>).
 
 </div>
 <div class="help-para">
@@ -3959,7 +3959,7 @@ luaL_addlstring                                              <a name="luaL_addls
 </div>
 <div class="help-para">
         Adds the string pointed to by <code>s</code> with length <code>l</code> to the buffer <code>B</code>
-        (see <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>). The string may contain embedded zeros.
+        (see <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>). The string may contain embedded zeros.
 
 </div>
 <div class="help-para">
@@ -3968,9 +3968,9 @@ luaL_addsize                                                    <a name="luaL_ad
 
 </div>
 <div class="help-para">
-        Adds to the buffer <code>B</code> (see <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>) a string of length
+        Adds to the buffer <code>B</code> (see <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>) a string of length
         <code>n</code> previously copied to the buffer area (see
-        <a href="luaref.html#luaL_prepbuffer()">luaL_prepbuffer()</a>).
+        <a href="/neovim-docs-web/en/luaref#luaL_prepbuffer()">luaL_prepbuffer()</a>).
 
 </div>
 <div class="help-para">
@@ -3980,7 +3980,7 @@ luaL_addstring                                                <a name="luaL_adds
 </div>
 <div class="help-para">
         Adds the zero-terminated string pointed to by <code>s</code> to the buffer <code>B</code>
-        (see <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>). The string may not contain embedded zeros.
+        (see <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>). The string may not contain embedded zeros.
 
 </div>
 <div class="help-para">
@@ -3990,7 +3990,7 @@ luaL_addvalue                                                  <a name="luaL_add
 </div>
 <div class="help-para">
         Adds the value at the top of the stack to the buffer <code>B</code> (see
-        <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>). Pops the value.
+        <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>). Pops the value.
 
 </div>
 <div class="help-para">
@@ -4046,11 +4046,11 @@ luaL_Buffer                                                      <a name="luaL_B
 <div class="help-para">
 <div class="help-li" style=""> First you declare a variable <code>b</code> of type <code>luaL_Buffer</code>.
 </div><div class="help-li" style=""> Then you initialize it with a call <code>luaL_buffinit(L, &amp;b)</code> (see
-           <a href="luaref.html#luaL_buffinit()">luaL_buffinit()</a>).
+           <a href="/neovim-docs-web/en/luaref#luaL_buffinit()">luaL_buffinit()</a>).
 </div><div class="help-li" style=""> Then you add string pieces to the buffer calling any of the
            <code>luaL_add*</code> functions.
 </div><div class="help-li" style=""> You finish by calling <code>luaL_pushresult(&amp;b)</code> (see
-           <a href="luaref.html#luaL_pushresult()">luaL_pushresult()</a>). This call leaves the final string on the
+           <a href="/neovim-docs-web/en/luaref#luaL_pushresult()">luaL_pushresult()</a>). This call leaves the final string on the
            top of the stack.
 </div>
 </div>
@@ -4062,7 +4062,7 @@ luaL_Buffer                                                      <a name="luaL_B
         that is, when you call a buffer operation, the stack is at the same
         level it was immediately after the previous buffer operation. (The
         only exception to this rule is <code>luaL_addvalue</code>
-        <a href="luaref.html#luaL_addvalue()">luaL_addvalue()</a>.) After calling <code>luaL_pushresult</code> the stack is
+        <a href="/neovim-docs-web/en/luaref#luaL_addvalue()">luaL_addvalue()</a>.) After calling <code>luaL_pushresult</code> the stack is
         back to its level when the buffer was initialized, plus the final
         string on its top.
 
@@ -4074,7 +4074,7 @@ luaL_buffinit                                                  <a name="luaL_buf
 </div>
 <div class="help-para">
         Initializes a buffer <code>B</code>. This function does not allocate any space;
-        the buffer must be declared as a variable (see <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>).
+        the buffer must be declared as a variable (see <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>).
 
 </div>
 <div class="help-para">
@@ -4122,7 +4122,7 @@ luaL_checkinteger                                          <a name="luaL_checkin
 </div>
 <div class="help-para">
         Checks whether the function argument <code>narg</code> is a number and returns
-        this number cast to a <code>lua_Integer</code> (see <a href="luaref.html#lua_Integer()">lua_Integer()</a>).
+        this number cast to a <code>lua_Integer</code> (see <a href="/neovim-docs-web/en/luaref#lua_Integer()">lua_Integer()</a>).
 
 </div>
 <div class="help-para">
@@ -4152,7 +4152,7 @@ luaL_checknumber                                            <a name="luaL_checkn
 </div>
 <div class="help-para">
         Checks whether the function argument <code>narg</code> is a number and returns
-        this number (see <a href="luaref.html#lua_Number()">lua_Number()</a>).
+        this number (see <a href="/neovim-docs-web/en/luaref#lua_Number()">lua_Number()</a>).
 
 </div>
 <div class="help-para">
@@ -4210,7 +4210,7 @@ luaL_checktype                                                <a name="luaL_chec
 </div>
 <div class="help-para">
         Checks whether the function argument <code>narg</code> has type <code>t</code> (see
-        <a href="luaref.html#lua_type()">lua_type()</a>).
+        <a href="/neovim-docs-web/en/luaref#lua_type()">lua_type()</a>).
 
 </div>
 <div class="help-para">
@@ -4220,7 +4220,7 @@ luaL_checkudata                                              <a name="luaL_check
 </div>
 <div class="help-para">
         Checks whether the function argument <code>narg</code> is a userdata of the type
-        <code>tname</code> (see <a href="luaref.html#luaL_newmetatable()">luaL_newmetatable()</a>).
+        <code>tname</code> (see <a href="/neovim-docs-web/en/luaref#luaL_newmetatable()">luaL_newmetatable()</a>).
 
 </div>
 <div class="help-para">
@@ -4259,7 +4259,7 @@ luaL_error                                                        <a name="luaL_
 <div class="help-para">
         Raises an error. The error message format is given by <code>fmt</code> plus any
         extra arguments, following the same rules of <code>lua_pushfstring</code> (see
-        <a href="luaref.html#lua_pushfstring()">lua_pushfstring()</a>). It also adds at the beginning of the
+        <a href="/neovim-docs-web/en/luaref#lua_pushfstring()">lua_pushfstring()</a>). It also adds at the beginning of the
         message the file name and the line number where the error occurred, if
         this information is available.
 
@@ -4287,7 +4287,7 @@ luaL_getmetatable                                          <a name="luaL_getmeta
 </div>
 <div class="help-para">
         Pushes onto the stack the metatable associated with name <code>tname</code> in
-        the registry (see <a href="luaref.html#luaL_newmetatable()">luaL_newmetatable()</a>).
+        the registry (see <a href="/neovim-docs-web/en/luaref#luaL_newmetatable()">luaL_newmetatable()</a>).
 
 </div>
 <div class="help-para">
@@ -4314,7 +4314,7 @@ luaL_loadbuffer                                              <a name="luaL_loadb
 </div>
 <div class="help-para">
         Loads a buffer as a Lua chunk. This function uses <code>lua_load</code> (see
-        <a href="luaref.html#lua_load()">lua_load()</a>) to load the chunk in the buffer pointed to by
+        <a href="/neovim-docs-web/en/luaref#lua_load()">lua_load()</a>) to load the chunk in the buffer pointed to by
         <code>buff</code> with size <code>sz</code>.
 
 </div>
@@ -4330,7 +4330,7 @@ luaL_loadfile                                                  <a name="luaL_loa
 </div>
 <div class="help-para">
         Loads a file as a Lua chunk. This function uses <code>lua_load</code> (see
-        <a href="luaref.html#lua_load()">lua_load()</a>) to load the chunk in the file named <code>filename</code>. If
+        <a href="/neovim-docs-web/en/luaref#lua_load()">lua_load()</a>) to load the chunk in the file named <code>filename</code>. If
         <code>filename</code> is <code>NULL</code>, then it loads from the standard input. The first
         line in the file is ignored if it starts with a <code>#</code>.
 
@@ -4351,7 +4351,7 @@ luaL_loadstring                                              <a name="luaL_loads
 </div>
 <div class="help-para">
         Loads a string as a Lua chunk. This function uses <code>lua_load</code> (see
-        <a href="luaref.html#lua_load()">lua_load()</a>) to load the chunk in the zero-terminated string
+        <a href="/neovim-docs-web/en/luaref#lua_load()">lua_load()</a>) to load the chunk in the zero-terminated string
         <code>s</code>.
 
 </div>
@@ -4387,9 +4387,9 @@ luaL_newstate                                                  <a name="luaL_new
 </div>
 <div class="help-para">
         Creates a new Lua state. It calls <code>lua_newstate</code> (see
-        <a href="luaref.html#lua_newstate()">lua_newstate()</a>) with an allocator based on the standard C
+        <a href="/neovim-docs-web/en/luaref#lua_newstate()">lua_newstate()</a>) with an allocator based on the standard C
         <code>realloc</code> function and then sets a panic function (see
-        <a href="luaref.html#lua_atpanic()">lua_atpanic()</a>) that prints an error message to the standard
+        <a href="/neovim-docs-web/en/luaref#lua_atpanic()">lua_atpanic()</a>) that prints an error message to the standard
         error output in case of fatal errors.
 
 </div>
@@ -4405,7 +4405,7 @@ luaL_openlibs                                                  <a name="luaL_ope
 </div>
 <div class="help-para">
         Opens all standard Lua libraries into the given state. See also
-        <a href="luaref.html#luaref-openlibs">luaref-openlibs</a> for details on how to open individual libraries.
+        <a href="/neovim-docs-web/en/luaref#luaref-openlibs">luaref-openlibs</a> for details on how to open individual libraries.
 
 </div>
 <div class="help-para">
@@ -4428,7 +4428,7 @@ luaL_optinteger                                              <a name="luaL_optin
 </div>
 <div class="help-para">
         If the function argument <code>narg</code> is a number, returns this number cast
-        to a <code>lua_Integer</code> (see <a href="luaref.html#lua_Integer()">lua_Integer()</a>). If this argument is
+        to a <code>lua_Integer</code> (see <a href="/neovim-docs-web/en/luaref#lua_Integer()">lua_Integer()</a>). If this argument is
         absent or is <code>nil</code>, returns <code>d</code>. Otherwise, raises an error.
 
 </div>
@@ -4492,9 +4492,9 @@ luaL_prepbuffer                                              <a name="luaL_prepb
 </div>
 <div class="help-para">
         Returns an address to a space of size <code>LUAL_BUFFERSIZE</code> where you can
-        copy a string to be added to buffer <code>B</code> (see <a href="luaref.html#luaL_Buffer()">luaL_Buffer()</a>).
+        copy a string to be added to buffer <code>B</code> (see <a href="/neovim-docs-web/en/luaref#luaL_Buffer()">luaL_Buffer()</a>).
         After copying the string into this space you must call <code>luaL_addsize</code>
-        (see <a href="luaref.html#luaL_addsize()">luaL_addsize()</a>) with the size of the string to actually
+        (see <a href="/neovim-docs-web/en/luaref#luaL_addsize()">luaL_addsize()</a>) with the size of the string to actually
         add it to the buffer.
 
 </div>
@@ -4522,8 +4522,8 @@ luaL_ref                                                            <a name="lua
         A reference is a unique integer key. As long as you do not manually
         add integer keys into table <code>t</code>, <code>luaL_ref</code> ensures the uniqueness of
         the key it returns. You can retrieve an object referred by reference
-        <code>r</code> by calling <code>lua_rawgeti(L, t, r)</code> (see <a href="luaref.html#lua_rawgeti()">lua_rawgeti()</a>).
-        Function <code>luaL_unref</code> (see <a href="luaref.html#luaL_unref()">luaL_unref()</a>) frees a reference and
+        <code>r</code> by calling <code>lua_rawgeti(L, t, r)</code> (see <a href="/neovim-docs-web/en/luaref#lua_rawgeti()">lua_rawgeti()</a>).
+        Function <code>luaL_unref</code> (see <a href="/neovim-docs-web/en/luaref#luaL_unref()">luaL_unref()</a>) frees a reference and
         its associated object.
 
 </div>
@@ -4543,7 +4543,7 @@ luaL_Reg                                                            <a name="lua
 </div>
 <div class="help-para">
         Type for arrays of functions to be registered by <code>luaL_register</code>  (see
-        <a href="luaref.html#luaL_register()">luaL_register()</a>). <code>name</code> is the function name and <code>func</code> is a
+        <a href="/neovim-docs-web/en/luaref#luaL_register()">luaL_register()</a>). <code>name</code> is the function name and <code>func</code> is a
         pointer to the function. Any array of <code>luaL_Reg</code> must end with a
         sentinel entry in which both <code>name</code> and <code>func</code> are <code>NULL</code>.
 
@@ -4561,7 +4561,7 @@ luaL_register                                                  <a name="luaL_reg
 </div>
 <div class="help-para">
         When called with <code>libname</code> equal to <code>NULL</code>, it simply registers all
-        functions in the list <code>l</code> (see <a href="luaref.html#luaL_Reg()">luaL_Reg()</a>) into the table on
+        functions in the list <code>l</code> (see <a href="/neovim-docs-web/en/luaref#luaL_Reg()">luaL_Reg()</a>) into the table on
         the top of the stack.
 
 </div>
@@ -4603,7 +4603,7 @@ luaL_typerror                                                  <a name="luaL_typ
 </div>
 <div class="help-para">
         where <code>location</code> is produced by <code>luaL_where</code>  (see
-        <a href="luaref.html#luaL_where()">luaL_where()</a>), <code>func</code> is the name of the current function, and
+        <a href="/neovim-docs-web/en/luaref#luaL_where()">luaL_where()</a>), <code>func</code> is the name of the current function, and
         <code>rt</code> is the type name of the actual argument.
 
 </div>
@@ -4614,7 +4614,7 @@ luaL_unref                                                        <a name="luaL_
 </div>
 <div class="help-para">
         Releases reference <code>ref</code> from the table at index <code>t</code> (see
-        <a href="luaref.html#luaL_ref()">luaL_ref()</a>). The entry is removed from the table, so that the
+        <a href="/neovim-docs-web/en/luaref#luaL_ref()">luaL_ref()</a>). The entry is removed from the table, so that the
         referred object can be collected. The reference <code>ref</code> is also freed to
         be used again.
 
@@ -4686,14 +4686,14 @@ functions as fields of a global table or as methods of its objects.
                                                                <a name="luaref-openlibs"></a><code class="help-tag-right">luaref-openlibs</code>
 To have access to these libraries, the C host program should call the
 <code>luaL_openlibs</code> function, which opens all standard libraries (see
-<a href="luaref.html#luaL_openlibs()">luaL_openlibs()</a>). Alternatively, the host program can open the libraries
+<a href="/neovim-docs-web/en/luaref#luaL_openlibs()">luaL_openlibs()</a>). Alternatively, the host program can open the libraries
 individually by calling <code>luaopen_base</code> (for the basic library),
 <code>luaopen_package</code> (for the package library), <code>luaopen_string</code> (for the string
 library), <code>luaopen_table</code> (for the table library), <code>luaopen_math</code> (for the
 mathematical library), <code>luaopen_io</code> (for the I/O and the Operating System
 libraries), and <code>luaopen_debug</code> (for the debug library). These functions are
 declared in <code>lualib.h</code> and should not be called directly: you must call them
-like any other Lua C function, e.g., by using <code>lua_call</code> (see <a href="luaref.html#lua_call()">lua_call()</a>).
+like any other Lua C function, e.g., by using <code>lua_call</code> (see <a href="/neovim-docs-web/en/luaref#lua_call()">lua_call()</a>).
 
 </div>
 <div class="help-para">
@@ -4731,9 +4731,9 @@ collectgarbage(<code>{opt}</code> [, <code>{arg}</code>])                       
                      you must experimentally tune the value of <code>{arg}</code>. Returns
                      <code>true</code> if the step finished a collection cycle.
         <code>"setpause"</code>   sets <code>{arg}</code> /100 as the new value for the <code>pause</code> of
-                     the collector (see <a href="luaref.html#luaref-langGC">luaref-langGC</a>).
+                     the collector (see <a href="/neovim-docs-web/en/luaref#luaref-langGC">luaref-langGC</a>).
         <code>"setstepmul"</code> sets <code>{arg}</code> /100 as the new value for thestep
-                     multiplier` of the collector (see <a href="luaref.html#luaref-langGC">luaref-langGC</a>).
+                     multiplier` of the collector (see <a href="/neovim-docs-web/en/luaref#luaref-langGC">luaref-langGC</a>).
 
 </div>
 <div class="help-para">
@@ -4821,13 +4821,13 @@ load(<code>{func}</code> [, <code>{chunkname}</code>])                          
 </div>
 <div class="help-para">
 loadfile([{filename}])                                       <a name="luaref-loadfile()"></a><code class="help-tag-right">luaref-loadfile()</code>
-        Similar to <code>load</code> (see <a href="luaref.html#luaref-load()">luaref-load()</a>), but gets the chunk from file
+        Similar to <code>load</code> (see <a href="/neovim-docs-web/en/luaref#luaref-load()">luaref-load()</a>), but gets the chunk from file
         <code>{filename}</code> or from the standard input, if no file name is given.
 
 </div>
 <div class="help-para">
 loadstring(<code>{string}</code> [, <code>{chunkname}</code>])                       <a name="luaref-loadstring()"></a><code class="help-tag-right">luaref-loadstring()</code>
-        Similar to <code>load</code> (see <a href="luaref.html#luaref-load()">luaref-load()</a>), but gets the chunk from the
+        Similar to <code>load</code> (see <a href="/neovim-docs-web/en/luaref#luaref-load()">luaref-load()</a>), but gets the chunk from the
         given <code>{string}</code>.
 
 </div>
@@ -4851,7 +4851,7 @@ next(<code>{table}</code> [, <code>{index}</code>])                             
 <div class="help-para">
         The order in which the indices are enumerated is not specified,even
         for` <code>numeric indices</code>. (To traverse a table in numeric order, use a
-        numerical <code>for</code> or the <code>ipairs</code> <a href="luaref.html#luaref-ipairs()">luaref-ipairs()</a> function.)
+        numerical <code>for</code> or the <code>ipairs</code> <a href="/neovim-docs-web/en/luaref#luaref-ipairs()">luaref-ipairs()</a> function.)
 
 </div>
 <div class="help-para">
@@ -4862,7 +4862,7 @@ next(<code>{table}</code> [, <code>{index}</code>])                             
 </div>
 <div class="help-para">
 pairs(<code>{t}</code>)                                                      <a name="luaref-pairs()"></a><code class="help-tag-right">luaref-pairs()</code>
-        Returns three values: the <code>next</code> <a href="luaref.html#luaref-next()">luaref-next()</a> function, the table
+        Returns three values: the <code>next</code> <a href="/neovim-docs-web/en/luaref#luaref-next()">luaref-next()</a> function, the table
         <code>{t}</code>, and <code>nil</code>, so that the construction
 
 </div>
@@ -4888,10 +4888,10 @@ pcall(<code>{f}</code>, <code>{arg1}</code>, <code>{...}</code>)                
 <div class="help-para">
 print(<code>{...}</code>)                                                    <a name="luaref-print()"></a><code class="help-tag-right">luaref-print()</code>
         Receives any number of arguments, and prints their values to <code>stdout</code>,
-        using the <code>tostring</code> <a href="luaref.html#luaref-tostring()">luaref-tostring()</a> function to convert them to
+        using the <code>tostring</code> <a href="/neovim-docs-web/en/luaref#luaref-tostring()">luaref-tostring()</a> function to convert them to
         strings. <code>print</code> is not intended for formatted output, but only as a
         quick way to show a value, typically for debugging. For formatted
-        output, use <code>string.format</code> (see <a href="luaref.html#string.format()">string.format()</a>).
+        output, use <code>string.format</code> (see <a href="/neovim-docs-web/en/luaref#string.format()">string.format()</a>).
 
 </div>
 <div class="help-para">
@@ -4962,7 +4962,7 @@ tonumber(<code>{e}</code> [, <code>{base}</code>])                              
         10, the letter <code>A</code> (in either upper or lower case) represents 10, <code>B</code>
         represents 11, and so forth, with <code>Z'</code> representing 35. In base 10
         (the default), the number may have a decimal part, as well as an
-        optional exponent part (see <a href="luaref.html#luaref-langLexConv">luaref-langLexConv</a>). In other bases,
+        optional exponent part (see <a href="/neovim-docs-web/en/luaref#luaref-langLexConv">luaref-langLexConv</a>). In other bases,
         only unsigned integers are accepted.
 
 </div>
@@ -4970,7 +4970,7 @@ tonumber(<code>{e}</code> [, <code>{base}</code>])                              
 tostring(<code>{e}</code>)                                                <a name="luaref-tostring()"></a><code class="help-tag-right">luaref-tostring()</code>
         Receives an argument of any type and converts it to a string in a
         reasonable format. For complete control of how numbers are converted,
-        use <code>string.format</code> (see <a href="luaref.html#string.format()">string.format()</a>).
+        use <code>string.format</code> (see <a href="/neovim-docs-web/en/luaref#string.format()">string.format()</a>).
 
 </div>
 <div class="help-para">
@@ -4998,7 +4998,7 @@ unpack(<code>{list}</code> [, <code>{i}</code> [, <code>{j}</code>]])           
 <div class="help-para">
         except that the above code can be written only for a fixed number of
         elements. By default, <code>{i}</code> is 1 and <code>{j}</code> is the length of the list, as
-        defined by the length operator(see <a href="luaref.html#luaref-langLength">luaref-langLength</a>).
+        defined by the length operator(see <a href="/neovim-docs-web/en/luaref#luaref-langLength">luaref-langLength</a>).
 
 </div>
 <div class="help-para">
@@ -5010,7 +5010,7 @@ _VERSION                                                     <a name="luaref-_VE
 </div>
 <div class="help-para">
 xpcall(<code>{f}</code>, <code>{err}</code>)                                             <a name="luaref-xpcall()"></a><code class="help-tag-right">luaref-xpcall()</code>
-        This function is similar to <code>pcall</code> (see <a href="luaref.html#luaref-pcall()">luaref-pcall()</a>), except that
+        This function is similar to <code>pcall</code> (see <a href="/neovim-docs-web/en/luaref#luaref-pcall()">luaref-pcall()</a>), except that
         you can set a new error handler.
 
 </div>
@@ -5032,7 +5032,7 @@ xpcall(<code>{f}</code>, <code>{err}</code>)                                    
 </div>
 <div class="help-para">
 The operations related to coroutines comprise a sub-library of the basic
-library and come inside the table <code>coroutine</code>. See <a href="luaref.html#luaref-langCoro">luaref-langCoro</a> for a
+library and come inside the table <code>coroutine</code>. See <a href="/neovim-docs-web/en/luaref#luaref-langCoro">luaref-langCoro</a> for a
 general description of coroutines.
 
 </div>
@@ -5099,7 +5099,7 @@ coroutine.yield({...})                                       <a name="coroutine.
 <div class="help-para">
 The package library provides basic facilities for loading and building modules
 in Lua. It exports two of its functions directly in the global environment:
-<code>require</code> and <code>module</code> (see <a href="luaref.html#luaref-require()">luaref-require()</a> and <a href="luaref.html#luaref-module()">luaref-module()</a>). Everything else is
+<code>require</code> and <code>module</code> (see <a href="/neovim-docs-web/en/luaref#luaref-require()">luaref-require()</a> and <a href="/neovim-docs-web/en/luaref#luaref-module()">luaref-module()</a>). Everything else is
 exported in a table <code>package</code>.
 
 </div>
@@ -5114,7 +5114,7 @@ module(<code>{name}</code> [, <code>{...}</code>])                              
         <code>t._PACKAGE</code> with the package name (the full module name minus last
         component; see below). Finally, <code>module</code> sets <code>t</code> as the new
         environment of the current function and the new value of
-        <code>package.loaded[name]</code>, so that <code>require</code> (see <a href="luaref.html#luaref-require()">luaref-require()</a>)
+        <code>package.loaded[name]</code>, so that <code>require</code> (see <a href="/neovim-docs-web/en/luaref#luaref-require()">luaref-require()</a>)
         returns <code>t</code>.
 
 </div>
@@ -5209,7 +5209,7 @@ package.loadlib({libname}, <code>{funcname}</code>)                     <a name=
         Dynamically links the host program with the C library <code>{libname}</code>.
         Inside this library, looks for a function <code>{funcname}</code> and returns this
         function as a C function. (So, <code>{funcname}</code> must follow the protocol
-        (see <a href="luaref.html#lua_CFunction()">lua_CFunction()</a>)).
+        (see <a href="/neovim-docs-web/en/luaref#lua_CFunction()">lua_CFunction()</a>)).
 
 </div>
 <div class="help-para">
@@ -5256,7 +5256,7 @@ package.path                                                    <a name="package
 </div>
 <div class="help-para">
 package.preload                                              <a name="package.preload()"></a><code class="help-tag-right">package.preload()</code>
-        A table to store loaders for specific modules (see <a href="luaref.html#luaref-require()">luaref-require()</a>).
+        A table to store loaders for specific modules (see <a href="/neovim-docs-web/en/luaref#luaref-require()">luaref-require()</a>).
 
 </div>
 <div class="help-para">
@@ -5314,7 +5314,7 @@ string.char({...})                                               <a name="string
 <div class="help-para">
 string.dump({function})                                          <a name="string.dump()"></a><code class="help-tag-right">string.dump()</code>
         Returns a string containing a binary representation of the given
-        function, so that a later <a href="luaref.html#luaref-loadstring()">luaref-loadstring()</a> on this string returns a
+        function, so that a later <a href="/neovim-docs-web/en/luaref#luaref-loadstring()">luaref-loadstring()</a> on this string returns a
         copy of the function. <code>{function}</code> must be a Lua function without
         upvalues.
 
@@ -5677,7 +5677,7 @@ table.foreach({table}, <code>{f}</code>)                                  <a nam
 
 </div>
 <div class="help-para">
-        See <a href="luaref.html#luaref-next()">luaref-next()</a> for extra information about table traversals.
+        See <a href="/neovim-docs-web/en/luaref#luaref-next()">luaref-next()</a> for extra information about table traversals.
 
 </div>
 <div class="help-para">
@@ -5695,7 +5695,7 @@ table.insert({table}, [{pos},] <code>{value}</code>)                         <a 
         Inserts element <code>{value}</code> at position <code>{pos}</code> in <code>{table}</code>, shifting up
         other elements to open space, if necessary. The default value for
         <code>{pos}</code> is <code>n+1</code>, where <code>n</code> is the length of the table (see
-        <a href="luaref.html#luaref-langLength">luaref-langLength</a>), so that a call <code>table.insert(t,x)</code> inserts <code>x</code>
+        <a href="/neovim-docs-web/en/luaref#luaref-langLength">luaref-langLength</a>), so that a call <code>table.insert(t,x)</code> inserts <code>x</code>
         at the end of table <code>t</code>.
 
 </div>
@@ -5711,7 +5711,7 @@ table.remove({table} [, <code>{pos}</code>])                               <a na
         Removes from <code>{table}</code> the element at position <code>{pos}</code>, shifting down
         other elements to close the space, if necessary. Returns the value of
         the removed element. The default value for <code>{pos}</code> is <code>n</code>, where <code>n</code> is
-        the length of the table (see <a href="luaref.html#luaref-langLength">luaref-langLength</a>), so that a call
+        the length of the table (see <a href="/neovim-docs-web/en/luaref#luaref-langLength">luaref-langLength</a>), so that a call
         <code>table.remove(t)</code> removes the last element of table <code>t</code>.
 
 </div>
@@ -5719,7 +5719,7 @@ table.remove({table} [, <code>{pos}</code>])                               <a na
 table.sort({table} [, <code>{comp}</code>])                                  <a name="table.sort()"></a><code class="help-tag-right">table.sort()</code>
         Sorts table elements in a given order, <code>in-place</code>, from <code>table[1]</code> to
         <code>table[n]</code>, where <code>n</code> is the length of the table (see
-        <a href="luaref.html#luaref-langLength">luaref-langLength</a>). If <code>{comp}</code> is given, then it must be a function
+        <a href="/neovim-docs-web/en/luaref#luaref-langLength">luaref-langLength</a>). If <code>{comp}</code> is given, then it must be a function
         that receives two table elements, and returns true when the first is
         less than the second (so that <code>not comp(a[i+1],a[i])</code> will be true
         after the sort). If <code>{comp}</code> is not given, then the standard Lua
@@ -6148,7 +6148,7 @@ file:setvbuf({mode} [, <code>{size}</code>])                          <a name="l
                  immediately.
          <code>"full"</code>  full buffering; output operation is performed only when
                  the buffer is full (or when you explicitly <code>flush</code> the file
-                 (see <a href="luaref.html#io.flush()">io.flush()</a>).
+                 (see <a href="/neovim-docs-web/en/luaref#io.flush()">io.flush()</a>).
          <code>"line"</code>  line buffering; output is buffered until a newline is
                  output or there is any input from some special files (such as
                  a terminal device).
@@ -6163,7 +6163,7 @@ file:setvbuf({mode} [, <code>{size}</code>])                          <a name="l
 file:write({...})                                          <a name="luaref-file%3Awrite()"></a><code class="help-tag-right">luaref-file:write()</code>
         Writes the value of each of its arguments to <code>file</code>. The arguments
         must be strings or numbers. To write other values, use <code>tostring</code>
-        <a href="luaref.html#luaref-tostring()">luaref-tostring()</a> or <code>string.format</code> <a href="luaref.html#string.format()">string.format()</a> before
+        <a href="/neovim-docs-web/en/luaref#luaref-tostring()">luaref-tostring()</a> or <code>string.format</code> <a href="/neovim-docs-web/en/luaref#string.format()">string.format()</a> before
         <code>write</code>.
 
 </div>
@@ -6190,7 +6190,7 @@ os.date([{format} [, <code>{time}</code>]])                                     
 </div>
 <div class="help-para">
         If the <code>{time}</code> argument is present, this is the time to be formatted
-        (see the <code>os.time</code> function <a href="luaref.html#os.time()">os.time()</a> for a description of this
+        (see the <code>os.time</code> function <a href="/neovim-docs-web/en/luaref#os.time()">os.time()</a> for a description of this
         value). Otherwise, <code>date</code> formats the current time.
 
 </div>
@@ -6270,7 +6270,7 @@ os.time([{table}])                                                   <a name="os
         representing the date and time specified by the given table. This
         table must have fields <code>year</code>, <code>month</code>, and <code>day</code>, and may have fields
         <code>hour</code>, <code>min</code>, <code>sec</code>, and <code>isdst</code> (for a description of these fields,
-        see the <code>os.date</code> function <a href="luaref.html#os.date()">os.date()</a>).
+        see the <code>os.date</code> function <a href="/neovim-docs-web/en/luaref#os.date()">os.date()</a>).
 
 </div>
 <div class="help-para">
@@ -6350,7 +6350,7 @@ debug.getinfo([{thread},] <code>{function}</code> [, <code>{what}</code>])      
 </div>
 <div class="help-para">
         The returned table may contain all the fields returned by
-        <code>lua_getinfo</code> (see <a href="luaref.html#lua_getinfo()">lua_getinfo()</a>), with the string <code>{what}</code>
+        <code>lua_getinfo</code> (see <a href="/neovim-docs-web/en/luaref#lua_getinfo()">lua_getinfo()</a>), with the string <code>{what}</code>
         describing which fields to fill in. The default for <code>{what}</code> is to get
         all information available, except the table of valid lines. If
         present, the option <code>f</code> adds a field named <code>func</code> with the function
@@ -6373,7 +6373,7 @@ debug.getlocal([{thread},] <code>{level}</code>, <code>{local}</code>)          
         last active local variable.) The function returns <code>nil</code> if there is no
         local variable with the given index, and raises an error when called
         with a <code>{level}</code> out of range. (You can call <code>debug.getinfo</code>
-        <a href="luaref.html#debug.getinfo()">debug.getinfo()</a> to check whether the level is valid.)
+        <a href="/neovim-docs-web/en/luaref#debug.getinfo()">debug.getinfo()</a> to check whether the level is valid.)
 
 </div>
 <div class="help-para">
@@ -6390,7 +6390,7 @@ debug.getmetatable({object})                              <a name="debug.getmeta
 </div>
 <div class="help-para">
 debug.getregistry()                                        <a name="debug.getregistry()"></a><code class="help-tag-right">debug.getregistry()</code>
-        Returns the registry table (see <a href="luaref.html#luaref-apiRegistry">luaref-apiRegistry</a>).
+        Returns the registry table (see <a href="/neovim-docs-web/en/luaref#luaref-apiRegistry">luaref-apiRegistry</a>).
 
 </div>
 <div class="help-para">
@@ -6561,8 +6561,8 @@ copies or substantial portions of the Software.
 <div class="help-para">
 This is a Vim help file containing a reference for Lua 5.1, and it is -- with
 a few exceptions and adaptations -- a copy of the Lua 5.1 Reference Manual
-(see <a href="luaref.html#luaref-bibliography">luaref-bibliography</a>). For usage information, refer to
-<a href="luaref.html#luaref-doc">luaref-doc</a>. For copyright information, see <a href="luaref.html#luaref-copyright">luaref-copyright</a>.
+(see <a href="/neovim-docs-web/en/luaref#luaref-bibliography">luaref-bibliography</a>). For usage information, refer to
+<a href="/neovim-docs-web/en/luaref#luaref-doc">luaref-doc</a>. For copyright information, see <a href="/neovim-docs-web/en/luaref#luaref-copyright">luaref-copyright</a>.
 
 </div>
 <div class="help-para">

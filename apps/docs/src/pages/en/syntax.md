@@ -22,8 +22,8 @@ calls it syntax highlighting we'll stick with that.</div>
 terminals have very limited highlighting possibilities, it works best in the
 GUI version, gvim.</div>
 <div class="old-help-para">In the User Manual:
-<a href="usr_06.html#usr_06.txt">usr_06.txt</a> introduces syntax highlighting.
-<a href="usr_44.html#usr_44.txt">usr_44.txt</a> introduces writing a syntax file.</div>
+<a href="/neovim-docs-web/en/usr_06#usr_06.txt">usr_06.txt</a> introduces syntax highlighting.
+<a href="/neovim-docs-web/en/usr_44#usr_44.txt">usr_44.txt</a> introduces writing a syntax file.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Quick start<span class="help-heading-tags">						<a name="%3Asyn-qstart"></a><span class="help-tag">:syn-qstart</span></span></h2></div>
 <div class="old-help-para">				<a name="%3Asyn-enable"></a><code class="help-tag-right">:syn-enable</code> <a name="%3Asyntax-enable"></a><code class="help-tag">:syntax-enable</code> <a name="%3Asyn-on"></a><code class="help-tag">:syn-on</code> <a name="%3Asyntax-on"></a><code class="help-tag">:syntax-on</code>
 Syntax highlighting is enabled by default. If you need to enable it again
@@ -31,28 +31,28 @@ after it was disabled (see below), use:<pre>:syntax enable</pre>
 Alternatively:<pre>:syntax on</pre>
 What this command actually does is to execute the command<pre>:source $VIMRUNTIME/syntax/syntax.vim</pre>
 If the VIM environment variable is not set, Vim will try to find
-the path in another way (see <a href="starting.html#%24VIMRUNTIME">$VIMRUNTIME</a>).  Usually this works just
+the path in another way (see <a href="/neovim-docs-web/en/starting#%24VIMRUNTIME">$VIMRUNTIME</a>).  Usually this works just
 fine.  If it doesn't, try setting the VIM environment variable to the
 directory where the Vim stuff is located.  For example, if your syntax files
 are in the "/usr/vim/vim82/syntax" directory, set $VIMRUNTIME to
 "/usr/vim/vim82".  You must do this in the shell, before starting Vim.
-This command also sources the <a href="gui.html#menu.vim">menu.vim</a> script when the GUI is running or
-will start soon.  See <a href="options.html#'go-M'">'go-M'</a> about avoiding that.</div>
+This command also sources the <a href="/neovim-docs-web/en/gui#menu.vim">menu.vim</a> script when the GUI is running or
+will start soon.  See <a href="/neovim-docs-web/en/options#'go-M'">'go-M'</a> about avoiding that.</div>
 <div class="old-help-para">					<a name="%3Ahi-normal"></a><code class="help-tag-right">:hi-normal</code> <a name="%3Ahighlight-normal"></a><code class="help-tag">:highlight-normal</code>
 If you are running in the GUI, you can get white text on a black background
 with:<pre>:highlight Normal guibg=Black guifg=White</pre>
-For a color terminal see <a href="syntax.html#%3Ahi-normal-cterm">:hi-normal-cterm</a>.</div>
+For a color terminal see <a href="/neovim-docs-web/en/syntax#%3Ahi-normal-cterm">:hi-normal-cterm</a>.</div>
 <div class="old-help-para">NOTE: The syntax files on MS-Windows have lines that end in <code>&lt;CR&gt;</code><code>&lt;NL&gt;</code>.
 The files for Unix end in <code>&lt;NL&gt;</code>.  This means you should use the right type of
 file for your system.  Although on MS-Windows the right format is
-automatically selected if the <a href="options.html#'fileformats'">'fileformats'</a> option is not empty.</div>
+automatically selected if the <a href="/neovim-docs-web/en/options#'fileformats'">'fileformats'</a> option is not empty.</div>
 <div class="old-help-para">NOTE: When using reverse video ("gvim -fg white -bg black"), the default value
-of <a href="options.html#'background'">'background'</a> will not be set until the GUI window is opened, which is after
-reading the <a href="gui.html#gvimrc">gvimrc</a>.  This will cause the wrong default highlighting to be
-used.  To set the default value of <a href="options.html#'background'">'background'</a> before switching on
-highlighting, include the ":gui" command in the <a href="gui.html#gvimrc">gvimrc</a>:<pre>:gui                " open window and set default for 'background'
+of <a href="/neovim-docs-web/en/options#'background'">'background'</a> will not be set until the GUI window is opened, which is after
+reading the <a href="/neovim-docs-web/en/gui#gvimrc">gvimrc</a>.  This will cause the wrong default highlighting to be
+used.  To set the default value of <a href="/neovim-docs-web/en/options#'background'">'background'</a> before switching on
+highlighting, include the ":gui" command in the <a href="/neovim-docs-web/en/gui#gvimrc">gvimrc</a>:<pre>:gui                " open window and set default for 'background'
 :syntax on        " start highlighting, use 'background' to set colors</pre>
-NOTE: Using ":gui" in the <a href="gui.html#gvimrc">gvimrc</a> means that "gvim -f" won't start in the
+NOTE: Using ":gui" in the <a href="/neovim-docs-web/en/gui#gvimrc">gvimrc</a> means that "gvim -f" won't start in the
 foreground!  Use ":gui -f" then.</div>
 <div class="old-help-para">							<a name="g%3Asyntax_on"></a><code class="help-tag-right">g:syntax_on</code>
 You can toggle the syntax on/off with this command:<pre>:if exists("g:syntax_on") | syntax off | else | syntax enable | endif</pre>
@@ -61,7 +61,7 @@ To put this into a mapping, you can use:<pre>:map &lt;F7&gt; :if exists("g:synta
      \ else &lt;Bar&gt;
      \   syntax enable &lt;Bar&gt;
      \ endif &lt;CR&gt;</pre>
-[using the <a href="intro.html#%3C%3E">&lt;&gt;</a> notation, type this literally]</div>
+[using the <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a> notation, type this literally]</div>
 <div class="old-help-para">Details:
 The ":syntax" commands are implemented by sourcing a file.  To see exactly how
 this works, look in the file:
@@ -69,9 +69,9 @@ this works, look in the file:
     :syntax on		$VIMRUNTIME/syntax/syntax.vim
     :syntax manual	$VIMRUNTIME/syntax/manual.vim
     :syntax off		$VIMRUNTIME/syntax/nosyntax.vim
-Also see <a href="syntax.html#syntax-loading">syntax-loading</a>.</div>
+Also see <a href="/neovim-docs-web/en/syntax#syntax-loading">syntax-loading</a>.</div>
 <div class="old-help-para">NOTE: If displaying long lines is slow and switching off syntax highlighting
-makes it fast, consider setting the <a href="options.html#'synmaxcol'">'synmaxcol'</a> option to a lower value.</div>
+makes it fast, consider setting the <a href="/neovim-docs-web/en/options#'synmaxcol'">'synmaxcol'</a> option to a lower value.</div>
 <div class="old-help-para"><h2 class="help-heading">2. Syntax files<span class="help-heading-tags">						<a name="%3Asyn-files"></a><span class="help-tag">:syn-files</span></span></h2></div>
 <div class="old-help-para">The syntax and highlighting commands for one language are normally stored in
 a syntax file.	The name convention is: "{name}.vim".  Where <code>{name}</code> is the
@@ -91,19 +91,19 @@ These commands are normally in the file $VIMRUNTIME/syntax/synload.vim.</div>
 <div class="old-help-para">When you create your own syntax files, and you want to have Vim use these
 automatically with ":syntax enable", do this:</div>
 <div class="old-help-para">1. Create your user runtime directory.	You would normally use the first item
-   of the <a href="options.html#'runtimepath'">'runtimepath'</a> option.  Example for Unix:<pre>mkdir ~/.config/nvim</pre>
+   of the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> option.  Example for Unix:<pre>mkdir ~/.config/nvim</pre>
 2. Create a directory in there called "syntax".  For Unix:<pre>mkdir ~/.config/nvim/syntax</pre>
 3. Write the Vim syntax file.  Or download one from the internet.  Then write
    it in your syntax directory.  For example, for the "mine" syntax:<pre>:w ~/.config/nvim/syntax/mine.vim</pre>
 Now you can start using your syntax file manually:<pre>:set syntax=mine</pre>
 You don't have to exit Vim to use this.</div>
-<div class="old-help-para">If you also want Vim to detect the type of file, see <a href="filetype.html#new-filetype">new-filetype</a>.</div>
+<div class="old-help-para">If you also want Vim to detect the type of file, see <a href="/neovim-docs-web/en/filetype#new-filetype">new-filetype</a>.</div>
 <div class="old-help-para">If you are setting up a system with many users and you don't want each user
-to add the same syntax file, you can use another directory from <a href="options.html#'runtimepath'">'runtimepath'</a>.</div>
+to add the same syntax file, you can use another directory from <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">ADDING TO AN EXISTING SYNTAX FILE<span class="help-heading-tags">		<a name="mysyntaxfile-add"></a><span class="help-tag">mysyntaxfile-add</span></span></h3></div>
 <div class="old-help-para">If you are mostly satisfied with an existing syntax file, but would like to
 add a few items or change the highlighting, follow these steps:</div>
-<div class="old-help-para">1. Create your user directory from <a href="options.html#'runtimepath'">'runtimepath'</a>, see above.</div>
+<div class="old-help-para">1. Create your user directory from <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>, see above.</div>
 <div class="old-help-para">2. Create a directory in there called "after/syntax".  For Unix:<pre>mkdir ~/.config/nvim/after
 mkdir ~/.config/nvim/after/syntax</pre>
 3. Write a Vim script that contains the commands you want to use.  For
@@ -118,8 +118,8 @@ All the "*.vim" files in this directory will be used, for example:
 	~/.config/nvim/after/syntax/c/two.vim</div>
 <div class="old-help-para"><h3 class="help-heading">REPLACING AN EXISTING SYNTAX FILE<span class="help-heading-tags">			<a name="mysyntaxfile-replace"></a><span class="help-tag">mysyntaxfile-replace</span></span></h3></div>
 <div class="old-help-para">If you don't like a distributed syntax file, or you have downloaded a new
-version, follow the same steps as for <a href="syntax.html#mysyntaxfile">mysyntaxfile</a> above.  Just make sure
-that you write the syntax file in a directory that is early in <a href="options.html#'runtimepath'">'runtimepath'</a>.
+version, follow the same steps as for <a href="/neovim-docs-web/en/syntax#mysyntaxfile">mysyntaxfile</a> above.  Just make sure
+that you write the syntax file in a directory that is early in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.
 Vim will only load the first syntax file found, assuming that it sets
 b:current_syntax.</div>
 <div class="old-help-para"><h3 class="help-heading">NAMING CONVENTIONS<span class="help-heading-tags">		    <a name="group-name"></a><span class="help-tag">group-name</span> <a name="%7Bgroup-name%7D"></a><span class="help-tag">{group-name}</span> <a name="E669"></a><span class="help-tag">E669</span> <a name="E5248"></a><span class="help-tag">E5248</span></span></h3></div>
@@ -166,7 +166,7 @@ you can see the actual color, except for "Ignore"):</div>
 	 SpecialComment	special things inside a comment
 	 Debug		debugging statements</div>
 <div class="old-help-para">Underlined	text that stands out, HTML links</div>
-<div class="old-help-para">Ignore		left blank, hidden  <a href="syntax.html#hl-Ignore">hl-Ignore</a></div>
+<div class="old-help-para">Ignore		left blank, hidden  <a href="/neovim-docs-web/en/syntax#hl-Ignore">hl-Ignore</a></div>
 <div class="old-help-para">Error		any erroneous construct</div>
 <div class="old-help-para">Todo		anything that needs extra attention; mostly the
 			keywords TODO FIXME and XXX</div>
@@ -181,29 +181,29 @@ can be used for the same group.</div>
 	NONE   ALL   ALLBUT   contains	 contained</div>
 <div class="old-help-para">							<a name="hl-Ignore"></a><code class="help-tag-right">hl-Ignore</code>
 When using the Ignore group, you may also consider using the conceal
-mechanism.  See <a href="syntax.html#conceal">conceal</a>.</div>
+mechanism.  See <a href="/neovim-docs-web/en/syntax#conceal">conceal</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">3. Syntax loading procedure<span class="help-heading-tags">				<a name="syntax-loading"></a><span class="help-tag">syntax-loading</span></span></h2></div>
 <div class="old-help-para">This explains the details that happen when the command ":syntax enable" is
 issued.  When Vim initializes itself, it finds out where the runtime files are
-located.  This is used here as the variable <a href="starting.html#%24VIMRUNTIME">$VIMRUNTIME</a>.</div>
+located.  This is used here as the variable <a href="/neovim-docs-web/en/starting#%24VIMRUNTIME">$VIMRUNTIME</a>.</div>
 <div class="old-help-para">":syntax enable" and ":syntax on" do the following:</div>
 <div class="old-help-para">    Source $VIMRUNTIME/syntax/syntax.vim
     |
     +-	Clear out any old syntax by sourcing $VIMRUNTIME/syntax/nosyntax.vim
     |
-    +-	Source first syntax/synload.vim in <a href="options.html#'runtimepath'">'runtimepath'</a>
+    +-	Source first syntax/synload.vim in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>
     |	|
     |	+-  Set up syntax autocmds to load the appropriate syntax file when
-    |	|   the <a href="options.html#'syntax'">'syntax'</a> option is set. <a name="synload-1"></a><code class="help-tag">synload-1</code>
+    |	|   the <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> option is set. <a name="synload-1"></a><code class="help-tag">synload-1</code>
     |	|
-    |	+-  Source the user's optional file, from the <a href="syntax.html#mysyntaxfile">mysyntaxfile</a> variable.
+    |	+-  Source the user's optional file, from the <a href="/neovim-docs-web/en/syntax#mysyntaxfile">mysyntaxfile</a> variable.
     |	    This is for backwards compatibility with Vim 5.x only. <a name="synload-2"></a><code class="help-tag">synload-2</code>
     |
     +-	Do ":filetype on", which does ":runtime! filetype.vim".  It loads any
     |	filetype.vim files found.  It should always Source
     |	$VIMRUNTIME/filetype.vim, which does the following.
     |	|
-    |	+-  Install autocmds based on suffix to set the <a href="options.html#'filetype'">'filetype'</a> option
+    |	+-  Install autocmds based on suffix to set the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> option
     |	|   This is where the connection between file name and file type is
     |	|   made for known file types. <a name="synload-3"></a><code class="help-tag">synload-3</code>
     |	|
@@ -214,9 +214,9 @@ located.  This is used here as the variable <a href="starting.html#%24VIMRUNTIME
     |	+-  Install one autocommand which sources scripts.vim when no file
     |	|   type was detected yet. <a name="synload-5"></a><code class="help-tag">synload-5</code>
     |	|
-    |	+-  Source $VIMRUNTIME/menu.vim, to setup the Syntax menu. <a href="gui.html#menu.vim">menu.vim</a>
+    |	+-  Source $VIMRUNTIME/menu.vim, to setup the Syntax menu. <a href="/neovim-docs-web/en/gui#menu.vim">menu.vim</a>
     |
-    +-	Install a FileType autocommand to set the <a href="options.html#'syntax'">'syntax'</a> option when a file
+    +-	Install a FileType autocommand to set the <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> option when a file
     |	type has been detected. <a name="synload-6"></a><code class="help-tag">synload-6</code>
     |
     +-	Execute syntax autocommands to start syntax highlighting for each
@@ -224,12 +224,12 @@ located.  This is used here as the variable <a href="starting.html#%24VIMRUNTIME
 <div class="old-help-para">Upon loading a file, Vim finds the relevant syntax file as follows:</div>
 <div class="old-help-para">    Loading the file triggers the BufReadPost autocommands.
     |
-    +-	If there is a match with one of the autocommands from <a href="syntax.html#synload-3">synload-3</a>
-    |	(known file types) or <a href="syntax.html#synload-4">synload-4</a> (user's file types), the <a href="options.html#'filetype'">'filetype'</a>
+    +-	If there is a match with one of the autocommands from <a href="/neovim-docs-web/en/syntax#synload-3">synload-3</a>
+    |	(known file types) or <a href="/neovim-docs-web/en/syntax#synload-4">synload-4</a> (user's file types), the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>
     |	option is set to the file type.
     |
-    +-	The autocommand at <a href="syntax.html#synload-5">synload-5</a> is triggered.  If the file type was not
-    |	found yet, then scripts.vim is searched for in <a href="options.html#'runtimepath'">'runtimepath'</a>.  This
+    +-	The autocommand at <a href="/neovim-docs-web/en/syntax#synload-5">synload-5</a> is triggered.  If the file type was not
+    |	found yet, then scripts.vim is searched for in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  This
     |	should always load $VIMRUNTIME/scripts.vim, which does the following.
     |	|
     |	+-  Source the user's optional file, from the <a name="myscriptsfile"></a><code class="help-tag">myscriptsfile</code>
@@ -237,15 +237,15 @@ located.  This is used here as the variable <a href="starting.html#%24VIMRUNTIME
     |	|
     |	+-  If the file type is still unknown, check the contents of the file,
     |	    again with checks like "getline(1) =~ pattern" as to whether the
-    |	    file type can be recognized, and set <a href="options.html#'filetype'">'filetype'</a>.
+    |	    file type can be recognized, and set <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>.
     |
-    +-	When the file type was determined and <a href="options.html#'filetype'">'filetype'</a> was set, this
-    |	triggers the FileType autocommand <a href="syntax.html#synload-6">synload-6</a> above.  It sets
-    |	<a href="options.html#'syntax'">'syntax'</a> to the determined file type.
+    +-	When the file type was determined and <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> was set, this
+    |	triggers the FileType autocommand <a href="/neovim-docs-web/en/syntax#synload-6">synload-6</a> above.  It sets
+    |	<a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> to the determined file type.
     |
-    +-	When the <a href="options.html#'syntax'">'syntax'</a> option was set above, this triggers an autocommand
-    |	from <a href="syntax.html#synload-1">synload-1</a> (and <a href="syntax.html#synload-2">synload-2</a>).  This find the main syntax file in
-    |	<a href="options.html#'runtimepath'">'runtimepath'</a>, with this command:
+    +-	When the <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> option was set above, this triggers an autocommand
+    |	from <a href="/neovim-docs-web/en/syntax#synload-1">synload-1</a> (and <a href="/neovim-docs-web/en/syntax#synload-2">synload-2</a>).  This find the main syntax file in
+    |	<a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>, with this command:
     |		runtime! syntax/&lt;name&gt;.vim
     |
     +-	Any other user installed FileType or Syntax autocommands are
@@ -256,16 +256,16 @@ located.  This is used here as the variable <a href="starting.html#%24VIMRUNTIME
 window into HTML. Vim opens a new window in which it builds the HTML file.</div>
 <div class="old-help-para">After you save the resulting file, you can view it with any browser. The
 colors should be exactly the same as you see them in Vim.  With
-<a href="syntax.html#g%3Ahtml_line_ids">g:html_line_ids</a> you can jump to specific lines by adding (for example) #L123
+<a href="/neovim-docs-web/en/syntax#g%3Ahtml_line_ids">g:html_line_ids</a> you can jump to specific lines by adding (for example) #L123
 or #123 to the end of the URL in your browser's address bar. And with
-<a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> enabled, you can show or hide the text that is folded
+<a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> enabled, you can show or hide the text that is folded
 in Vim.</div>
-<div class="old-help-para">You are not supposed to set the <a href="options.html#'filetype'">'filetype'</a> or <a href="options.html#'syntax'">'syntax'</a> option to "2html"!
+<div class="old-help-para">You are not supposed to set the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> or <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> option to "2html"!
 Source the script to convert the current file:<pre>:runtime! syntax/2html.vim</pre></div>
 <div class="old-help-para">Many variables affect the output of 2html.vim; see below. Any of the on/off
 options listed below can be enabled or disabled by setting them explicitly to
 the desired value, or restored to their default by removing the variable using
-<a href="eval.html#%3Aunlet">:unlet</a>.</div>
+<a href="/neovim-docs-web/en/eval#%3Aunlet">:unlet</a>.</div>
 <div class="old-help-para">Remarks:
 <div class="help-li" style=""> Some truly ancient browsers may not show the background colors.
 </div><div class="help-li" style=""> From most browsers you can also print the file (in color)!
@@ -273,23 +273,23 @@ the desired value, or restored to their default by removing the variable using
 <div class="old-help-para">Here is an example how to run the script over all .c and .h files from a
 Unix shell:<pre>for f in *.[ch]; do gvim -f +"syn on" +"run! syntax/2html.vim" +"wq" +"q" $f; done</pre></div>
 <div class="old-help-para">					<a name="g%3Ahtml_start_line"></a><code class="help-tag-right">g:html_start_line</code> <a name="g%3Ahtml_end_line"></a><code class="help-tag">g:html_end_line</code>
-To restrict the conversion to a range of lines, use a range with the <a href="syntax.html#%3ATOhtml">:TOhtml</a>
+To restrict the conversion to a range of lines, use a range with the <a href="/neovim-docs-web/en/syntax#%3ATOhtml">:TOhtml</a>
 command below, or set "g:html_start_line" and "g:html_end_line" to the first
 and last line to be converted.  Example, using the last set Visual area:<pre>:let g:html_start_line = line("'&lt;")
 :let g:html_end_line = line("'&gt;")
 :runtime! syntax/2html.vim</pre></div>
 <div class="old-help-para">							<a name="%3ATOhtml"></a><code class="help-tag-right">:TOhtml</code>
 :[range]TOhtml		The ":TOhtml" command is defined in a standard plugin.
-			This command will source <a href="syntax.html#2html.vim">2html.vim</a> for you. When a
-			range is given, this command sets <a href="syntax.html#g%3Ahtml_start_line">g:html_start_line</a>
-			and <a href="syntax.html#g%3Ahtml_end_line">g:html_end_line</a> to the start and end of the
+			This command will source <a href="/neovim-docs-web/en/syntax#2html.vim">2html.vim</a> for you. When a
+			range is given, this command sets <a href="/neovim-docs-web/en/syntax#g%3Ahtml_start_line">g:html_start_line</a>
+			and <a href="/neovim-docs-web/en/syntax#g%3Ahtml_end_line">g:html_end_line</a> to the start and end of the
 			range, respectively. Default range is the entire
 			buffer.</div>
-<div class="old-help-para">			If the current window is part of a <a href="diff.html#diff">diff</a>, unless
-			<a href="syntax.html#g%3Ahtml_diff_one_file">g:html_diff_one_file</a> is set, :TOhtml will convert
+<div class="old-help-para">			If the current window is part of a <a href="/neovim-docs-web/en/diff#diff">diff</a>, unless
+			<a href="/neovim-docs-web/en/syntax#g%3Ahtml_diff_one_file">g:html_diff_one_file</a> is set, :TOhtml will convert
 			all windows which are part of the diff in the current
 			tab and place them side-by-side in a <code>&lt;table&gt;</code> element
-			in the generated HTML. With <a href="syntax.html#g%3Ahtml_line_ids">g:html_line_ids</a> you can
+			in the generated HTML. With <a href="/neovim-docs-web/en/syntax#g%3Ahtml_line_ids">g:html_line_ids</a> you can
 			jump to lines in specific windows with (for example)
 			#W1L42 for line 42 in the first diffed window, or
 			#W3L87 for line 87 in the third.</div>
@@ -298,16 +298,16 @@ and last line to be converted.  Example, using the last set Visual area:<pre>:le
 :TOhtml      " convert entire buffer</pre></div>
 <div class="old-help-para">							<a name="g%3Ahtml_diff_one_file"></a><code class="help-tag-right">g:html_diff_one_file</code>
 Default: 0.
-When 0, and using <a href="syntax.html#%3ATOhtml">:TOhtml</a> all windows involved in a <a href="diff.html#diff">diff</a> in the current tab
+When 0, and using <a href="/neovim-docs-web/en/syntax#%3ATOhtml">:TOhtml</a> all windows involved in a <a href="/neovim-docs-web/en/diff#diff">diff</a> in the current tab
 page are converted to HTML and placed side-by-side in a <code>&lt;table&gt;</code> element. When
 1, only the current buffer is converted.
 Example:<pre>let g:html_diff_one_file = 1</pre></div>
 <div class="old-help-para">							 <a name="g%3Ahtml_whole_filler"></a><code class="help-tag-right">g:html_whole_filler</code>
 Default: 0.
-When 0, if <a href="syntax.html#g%3Ahtml_diff_one_file">g:html_diff_one_file</a> is 1, a sequence of more than 3 filler lines
+When 0, if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_diff_one_file">g:html_diff_one_file</a> is 1, a sequence of more than 3 filler lines
 is displayed as three lines with the middle line mentioning the total number
 of inserted lines.
-When 1, always display all inserted lines as if <a href="syntax.html#g%3Ahtml_diff_one_file">g:html_diff_one_file</a> were
+When 1, always display all inserted lines as if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_diff_one_file">g:html_diff_one_file</a> were
 not set.
 <pre>:let g:html_whole_filler = 1</pre></div>
 <div class="old-help-para">				     <a name="TOhtml-performance"></a><code class="help-tag-right">TOhtml-performance</code> <a name="g%3Ahtml_no_progress"></a><code class="help-tag">g:html_no_progress</code>
@@ -323,7 +323,7 @@ run interactively, so that too much time is not taken to redraw as the script
 moves through the buffer, switches windows, and the like:<pre>vim -E -s -c "let g:html_no_progress=1" -c "syntax on" -c "set ft=c" -c "runtime syntax/2html.vim" -cwqa myfile.c</pre></div>
 <div class="old-help-para">Note that the -s flag prevents loading your vimrc and any plugins, so you
 need to explicitly source/enable anything that will affect the HTML
-conversion. See <a href="starting.html#-E">-E</a> and <a href="starting.html#-s-ex">-s-ex</a> for details. It is probably best to create a
+conversion. See <a href="/neovim-docs-web/en/starting#-E">-E</a> and <a href="/neovim-docs-web/en/starting#-s-ex">-s-ex</a> for details. It is probably best to create a
 script to replace all the -c commands and use it with the -u flag instead of
 specifying each command separately.</div>
 <div class="old-help-para">				    <a name="hl-TOhtmlProgress"></a><code class="help-tag-right">hl-TOhtmlProgress</code> <a name="TOhtml-progress-color"></a><code class="help-tag">TOhtml-progress-color</code>
@@ -334,21 +334,21 @@ have the same background color, TOhtml will automatically adjust the color to
 differ. If you do not like the automatically selected colors, you can define
 your own highlight colors for the progress bar. Example:<pre>hi TOhtmlProgress guifg=#c0ffee ctermbg=7</pre></div>
 <div class="old-help-para">							 <a name="g%3Ahtml_number_lines"></a><code class="help-tag-right">g:html_number_lines</code>
-Default: Current <a href="options.html#'number'">'number'</a> setting.
+Default: Current <a href="/neovim-docs-web/en/options#'number'">'number'</a> setting.
 When 0, buffer text is displayed in the generated HTML without line numbering.
 When 1, a column of line numbers is added to the generated HTML with the same
-highlighting as the line number column in Vim (<a href="syntax.html#hl-LineNr">hl-LineNr</a>).
-Force line numbers even if <a href="options.html#'number'">'number'</a> is not set:<pre>:let g:html_number_lines = 1</pre>
+highlighting as the line number column in Vim (<a href="/neovim-docs-web/en/syntax#hl-LineNr">hl-LineNr</a>).
+Force line numbers even if <a href="/neovim-docs-web/en/options#'number'">'number'</a> is not set:<pre>:let g:html_number_lines = 1</pre>
 Force to omit the line numbers:<pre>:let g:html_number_lines = 0</pre>
-Go back to the default to use <a href="options.html#'number'">'number'</a> by deleting the variable:<pre>:unlet g:html_number_lines</pre></div>
+Go back to the default to use <a href="/neovim-docs-web/en/options#'number'">'number'</a> by deleting the variable:<pre>:unlet g:html_number_lines</pre></div>
 <div class="old-help-para">							<a name="g%3Ahtml_line_ids"></a><code class="help-tag-right">g:html_line_ids</code>
-Default: 1 if <a href="syntax.html#g%3Ahtml_number_lines">g:html_number_lines</a> is set, 0 otherwise.
+Default: 1 if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_number_lines">g:html_number_lines</a> is set, 0 otherwise.
 When 1, adds an HTML id attribute to each line number, or to an empty <code>&lt;span&gt;</code>
 inserted for that purpose if no line numbers are shown. This ID attribute
 takes the form of L123 for single-buffer HTML pages, or W2L123 for diff-view
 pages, and is used to jump to a specific line (in a specific window of a diff
 view). Javascript is inserted to open any closed dynamic folds
-(<a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a>) containing the specified line before jumping. The
+(<a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a>) containing the specified line before jumping. The
 javascript also allows omitting the window ID in the url, and the leading L.
 For example:<pre>page.html#L123        jumps to line 123 in a single-buffer file
 page.html#123        does the same
@@ -366,20 +366,20 @@ Example:<pre>:let g:html_use_css = 0</pre></div>
 <div class="old-help-para">						       <a name="g%3Ahtml_ignore_conceal"></a><code class="help-tag-right">g:html_ignore_conceal</code>
 Default: 0.
 When 0, concealed text is removed from the HTML and replaced with a character
-from <a href="syntax.html#%3Asyn-cchar">:syn-cchar</a> or <a href="options.html#'listchars'">'listchars'</a> as appropriate, depending on the current
-value of <a href="options.html#'conceallevel'">'conceallevel'</a>.
+from <a href="/neovim-docs-web/en/syntax#%3Asyn-cchar">:syn-cchar</a> or <a href="/neovim-docs-web/en/options#'listchars'">'listchars'</a> as appropriate, depending on the current
+value of <a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a>.
 When 1, include all text from the buffer in the generated HTML, even if it is
-<a href="syntax.html#conceal">conceal</a>ed.</div>
+<a href="/neovim-docs-web/en/syntax#conceal">conceal</a>ed.</div>
 <div class="old-help-para">Either of the following commands will ensure that all text in the buffer is
 included in the generated HTML (unless it is folded):<pre>:let g:html_ignore_conceal = 1
 :setl conceallevel=0</pre></div>
 <div class="old-help-para">						       <a name="g%3Ahtml_ignore_folding"></a><code class="help-tag-right">g:html_ignore_folding</code>
 Default: 0.
 When 0, text in a closed fold is replaced by the text shown for the fold in
-Vim (<a href="fold.html#fold-foldtext">fold-foldtext</a>). See <a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> if you also want to allow
+Vim (<a href="/neovim-docs-web/en/fold#fold-foldtext">fold-foldtext</a>). See <a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> if you also want to allow
 the user to expand the fold as in Vim to see the text inside.
 When 1, include all text from the buffer in the generated HTML; whether the
-text is in a fold has no impact at all. <a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> has no effect.</div>
+text is in a fold has no impact at all. <a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> has no effect.</div>
 <div class="old-help-para">Either of these commands will ensure that all text in the buffer is included
 in the generated HTML (unless it is concealed):<pre>zR
 :let g:html_ignore_folding = 1</pre></div>
@@ -389,17 +389,17 @@ When 0, text in a closed fold is not included at all in the generated HTML.
 When 1, generate javascript to open a fold and show the text within, just like
 in Vim.</div>
 <div class="old-help-para">Setting this variable to 1 causes 2html.vim to always use CSS for styling,
-regardless of what <a href="syntax.html#g%3Ahtml_use_css">g:html_use_css</a> is set to.</div>
-<div class="old-help-para">This variable is ignored when <a href="syntax.html#g%3Ahtml_ignore_folding">g:html_ignore_folding</a> is set.
+regardless of what <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_css">g:html_use_css</a> is set to.</div>
+<div class="old-help-para">This variable is ignored when <a href="/neovim-docs-web/en/syntax#g%3Ahtml_ignore_folding">g:html_ignore_folding</a> is set.
 <pre>:let g:html_dynamic_folds = 1</pre></div>
 <div class="old-help-para">							<a name="g%3Ahtml_no_foldcolumn"></a><code class="help-tag-right">g:html_no_foldcolumn</code>
 Default: 0.
-When 0, if <a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> is 1, generate a column of text similar to
-Vim's foldcolumn (<a href="fold.html#fold-foldcolumn">fold-foldcolumn</a>) the user can click on to toggle folds
+When 0, if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> is 1, generate a column of text similar to
+Vim's foldcolumn (<a href="/neovim-docs-web/en/fold#fold-foldcolumn">fold-foldcolumn</a>) the user can click on to toggle folds
 open or closed. The minimum width of the generated text column is the current
-<a href="options.html#'foldcolumn'">'foldcolumn'</a> setting.
+<a href="/neovim-docs-web/en/options#'foldcolumn'">'foldcolumn'</a> setting.
 When 1, do not generate this column; instead, hovering the mouse cursor over
-folded text will open the fold as if <a href="syntax.html#g%3Ahtml_hover_unfold">g:html_hover_unfold</a> were set.
+folded text will open the fold as if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_hover_unfold">g:html_hover_unfold</a> were set.
 <pre>:let g:html_no_foldcolumn = 1</pre></div>
 <div class="old-help-para">				<a name="TOhtml-uncopyable-text"></a><code class="help-tag-right">TOhtml-uncopyable-text</code> <a name="g%3Ahtml_prevent_copy"></a><code class="help-tag">g:html_prevent_copy</code>
 Default: Empty string.
@@ -414,14 +414,14 @@ affected in this way as follows:
 	d:	diff filler</div>
 <div class="old-help-para">Example, to make the fold column and line numbers uncopyable:<pre>:let g:html_prevent_copy = "fn"</pre></div>
 <div class="old-help-para">The method used to prevent copying in the generated page depends on the value
-of <a href="syntax.html#g%3Ahtml_use_input_for_pc">g:html_use_input_for_pc</a>.</div>
+of <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_input_for_pc">g:html_use_input_for_pc</a>.</div>
 <div class="old-help-para">						    <a name="g%3Ahtml_use_input_for_pc"></a><code class="help-tag-right">g:html_use_input_for_pc</code>
 Default: "fallback"
-If <a href="syntax.html#g%3Ahtml_prevent_copy">g:html_prevent_copy</a> is non-empty, then:</div>
+If <a href="/neovim-docs-web/en/syntax#g%3Ahtml_prevent_copy">g:html_prevent_copy</a> is non-empty, then:</div>
 <div class="old-help-para">When "all", read-only <code>&lt;input&gt;</code> elements are used in place of normal text for
 uncopyable regions. In some browsers, especially older browsers, after
 selecting an entire page and copying the selection, the <code>&lt;input&gt;</code> tags are not
-pasted with the page text. If <a href="syntax.html#g%3Ahtml_no_invalid">g:html_no_invalid</a> is 0, the <code>&lt;input&gt;</code> tags have
+pasted with the page text. If <a href="/neovim-docs-web/en/syntax#g%3Ahtml_no_invalid">g:html_no_invalid</a> is 0, the <code>&lt;input&gt;</code> tags have
 invalid type; this works in more browsers, but the page will not validate.
 Note: This method does NOT work in recent versions of Chrome and equivalent
 browsers; the <code>&lt;input&gt;</code> tags get pasted with the text.</div>
@@ -437,7 +437,7 @@ the non-copyable text may not appear at all. However, this is the most
 standards-based method, and there will be much less markup.</div>
 <div class="old-help-para">							   <a name="g%3Ahtml_no_invalid"></a><code class="help-tag-right">g:html_no_invalid</code>
 Default: 0.
-When 0, if <a href="syntax.html#g%3Ahtml_prevent_copy">g:html_prevent_copy</a> is non-empty and <a href="syntax.html#g%3Ahtml_use_input_for_pc">g:html_use_input_for_pc</a> is
+When 0, if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_prevent_copy">g:html_prevent_copy</a> is non-empty and <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_input_for_pc">g:html_use_input_for_pc</a> is
 not "none", an invalid attribute is intentionally inserted into the <code>&lt;input&gt;</code>
 element for the uncopyable areas. This prevents pasting the <code>&lt;input&gt;</code> elements
 in some applications. Specifically, some versions of Microsoft Word will not
@@ -448,7 +448,7 @@ remove afterward.</div>
 <div class="old-help-para">							 <a name="g%3Ahtml_hover_unfold"></a><code class="help-tag-right">g:html_hover_unfold</code>
 Default: 0.
 When 0, the only way to open a fold generated by 2html.vim with
-<a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> set, is to click on the generated fold column.
+<a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> set, is to click on the generated fold column.
 When 1, use CSS 2.0 to allow the user to open a fold by moving the mouse
 cursor over the displayed fold text. This is useful to allow users with
 disabled javascript to view the folded text.</div>
@@ -470,32 +470,32 @@ larger HTML document. Example, to append _ and the buffer number to each ID:<pre
 evaluated for the first window in the diff, and the result used for all the
 windows.</div>
 <div class="old-help-para">					  <a name="TOhtml-wrap-text"></a><code class="help-tag-right">TOhtml-wrap-text</code> <a name="g%3Ahtml_pre_wrap"></a><code class="help-tag">g:html_pre_wrap</code>
-Default: Current <a href="options.html#'wrap'">'wrap'</a> setting.
-When 0, if <a href="syntax.html#g%3Ahtml_no_pre">g:html_no_pre</a> is 0 or unset, the text in the generated HTML does
+Default: Current <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> setting.
+When 0, if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_no_pre">g:html_no_pre</a> is 0 or unset, the text in the generated HTML does
 not wrap at the edge of the browser window.
-When 1, if <a href="syntax.html#g%3Ahtml_use_css">g:html_use_css</a> is 1, the CSS 2.0 "white-space:pre-wrap" value is
+When 1, if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_css">g:html_use_css</a> is 1, the CSS 2.0 "white-space:pre-wrap" value is
 used, causing the text to wrap at whitespace at the edge of the browser
 window.
 Explicitly enable text wrapping:<pre>:let g:html_pre_wrap = 1</pre>
 Explicitly disable wrapping:<pre>:let g:html_pre_wrap = 0</pre>
-Go back to default, determine wrapping from <a href="options.html#'wrap'">'wrap'</a> setting:<pre>:unlet g:html_pre_wrap</pre></div>
+Go back to default, determine wrapping from <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> setting:<pre>:unlet g:html_pre_wrap</pre></div>
 <div class="old-help-para">							       <a name="g%3Ahtml_no_pre"></a><code class="help-tag-right">g:html_no_pre</code>
 Default: 0.
 When 0, buffer text in the generated HTML is surrounded by <code>&lt;pre&gt;</code>...&lt;/pre&gt;
 tags. Series of whitespace is shown as in Vim without special markup, and tab
-characters can be included literally (see <a href="syntax.html#g%3Ahtml_expand_tabs">g:html_expand_tabs</a>).
+characters can be included literally (see <a href="/neovim-docs-web/en/syntax#g%3Ahtml_expand_tabs">g:html_expand_tabs</a>).
 When 1 (not recommended), the <code>&lt;pre&gt;</code> tags are omitted, and a plain <code>&lt;div&gt;</code> is
 used instead. Whitespace is replaced by a series of &amp;nbsp; character
 references, and <code>&lt;br&gt;</code> is used to end each line. This is another way to allow
-text in the generated HTML is wrap (see <a href="syntax.html#g%3Ahtml_pre_wrap">g:html_pre_wrap</a>) which also works in
+text in the generated HTML is wrap (see <a href="/neovim-docs-web/en/syntax#g%3Ahtml_pre_wrap">g:html_pre_wrap</a>) which also works in
 old browsers, but may cause noticeable differences between Vim's display and
 the rendered page generated by 2html.vim.
 <pre>:let g:html_no_pre = 1</pre></div>
 <div class="old-help-para">							       <a name="g%3Ahtml_no_doc"></a><code class="help-tag-right">g:html_no_doc</code>
 Default: 0.
 When 1 it doesn't generate a full HTML document with a DOCTYPE, <code>&lt;head&gt;</code>,
-<code>&lt;body&gt;</code>, etc. If <a href="syntax.html#g%3Ahtml_use_css">g:html_use_css</a> is enabled (the default) you'll have to
-define the CSS manually. The <a href="syntax.html#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> and <a href="syntax.html#g%3Ahtml_line_ids">g:html_line_ids</a>
+<code>&lt;body&gt;</code>, etc. If <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_css">g:html_use_css</a> is enabled (the default) you'll have to
+define the CSS manually. The <a href="/neovim-docs-web/en/syntax#g%3Ahtml_dynamic_folds">g:html_dynamic_folds</a> and <a href="/neovim-docs-web/en/syntax#g%3Ahtml_line_ids">g:html_line_ids</a>
 settings (off by default) also insert some JavaScript.</div>
 <div class="old-help-para">							     <a name="g%3Ahtml_no_links"></a><code class="help-tag-right">g:html_no_links</code>
 Default: 0.
@@ -504,27 +504,27 @@ Don't generate <code>&lt;a&gt;</code> tags for text that looks like an URL.</div
 Default: 0.
 Don't generate a modeline disabling folding.</div>
 <div class="old-help-para">							  <a name="g%3Ahtml_expand_tabs"></a><code class="help-tag-right">g:html_expand_tabs</code>
-Default: 0 if <a href="options.html#'tabstop'">'tabstop'</a> is 8, <a href="options.html#'expandtab'">'expandtab'</a> is 0, <a href="options.html#'vartabstop'">'vartabstop'</a> is not in use,
+Default: 0 if <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> is 8, <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a> is 0, <a href="/neovim-docs-web/en/options#'vartabstop'">'vartabstop'</a> is not in use,
 	       and no fold column or line numbers occur in the generated HTML;
 	 1 otherwise.
 When 1, <code>&lt;Tab&gt;</code> characters in the buffer text are replaced with an appropriate
-number of space characters, or &amp;nbsp; references if <a href="syntax.html#g%3Ahtml_no_pre">g:html_no_pre</a> is 1.
-When 0, if <a href="syntax.html#g%3Ahtml_no_pre">g:html_no_pre</a> is 0 or unset, <code>&lt;Tab&gt;</code> characters in the buffer text
+number of space characters, or &amp;nbsp; references if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_no_pre">g:html_no_pre</a> is 1.
+When 0, if <a href="/neovim-docs-web/en/syntax#g%3Ahtml_no_pre">g:html_no_pre</a> is 0 or unset, <code>&lt;Tab&gt;</code> characters in the buffer text
 are included as-is in the generated HTML. This is useful for when you want to
 allow copy and paste from a browser without losing the actual whitespace in
 the source document. Note that this can easily break text alignment and
 indentation in the HTML, unless set by default.</div>
-<div class="old-help-para">Force <a href="syntax.html#2html.vim">2html.vim</a> to keep <code>&lt;Tab&gt;</code> characters:<pre>:let g:html_expand_tabs = 0</pre></div>
+<div class="old-help-para">Force <a href="/neovim-docs-web/en/syntax#2html.vim">2html.vim</a> to keep <code>&lt;Tab&gt;</code> characters:<pre>:let g:html_expand_tabs = 0</pre></div>
 <div class="old-help-para">Force tabs to be expanded:<pre>:let g:html_expand_tabs = 1</pre></div>
 <div class="old-help-para">				    <a name="TOhtml-encoding-detect"></a><code class="help-tag-right">TOhtml-encoding-detect</code> <a name="TOhtml-encoding"></a><code class="help-tag">TOhtml-encoding</code>
 It is highly recommended to set your desired encoding with
-<a href="syntax.html#g%3Ahtml_use_encoding">g:html_use_encoding</a> for any content which will be placed on a web server.</div>
-<div class="old-help-para">If you do not specify an encoding, <a href="syntax.html#2html.vim">2html.vim</a> uses the preferred IANA name
-for the current value of <a href="options.html#'fileencoding'">'fileencoding'</a> if set, or <a href="options.html#'encoding'">'encoding'</a> if not.
-<a href="options.html#'encoding'">'encoding'</a> is always used for certain <a href="options.html#'buftype'">'buftype'</a> values. <a href="options.html#'fileencoding'">'fileencoding'</a> will be
+<a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_encoding">g:html_use_encoding</a> for any content which will be placed on a web server.</div>
+<div class="old-help-para">If you do not specify an encoding, <a href="/neovim-docs-web/en/syntax#2html.vim">2html.vim</a> uses the preferred IANA name
+for the current value of <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> if set, or <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> if not.
+<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is always used for certain <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> values. <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> will be
 set to match the chosen document encoding.</div>
 <div class="old-help-para">Automatic detection works for the encodings mentioned specifically by name in
-<a href="mbyte.html#encoding-names">encoding-names</a>, but TOhtml will only automatically use those encodings with
+<a href="/neovim-docs-web/en/mbyte#encoding-names">encoding-names</a>, but TOhtml will only automatically use those encodings with
 wide browser support. However, you can override this to support specific
 encodings that may not be automatically detected by default (see options
 below). See <a href="https://www.iana.org/assignments/character-sets">https://www.iana.org/assignments/character-sets</a> for the IANA names.</div>
@@ -533,30 +533,30 @@ the generated HTML, as recommended by W3C:</div>
 <div class="old-help-para">	<a href="https://www.w3.org/International/questions/qa-choosing-encodings">https://www.w3.org/International/questions/qa-choosing-encodings</a>
 	<a href="https://www.w3.org/International/questions/qa-byte-order-mark">https://www.w3.org/International/questions/qa-byte-order-mark</a></div>
 <div class="old-help-para">							 <a name="g%3Ahtml_use_encoding"></a><code class="help-tag-right">g:html_use_encoding</code>
-Default: none, uses IANA name for current <a href="options.html#'fileencoding'">'fileencoding'</a> as above.
+Default: none, uses IANA name for current <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> as above.
 To overrule all automatic charset detection, set g:html_use_encoding to the
 name of the charset to be used. It is recommended to set this variable to
 something widely supported, like UTF-8, for anything you will be hosting on a
 webserver:<pre>:let g:html_use_encoding = "UTF-8"</pre>
 You can also use this option to omit the line that specifies the charset
 entirely, by setting g:html_use_encoding to an empty string (NOT recommended):<pre>:let g:html_use_encoding = ""</pre>
-To go back to the automatic mechanism, delete the <a href="syntax.html#g%3Ahtml_use_encoding">g:html_use_encoding</a>
+To go back to the automatic mechanism, delete the <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_encoding">g:html_use_encoding</a>
 variable:<pre>:unlet g:html_use_encoding</pre></div>
 <div class="old-help-para">						    <a name="g%3Ahtml_encoding_override"></a><code class="help-tag-right">g:html_encoding_override</code>
 Default: none, autoload/tohtml.vim contains default conversions for encodings
-		mentioned by name at <a href="mbyte.html#encoding-names">encoding-names</a>.
-This option allows <a href="syntax.html#2html.vim">2html.vim</a> to detect the correct <a href="options.html#'fileencoding'">'fileencoding'</a> when you
-specify an encoding with <a href="syntax.html#g%3Ahtml_use_encoding">g:html_use_encoding</a> which is not in the default
+		mentioned by name at <a href="/neovim-docs-web/en/mbyte#encoding-names">encoding-names</a>.
+This option allows <a href="/neovim-docs-web/en/syntax#2html.vim">2html.vim</a> to detect the correct <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> when you
+specify an encoding with <a href="/neovim-docs-web/en/syntax#g%3Ahtml_use_encoding">g:html_use_encoding</a> which is not in the default
 list of conversions.</div>
 <div class="old-help-para">This is a dictionary of charset-encoding pairs that will replace existing
 pairs automatically detected by TOhtml, or supplement with new pairs.</div>
 <div class="old-help-para">Detect the HTML charset "windows-1252" as the encoding "8bit-cp1252":<pre>:let g:html_encoding_override = {'windows-1252': '8bit-cp1252'}</pre></div>
 <div class="old-help-para">						     <a name="g%3Ahtml_charset_override"></a><code class="help-tag-right">g:html_charset_override</code>
 Default: none, autoload/tohtml.vim contains default conversions for encodings
-		mentioned by name at <a href="mbyte.html#encoding-names">encoding-names</a> and which have wide
+		mentioned by name at <a href="/neovim-docs-web/en/mbyte#encoding-names">encoding-names</a> and which have wide
 		browser support.
-This option allows <a href="syntax.html#2html.vim">2html.vim</a> to detect the HTML charset for any
-<a href="options.html#'fileencoding'">'fileencoding'</a> or <a href="options.html#'encoding'">'encoding'</a> which is not detected automatically. You can also
+This option allows <a href="/neovim-docs-web/en/syntax#2html.vim">2html.vim</a> to detect the HTML charset for any
+<a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> or <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> which is not detected automatically. You can also
 use it to override specific existing encoding-charset pairs. For example,
 TOhtml will by default use UTF-8 for all Unicode/UCS encodings. To use UTF-16
 and UTF-32 instead, use:<pre>:let g:html_charset_override = {'ucs-4': 'UTF-32', 'utf-16': 'UTF-16'}</pre>
@@ -594,7 +594,7 @@ To disable them use ":unlet".  Example:<pre>:unlet abel_obsolete_ok</pre>
 <div class="help-column_heading">Variable			Highlight</div>abel_obsolete_ok		obsolete keywords are statements, not errors
 abel_cpp_comments_illegal	do not interpret '//' as inline comment leader</div>
 <div class="old-help-para"><a name="_ada"></a><h3 class="help-heading">ADA</h3></div>
-<div class="old-help-para">See <a href="ft_ada.html#ft-ada-syntax">ft-ada-syntax</a></div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/ft_ada#ft-ada-syntax">ft-ada-syntax</a></div>
 <div class="old-help-para"><h3 class="help-heading">ANT<span class="help-heading-tags">						<a name="ant.vim"></a><span class="help-tag">ant.vim</span> <a name="ft-ant-syntax"></a><span class="help-tag">ft-ant-syntax</span></span></h3></div>
 <div class="old-help-para">The ant syntax file provides syntax highlighting for javascript and python
 by default.  Syntax highlighting for other script languages can be installed
@@ -603,7 +603,7 @@ and the script syntax file name as second argument.  Example:<pre>:call AntSynta
 will install syntax perl highlighting for the following ant code<pre>&lt;script language = 'perl'&gt;&lt;![CDATA[
     # everything inside is highlighted as perl
 ]]&gt;&lt;/script&gt;</pre>
-See <a href="syntax.html#mysyntaxfile-add">mysyntaxfile-add</a> for installing script languages permanently.</div>
+See <a href="/neovim-docs-web/en/syntax#mysyntaxfile-add">mysyntaxfile-add</a> for installing script languages permanently.</div>
 <div class="old-help-para"><h3 class="help-heading">APACHE<span class="help-heading-tags">						<a name="apache.vim"></a><span class="help-tag">apache.vim</span> <a name="ft-apache-syntax"></a><span class="help-tag">ft-apache-syntax</span></span></h3></div>
 <div class="old-help-para">The apache syntax file provides syntax highlighting for Apache HTTP server
 version 2.2.3.</div>
@@ -631,7 +631,7 @@ files are included:
 Replace "nasm" with the name of the real assembly syntax.  This line must be
 one of the first five lines in the file.  No non-white text must be
 immediately before or after this text.  Note that specifying asmsyntax=foo is
-equivalent to setting ft=foo in a <a href="options.html#modeline">modeline</a>, and that in case of a conflict
+equivalent to setting ft=foo in a <a href="/neovim-docs-web/en/options#modeline">modeline</a>, and that in case of a conflict
 between the two settings the one from the modeline will take precedence (in
 particular, if you have ft=asm in the modeline, you will get the GNU syntax
 highlighting regardless of what is specified as asmsyntax).</div>
@@ -660,10 +660,10 @@ For Visual Basic use:<pre>:let g:filetype_asa = "aspvbs"
 for both 3 GL and 4 GL programming. Large number of standard defines/constants
 are supported.</div>
 <div class="old-help-para">Some special violation of coding standards will be signalled when one specify
-in ones <a href="starting.html#init.vim">init.vim</a>:<pre>let baan_code_stds=1</pre>
+in ones <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>:<pre>let baan_code_stds=1</pre>
 <a name="baan-folding"></a><code class="help-tag">baan-folding</code></div>
 <div class="old-help-para">Syntax folding can be enabled at various levels through the variables
-mentioned below (Set those in your <a href="starting.html#init.vim">init.vim</a>). The more complex folding on
+mentioned below (Set those in your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>). The more complex folding on
 source blocks and SQL can be CPU intensive.</div>
 <div class="old-help-para">To allow any folding and enable folding at function level use:<pre>let baan_fold=1</pre>
 Folding can be enabled at source block level as if, while, for ,... The
@@ -672,9 +672,9 @@ considered equal to a tab).<pre>let baan_fold_block=1</pre>
 Folding can be enabled for embedded SQL blocks as SELECT, SELECTDO,
 SELECTEMPTY, ... The indentation preceding the begin/end keywords has to
 match (spaces are not considered equal to a tab).<pre>let baan_fold_sql=1</pre>
-Note: Block folding can result in many small folds. It is suggested to <a href="options.html#%3Aset">:set</a>
-the options <a href="options.html#'foldminlines'">'foldminlines'</a> and <a href="options.html#'foldnestmax'">'foldnestmax'</a> in <a href="starting.html#init.vim">init.vim</a> or use <a href="options.html#%3Asetlocal">:setlocal</a>
-in .../after/syntax/baan.vim (see <a href="options.html#after-directory">after-directory</a>). Eg:<pre>set foldminlines=5
+Note: Block folding can result in many small folds. It is suggested to <a href="/neovim-docs-web/en/options#%3Aset">:set</a>
+the options <a href="/neovim-docs-web/en/options#'foldminlines'">'foldminlines'</a> and <a href="/neovim-docs-web/en/options#'foldnestmax'">'foldnestmax'</a> in <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> or use <a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a>
+in .../after/syntax/baan.vim (see <a href="/neovim-docs-web/en/options#after-directory">after-directory</a>). Eg:<pre>set foldminlines=5
 set foldnestmax=6</pre>
 <h3 class="help-heading">BASIC<span class="help-heading-tags">			<a name="basic.vim"></a><span class="help-tag">basic.vim</span> <a name="vb.vim"></a><span class="help-tag">vb.vim</span> <a name="ft-basic-syntax"></a><span class="help-tag">ft-basic-syntax</span> <a name="ft-vb-syntax"></a><span class="help-tag">ft-vb-syntax</span></span></h3></div>
 <div class="old-help-para">Both Visual Basic and "normal" BASIC use the extension ".bas".	To detect
@@ -714,7 +714,7 @@ Setting the value to zero doesn't work!</div>
 <a name="c_no_c99"></a><code class="help-tag">c_no_c99</code>  		don't highlight C99 standard items
 <a name="c_no_c11"></a><code class="help-tag">c_no_c11</code>  		don't highlight C11 standard items
 <a name="c_no_bsd"></a><code class="help-tag">c_no_bsd</code>  		don't highlight BSD specific types</div>
-<div class="old-help-para">When <a href="options.html#'foldmethod'">'foldmethod'</a> is set to "syntax" then /*/ comments and { } blocks will
+<div class="old-help-para">When <a href="/neovim-docs-web/en/options#'foldmethod'">'foldmethod'</a> is set to "syntax" then /*/ comments and { } blocks will
 become a fold.  If you don't want comments to become a fold use:<pre>:let c_no_comment_fold = 1</pre>
 "#if 0" blocks are also folded, unless:<pre>:let c_no_if0_fold = 1</pre>
 If you notice highlighting errors while scrolling backwards, which are fixed
@@ -740,16 +740,16 @@ highlighting:<pre>:hi link cConstant NONE</pre>
 If you see '<code>{' and '}</code>' highlighted as an error where they are OK, reset the
 highlighting for cErrInParen and cErrInBracket.</div>
 <div class="old-help-para">If you want to use folding in your C files, you can add these lines in a file
-in the "after" directory in <a href="options.html#'runtimepath'">'runtimepath'</a>.  For Unix this would be
+in the "after" directory in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  For Unix this would be
 ~/.config/nvim/after/syntax/c.vim.<pre>syn sync fromstart
 set foldmethod=syntax</pre>
 <h3 class="help-heading">CH<span class="help-heading-tags">						<a name="ch.vim"></a><span class="help-tag">ch.vim</span> <a name="ft-ch-syntax"></a><span class="help-tag">ft-ch-syntax</span></span></h3></div>
 <div class="old-help-para">C/C++ interpreter.  Ch has similar syntax highlighting to C and builds upon
-the C syntax file.  See <a href="syntax.html#c.vim">c.vim</a> for all the settings that are available for C.</div>
+the C syntax file.  See <a href="/neovim-docs-web/en/syntax#c.vim">c.vim</a> for all the settings that are available for C.</div>
 <div class="old-help-para">By setting a variable you can tell Vim to use Ch syntax for.h files, instead
 of C or C++:<pre>:let ch_syntax_for_h = 1</pre>
 <h3 class="help-heading">CHILL<span class="help-heading-tags">						<a name="chill.vim"></a><span class="help-tag">chill.vim</span> <a name="ft-chill-syntax"></a><span class="help-tag">ft-chill-syntax</span></span></h3></div>
-<div class="old-help-para">Chill syntax highlighting is similar to C.  See <a href="syntax.html#c.vim">c.vim</a> for all the settings
+<div class="old-help-para">Chill syntax highlighting is similar to C.  See <a href="/neovim-docs-web/en/syntax#c.vim">c.vim</a> for all the settings
 that are available.  Additionally there is:</div>
 <div class="old-help-para">chill_space_errors	like c_space_errors
 chill_comment_string	like c_comment_strings
@@ -767,8 +767,8 @@ This works immediately.</div>
 <div class="old-help-para">						<a name="g%3Aclojure_syntax_keywords"></a><code class="help-tag-right">g:clojure_syntax_keywords</code></div>
 <div class="old-help-para">Syntax highlighting of public vars in "clojure.core" is provided by default,
 but additional symbols can be highlighted by adding them to the
-<a href="syntax.html#g%3Aclojure_syntax_keywords">g:clojure_syntax_keywords</a> variable.  The value should be a <a href="eval.html#Dictionary">Dictionary</a> of
-syntax group names, each containing a <a href="eval.html#List">List</a> of identifiers.
+<a href="/neovim-docs-web/en/syntax#g%3Aclojure_syntax_keywords">g:clojure_syntax_keywords</a> variable.  The value should be a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> of
+syntax group names, each containing a <a href="/neovim-docs-web/en/eval#List">List</a> of identifiers.
 <pre>let g:clojure_syntax_keywords = {
     \   'clojureMacro': ["defproject", "defcustom"],
     \   'clojureFunc': ["string/join", "string/replace"]
@@ -781,9 +781,9 @@ dynamically.</div>
 "clojure.core" will not be highlighted by default.  This is useful for
 namespaces that have set <code>(:refer-clojure :only [])</code></div>
 <div class="old-help-para">							<a name="g%3Aclojure_fold"></a><code class="help-tag-right">g:clojure_fold</code></div>
-<div class="old-help-para">Setting <a href="syntax.html#g%3Aclojure_fold">g:clojure_fold</a> to <code>1</code> will enable the folding of Clojure code.  Any
+<div class="old-help-para">Setting <a href="/neovim-docs-web/en/syntax#g%3Aclojure_fold">g:clojure_fold</a> to <code>1</code> will enable the folding of Clojure code.  Any
 list, vector or map that extends over more than one line can be folded using
-the standard Vim <a href="fold.html#fold-commands">fold-commands</a>.</div>
+the standard Vim <a href="/neovim-docs-web/en/fold#fold-commands">fold-commands</a>.</div>
 <div class="old-help-para">						<a name="g%3Aclojure_discard_macro"></a><code class="help-tag-right">g:clojure_discard_macro</code></div>
 <div class="old-help-para">Set this variable to <code>1</code> to enable basic highlighting of Clojure's "discard
 reader macro".
@@ -802,7 +802,7 @@ To disable it again, use this:<pre>:unlet cobol_legacy_code</pre>
 comment highlighting, add the following line to your startup file:<pre>:let html_wrong_comments = 1</pre>
 The ColdFusion syntax file is based on the HTML syntax file.</div>
 <div class="old-help-para"><h3 class="help-heading">CPP<span class="help-heading-tags">						<a name="cpp.vim"></a><span class="help-tag">cpp.vim</span> <a name="ft-cpp-syntax"></a><span class="help-tag">ft-cpp-syntax</span></span></h3></div>
-<div class="old-help-para">Most things are the same as <a href="syntax.html#ft-c-syntax">ft-c-syntax</a>.</div>
+<div class="old-help-para">Most things are the same as <a href="/neovim-docs-web/en/syntax#ft-c-syntax">ft-c-syntax</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">Variable		Highlight</div>cpp_no_cpp11		don't highlight C++11 standard items
 cpp_no_cpp14		don't highlight C++14 standard items
 cpp_no_cpp17		don't highlight C++17 standard items
@@ -858,7 +858,7 @@ g:desktop_enable_kde follows g:desktop_enable_nonstd if not supplied</div>
 <div class="old-help-para"><h3 class="help-heading">DIFF<span class="help-heading-tags">							<a name="diff.vim"></a><span class="help-tag">diff.vim</span></span></h3></div>
 <div class="old-help-para">The diff highlighting normally finds translated headers.  This can be slow if
 there are very long lines in the file.  To disable translations:<pre>:let diff_translations = 0</pre>
-Also see <a href="diff.html#diff-slow">diff-slow</a>.</div>
+Also see <a href="/neovim-docs-web/en/diff#diff-slow">diff-slow</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">DIRCOLORS<span class="help-heading-tags">			       <a name="dircolors.vim"></a><span class="help-tag">dircolors.vim</span> <a name="ft-dircolors-syntax"></a><span class="help-tag">ft-dircolors-syntax</span></span></h3></div>
 <div class="old-help-para">The dircolors utility highlighting definition has one option.  It exists to
 provide compatibility with the Slackware GNU/Linux distributions version of
@@ -995,9 +995,9 @@ development stopped in 2009.</div>
 <div class="old-help-para">Syntax highlighting is available for the most common elements of FlexWiki
 syntax. The associated ftplugin script sets some buffer-local options to make
 editing FlexWiki pages more convenient. FlexWiki considers a newline as the
-start of a new paragraph, so the ftplugin sets <a href="options.html#'tw'">'tw'</a>=0 (unlimited line length),
-<a href="options.html#'wrap'">'wrap'</a> (wrap long lines instead of using horizontal scrolling), <a href="options.html#'linebreak'">'linebreak'</a>
-(to wrap at a character in <a href="options.html#'breakat'">'breakat'</a> instead of at the last char on screen),
+start of a new paragraph, so the ftplugin sets <a href="/neovim-docs-web/en/options#'tw'">'tw'</a>=0 (unlimited line length),
+<a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> (wrap long lines instead of using horizontal scrolling), <a href="/neovim-docs-web/en/options#'linebreak'">'linebreak'</a>
+(to wrap at a character in <a href="/neovim-docs-web/en/options#'breakat'">'breakat'</a> instead of at the last char on screen),
 and so on. It also includes some keymaps that are disabled by default.</div>
 <div class="old-help-para">If you want to enable the keymaps that make "j" and "k" and the cursor keys
 move up and down by display lines, add this to your vimrc:<pre>:let flexwiki_maps = 1</pre>
@@ -1048,7 +1048,7 @@ source form, then<pre>:let fortran_fixed_source=1</pre>
 in your vimrc prior to the :syntax on command.</div>
 <div class="old-help-para">If the form of the source code depends, in a non-standard way, upon the file
 extension, then it is most convenient to set fortran_free_source in a ftplugin
-file.  For more information on ftplugin files, see <a href="usr_41.html#ftplugin">ftplugin</a>. Note that this
+file.  For more information on ftplugin files, see <a href="/neovim-docs-web/en/usr_41#ftplugin">ftplugin</a>. Note that this
 will work only if the "filetype plugin indent on" command precedes the "syntax
 on" command in your .vimrc file.</div>
 <div class="old-help-para">When you edit an existing fortran file, the syntax script will assume free
@@ -1108,7 +1108,7 @@ fortran_dialect are "f08" or "F".  Invalid values of fortran_dialect are
 ignored.</div>
 <div class="old-help-para">If the dialect depends upon the file extension, then it is most convenient to
 set a buffer-local variable in a ftplugin file.  For more information on
-ftplugin files, see <a href="usr_41.html#ftplugin">ftplugin</a>.  For example, if all your fortran files with
+ftplugin files, see <a href="/neovim-docs-web/en/usr_41#ftplugin">ftplugin</a>.  For example, if all your fortran files with
 an .f90 extension are written in the F subset, your ftplugin file should
 contain the code<pre>let s:extfname = expand("%:e")
 if s:extfname ==? "f90"
@@ -1137,11 +1137,11 @@ items.</div>
 <div class="old-help-para"><div class="help-column_heading">Limitations</div>Parenthesis checking does not catch too few closing parentheses.  Hollerith
 strings are not recognized.  Some keywords may be highlighted incorrectly
 because Fortran90 has no reserved words.</div>
-<div class="old-help-para">For further information related to fortran, see <a href="indent.html#ft-fortran-indent">ft-fortran-indent</a> and
-<a href="filetype.html#ft-fortran-plugin">ft-fortran-plugin</a>.</div>
+<div class="old-help-para">For further information related to fortran, see <a href="/neovim-docs-web/en/indent#ft-fortran-indent">ft-fortran-indent</a> and
+<a href="/neovim-docs-web/en/filetype#ft-fortran-plugin">ft-fortran-plugin</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">FREEBASIC<span class="help-heading-tags">				<a name="freebasic.vim"></a><span class="help-tag">freebasic.vim</span> <a name="ft-freebasic-syntax"></a><span class="help-tag">ft-freebasic-syntax</span></span></h3></div>
 <div class="old-help-para">FreeBASIC files will be highlighted differently for each of the four available
-dialects, "fb", "qb", "fblite" and "deprecated".  See <a href="filetype.html#ft-freebasic-plugin">ft-freebasic-plugin</a>
+dialects, "fb", "qb", "fblite" and "deprecated".  See <a href="/neovim-docs-web/en/filetype#ft-freebasic-plugin">ft-freebasic-plugin</a>
 for how to select the correct dialect.</div>
 <div class="old-help-para">Highlighting is further configurable via the following variables.</div>
 <div class="old-help-para"><div class="help-column_heading">Variable			Highlight</div><a name="freebasic_no_comment_fold"></a><code class="help-tag">freebasic_no_comment_fold</code>  	disable multiline comment folding
@@ -1153,14 +1153,14 @@ for how to select the correct dialect.</div>
 the patterns <a name="fvwmrc"></a><code class="help-tag">fvwmrc</code> or <a name="fvwm2rc"></a><code class="help-tag">fvwm2rc</code> , you must put additional patterns
 appropriate to your system in your myfiletypes.vim file.  For these
 patterns, you must set the variable "b:fvwm_version" to the major version
-number of Fvwm, and the <a href="options.html#'filetype'">'filetype'</a> option to fvwm.</div>
+number of Fvwm, and the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> option to fvwm.</div>
 <div class="old-help-para">For example, to make Vim identify all files in /etc/X11/fvwm2/
 as Fvwm2 configuration files, add the following:<pre>:au! BufNewFile,BufRead /etc/X11/fvwm2/*  let b:fvwm_version = 2 |
                                        \ set filetype=fvwm</pre>
 <h3 class="help-heading">GSP<span class="help-heading-tags">						<a name="gsp.vim"></a><span class="help-tag">gsp.vim</span> <a name="ft-gsp-syntax"></a><span class="help-tag">ft-gsp-syntax</span></span></h3></div>
-<div class="old-help-para">The default coloring style for GSP pages is defined by <a href="syntax.html#html.vim">html.vim</a>, and
+<div class="old-help-para">The default coloring style for GSP pages is defined by <a href="/neovim-docs-web/en/syntax#html.vim">html.vim</a>, and
 the coloring for java code (within java tags or inline between backticks)
-is defined by <a href="syntax.html#java.vim">java.vim</a>.  The following HTML groups defined in <a href="syntax.html#html.vim">html.vim</a>
+is defined by <a href="/neovim-docs-web/en/syntax#java.vim">java.vim</a>.  The following HTML groups defined in <a href="/neovim-docs-web/en/syntax#html.vim">html.vim</a>
 are redefined to incorporate and highlight inline java code:</div>
 <div class="old-help-para">    htmlString
     htmlValue
@@ -1170,16 +1170,16 @@ are redefined to incorporate and highlight inline java code:</div>
 <div class="old-help-para">Highlighting should look fine most of the places where you'd see inline
 java code, but in some special cases it may not.  To add another HTML
 group where you will have inline java code where it does not highlight
-correctly, just copy the line you want from <a href="syntax.html#html.vim">html.vim</a> and add gspJava
+correctly, just copy the line you want from <a href="/neovim-docs-web/en/syntax#html.vim">html.vim</a> and add gspJava
 to the contains clause.</div>
 <div class="old-help-para">The backticks for inline java are highlighted according to the htmlError
 group to make them easier to see.</div>
 <div class="old-help-para"><h3 class="help-heading">GROFF<span class="help-heading-tags">						<a name="groff.vim"></a><span class="help-tag">groff.vim</span> <a name="ft-groff-syntax"></a><span class="help-tag">ft-groff-syntax</span></span></h3></div>
-<div class="old-help-para">The groff syntax file is a wrapper for <a href="syntax.html#nroff.vim">nroff.vim</a>, see the notes
+<div class="old-help-para">The groff syntax file is a wrapper for <a href="/neovim-docs-web/en/syntax#nroff.vim">nroff.vim</a>, see the notes
 under that heading for examples of use and configuration.  The purpose
 of this wrapper is to set up groff syntax extensions by setting the
-filetype from a <a href="options.html#modeline">modeline</a> or in a personal filetype definitions file
-(see <a href="filetype.html#filetype.txt">filetype.txt</a>).</div>
+filetype from a <a href="/neovim-docs-web/en/options#modeline">modeline</a> or in a personal filetype definitions file
+(see <a href="/neovim-docs-web/en/filetype#filetype.txt">filetype.txt</a>).</div>
 <div class="old-help-para"><h3 class="help-heading">HASKELL<span class="help-heading-tags">			     <a name="haskell.vim"></a><span class="help-tag">haskell.vim</span> <a name="lhaskell.vim"></a><span class="help-tag">lhaskell.vim</span> <a name="ft-haskell-syntax"></a><span class="help-tag">ft-haskell-syntax</span></span></h3></div>
 <div class="old-help-para">The Haskell syntax files support plain Haskell code as well as literate
 Haskell code, the latter in both Bird style and TeX style.  The Haskell
@@ -1225,7 +1225,7 @@ are recognized by the html.vim syntax coloring file and change the way normal
 text is shown: <code>&lt;B&gt;</code> <code>&lt;I&gt;</code> <code>&lt;U&gt;</code> <code>&lt;EM&gt;</code> <code>&lt;STRONG&gt;</code> (<code>&lt;EM&gt;</code> is used as an alias for <code>&lt;I&gt;</code>,
 while <code>&lt;STRONG&gt;</code> as an alias for <code>&lt;B&gt;</code>), <code>&lt;H1&gt;</code> - <code>&lt;H6&gt;</code>, <code>&lt;HEAD&gt;</code>, <code>&lt;TITLE&gt;</code> and <code>&lt;A&gt;</code>, but
 only if used as a link (that is, it must include a href as in
-&lt;A href="somefile.html"&gt;).</div>
+&lt;A href="/neovim-docs-web/en/somefile"&gt;).</div>
 <div class="old-help-para">If you want to change how such text is rendered, you must redefine the
 following syntax groups:</div>
 <div class="old-help-para"><div class="help-li" style=""> htmlBold
@@ -1263,7 +1263,7 @@ syn cluster htmlPreproc add=asp</pre>
 Now you just need to make sure that you add all regions that contain
 the preprocessor language to the cluster htmlPreproc.</div>
 <div class="old-help-para">							<a name="html-folding"></a><code class="help-tag-right">html-folding</code>
-The HTML syntax file provides syntax <a href="fold.html#folding">folding</a> (see <a href="syntax.html#%3Asyn-fold">:syn-fold</a>) between start
+The HTML syntax file provides syntax <a href="/neovim-docs-web/en/fold#folding">folding</a> (see <a href="/neovim-docs-web/en/syntax#%3Asyn-fold">:syn-fold</a>) between start
 and end tags.  This can be turned on by<pre>:let g:html_syntax_folding = 1
 :set foldmethod=syntax</pre>
 Note: Syntax folding might slow down syntax highlighting significantly,
@@ -1281,7 +1281,7 @@ a file and turning on HTML/OS syntax by doing the following:<pre>:set syntax=htm
 Lastly, it should be noted that the opening and closing characters to begin a
 block of HTML/OS code can either be &lt;&lt; or [[ and &gt;&gt; or ]], respectively.</div>
 <div class="old-help-para"><h3 class="help-heading">IA64<span class="help-heading-tags">				<a name="ia64.vim"></a><span class="help-tag">ia64.vim</span> <a name="intel-itanium"></a><span class="help-tag">intel-itanium</span> <a name="ft-ia64-syntax"></a><span class="help-tag">ft-ia64-syntax</span></span></h3></div>
-<div class="old-help-para">Highlighting for the Intel Itanium 64 assembly language.  See <a href="syntax.html#asm.vim">asm.vim</a> for
+<div class="old-help-para">Highlighting for the Intel Itanium 64 assembly language.  See <a href="/neovim-docs-web/en/syntax#asm.vim">asm.vim</a> for
 how to recognize this filetype.</div>
 <div class="old-help-para">To have.inc files be recognized as IA64, add this to your vimrc file:<pre>:let g:filetype_inc = "ia64"</pre>
 <h3 class="help-heading">INFORM<span class="help-heading-tags">						<a name="inform.vim"></a><span class="help-tag">inform.vim</span> <a name="ft-inform-syntax"></a><span class="help-tag">ft-inform-syntax</span></span></h3></div>
@@ -1355,7 +1355,7 @@ strings, strings, boolean constants and types (this, super) respectively.  I
 have opted to choose another background for those statements.</div>
 <div class="old-help-para">Javadoc is a program that takes special comments out of Java program files and
 creates HTML pages.  The standard configuration will highlight this HTML code
-similarly to HTML files (see <a href="syntax.html#html.vim">html.vim</a>).  You can even add Javascript
+similarly to HTML files (see <a href="/neovim-docs-web/en/syntax#html.vim">html.vim</a>).  You can even add Javascript
 and CSS inside this code (see below).  There are four differences however:
   1. The title (all characters up to the first '.' which is followed by
      some white space or up to the first '@') is colored differently (to change
@@ -1408,7 +1408,7 @@ the parentheses and backquoted parentheses.  Because of the quantity of
 colorization levels, unlike non-rainbow highlighting, the rainbow mode
 specifies its highlighting using ctermfg and guifg, thereby bypassing the
 usual color scheme control using standard highlighting groups.  The actual
-highlighting used depends on the dark/bright setting  (see <a href="options.html#'bg'">'bg'</a>).</div>
+highlighting used depends on the dark/bright setting  (see <a href="/neovim-docs-web/en/options#'bg'">'bg'</a>).</div>
 <div class="old-help-para"><h3 class="help-heading">LITE<span class="help-heading-tags">						<a name="lite.vim"></a><span class="help-tag">lite.vim</span> <a name="ft-lite-syntax"></a><span class="help-tag">ft-lite-syntax</span></span></h3></div>
 <div class="old-help-para">There are two options for the lite syntax highlighting.</div>
 <div class="old-help-para">If you like SQL syntax highlighting inside Strings, use this:<pre>:let lite_sql_query = 1</pre>
@@ -1518,7 +1518,7 @@ can use them.</div>
 <div class="old-help-para">For example, Linux and BSD distributions use groff as their default text
 processing package.  In order to activate the extra syntax highlighting
 features for groff, arrange for files to be recognized as groff (see
-<a href="syntax.html#ft-groff-syntax">ft-groff-syntax</a>) or add the following option to your start-up files:<pre>:let nroff_is_groff = 1</pre>
+<a href="/neovim-docs-web/en/syntax#ft-groff-syntax">ft-groff-syntax</a>) or add the following option to your start-up files:<pre>:let nroff_is_groff = 1</pre>
 Groff is different from the old AT&amp;T n/troff that you may still find in
 Solaris.  Groff macro and request names can be longer than 2 characters and
 there are extensions to the language primitives.  For example, in AT&amp;T troff
@@ -1556,7 +1556,7 @@ with section markers, you can activate the following option in your vimrc
 file:<pre>let b:preprocs_as_sections = 1</pre>
 As well, the syntax file adds an extra paragraph marker for the extended
 paragraph macro (.XP) in the ms package.</div>
-<div class="old-help-para">Finally, there is a <a href="syntax.html#groff.vim">groff.vim</a> syntax file that can be used for enabling
+<div class="old-help-para">Finally, there is a <a href="/neovim-docs-web/en/syntax#groff.vim">groff.vim</a> syntax file that can be used for enabling
 groff syntax highlighting either on a file basis or globally by default.</div>
 <div class="old-help-para"><h3 class="help-heading">OCAML<span class="help-heading-tags">						<a name="ocaml.vim"></a><span class="help-tag">ocaml.vim</span> <a name="ft-ocaml-syntax"></a><span class="help-tag">ft-ocaml-syntax</span></span></h3></div>
 <div class="old-help-para">The OCaml syntax file handles files having the following prefixes: .ml,
@@ -1658,7 +1658,7 @@ x = 0 to sync from start.</div>
 <div class="old-help-para"><h3 class="help-heading">PLAINTEX<span class="help-heading-tags">				<a name="plaintex.vim"></a><span class="help-tag">plaintex.vim</span> <a name="ft-plaintex-syntax"></a><span class="help-tag">ft-plaintex-syntax</span></span></h3></div>
 <div class="old-help-para">TeX is a typesetting language, and plaintex is the file type for the "plain"
 variant of TeX.  If you never want your.tex files recognized as plain TeX,
-see <a href="filetype.html#ft-tex-plugin">ft-tex-plugin</a>.</div>
+see <a href="/neovim-docs-web/en/filetype#ft-tex-plugin">ft-tex-plugin</a>.</div>
 <div class="old-help-para">This syntax file has the option<pre>let g:plaintex_delimiters = 1</pre>
 if you want to highlight brackets "[]" and braces "{}".</div>
 <div class="old-help-para"><h3 class="help-heading">PPWIZARD<span class="help-heading-tags">					<a name="ppwiz.vim"></a><span class="help-tag">ppwiz.vim</span> <a name="ft-ppwiz-syntax"></a><span class="help-tag">ft-ppwiz-syntax</span></span></h3></div>
@@ -1721,9 +1721,9 @@ PRINTCAP + TERMCAP	<a name="ft-ptcap-syntax"></a><code class="help-tag">ft-ptcap
 <div class="old-help-para">This syntax file applies to the printcap and termcap databases.</div>
 <div class="old-help-para">In order for Vim to recognize printcap/termcap files that do not match
 the patterns <a name="printcap"></a><code class="help-tag">printcap</code>, or <a name="termcap"></a><code class="help-tag">termcap</code>, you must put additional patterns
-appropriate to your system in your <a href="syntax.html#myfiletypefile">myfiletypefile</a> file.  For these
+appropriate to your system in your <a href="/neovim-docs-web/en/syntax#myfiletypefile">myfiletypefile</a> file.  For these
 patterns, you must set the variable "b:ptcap_type" to either "print" or
-"term", and then the <a href="options.html#'filetype'">'filetype'</a> option to ptcap.</div>
+"term", and then the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> option to ptcap.</div>
 <div class="old-help-para">For example, to make Vim identify all files in /etc/termcaps/ as termcap
 files, add the following:<pre>:au BufNewFile,BufRead /etc/termcaps/* let b:ptcap_type = "term" |
                                     \ set filetype=ptcap</pre>
@@ -1765,26 +1765,26 @@ Any combination of these three variables is legal, but might highlight more
 commands than are actually available to you by the game.</div>
 <div class="old-help-para">R							<a name="r.vim"></a><code class="help-tag-right">r.vim</code> <a name="ft-r-syntax"></a><code class="help-tag">ft-r-syntax</code></div>
 <div class="old-help-para">The parsing of R code for syntax highlight starts 40 lines backwards, but you
-can set a different value in your <a href="starting.html#vimrc">vimrc</a>. Example:<pre>let r_syntax_minlines = 60</pre>
+can set a different value in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>. Example:<pre>let r_syntax_minlines = 60</pre>
 You can also turn off syntax highlighting of ROxygen:<pre>let r_syntax_hl_roxygen = 0</pre>
 enable folding of code delimited by parentheses, square brackets and curly
 braces:<pre>let r_syntax_folding = 1</pre>
 and highlight as functions all keywords followed by an opening parenthesis:<pre>let r_syntax_fun_pattern = 1</pre>
 R MARKDOWN					<a name="rmd.vim"></a><code class="help-tag-right">rmd.vim</code> <a name="ft-rmd-syntax"></a><code class="help-tag">ft-rmd-syntax</code></div>
-<div class="old-help-para">To disable syntax highlight of YAML header, add to your <a href="starting.html#vimrc">vimrc</a>:<pre>let rmd_syn_hl_yaml = 0</pre>
+<div class="old-help-para">To disable syntax highlight of YAML header, add to your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:<pre>let rmd_syn_hl_yaml = 0</pre>
 To disable syntax highlighting of citation keys:<pre>let rmd_syn_hl_citations = 0</pre>
 To highlight R code in knitr chunk headers:<pre>let rmd_syn_hl_chunk = 1</pre>
 By default, chunks of R code will be highlighted following the rules of R
 language. If you want proper syntax highlighting of chunks of other languages,
 you should add them to either <code>markdown_fenced_languages</code> or
 <code>rmd_fenced_languages</code>. For example to properly highlight both R and Python,
-you may add this to your <a href="starting.html#vimrc">vimrc</a>:<pre>let rmd_fenced_languages = ['r', 'python']</pre>
+you may add this to your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:<pre>let rmd_fenced_languages = ['r', 'python']</pre>
 R RESTRUCTURED TEXT				<a name="rrst.vim"></a><code class="help-tag-right">rrst.vim</code> <a name="ft-rrst-syntax"></a><code class="help-tag">ft-rrst-syntax</code></div>
-<div class="old-help-para">To highlight R code in knitr chunk headers, add to your <a href="starting.html#vimrc">vimrc</a>:<pre>let rrst_syn_hl_chunk = 1</pre>
+<div class="old-help-para">To highlight R code in knitr chunk headers, add to your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:<pre>let rrst_syn_hl_chunk = 1</pre>
 <h3 class="help-heading">READLINE<span class="help-heading-tags">				<a name="readline.vim"></a><span class="help-tag">readline.vim</span> <a name="ft-readline-syntax"></a><span class="help-tag">ft-readline-syntax</span></span></h3></div>
 <div class="old-help-para">The readline library is primarily used by the BASH shell, which adds quite a
 few commands and options to the ones already available.  To highlight these
-items as well you can add the following to your <a href="starting.html#vimrc">vimrc</a> or just type it in the
+items as well you can add the following to your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a> or just type it in the
 command line before loading a file with the readline syntax:<pre>let readline_has_bash = 1</pre>
 This will add highlighting for the commands that BASH (version 2.05a and
 later, and part earlier) adds.</div>
@@ -1818,11 +1818,11 @@ comment lines), the default is "r".  To make the default rexx add this line to
 your vimrc:							<a name="g%3Afiletype_r"></a><code class="help-tag-right">g:filetype_r</code>
 <pre>:let g:filetype_r = "r"</pre>
 <h3 class="help-heading">RUBY<span class="help-heading-tags">						<a name="ruby.vim"></a><span class="help-tag">ruby.vim</span> <a name="ft-ruby-syntax"></a><span class="help-tag">ft-ruby-syntax</span></span></h3></div>
-<div class="old-help-para">    Ruby: Operator highlighting		<a href="syntax.html#ruby_operators">ruby_operators</a>
-    Ruby: Whitespace errors		<a href="syntax.html#ruby_space_errors">ruby_space_errors</a>
-    Ruby: Folding			<a href="syntax.html#ruby_fold">ruby_fold</a> <a href="syntax.html#ruby_foldable_groups">ruby_foldable_groups</a>
-    Ruby: Reducing expensive operations	<a href="syntax.html#ruby_no_expensive">ruby_no_expensive</a> <a href="syntax.html#ruby_minlines">ruby_minlines</a>
-    Ruby: Spellchecking strings		<a href="syntax.html#ruby_spellcheck_strings">ruby_spellcheck_strings</a></div>
+<div class="old-help-para">    Ruby: Operator highlighting		<a href="/neovim-docs-web/en/syntax#ruby_operators">ruby_operators</a>
+    Ruby: Whitespace errors		<a href="/neovim-docs-web/en/syntax#ruby_space_errors">ruby_space_errors</a>
+    Ruby: Folding			<a href="/neovim-docs-web/en/syntax#ruby_fold">ruby_fold</a> <a href="/neovim-docs-web/en/syntax#ruby_foldable_groups">ruby_foldable_groups</a>
+    Ruby: Reducing expensive operations	<a href="/neovim-docs-web/en/syntax#ruby_no_expensive">ruby_no_expensive</a> <a href="/neovim-docs-web/en/syntax#ruby_minlines">ruby_minlines</a>
+    Ruby: Spellchecking strings		<a href="/neovim-docs-web/en/syntax#ruby_spellcheck_strings">ruby_spellcheck_strings</a></div>
 <div class="old-help-para">						<a name="ruby_operators"></a><code class="help-tag-right">ruby_operators</code>
 <div class="help-column_heading"> Ruby: Operator highlighting</div></div>
 <div class="old-help-para">Operators can be highlighted by defining "ruby_operators":<pre>:let ruby_operators = 1</pre></div>
@@ -1836,7 +1836,7 @@ spaces respectively.</div>
 <div class="old-help-para">					<a name="ruby_fold"></a><code class="help-tag-right">ruby_fold</code> <a name="ruby_foldable_groups"></a><code class="help-tag">ruby_foldable_groups</code>
 <div class="help-column_heading"> Ruby: Folding</div></div>
 <div class="old-help-para">Folding can be enabled by defining "ruby_fold":<pre>:let ruby_fold = 1</pre></div>
-<div class="old-help-para">This will set the value of <a href="options.html#'foldmethod'">'foldmethod'</a> to "syntax" locally to the current
+<div class="old-help-para">This will set the value of <a href="/neovim-docs-web/en/options#'foldmethod'">'foldmethod'</a> to "syntax" locally to the current
 buffer or window, which will enable syntax-based folding when editing Ruby
 filetypes.</div>
 <div class="old-help-para">Default folding is rather detailed, i.e., small syntax units like "if", "do",
@@ -1972,7 +1972,7 @@ let g:sh_fold_enabled= 1     (enable function folding)
 let g:sh_fold_enabled= 2     (enable heredoc folding)
 let g:sh_fold_enabled= 4     (enable if/do/for folding)</pre>
 then various syntax items (ie. HereDocuments and function bodies) become
-syntax-foldable (see <a href="syntax.html#%3Asyn-fold">:syn-fold</a>).  You also may add these together
+syntax-foldable (see <a href="/neovim-docs-web/en/syntax#%3Asyn-fold">:syn-fold</a>).  You also may add these together
 to get multiple types of folding:<pre>let g:sh_fold_enabled= 3     (enables function and heredoc folding)</pre>
 If you notice highlighting errors while scrolling backwards which are fixed
 when one redraws with <code>CTRL-L</code>, try setting the "sh_minlines" internal variable
@@ -2040,14 +2040,14 @@ SQL.  Vim assumes "*.sql" files are Oracle SQL by default.</div>
 scripts.  You can change Vim's default from Oracle to any of the current SQL
 supported types.  You can also easily alter the SQL dialect being used on a
 buffer by buffer basis.</div>
-<div class="old-help-para">For more detailed instructions see <a href="ft_sql.html#ft_sql.txt">ft_sql.txt</a>.</div>
+<div class="old-help-para">For more detailed instructions see <a href="/neovim-docs-web/en/ft_sql#ft_sql.txt">ft_sql.txt</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">SQUIRREL<span class="help-heading-tags">				<a name="squirrel.vim"></a><span class="help-tag">squirrel.vim</span> <a name="ft-squirrel-syntax"></a><span class="help-tag">ft-squirrel-syntax</span></span></h3></div>
 <div class="old-help-para">Squirrel is a high level imperative, object-oriented programming language,
 designed to be a light-weight scripting language that fits in the size, memory
 bandwidth, and real-time requirements of applications like video games.  Files
 with the following extensions are recognized as squirrel files: .nut.</div>
 <div class="old-help-para"><h3 class="help-heading">TCSH<span class="help-heading-tags">						<a name="tcsh.vim"></a><span class="help-tag">tcsh.vim</span> <a name="ft-tcsh-syntax"></a><span class="help-tag">ft-tcsh-syntax</span></span></h3></div>
-<div class="old-help-para">This covers the shell named "tcsh".  It is a superset of csh.  See <a href="syntax.html#csh.vim">csh.vim</a>
+<div class="old-help-para">This covers the shell named "tcsh".  It is a superset of csh.  See <a href="/neovim-docs-web/en/syntax#csh.vim">csh.vim</a>
 for how the filetype is detected.</div>
 <div class="old-help-para">Tcsh does not allow \" in strings unless the "backslash_quote" shell variable
 is set.  If you want VIM to assume that no backslash quote constructs exist
@@ -2062,21 +2062,21 @@ tcsh_minlines is 100.  The disadvantage of using a larger number is that
 redrawing can become slow.</div>
 <div class="old-help-para"><h3 class="help-heading">TEX<span class="help-heading-tags">				<a name="tex.vim"></a><span class="help-tag">tex.vim</span> <a name="ft-tex-syntax"></a><span class="help-tag">ft-tex-syntax</span> <a name="latex-syntax"></a><span class="help-tag">latex-syntax</span></span></h3>				<a name="syntax-tex"></a><code class="help-tag-right">syntax-tex</code> <a name="syntax-latex"></a><code class="help-tag">syntax-latex</code></div>
 <div class="old-help-para">			Tex Contents~
-	Tex: Want Syntax Folding?			<a href="syntax.html#tex-folding">tex-folding</a>
-	Tex: No Spell Checking Wanted			<a href="syntax.html#g%3Atex_nospell">g:tex_nospell</a>
-	Tex: Don't Want Spell Checking In Comments?	<a href="syntax.html#tex-nospell">tex-nospell</a>
-	Tex: Want Spell Checking in Verbatim Zones?	<a href="syntax.html#tex-verb">tex-verb</a>
-	Tex: Run-on Comments or MathZones		<a href="syntax.html#tex-runon">tex-runon</a>
-	Tex: Slow Syntax Highlighting?			<a href="syntax.html#tex-slow">tex-slow</a>
-	Tex: Want To Highlight More Commands?		<a href="syntax.html#tex-morecommands">tex-morecommands</a>
-	Tex: Excessive Error Highlighting?		<a href="syntax.html#tex-error">tex-error</a>
-	Tex: Need a new Math Group?			<a href="syntax.html#tex-math">tex-math</a>
-	Tex: Starting a New Style?			<a href="syntax.html#tex-style">tex-style</a>
-	Tex: Taking Advantage of Conceal Mode		<a href="syntax.html#tex-conceal">tex-conceal</a>
-	Tex: Selective Conceal Mode			<a href="syntax.html#g%3Atex_conceal">g:tex_conceal</a>
-	Tex: Controlling iskeyword			<a href="syntax.html#g%3Atex_isk">g:tex_isk</a>
-	Tex: Fine Subscript and Superscript Control	<a href="syntax.html#tex-supersub">tex-supersub</a>
-	Tex: Match Check Control			<a href="syntax.html#tex-matchcheck">tex-matchcheck</a></div>
+	Tex: Want Syntax Folding?			<a href="/neovim-docs-web/en/syntax#tex-folding">tex-folding</a>
+	Tex: No Spell Checking Wanted			<a href="/neovim-docs-web/en/syntax#g%3Atex_nospell">g:tex_nospell</a>
+	Tex: Don't Want Spell Checking In Comments?	<a href="/neovim-docs-web/en/syntax#tex-nospell">tex-nospell</a>
+	Tex: Want Spell Checking in Verbatim Zones?	<a href="/neovim-docs-web/en/syntax#tex-verb">tex-verb</a>
+	Tex: Run-on Comments or MathZones		<a href="/neovim-docs-web/en/syntax#tex-runon">tex-runon</a>
+	Tex: Slow Syntax Highlighting?			<a href="/neovim-docs-web/en/syntax#tex-slow">tex-slow</a>
+	Tex: Want To Highlight More Commands?		<a href="/neovim-docs-web/en/syntax#tex-morecommands">tex-morecommands</a>
+	Tex: Excessive Error Highlighting?		<a href="/neovim-docs-web/en/syntax#tex-error">tex-error</a>
+	Tex: Need a new Math Group?			<a href="/neovim-docs-web/en/syntax#tex-math">tex-math</a>
+	Tex: Starting a New Style?			<a href="/neovim-docs-web/en/syntax#tex-style">tex-style</a>
+	Tex: Taking Advantage of Conceal Mode		<a href="/neovim-docs-web/en/syntax#tex-conceal">tex-conceal</a>
+	Tex: Selective Conceal Mode			<a href="/neovim-docs-web/en/syntax#g%3Atex_conceal">g:tex_conceal</a>
+	Tex: Controlling iskeyword			<a href="/neovim-docs-web/en/syntax#g%3Atex_isk">g:tex_isk</a>
+	Tex: Fine Subscript and Superscript Control	<a href="/neovim-docs-web/en/syntax#tex-supersub">tex-supersub</a>
+	Tex: Match Check Control			<a href="/neovim-docs-web/en/syntax#tex-matchcheck">tex-matchcheck</a></div>
 <div class="old-help-para">				<a name="tex-folding"></a><code class="help-tag-right">tex-folding</code> <a name="g%3Atex_fold_enabled"></a><code class="help-tag">g:tex_fold_enabled</code>
 <div class="help-column_heading"> Tex: Want Syntax Folding?</div></div>
 <div class="old-help-para">As of version 28 of &lt;syntax/tex.vim&gt;, syntax-based folding of parts, chapters,
@@ -2088,14 +2088,14 @@ If your system becomes too slow, then you might wish to look into<pre>https://vi
  Tex: No Spell Checking Wanted~</div>
 <div class="old-help-para">If you don't want spell checking anywhere in your LaTeX document, put<pre>let g:tex_nospell=1</pre>
 into your vimrc.  If you merely wish to suppress spell checking inside
-comments only, see <a href="syntax.html#g%3Atex_comment_nospell">g:tex_comment_nospell</a>.</div>
+comments only, see <a href="/neovim-docs-web/en/syntax#g%3Atex_comment_nospell">g:tex_comment_nospell</a>.</div>
 <div class="old-help-para">				<a name="tex-nospell"></a><code class="help-tag-right">tex-nospell</code> <a name="g%3Atex_comment_nospell"></a><code class="help-tag">g:tex_comment_nospell</code>
 <div class="help-column_heading"> Tex: Don't Want Spell Checking In Comments?</div></div>
 <div class="old-help-para">Some folks like to include things like source code in comments and so would
 prefer that spell checking be disabled in comments in LaTeX files.  To do
 this, put the following in your vimrc:<pre>let g:tex_comment_nospell= 1</pre>
 If you want to suppress spell checking everywhere inside your LaTeX document,
-see <a href="syntax.html#g%3Atex_nospell">g:tex_nospell</a>.</div>
+see <a href="/neovim-docs-web/en/syntax#g%3Atex_nospell">g:tex_nospell</a>.</div>
 <div class="old-help-para">				<a name="tex-verb"></a><code class="help-tag-right">tex-verb</code> <a name="g%3Atex_verbspell"></a><code class="help-tag">g:tex_verbspell</code>
  Tex: Want Spell Checking in Verbatim Zones?~</div>
 <div class="old-help-para">Often verbatim regions are used for things like source code; seldom does
@@ -2119,7 +2119,7 @@ texMathZone.</div>
 increase them.	This primarily affects synchronizing (i.e. just what group,
 if any, is the text at the top of the screen supposed to be in?).</div>
 <div class="old-help-para">Another cause of slow highlighting is due to syntax-driven folding; see
-<a href="syntax.html#tex-folding">tex-folding</a> for a way around this.</div>
+<a href="/neovim-docs-web/en/syntax#tex-folding">tex-folding</a> for a way around this.</div>
 <div class="old-help-para">					<a name="g%3Atex_fast"></a><code class="help-tag-right">g:tex_fast</code></div>
 <div class="old-help-para">Finally, if syntax highlighting is still too slow, you may set<pre>:let g:tex_fast= ""</pre>
 in your vimrc.  Used this way, the g:tex_fast variable causes the syntax
@@ -2140,14 +2140,14 @@ v : allow verbatim syntax
 V : allow texNewEnv and texNewCmd syntax</pre></div>
 <div class="old-help-para">As an example, let g:tex_fast= "M" will allow math-associated highlighting
 but suppress all the other region-based syntax highlighting.
-(also see: <a href="syntax.html#g%3Atex_conceal">g:tex_conceal</a> and <a href="syntax.html#tex-supersub">tex-supersub</a>)</div>
+(also see: <a href="/neovim-docs-web/en/syntax#g%3Atex_conceal">g:tex_conceal</a> and <a href="/neovim-docs-web/en/syntax#tex-supersub">tex-supersub</a>)</div>
 <div class="old-help-para">					<a name="tex-morecommands"></a><code class="help-tag-right">tex-morecommands</code> <a name="tex-package"></a><code class="help-tag">tex-package</code>
 <div class="help-column_heading"> Tex: Want To Highlight More Commands?</div></div>
 <div class="old-help-para">LaTeX is a programmable language, and so there are thousands of packages full
 of specialized LaTeX commands, syntax, and fonts.  If you're using such a
 package you'll often wish that the distributed syntax/tex.vim would support
 it.  However, clearly this is impractical.  So please consider using the
-techniques in <a href="syntax.html#mysyntaxfile-add">mysyntaxfile-add</a> to extend or modify the highlighting provided
+techniques in <a href="/neovim-docs-web/en/syntax#mysyntaxfile-add">mysyntaxfile-add</a> to extend or modify the highlighting provided
 by syntax/tex.vim.</div>
 <div class="old-help-para">I've included some support for various popular packages on my website:<pre>https://www.drchip.org/astronaut/vim/index.html#LATEXPKGS</pre></div>
 <div class="old-help-para">The syntax files there go into your .../after/syntax/tex/ directory.</div>
@@ -2180,14 +2180,14 @@ Putting "let g:tex_stylish=1" into your vimrc will make &lt;syntax/tex.vim&gt;
 always accept such use of @.</div>
 <div class="old-help-para">					<a name="tex-cchar"></a><code class="help-tag-right">tex-cchar</code> <a name="tex-cole"></a><code class="help-tag">tex-cole</code> <a name="tex-conceal"></a><code class="help-tag">tex-conceal</code>
  Tex: Taking Advantage of Conceal Mode~</div>
-<div class="old-help-para">If you have <a href="options.html#'conceallevel'">'conceallevel'</a> set to 2 and if your encoding is utf-8, then a
+<div class="old-help-para">If you have <a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a> set to 2 and if your encoding is utf-8, then a
 number of character sequences can be translated into appropriate utf-8 glyphs,
 including various accented characters, Greek characters in MathZones, and
 superscripts and subscripts in MathZones.  Not all characters can be made into
 superscripts or subscripts; the constraint is due to what utf-8 supports.
 In fact, only a few characters are supported as subscripts.</div>
-<div class="old-help-para">One way to use this is to have vertically split windows (see <a href="windows.html#CTRL-W_v">CTRL-W_v</a>); one
-with <a href="options.html#'conceallevel'">'conceallevel'</a> at 0 and the other at 2; and both using <a href="options.html#'scrollbind'">'scrollbind'</a>.</div>
+<div class="old-help-para">One way to use this is to have vertically split windows (see <a href="/neovim-docs-web/en/windows#CTRL-W_v">CTRL-W_v</a>); one
+with <a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a> at 0 and the other at 2; and both using <a href="/neovim-docs-web/en/options#'scrollbind'">'scrollbind'</a>.</div>
 <div class="old-help-para">					<a name="g%3Atex_conceal"></a><code class="help-tag-right">g:tex_conceal</code>
  Tex: Selective Conceal Mode~</div>
 <div class="old-help-para">You may selectively use conceal mode by setting g:tex_conceal in your
@@ -2214,16 +2214,16 @@ syntax highlighting script handles this with the following logic:</div>
 		will be allowed as part of keywords
 		(regardless of g:tex_isk)
 </div></div>
-<div class="old-help-para"><div class="help-li" style=""> If g:tex_isk exists, then it will be used for the local <a href="options.html#'iskeyword'">'iskeyword'</a>
-</div><div class="help-li" style=""> Else the local <a href="options.html#'iskeyword'">'iskeyword'</a> will be set to 48-57,a-z,A-Z,192-255
+<div class="old-help-para"><div class="help-li" style=""> If g:tex_isk exists, then it will be used for the local <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>
+</div><div class="help-li" style=""> Else the local <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> will be set to 48-57,a-z,A-Z,192-255
 </div></div>
 <div class="old-help-para">			<a name="tex-supersub"></a><code class="help-tag-right">tex-supersub</code> <a name="g%3Atex_superscripts"></a><code class="help-tag">g:tex_superscripts</code> <a name="g%3Atex_subscripts"></a><code class="help-tag">g:tex_subscripts</code>
  Tex: Fine Subscript and Superscript Control~</div>
-<div class="old-help-para">	See <a href="syntax.html#tex-conceal">tex-conceal</a> for how to enable concealed character replacement.</div>
-<div class="old-help-para">	See <a href="syntax.html#g%3Atex_conceal">g:tex_conceal</a> for selectively concealing accents, bold/italic,
+<div class="old-help-para">	See <a href="/neovim-docs-web/en/syntax#tex-conceal">tex-conceal</a> for how to enable concealed character replacement.</div>
+<div class="old-help-para">	See <a href="/neovim-docs-web/en/syntax#g%3Atex_conceal">g:tex_conceal</a> for selectively concealing accents, bold/italic,
 	math, Greek, and superscripts/subscripts.</div>
 <div class="old-help-para">	One may exert fine control over which superscripts and subscripts one
-	wants syntax-based concealment for (see <a href="syntax.html#%3Asyn-cchar">:syn-cchar</a>).  Since not all
+	wants syntax-based concealment for (see <a href="/neovim-docs-web/en/syntax#%3Asyn-cchar">:syn-cchar</a>).  Since not all
 	fonts support all characters, one may override the
 	concealed-replacement lists; by default these lists are given by:<pre>let g:tex_superscripts= "[0-9a-zA-W.,:;+-&lt;&gt;/()=]"
 let g:tex_subscripts= "[0-9aehijklmnoprstuvx,+-/().]"</pre></div>
@@ -2251,7 +2251,7 @@ set "tf_minlines" to the value you desire.  Example:<pre>:let tf_minlines = your
 There is a trade-off between more accurate syntax highlighting versus screen
 updating speed.  To improve accuracy, you may wish to increase the
 g:vimsyn_minlines variable.  The g:vimsyn_maxlines variable may be used to
-improve screen updating rates (see <a href="syntax.html#%3Asyn-sync">:syn-sync</a> for more on this).<pre>g:vimsyn_minlines : used to set synchronization minlines
+improve screen updating rates (see <a href="/neovim-docs-web/en/syntax#%3Asyn-sync">:syn-sync</a> for more on this).<pre>g:vimsyn_minlines : used to set synchronization minlines
 g:vimsyn_maxlines : used to set synchronization maxlines</pre></div>
 <div class="old-help-para">	(g:vim_minlines and g:vim_maxlines are deprecated variants of
 	these two options)</div>
@@ -2268,7 +2268,7 @@ g:vimsyn_folding =~ 'P' : fold python   script</pre></div>
 <div class="old-help-para">							<a name="g%3Avimsyn_noerror"></a><code class="help-tag-right">g:vimsyn_noerror</code>
 Not all error highlighting that syntax/vim.vim does may be correct; Vim script
 is a difficult language to highlight correctly.  A way to suppress error
-highlighting is to put the following line in your <a href="starting.html#vimrc">vimrc</a>:<pre>let g:vimsyn_noerror = 1</pre></div>
+highlighting is to put the following line in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:<pre>let g:vimsyn_noerror = 1</pre></div>
 <div class="old-help-para"><h3 class="help-heading">XF86CONFIG<span class="help-heading-tags">				<a name="xf86conf.vim"></a><span class="help-tag">xf86conf.vim</span> <a name="ft-xf86conf-syntax"></a><span class="help-tag">ft-xf86conf-syntax</span></span></h3></div>
 <div class="old-help-para">The syntax of XF86Config file differs in XFree86 v3.x and v4.x.  Both
 variants are supported.  Automatic detection is used, but is far from perfect.
@@ -2283,7 +2283,7 @@ highlighted.</div>
 <div class="old-help-para">Xml namespaces are highlighted by default.  This can be inhibited by
 setting a global variable:<pre>:let g:xml_namespace_transparent=1</pre></div>
 <div class="old-help-para">							<a name="xml-folding"></a><code class="help-tag-right">xml-folding</code>
-The xml syntax file provides syntax <a href="fold.html#folding">folding</a> (see <a href="syntax.html#%3Asyn-fold">:syn-fold</a>) between
+The xml syntax file provides syntax <a href="/neovim-docs-web/en/fold#folding">folding</a> (see <a href="/neovim-docs-web/en/syntax#%3Asyn-fold">:syn-fold</a>) between
 start and end tags.  This can be turned on by<pre>:let g:xml_syntax_folding = 1
 :set foldmethod=syntax</pre>
 Note: Syntax folding might slow down syntax highlighting significantly,
@@ -2330,7 +2330,7 @@ difference defined in the syntax file.</div>
 <h2 class="help-heading">6. Defining a syntax<span class="help-heading-tags">					<a name="%3Asyn-define"></a><span class="help-tag">:syn-define</span> <a name="E410"></a><span class="help-tag">E410</span></span></h2></div>
 <div class="old-help-para">Vim understands three types of syntax items:</div>
 <div class="old-help-para">1. Keyword
-   It can only contain keyword characters, according to the <a href="options.html#'iskeyword'">'iskeyword'</a>
+   It can only contain keyword characters, according to the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>
    option.  It cannot contain other syntax items.  It will only match with a
    complete word (there are no keyword characters before or after the match).
    The keyword "if" would match in "if(a=b)", but not in "ifdef x", because
@@ -2377,7 +2377,7 @@ keyword with ignoring case.</div>
 <div class="old-help-para">:sy[ntax] foldlevel start
 :sy[ntax] foldlevel minimum
 	This defines how the foldlevel of a line is computed when using
-	foldmethod=syntax (see <a href="fold.html#fold-syntax">fold-syntax</a> and <a href="syntax.html#%3Asyn-fold">:syn-fold</a>):</div>
+	foldmethod=syntax (see <a href="/neovim-docs-web/en/fold#fold-syntax">fold-syntax</a> and <a href="/neovim-docs-web/en/syntax#%3Asyn-fold">:syn-fold</a>):</div>
 <div class="old-help-para">	start:		Use level of item containing start of line.
 	minimum:	Use lowest local-minimum level of items on line.</div>
 <div class="old-help-para">	The default is "start".  Use "minimum" to search a line horizontally
@@ -2397,35 +2397,35 @@ keyword with ignoring case.</div>
 	notoplevel:	Text is not spell checked.
 	default:	When there is a @Spell cluster no spell checking.</div>
 <div class="old-help-para">	For text in syntax items use the @Spell and @NoSpell clusters
-	<a href="spell.html#spell-syntax">spell-syntax</a>.  When there is no @Spell and no @NoSpell cluster then
+	<a href="/neovim-docs-web/en/spell#spell-syntax">spell-syntax</a>.  When there is no @Spell and no @NoSpell cluster then
 	spell checking is done for "default" and "toplevel".</div>
-<div class="old-help-para">	To activate spell checking the <a href="options.html#'spell'">'spell'</a> option must be set.</div>
+<div class="old-help-para">	To activate spell checking the <a href="/neovim-docs-web/en/options#'spell'">'spell'</a> option must be set.</div>
 <div class="old-help-para">:sy[ntax] spell
 	Show the current syntax spell checking method, either "syntax spell
 	toplevel", "syntax spell notoplevel" or "syntax spell default".</div>
 <div class="old-help-para"><h3 class="help-heading">SYNTAX ISKEYWORD SETTING<span class="help-heading-tags">				<a name="%3Asyn-iskeyword"></a><span class="help-tag">:syn-iskeyword</span></span></h3></div>
 <div class="old-help-para">:sy[ntax] iskeyword [clear | <code>{option}</code>]
-	This defines the keyword characters.  It's like the <a href="options.html#'iskeyword'">'iskeyword'</a> option
+	This defines the keyword characters.  It's like the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option
 	for but only applies to syntax highlighting.</div>
 <div class="old-help-para">	clear:		Syntax specific iskeyword setting is disabled and the
-			buffer-local <a href="options.html#'iskeyword'">'iskeyword'</a> setting is used.
-	<code>{option}</code>       	Set the syntax <a href="options.html#'iskeyword'">'iskeyword'</a> option to a new value.</div>
+			buffer-local <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> setting is used.
+	<code>{option}</code>       	Set the syntax <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option to a new value.</div>
 <div class="old-help-para">	Example:<pre>:syntax iskeyword @,48-57,192-255,$,_</pre></div>
 <div class="old-help-para">	This would set the syntax specific iskeyword option to include all
 	alphabetic characters, plus the numeric characters, all accented
 	characters and also includes the "_" and the "$".</div>
 <div class="old-help-para">	If no argument is given, the current value will be output.</div>
-<div class="old-help-para">	Setting this option influences what <a href="pattern.html#%2F%5Ck">/\k</a> matches in syntax patterns
-	and also determines where <a href="syntax.html#%3Asyn-keyword">:syn-keyword</a> will be checked for a new
+<div class="old-help-para">	Setting this option influences what <a href="/neovim-docs-web/en/pattern#%2F%5Ck">/\k</a> matches in syntax patterns
+	and also determines where <a href="/neovim-docs-web/en/syntax#%3Asyn-keyword">:syn-keyword</a> will be checked for a new
 	match.</div>
 <div class="old-help-para">	It is recommended when writing syntax files, to use this command to
 	set the correct value for the specific syntax language and not change
-	the <a href="options.html#'iskeyword'">'iskeyword'</a> option.</div>
+	the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option.</div>
 <div class="old-help-para"><h3 class="help-heading">DEFINING KEYWORDS<span class="help-heading-tags">					<a name="%3Asyn-keyword"></a><span class="help-tag">:syn-keyword</span></span></h3></div>
 <div class="old-help-para">:sy[ntax] keyword <code>{group-name}</code> [{options}] <code>{keyword}</code> .. [{options}]</div>
 <div class="old-help-para">	This defines a number of keywords.</div>
 <div class="old-help-para">	<code>{group-name}</code>	Is a syntax group name such as "Comment".
-	[{options}]	See <a href="syntax.html#%3Asyn-arguments">:syn-arguments</a> below.
+	[{options}]	See <a href="/neovim-docs-web/en/syntax#%3Asyn-arguments">:syn-arguments</a> below.
 	<code>{keyword}</code> ..	Is a list of keywords which are part of this group.</div>
 <div class="old-help-para">	Example:<pre>:syntax keyword   Type   int long char</pre></div>
 <div class="old-help-para">	The <code>{options}</code> can be given anywhere in the line.  They will apply to
@@ -2438,11 +2438,11 @@ keyword with ignoring case.</div>
 	Vim, you can put the optional characters inside [], to define all the
 	variations at once:<pre>:syntax keyword   vimCommand         ab[breviate] n[ext]</pre></div>
 <div class="old-help-para">	Don't forget that a keyword can only be recognized if all the
-	characters are included in the <a href="options.html#'iskeyword'">'iskeyword'</a> option.  If one character
+	characters are included in the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option.  If one character
 	isn't, the keyword will never be recognized.
 	Multi-byte characters can also be used.  These do not have to be in
-	<a href="options.html#'iskeyword'">'iskeyword'</a>.
-	See <a href="syntax.html#%3Asyn-iskeyword">:syn-iskeyword</a> for defining syntax specific iskeyword settings.</div>
+	<a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>.
+	See <a href="/neovim-docs-web/en/syntax#%3Asyn-iskeyword">:syn-iskeyword</a> for defining syntax specific iskeyword settings.</div>
 <div class="old-help-para">	A keyword always has higher priority than a match or region, the
 	keyword is used if more than one item matches.	Keywords do not nest
 	and a keyword can't contain anything else.</div>
@@ -2466,15 +2466,15 @@ keyword with ignoring case.</div>
 		[{options}]</div>
 <div class="old-help-para">	This defines one match.</div>
 <div class="old-help-para">	<code>{group-name}</code>		A syntax group name such as "Comment".
-	[{options}]		See <a href="syntax.html#%3Asyn-arguments">:syn-arguments</a> below.
+	[{options}]		See <a href="/neovim-docs-web/en/syntax#%3Asyn-arguments">:syn-arguments</a> below.
 	[excludenl]		Don't make a pattern with the end-of-line "$"
 				extend a containing match or region.  Must be
-				given before the pattern. <a href="syntax.html#%3Asyn-excludenl">:syn-excludenl</a>
+				given before the pattern. <a href="/neovim-docs-web/en/syntax#%3Asyn-excludenl">:syn-excludenl</a>
 	keepend			Don't allow contained matches to go past a
 				match with the end pattern.  See
-				<a href="syntax.html#%3Asyn-keepend">:syn-keepend</a>.
+				<a href="/neovim-docs-web/en/syntax#%3Asyn-keepend">:syn-keepend</a>.
 	<code>{pattern}</code>		The search pattern that defines the match.
-				See <a href="syntax.html#%3Asyn-pattern">:syn-pattern</a> below.
+				See <a href="/neovim-docs-web/en/syntax#%3Asyn-pattern">:syn-pattern</a> below.
 				Note that the pattern may match more than one
 				line, which makes the match depend on where
 				Vim starts searching for the pattern.  You
@@ -2492,29 +2492,29 @@ keyword with ignoring case.</div>
 		[{options}]</div>
 <div class="old-help-para">	This defines one region.  It may span several lines.</div>
 <div class="old-help-para">	<code>{group-name}</code>		A syntax group name such as "Comment".
-	[{options}]		See <a href="syntax.html#%3Asyn-arguments">:syn-arguments</a> below.
+	[{options}]		See <a href="/neovim-docs-web/en/syntax#%3Asyn-arguments">:syn-arguments</a> below.
 	[matchgroup={group-name}]  The syntax group to use for the following
 				start or end pattern matches only.  Not used
 				for the text in between the matched start and
 				end patterns.  Use NONE to reset to not using
 				a different group for the start or end match.
-				See <a href="syntax.html#%3Asyn-matchgroup">:syn-matchgroup</a>.
+				See <a href="/neovim-docs-web/en/syntax#%3Asyn-matchgroup">:syn-matchgroup</a>.
 	keepend			Don't allow contained matches to go past a
 				match with the end pattern.  See
-				<a href="syntax.html#%3Asyn-keepend">:syn-keepend</a>.
+				<a href="/neovim-docs-web/en/syntax#%3Asyn-keepend">:syn-keepend</a>.
 	extend			Override a "keepend" for an item this region
-				is contained in.  See <a href="syntax.html#%3Asyn-extend">:syn-extend</a>.
+				is contained in.  See <a href="/neovim-docs-web/en/syntax#%3Asyn-extend">:syn-extend</a>.
 	excludenl		Don't make a pattern with the end-of-line "$"
 				extend a containing match or item.  Only
 				useful for end patterns.  Must be given before
-				the patterns it applies to. <a href="syntax.html#%3Asyn-excludenl">:syn-excludenl</a>
+				the patterns it applies to. <a href="/neovim-docs-web/en/syntax#%3Asyn-excludenl">:syn-excludenl</a>
 	start={start-pattern}	The search pattern that defines the start of
-				the region.  See <a href="syntax.html#%3Asyn-pattern">:syn-pattern</a> below.
+				the region.  See <a href="/neovim-docs-web/en/syntax#%3Asyn-pattern">:syn-pattern</a> below.
 	skip={skip-pattern}	The search pattern that defines text inside
 				the region where not to look for the end
-				pattern.  See <a href="syntax.html#%3Asyn-pattern">:syn-pattern</a> below.
+				pattern.  See <a href="/neovim-docs-web/en/syntax#%3Asyn-pattern">:syn-pattern</a> below.
 	end={end-pattern}	The search pattern that defines the end of
-				the region.  See <a href="syntax.html#%3Asyn-pattern">:syn-pattern</a> below.</div>
+				the region.  See <a href="/neovim-docs-web/en/syntax#%3Asyn-pattern">:syn-pattern</a> below.</div>
 <div class="old-help-para">	Example:<pre>:syntax region String   start=+"+  skip=+\\"+  end=+"+</pre></div>
 <div class="old-help-para">	The start/skip/end patterns and the options can be given in any order.
 	There can be zero or one skip pattern.	There must be one or more
@@ -2642,24 +2642,24 @@ can not be used for all commands:
 <div class="old-help-para">conceal						<a name="conceal"></a><code class="help-tag-right">conceal</code> <a name="%3Asyn-conceal"></a><code class="help-tag">:syn-conceal</code></div>
 <div class="old-help-para">When the "conceal" argument is given, the item is marked as concealable.
 Whether or not it is actually concealed depends on the value of the
-<a href="options.html#'conceallevel'">'conceallevel'</a> option.  The <a href="options.html#'concealcursor'">'concealcursor'</a> option is used to decide whether
+<a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a> option.  The <a href="/neovim-docs-web/en/options#'concealcursor'">'concealcursor'</a> option is used to decide whether
 concealable items in the current line are displayed unconcealed to be able to
 edit the line.
-Another way to conceal text is with <a href="builtin.html#matchadd()">matchadd()</a>.</div>
+Another way to conceal text is with <a href="/neovim-docs-web/en/builtin#matchadd()">matchadd()</a>.</div>
 <div class="old-help-para">concealends						<a name="%3Asyn-concealends"></a><code class="help-tag-right">:syn-concealends</code></div>
 <div class="old-help-para">When the "concealends" argument is given, the start and end matches of
 the region, but not the contents of the region, are marked as concealable.
 Whether or not they are actually concealed depends on the setting on the
-<a href="options.html#'conceallevel'">'conceallevel'</a> option. The ends of a region can only be concealed separately
+<a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a> option. The ends of a region can only be concealed separately
 in this way when they have their own highlighting via "matchgroup"</div>
 <div class="old-help-para">cchar							<a name="%3Asyn-cchar"></a><code class="help-tag-right">:syn-cchar</code>
 							<a name="E844"></a><code class="help-tag-right">E844</code>
 The "cchar" argument defines the character shown in place of the item
 when it is concealed (setting "cchar" only makes sense when the conceal
 argument is given.) If "cchar" is not set then the default conceal
-character defined in the <a href="options.html#'listchars'">'listchars'</a> option is used.  The character cannot be
+character defined in the <a href="/neovim-docs-web/en/options#'listchars'">'listchars'</a> option is used.  The character cannot be
 a control character such as Tab.  Example:<pre>:syntax match Entity "&amp;amp;" conceal cchar=&amp;</pre>
-See <a href="syntax.html#hl-Conceal">hl-Conceal</a> for highlighting.</div>
+See <a href="/neovim-docs-web/en/syntax#hl-Conceal">hl-Conceal</a> for highlighting.</div>
 <div class="old-help-para">contained						<a name="%3Asyn-contained"></a><code class="help-tag-right">:syn-contained</code></div>
 <div class="old-help-para">When the "contained" argument is given, this item will not be recognized at
 the top level, but only when it is mentioned in the "contains" field of
@@ -2746,8 +2746,8 @@ Example:<pre>:syn region myFold start="{" end="}" transparent fold
 This will make each {} block form one fold.</div>
 <div class="old-help-para">The fold will start on the line where the item starts, and end where the item
 ends.  If the start and end are within the same line, there is no fold.
-The <a href="options.html#'foldnestmax'">'foldnestmax'</a> option limits the nesting of syntax folds.
-See <a href="syntax.html#%3Asyn-foldlevel">:syn-foldlevel</a> to control how the foldlevel of a line is computed
+The <a href="/neovim-docs-web/en/options#'foldnestmax'">'foldnestmax'</a> option limits the nesting of syntax folds.
+See <a href="/neovim-docs-web/en/syntax#%3Asyn-foldlevel">:syn-foldlevel</a> to control how the foldlevel of a line is computed
 from its syntax items.</div>
 <div class="old-help-para">			<a name="%3Asyn-contains"></a><code class="help-tag-right">:syn-contains</code> <a name="E405"></a><code class="help-tag">E405</code> <a name="E406"></a><code class="help-tag">E406</code> <a name="E407"></a><code class="help-tag">E407</code> <a name="E408"></a><code class="help-tag">E408</code> <a name="E409"></a><code class="help-tag">E409</code>
 contains={group-name},..</div>
@@ -2788,7 +2788,7 @@ the file may have been sourced before, and ":syn clear" doesn't remove the
 group names.</div>
 <div class="old-help-para">The contained groups will also match in the start and end patterns of a
 region.  If this is not wanted, the "matchgroup" argument can be used
-<a href="syntax.html#%3Asyn-matchgroup">:syn-matchgroup</a>.  The "ms=" and "me=" offsets can be used to change the
+<a href="/neovim-docs-web/en/syntax#%3Asyn-matchgroup">:syn-matchgroup</a>.  The "ms=" and "me=" offsets can be used to change the
 region where contained items do match.	Note that this may also limit the
 area that is highlighted</div>
 <div class="old-help-para">containedin={group-name}...				<a name="%3Asyn-containedin"></a><code class="help-tag-right">:syn-containedin</code></div>
@@ -2824,7 +2824,7 @@ fff               bbb        fff         bbb</pre>
 Note the use of ".\{-}" to skip as little as possible until the next Bar.
 when ".*" would be used, the "asdf" in between "Bar" and "Foo" would be
 highlighted according to the "ccFoobar" group, because the ccFooBar match
-would include the first "Foo" and the last "Bar" in the line (see <a href="pattern.html#pattern">pattern</a>).</div>
+would include the first "Foo" and the last "Bar" in the line (see <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>).</div>
 <div class="old-help-para">skipwhite						<a name="%3Asyn-skipwhite"></a><code class="help-tag-right">:syn-skipwhite</code>
 skipnl							<a name="%3Asyn-skipnl"></a><code class="help-tag-right">:syn-skipnl</code>
 skipempty						<a name="%3Asyn-skipempty"></a><code class="help-tag-right">:syn-skipempty</code></div>
@@ -2868,11 +2868,11 @@ characters.  This is like it works for the ":s" command.  The most common to
 use is the double quote.  But if the pattern contains a double quote, you can
 use another character that is not used in the pattern.	Examples:<pre>:syntax region Comment  start="/\*"  end="\*/"
 :syntax region String   start=+"+    end=+"+         skip=+\\"+</pre>
-See <a href="pattern.html#pattern">pattern</a> for the explanation of what a pattern is.  Syntax patterns are
-always interpreted like the <a href="options.html#'magic'">'magic'</a> option is set, no matter what the actual
-value of <a href="options.html#'magic'">'magic'</a> is.  And the patterns are interpreted like the 'l' flag is
-not included in <a href="options.html#'cpoptions'">'cpoptions'</a>.  This was done to make syntax files portable and
-independent of the <a href="options.html#'magic'">'magic'</a> setting.</div>
+See <a href="/neovim-docs-web/en/pattern#pattern">pattern</a> for the explanation of what a pattern is.  Syntax patterns are
+always interpreted like the <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> option is set, no matter what the actual
+value of <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> is.  And the patterns are interpreted like the 'l' flag is
+not included in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.  This was done to make syntax files portable and
+independent of the <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> setting.</div>
 <div class="old-help-para">Try to avoid patterns that can match an empty string, such as "[a-z]*".
 This slows down the highlighting a lot, because it matches everywhere.</div>
 <div class="old-help-para">						<a name="%3Asyn-pattern-offset"></a><code class="help-tag-right">:syn-pattern-offset</code>
@@ -2929,8 +2929,8 @@ region item end     -		 yes  -    yes	-    yes  yes</div>
 	      sssrrreee	    highlight start/region/end ("Foo", "Exa" and "Bar")</div>
 <div class="old-help-para">Leading context			<a name="%3Asyn-lc"></a><code class="help-tag-right">:syn-lc</code> <a name="%3Asyn-leading"></a><code class="help-tag">:syn-leading</code> <a name="%3Asyn-context"></a><code class="help-tag">:syn-context</code></div>
 <div class="old-help-para">Note: This is an obsolete feature, only included for backwards compatibility
-with previous Vim versions.  It's now recommended to use the <a href="pattern.html#%2F%5C%40%3C%3D">/\@&lt;=</a> construct
-in the pattern.  You can also often use <a href="pattern.html#%2F%5Czs">/\zs</a>.</div>
+with previous Vim versions.  It's now recommended to use the <a href="/neovim-docs-web/en/pattern#%2F%5C%40%3C%3D">/\@&lt;=</a> construct
+in the pattern.  You can also often use <a href="/neovim-docs-web/en/pattern#%2F%5Czs">/\zs</a>.</div>
 <div class="old-help-para">The "lc" offset specifies leading context -- a part of the pattern that must
 be present, but is not considered part of the match.  An offset of "lc=n" will
 cause Vim to step back n columns before attempting the pattern match, allowing
@@ -3030,7 +3030,7 @@ a related language.  Depending on the exact relationship, this can be done in
 two different ways:</div>
 <div class="old-help-para"><div class="help-li" style=""> If top-level syntax items in the included syntax file are to be
 	  allowed at the top level in the including syntax, you can simply use
-	  the <a href="repeat.html#%3Aruntime">:runtime</a> command:<pre>" In cpp.vim:
+	  the <a href="/neovim-docs-web/en/repeat#%3Aruntime">:runtime</a> command:<pre>" In cpp.vim:
 :runtime! syntax/c.vim
 :unlet b:current_syntax</pre>
 </div><div class="help-li" style=""> If top-level syntax items in the included syntax file are to be
@@ -3046,7 +3046,7 @@ two different ways:</div>
 :syntax region perlPOD start="^=head" end="^=cut" contains=@Pod</pre></div>
 <div class="old-help-para">	  When <code>{file-name}</code> is an absolute path (starts with "/", "c:", "$VAR"
 	  or "&lt;sfile&gt;") that file is sourced.  When it is a relative path
-	  (e.g., "syntax/pod.vim") the file is searched for in <a href="options.html#'runtimepath'">'runtimepath'</a>.
+	  (e.g., "syntax/pod.vim") the file is searched for in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.
 	  All matching files are loaded.  Using a relative path is
 	  recommended, because it allows a user to replace the included file
 	  with their own version, without replacing the file that does the
@@ -3060,14 +3060,14 @@ redrawing starts.</div>
 <div class="old-help-para">:sy[ntax] sync [ccomment [group-name] | minlines={N} | ...]</div>
 <div class="old-help-para">There are four ways to synchronize:
 1. Always parse from the start of the file.
-   <a href="syntax.html#%3Asyn-sync-first">:syn-sync-first</a>
+   <a href="/neovim-docs-web/en/syntax#%3Asyn-sync-first">:syn-sync-first</a>
 2. Based on C-style comments.  Vim understands how C-comments work and can
    figure out if the current line starts inside or outside a comment.
-   <a href="syntax.html#%3Asyn-sync-second">:syn-sync-second</a>
+   <a href="/neovim-docs-web/en/syntax#%3Asyn-sync-second">:syn-sync-second</a>
 3. Jumping back a certain number of lines and start parsing there.
-   <a href="syntax.html#%3Asyn-sync-third">:syn-sync-third</a>
+   <a href="/neovim-docs-web/en/syntax#%3Asyn-sync-third">:syn-sync-third</a>
 4. Searching backwards in the text for a pattern to sync on.
-   <a href="syntax.html#%3Asyn-sync-fourth">:syn-sync-fourth</a></div>
+   <a href="/neovim-docs-web/en/syntax#%3Asyn-sync-fourth">:syn-sync-fourth</a></div>
 <div class="old-help-para">				<a name="%3Asyn-sync-maxlines"></a><code class="help-tag-right">:syn-sync-maxlines</code> <a name="%3Asyn-sync-minlines"></a><code class="help-tag">:syn-sync-minlines</code>
 For the last three methods, the line range where the parsing can start is
 limited by "minlines" and "maxlines".</div>
@@ -3205,7 +3205,7 @@ See above for other arguments for the ":syntax" command.</div>
 is mostly used, because it looks better.</div>
 <div class="old-help-para"><h2 class="help-heading">12. Highlight command<span class="help-heading-tags">			<a name="%3Ahighlight"></a><span class="help-tag">:highlight</span> <a name="%3Ahi"></a><span class="help-tag">:hi</span> <a name="E28"></a><span class="help-tag">E28</span> <a name="E411"></a><span class="help-tag">E411</span> <a name="E415"></a><span class="help-tag">E415</span></span></h2></div>
 <div class="old-help-para">There are two types of highlight groups:
-<div class="help-li" style=""> The built-in <a href="syntax.html#highlight-groups">highlight-groups</a>.
+<div class="help-li" style=""> The built-in <a href="/neovim-docs-web/en/syntax#highlight-groups">highlight-groups</a>.
 </div><div class="help-li" style=""> The ones used for specific languages.  For these the name starts with the
   name of the language.  Many of these don't have any attributes, but are
   linked to a group of the second type.
@@ -3219,11 +3219,11 @@ in their own color.
 			This is basically the same as<pre>:echo g:colors_name</pre></div>
 <div class="old-help-para">			In case g:colors_name has not been defined :colo will
 			output "default".</div>
-<div class="old-help-para">:colo[rscheme] <code>{name}</code>	Load color scheme <code>{name}</code>.  This searches <a href="options.html#'runtimepath'">'runtimepath'</a>
+<div class="old-help-para">:colo[rscheme] <code>{name}</code>	Load color scheme <code>{name}</code>.  This searches <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>
 			for the file "colors/{name}.(vim|lua)".  The first one that
 			is found is loaded.
 			Note: "colors/{name}.vim" is tried first.
-			Also searches all plugins in <a href="options.html#'packpath'">'packpath'</a>, first below
+			Also searches all plugins in <a href="/neovim-docs-web/en/options#'packpath'">'packpath'</a>, first below
 			"start" and then under "opt".</div>
 <div class="old-help-para">			Doesn't work recursively, thus you can't use
 			":colorscheme" in a color scheme script.</div>
@@ -3232,9 +3232,9 @@ in their own color.
 			load the original color scheme:<pre>runtime colors/evening.vim
 hi Statement ctermfg=Blue guifg=Blue</pre></div>
 <div class="old-help-para">			Before the color scheme will be loaded the
-			<a href="autocmd.html#ColorSchemePre">ColorSchemePre</a> autocommand event is triggered.
+			<a href="/neovim-docs-web/en/autocmd#ColorSchemePre">ColorSchemePre</a> autocommand event is triggered.
 			After the color scheme has been loaded the
-			<a href="autocmd.html#ColorScheme">ColorScheme</a> autocommand event is triggered.
+			<a href="/neovim-docs-web/en/autocmd#ColorScheme">ColorScheme</a> autocommand event is triggered.
 			For info about writing a color scheme file:<pre>:edit $VIMRUNTIME/colors/README.txt</pre>
 :hi[ghlight]		List all the current highlight groups that have
 			attributes set.</div>
@@ -3243,9 +3243,9 @@ hi Statement ctermfg=Blue guifg=Blue</pre></div>
 <div class="old-help-para">						<a name="highlight-clear"></a><code class="help-tag-right">highlight-clear</code> <a name="%3Ahi-clear"></a><code class="help-tag">:hi-clear</code>
 :hi[ghlight] clear	Reset all highlighting to the defaults.  Removes all
 			highlighting for groups added by the user!
-			Uses the current value of <a href="options.html#'background'">'background'</a> to decide which
+			Uses the current value of <a href="/neovim-docs-web/en/options#'background'">'background'</a> to decide which
 			default colors to use.
-			If there was a default link, restore it. <a href="syntax.html#%3Ahi-link">:hi-link</a></div>
+			If there was a default link, restore it. <a href="/neovim-docs-web/en/syntax#%3Ahi-link">:hi-link</a></div>
 <div class="old-help-para">:hi[ghlight] clear <code>{group-name}</code>
 :hi[ghlight] <code>{group-name}</code> NONE
 			Disable the highlighting for one highlight group.  It
@@ -3253,29 +3253,29 @@ hi Statement ctermfg=Blue guifg=Blue</pre></div>
 <div class="old-help-para">:hi[ghlight] [default] <code>{group-name}</code> <code>{key}</code>={arg} ..
 			Add a highlight group, or change the highlighting for
 			an existing group.
-			See <a href="syntax.html#highlight-args">highlight-args</a> for the <code>{key}</code>={arg} arguments.
-			See <a href="syntax.html#%3Ahighlight-default">:highlight-default</a> for the optional [default]
+			See <a href="/neovim-docs-web/en/syntax#highlight-args">highlight-args</a> for the <code>{key}</code>={arg} arguments.
+			See <a href="/neovim-docs-web/en/syntax#%3Ahighlight-default">:highlight-default</a> for the optional [default]
 			argument.</div>
 <div class="old-help-para">Normally a highlight group is added once when starting up.  This sets the
 default values for the highlighting.  After that, you can use additional
 highlight commands to change the arguments that you want to set to non-default
 values.  The value "NONE" can be used to switch the value off or go back to
 the default value.</div>
-<div class="old-help-para">A simple way to change colors is with the <a href="syntax.html#%3Acolorscheme">:colorscheme</a> command.  This loads
+<div class="old-help-para">A simple way to change colors is with the <a href="/neovim-docs-web/en/syntax#%3Acolorscheme">:colorscheme</a> command.  This loads
 a file with ":highlight" commands such as this:<pre>:hi Comment        gui=bold</pre>
 Note that all settings that are not included remain the same, only the
 specified field is used, and settings are merged with previous ones.  So, the
 result is like this single command has been used:<pre>:hi Comment        ctermfg=Cyan guifg=#80a0ff gui=bold</pre></div>
 <div class="old-help-para">							<a name="%3Ahighlight-verbose"></a><code class="help-tag-right">:highlight-verbose</code>
-When listing a highlight group and <a href="options.html#'verbose'">'verbose'</a> is non-zero, the listing will
+When listing a highlight group and <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> is non-zero, the listing will
 also tell where it was last set.  Example:<pre>:verbose hi Comment</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	Comment        xxx ctermfg=4 guifg=Blue</div><div class="help-column_heading">	   Last set from /home/mool/vim/vim7/runtime/syntax/syncolor.vim</div></div>
 <div class="old-help-para">When ":hi clear" is used then the script where this command is used will be
-mentioned for the default values. See <a href="various.html#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
+mentioned for the default values. See <a href="/neovim-docs-web/en/various#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
 <div class="old-help-para">					<a name="highlight-args"></a><code class="help-tag-right">highlight-args</code> <a name="E416"></a><code class="help-tag">E416</code> <a name="E417"></a><code class="help-tag">E417</code> <a name="E423"></a><code class="help-tag">E423</code>
 There are two types of UIs for highlighting:
-cterm	terminal UI (<a href="term.html#TUI">TUI</a>)
-gui	GUI or RGB-capable TUI (<a href="options.html#'termguicolors'">'termguicolors'</a>)</div>
+cterm	terminal UI (<a href="/neovim-docs-web/en/term#TUI">TUI</a>)
+gui	GUI or RGB-capable TUI (<a href="/neovim-docs-web/en/options#'termguicolors'">'termguicolors'</a>)</div>
 <div class="old-help-para">For each type the highlighting can be given.  This makes it possible to use
 the same syntax file on all UIs.</div>
 <div class="old-help-para">1. TUI highlight arguments</div>
@@ -3303,7 +3303,7 @@ cterm={attr-list}			<a name="attr-list"></a><code class="help-tag-right">attr-li
 	have the same effect.
 	"undercurl", "underdouble", "underdotted", and "underdashed" fall back
 	to "underline" in a terminal that does not support them. The color is
-	set using <a href="syntax.html#guisp">guisp</a>.</div>
+	set using <a href="/neovim-docs-web/en/syntax#guisp">guisp</a>.</div>
 <div class="old-help-para">start={term-list}				<a name="highlight-start"></a><code class="help-tag-right">highlight-start</code> <a name="E422"></a><code class="help-tag">E422</code>
 stop={term-list}				<a name="term-list"></a><code class="help-tag-right">term-list</code> <a name="highlight-stop"></a><code class="help-tag">highlight-stop</code>
 	These lists of terminal codes can be used to get
@@ -3323,7 +3323,7 @@ stop={term-list}				<a name="term-list"></a><code class="help-tag-right">term-li
 <div class="old-help-para">ctermfg={color-nr}				<a name="ctermfg"></a><code class="help-tag-right">ctermfg</code> <a name="E421"></a><code class="help-tag">E421</code>
 ctermbg={color-nr}				<a name="ctermbg"></a><code class="help-tag-right">ctermbg</code>
 	The <code>{color-nr}</code> argument is a color number.  Its range is zero to
-	(not including) the number of <a href="term.html#tui-colors">tui-colors</a> available.
+	(not including) the number of <a href="/neovim-docs-web/en/term#tui-colors">tui-colors</a> available.
 	The actual color with this number depends on the type of terminal
 	and its settings.  Sometimes the color also depends on the settings of
 	"cterm".  For example, on some systems "cterm=bold ctermfg=3" gives
@@ -3366,17 +3366,17 @@ ctermbg={color-nr}				<a name="ctermbg"></a><code class="help-tag-right">ctermbg
 	these will become the colors used for the non-highlighted text.
 	Example:<pre>:highlight Normal ctermfg=grey ctermbg=darkblue</pre></div>
 <div class="old-help-para">	When setting the "ctermbg" color for the Normal group, the
-	<a href="options.html#'background'">'background'</a> option will be adjusted automatically, under the
-	condition that the color is recognized and <a href="options.html#'background'">'background'</a> was not set
+	<a href="/neovim-docs-web/en/options#'background'">'background'</a> option will be adjusted automatically, under the
+	condition that the color is recognized and <a href="/neovim-docs-web/en/options#'background'">'background'</a> was not set
 	explicitly.  This causes the highlight groups that depend on
-	<a href="options.html#'background'">'background'</a> to change!  This means you should set the colors for
+	<a href="/neovim-docs-web/en/options#'background'">'background'</a> to change!  This means you should set the colors for
 	Normal first, before setting other colors.
-	When a color scheme is being used, changing <a href="options.html#'background'">'background'</a> causes it to
+	When a color scheme is being used, changing <a href="/neovim-docs-web/en/options#'background'">'background'</a> causes it to
 	be reloaded, which may reset all colors (including Normal).  First
 	delete the "g:colors_name" variable when you don't want this.</div>
 <div class="old-help-para">	When you have set "ctermfg" or "ctermbg" for the Normal group, Vim
 	needs to reset the color when exiting.	This is done with the
-	"orig_pair" <a href="term.html#terminfo">terminfo</a> entry.
+	"orig_pair" <a href="/neovim-docs-web/en/term#terminfo">terminfo</a> entry.
 							<a name="E419"></a><code class="help-tag-right">E419</code> <a name="E420"></a><code class="help-tag">E420</code>
 	When Vim knows the normal foreground and background colors, "fg" and
 	"bg" can be used as color names.  This only works after setting the
@@ -3388,7 +3388,7 @@ ctermbg={color-nr}				<a name="ctermbg"></a><code class="help-tag-right">ctermbg
 <div class="old-help-para">2. GUI highlight arguments</div>
 <div class="old-help-para">gui={attr-list}						<a name="highlight-gui"></a><code class="help-tag-right">highlight-gui</code>
 	These give the attributes to use in the GUI mode.
-	See <a href="syntax.html#attr-list">attr-list</a> for a description.
+	See <a href="/neovim-docs-web/en/syntax#attr-list">attr-list</a> for a description.
 	Note that "bold" can be used here and by using a bold font.  They
 	have the same effect.
 	Note that the attributes are ignored for the "Normal" group.</div>
@@ -3397,7 +3397,7 @@ ctermbg={color-nr}				<a name="ctermbg"></a><code class="help-tag-right">ctermbg
 	runs on.  For X11 this is a complicated name, for example:<pre>font=-misc-fixed-bold-r-normal--14-130-75-75-c-70-iso8859-1</pre></div>
 <div class="old-help-para">	The font-name "NONE" can be used to revert to the default font.
 	When setting the font for the "Normal" group, this becomes the default
-	font (until the <a href="options.html#'guifont'">'guifont'</a> option is changed; the last one set is
+	font (until the <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> option is changed; the last one set is
 	used).
 	The following only works with Motif not with other GUIs:
 	When setting the font for the "Menu" group, the menus will be changed.
@@ -3443,44 +3443,44 @@ guisp={color-name}					<a name="guisp"></a><code class="help-tag-right">guisp</c
 	All values are hexadecimal, range from "00" to "ff".  Examples:<pre>:highlight Comment guifg=#11f0c3 guibg=#ff00ff</pre></div>
 <div class="old-help-para">blend={integer}					<a name="highlight-blend"></a><code class="help-tag-right">highlight-blend</code>
 	Override the blend level for a highlight group within the popupmenu
-	or floating windows. Only takes effect if <a href="options.html#'pumblend'">'pumblend'</a> or <a href="options.html#'winblend'">'winblend'</a>
+	or floating windows. Only takes effect if <a href="/neovim-docs-web/en/options#'pumblend'">'pumblend'</a> or <a href="/neovim-docs-web/en/options#'winblend'">'winblend'</a>
 	is set for the menu or window. See the help at the respective option.</div>
 <div class="old-help-para">					<a name="highlight-groups"></a><code class="help-tag-right">highlight-groups</code> <a name="highlight-default"></a><code class="help-tag">highlight-default</code>
 These are the builtin highlighting groups.  Note that the highlighting depends
-on the value of <a href="options.html#'background'">'background'</a>.  You can see the current settings with the
+on the value of <a href="/neovim-docs-web/en/options#'background'">'background'</a>.  You can see the current settings with the
 ":highlight" command.
 							<a name="hl-ColorColumn"></a><code class="help-tag-right">hl-ColorColumn</code>
-ColorColumn	Used for the columns set with <a href="options.html#'colorcolumn'">'colorcolumn'</a>.
+ColorColumn	Used for the columns set with <a href="/neovim-docs-web/en/options#'colorcolumn'">'colorcolumn'</a>.
 							<a name="hl-Conceal"></a><code class="help-tag-right">hl-Conceal</code>
 Conceal		Placeholder characters substituted for concealed
-		text (see <a href="options.html#'conceallevel'">'conceallevel'</a>).
+		text (see <a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a>).
 							<a name="hl-CurSearch"></a><code class="help-tag-right">hl-CurSearch</code>
 CurSearch	Used for highlighting a search pattern under the cursor
-		(see <a href="options.html#'hlsearch'">'hlsearch'</a>).
+		(see <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a>).
 							<a name="hl-Cursor"></a><code class="help-tag-right">hl-Cursor</code>
 Cursor		Character under the cursor.
-lCursor		Character under the cursor when <a href="map.html#language-mapping">language-mapping</a>
-		is used (see <a href="options.html#'guicursor'">'guicursor'</a>).
+lCursor		Character under the cursor when <a href="/neovim-docs-web/en/map#language-mapping">language-mapping</a>
+		is used (see <a href="/neovim-docs-web/en/options#'guicursor'">'guicursor'</a>).
 							<a name="hl-CursorIM"></a><code class="help-tag-right">hl-CursorIM</code>
 CursorIM	Like Cursor, but used when in IME mode. <a name="CursorIM"></a><code class="help-tag">CursorIM</code>
 							<a name="hl-CursorColumn"></a><code class="help-tag-right">hl-CursorColumn</code>
-CursorColumn	Screen-column at the cursor, when <a href="options.html#'cursorcolumn'">'cursorcolumn'</a> is set.
+CursorColumn	Screen-column at the cursor, when <a href="/neovim-docs-web/en/options#'cursorcolumn'">'cursorcolumn'</a> is set.
 							<a name="hl-CursorLine"></a><code class="help-tag-right">hl-CursorLine</code>
-CursorLine	Screen-line at the cursor, when <a href="options.html#'cursorline'">'cursorline'</a> is set.
+CursorLine	Screen-line at the cursor, when <a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is set.
 		Low-priority if foreground (ctermfg OR guifg) is not set.
 							<a name="hl-Directory"></a><code class="help-tag-right">hl-Directory</code>
 Directory	Directory names (and other special names in listings).
 							<a name="hl-DiffAdd"></a><code class="help-tag-right">hl-DiffAdd</code>
-DiffAdd		Diff mode: Added line. <a href="diff.html#diff.txt">diff.txt</a>
+DiffAdd		Diff mode: Added line. <a href="/neovim-docs-web/en/diff#diff.txt">diff.txt</a>
 							<a name="hl-DiffChange"></a><code class="help-tag-right">hl-DiffChange</code>
-DiffChange	Diff mode: Changed line. <a href="diff.html#diff.txt">diff.txt</a>
+DiffChange	Diff mode: Changed line. <a href="/neovim-docs-web/en/diff#diff.txt">diff.txt</a>
 							<a name="hl-DiffDelete"></a><code class="help-tag-right">hl-DiffDelete</code>
-DiffDelete	Diff mode: Deleted line. <a href="diff.html#diff.txt">diff.txt</a>
+DiffDelete	Diff mode: Deleted line. <a href="/neovim-docs-web/en/diff#diff.txt">diff.txt</a>
 							<a name="hl-DiffText"></a><code class="help-tag-right">hl-DiffText</code>
-DiffText	Diff mode: Changed text within a changed line. <a href="diff.html#diff.txt">diff.txt</a>
+DiffText	Diff mode: Changed text within a changed line. <a href="/neovim-docs-web/en/diff#diff.txt">diff.txt</a>
 							<a name="hl-EndOfBuffer"></a><code class="help-tag-right">hl-EndOfBuffer</code>
 EndOfBuffer	Filler lines (~) after the end of the buffer.
-		By default, this is highlighted like <a href="syntax.html#hl-NonText">hl-NonText</a>.
+		By default, this is highlighted like <a href="/neovim-docs-web/en/syntax#hl-NonText">hl-NonText</a>.
 							<a name="hl-TermCursor"></a><code class="help-tag-right">hl-TermCursor</code>
 TermCursor	Cursor in a focused terminal.
 							<a name="hl-TermCursorNC"></a><code class="help-tag-right">hl-TermCursorNC</code>
@@ -3492,46 +3492,46 @@ WinSeparator	Separators between window splits.
 							<a name="hl-Folded"></a><code class="help-tag-right">hl-Folded</code>
 Folded		Line used for closed folds.
 							<a name="hl-FoldColumn"></a><code class="help-tag-right">hl-FoldColumn</code>
-FoldColumn	<a href="options.html#'foldcolumn'">'foldcolumn'</a>
+FoldColumn	<a href="/neovim-docs-web/en/options#'foldcolumn'">'foldcolumn'</a>
 							<a name="hl-SignColumn"></a><code class="help-tag-right">hl-SignColumn</code>
-SignColumn	Column where <a href="sign.html#signs">signs</a> are displayed.
+SignColumn	Column where <a href="/neovim-docs-web/en/sign#signs">signs</a> are displayed.
 							<a name="hl-IncSearch"></a><code class="help-tag-right">hl-IncSearch</code>
-IncSearch	<a href="options.html#'incsearch'">'incsearch'</a> highlighting; also used for the text replaced with
+IncSearch	<a href="/neovim-docs-web/en/options#'incsearch'">'incsearch'</a> highlighting; also used for the text replaced with
 		":s///c".
 							<a name="hl-Substitute"></a><code class="help-tag-right">hl-Substitute</code>
-Substitute	<a href="change.html#%3Asubstitute">:substitute</a> replacement text highlighting.</div>
+Substitute	<a href="/neovim-docs-web/en/change#%3Asubstitute">:substitute</a> replacement text highlighting.</div>
 <div class="old-help-para">							<a name="hl-LineNr"></a><code class="help-tag-right">hl-LineNr</code>
-LineNr		Line number for ":number" and ":#" commands, and when <a href="options.html#'number'">'number'</a>
-		or <a href="options.html#'relativenumber'">'relativenumber'</a> option is set.
+LineNr		Line number for ":number" and ":#" commands, and when <a href="/neovim-docs-web/en/options#'number'">'number'</a>
+		or <a href="/neovim-docs-web/en/options#'relativenumber'">'relativenumber'</a> option is set.
 							<a name="hl-LineNrAbove"></a><code class="help-tag-right">hl-LineNrAbove</code>
-LineNrAbove	Line number for when the <a href="options.html#'relativenumber'">'relativenumber'</a>
+LineNrAbove	Line number for when the <a href="/neovim-docs-web/en/options#'relativenumber'">'relativenumber'</a>
 		option is set, above the cursor line.
 							<a name="hl-LineNrBelow"></a><code class="help-tag-right">hl-LineNrBelow</code>
-LineNrBelow	Line number for when the <a href="options.html#'relativenumber'">'relativenumber'</a>
+LineNrBelow	Line number for when the <a href="/neovim-docs-web/en/options#'relativenumber'">'relativenumber'</a>
 		option is set, below the cursor line.
 							<a name="hl-CursorLineNr"></a><code class="help-tag-right">hl-CursorLineNr</code>
-CursorLineNr	Like LineNr when <a href="options.html#'cursorline'">'cursorline'</a> is set and <a href="options.html#'cursorlineopt'">'cursorlineopt'</a>
+CursorLineNr	Like LineNr when <a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is set and <a href="/neovim-docs-web/en/options#'cursorlineopt'">'cursorlineopt'</a>
 		contains "number" or is "both", for the cursor line.
 							<a name="hl-CursorLineFold"></a><code class="help-tag-right">hl-CursorLineFold</code>
-CursorLineFold	Like FoldColumn when <a href="options.html#'cursorline'">'cursorline'</a> is set for the cursor line.
+CursorLineFold	Like FoldColumn when <a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is set for the cursor line.
 							<a name="hl-CursorLineSign"></a><code class="help-tag-right">hl-CursorLineSign</code>
-CursorLineSign	Like SignColumn when <a href="options.html#'cursorline'">'cursorline'</a> is set for the cursor line.
+CursorLineSign	Like SignColumn when <a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is set for the cursor line.
 							<a name="hl-MatchParen"></a><code class="help-tag-right">hl-MatchParen</code>
 MatchParen	Character under the cursor or just before it, if it
-		is a paired bracket, and its match. <a href="pi_paren.html#pi_paren.txt">pi_paren.txt</a></div>
+		is a paired bracket, and its match. <a href="/neovim-docs-web/en/pi_paren#pi_paren.txt">pi_paren.txt</a></div>
 <div class="old-help-para">							<a name="hl-ModeMsg"></a><code class="help-tag-right">hl-ModeMsg</code>
-ModeMsg		<a href="options.html#'showmode'">'showmode'</a> message (e.g., "-- INSERT --").
+ModeMsg		<a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> message (e.g., "-- INSERT --").
 							<a name="hl-MsgArea"></a><code class="help-tag-right">hl-MsgArea</code>
 MsgArea		Area for messages and cmdline.
 							<a name="hl-MsgSeparator"></a><code class="help-tag-right">hl-MsgSeparator</code>
-MsgSeparator	Separator for scrolled messages <a href="vim_diff.html#msgsep">msgsep</a>.
+MsgSeparator	Separator for scrolled messages <a href="/neovim-docs-web/en/vim_diff#msgsep">msgsep</a>.
 							<a name="hl-MoreMsg"></a><code class="help-tag-right">hl-MoreMsg</code>
-MoreMsg		<a href="message.html#more-prompt">more-prompt</a>
+MoreMsg		<a href="/neovim-docs-web/en/message#more-prompt">more-prompt</a>
 							<a name="hl-NonText"></a><code class="help-tag-right">hl-NonText</code>
-NonText		'@' at the end of the window, characters from <a href="options.html#'showbreak'">'showbreak'</a>
+NonText		'@' at the end of the window, characters from <a href="/neovim-docs-web/en/options#'showbreak'">'showbreak'</a>
 		and other characters that do not really exist in the text
 		(e.g., "&gt;" displayed when a double-wide character doesn't
-		fit at the end of the line). See also <a href="syntax.html#hl-EndOfBuffer">hl-EndOfBuffer</a>.
+		fit at the end of the line). See also <a href="/neovim-docs-web/en/syntax#hl-EndOfBuffer">hl-EndOfBuffer</a>.
 							<a name="hl-Normal"></a><code class="help-tag-right">hl-Normal</code>
 Normal		Normal text.
 							<a name="hl-NormalFloat"></a><code class="help-tag-right">hl-NormalFloat</code>
@@ -3547,29 +3547,29 @@ PmenuSbar	Popup menu: Scrollbar.
 							<a name="hl-PmenuThumb"></a><code class="help-tag-right">hl-PmenuThumb</code>
 PmenuThumb	Popup menu: Thumb of the scrollbar.
 							<a name="hl-Question"></a><code class="help-tag-right">hl-Question</code>
-Question	<a href="message.html#hit-enter">hit-enter</a> prompt and yes/no questions.
+Question	<a href="/neovim-docs-web/en/message#hit-enter">hit-enter</a> prompt and yes/no questions.
 							<a name="hl-QuickFixLine"></a><code class="help-tag-right">hl-QuickFixLine</code>
-QuickFixLine	Current <a href="quickfix.html#quickfix">quickfix</a> item in the quickfix window. Combined with
-                <a href="syntax.html#hl-CursorLine">hl-CursorLine</a> when the cursor is there.
+QuickFixLine	Current <a href="/neovim-docs-web/en/quickfix#quickfix">quickfix</a> item in the quickfix window. Combined with
+                <a href="/neovim-docs-web/en/syntax#hl-CursorLine">hl-CursorLine</a> when the cursor is there.
 							<a name="hl-Search"></a><code class="help-tag-right">hl-Search</code>
-Search		Last search pattern highlighting (see <a href="options.html#'hlsearch'">'hlsearch'</a>).
+Search		Last search pattern highlighting (see <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a>).
 		Also used for similar items that need to stand out.
 							<a name="hl-SpecialKey"></a><code class="help-tag-right">hl-SpecialKey</code>
 SpecialKey	Unprintable characters: Text displayed differently from what
-		it really is. But not <a href="options.html#'listchars'">'listchars'</a> whitespace. <a href="syntax.html#hl-Whitespace">hl-Whitespace</a>
+		it really is. But not <a href="/neovim-docs-web/en/options#'listchars'">'listchars'</a> whitespace. <a href="/neovim-docs-web/en/syntax#hl-Whitespace">hl-Whitespace</a>
 							<a name="hl-SpellBad"></a><code class="help-tag-right">hl-SpellBad</code>
-SpellBad	Word that is not recognized by the spellchecker. <a href="spell.html#spell">spell</a>
+SpellBad	Word that is not recognized by the spellchecker. <a href="/neovim-docs-web/en/spell#spell">spell</a>
 		Combined with the highlighting used otherwise.
 							<a name="hl-SpellCap"></a><code class="help-tag-right">hl-SpellCap</code>
-SpellCap	Word that should start with a capital. <a href="spell.html#spell">spell</a>
+SpellCap	Word that should start with a capital. <a href="/neovim-docs-web/en/spell#spell">spell</a>
 		Combined with the highlighting used otherwise.
 							<a name="hl-SpellLocal"></a><code class="help-tag-right">hl-SpellLocal</code>
 SpellLocal	Word that is recognized by the spellchecker as one that is
-		used in another region. <a href="spell.html#spell">spell</a>
+		used in another region. <a href="/neovim-docs-web/en/spell#spell">spell</a>
 		Combined with the highlighting used otherwise.
 							<a name="hl-SpellRare"></a><code class="help-tag-right">hl-SpellRare</code>
 SpellRare	Word that is recognized by the spellchecker as one that is
-		hardly ever used. <a href="spell.html#spell">spell</a>
+		hardly ever used. <a href="/neovim-docs-web/en/spell#spell">spell</a>
 		Combined with the highlighting used otherwise.
 							<a name="hl-StatusLine"></a><code class="help-tag-right">hl-StatusLine</code>
 StatusLine	Status line of current window.
@@ -3593,16 +3593,16 @@ VisualNOS	Visual mode selection when vim is "Not Owning the Selection".
 WarningMsg	Warning messages.
 							<a name="hl-Whitespace"></a><code class="help-tag-right">hl-Whitespace</code>
 Whitespace	"nbsp", "space", "tab", "multispace", "lead" and "trail"
-		in <a href="options.html#'listchars'">'listchars'</a>.
+		in <a href="/neovim-docs-web/en/options#'listchars'">'listchars'</a>.
 							<a name="hl-WildMenu"></a><code class="help-tag-right">hl-WildMenu</code>
-WildMenu	Current match in <a href="options.html#'wildmenu'">'wildmenu'</a> completion.
+WildMenu	Current match in <a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a> completion.
 							<a name="hl-WinBar"></a><code class="help-tag-right">hl-WinBar</code>
 WinBar		Window bar of current window.
 							<a name="hl-WinBarNC"></a><code class="help-tag-right">hl-WinBarNC</code>
 WinBarNC	Window bar of not-current windows.</div>
 <div class="old-help-para">					<a name="hl-User1"></a><code class="help-tag-right">hl-User1</code> <a name="hl-User1..9"></a><code class="help-tag">hl-User1..9</code> <a name="hl-User9"></a><code class="help-tag">hl-User9</code>
-The <a href="options.html#'statusline'">'statusline'</a> syntax allows the use of 9 different highlights in the
-statusline and ruler (via <a href="options.html#'rulerformat'">'rulerformat'</a>).  The names are User1 to User9.</div>
+The <a href="/neovim-docs-web/en/options#'statusline'">'statusline'</a> syntax allows the use of 9 different highlights in the
+statusline and ruler (via <a href="/neovim-docs-web/en/options#'rulerformat'">'rulerformat'</a>).  The names are User1 to User9.</div>
 <div class="old-help-para">For the GUI you can use the following groups to set the colors for the menu,
 scrollbars and tooltips.  They don't have defaults.  This doesn't work for the
 Win32 GUI.  Only three highlight arguments have any effect here: font, guibg,
@@ -3667,7 +3667,7 @@ If you want to disable syntax highlighting for all buffers, you need to remove
 the autocommands that load the syntax files:<pre>:syntax off</pre>
 What this command actually does, is executing the command<pre>:source $VIMRUNTIME/syntax/nosyntax.vim</pre>
 See the "nosyntax.vim" file for details.  Note that for this to work
-$VIMRUNTIME must be valid.  See <a href="starting.html#%24VIMRUNTIME">$VIMRUNTIME</a>.</div>
+$VIMRUNTIME must be valid.  See <a href="/neovim-docs-web/en/starting#%24VIMRUNTIME">$VIMRUNTIME</a>.</div>
 <div class="old-help-para">						<a name="%3Asyntax-reset"></a><code class="help-tag-right">:syntax-reset</code> <a name="%3Asyn-reset"></a><code class="help-tag">:syn-reset</code>
 If you have changed the colors and messed them up, use this command to get the
 defaults back:<pre>:syntax reset</pre>
@@ -3679,7 +3679,7 @@ Note that if you are using a color scheme, the colors defined by the color
 scheme for syntax highlighting will be lost.</div>
 <div class="old-help-para">Note that when a color scheme is used, there might be some confusion whether
 your defined colors are to be used or the colors from the scheme.  This
-depends on the color scheme file.  See <a href="syntax.html#%3Acolorscheme">:colorscheme</a>.</div>
+depends on the color scheme file.  See <a href="/neovim-docs-web/en/syntax#%3Acolorscheme">:colorscheme</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">16. Highlighting tags<span class="help-heading-tags">					<a name="tag-highlight"></a><span class="help-tag">tag-highlight</span></span></h2></div>
 <div class="old-help-para">If you want to highlight all the tags in your file, you can use the following
 mappings.</div>
@@ -3707,7 +3707,7 @@ possible, however, to set a particular window on a file to have its own
 private syntax setting. A possible example would be to edit LaTeX source
 with conventional highlighting in one window, while seeing the same source
 highlighted differently (so as to hide control sequences and indicate bold,
-italic etc regions) in another. The <a href="options.html#'scrollbind'">'scrollbind'</a> option is useful here.</div>
+italic etc regions) in another. The <a href="/neovim-docs-web/en/options#'scrollbind'">'scrollbind'</a> option is useful here.</div>
 <div class="old-help-para">To set the current window to have the syntax "foo", separately from all other
 windows on the buffer:<pre>:ownsyntax foo</pre></div>
 <div class="old-help-para">						<a name="w%3Acurrent_syntax"></a><code class="help-tag-right">w:current_syntax</code>
@@ -3716,7 +3716,7 @@ This will set the "w:current_syntax" variable to "foo".  The value of
 restoring "b:current_syntax", since the syntax files do set
 "b:current_syntax".  The value set by the syntax file is assigned to
 "w:current_syntax".
-Note: This resets the <a href="options.html#'spell'">'spell'</a>, <a href="options.html#'spellcapcheck'">'spellcapcheck'</a> and <a href="options.html#'spellfile'">'spellfile'</a> options.</div>
+Note: This resets the <a href="/neovim-docs-web/en/options#'spell'">'spell'</a>, <a href="/neovim-docs-web/en/options#'spellcapcheck'">'spellcapcheck'</a> and <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> options.</div>
 <div class="old-help-para">Once a window has its own syntax, syntax commands executed from other windows
 on the same buffer (including :syntax clear) have no effect. Conversely,
 syntax commands executed from that window do not affect other windows on the
@@ -3728,12 +3728,12 @@ When splitting the window, the new window will use the original syntax.</div>
 <div class="old-help-para">							<a name="colortest.vim"></a><code class="help-tag-right">colortest.vim</code>
 To test your color setup, a file has been included in the Vim distribution.
 To use it, execute this command:<pre>:runtime syntax/colortest.vim</pre>
-Nvim uses 256-color and <a href="term.html#true-color">true-color</a> terminal capabilities wherever possible.</div>
+Nvim uses 256-color and <a href="/neovim-docs-web/en/term#true-color">true-color</a> terminal capabilities wherever possible.</div>
 <div class="old-help-para"><h2 class="help-heading">18. When syntax is slow<span class="help-heading-tags">						<a name="%3Asyntime"></a><span class="help-tag">:syntime</span></span></h2></div>
 <div class="old-help-para">This is aimed at authors of a syntax file.</div>
 <div class="old-help-para">If your syntax causes redrawing to be slow, here are a few hints on making it
 faster.  To see slowness switch on some features that usually interfere, such
-as <a href="options.html#'relativenumber'">'relativenumber'</a> and <a href="fold.html#folding">folding</a>.</div>
+as <a href="/neovim-docs-web/en/options#'relativenumber'">'relativenumber'</a> and <a href="/neovim-docs-web/en/fold#folding">folding</a>.</div>
 <div class="old-help-para">To find out what patterns are consuming most time, get an overview with this
 sequence:<pre>:syntime on
 [ redraw the text at least once with CTRL-L ]

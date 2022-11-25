@@ -33,7 +33,7 @@ To run all healthchecks, use:<pre>:checkhealth</pre>
 
 </div>
 <div class="help-para">
-Plugin authors are encouraged to write new healthchecks. <a href="pi_health.html#health-dev">health-dev</a>
+Plugin authors are encouraged to write new healthchecks. <a href="/neovim-docs-web/en/pi_health#health-dev">health-dev</a>
 
 </div>
 <div class="help-para">
@@ -45,7 +45,7 @@ Plugin authors are encouraged to write new healthchecks. <a href="pi_health.html
                                         <a name="%3Ache"></a><code class="help-tag-right">:che</code> <a name="%3Acheckhealth"></a><code class="help-tag">:checkhealth</code> <a name="%3ACheckHealth"></a><code class="help-tag">:CheckHealth</code>
 :che[ckhealth]  Run all healthchecks.
                                         <a name="E5009"></a><code class="help-tag-right">E5009</code>
-                Nvim depends on <a href="starting.html#%24VIMRUNTIME">$VIMRUNTIME</a>, <a href="options.html#'runtimepath'">'runtimepath'</a> and <a href="options.html#'packpath'">'packpath'</a> to
+                Nvim depends on <a href="/neovim-docs-web/en/starting#%24VIMRUNTIME">$VIMRUNTIME</a>, <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> and <a href="/neovim-docs-web/en/options#'packpath'">'packpath'</a> to
                 find the standard "runtime files" for syntax highlighting,
                 filetype-specific behavior, and standard plugins (including
                 :checkhealth).  If the runtime files cannot be found then
@@ -60,7 +60,7 @@ Plugin authors are encouraged to write new healthchecks. <a href="pi_health.html
 </div>
 <div class="help-para">
                 To run the healthchecks for the "foo" and "bar" plugins
-                (assuming they are on <a href="options.html#'runtimepath'">'runtimepath'</a> and they have implemented
+                (assuming they are on <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> and they have implemented
                 the Lua <code>require("foo.health").check()</code> interface):<pre>:checkhealth foo bar</pre>
 
 </div>
@@ -78,7 +78,7 @@ Plugin authors are encouraged to write new healthchecks. <a href="pi_health.html
 </div>
 <div class="help-para">
 The Lua "health" module can be used to create new healthchecks. To get started
-see <a href="pi_health.html#health-dev">health-dev</a>.
+see <a href="/neovim-docs-web/en/pi_health#health-dev">health-dev</a>.
 
 </div>
 <div class="help-para">
@@ -127,13 +127,13 @@ healthchecks in:
 </div>
 <div class="help-para">
 To add a new healthcheck for your own plugin, simply create a "health.lua"
-module on <a href="options.html#'runtimepath'">'runtimepath'</a> that returns a table with a "check()" function. Then
-<a href="pi_health.html#%3Acheckhealth">:checkhealth</a> will automatically find and invoke the function.
+module on <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> that returns a table with a "check()" function. Then
+<a href="/neovim-docs-web/en/pi_health#%3Acheckhealth">:checkhealth</a> will automatically find and invoke the function.
 
 </div>
 <div class="help-para">
 For example if your plugin is named "foo", define your healthcheck module at
-one of these locations (on <a href="options.html#'runtimepath'">'runtimepath'</a>):
+one of these locations (on <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>):
 <div class="help-li" style=""> lua/foo/health/init.lua
 </div><div class="help-li" style=""> lua/foo/health.lua
 </div>

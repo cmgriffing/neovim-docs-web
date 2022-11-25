@@ -13,7 +13,7 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">The perl Interface to Vim <a name="perl"></a><code class="help-tag">perl</code></div>
-<div class="old-help-para">See <a href="provider.html#provider-perl">provider-perl</a> for more information.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/provider#provider-perl">provider-perl</a> for more information.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Commands<span class="help-heading-tags">						<a name="perl-commands"></a><span class="help-tag">perl-commands</span></span></h2></div>
 <div class="old-help-para">							<a name="%3Aperl"></a><code class="help-tag-right">:perl</code>
 :[range]perl <code>{stmt}</code>
@@ -27,9 +27,9 @@ layout: ../../layouts/MainLayout.astro
 			The <code>{endmarker}</code> after <code>{script}</code> must NOT be preceded by
 			any white space.</div>
 <div class="old-help-para">			If [endmarker] is omitted, it defaults to a dot '.'
-			like for the <a href="insert.html#%3Aappend">:append</a> and <a href="insert.html#%3Ainsert">:insert</a> commands.</div>
+			like for the <a href="/neovim-docs-web/en/insert#%3Aappend">:append</a> and <a href="/neovim-docs-web/en/insert#%3Ainsert">:insert</a> commands.</div>
 <div class="old-help-para">			Useful for including perl code in Vim scripts.
-			Requires perl, see <a href="if_pyth.html#script-here">script-here</a>.</div>
+			Requires perl, see <a href="/neovim-docs-web/en/if_pyth#script-here">script-here</a>.</div>
 <div class="old-help-para">Example:<pre>function! MyVimMethod()
 perl &lt;&lt; EOF
 sub my_vim_method
@@ -73,7 +73,7 @@ EOF
 perl code, with the "current range" set to the given line range.</div>
 <div class="old-help-para">In the case of :perl, the code to execute is in the command-line.
 In the case of :perlfile, the code to execute is the contents of the given file.</div>
-<div class="old-help-para">perl commands cannot be used in the <a href="eval.html#sandbox">sandbox</a>.</div>
+<div class="old-help-para">perl commands cannot be used in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>.</div>
 <div class="old-help-para">To pass arguments you need to set @ARGV explicitly.  Example:<pre>:perl @ARGV = ("foo", "bar");
 :perlfile myscript.pl</pre>
 Here are some examples					<a name="perl-examples"></a><code class="help-tag-right">perl-examples</code><pre>:perl print "Hello"
@@ -121,15 +121,15 @@ VIM::Msg({msg})
 <div class="old-help-para">							<a name="perl-SetOption"></a><code class="help-tag-right">perl-SetOption</code>
 VIM::SetOption({arg})	Sets a vim option.  <code>{arg}</code> can be any argument that the
 			":set" command accepts.  Note that this means that no
-			spaces are allowed in the argument!  See <a href="options.html#%3Aset">:set</a>.</div>
+			spaces are allowed in the argument!  See <a href="/neovim-docs-web/en/options#%3Aset">:set</a>.</div>
 <div class="old-help-para">							<a name="perl-Buffers"></a><code class="help-tag-right">perl-Buffers</code>
 VIM::Buffers([{bn}...])	With no arguments, returns a list of all the buffers
 			in an array context or returns the number of buffers
 			in a scalar context.  For a list of buffer names or
 			numbers <code>{bn}</code>, returns a list of the buffers matching
 			<code>{bn}</code>, using the same rules as Vim's internal
-			<a href="builtin.html#bufname()">bufname()</a> function.
-			WARNING: the list becomes invalid when <a href="windows.html#%3Abwipe">:bwipe</a> is
+			<a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a> function.
+			WARNING: the list becomes invalid when <a href="/neovim-docs-web/en/windows#%3Abwipe">:bwipe</a> is
 			used.</div>
 <div class="old-help-para">							<a name="perl-Windows"></a><code class="help-tag-right">perl-Windows</code>
 VIM::Windows([{wn}...])	With no arguments, returns a list of all the windows
@@ -148,10 +148,10 @@ VIM::Eval({expr})	Evaluates <code>{expr}</code> and returns (success, value) in 
 			<code>{expr}</code>; success=0 indicates a failure to evaluate
 			the expression.  '@x' returns the contents of register
 			x, '&amp;x' returns the value of option x, 'x' returns the
-			value of internal <a href="eval.html#variables">variables</a> x, and '$x' is equivalent
-			to perl's $ENV{x}.  All <a href="eval.html#functions">functions</a> accessible from
+			value of internal <a href="/neovim-docs-web/en/eval#variables">variables</a> x, and '$x' is equivalent
+			to perl's $ENV{x}.  All <a href="/neovim-docs-web/en/eval#functions">functions</a> accessible from
 			the command-line are valid for <code>{expr}</code>.
-			A <a href="eval.html#List">List</a> is turned into a string by joining the items
+			A <a href="/neovim-docs-web/en/eval#List">List</a> is turned into a string by joining the items
 			and inserting line breaks.</div>
 <div class="old-help-para">							<a name="perl-Blob"></a><code class="help-tag-right">perl-Blob</code>
 VIM::Blob({expr})	Return Blob literal string 0zXXXX from scalar value.</div>

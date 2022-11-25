@@ -23,13 +23,13 @@ example,
 <pre>:set keymap=russian-jcukenwin</pre></div>
 <div class="old-help-para">In the latter case, you can switch between languages even if you do not have
 system Russian keyboard or independently from a system-wide keyboard settings.
-See <a href="options.html#'keymap'">'keymap'</a>.  You can also map a key to switch between keyboards, if you
-choose the latter option.  See <a href="map.html#%3Amap">:map</a>.</div>
+See <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a>.  You can also map a key to switch between keyboards, if you
+choose the latter option.  See <a href="/neovim-docs-web/en/map#%3Amap">:map</a>.</div>
 <div class="old-help-para">For your convenience, to avoid switching between keyboards, when you need to
-enter Normal mode command, you can also set <a href="options.html#'langmap'">'langmap'</a> option:
+enter Normal mode command, you can also set <a href="/neovim-docs-web/en/options#'langmap'">'langmap'</a> option:
 <pre>:set langmap=ФИСВУАПРШОЛДЬТЩЗЙКЫЕГМЦЧНЯ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,
 фисвуапршолдьтщзйкыегмцчня;abcdefghijklmnopqrstuvwxyz</pre>
-This is in utf-8, you cannot read this if your <a href="options.html#'encoding'">'encoding'</a> is not utf-8.
+This is in utf-8, you cannot read this if your <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is not utf-8.
 You have to type this command in one line, it is wrapped for the sake of
 readability.</div>
 <div class="old-help-para"><h2 class="help-heading">3. Localization<span class="help-heading-tags">							 <a name="russian-l18n"></a><span class="help-tag">russian-l18n</span></span></h2></div>
@@ -40,7 +40,7 @@ different codepages from</div>
 <div class="old-help-para">After downloading an archive from RuVim project, unpack it into your
 $VIMRUNTIME directory.  We recommend using UTF-8 archive.</div>
 <div class="old-help-para">In order to use the Russian documentation, make sure you have set the
-<a href="options.html#'helplang'">'helplang'</a> option to "ru".</div>
+<a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> option to "ru".</div>
 <div class="old-help-para"><h2 class="help-heading">4. Known issues<span class="help-heading-tags">						       <a name="russian-issues"></a><span class="help-tag">russian-issues</span></span></h2></div>
 <div class="old-help-para">-- If you are using Russian message translations in Win32 console, then
    you may see the output produced by "vim --help", "vim --version" commands

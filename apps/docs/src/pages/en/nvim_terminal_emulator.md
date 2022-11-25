@@ -14,46 +14,46 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">Terminal emulator <a name="terminal-emulator"></a><code class="help-tag">terminal-emulator</code></div>
 <div class="old-help-para">Nvim embeds a VT220/xterm terminal emulator based on libvterm. The terminal is
-presented as a special <a href="options.html#'buftype'">'buftype'</a>, asynchronously updated as data is received
+presented as a special <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a>, asynchronously updated as data is received
 from the connected program.</div>
 <div class="old-help-para">Terminal buffers behave like normal buffers, except:
-<div class="help-li" style=""> With <a href="options.html#'modifiable'">'modifiable'</a>, lines can be edited but not deleted.
-</div><div class="help-li" style=""> <a href="options.html#'scrollback'">'scrollback'</a> controls how many lines are kept.
+<div class="help-li" style=""> With <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a>, lines can be edited but not deleted.
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'scrollback'">'scrollback'</a> controls how many lines are kept.
 </div><div class="help-li" style=""> Output is followed ("tailed") if cursor is on the last line.
-</div><div class="help-li" style=""> <a href="options.html#'modified'">'modified'</a> is the default. You can set <a href="options.html#'nomodified'">'nomodified'</a> to avoid a warning when
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> is the default. You can set <a href="/neovim-docs-web/en/options#'nomodified'">'nomodified'</a> to avoid a warning when
   closing the terminal buffer.
-</div><div class="help-li" style=""> <a href="options.html#'bufhidden'">'bufhidden'</a> defaults to "hide".
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'bufhidden'">'bufhidden'</a> defaults to "hide".
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">Start<span class="help-heading-tags">						<a name="terminal-start"></a><span class="help-tag">terminal-start</span></span></h2></div>
 <div class="old-help-para">There are several ways to create a terminal buffer:</div>
-<div class="old-help-para"><div class="help-li" style=""> Run the <a href="various.html#%3Aterminal">:terminal</a> command.
-</div><div class="help-li" style=""> Call the <a href="api.html#nvim_open_term()">nvim_open_term()</a> or <a href="builtin.html#termopen()">termopen()</a> function.
+<div class="old-help-para"><div class="help-li" style=""> Run the <a href="/neovim-docs-web/en/various#%3Aterminal">:terminal</a> command.
+</div><div class="help-li" style=""> Call the <a href="/neovim-docs-web/en/api#nvim_open_term()">nvim_open_term()</a> or <a href="/neovim-docs-web/en/builtin#termopen()">termopen()</a> function.
 </div><div class="help-li" style=""> Edit a "term://" buffer. Examples:
 <pre>:edit term://bash
 :vsplit term://top</pre></div></div>
-<div class="old-help-para">    Note: To open a "term://" buffer from an autocmd, the <a href="autocmd.html#autocmd-nested">autocmd-nested</a>
+<div class="old-help-para">    Note: To open a "term://" buffer from an autocmd, the <a href="/neovim-docs-web/en/autocmd#autocmd-nested">autocmd-nested</a>
     modifier is required.<pre>autocmd VimEnter * ++nested split term://sh</pre></div>
-<div class="old-help-para">    (This is only mentioned for reference; use <a href="various.html#%3Aterminal">:terminal</a> instead.)</div>
+<div class="old-help-para">    (This is only mentioned for reference; use <a href="/neovim-docs-web/en/various#%3Aterminal">:terminal</a> instead.)</div>
 <div class="old-help-para">When the terminal starts, the buffer contents are updated and the buffer is
 named in the form of <code>term://{cwd}//{pid}:{cmd}</code>. This naming scheme is used
-by <a href="starting.html#%3Amksession">:mksession</a> to restore a terminal buffer (by restarting the <code>{cmd}</code>).</div>
-<div class="old-help-para">The terminal environment is initialized as in <a href="builtin.html#jobstart-env">jobstart-env</a>.</div>
+by <a href="/neovim-docs-web/en/starting#%3Amksession">:mksession</a> to restore a terminal buffer (by restarting the <code>{cmd}</code>).</div>
+<div class="old-help-para">The terminal environment is initialized as in <a href="/neovim-docs-web/en/builtin#jobstart-env">jobstart-env</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Input<span class="help-heading-tags">						<a name="terminal-input"></a><span class="help-tag">terminal-input</span></span></h2></div>
-<div class="old-help-para">To send input, enter <a href="intro.html#Terminal-mode">Terminal-mode</a> with <a href="insert.html#i">i</a>, <a href="insert.html#I">I</a>, <a href="insert.html#a">a</a>, <a href="insert.html#A">A</a> or
-<a href="insert.html#%3Astartinsert">:startinsert</a>. In this mode all keys except <code>&lt;C-\&gt;</code> are sent to the underlying
+<div class="old-help-para">To send input, enter <a href="/neovim-docs-web/en/intro#Terminal-mode">Terminal-mode</a> with <a href="/neovim-docs-web/en/insert#i">i</a>, <a href="/neovim-docs-web/en/insert#I">I</a>, <a href="/neovim-docs-web/en/insert#a">a</a>, <a href="/neovim-docs-web/en/insert#A">A</a> or
+<a href="/neovim-docs-web/en/insert#%3Astartinsert">:startinsert</a>. In this mode all keys except <code>&lt;C-\&gt;</code> are sent to the underlying
 program. If <code>&lt;C-\&gt;</code> is pressed, the next key is sent unless it is <code>&lt;C-N&gt;</code> or <code>&lt;C-O&gt;</code>.
-Use <code>&lt;C-\&gt;</code><code>&lt;C-N&gt;</code> to return to normal mode. <a href="intro.html#CTRL-%5C_CTRL-N">CTRL-\_CTRL-N</a>
+Use <code>&lt;C-\&gt;</code><code>&lt;C-N&gt;</code> to return to normal mode. <a href="/neovim-docs-web/en/intro#CTRL-%5C_CTRL-N">CTRL-\_CTRL-N</a>
 Use <code>&lt;C-\&gt;</code><code>&lt;C-O&gt;</code> to execute one normal mode command and then return to terminal
 mode. <a name="t_CTRL-%5C_CTRL-O"></a><code class="help-tag">t_CTRL-\_CTRL-O</code></div>
 <div class="old-help-para">Terminal-mode forces these local options:</div>
-<div class="old-help-para">    <a href="options.html#'cursorlineopt'">'cursorlineopt'</a> = number
-    <a href="options.html#'nocursorcolumn'">'nocursorcolumn'</a>
-    <a href="options.html#'scrolloff'">'scrolloff'</a> = 0
-    <a href="options.html#'sidescrolloff'">'sidescrolloff'</a> = 0</div>
-<div class="old-help-para">Terminal-mode has its own <a href="map.html#%3Atnoremap">:tnoremap</a> namespace for mappings, this can be used
+<div class="old-help-para">    <a href="/neovim-docs-web/en/options#'cursorlineopt'">'cursorlineopt'</a> = number
+    <a href="/neovim-docs-web/en/options#'nocursorcolumn'">'nocursorcolumn'</a>
+    <a href="/neovim-docs-web/en/options#'scrolloff'">'scrolloff'</a> = 0
+    <a href="/neovim-docs-web/en/options#'sidescrolloff'">'sidescrolloff'</a> = 0</div>
+<div class="old-help-para">Terminal-mode has its own <a href="/neovim-docs-web/en/map#%3Atnoremap">:tnoremap</a> namespace for mappings, this can be used
 to automate any terminal interaction.</div>
 <div class="old-help-para">To map <code>&lt;Esc&gt;</code> to exit terminal-mode:<pre>:tnoremap &lt;Esc&gt; &lt;C-\&gt;&lt;C-n&gt;</pre>
-To simulate <a href="insert.html#i_CTRL-R">i_CTRL-R</a> in terminal-mode:<pre>:tnoremap &lt;expr&gt; &lt;C-R&gt; '&lt;C-\&gt;&lt;C-N&gt;"'.nr2char(getchar()).'pi'</pre>
+To simulate <a href="/neovim-docs-web/en/insert#i_CTRL-R">i_CTRL-R</a> in terminal-mode:<pre>:tnoremap &lt;expr&gt; &lt;C-R&gt; '&lt;C-\&gt;&lt;C-N&gt;"'.nr2char(getchar()).'pi'</pre>
 To use <code>ALT+{h,j,k,l}</code> to navigate windows from any mode:<pre>:tnoremap &lt;A-h&gt; &lt;C-\&gt;&lt;C-N&gt;&lt;C-w&gt;h
 :tnoremap &lt;A-j&gt; &lt;C-\&gt;&lt;C-N&gt;&lt;C-w&gt;j
 :tnoremap &lt;A-k&gt; &lt;C-\&gt;&lt;C-N&gt;&lt;C-w&gt;k
@@ -67,7 +67,7 @@ To use <code>ALT+{h,j,k,l}</code> to navigate windows from any mode:<pre>:tnorem
 :nnoremap &lt;A-k&gt; &lt;C-w&gt;k
 :nnoremap &lt;A-l&gt; &lt;C-w&gt;l</pre>
 You can also create menus similar to terminal mode mappings, but you have to
-use <a href="gui.html#%3Atlmenu">:tlmenu</a> instead of <a href="gui.html#%3Atmenu">:tmenu</a>.</div>
+use <a href="/neovim-docs-web/en/gui#%3Atlmenu">:tlmenu</a> instead of <a href="/neovim-docs-web/en/gui#%3Atmenu">:tmenu</a>.</div>
 <div class="old-help-para">Mouse input has the following behavior:</div>
 <div class="old-help-para"><div class="help-li" style=""> If the program has enabled mouse events, the corresponding events will be
   forwarded to the program.
@@ -79,38 +79,38 @@ use <a href="gui.html#%3Atlmenu">:tlmenu</a> instead of <a href="gui.html#%3Atme
   the terminal won't lose focus and the hovered window will be scrolled.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">Configuration<span class="help-heading-tags">					<a name="terminal-config"></a><span class="help-tag">terminal-config</span></span></h2></div>
-<div class="old-help-para">Options:		<a href="options.html#'modified'">'modified'</a>, <a href="options.html#'scrollback'">'scrollback'</a>
-Events:			<a href="autocmd.html#TermOpen">TermOpen</a>, <a href="autocmd.html#TermEnter">TermEnter</a>, <a href="autocmd.html#TermLeave">TermLeave</a>, <a href="autocmd.html#TermClose">TermClose</a>
-Highlight groups:	<a href="syntax.html#hl-TermCursor">hl-TermCursor</a>, <a href="syntax.html#hl-TermCursorNC">hl-TermCursorNC</a></div>
+<div class="old-help-para">Options:		<a href="/neovim-docs-web/en/options#'modified'">'modified'</a>, <a href="/neovim-docs-web/en/options#'scrollback'">'scrollback'</a>
+Events:			<a href="/neovim-docs-web/en/autocmd#TermOpen">TermOpen</a>, <a href="/neovim-docs-web/en/autocmd#TermEnter">TermEnter</a>, <a href="/neovim-docs-web/en/autocmd#TermLeave">TermLeave</a>, <a href="/neovim-docs-web/en/autocmd#TermClose">TermClose</a>
+Highlight groups:	<a href="/neovim-docs-web/en/syntax#hl-TermCursor">hl-TermCursor</a>, <a href="/neovim-docs-web/en/syntax#hl-TermCursorNC">hl-TermCursorNC</a></div>
 <div class="old-help-para">Terminal sets local defaults for some options, which may differ from your
 global configuration.</div>
-<div class="old-help-para"><div class="help-li" style=""> <a href="options.html#'list'">'list'</a> is disabled
-</div><div class="help-li" style=""> <a href="options.html#'wrap'">'wrap'</a> is disabled
+<div class="old-help-para"><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'list'">'list'</a> is disabled
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> is disabled
 </div></div>
 <div class="old-help-para">You can change the defaults with a TermOpen autocommand:<pre>au TermOpen * setlocal list</pre>
 <div class="help-column_heading">TERMINAL COLORS</div></div>
 <div class="old-help-para">The <code>{g,b}:terminal_color_x</code> variables control the terminal color palette,
 where <code>x</code> is the color index between 0 and 255 inclusive.  The variables are
-read during <a href="autocmd.html#TermOpen">TermOpen</a>. The value must be a color name or hexadecimal string.
+read during <a href="/neovim-docs-web/en/autocmd#TermOpen">TermOpen</a>. The value must be a color name or hexadecimal string.
 Example:<pre>let g:terminal_color_4 = '#ff0000'
 let g:terminal_color_5 = 'green'</pre>
-Only works for RGB UIs (see <a href="options.html#'termguicolors'">'termguicolors'</a>); for 256-color terminals the
+Only works for RGB UIs (see <a href="/neovim-docs-web/en/options#'termguicolors'">'termguicolors'</a>); for 256-color terminals the
 color index is just forwarded.</div>
-<div class="old-help-para">Editor highlighting (<a href="syntax.html#syntax-highlighting">syntax-highlighting</a>, <a href="syntax.html#highlight-groups">highlight-groups</a>, etc.) has
+<div class="old-help-para">Editor highlighting (<a href="/neovim-docs-web/en/syntax#syntax-highlighting">syntax-highlighting</a>, <a href="/neovim-docs-web/en/syntax#highlight-groups">highlight-groups</a>, etc.) has
 higher precedence: it is applied after terminal colors are resolved.</div>
 <div class="old-help-para"><h2 class="help-heading">Status Variables<span class="help-heading-tags">				<a name="terminal-status"></a><span class="help-tag">terminal-status</span></span></h2></div>
 <div class="old-help-para">Terminal buffers maintain some buffer-local variables and options. The values
-are initialized before TermOpen, so you can use them in a local <a href="options.html#'statusline'">'statusline'</a>.
+are initialized before TermOpen, so you can use them in a local <a href="/neovim-docs-web/en/options#'statusline'">'statusline'</a>.
 Example:<pre>:autocmd TermOpen * setlocal statusline=%{b:term_title}</pre>
 <div class="help-li" style=""> <a name="b%3Aterm_title"></a><code class="help-tag">b:term_title</code>  Terminal title (user-writable), typically displayed in the
   window title or tab title of a graphical terminal emulator. Terminal
   programs can set this by emitting an escape sequence.
-</div><div class="help-li" style=""> <a href="options.html#'channel'">'channel'</a>  Terminal PTY <a href="job_control.html#job-id">job-id</a>.  Can be used with <a href="builtin.html#chansend()">chansend()</a> to send
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'channel'">'channel'</a>  Terminal PTY <a href="/neovim-docs-web/en/job_control#job-id">job-id</a>.  Can be used with <a href="/neovim-docs-web/en/builtin#chansend()">chansend()</a> to send
   input to the terminal.
-</div><div class="help-li" style=""> The <a href="autocmd.html#TermClose">TermClose</a> event gives the terminal job exit code in the <a href="eval.html#v%3Aevent">v:event</a>
+</div><div class="help-li" style=""> The <a href="/neovim-docs-web/en/autocmd#TermClose">TermClose</a> event gives the terminal job exit code in the <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a>
   "status" field. For example, this autocmd closes terminal buffers if the job
   exited without error:<pre>autocmd TermClose * if !v:event.status | exe 'bdelete! '..expand('&lt;abuf&gt;') | endif</pre>
-Use <a href="builtin.html#jobwait()">jobwait()</a> to check if the terminal job has finished:<pre>let running = jobwait([&amp;channel], 0)[0] == -1</pre>
+Use <a href="/neovim-docs-web/en/builtin#jobwait()">jobwait()</a> to check if the terminal job has finished:<pre>let running = jobwait([&amp;channel], 0)[0] == -1</pre>
 ==============================================================================
 :Termdebug plugin				<a name="terminal-debug"></a><code class="help-tag-right">terminal-debug</code>
 </div></div>
@@ -226,7 +226,7 @@ breakpoint, or use the "Clear breakpoint" right-click menu entry.
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">Inspecting variables</div>					<a name="termdebug-variables"></a><code class="help-tag-right">termdebug-variables</code> <a name="%3AEvaluate"></a><code class="help-tag">:Evaluate</code>
  <code>:Evaluate</code>  	    evaluate the expression under the cursor
- <code>K</code>  		    same (see <a href="nvim_terminal_emulator.html#termdebug_map_K">termdebug_map_K</a> to disable)
+ <code>K</code>  		    same (see <a href="/neovim-docs-web/en/nvim_terminal_emulator#termdebug_map_K">termdebug_map_K</a> to disable)
  <code>:Evaluate</code> <code>{expr}</code>   evaluate <code>{expr}</code>
  <code>:'&lt;,'&gt;Evaluate</code>     evaluate the Visually selected text</div>
 <div class="old-help-para">This is similar to using "print" in the gdb window.
@@ -271,7 +271,7 @@ deprecated global variable names are mentioned for completeness.  If you are
 switching over to using g:termdebug_config you can find the old variable name
 and take over the value, then delete the deprecated variable.</div>
 <div class="old-help-para"><div class="help-column_heading">Prompt mode</div>						<a name="termdebug-prompt"></a><code class="help-tag-right">termdebug-prompt</code>
-When on MS-Windows, gdb will run in a buffer with <a href="options.html#'buftype'">'buftype'</a> set to "prompt".
+When on MS-Windows, gdb will run in a buffer with <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> set to "prompt".
 This works slightly differently:
 <div class="help-li" style=""> The gdb window will be in Insert mode while typing commands.  Go to Normal
   mode with <code>&lt;Esc&gt;</code>, then you can move around in the buffer, copy/paste, etc.
@@ -331,10 +331,10 @@ The color of the signs can be adjusted with these highlight groups:
 <div class="help-li" style=""> debugPC		the current position
 </div><div class="help-li" style=""> debugBreakpoint	a breakpoint
 </div></div>
-<div class="old-help-para">The defaults are, when <a href="options.html#'background'">'background'</a> is "light":
+<div class="old-help-para">The defaults are, when <a href="/neovim-docs-web/en/options#'background'">'background'</a> is "light":
   hi debugPC term=reverse ctermbg=lightblue guibg=lightblue
   hi debugBreakpoint term=reverse ctermbg=red guibg=red</div>
-<div class="old-help-para">When <a href="options.html#'background'">'background'</a> is "dark":
+<div class="old-help-para">When <a href="/neovim-docs-web/en/options#'background'">'background'</a> is "dark":
   hi debugPC term=reverse ctermbg=darkblue guibg=darkblue
   hi debugBreakpoint term=reverse ctermbg=red guibg=red</div>
 <div class="old-help-para"><div class="help-column_heading">Shortcuts</div>							<a name="termdebug_shortcuts"></a><code class="help-tag-right">termdebug_shortcuts</code>
@@ -342,7 +342,7 @@ You can define your own shortcuts (mappings) to control gdb, that can work in
 any window, using the TermDebugSendCommand() function.  Example:<pre>map ,w :call TermDebugSendCommand('where')&lt;CR&gt;</pre>
 The argument is the gdb command.</div>
 <div class="old-help-para"><div class="help-column_heading">Popup menu</div>							<a name="termdebug_popup"></a><code class="help-tag-right">termdebug_popup</code>
-By default the Termdebug plugin sets <a href="options.html#'mousemodel'">'mousemodel'</a> to "popup_setpos" and adds
+By default the Termdebug plugin sets <a href="/neovim-docs-web/en/options#'mousemodel'">'mousemodel'</a> to "popup_setpos" and adds
 these entries to the popup menu:
 	Set breakpoint		<code>:Break</code>
 	Clear breakpoint	<code>:Clear</code>
@@ -353,12 +353,12 @@ If there is no g:termdebug_config you can use:<pre>let g:termdebug_popup = 0</pr
 To change the width of the Vim window when debugging starts and use a vertical
 split:<pre>let g:termdebug_config['wide'] = 163</pre>
 If there is no g:termdebug_config you can use:<pre>let g:termdebug_wide = 163</pre>
-This will set <a href="options.html#'columns'">'columns'</a> to 163 when <code>:Termdebug</code> is used.  The value is
+This will set <a href="/neovim-docs-web/en/options#'columns'">'columns'</a> to 163 when <code>:Termdebug</code> is used.  The value is
 restored when quitting the debugger.</div>
-<div class="old-help-para">If the wide value is set and <a href="options.html#'columns'">'columns'</a> is already a greater value, then a
-vertical split will be used without modifying <a href="options.html#'columns'">'columns'</a>.</div>
+<div class="old-help-para">If the wide value is set and <a href="/neovim-docs-web/en/options#'columns'">'columns'</a> is already a greater value, then a
+vertical split will be used without modifying <a href="/neovim-docs-web/en/options#'columns'">'columns'</a>.</div>
 <div class="old-help-para">Set the wide value to 1 to use a vertical split without ever changing
-<a href="options.html#'columns'">'columns'</a>.  This is useful when the terminal can't be resized by Vim.</div>
+<a href="/neovim-docs-web/en/options#'columns'">'columns'</a>.  This is useful when the terminal can't be resized by Vim.</div>
 
   
   

@@ -18,21 +18,21 @@ layout: ../../layouts/MainLayout.astro
 section in RPM spec files.  It will even create a section for you if it
 doesn't exist yet.  If you've already inserted an entry today, it will
 give you the opportunity to just add a new item in today's entry.  If you
-don't provide a format string (<a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a>), it'll ask you an
+don't provide a format string (<a href="/neovim-docs-web/en/pi_spec#spec_chglog_format">spec_chglog_format</a>), it'll ask you an
 email address and build a format string by itself.</div>
-<div class="old-help-para">1. How to use it	<a href="pi_spec.html#spec-how-to-use-it">spec-how-to-use-it</a>
-2. Customizing		<a href="pi_spec.html#spec-customizing">spec-customizing</a></div>
+<div class="old-help-para">1. How to use it	<a href="/neovim-docs-web/en/pi_spec#spec-how-to-use-it">spec-how-to-use-it</a>
+2. Customizing		<a href="/neovim-docs-web/en/pi_spec#spec-customizing">spec-customizing</a></div>
 <div class="old-help-para"><h2 class="help-heading">1. How to use it</h2></div>
 <div class="old-help-para">The spec_chglog plugin provides a map like the following:</div>
 <div class="old-help-para">	:map <code>&lt;buffer&gt;</code> <code>&lt;LocalLeader&gt;</code>c <code>&lt;Plug&gt;</code>SpecChangelog</div>
 <div class="old-help-para">It means that you may run the plugin inside a spec file by pressing
 your maplocalleader key (default is '\') plus 'c'.  If you do not have
-<a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a> set, the plugin will ask you for an email address
+<a href="/neovim-docs-web/en/pi_spec#spec_chglog_format">spec_chglog_format</a> set, the plugin will ask you for an email address
 to use in this edit session.</div>
 <div class="old-help-para">Every time you run the plugin, it will check to see if the last entry in the
 changelog has been written today and by you.  If the entry matches, it will
 just insert a new changelog item, otherwise it will create a new changelog
-entry.  If you are running with <a href="pi_spec.html#spec_chglog_release_info">spec_chglog_release_info</a> enabled, it will
+entry.  If you are running with <a href="/neovim-docs-web/en/pi_spec#spec_chglog_release_info">spec_chglog_release_info</a> enabled, it will
 also check if the name, version and release matches.  The plugin is smart
 enough to ask you if it should update the package release, if you have not
 done so.</div>
@@ -55,7 +55,7 @@ this just set the variable "spec_chglog_format" in your vimrc file like
 this:<pre>let spec_chglog_format = "%a %b %d %Y My Name &lt;my@email.com&gt;"</pre>
 Note that "%a %b %d %Y" is the most used time format.  If you don't provide
 a format string, when you run the SpecChangelog command for the first
-time, it will ask you an email address and build the <a href="pi_spec.html#spec_chglog_format">spec_chglog_format</a>
+time, it will ask you an email address and build the <a href="/neovim-docs-web/en/pi_spec#spec_chglog_format">spec_chglog_format</a>
 variable for you.  This way, you will only need to provide your email
 address once.</div>
 <div class="old-help-para">To discover which format options you can use, take a look at the strftime()

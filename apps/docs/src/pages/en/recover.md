@@ -24,7 +24,7 @@ the contents of the file.  Mostly you can recover your work with one command:
 you started from plus the swap file you can mostly recover your work.</div>
 <div class="old-help-para">You can see the name of the current swap file being used with the command:</div>
 <div class="old-help-para">	:sw[apname]					<a name="%3Asw"></a><code class="help-tag-right">:sw</code> <a name="%3Aswapname"></a><code class="help-tag">:swapname</code></div>
-<div class="old-help-para">Or you can use the <a href="builtin.html#swapname()">swapname()</a> function, which also allows for seeing the
+<div class="old-help-para">Or you can use the <a href="/neovim-docs-web/en/builtin#swapname()">swapname()</a> function, which also allows for seeing the
 swap file name of other buffers.</div>
 <div class="old-help-para">The name of the swap file is normally the same as the file you are editing,
 with the extension ".swp".
@@ -40,11 +40,11 @@ with the extension ".swp".
 Technical: If the ".swp" file name already exists, the last character is
 	   decremented until there is no file with that name or ".saa" is
 	   reached.  In the last case, no swap file is created.</div>
-<div class="old-help-para">By setting the <a href="options.html#'directory'">'directory'</a> option you can place the swap file in another place
+<div class="old-help-para">By setting the <a href="/neovim-docs-web/en/options#'directory'">'directory'</a> option you can place the swap file in another place
 than where the edited file is.
 Advantages:
 <div class="help-li" style=""> You will not pollute the directories with ".swp" files.
-</div><div class="help-li" style=""> When the <a href="options.html#'directory'">'directory'</a> is on another partition, reduce the risk of damaging
+</div><div class="help-li" style=""> When the <a href="/neovim-docs-web/en/options#'directory'">'directory'</a> is on another partition, reduce the risk of damaging
   the file system where the file is (in a crash).
 Disadvantages:
 </div><div class="help-li" style=""> You can get name collisions from files with the same name but in different
@@ -62,28 +62,28 @@ This is also very handy when editing files on floppy.  Of course you will have
 to create that "tmp" directory for this to work!</div>
 <div class="old-help-para">For read-only files, a swap file is not used right away. The swap file is
 created only when making changes.</div>
-<div class="old-help-para">The <a href="options.html#'swapfile'">'swapfile'</a> option can be reset to avoid creating a swapfile.  And the
-<a href="recover.html#%3Anoswapfile">:noswapfile</a> modifier can be used to not create a swapfile for a new buffer.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'swapfile'">'swapfile'</a> option can be reset to avoid creating a swapfile.  And the
+<a href="/neovim-docs-web/en/recover#%3Anoswapfile">:noswapfile</a> modifier can be used to not create a swapfile for a new buffer.</div>
 <div class="old-help-para">:nos[wapfile]   <code>{command}</code>			<a name="%3Anos"></a><code class="help-tag-right">:nos</code> <a name="%3Anoswapfile"></a><code class="help-tag">:noswapfile</code>
 		Execute <code>{command}</code>. If it contains a command that loads a new
 		buffer, it will be loaded without creating a swapfile and the
-		<a href="options.html#'swapfile'">'swapfile'</a> option will be reset.  If a buffer already had a
-		swapfile it is not removed and <a href="options.html#'swapfile'">'swapfile'</a> is not reset.</div>
+		<a href="/neovim-docs-web/en/options#'swapfile'">'swapfile'</a> option will be reset.  If a buffer already had a
+		swapfile it is not removed and <a href="/neovim-docs-web/en/options#'swapfile'">'swapfile'</a> is not reset.</div>
 <div class="old-help-para"><div class="help-column_heading">Detecting an existing swap file</div></div>
-<div class="old-help-para">You can find this in the user manual, section <a href="usr_11.html#11.3">11.3</a>.</div>
+<div class="old-help-para">You can find this in the user manual, section <a href="/neovim-docs-web/en/usr_11#11.3">11.3</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">Updating the swapfile</div></div>
 <div class="old-help-para">The swap file is updated after typing 200 characters or when you have not
 typed anything for four seconds.  This only happens if the buffer was
 changed, not when you only moved around.  The reason why it is not kept up to
 date all the time is that this would slow down normal work too much.  You can
-change the 200 character count with the <a href="options.html#'updatecount'">'updatecount'</a> option.  You can set
-the time with the <a href="options.html#'updatetime'">'updatetime'</a> option.  The time is given in milliseconds.
+change the 200 character count with the <a href="/neovim-docs-web/en/options#'updatecount'">'updatecount'</a> option.  You can set
+the time with the <a href="/neovim-docs-web/en/options#'updatetime'">'updatetime'</a> option.  The time is given in milliseconds.
 After writing to the swap file Vim syncs the file to disk.</div>
 <div class="old-help-para">If the writing to the swap file is not wanted, it can be switched off by
-setting the <a href="options.html#'updatecount'">'updatecount'</a> option to 0.  The same is done when starting Vim
+setting the <a href="/neovim-docs-web/en/options#'updatecount'">'updatecount'</a> option to 0.  The same is done when starting Vim
 with the "-n" option.  Writing can be switched back on by setting the
-<a href="options.html#'updatecount'">'updatecount'</a> option to non-zero.  Swap files will be created for all buffers
-when doing this.  But when setting <a href="options.html#'updatecount'">'updatecount'</a> to zero, the existing swap
+<a href="/neovim-docs-web/en/options#'updatecount'">'updatecount'</a> option to non-zero.  Swap files will be created for all buffers
+when doing this.  But when setting <a href="/neovim-docs-web/en/options#'updatecount'">'updatecount'</a> to zero, the existing swap
 files will not be removed, it will only affect files that will be opened
 after this.</div>
 <div class="old-help-para">If you want to make sure that your changes are in the swap file use this
@@ -113,7 +113,7 @@ there are exceptions:
   save your file normally.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">2. Recovery<span class="help-heading-tags">					<a name="recovery"></a><span class="help-tag">recovery</span> <a name="E308"></a><span class="help-tag">E308</span> <a name="E311"></a><span class="help-tag">E311</span></span></h2></div>
-<div class="old-help-para">Basic file recovery is explained in the user manual: <a href="usr_11.html#usr_11.txt">usr_11.txt</a>.</div>
+<div class="old-help-para">Basic file recovery is explained in the user manual: <a href="/neovim-docs-web/en/usr_11#usr_11.txt">usr_11.txt</a>.</div>
 <div class="old-help-para">Another way to do recovery is to start Vim and use the ":recover" command.
 This is easy when you start Vim to edit a file and you get the "ATTENTION:
 Found a swap file ..." message.  In this case the single command ":recover"
@@ -137,8 +137,8 @@ the text from the original file.  This can happen if the system crashed and
 parts of the original file were not written to disk.</div>
 <div class="old-help-para">Be sure that the recovery was successful before overwriting the original
 file or deleting the swap file.  It is good practice to write the recovered
-file elsewhere and run <a href="options.html#'diff'">'diff'</a> to find out if the changes you want are in the
-recovered file.  Or use <a href="diff.html#%3ADiffOrig">:DiffOrig</a>.</div>
+file elsewhere and run <a href="/neovim-docs-web/en/options#'diff'">'diff'</a> to find out if the changes you want are in the
+recovered file.  Or use <a href="/neovim-docs-web/en/diff#%3ADiffOrig">:DiffOrig</a>.</div>
 <div class="old-help-para">Once you are sure the recovery is ok delete the swap file.  Otherwise, you
 will continue to get warning messages that the ".swp" file already exists.</div>
 

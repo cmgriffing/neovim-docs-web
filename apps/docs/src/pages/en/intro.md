@@ -16,18 +16,18 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para"><h2 class="help-heading">Introduction<span class="help-heading-tags">						<a name="intro"></a><span class="help-tag">intro</span></span></h2></div>
 <div class="old-help-para">Vim is a text editor which includes most commands from the Unix program "Vi"
 and many new ones.</div>
-<div class="old-help-para">An overview of this manual can be found in the file "help.txt", <a href="index.html#help.txt">help.txt</a>.
+<div class="old-help-para">An overview of this manual can be found in the file "help.txt", <a href="/neovim-docs-web/en/index#help.txt">help.txt</a>.
 It can be accessed from within Vim with the <code>&lt;Help&gt;</code> or <code>&lt;F1&gt;</code> key and with the
-<a href="helphelp.html#%3Ahelp">:help</a> command (just type ":help", without the bars or quotes).
-   The <a href="options.html#'helpfile'">'helpfile'</a> option can be set to the name of the help file, in case it
+<a href="/neovim-docs-web/en/helphelp#%3Ahelp">:help</a> command (just type ":help", without the bars or quotes).
+   The <a href="/neovim-docs-web/en/options#'helpfile'">'helpfile'</a> option can be set to the name of the help file, in case it
 is not located in the default place.  You can jump to subjects like with tags:
 Use <code>CTRL-]</code> to jump to a subject under the cursor, use <code>CTRL-T</code> to jump back.</div>
 <div class="old-help-para">							<a name="pronounce"></a><code class="help-tag-right">pronounce</code>
 Vim is pronounced as one word, like Jim.  So Nvim is N-Jim, which sounds like
 "Ninja".  Starting Nvim is like performing a roundhouse kick.</div>
 <div class="old-help-para">This manual is a reference for all Nvim editor and API features.  It is not an
-introduction; instead for beginners, there is a hands-on <a href="usr_01.html#tutor">tutor</a> and a user
-manual <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a>.</div>
+introduction; instead for beginners, there is a hands-on <a href="/neovim-docs-web/en/usr_01#tutor">tutor</a> and a user
+manual <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a>.</div>
 <div class="old-help-para">							<a name="book"></a><code class="help-tag-right">book</code>
 There are many books on Vi and Vim.  We recommend:</div>
 <div class="old-help-para">	"Practical Vim" by Drew Neil
@@ -37,7 +37,7 @@ There are many books on Vi and Vim.  We recommend:</div>
 tasks with Vim.  "Modern Vim" explores new features in Nvim and Vim 8.</div>
 <div class="old-help-para">	"Vim - Vi Improved" by Steve Oualline</div>
 <div class="old-help-para">This was the first book dedicated to Vim.  Parts of it were included in the
-user manual. <a href="usr_01.html#frombook">frombook</a>  ISBN: 0735710015
+user manual. <a href="/neovim-docs-web/en/usr_01#frombook">frombook</a>  ISBN: 0735710015
 For more information try one of these:
 	<a href="https://iccf-holland.org/click5.html">https://iccf-holland.org/click5.html</a>
 	<a href="https://www.vim.org/iccf/click5.html">https://www.vim.org/iccf/click5.html</a></div>
@@ -52,13 +52,13 @@ Report bugs and request features here:
 <a href="https://github.com/neovim/neovim/issues">https://github.com/neovim/neovim/issues</a></div>
 <div class="old-help-para">Be brief, yet complete.  Always give a reproducible example and try to find
 out which settings or other things trigger the bug.</div>
-<div class="old-help-para">If Nvim crashes, try to get a backtrace.  See <a href="debug.html#debug.txt">debug.txt</a>.</div>
+<div class="old-help-para">If Nvim crashes, try to get a backtrace.  See <a href="/neovim-docs-web/en/debug#debug.txt">debug.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Sponsor Vim/Nvim development<span class="help-heading-tags">				<a name="sponsor"></a><span class="help-tag">sponsor</span> <a name="register"></a><span class="help-tag">register</span></span></h2></div>
 <div class="old-help-para">Fixing bugs and adding new features takes a lot of time and effort.  To show
 your appreciation for the work and motivate Bram and others to continue
 working on Vim please send a donation.</div>
 <div class="old-help-para">Since Bram is back to a paid job the money will now be used to help children
-in Uganda.  See <a href="uganda.html#uganda">uganda</a>.  But at the same time donations increase Bram's
+in Uganda.  See <a href="/neovim-docs-web/en/uganda#uganda">uganda</a>.  But at the same time donations increase Bram's
 motivation to keep working on Vim!</div>
 <div class="old-help-para">For the most recent information about sponsoring look on the Vim web site:</div>
 <div class="old-help-para">	<a href="https://www.vim.org/sponsor/">https://www.vim.org/sponsor/</a></div>
@@ -89,7 +89,7 @@ patches, suggestions and giving feedback about what is good and bad in Vim.</div
 	Chris &amp; John Downey	xvi (ideas for multi-windows version)
 	Henk Elbers		first VMS port
 	Daniel Elstner		GTK+ 2 port
-	Eric Fischer		Mac port, <a href="options.html#'cindent'">'cindent'</a>, and other improvements
+	Eric Fischer		Mac port, <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a>, and other improvements
 	Benji Fisher		Answering lots of user questions
 	Bill Foster		Athena GUI port (later removed)
 	Google			Lets me work on Vim one day a week
@@ -113,7 +113,7 @@ patches, suggestions and giving feedback about what is good and bad in Vim.</div
 	Katsuhito Nagano	Work on multibyte versions
 	Sung-Hyun Nam		Work on multibyte versions
 	Vince Negri		Win32 GUI and generic console enhancements
-	Steve Oualline		Author of the first Vim book <a href="usr_01.html#frombook">frombook</a>
+	Steve Oualline		Author of the first Vim book <a href="/neovim-docs-web/en/usr_01#frombook">frombook</a>
 	Dominique Pelle		Valgrind reports and many fixes
 	A.Politz		Many bug reports and some fixes
 	George V. Reilly	Win32 port, Win32 GUI start-off
@@ -172,12 +172,12 @@ and &lt;&gt; are part of what you type, the context should make this clear.</div
 		is used, unless otherwise noted.  Note that in this manual the
 		[count] is not mentioned in the description of the command,
 		but only in the explanation.  This was done to make the
-		commands easier to look up.  If the <a href="options.html#'showcmd'">'showcmd'</a> option is on,
+		commands easier to look up.  If the <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a> option is on,
 		the (partially) entered count is shown at the bottom of the
-		window.  You can use <code>&lt;Del&gt;</code> to erase the last digit (<a href="various.html#N%3CDel%3E">N&lt;Del&gt;</a>).</div>
+		window.  You can use <code>&lt;Del&gt;</code> to erase the last digit (<a href="/neovim-docs-web/en/various#N%3CDel%3E">N&lt;Del&gt;</a>).</div>
 <div class="old-help-para">							<a name="%5Bquotex%5D"></a><code class="help-tag-right">[quotex]</code>
 ["x]		An optional register designation where text can be stored.
-		See <a href="change.html#registers">registers</a>.  The x is a single character between 'a' and
+		See <a href="/neovim-docs-web/en/change#registers">registers</a>.  The x is a single character between 'a' and
 		'z' or 'A' and 'Z' or '"', and in some cases (with the put
 		command) between '0' and '9', '%', '#', or others.  The
 		uppercase and lowercase letter designate the same register,
@@ -197,12 +197,12 @@ and &lt;&gt; are part of what you type, the context should make this clear.</div
 		character.</div>
 <div class="old-help-para">						<a name="%7Bmotion%7D"></a><code class="help-tag-right">{motion}</code> <a name="movement"></a><code class="help-tag">movement</code>
 <code>{motion}</code>	A command that moves the cursor.  These are explained in
-		<a href="motion.html#motion.txt">motion.txt</a>.  Examples:
+		<a href="/neovim-docs-web/en/motion#motion.txt">motion.txt</a>.  Examples:
 			w		to start of next word
 			b		to begin of current word
 			4j		four lines down
 			/The&lt;CR&gt;	to next occurrence of "The"
-		This is used after an <a href="motion.html#operator">operator</a> command to move over the text
+		This is used after an <a href="/neovim-docs-web/en/motion#operator">operator</a> command to move over the text
 		that is to be operated upon.
 <div class="help-li" style=""> If the motion includes a count and the operator also has a
 		  count, the two counts are multiplied.  For example: "2d3w"
@@ -218,7 +218,7 @@ and &lt;&gt; are part of what you type, the context should make this clear.</div
 		  The motion is always charwise exclusive, no matter
 		  what ":" command is used.  This means it's impossible to
 		  include the last character of a line without the line break
-		  (unless <a href="options.html#'virtualedit'">'virtualedit'</a> is set).
+		  (unless <a href="/neovim-docs-web/en/options#'virtualedit'">'virtualedit'</a> is set).
 		  If the Ex command changes the text before where the operator
 		  starts or jumps to another buffer the result is
 		  unpredictable.  It is possible to change the text further
@@ -229,9 +229,9 @@ and &lt;&gt; are part of what you type, the context should make this clear.</div
 <code>{Visual}</code>	A selected text area.  It is started with the "v", "V", or
 		<code>CTRL-V</code> command, then any cursor movement command can be used
 		to change the end of the selected text.
-		This is used before an <a href="motion.html#operator">operator</a> command to highlight the
+		This is used before an <a href="/neovim-docs-web/en/motion#operator">operator</a> command to highlight the
 		text that is to be operated upon.
-		See <a href="visual.html#Visual-mode">Visual-mode</a>.</div>
+		See <a href="/neovim-docs-web/en/visual#Visual-mode">Visual-mode</a>.</div>
 <div class="old-help-para">							<a name="%3Ccharacter%3E"></a><code class="help-tag-right">&lt;character&gt;</code>
 <code>&lt;character&gt;</code>	A special character from the table below, optionally with
 		modifiers, or a single ASCII character with modifiers.</div>
@@ -246,8 +246,8 @@ and &lt;&gt; are part of what you type, the context should make this clear.</div
 		environments using the SHIFT key will not trigger commands
 		such as <code>CTRL-A</code>.</div>
 <div class="old-help-para">							<a name="'option'"></a><code class="help-tag-right">'option'</code>
-<a href="intro.html#'option'">'option'</a>	An option, or parameter, that can be set to a value, is
-		enclosed in single quotes.  See <a href="options.html#options">options</a>.</div>
+<a href="/neovim-docs-web/en/intro#'option'">'option'</a>	An option, or parameter, that can be set to a value, is
+		enclosed in single quotes.  See <a href="/neovim-docs-web/en/options#options">options</a>.</div>
 <div class="old-help-para">							<a name="quotecommandquote"></a><code class="help-tag-right">quotecommandquote</code>
 "command"	A reference to a command that you can type is enclosed in
 		double quotes.
@@ -272,7 +272,7 @@ with the ":map" command.</div>
 <code>&lt;Del&gt;</code>		delete				127
 <code>&lt;CSI&gt;</code>		command sequence intro  <code>ALT-E</code>sc 155	<a name="%3CCSI%3E"></a><code class="help-tag">&lt;CSI&gt;</code></div>
 <div class="old-help-para"><code>&lt;EOL&gt;</code>		end-of-line (can be <code>&lt;CR&gt;</code>, <code>&lt;NL&gt;</code> or <code>&lt;CR&gt;</code><code>&lt;NL&gt;</code>,
-		depends on system and <a href="options.html#'fileformat'">'fileformat'</a>)	<a name="%3CEOL%3E"></a><code class="help-tag">&lt;EOL&gt;</code>
+		depends on system and <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a>)	<a name="%3CEOL%3E"></a><code class="help-tag">&lt;EOL&gt;</code>
 <code>&lt;Ignore&gt;</code>	cancel wait-for-character		<a name="%3CIgnore%3E"></a><code class="help-tag-right">&lt;Ignore&gt;</code>
 <code>&lt;NOP&gt;</code>		no-op: do nothing (useful in mappings)	<a name="%3CNop%3E"></a><code class="help-tag">&lt;Nop&gt;</code></div>
 <div class="old-help-para"><code>&lt;Up&gt;</code>		cursor-up			<a name="cursor-up"></a><code class="help-tag-right">cursor-up</code> <a name="cursor_up"></a><code class="help-tag">cursor_up</code>
@@ -322,14 +322,14 @@ with the ":map" command.</div>
 <div class="old-help-para">Note:</div>
 <div class="old-help-para"><div class="help-li" style=""> Availability of some keys (<code>&lt;Help&gt;</code>, <code>&lt;S-Right&gt;</code>, …) depends on the UI or host
   terminal.
-</div><div class="help-li" style=""> If numlock is on the <a href="term.html#TUI">TUI</a> receives plain ASCII values, so mapping <code>&lt;k0&gt;</code>,
+</div><div class="help-li" style=""> If numlock is on the <a href="/neovim-docs-web/en/term#TUI">TUI</a> receives plain ASCII values, so mapping <code>&lt;k0&gt;</code>,
   <code>&lt;k1&gt;</code>, ..., <code>&lt;k9&gt;</code> and <code>&lt;kPoint&gt;</code> will not work.
 </div><div class="help-li" style=""> Nvim supports mapping multibyte chars with modifiers such as <code>&lt;M-ä&gt;</code>. Which
   combinations actually work depends on the the UI or host terminal.
 </div><div class="help-li" style=""> When a key is pressed using a meta or alt modifier and no mapping exists for
   that keypress, Nvim may behave as though <code>&lt;Esc&gt;</code> was pressed before the key.
 </div><div class="help-li" style=""> It is possible to notate combined modifiers (e.g. <code>&lt;C-A-T&gt;</code> for <code>CTRL-A</code>LT-T),
-  but your terminal must encode the input for that to work. <a href="term.html#tui-input">tui-input</a>
+  but your terminal must encode the input for that to work. <a href="/neovim-docs-web/en/term#tui-input">tui-input</a>
 </div></div>
 <div class="old-help-para">								<a name="%3C%3E"></a><code class="help-tag-right">&lt;&gt;</code>
 Examples are often given in the &lt;&gt; notation.  Sometimes this is just to make
@@ -348,10 +348,10 @@ the ":map" command.  The rules are:
 	   <code>&lt;M-a&gt;</code>		Meta- a  ('a' with bit 8 set)
 	   <code>&lt;M-A&gt;</code>		Meta- A  ('A' with bit 8 set)</div>
 <div class="old-help-para">The &lt;&gt; notation uses <code>&lt;lt&gt;</code> to escape the special meaning of key names.  Using a
-backslash also works, but only when <a href="options.html#'cpoptions'">'cpoptions'</a> does not include the 'B' flag.</div>
+backslash also works, but only when <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> does not include the 'B' flag.</div>
 <div class="old-help-para">Examples for mapping <code>CTRL-H</code> to the six characters "&lt;Home&gt;":<pre>:imap &lt;C-H&gt; \&lt;Home&gt;
 :imap &lt;C-H&gt; &lt;lt&gt;Home&gt;</pre>
-The first one only works when the 'B' flag is not in <a href="options.html#'cpoptions'">'cpoptions'</a>.  The second
+The first one only works when the 'B' flag is not in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.  The second
 one always works.
 To get a literal "&lt;lt&gt;" in a mapping:<pre>:map &lt;C-L&gt; &lt;lt&gt;lt&gt;</pre>
 The notation can be used in a double quoted strings, using "\&lt;" at the start,
@@ -366,32 +366,32 @@ Normal mode		In Normal mode you can enter all the normal editor
 <div class="old-help-para">Visual mode		This is like Normal mode, but the movement commands
 			extend a highlighted area.  When a non-movement
 			command is used, it is executed for the highlighted
-			area.  See <a href="visual.html#Visual-mode">Visual-mode</a>.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- VISUAL --" is shown
+			area.  See <a href="/neovim-docs-web/en/visual#Visual-mode">Visual-mode</a>.
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- VISUAL --" is shown
 			at the bottom of the window.</div>
 <div class="old-help-para">Select mode		This looks most like the MS-Windows selection mode.
 			Typing a printable character deletes the selection
-			and starts Insert mode.  See <a href="visual.html#Select-mode">Select-mode</a>.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- SELECT --" is shown
+			and starts Insert mode.  See <a href="/neovim-docs-web/en/visual#Select-mode">Select-mode</a>.
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- SELECT --" is shown
 			at the bottom of the window.</div>
 <div class="old-help-para">Insert mode		In Insert mode the text you type is inserted into the
-			buffer.  See <a href="insert.html#Insert-mode">Insert-mode</a>.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- INSERT --" is shown
+			buffer.  See <a href="/neovim-docs-web/en/insert#Insert-mode">Insert-mode</a>.
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- INSERT --" is shown
 			at the bottom of the window.</div>
 <div class="old-help-para">Command-line mode	In Command-line mode (also called Cmdline mode) you
 Cmdline mode		can enter one line of text at the bottom of the
 			window.  This is for the Ex commands, ":", the pattern
 			search commands, "?" and "/", and the filter command,
-			"!".  <a href="cmdline.html#Cmdline-mode">Cmdline-mode</a></div>
+			"!".  <a href="/neovim-docs-web/en/cmdline#Cmdline-mode">Cmdline-mode</a></div>
 <div class="old-help-para">Ex mode			Like Command-line mode, but after entering a command
 			you remain in Ex mode.  Very limited editing of the
-			command line.  <a href="intro.html#Ex-mode">Ex-mode</a></div>
+			command line.  <a href="/neovim-docs-web/en/intro#Ex-mode">Ex-mode</a></div>
 <div class="old-help-para">							<a name="Terminal-mode"></a><code class="help-tag-right">Terminal-mode</code>
 Terminal mode		In Terminal mode all input (except <code>CTRL-\</code>) is sent to
-			the process running in the current <a href="nvim_terminal_emulator.html#terminal">terminal</a> buffer.
+			the process running in the current <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal">terminal</a> buffer.
 			If <code>CTRL-\</code> is pressed, the next key is sent unless it
-			is <code>CTRL-N</code> (<a href="intro.html#CTRL-%5C_CTRL-N">CTRL-\_CTRL-N</a>) or <code>CTRL-O</code> (<a href="nvim_terminal_emulator.html#t_CTRL-%5C_CTRL-O">t_CTRL-\_CTRL-O</a>).
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- TERMINAL --" is shown
+			is <code>CTRL-N</code> (<a href="/neovim-docs-web/en/intro#CTRL-%5C_CTRL-N">CTRL-\_CTRL-N</a>) or <code>CTRL-O</code> (<a href="/neovim-docs-web/en/nvim_terminal_emulator#t_CTRL-%5C_CTRL-O">t_CTRL-\_CTRL-O</a>).
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- TERMINAL --" is shown
 			at the bottom of the window.</div>
 <div class="old-help-para">There are six ADDITIONAL modes.  These are variants of the BASIC modes:</div>
 <div class="old-help-para">				<a name="Operator-pending"></a><code class="help-tag-right">Operator-pending</code> <a name="Operator-pending-mode"></a><code class="help-tag">Operator-pending-mode</code>
@@ -401,29 +401,29 @@ Operator-pending mode	This is like Normal mode, but after an operator
 <div class="old-help-para">Replace mode		Replace mode is a special case of Insert mode.  You
 			can do the same things as in Insert mode, but for
 			each character you enter, one character of the existing
-			text is deleted.  See <a href="insert.html#Replace-mode">Replace-mode</a>.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- REPLACE --" is
+			text is deleted.  See <a href="/neovim-docs-web/en/insert#Replace-mode">Replace-mode</a>.
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- REPLACE --" is
 			shown at the bottom of the window.</div>
 <div class="old-help-para">Virtual Replace mode	Virtual Replace mode is similar to Replace mode, but
 			instead of file characters you are replacing screen
-			real estate.  See <a href="insert.html#Virtual-Replace-mode">Virtual-Replace-mode</a>.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- VREPLACE --" is
+			real estate.  See <a href="/neovim-docs-web/en/insert#Virtual-Replace-mode">Virtual-Replace-mode</a>.
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- VREPLACE --" is
 			shown at the bottom of the window.</div>
 <div class="old-help-para">Insert Normal mode	Entered when <code>CTRL-O</code> is typed in Insert mode (see
-			<a href="insert.html#i_CTRL-O">i_CTRL-O</a>).  This is like Normal mode, but after
+			<a href="/neovim-docs-web/en/insert#i_CTRL-O">i_CTRL-O</a>).  This is like Normal mode, but after
 			executing one command Vim returns to Insert mode.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- (insert) --" is
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- (insert) --" is
 			shown at the bottom of the window.</div>
 <div class="old-help-para">Insert Visual mode	Entered when starting a Visual selection from Insert
 			mode, e.g., by using <code>CTRL-O</code> and then "v", "V" or
 			<code>CTRL-V</code>.  When the Visual selection ends, Vim returns
 			to Insert mode.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- (insert) VISUAL --"
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- (insert) VISUAL --"
 			is shown at the bottom of the window.</div>
 <div class="old-help-para">Insert Select mode	Entered when starting Select mode from Insert mode.
 			E.g., by dragging the mouse or <code>&lt;S-Right&gt;</code>.
 			When the Select mode ends, Vim returns to Insert mode.
-			If the <a href="options.html#'showmode'">'showmode'</a> option is on "-- (insert) SELECT --"
+			If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is on "-- (insert) SELECT --"
 			is shown at the bottom of the window.</div>
 <div class="old-help-para"><h2 class="help-heading">Switching from mode to mode<span class="help-heading-tags">				<a name="mode-switching"></a><span class="help-tag">mode-switching</span></span></h2></div>
 <div class="old-help-para">If for any reason you do not know which mode you are in, you can always get
@@ -446,21 +446,21 @@ Ex		 :vi	  --	  --	 --	    --	      --</div>
     "A", "o", "O", "c", "C", "s" or S".
 </div><div class="help-li" style=""> 2 Go from Visual mode to Normal mode by giving a non-movement command, which
     causes the command to be executed, or by hitting <code>&lt;Esc&gt;</code> "v", "V" or "CTRL-V"
-    (see <a href="visual.html#v_v">v_v</a>), which just stops Visual mode without side effects.
+    (see <a href="/neovim-docs-web/en/visual#v_v">v_v</a>), which just stops Visual mode without side effects.
 </div><div class="help-li" style=""> 3 Go from Command-line mode to Normal mode by:
 </div><div class="help-li" style="margin-left: 3rem;"> Hitting <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>, which causes the entered command to be executed.
 </div><div class="help-li" style="margin-left: 3rem;"> Deleting the complete line (e.g., with <code>CTRL-U</code>) and giving a final <code>&lt;BS&gt;</code>.
 </div><div class="help-li" style="margin-left: 3rem;"> Hitting <code>CTRL-C</code> or <code>&lt;Esc&gt;</code>, which quits the command-line without executing
       the command.
-    In the last case <code>&lt;Esc&gt;</code> may be the character defined with the <a href="options.html#'wildchar'">'wildchar'</a>
+    In the last case <code>&lt;Esc&gt;</code> may be the character defined with the <a href="/neovim-docs-web/en/options#'wildchar'">'wildchar'</a>
     option, in which case it will start command-line completion.  You can
     ignore that and type <code>&lt;Esc&gt;</code> again.
 </div><div class="help-li" style=""> 4 Go from Normal to Select mode by:
-</div><div class="help-li" style="margin-left: 3rem;"> use the mouse to select text while <a href="options.html#'selectmode'">'selectmode'</a> contains "mouse"
+</div><div class="help-li" style="margin-left: 3rem;"> use the mouse to select text while <a href="/neovim-docs-web/en/options#'selectmode'">'selectmode'</a> contains "mouse"
 </div><div class="help-li" style="margin-left: 3rem;"> use a non-printable command to move the cursor while keeping the Shift
-      key pressed, and the <a href="options.html#'selectmode'">'selectmode'</a> option contains "key"
-</div><div class="help-li" style="margin-left: 3rem;"> use "v", "V" or "CTRL-V" while <a href="options.html#'selectmode'">'selectmode'</a> contains "cmd"
-</div><div class="help-li" style="margin-left: 3rem;"> use "gh", "gH" or "g <code>CTRL-H</code>"  <a href="visual.html#g_CTRL-H">g_CTRL-H</a>
+      key pressed, and the <a href="/neovim-docs-web/en/options#'selectmode'">'selectmode'</a> option contains "key"
+</div><div class="help-li" style="margin-left: 3rem;"> use "v", "V" or "CTRL-V" while <a href="/neovim-docs-web/en/options#'selectmode'">'selectmode'</a> contains "cmd"
+</div><div class="help-li" style="margin-left: 3rem;"> use "gh", "gH" or "g <code>CTRL-H</code>"  <a href="/neovim-docs-web/en/visual#g_CTRL-H">g_CTRL-H</a>
 </div><div class="help-li" style=""> 5 Go from Select mode to Normal mode by using a non-printable command to move
     the cursor, without keeping the Shift key pressed.
 </div><div class="help-li" style=""> 6 Go from Select mode to Insert mode by typing a printable character.  The
@@ -472,28 +472,28 @@ Additionally the command <code>CTRL-\</code> <code>CTRL-N</code> or <code>&lt;C-
 Normal mode from any other mode.  This can be used to make sure Vim is in
 Normal mode, without causing a beep like <code>&lt;Esc&gt;</code> would.  However, this does not
 work in Ex mode.  When used after a command that takes an argument, such as
-<a href="motion.html#f">f</a> or <a href="motion.html#m">m</a>, the timeout set with <a href="options.html#'ttimeoutlen'">'ttimeoutlen'</a> applies.</div>
+<a href="/neovim-docs-web/en/motion#f">f</a> or <a href="/neovim-docs-web/en/motion#m">m</a>, the timeout set with <a href="/neovim-docs-web/en/options#'ttimeoutlen'">'ttimeoutlen'</a> applies.</div>
 <div class="old-help-para">	<a name="CTRL-%5C_CTRL-G"></a><code class="help-tag">CTRL-\_CTRL-G</code> <a name="i_CTRL-%5C_CTRL-G"></a><code class="help-tag">i_CTRL-\_CTRL-G</code> <a name="c_CTRL-%5C_CTRL-G"></a><code class="help-tag">c_CTRL-\_CTRL-G</code> <a name="v_CTRL-%5C_CTRL-G"></a><code class="help-tag">v_CTRL-\_CTRL-G</code>
-<code>CTRL-\</code> <code>CTRL-G</code> works the same as <a href="intro.html#CTRL-%5C_CTRL-N">CTRL-\_CTRL-N</a> for backward compatibility.</div>
+<code>CTRL-\</code> <code>CTRL-G</code> works the same as <a href="/neovim-docs-web/en/intro#CTRL-%5C_CTRL-N">CTRL-\_CTRL-N</a> for backward compatibility.</div>
 <div class="old-help-para">				<a name="gQ"></a><code class="help-tag-right">gQ</code> <a name="mode-Ex"></a><code class="help-tag">mode-Ex</code> <a name="Ex-mode"></a><code class="help-tag">Ex-mode</code> <a name="Ex"></a><code class="help-tag">Ex</code> <a name="EX"></a><code class="help-tag">EX</code> <a name="E501"></a><code class="help-tag">E501</code>
 gQ			Switch to Ex mode.  This is like typing ":" commands
 			one after another, except:
 <div class="help-li" style=""> You don't have to keep pressing ":".
 </div><div class="help-li" style=""> The screen doesn't get updated after each command.
-			Use the <code>:vi</code> command (<a href="editing.html#%3Avisual">:visual</a>) to exit this mode.
+			Use the <code>:vi</code> command (<a href="/neovim-docs-web/en/editing#%3Avisual">:visual</a>) to exit this mode.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">Window contents<span class="help-heading-tags">						<a name="window-contents"></a><span class="help-tag">window-contents</span></span></h2></div>
 <div class="old-help-para">In Normal mode and Insert/Replace mode the screen window will show the current
 contents of the buffer: What You See Is What You Get.  There are two
 exceptions:
-<div class="help-li" style=""> When the <a href="options.html#'cpoptions'">'cpoptions'</a> option contains '$', and the change is within one line,
+<div class="help-li" style=""> When the <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> option contains '$', and the change is within one line,
   the text is not directly deleted, but a '$' is put at the last deleted
   character.
 </div><div class="help-li" style=""> When inserting text in one window, other windows on the same text are not
   updated until the insert is finished.
 </div></div>
-<div class="old-help-para">Lines longer than the window width will wrap, unless the <a href="options.html#'wrap'">'wrap'</a> option is off
-(see below).  The <a href="options.html#'linebreak'">'linebreak'</a> option can be set to wrap at a blank character.</div>
+<div class="old-help-para">Lines longer than the window width will wrap, unless the <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option is off
+(see below).  The <a href="/neovim-docs-web/en/options#'linebreak'">'linebreak'</a> option can be set to wrap at a blank character.</div>
 <div class="old-help-para">If the window has room after the last line of the buffer, Vim will show '~' in
 the first column of the last lines in the window, like this:</div>
 <div class="old-help-para">	+-----------------------+
@@ -513,7 +513,7 @@ the first column of the last lines in the window, like this:</div>
 	+-----------------------+</div>
 <div class="old-help-para">Thus the '@' lines indicate that there is a line that doesn't fit in the
 window.</div>
-<div class="old-help-para">When the "lastline" flag is present in the <a href="options.html#'display'">'display'</a> option, you will not see
+<div class="old-help-para">When the "lastline" flag is present in the <a href="/neovim-docs-web/en/options#'display'">'display'</a> option, you will not see
 '@' characters at the left side of window.  If the last line doesn't fit
 completely, only the part that fits is shown, and the last three characters of
 the last line are replaced with "@@@", like this:</div>
@@ -527,17 +527,17 @@ the last line are replaced with "@@@", like this:</div>
 special situation.  Vim will show only part of the line, around where the
 cursor is.  There are no special characters shown, so that you can edit all
 parts of this line.</div>
-<div class="old-help-para">The <a href="syntax.html#hl-NonText">hl-NonText</a> highlight group can be used to set special highlighting
+<div class="old-help-para">The <a href="/neovim-docs-web/en/syntax#hl-NonText">hl-NonText</a> highlight group can be used to set special highlighting
 for the '@' and '~' characters.  This makes it possible to distinguish them
 from real characters in the buffer.</div>
-<div class="old-help-para">The <a href="options.html#'showbreak'">'showbreak'</a> option contains the string to put in front of wrapped lines.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'showbreak'">'showbreak'</a> option contains the string to put in front of wrapped lines.</div>
 <div class="old-help-para">							<a name="wrap-off"></a><code class="help-tag-right">wrap-off</code>
-If the <a href="options.html#'wrap'">'wrap'</a> option is off, long lines will not wrap.  Only the part that
+If the <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option is off, long lines will not wrap.  Only the part that
 fits on the screen is shown.  If the cursor is moved to a part of the line
 that is not shown, the screen is scrolled horizontally.  The advantage of
 this method is that columns are shown as they are and lines that cannot fit
 on the screen can be edited.  The disadvantage is that you cannot see all the
-characters of a line at once.  The <a href="options.html#'sidescroll'">'sidescroll'</a> option can be set to the
+characters of a line at once.  The <a href="/neovim-docs-web/en/options#'sidescroll'">'sidescroll'</a> option can be set to the
 minimal number of columns to scroll.</div>
 <div class="old-help-para">All normal ASCII characters are displayed directly on the screen.  The <code>&lt;Tab&gt;</code>
 is replaced with the number of spaces that it represents.  Other non-printing
@@ -546,11 +546,11 @@ character with 64 added.  Thus character 7 (bell) will be shown as "^G".
 Characters between 127 and 160 are replaced with "~{char}", where <code>{char}</code> is
 the character with 64 subtracted.  These characters occupy more than one
 position on the screen.  The cursor can only be positioned on the first one.</div>
-<div class="old-help-para">If you set the <a href="options.html#'number'">'number'</a> option, all lines will be preceded with their
+<div class="old-help-para">If you set the <a href="/neovim-docs-web/en/options#'number'">'number'</a> option, all lines will be preceded with their
 number.  Tip: If you don't like wrapping lines to mix with the line numbers,
-set the <a href="options.html#'showbreak'">'showbreak'</a> option to eight spaces:
+set the <a href="/neovim-docs-web/en/options#'showbreak'">'showbreak'</a> option to eight spaces:
 	":set showbreak=\ \ \ \ \ \ \ \ "</div>
-<div class="old-help-para">If you set the <a href="options.html#'list'">'list'</a> option, <code>&lt;Tab&gt;</code> characters will not be shown as several
+<div class="old-help-para">If you set the <a href="/neovim-docs-web/en/options#'list'">'list'</a> option, <code>&lt;Tab&gt;</code> characters will not be shown as several
 spaces, but as "^I".  A '$' will be placed at the end of the line, so you can
 find trailing blanks.</div>
 <div class="old-help-para">In Command-line mode only the command-line itself is shown correctly.  The
@@ -558,10 +558,10 @@ display of the buffer contents is updated as soon as you go back to Command
 mode.</div>
 <div class="old-help-para">The last line of the window is used for status and other messages.  The
 status messages will only be used if an option is on:</div>
-<div class="old-help-para"><div class="help-column_heading">status message			option	     default	Unix default</div>current mode			<a href="options.html#'showmode'">'showmode'</a>	on	    on
-command characters		<a href="options.html#'showcmd'">'showcmd'</a>	on	    off
-cursor position			<a href="options.html#'ruler'">'ruler'</a>		off	    off</div>
-<div class="old-help-para">The current mode is "-- INSERT --" or "-- REPLACE --", see <a href="options.html#'showmode'">'showmode'</a>.  The
+<div class="old-help-para"><div class="help-column_heading">status message			option	     default	Unix default</div>current mode			<a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a>	on	    on
+command characters		<a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a>	on	    off
+cursor position			<a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a>		off	    off</div>
+<div class="old-help-para">The current mode is "-- INSERT --" or "-- REPLACE --", see <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a>.  The
 command characters are those that you typed but were not used yet.</div>
 <div class="old-help-para">If you have a slow terminal you can switch off the status messages to speed
 up editing:
@@ -569,7 +569,7 @@ up editing:
 <div class="old-help-para">If there is an error, an error message will be shown for at least one second
 (in reverse video).</div>
 <div class="old-help-para">Some commands show how many lines were affected.  Above which threshold this
-happens can be controlled with the <a href="options.html#'report'">'report'</a> option (default 2).</div>
+happens can be controlled with the <a href="/neovim-docs-web/en/options#'report'">'report'</a> option (default 2).</div>
 <div class="old-help-para">The name Vim and the full name of the current file name will be shown in the
 title bar.  When the window is resized, Vim will automatically redraw the
 window.  You may make the window as small as you like, but if it gets too
@@ -640,8 +640,8 @@ interface). For example, the Nvim lua-client is an API client:
 <div class="old-help-para"><div class="help-column_heading">Host</div>A plugin "host" is both a client (of the Nvim API) and a server (of an
 external platform, e.g. python). It is a remote plugin that hosts other
 plugins.</div>
-<div class="old-help-para"><div class="help-column_heading">Remote plugin</div>Arbitrary code registered via <a href="remote_plugin.html#%3AUpdateRemotePlugins">:UpdateRemotePlugins</a>, that runs in a separate
-process and communicates with Nvim via the <a href="api.html#api">api</a>.</div>
+<div class="old-help-para"><div class="help-column_heading">Remote plugin</div>Arbitrary code registered via <a href="/neovim-docs-web/en/remote_plugin#%3AUpdateRemotePlugins">:UpdateRemotePlugins</a>, that runs in a separate
+process and communicates with Nvim via the <a href="/neovim-docs-web/en/api#api">api</a>.</div>
 
   
   

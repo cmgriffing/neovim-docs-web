@@ -38,19 +38,19 @@ that use signs to mark build errors or display version control status.</div>
 <div class="old-help-para">							<a name="sign-column"></a><code class="help-tag-right">sign-column</code>
 When signs are defined for a file, Vim will automatically add a column of two
 characters to display them in.  When the last sign is unplaced the column
-disappears again.  This behavior can be changed with the <a href="options.html#'signcolumn'">'signcolumn'</a> option.</div>
+disappears again.  This behavior can be changed with the <a href="/neovim-docs-web/en/options#'signcolumn'">'signcolumn'</a> option.</div>
 <div class="old-help-para">The color of the column is set with the SignColumn highlight group
-<a href="syntax.html#hl-SignColumn">hl-SignColumn</a>.  Example to set the color:<pre>:highlight SignColumn guibg=darkgrey</pre></div>
-<div class="old-help-para">If <a href="options.html#'cursorline'">'cursorline'</a> is enabled, then the CursorLineSign highlight group is used
-<a href="syntax.html#hl-CursorLineSign">hl-CursorLineSign</a>.
+<a href="/neovim-docs-web/en/syntax#hl-SignColumn">hl-SignColumn</a>.  Example to set the color:<pre>:highlight SignColumn guibg=darkgrey</pre></div>
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is enabled, then the CursorLineSign highlight group is used
+<a href="/neovim-docs-web/en/syntax#hl-CursorLineSign">hl-CursorLineSign</a>.
 							<a name="sign-identifier"></a><code class="help-tag-right">sign-identifier</code>
 Each placed sign is identified by a number called the sign identifier. This
 identifier is used to jump to the sign or to remove the sign. The identifier
-is assigned when placing the sign using the <a href="sign.html#%3Asign-place">:sign-place</a> command or the
-<a href="sign.html#sign_place()">sign_place()</a> function. Each sign identifier should be a unique number. If
+is assigned when placing the sign using the <a href="/neovim-docs-web/en/sign#%3Asign-place">:sign-place</a> command or the
+<a href="/neovim-docs-web/en/sign#sign_place()">sign_place()</a> function. Each sign identifier should be a unique number. If
 multiple placed signs use the same identifier, then jumping to or removing a
 sign becomes unpredictable. To avoid overlapping identifiers, sign groups can
-be used. The <a href="sign.html#sign_place()">sign_place()</a> function can be called with a zero sign identifier
+be used. The <a href="/neovim-docs-web/en/sign#sign_place()">sign_place()</a> function can be called with a zero sign identifier
 to allocate the next available identifier.</div>
 <div class="old-help-para">							<a name="sign-group"></a><code class="help-tag-right">sign-group</code>
 Each placed sign can be assigned to either the global group or a named group.
@@ -76,9 +76,9 @@ line 23 of the current file:<pre>:sign define piet text=&gt;&gt; texthl=Search
 :exe ":sign place 2 line=23 name=piet file=" .. expand("%:p")</pre>
 And here is the command to delete it again:<pre>:sign unplace 2</pre>
 Note that the ":sign" command cannot be followed by another command or a
-comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</a> command.</div>
+comment.  If you do need that, use the <a href="/neovim-docs-web/en/eval#%3Aexecute">:execute</a> command.</div>
 <div class="old-help-para">DEFINING A SIGN.			<a name="%3Asign-define"></a><code class="help-tag-right">:sign-define</code> <a name="E255"></a><code class="help-tag">E255</code> <a name="E160"></a><code class="help-tag">E160</code> <a name="E612"></a><code class="help-tag">E612</code></div>
-<div class="old-help-para">See <a href="sign.html#sign_define()">sign_define()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_define()">sign_define()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign define <code>{name}</code> <code>{argument}</code>...
 		Define a new sign or set attributes for an existing sign.
 		The <code>{name}</code> can either be a number (all digits) or a name
@@ -97,8 +97,8 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 		in.  Most useful is defining a background color.</div>
 <div class="old-help-para">	numhl={group}
 		Highlighting group used for the line number on the line where
-		the sign is placed.  Overrides <a href="syntax.html#hl-LineNr">hl-LineNr</a>, <a href="syntax.html#hl-LineNrAbove">hl-LineNrAbove</a>,
-		<a href="syntax.html#hl-LineNrBelow">hl-LineNrBelow</a>, and <a href="syntax.html#hl-CursorLineNr">hl-CursorLineNr</a>.</div>
+		the sign is placed.  Overrides <a href="/neovim-docs-web/en/syntax#hl-LineNr">hl-LineNr</a>, <a href="/neovim-docs-web/en/syntax#hl-LineNrAbove">hl-LineNrAbove</a>,
+		<a href="/neovim-docs-web/en/syntax#hl-LineNrBelow">hl-LineNrBelow</a>, and <a href="/neovim-docs-web/en/syntax#hl-CursorLineNr">hl-CursorLineNr</a>.</div>
 <div class="old-help-para">	text={text}						<a name="E239"></a><code class="help-tag-right">E239</code>
 		Define the text that is displayed when there is no icon or the
 		GUI is not being used.  Only printable characters are allowed
@@ -107,21 +107,21 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 		Highlighting group used for the text item.</div>
 <div class="old-help-para">	culhl={group}
 		Highlighting group used for the text item when the cursor is
-		on the same line as the sign and <a href="options.html#'cursorline'">'cursorline'</a> is enabled.</div>
+		on the same line as the sign and <a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is enabled.</div>
 <div class="old-help-para">	Example:<pre>:sign define MySign text=&gt;&gt; texthl=Search linehl=DiffText</pre></div>
 <div class="old-help-para">DELETING A SIGN						<a name="%3Asign-undefine"></a><code class="help-tag-right">:sign-undefine</code> <a name="E155"></a><code class="help-tag">E155</code></div>
-<div class="old-help-para">See <a href="sign.html#sign_undefine()">sign_undefine()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_undefine()">sign_undefine()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign undefine <code>{name}</code>
 		Deletes a previously defined sign.  If signs with this <code>{name}</code>
 		are still placed this will cause trouble.</div>
 <div class="old-help-para">		Example:<pre>:sign undefine MySign</pre></div>
 <div class="old-help-para"><h3 class="help-heading">LISTING SIGNS<span class="help-heading-tags">						<a name="%3Asign-list"></a><span class="help-tag">:sign-list</span> <a name="E156"></a><span class="help-tag">E156</span></span></h3></div>
-<div class="old-help-para">See <a href="sign.html#sign_getdefined()">sign_getdefined()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_getdefined()">sign_getdefined()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign list	Lists all defined signs and their attributes.</div>
 <div class="old-help-para">:sign list <code>{name}</code>
 		Lists one defined sign and its attributes.</div>
 <div class="old-help-para"><h3 class="help-heading">PLACING SIGNS<span class="help-heading-tags">						<a name="%3Asign-place"></a><span class="help-tag">:sign-place</span> <a name="E158"></a><span class="help-tag">E158</span></span></h3></div>
-<div class="old-help-para">See <a href="sign.html#sign_place()">sign_place()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_place()">sign_place()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign place <code>{id}</code> line={lnum} name={name} file={fname}
 		Place sign defined as <code>{name}</code> at line <code>{lnum}</code> in file <code>{fname}</code>.
 							<a name="%3Asign-fname"></a><code class="help-tag-right">:sign-fname</code>
@@ -157,7 +157,7 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 <div class="old-help-para">							<a name="E885"></a><code class="help-tag-right">E885</code>
 :sign place <code>{id}</code> name={name} file={fname}
 		Change the placed sign <code>{id}</code> in file <code>{fname}</code> to use the defined
-		sign <code>{name}</code>.  See remark above about <code>{fname}</code> <a href="sign.html#%3Asign-fname">:sign-fname</a>.
+		sign <code>{name}</code>.  See remark above about <code>{fname}</code> <a href="/neovim-docs-web/en/sign#%3Asign-fname">:sign-fname</a>.
 		This can be used to change the displayed sign without moving
 		it (e.g., when the debugger has stopped at a breakpoint).</div>
 <div class="old-help-para">		The optional "group={group}" attribute can be used before
@@ -171,10 +171,10 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 <div class="old-help-para">		Example:<pre>:sign place 23 name=sign1
 :sign place 23 name=sign1 buffer=7</pre></div>
 <div class="old-help-para"><h3 class="help-heading">REMOVING SIGNS<span class="help-heading-tags">						<a name="%3Asign-unplace"></a><span class="help-tag">:sign-unplace</span> <a name="E159"></a><span class="help-tag">E159</span></span></h3></div>
-<div class="old-help-para">See <a href="sign.html#sign_unplace()">sign_unplace()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_unplace()">sign_unplace()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign unplace <code>{id}</code> file={fname}
 		Remove the previously placed sign <code>{id}</code> from file <code>{fname}</code>.
-		See remark above about <code>{fname}</code> <a href="sign.html#%3Asign-fname">:sign-fname</a>.</div>
+		See remark above about <code>{fname}</code> <a href="/neovim-docs-web/en/sign#%3Asign-fname">:sign-fname</a>.</div>
 <div class="old-help-para">:sign unplace <code>{id}</code> group={group} file={fname}
 		Same but remove the sign <code>{id}</code> in sign group <code>{group}</code>.</div>
 <div class="old-help-para">:sign unplace <code>{id}</code> group=* file={fname}
@@ -222,10 +222,10 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 <div class="old-help-para">:sign unplace group=*
 		Remove a placed sign in any group at the cursor position.</div>
 <div class="old-help-para"><h3 class="help-heading">LISTING PLACED SIGNS<span class="help-heading-tags">					<a name="%3Asign-place-list"></a><span class="help-tag">:sign-place-list</span></span></h3></div>
-<div class="old-help-para">See <a href="sign.html#sign_getplaced()">sign_getplaced()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_getplaced()">sign_getplaced()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign place file={fname}
 		List signs placed in file <code>{fname}</code>.
-		See remark above about <code>{fname}</code> <a href="sign.html#%3Asign-fname">:sign-fname</a>.</div>
+		See remark above about <code>{fname}</code> <a href="/neovim-docs-web/en/sign#%3Asign-fname">:sign-fname</a>.</div>
 <div class="old-help-para">:sign place group={group} file={fname}
 		List signs in group <code>{group}</code> placed in file <code>{fname}</code>.</div>
 <div class="old-help-para">:sign place group=* file={fname}
@@ -241,13 +241,13 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 <div class="old-help-para">:sign place group=*
 		List placed signs in all sign groups in all files.</div>
 <div class="old-help-para">JUMPING TO A SIGN					<a name="%3Asign-jump"></a><code class="help-tag-right">:sign-jump</code> <a name="E157"></a><code class="help-tag">E157</code></div>
-<div class="old-help-para">See <a href="sign.html#sign_jump()">sign_jump()</a> for the equivalent Vim script function.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/sign#sign_jump()">sign_jump()</a> for the equivalent Vim script function.</div>
 <div class="old-help-para">:sign jump <code>{id}</code> file={fname}
 		Open the file <code>{fname}</code> or jump to the window that contains
 		<code>{fname}</code> and position the cursor at sign <code>{id}</code>.
-		See remark above about <code>{fname}</code> <a href="sign.html#%3Asign-fname">:sign-fname</a>.
+		See remark above about <code>{fname}</code> <a href="/neovim-docs-web/en/sign#%3Asign-fname">:sign-fname</a>.
 		If the file isn't displayed in window and the current file can
-		not be <a href="editing.html#abandon">abandon</a>ed this fails.</div>
+		not be <a href="/neovim-docs-web/en/editing#abandon">abandon</a>ed this fails.</div>
 <div class="old-help-para">:sign jump <code>{id}</code> group={group} file={fname}
 		Same but jump to the sign in group <code>{group}</code></div>
 <div class="old-help-para">:sign jump <code>{id}</code> [buffer={nr}]					<a name="E934"></a><code class="help-tag-right">E934</code>
@@ -260,7 +260,7 @@ comment.  If you do need that, use the <a href="eval.html#%3Aexecute">:execute</
 <div class="old-help-para">sign_define(<code>{name}</code> [, <code>{dict}</code>])				<a name="sign_define()"></a><code class="help-tag-right">sign_define()</code>
 sign_define(<code>{list}</code>)
 		Define a new sign named <code>{name}</code> or modify the attributes of an
-		existing sign.  This is similar to the <a href="sign.html#%3Asign-define">:sign-define</a> command.</div>
+		existing sign.  This is similar to the <a href="/neovim-docs-web/en/sign#%3Asign-define">:sign-define</a> command.</div>
 <div class="old-help-para">		Prefix <code>{name}</code> with a unique text to avoid name collisions.
 		There is no <code>{group}</code> like with placing signs.</div>
 <div class="old-help-para">		The <code>{name}</code> can be a String or a Number.  The optional <code>{dict}</code>
@@ -274,10 +274,10 @@ sign_define(<code>{list}</code>)
 		   texthl	highlight group used for the text item
 		   culhl	highlight group used for the text item when
 				the cursor is on the same line as the sign and
-				<a href="options.html#'cursorline'">'cursorline'</a> is enabled.
-		   numhl	highlight group used for <a href="options.html#'number'">'number'</a> column at the
-				associated line. Overrides <a href="syntax.html#hl-LineNr">hl-LineNr</a>,
-				<a href="syntax.html#hl-CursorLineNr">hl-CursorLineNr</a>.</div>
+				<a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is enabled.
+		   numhl	highlight group used for <a href="/neovim-docs-web/en/options#'number'">'number'</a> column at the
+				associated line. Overrides <a href="/neovim-docs-web/en/syntax#hl-LineNr">hl-LineNr</a>,
+				<a href="/neovim-docs-web/en/syntax#hl-CursorLineNr">hl-CursorLineNr</a>.</div>
 <div class="old-help-para">		If the sign named <code>{name}</code> already exists, then the attributes
 		of the sign are updated.</div>
 <div class="old-help-para">		The one argument <code>{list}</code> can be used to define a list of signs.
@@ -296,10 +296,10 @@ call sign_define([
         \ {'name' : 'sign2',
         \  'text' : '!!'}
         \ ])</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignList()-&gt;sign_define()</pre>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignList()-&gt;sign_define()</pre>
 sign_getdefined([{name}])				<a name="sign_getdefined()"></a><code class="help-tag-right">sign_getdefined()</code>
 		Get a list of defined signs and their attributes.
-		This is similar to the <a href="sign.html#%3Asign-list">:sign-list</a> command.</div>
+		This is similar to the <a href="/neovim-docs-web/en/sign#%3Asign-list">:sign-list</a> command.</div>
 <div class="old-help-para">		If the <code>{name}</code> is not supplied, then a list of all the defined
 		signs is returned. Otherwise the attribute of the specified
 		sign is returned.</div>
@@ -315,11 +315,11 @@ sign_getdefined([{name}])				<a name="sign_getdefined()"></a><code class="help-t
 				present if not set.
 		   culhl	highlight group used for the text item when
 				the cursor is on the same line as the sign and
-				<a href="options.html#'cursorline'">'cursorline'</a> is enabled; not present if not
+				<a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> is enabled; not present if not
 				set.
-		   numhl	highlight group used for <a href="options.html#'number'">'number'</a> column at the
-				associated line. Overrides <a href="syntax.html#hl-LineNr">hl-LineNr</a>,
-				<a href="syntax.html#hl-CursorLineNr">hl-CursorLineNr</a>; not present if not set.</div>
+		   numhl	highlight group used for <a href="/neovim-docs-web/en/options#'number'">'number'</a> column at the
+				associated line. Overrides <a href="/neovim-docs-web/en/syntax#hl-LineNr">hl-LineNr</a>,
+				<a href="/neovim-docs-web/en/syntax#hl-CursorLineNr">hl-CursorLineNr</a>; not present if not set.</div>
 <div class="old-help-para">		Returns an empty List if there are no signs and when <code>{name}</code> is
 		not found.</div>
 <div class="old-help-para">		Examples:<pre>" Get a list of all the defined signs
@@ -327,24 +327,24 @@ echo sign_getdefined()
 
 " Get the attribute of the sign named mySign
 echo sign_getdefined("mySign")</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignList()-&gt;sign_getdefined()</pre>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignList()-&gt;sign_getdefined()</pre>
 sign_getplaced([{buf} [, <code>{dict}</code>]])			<a name="sign_getplaced()"></a><code class="help-tag-right">sign_getplaced()</code>
 		Return a list of signs placed in a buffer or all the buffers.
-		This is similar to the <a href="sign.html#%3Asign-place-list">:sign-place-list</a> command.</div>
+		This is similar to the <a href="/neovim-docs-web/en/sign#%3Asign-place-list">:sign-place-list</a> command.</div>
 <div class="old-help-para">		If the optional buffer name <code>{buf}</code> is specified, then only the
 		list of signs placed in that buffer is returned.  For the use
-		of <code>{buf}</code>, see <a href="builtin.html#bufname()">bufname()</a>. The optional <code>{dict}</code> can contain
+		of <code>{buf}</code>, see <a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a>. The optional <code>{dict}</code> can contain
 		the following entries:
 		   group	select only signs in this group
 		   id		select sign with this identifier
 		   lnum		select signs placed in this line. For the use
-				of <code>{lnum}</code>, see <a href="builtin.html#line()">line()</a>.
+				of <code>{lnum}</code>, see <a href="/neovim-docs-web/en/builtin#line()">line()</a>.
 		If <code>{group}</code> is '', then signs in all the groups including the
 		global group are returned. If <code>{group}</code> is not supplied or is an
 		empty string, then only signs in the global group are
 		returned.  If no arguments are supplied, then signs in the
 		global group placed in all the buffers are returned.
-		See <a href="sign.html#sign-group">sign-group</a>.</div>
+		See <a href="/neovim-docs-web/en/sign#sign-group">sign-group</a>.</div>
 <div class="old-help-para">		Each list item in the returned value is a dictionary with the
 		following entries:
 			bufnr	number of the buffer with the sign
@@ -380,38 +380,38 @@ echo sign_getplaced("a.py", {'group' : 'g1',
 
 " Get a List of all the placed signs
 echo sign_getplaced()</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetBufname()-&gt;sign_getplaced()</pre></div>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetBufname()-&gt;sign_getplaced()</pre></div>
 <div class="old-help-para">							<a name="sign_jump()"></a><code class="help-tag-right">sign_jump()</code>
 sign_jump(<code>{id}</code>, <code>{group}</code>, <code>{buf}</code>)
 		Open the buffer <code>{buf}</code> or jump to the window that contains
 		<code>{buf}</code> and position the cursor at sign <code>{id}</code> in group <code>{group}</code>.
-		This is similar to the <a href="sign.html#%3Asign-jump">:sign-jump</a> command.</div>
-<div class="old-help-para">		For the use of <code>{buf}</code>, see <a href="builtin.html#bufname()">bufname()</a>.</div>
+		This is similar to the <a href="/neovim-docs-web/en/sign#%3Asign-jump">:sign-jump</a> command.</div>
+<div class="old-help-para">		For the use of <code>{buf}</code>, see <a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a>.</div>
 <div class="old-help-para">		Returns the line number of the sign. Returns -1 if the
 		arguments are invalid.</div>
 <div class="old-help-para">		Example:<pre>" Jump to sign 10 in the current buffer
 call sign_jump(10, '', '')</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignid()-&gt;sign_jump()</pre></div>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignid()-&gt;sign_jump()</pre></div>
 <div class="old-help-para">							<a name="sign_place()"></a><code class="help-tag-right">sign_place()</code>
 sign_place(<code>{id}</code>, <code>{group}</code>, <code>{name}</code>, <code>{buf}</code> [, <code>{dict}</code>])
 		Place the sign defined as <code>{name}</code> at line <code>{lnum}</code> in file or
 		buffer <code>{buf}</code> and assign <code>{id}</code> and <code>{group}</code> to sign.  This is
-		similar to the <a href="sign.html#%3Asign-place">:sign-place</a> command.</div>
+		similar to the <a href="/neovim-docs-web/en/sign#%3Asign-place">:sign-place</a> command.</div>
 <div class="old-help-para">		If the sign identifier <code>{id}</code> is zero, then a new identifier is
 		allocated.  Otherwise the specified number is used. <code>{group}</code> is
 		the sign group name. To use the global sign group, use an
 		empty string.  <code>{group}</code> functions as a namespace for <code>{id}</code>, thus
-		two groups can use the same IDs. Refer to <a href="sign.html#sign-identifier">sign-identifier</a>
-		and <a href="sign.html#sign-group">sign-group</a> for more information.</div>
+		two groups can use the same IDs. Refer to <a href="/neovim-docs-web/en/sign#sign-identifier">sign-identifier</a>
+		and <a href="/neovim-docs-web/en/sign#sign-group">sign-group</a> for more information.</div>
 <div class="old-help-para">		<code>{name}</code> refers to a defined sign.
 		<code>{buf}</code> refers to a buffer name or number. For the accepted
-		values, see <a href="builtin.html#bufname()">bufname()</a>.</div>
+		values, see <a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a>.</div>
 <div class="old-help-para">		The optional <code>{dict}</code> argument supports the following entries:
 			lnum		line number in the file or buffer
 					<code>{buf}</code> where the sign is to be placed.
-					For the accepted values, see <a href="builtin.html#line()">line()</a>.
+					For the accepted values, see <a href="/neovim-docs-web/en/builtin#line()">line()</a>.
 			priority	priority of the sign. See
-					<a href="sign.html#sign-priority">sign-priority</a> for more information.</div>
+					<a href="/neovim-docs-web/en/sign#sign-priority">sign-priority</a> for more information.</div>
 <div class="old-help-para">		If the optional <code>{dict}</code> is not specified, then it modifies the
 		placed sign <code>{id}</code> in group <code>{group}</code> to use the defined sign
 		<code>{name}</code>.</div>
@@ -433,34 +433,34 @@ let id = sign_place(0, '', 'sign3', 'json.c',
 " at line 40 in buffer json.c with priority 90
 call sign_place(10, 'g3', 'sign4', 'json.c',
                 \ {'lnum' : 40, 'priority' : 90})</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignid()-&gt;sign_place(group, name, expr)</pre></div>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignid()-&gt;sign_place(group, name, expr)</pre></div>
 <div class="old-help-para">							<a name="sign_placelist()"></a><code class="help-tag-right">sign_placelist()</code>
 sign_placelist(<code>{list}</code>)
 		Place one or more signs.  This is similar to the
-		<a href="sign.html#sign_place()">sign_place()</a> function.  The <code>{list}</code> argument specifies the
+		<a href="/neovim-docs-web/en/sign#sign_place()">sign_place()</a> function.  The <code>{list}</code> argument specifies the
 		List of signs to place. Each list item is a dict with the
 		following sign attributes:
 		    buffer	buffer name or number. For the accepted
-				values, see <a href="builtin.html#bufname()">bufname()</a>.
+				values, see <a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a>.
 		    group	sign group. <code>{group}</code> functions as a namespace
 				for <code>{id}</code>, thus two groups can use the same
 				IDs. If not specified or set to an empty
 				string, then the global group is used.   See
-				<a href="sign.html#sign-group">sign-group</a> for more information.
+				<a href="/neovim-docs-web/en/sign#sign-group">sign-group</a> for more information.
 		    id		sign identifier. If not specified or zero,
 				then a new unique identifier is allocated.
 				Otherwise the specified number is used. See
-				<a href="sign.html#sign-identifier">sign-identifier</a> for more information.
+				<a href="/neovim-docs-web/en/sign#sign-identifier">sign-identifier</a> for more information.
 		    lnum	line number in the buffer <code>{buf}</code> where the
 				sign is to be placed. For the accepted values,
-				see <a href="builtin.html#line()">line()</a>.
-		    name	name of the sign to place. See <a href="sign.html#sign_define()">sign_define()</a>
+				see <a href="/neovim-docs-web/en/builtin#line()">line()</a>.
+		    name	name of the sign to place. See <a href="/neovim-docs-web/en/sign#sign_define()">sign_define()</a>
 		    		for more information.
 		    priority	priority of the sign. When multiple signs are
 				placed on a line, the sign with the highest
 				priority is used. If not specified, the
 				default value of 10 is used. See
-				<a href="sign.html#sign-priority">sign-priority</a> for more information.</div>
+				<a href="/neovim-docs-web/en/sign#sign-priority">sign-priority</a> for more information.</div>
 <div class="old-help-para">		If <code>{id}</code> refers to an existing sign, then the existing sign is
 		modified to use the specified <code>{name}</code> and/or <code>{priority}</code>.</div>
 <div class="old-help-para">		Returns a List of sign identifiers. If failed to place a
@@ -488,11 +488,11 @@ let [n1, n2] = sign_placelist([
         \  'buffer' : 'a.c',
         \  'lnum' : 50}
         \ ])</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignlist()-&gt;sign_placelist()</pre>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignlist()-&gt;sign_placelist()</pre>
 sign_undefine([{name}])					<a name="sign_undefine()"></a><code class="help-tag-right">sign_undefine()</code>
 sign_undefine(<code>{list}</code>)
 		Deletes a previously defined sign <code>{name}</code>. This is similar to
-		the <a href="sign.html#%3Asign-undefine">:sign-undefine</a> command. If <code>{name}</code> is not supplied, then
+		the <a href="/neovim-docs-web/en/sign#%3Asign-undefine">:sign-undefine</a> command. If <code>{name}</code> is not supplied, then
 		deletes all the defined signs.</div>
 <div class="old-help-para">		The one argument <code>{list}</code> can be used to undefine a list of
 		signs. Each list item is the name of a sign.</div>
@@ -507,17 +507,17 @@ call sign_undefine(["sign1", "sign2"])
 
 " Delete all the signs
 call sign_undefine()</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignlist()-&gt;sign_undefine()</pre>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignlist()-&gt;sign_undefine()</pre>
 sign_unplace(<code>{group}</code> [, <code>{dict}</code>])			<a name="sign_unplace()"></a><code class="help-tag-right">sign_unplace()</code>
 		Remove a previously placed sign in one or more buffers.  This
-		is similar to the <a href="sign.html#%3Asign-unplace">:sign-unplace</a> command.</div>
+		is similar to the <a href="/neovim-docs-web/en/sign#%3Asign-unplace">:sign-unplace</a> command.</div>
 <div class="old-help-para">		<code>{group}</code> is the sign group name. To use the global sign group,
 		use an empty string.  If <code>{group}</code> is set to '', then all the
 		groups including the global group are used.
 		The signs in <code>{group}</code> are selected based on the entries in
 		<code>{dict}</code>.  The following optional entries in <code>{dict}</code> are
 		supported:
-			buffer	buffer name or number. See <a href="builtin.html#bufname()">bufname()</a>.
+			buffer	buffer name or number. See <a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a>.
 			id	sign identifier
 		If <code>{dict}</code> is not supplied, then all the signs in <code>{group}</code> are
 		removed.</div>
@@ -545,14 +545,14 @@ call sign_unplace('*', {'id' : 40})
 
 " Remove all the placed signs from all the buffers
 call sign_unplace('*')</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSigngroup()-&gt;sign_unplace()</pre></div>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSigngroup()-&gt;sign_unplace()</pre></div>
 <div class="old-help-para">sign_unplacelist(<code>{list}</code>)				<a name="sign_unplacelist()"></a><code class="help-tag-right">sign_unplacelist()</code>
 		Remove previously placed signs from one or more buffers.  This
-		is similar to the <a href="sign.html#sign_unplace()">sign_unplace()</a> function.</div>
+		is similar to the <a href="/neovim-docs-web/en/sign#sign_unplace()">sign_unplace()</a> function.</div>
 <div class="old-help-para">		The <code>{list}</code> argument specifies the List of signs to remove.
 		Each list item is a dict with the following sign attributes:
 		    buffer	buffer name or number. For the accepted
-				values, see <a href="builtin.html#bufname()">bufname()</a>. If not specified,
+				values, see <a href="/neovim-docs-web/en/builtin#bufname()">bufname()</a>. If not specified,
 				then the specified sign is removed from all
 				the buffers.
 		    group	sign group name. If not specified or set to an
@@ -569,7 +569,7 @@ call sign_unplacelist([
         \ {'id' : 10, 'buffer' : "a.vim"},
         \ {'id' : 20, 'buffer' : 'b.vim'},
         \ ])</pre></div>
-<div class="old-help-para">		Can also be used as a <a href="eval.html#method">method</a>:<pre>GetSignlist()-&gt;sign_unplacelist()</pre></div>
+<div class="old-help-para">		Can also be used as a <a href="/neovim-docs-web/en/eval#method">method</a>:<pre>GetSignlist()-&gt;sign_unplacelist()</pre></div>
 
   
   

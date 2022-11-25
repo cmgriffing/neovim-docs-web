@@ -12,7 +12,7 @@ layout: ../../layouts/MainLayout.astro
     </i>
   </p>
   <hr>
-  <div class="old-help-para">This subject is introduced in section <a href="usr_30.html#30.1">30.1</a> of the user manual.</div>
+  <div class="old-help-para">This subject is introduced in section <a href="/neovim-docs-web/en/usr_30#30.1">30.1</a> of the user manual.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Using QuickFix commands <a name="Quickfix"></a><span class="help-tag">Quickfix</span> <a name="E42"></a><span class="help-tag">E42</span></h2></div>
 <div class="old-help-para">Vim has a special mode to speedup the edit-compile-edit cycle.  This is
 inspired by the quickfix option of the Manx's Aztec C compiler on the Amiga.
@@ -20,17 +20,17 @@ The idea is to save the error messages from the compiler in a file and use Vim
 to jump to the errors one by one.  You can examine each problem and fix it,
 without having to remember all the error messages.</div>
 <div class="old-help-para">In Vim the quickfix commands are used more generally to find a list of
-positions in files.  For example, <a href="quickfix.html#%3Avimgrep">:vimgrep</a> finds pattern matches.  You can
-use the positions in a script with the <a href="builtin.html#getqflist()">getqflist()</a> function.  Thus you can
+positions in files.  For example, <a href="/neovim-docs-web/en/quickfix#%3Avimgrep">:vimgrep</a> finds pattern matches.  You can
+use the positions in a script with the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> function.  Thus you can
 do a lot more than the edit/compile/fix cycle!</div>
 <div class="old-help-para">If you have the error messages in a file you can start Vim with:<pre>vim -q filename</pre>
 From inside Vim an easy way to run a command and handle the output is with the
-<a href="quickfix.html#%3Amake">:make</a> command (see below).</div>
-<div class="old-help-para">The <a href="options.html#'errorformat'">'errorformat'</a> option should be set to match the error messages from your
-compiler (see <a href="quickfix.html#errorformat">errorformat</a> below).</div>
+<a href="/neovim-docs-web/en/quickfix#%3Amake">:make</a> command (see below).</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> option should be set to match the error messages from your
+compiler (see <a href="/neovim-docs-web/en/quickfix#errorformat">errorformat</a> below).</div>
 <div class="old-help-para">							<a name="quickfix-ID"></a><code class="help-tag-right">quickfix-ID</code>
 Each quickfix list has a unique identifier called the quickfix ID and this
-number will not change within a Vim session. The <a href="builtin.html#getqflist()">getqflist()</a> function can be
+number will not change within a Vim session. The <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> function can be
 used to get the identifier assigned to a list. There is also a quickfix list
 number which may change whenever more than ten lists are added to a quickfix
 stack.</div>
@@ -50,28 +50,28 @@ the location list is destroyed.</div>
 Every quickfix and location list has a read-only changedtick variable that
 tracks the total number of changes made to the list.  Every time the quickfix
 list is modified, this count is incremented. This can be used to perform an
-action only when the list has changed.  The <a href="builtin.html#getqflist()">getqflist()</a> and <a href="builtin.html#getloclist()">getloclist()</a>
+action only when the list has changed.  The <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> and <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a>
 functions can be used to query the current value of changedtick.  You cannot
 change the changedtick variable.</div>
 <div class="old-help-para">The following quickfix commands can be used.  The location list commands are
 similar to the quickfix commands, replacing the 'c' prefix in the quickfix
 command with 'l'.</div>
 <div class="old-help-para">							<a name="E924"></a><code class="help-tag-right">E924</code>
-If the current window was closed by an <a href="autocmd.html#autocommand">autocommand</a> while processing a
+If the current window was closed by an <a href="/neovim-docs-web/en/autocmd#autocommand">autocommand</a> while processing a
 location list command, it will be aborted.</div>
 <div class="old-help-para">							<a name="E925"></a><code class="help-tag-right">E925</code> <a name="E926"></a><code class="help-tag">E926</code>
-If the current quickfix or location list was changed by an <a href="autocmd.html#autocommand">autocommand</a> while
+If the current quickfix or location list was changed by an <a href="/neovim-docs-web/en/autocmd#autocommand">autocommand</a> while
 processing a quickfix or location list command, it will be aborted.</div>
 <div class="old-help-para">							<a name="%3Acc"></a><code class="help-tag-right">:cc</code>
 :cc[!] [nr]		Display error [nr].  If [nr] is omitted, the same
 :[nr]cc[!]		error is displayed again.  Without [!] this doesn't
 			work when jumping to another buffer, the current buffer
 			has been changed, there is the only window for the
-			buffer and both <a href="options.html#'hidden'">'hidden'</a> and <a href="options.html#'autowrite'">'autowrite'</a> are off.
+			buffer and both <a href="/neovim-docs-web/en/options#'hidden'">'hidden'</a> and <a href="/neovim-docs-web/en/options#'autowrite'">'autowrite'</a> are off.
 			When jumping to another buffer with [!] any changes to
-			the current buffer are lost, unless <a href="options.html#'hidden'">'hidden'</a> is set or
+			the current buffer are lost, unless <a href="/neovim-docs-web/en/options#'hidden'">'hidden'</a> is set or
 			there is another window for this buffer.
-			The <a href="options.html#'switchbuf'">'switchbuf'</a> settings are respected when jumping
+			The <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a> settings are respected when jumping
 			to a buffer.
 			When used in the quickfix window the line number can
 			be used, including "." for the current line and "$"
@@ -82,16 +82,16 @@ processing a quickfix or location list command, it will be aborted.</div>
 <div class="old-help-para">						<a name="%3Acn"></a><code class="help-tag-right">:cn</code> <a name="%3Acne"></a><code class="help-tag">:cne</code> <a name="%3Acnext"></a><code class="help-tag">:cnext</code> <a name="E553"></a><code class="help-tag">E553</code>
 :[count]cn[ext][!]	Display the [count] next error in the list that
 			includes a file name.  If there are no file names at
-			all, go to the [count] next error.  See <a href="quickfix.html#%3Acc">:cc</a> for
-			[!] and <a href="options.html#'switchbuf'">'switchbuf'</a>.</div>
+			all, go to the [count] next error.  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for
+			[!] and <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a>.</div>
 <div class="old-help-para">							<a name="%3Alne"></a><code class="help-tag-right">:lne</code> <a name="%3Alnext"></a><code class="help-tag">:lnext</code>
 :[count]lne[xt][!]	Same as ":cnext", except the location list for the
 			current window is used instead of the quickfix list.</div>
 <div class="old-help-para">:[count]cN[ext][!]		<a name="%3Acp"></a><code class="help-tag-right">:cp</code> <a name="%3Acprevious"></a><code class="help-tag">:cprevious</code>  <a name="%3Acprev"></a><code class="help-tag">:cprev</code> <a name="%3AcN"></a><code class="help-tag">:cN</code> <a name="%3AcNext"></a><code class="help-tag">:cNext</code>
 :[count]cp[revious][!]	Display the [count] previous error in the list that
 			includes a file name.  If there are no file names at
-			all, go to the [count] previous error.  See <a href="quickfix.html#%3Acc">:cc</a> for
-			[!] and <a href="options.html#'switchbuf'">'switchbuf'</a>.</div>
+			all, go to the [count] previous error.  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for
+			[!] and <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a>.</div>
 <div class="old-help-para">:[count]lN[ext][!]		<a name="%3Alp"></a><code class="help-tag-right">:lp</code> <a name="%3Alprevious"></a><code class="help-tag">:lprevious</code> <a name="%3Alprev"></a><code class="help-tag">:lprev</code> <a name="%3AlN"></a><code class="help-tag">:lN</code> <a name="%3AlNext"></a><code class="help-tag">:lNext</code>
 :[count]lp[revious][!]	Same as ":cNext" and ":cprevious", except the location
 			list for the current window is used instead of the
@@ -150,8 +150,8 @@ processing a quickfix or location list command, it will be aborted.</div>
 :[count]cnf[ile][!]	Display the first error in the [count] next file in
 			the list that includes a file name.  If there are no
 			file names at all or if there is no next file, go to
-			the [count] next error.  See <a href="quickfix.html#%3Acc">:cc</a> for [!] and
-			<a href="options.html#'switchbuf'">'switchbuf'</a>.</div>
+			the [count] next error.  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for [!] and
+			<a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a>.</div>
 <div class="old-help-para">							<a name="%3Alnf"></a><code class="help-tag-right">:lnf</code> <a name="%3Alnfile"></a><code class="help-tag">:lnfile</code>
 :[count]lnf[ile][!]	Same as ":cnfile", except the location list for the
 			current window is used instead of the quickfix list.</div>
@@ -159,15 +159,15 @@ processing a quickfix or location list command, it will be aborted.</div>
 :[count]cpf[ile][!]	Display the last error in the [count] previous file in
 			the list that includes a file name.  If there are no
 			file names at all or if there is no next file, go to
-			the [count] previous error.  See <a href="quickfix.html#%3Acc">:cc</a> for [!] and
-			<a href="options.html#'switchbuf'">'switchbuf'</a>.</div>
+			the [count] previous error.  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for [!] and
+			<a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a>.</div>
 <div class="old-help-para">:[count]lNf[ile][!]			<a name="%3Alpf"></a><code class="help-tag-right">:lpf</code> <a name="%3Alpfile"></a><code class="help-tag">:lpfile</code> <a name="%3AlNf"></a><code class="help-tag">:lNf</code> <a name="%3AlNfile"></a><code class="help-tag">:lNfile</code>
 :[count]lpf[ile][!]	Same as ":cNfile" and ":cpfile", except the location
 			list for the current window is used instead of the
 			quickfix list.</div>
 <div class="old-help-para">							<a name="%3Acrewind"></a><code class="help-tag-right">:crewind</code> <a name="%3Acr"></a><code class="help-tag">:cr</code>
 :cr[ewind][!] [nr]	Display error [nr].  If [nr] is omitted, the FIRST
-			error is displayed.  See <a href="quickfix.html#%3Acc">:cc</a>.</div>
+			error is displayed.  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a>.</div>
 <div class="old-help-para">							<a name="%3Alrewind"></a><code class="help-tag-right">:lrewind</code> <a name="%3Alr"></a><code class="help-tag">:lr</code>
 :lr[ewind][!] [nr]	Same as ":crewind", except the location list for the
 			current window is used instead of the quickfix list.</div>
@@ -177,7 +177,7 @@ processing a quickfix or location list command, it will be aborted.</div>
 :lfir[st][!] [nr]	Same as ":lrewind".</div>
 <div class="old-help-para">							<a name="%3Aclast"></a><code class="help-tag-right">:clast</code> <a name="%3Acla"></a><code class="help-tag">:cla</code>
 :cla[st][!] [nr]	Display error [nr].  If [nr] is omitted, the LAST
-			error is displayed.  See <a href="quickfix.html#%3Acc">:cc</a>.</div>
+			error is displayed.  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a>.</div>
 <div class="old-help-para">							<a name="%3Allast"></a><code class="help-tag-right">:llast</code> <a name="%3Alla"></a><code class="help-tag">:lla</code>
 :lla[st][!] [nr]	Same as ":clast", except the location list for the
 			current window is used instead of the quickfix list.</div>
@@ -193,17 +193,17 @@ processing a quickfix or location list command, it will be aborted.</div>
 			<code>{N}</code> can also be zero, in which case Vim exits
 			normally.
 			WARNING: All changes in files are lost.  It works like
-			":qall!" <a href="editing.html#%3Aqall">:qall</a>, except that Nvim exits non-zero or
+			":qall!" <a href="/neovim-docs-web/en/editing#%3Aqall">:qall</a>, except that Nvim exits non-zero or
 			[count].</div>
 <div class="old-help-para">							<a name="%3Acf"></a><code class="help-tag-right">:cf</code> <a name="%3Acfi"></a><code class="help-tag">:cfi</code> <a name="%3Acfile"></a><code class="help-tag">:cfile</code>
 :cf[ile][!] [errorfile]	Read the error file and jump to the first error.
 			This is done automatically when Vim is started with
 			the -q option.  You can use this command when you
 			keep Vim running while compiling.  If you give the
-			name of the errorfile, the <a href="options.html#'errorfile'">'errorfile'</a> option will
-			be set to [errorfile].  See <a href="quickfix.html#%3Acc">:cc</a> for [!].
+			name of the errorfile, the <a href="/neovim-docs-web/en/options#'errorfile'">'errorfile'</a> option will
+			be set to [errorfile].  See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for [!].
 			If the encoding of the error file differs from the
-			<a href="options.html#'encoding'">'encoding'</a> option, you can use the <a href="options.html#'makeencoding'">'makeencoding'</a>
+			<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option, you can use the <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>
 			option to specify the encoding.</div>
 <div class="old-help-para">							<a name="%3Alf"></a><code class="help-tag-right">:lf</code> <a name="%3Alfi"></a><code class="help-tag">:lfi</code> <a name="%3Alfile"></a><code class="help-tag">:lfile</code>
 :lf[ile][!] [errorfile]	Same as ":cfile", except the location list for the
@@ -214,7 +214,7 @@ processing a quickfix or location list command, it will be aborted.</div>
 			Read the error file.  Just like ":cfile" but don't
 			jump to the first error.
 			If the encoding of the error file differs from the
-			<a href="options.html#'encoding'">'encoding'</a> option, you can use the <a href="options.html#'makeencoding'">'makeencoding'</a>
+			<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option, you can use the <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>
 			option to specify the encoding.</div>
 <div class="old-help-para">:lg[etfile] [errorfile]					<a name="%3Alg"></a><code class="help-tag-right">:lg</code> <a name="%3Alge"></a><code class="help-tag">:lge</code> <a name="%3Algetfile"></a><code class="help-tag">:lgetfile</code>
 			Same as ":cgetfile", except the location list for the
@@ -224,7 +224,7 @@ processing a quickfix or location list command, it will be aborted.</div>
 			errorfile to the current quickfix list. If a quickfix
 			list is not present, then a new list is created.
 			If the encoding of the error file differs from the
-			<a href="options.html#'encoding'">'encoding'</a> option, you can use the <a href="options.html#'makeencoding'">'makeencoding'</a>
+			<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option, you can use the <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>
 			option to specify the encoding.</div>
 <div class="old-help-para">							<a name="%3Aladdf"></a><code class="help-tag-right">:laddf</code> <a name="%3Aladdfile"></a><code class="help-tag">:laddfile</code>
 :laddf[ile] [errorfile]	Same as ":caddfile", except the location list for the
@@ -236,7 +236,7 @@ processing a quickfix or location list command, it will be aborted.</div>
 			of the current buffer.
 			A range can be specified for the lines to be used.
 			Otherwise all lines in the buffer are used.
-			See <a href="quickfix.html#%3Acc">:cc</a> for [!].</div>
+			See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for [!].</div>
 <div class="old-help-para">						<a name="%3Alb"></a><code class="help-tag-right">:lb</code> <a name="%3Albuffer"></a><code class="help-tag">:lbuffer</code>
 :lb[uffer][!] [bufnr]	Same as ":cbuffer", except the location list for the
 			current window is used instead of the quickfix list.</div>
@@ -261,28 +261,28 @@ processing a quickfix or location list command, it will be aborted.</div>
 			jump to the first error.
 			If <code>{expr}</code> is a String, then each newline terminated
 			line in the String is processed using the global value
-			of <a href="options.html#'errorformat'">'errorformat'</a> and the result is added to the
+			of <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> and the result is added to the
 			quickfix list.
 			If <code>{expr}</code> is a List, then each String item in the list
 			is processed and added to the quickfix list.  Non
 			String items in the List are ignored.
-			See <a href="quickfix.html#%3Acc">:cc</a> for [!].
+			See <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a> for [!].
 			Examples:<pre>:cexpr system('grep -n xyz *')
 :cexpr getline(1, '$')</pre></div>
 <div class="old-help-para">							<a name="%3Alex"></a><code class="help-tag-right">:lex</code> <a name="%3Alexpr"></a><code class="help-tag">:lexpr</code>
-:lex[pr][!] <code>{expr}</code>	Same as <a href="quickfix.html#%3Acexpr">:cexpr</a>, except the location list for the
+:lex[pr][!] <code>{expr}</code>	Same as <a href="/neovim-docs-web/en/quickfix#%3Acexpr">:cexpr</a>, except the location list for the
 			current window is used instead of the quickfix list.</div>
 <div class="old-help-para">							<a name="%3Acgete"></a><code class="help-tag-right">:cgete</code> <a name="%3Acgetexpr"></a><code class="help-tag">:cgetexpr</code>
 :cgete[xpr] <code>{expr}</code>	Create a quickfix list using the result of <code>{expr}</code>.
-			Just like <a href="quickfix.html#%3Acexpr">:cexpr</a>, but don't jump to the first error.</div>
+			Just like <a href="/neovim-docs-web/en/quickfix#%3Acexpr">:cexpr</a>, but don't jump to the first error.</div>
 <div class="old-help-para">							<a name="%3Algete"></a><code class="help-tag-right">:lgete</code> <a name="%3Algetexpr"></a><code class="help-tag">:lgetexpr</code>
-:lgete[xpr] <code>{expr}</code>	Same as <a href="quickfix.html#%3Acgetexpr">:cgetexpr</a>, except the location list for the
+:lgete[xpr] <code>{expr}</code>	Same as <a href="/neovim-docs-web/en/quickfix#%3Acgetexpr">:cgetexpr</a>, except the location list for the
 			current window is used instead of the quickfix list.</div>
 <div class="old-help-para">							<a name="%3Acadde"></a><code class="help-tag-right">:cadde</code> <a name="%3Acaddexpr"></a><code class="help-tag">:caddexpr</code>
 :cadde[xpr] <code>{expr}</code>	Evaluate <code>{expr}</code> and add the resulting lines to the
 			current quickfix list. If a quickfix list is not
 			present, then a new list is created. The current
-			cursor position will not be changed. See <a href="quickfix.html#%3Acexpr">:cexpr</a> for
+			cursor position will not be changed. See <a href="/neovim-docs-web/en/quickfix#%3Acexpr">:cexpr</a> for
 			more information.
 			Example:<pre>:g/mypattern/caddexpr expand("%") .. ":" .. line(".") ..  ":" .. getline(".")</pre></div>
 <div class="old-help-para">						<a name="%3Alad"></a><code class="help-tag-right">:lad</code> <a name="%3Aaddd"></a><code class="help-tag">:addd</code> <a name="%3Aladdexpr"></a><code class="help-tag">:laddexpr</code>
@@ -290,13 +290,13 @@ processing a quickfix or location list command, it will be aborted.</div>
 			current window is used instead of the quickfix list.</div>
 <div class="old-help-para">							<a name="%3Acl"></a><code class="help-tag-right">:cl</code> <a name="%3Aclist"></a><code class="help-tag">:clist</code>
 :cl[ist] [from] [, [to]]
-			List all errors that are valid <a href="quickfix.html#quickfix-valid">quickfix-valid</a>.
+			List all errors that are valid <a href="/neovim-docs-web/en/quickfix#quickfix-valid">quickfix-valid</a>.
 			If numbers [from] and/or [to] are given, the respective
 			range of errors is listed.  A negative number counts
 			from the last error backwards, -1 being the last error.
-			The <a href="options.html#'switchbuf'">'switchbuf'</a> settings are respected when jumping
+			The <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a> settings are respected when jumping
 			to a buffer.
-			The <a href="various.html#%3Afilter">:filter</a> command can be used to display only the
+			The <a href="/neovim-docs-web/en/various#%3Afilter">:filter</a> command can be used to display only the
 			quickfix entries matching a supplied pattern. The
 			pattern is matched against the filename, module name,
 			pattern and text of the entry.</div>
@@ -323,9 +323,9 @@ the error location may not be correct.  If you quit Vim and start again the
 marks are lost and the error locations may not be correct anymore.</div>
 <div class="old-help-para">Two autocommands are available for running commands before and after a
 quickfix command (':make', ':grep' and so on) is executed. See
-<a href="autocmd.html#QuickFixCmdPre">QuickFixCmdPre</a> and <a href="autocmd.html#QuickFixCmdPost">QuickFixCmdPost</a> for details.</div>
+<a href="/neovim-docs-web/en/autocmd#QuickFixCmdPre">QuickFixCmdPre</a> and <a href="/neovim-docs-web/en/autocmd#QuickFixCmdPost">QuickFixCmdPost</a> for details.</div>
 <div class="old-help-para">						<a name="QuickFixCmdPost-example"></a><code class="help-tag-right">QuickFixCmdPost-example</code>
-When <a href="options.html#'encoding'">'encoding'</a> differs from the locale, the error messages may have a
+When <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> differs from the locale, the error messages may have a
 different encoding from what Vim is using.  To convert the messages you can
 use this code:<pre>function QfMakeConv()
    let qflist = getqflist()
@@ -336,19 +336,19 @@ use this code:<pre>function QfMakeConv()
 endfunction
 
 au QuickfixCmdPost make call QfMakeConv()</pre>
-Another option is using <a href="options.html#'makeencoding'">'makeencoding'</a>.</div>
+Another option is using <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>.</div>
 <div class="old-help-para">							<a name="quickfix-title"></a><code class="help-tag-right">quickfix-title</code>
 Every quickfix and location list has a title. By default the title is set to
-the command that created the list. The <a href="builtin.html#getqflist()">getqflist()</a> and <a href="builtin.html#getloclist()">getloclist()</a>
+the command that created the list. The <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> and <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a>
 functions can be used to get the title of a quickfix and a location list
-respectively. The <a href="builtin.html#setqflist()">setqflist()</a> and <a href="builtin.html#setloclist()">setloclist()</a> functions can be used to
+respectively. The <a href="/neovim-docs-web/en/builtin#setqflist()">setqflist()</a> and <a href="/neovim-docs-web/en/builtin#setloclist()">setloclist()</a> functions can be used to
 modify the title of a quickfix and location list respectively. Examples:<pre>call setqflist([], 'a', {'title' : 'Cmd output'})
 echo getqflist({'title' : 1})
 call setloclist(3, [], 'a', {'title' : 'Cmd output'})
 echo getloclist(3, {'title' : 1})</pre></div>
 <div class="old-help-para">							<a name="quickfix-index"></a><code class="help-tag-right">quickfix-index</code>
 When you jump to a quickfix/location list entry using any of the quickfix
-commands (e.g. <a href="quickfix.html#%3Acc">:cc</a>, <a href="quickfix.html#%3Acnext">:cnext</a>, <a href="quickfix.html#%3Acprev">:cprev</a>, etc.), that entry becomes the
+commands (e.g. <a href="/neovim-docs-web/en/quickfix#%3Acc">:cc</a>, <a href="/neovim-docs-web/en/quickfix#%3Acnext">:cnext</a>, <a href="/neovim-docs-web/en/quickfix#%3Acprev">:cprev</a>, etc.), that entry becomes the
 currently selected entry. The index of the currently selected entry in a
 quickfix/location list can be obtained using the getqflist()/getloclist()
 functions. Examples:<pre>echo getqflist({'idx' : 0}).idx
@@ -361,13 +361,13 @@ call setqflist([], 'a', {'id' : qfid, 'idx' : 7})
 call setloclist(1, [], 'a', {'idx' : 7})</pre></div>
 <div class="old-help-para">							<a name="quickfix-size"></a><code class="help-tag-right">quickfix-size</code>
 You can get the number of entries (size) in a quickfix and a location list
-using the <a href="builtin.html#getqflist()">getqflist()</a> and <a href="builtin.html#getloclist()">getloclist()</a> functions respectively. Examples:<pre>echo getqflist({'size' : 1})
+using the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> and <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a> functions respectively. Examples:<pre>echo getqflist({'size' : 1})
 echo getloclist(5, {'size' : 1})</pre></div>
 <div class="old-help-para">							<a name="quickfix-context"></a><code class="help-tag-right">quickfix-context</code>
 Any Vim type can be associated as a context with a quickfix or location list.
-The <a href="builtin.html#setqflist()">setqflist()</a> and the <a href="builtin.html#setloclist()">setloclist()</a> functions can be used to associate a
-context with a quickfix and a location list respectively. The <a href="builtin.html#getqflist()">getqflist()</a>
-and the <a href="builtin.html#getloclist()">getloclist()</a> functions can be used to retrieve the context of a
+The <a href="/neovim-docs-web/en/builtin#setqflist()">setqflist()</a> and the <a href="/neovim-docs-web/en/builtin#setloclist()">setloclist()</a> functions can be used to associate a
+context with a quickfix and a location list respectively. The <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a>
+and the <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a> functions can be used to retrieve the context of a
 quickfix and a location list respectively. This is useful for a Vim plugin
 dealing with multiple quickfix/location lists.
 Examples:<pre>let somectx = {'name' : 'Vim', 'type' : 'Editor'}
@@ -378,12 +378,12 @@ let newctx = ['red', 'green', 'blue']
 call setloclist(2, [], 'a', {'id' : qfid, 'context' : newctx})
 echo getloclist(2, {'id' : qfid, 'context' : 1})</pre></div>
 <div class="old-help-para">							<a name="quickfix-parse"></a><code class="help-tag-right">quickfix-parse</code>
-You can parse a list of lines using <a href="options.html#'errorformat'">'errorformat'</a> without creating or
-modifying a quickfix list using the <a href="builtin.html#getqflist()">getqflist()</a> function. Examples:<pre>echo getqflist({'lines' : ["F1:10:Line10", "F2:20:Line20"]})
+You can parse a list of lines using <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> without creating or
+modifying a quickfix list using the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> function. Examples:<pre>echo getqflist({'lines' : ["F1:10:Line10", "F2:20:Line20"]})
 echo getqflist({'lines' : systemlist('grep -Hn quickfix *')})</pre>
 This returns a dictionary where the "items" key contains the list of quickfix
 entries parsed from lines. The following shows how to use a custom
-<a href="options.html#'errorformat'">'errorformat'</a> to parse the lines without modifying the <a href="options.html#'errorformat'">'errorformat'</a> option:<pre>echo getqflist({'efm' : '%f#%l#%m', 'lines' : ['F1#10#Line']})</pre></div>
+<a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> to parse the lines without modifying the <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> option:<pre>echo getqflist({'efm' : '%f#%l#%m', 'lines' : ['F1#10#Line']})</pre></div>
 <div class="old-help-para">EXECUTE A COMMAND IN ALL THE BUFFERS IN QUICKFIX OR LOCATION LIST:
 							<a name="%3Acdo"></a><code class="help-tag-right">:cdo</code>
 :cdo[!] <code>{cmd}</code>		Execute <code>{cmd}</code> in each valid entry in the quickfix list.
@@ -392,7 +392,7 @@ entries parsed from lines. The following shows how to use a custom
 :cnext
 :{cmd}
 etc.</pre></div>
-<div class="old-help-para">			When the current file can't be <a href="editing.html#abandon">abandon</a>ed and the [!]
+<div class="old-help-para">			When the current file can't be <a href="/neovim-docs-web/en/editing#abandon">abandon</a>ed and the [!]
 			is not present, the command fails.
 			When going to the next entry fails execution stops.
 			The last buffer (or where an error occurred) becomes
@@ -403,10 +403,10 @@ etc.</pre></div>
 <div class="old-help-para">			To skip entries 1 to 9.</div>
 <div class="old-help-para">			Note: While this command is executing, the Syntax
 			autocommand event is disabled by adding it to
-			<a href="options.html#'eventignore'">'eventignore'</a>.  This considerably speeds up editing
+			<a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a>.  This considerably speeds up editing
 			each buffer.
-			Also see <a href="windows.html#%3Abufdo">:bufdo</a>, <a href="tabpage.html#%3Atabdo">:tabdo</a>, <a href="editing.html#%3Aargdo">:argdo</a>, <a href="windows.html#%3Awindo">:windo</a>,
-			<a href="quickfix.html#%3Aldo">:ldo</a>, <a href="quickfix.html#%3Acfdo">:cfdo</a> and <a href="quickfix.html#%3Alfdo">:lfdo</a>.</div>
+			Also see <a href="/neovim-docs-web/en/windows#%3Abufdo">:bufdo</a>, <a href="/neovim-docs-web/en/tabpage#%3Atabdo">:tabdo</a>, <a href="/neovim-docs-web/en/editing#%3Aargdo">:argdo</a>, <a href="/neovim-docs-web/en/windows#%3Awindo">:windo</a>,
+			<a href="/neovim-docs-web/en/quickfix#%3Aldo">:ldo</a>, <a href="/neovim-docs-web/en/quickfix#%3Acfdo">:cfdo</a> and <a href="/neovim-docs-web/en/quickfix#%3Alfdo">:lfdo</a>.</div>
 <div class="old-help-para">							<a name="%3Acfdo"></a><code class="help-tag-right">:cfdo</code>
 :cfdo[!] <code>{cmd}</code>		Execute <code>{cmd}</code> in each file in the quickfix list.
 			It works like doing this:<pre>:cfirst
@@ -440,17 +440,17 @@ If you have too many entries in a quickfix list, you can use the cfilter
 plugin to reduce the number of entries.  Load the plugin with:<pre>packadd cfilter</pre>
 Then you can use the following commands to filter a quickfix/location list:<pre>:Cfilter[!] /{pat}/
 :Lfilter[!] /{pat}/</pre>
-The <a href="quickfix.html#%3ACfilter">:Cfilter</a> command creates a new quickfix list from the entries matching
-<code>{pat}</code> in the current quickfix list. <code>{pat}</code> is a Vim <a href="pattern.html#regular-expression">regular-expression</a>
+The <a href="/neovim-docs-web/en/quickfix#%3ACfilter">:Cfilter</a> command creates a new quickfix list from the entries matching
+<code>{pat}</code> in the current quickfix list. <code>{pat}</code> is a Vim <a href="/neovim-docs-web/en/pattern#regular-expression">regular-expression</a>
 pattern. Both the file name and the text of the entries are matched against
 <code>{pat}</code>. If the optional ! is supplied, then the entries not matching <code>{pat}</code> are
 used. The pattern can be optionally enclosed using one of the following
 characters: ', ", /. If the pattern is empty, then the last used search
 pattern is used.</div>
-<div class="old-help-para">The <a href="quickfix.html#%3ALfilter">:Lfilter</a> command does the same as <a href="quickfix.html#%3ACfilter">:Cfilter</a> but operates on the current
+<div class="old-help-para">The <a href="/neovim-docs-web/en/quickfix#%3ALfilter">:Lfilter</a> command does the same as <a href="/neovim-docs-web/en/quickfix#%3ACfilter">:Cfilter</a> but operates on the current
 location list.</div>
 <div class="old-help-para">The current quickfix/location list is not modified by these commands, so you
-can go back to the unfiltered list using the <a href="quickfix.html#%3Acolder">:colder</a>/|:lolder| command.</div>
+can go back to the unfiltered list using the <a href="/neovim-docs-web/en/quickfix#%3Acolder">:colder</a>/|:lolder| command.</div>
 <div class="old-help-para"><h2 class="help-heading">2. The error window<span class="help-heading-tags">					<a name="quickfix-window"></a><span class="help-tag">quickfix-window</span></span></h2></div>
 <div class="old-help-para">					    <a name="%3Acope"></a><code class="help-tag-right">:cope</code> <a name="%3Acopen"></a><code class="help-tag">:copen</code> <a name="w%3Aquickfix_title"></a><code class="help-tag">w:quickfix_title</code>
 :cope[n] [height]	Open a window to show the current list of errors.</div>
@@ -463,13 +463,13 @@ can go back to the unfiltered list using the <a href="quickfix.html#%3Acolder">:
 			existing window will be resized to it.</div>
 <div class="old-help-para">							<a name="quickfix-buffer"></a><code class="help-tag-right">quickfix-buffer</code>
 			The window will contain a special buffer, with
-			<a href="options.html#'buftype'">'buftype'</a> equal to "quickfix".  Don't change this!
+			<a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> equal to "quickfix".  Don't change this!
 			The window will have the w:quickfix_title variable set
 			which will indicate the command that produced the
 			quickfix list. This can be used to compose a custom
-			status line if the value of <a href="options.html#'statusline'">'statusline'</a> is adjusted
+			status line if the value of <a href="/neovim-docs-web/en/options#'statusline'">'statusline'</a> is adjusted
 			properly. Whenever this buffer is modified by a
-			quickfix command or function, the <a href="eval.html#b%3Achangedtick">b:changedtick</a>
+			quickfix command or function, the <a href="/neovim-docs-web/en/eval#b%3Achangedtick">b:changedtick</a>
 			variable is incremented.  You can get the number of
 			this buffer using the getqflist() and getloclist()
 			functions by passing the "qfbufnr" item. For a
@@ -505,10 +505,10 @@ can go back to the unfiltered list using the <a href="quickfix.html#%3Acolder">:
 <div class="old-help-para">Normally the quickfix window is at the bottom of the screen.  If there are
 vertical splits, it's at the bottom of the rightmost column of windows.  To
 make it always occupy the full width:<pre>:botright cwindow</pre>
-You can move the window around with <a href="windows.html#window-moving">window-moving</a> commands.
+You can move the window around with <a href="/neovim-docs-web/en/windows#window-moving">window-moving</a> commands.
 For example, to move it to the top: <code>CTRL-W</code> K
-The <a href="options.html#'winfixheight'">'winfixheight'</a> option will be set, which means that the window will mostly
-keep its height, ignoring <a href="options.html#'winheight'">'winheight'</a> and <a href="options.html#'equalalways'">'equalalways'</a>.  You can change the
+The <a href="/neovim-docs-web/en/options#'winfixheight'">'winfixheight'</a> option will be set, which means that the window will mostly
+keep its height, ignoring <a href="/neovim-docs-web/en/options#'winheight'">'winheight'</a> and <a href="/neovim-docs-web/en/options#'equalalways'">'equalalways'</a>.  You can change the
 height manually (e.g., by dragging the status line above it with the mouse).</div>
 <div class="old-help-para">In the quickfix window, each line is one error.  The line number is equal to
 the error number.  The current entry is highlighted with the QuickFixLine
@@ -525,13 +525,13 @@ to find a window to edit the file:</div>
 <div class="old-help-para">1. If a window displaying the selected file is present in the current tabpage
    (starting with the window before the quickfix window), then that window is
    used.
-2. If the above step fails and if <a href="options.html#'switchbuf'">'switchbuf'</a> contains "usetab" and a window
+2. If the above step fails and if <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a> contains "usetab" and a window
    displaying the selected file is present in any one of the tabpages
    (starting with the first tabpage) then that window is used.
 3. If the above step fails then a window in the current tabpage displaying a
-   buffer with <a href="options.html#'buftype'">'buftype'</a> not set (starting with the window before the quickfix
+   buffer with <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> not set (starting with the window before the quickfix
    window) is used.
-4. If the above step fails and if <a href="options.html#'switchbuf'">'switchbuf'</a> contains "uselast", then the
+4. If the above step fails and if <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a> contains "uselast", then the
    previously accessed window is used.
 5. If the above step fails then the window before the quickfix window is used.
    If there is no previous window, then the window after the quickfix window
@@ -541,8 +541,8 @@ to find a window to edit the file:</div>
 <div class="old-help-para">					<a name="CTRL-W_%3CEnter%3E"></a><code class="help-tag-right">CTRL-W_&lt;Enter&gt;</code> <a name="CTRL-W_%3CCR%3E"></a><code class="help-tag">CTRL-W_&lt;CR&gt;</code>
 You can use <code>CTRL-W</code> <code>&lt;Enter&gt;</code> to open a new window and jump to the error there.</div>
 <div class="old-help-para">When the quickfix window has been filled, two autocommand events are
-triggered.  First the <a href="options.html#'filetype'">'filetype'</a> option is set to "qf", which triggers the
-FileType event (also see <a href="filetype.html#qf.vim">qf.vim</a>).  Then the BufReadPost event is triggered,
+triggered.  First the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> option is set to "qf", which triggers the
+FileType event (also see <a href="/neovim-docs-web/en/filetype#qf.vim">qf.vim</a>).  Then the BufReadPost event is triggered,
 using "quickfix" for the buffer name.  This can be used to perform some action
 on the listed errors.  Example:<pre>au BufReadPost quickfix  setlocal modifiable
         \ | silent exe 'g/^/s//\=line(".") .. " "/'
@@ -555,7 +555,7 @@ name.</div>
 <div class="old-help-para">Note: When adding to an existing quickfix list the autocommand are not
 triggered.</div>
 <div class="old-help-para">Note: Making changes in the quickfix window has no effect on the list of
-errors.  <a href="options.html#'modifiable'">'modifiable'</a> is off to avoid making changes.  If you delete or insert
+errors.  <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a> is off to avoid making changes.  If you delete or insert
 lines anyway, the relation between the text and the error number is messed up.
 If you really want to do this, you could write the contents of the quickfix
 window to a file and use ":cfile" to have it parsed and used as the new error
@@ -573,21 +573,21 @@ used to find a window to edit the file:</div>
    the current tabpage, then that window is used.
 2. If the above step fails and if the file is already opened in another window
    in the current tabpage, then that window is used.
-3. If the above step fails and <a href="options.html#'switchbuf'">'switchbuf'</a> contains "usetab" and if the file
+3. If the above step fails and <a href="/neovim-docs-web/en/options#'switchbuf'">'switchbuf'</a> contains "usetab" and if the file
    is opened in a window in any one of the tabpages, then that window is used.
 4. If the above step fails then a window in the current tabpage showing a
-   buffer with <a href="options.html#'buftype'">'buftype'</a> not set is used.
+   buffer with <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> not set is used.
 5. If the above step fails, then the file is edited in a new window.</div>
 <div class="old-help-para">In all of the above cases, if the location list for the selected window is not
 yet set, then it is set to the location list displayed in the location list
 window.</div>
 <div class="old-help-para">							<a name="quickfix-window-ID"></a><code class="help-tag-right">quickfix-window-ID</code>
-You can use the <a href="builtin.html#getqflist()">getqflist()</a> and <a href="builtin.html#getloclist()">getloclist()</a> functions to obtain the
+You can use the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> and <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a> functions to obtain the
 window ID of the quickfix window and location list window respectively (if
 present).  Examples:<pre>echo getqflist({'winid' : 1}).winid
 echo getloclist(2, {'winid' : 1}).winid</pre></div>
 <div class="old-help-para">							<a name="getqflist-examples"></a><code class="help-tag-right">getqflist-examples</code>
-The <a href="builtin.html#getqflist()">getqflist()</a> and <a href="builtin.html#getloclist()">getloclist()</a> functions can be used to get the various
+The <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> and <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a> functions can be used to get the various
 attributes of a quickfix and location list respectively. Some examples for
 using these functions are below:
 <pre>" get the title of the current quickfix list
@@ -651,7 +651,7 @@ using these functions are below:
 " get the file window id of a location list window (winnr: 4)
 :echo getloclist(4, {'filewinid' : 0}).filewinid</pre></div>
 <div class="old-help-para">							<a name="setqflist-examples"></a><code class="help-tag-right">setqflist-examples</code>
-The <a href="builtin.html#setqflist()">setqflist()</a> and <a href="builtin.html#setloclist()">setloclist()</a> functions can be used to set the various
+The <a href="/neovim-docs-web/en/builtin#setqflist()">setqflist()</a> and <a href="/neovim-docs-web/en/builtin#setloclist()">setloclist()</a> functions can be used to set the various
 attributes of a quickfix and location list respectively. Some examples for
 using these functions are below:
 <pre>" create an empty quickfix list with a title and a context
@@ -730,69 +730,69 @@ lists.  They set one of the existing error lists as the current one.</div>
 <div class="old-help-para">When adding a new error list, it becomes the current list.</div>
 <div class="old-help-para">When ":colder" has been used and ":make" or ":grep" is used to add a new error
 list, one newer list is overwritten.  This is especially useful if you are
-browsing with ":grep" <a href="quickfix.html#grep">grep</a>.  If you want to keep the more recent error
+browsing with ":grep" <a href="/neovim-docs-web/en/quickfix#grep">grep</a>.  If you want to keep the more recent error
 lists, use ":cnewer 99" first.</div>
 <div class="old-help-para">To get the number of lists in the quickfix and location list stack, you can
-use the <a href="builtin.html#getqflist()">getqflist()</a> and <a href="builtin.html#getloclist()">getloclist()</a> functions respectively with the list
+use the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> and <a href="/neovim-docs-web/en/builtin#getloclist()">getloclist()</a> functions respectively with the list
 number set to the special value '$'. Examples:<pre>echo getqflist({'nr' : '$'}).nr
 echo getloclist(3, {'nr' : '$'}).nr</pre>
 To get the number of the current list in the stack:<pre>echo getqflist({'nr' : 0}).nr</pre></div>
 <div class="old-help-para"><h2 class="help-heading">4. Using :make<span class="help-heading-tags">						<a name="%3Amake_makeprg"></a><span class="help-tag">:make_makeprg</span></span></h2></div>
 <div class="old-help-para">							<a name="%3Amak"></a><code class="help-tag-right">:mak</code> <a name="%3Amake"></a><code class="help-tag">:make</code>
-:mak[e][!] [arguments]	1. All relevant <a href="autocmd.html#QuickFixCmdPre">QuickFixCmdPre</a> autocommands are
+:mak[e][!] [arguments]	1. All relevant <a href="/neovim-docs-web/en/autocmd#QuickFixCmdPre">QuickFixCmdPre</a> autocommands are
 			   executed.
-			2. If the <a href="options.html#'autowrite'">'autowrite'</a> option is on, write any changed
+			2. If the <a href="/neovim-docs-web/en/options#'autowrite'">'autowrite'</a> option is on, write any changed
 			   buffers
-			3. An errorfile name is made from <a href="options.html#'makeef'">'makeef'</a>.  If
-			   <a href="options.html#'makeef'">'makeef'</a> doesn't contain "##", and a file with this
+			3. An errorfile name is made from <a href="/neovim-docs-web/en/options#'makeef'">'makeef'</a>.  If
+			   <a href="/neovim-docs-web/en/options#'makeef'">'makeef'</a> doesn't contain "##", and a file with this
 			   name already exists, it is deleted.
-			4. The program given with the <a href="options.html#'makeprg'">'makeprg'</a> option is
+			4. The program given with the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> option is
 			   started (default "make") with the optional
 			   [arguments] and the output is saved in the
 			   errorfile (for Unix it is also echoed on the
 			   screen).
-			5. The errorfile is read using <a href="options.html#'errorformat'">'errorformat'</a>.
-			6. All relevant <a href="autocmd.html#QuickFixCmdPost">QuickFixCmdPost</a> autocommands are
+			5. The errorfile is read using <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>.
+			6. All relevant <a href="/neovim-docs-web/en/autocmd#QuickFixCmdPost">QuickFixCmdPost</a> autocommands are
 			   executed.  See example below.
 			7. If [!] is not given the first error is jumped to.
 			8. The errorfile is deleted.
 			9. You can now move through the errors with commands
-			   like <a href="quickfix.html#%3Acnext">:cnext</a> and <a href="quickfix.html#%3Acprevious">:cprevious</a>, see above.
+			   like <a href="/neovim-docs-web/en/quickfix#%3Acnext">:cnext</a> and <a href="/neovim-docs-web/en/quickfix#%3Acprevious">:cprevious</a>, see above.
 			This command does not accept a comment, any "
 			characters are considered part of the arguments.
 			If the encoding of the program output differs from the
-			<a href="options.html#'encoding'">'encoding'</a> option, you can use the <a href="options.html#'makeencoding'">'makeencoding'</a>
+			<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option, you can use the <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>
 			option to specify the encoding.</div>
 <div class="old-help-para">							<a name="%3Almak"></a><code class="help-tag-right">:lmak</code> <a name="%3Almake"></a><code class="help-tag">:lmake</code>
 :lmak[e][!] [arguments]
 			Same as ":make", except the location list for the
 			current window is used instead of the quickfix list.</div>
-<div class="old-help-para">The ":make" command executes the command given with the <a href="options.html#'makeprg'">'makeprg'</a> option.
-This is done by passing the command to the shell given with the <a href="options.html#'shell'">'shell'</a>
+<div class="old-help-para">The ":make" command executes the command given with the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> option.
+This is done by passing the command to the shell given with the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a>
 option.  This works almost like typing</div>
 <div class="old-help-para">	":!{makeprg} [arguments] <code>{shellpipe}</code> <code>{errorfile}</code>".</div>
-<div class="old-help-para"><code>{makeprg}</code> is the string given with the <a href="options.html#'makeprg'">'makeprg'</a> option.  Any command can be
+<div class="old-help-para"><code>{makeprg}</code> is the string given with the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> option.  Any command can be
 used, not just "make".  Characters '%' and '#' are expanded as usual on a
 command-line.  You can use "%&lt;" to insert the current file name without
 extension, or "#&lt;" to insert the alternate file name without extension, for
 example:<pre>:set makeprg=make\ #&lt;.o</pre>
 [arguments] is anything that is typed after ":make".
-<code>{shellpipe}</code> is the <a href="options.html#'shellpipe'">'shellpipe'</a> option.
-<code>{errorfile}</code> is the <a href="options.html#'makeef'">'makeef'</a> option, with ## replaced to make it unique.</div>
+<code>{shellpipe}</code> is the <a href="/neovim-docs-web/en/options#'shellpipe'">'shellpipe'</a> option.
+<code>{errorfile}</code> is the <a href="/neovim-docs-web/en/options#'makeef'">'makeef'</a> option, with ## replaced to make it unique.</div>
 <div class="old-help-para">The placeholder "$*" can be used for the argument list in <code>{makeprg}</code> if the
 command needs some additional characters after its arguments.  The $* is
 replaced then by all arguments.  Example:<pre>:set makeprg=latex\ \\\\nonstopmode\ \\\\input\\{$*}</pre>
 or simpler<pre>:let &amp;mp = 'latex \\nonstopmode \\input\{$*}'</pre>
 "$*" can be given multiple times, for example:<pre>:set makeprg=gcc\ -o\ $*\ $*</pre>
-The <a href="options.html#'shellpipe'">'shellpipe'</a> option defaults to "&gt;%s 2&gt;&amp;1" for Win32.
+The <a href="/neovim-docs-web/en/options#'shellpipe'">'shellpipe'</a> option defaults to "&gt;%s 2&gt;&amp;1" for Win32.
 This means that the output of the compiler is saved in a file and not shown on
 the screen directly.  For Unix "| tee" is used.  The compiler output is shown
 on the screen and saved in a file the same time.  Depending on the shell used
 "|&amp; tee" or "2&gt;&amp;1| tee" is the default, so stderr output will be included.</div>
-<div class="old-help-para">If <a href="options.html#'shellpipe'">'shellpipe'</a> is empty, the <code>{errorfile}</code> part will be omitted.  This is useful
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'shellpipe'">'shellpipe'</a> is empty, the <code>{errorfile}</code> part will be omitted.  This is useful
 for compilers that write to an errorfile themselves.</div>
 <div class="old-help-para"><div class="help-column_heading">Using QuickFixCmdPost to fix the encoding</div></div>
-<div class="old-help-para">It may be that <a href="options.html#'encoding'">'encoding'</a> is set to an encoding that differs from the messages
+<div class="old-help-para">It may be that <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is set to an encoding that differs from the messages
 your build program produces.  This example shows how to fix this after Vim has
 read the error messages:<pre>function QfMakeConv()
    let qflist = getqflist()
@@ -804,7 +804,7 @@ endfunction
 
 au QuickfixCmdPost make call QfMakeConv()</pre>
 (Example by Faque Cheng)
-Another option is using <a href="options.html#'makeencoding'">'makeencoding'</a>.</div>
+Another option is using <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">5. Using :vimgrep and :grep<span class="help-heading-tags">				<a name="grep"></a><span class="help-tag">grep</span> <a name="lid"></a><span class="help-tag">lid</span></span></h2></div>
 <div class="old-help-para">Vim has two ways to find matches for a pattern: Internal and external.  The
 advantage of the internal grep is that it works on all systems and uses the
@@ -816,35 +816,35 @@ advantages are:
   being edited.
 </div><div class="help-li" style=""> Uses Vim search patterns.  Multi-line patterns can be used.
 </div><div class="help-li" style=""> When plugins are enabled: compressed and remote files can be searched.
-	<a href="pi_gzip.html#gzip">gzip</a> <a href="pi_netrw.html#netrw">netrw</a>
+	<a href="/neovim-docs-web/en/pi_gzip#gzip">gzip</a> <a href="/neovim-docs-web/en/pi_netrw#netrw">netrw</a>
 </div></div>
 <div class="old-help-para">To be able to do this Vim loads each file as if it is being edited.  When
 there is no match in the file the associated buffer is wiped out again.  The
-<a href="options.html#'hidden'">'hidden'</a> option is ignored here to avoid running out of memory or file
-descriptors when searching many files.  However, when the <a href="windows.html#%3Ahide">:hide</a> command
+<a href="/neovim-docs-web/en/options#'hidden'">'hidden'</a> option is ignored here to avoid running out of memory or file
+descriptors when searching many files.  However, when the <a href="/neovim-docs-web/en/windows#%3Ahide">:hide</a> command
 modifier is used the buffers are kept loaded.  This makes following searches
 in the same files a lot faster.</div>
-<div class="old-help-para">Note that <a href="quickfix.html#%3Acopen">:copen</a> (or <a href="quickfix.html#%3Alopen">:lopen</a> for <a href="quickfix.html#%3Algrep">:lgrep</a>) may be used to open a buffer
-containing the search results in linked form.  The <a href="various.html#%3Asilent">:silent</a> command may be
+<div class="old-help-para">Note that <a href="/neovim-docs-web/en/quickfix#%3Acopen">:copen</a> (or <a href="/neovim-docs-web/en/quickfix#%3Alopen">:lopen</a> for <a href="/neovim-docs-web/en/quickfix#%3Algrep">:lgrep</a>) may be used to open a buffer
+containing the search results in linked form.  The <a href="/neovim-docs-web/en/various#%3Asilent">:silent</a> command may be
 used to suppress the default full screen grep output.  The ":grep!" form of
-the <a href="quickfix.html#%3Agrep">:grep</a> command doesn't jump to the first match automatically.  These
+the <a href="/neovim-docs-web/en/quickfix#%3Agrep">:grep</a> command doesn't jump to the first match automatically.  These
 commands can be combined to create a NewGrep command:<pre>command! -nargs=+ NewGrep execute 'silent grep! &lt;args&gt;' | copen 42</pre>
 5.1 using Vim's internal grep</div>
 <div class="old-help-para">					<a name="%3Avim"></a><code class="help-tag-right">:vim</code> <a name="%3Avimgrep"></a><code class="help-tag">:vimgrep</code> <a name="E682"></a><code class="help-tag">E682</code> <a name="E683"></a><code class="help-tag">E683</code>
 :vim[grep][!] /{pattern}/[g][j][f] <code>{file}</code> ...
 			Search for <code>{pattern}</code> in the files <code>{file}</code> ... and set
 			the error list to the matches.  Files matching
-			<a href="options.html#'wildignore'">'wildignore'</a> are ignored; files in <a href="options.html#'suffixes'">'suffixes'</a> are
+			<a href="/neovim-docs-web/en/options#'wildignore'">'wildignore'</a> are ignored; files in <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> are
 			searched last.</div>
 <div class="old-help-para">			<code>{pattern}</code> is a Vim search pattern.  Instead of
 			enclosing it in / any non-ID character (see
-			<a href="options.html#'isident'">'isident'</a>) can be used, so long as it does not
+			<a href="/neovim-docs-web/en/options#'isident'">'isident'</a>) can be used, so long as it does not
 			appear in <code>{pattern}</code>.
-			<a href="options.html#'ignorecase'">'ignorecase'</a> applies.  To overrule it put <a href="pattern.html#%2F%5Cc">/\c</a> in the
-			pattern to ignore case or <a href="pattern.html#%2F%5CC">/\C</a> to match case.
-			<a href="options.html#'smartcase'">'smartcase'</a> is not used.
+			<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> applies.  To overrule it put <a href="/neovim-docs-web/en/pattern#%2F%5Cc">/\c</a> in the
+			pattern to ignore case or <a href="/neovim-docs-web/en/pattern#%2F%5CC">/\C</a> to match case.
+			<a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> is not used.
 			If <code>{pattern}</code> is empty (e.g. // is specified), the last
-			used search pattern is used. <a href="pattern.html#last-pattern">last-pattern</a></div>
+			used search pattern is used. <a href="/neovim-docs-web/en/pattern#last-pattern">last-pattern</a></div>
 <div class="old-help-para">			Flags:
 			'g'  Without the 'g' flag each line is added only
 			     once.  With 'g' every match is added.</div>
@@ -856,9 +856,9 @@ commands can be combined to create a NewGrep command:<pre>command! -nargs=+ NewG
 			     matching is used to find matching lines. In this
 			     case, <code>{pattern}</code> is treated as a literal string
 			     instead of a regular expression.  See
-			     <a href="pattern.html#fuzzy-matching">fuzzy-matching</a> for more information about fuzzy
+			     <a href="/neovim-docs-web/en/pattern#fuzzy-matching">fuzzy-matching</a> for more information about fuzzy
 			     matching strings.</div>
-<div class="old-help-para">			<a href="autocmd.html#QuickFixCmdPre">QuickFixCmdPre</a> and <a href="autocmd.html#QuickFixCmdPost">QuickFixCmdPost</a> are triggered.
+<div class="old-help-para">			<a href="/neovim-docs-web/en/autocmd#QuickFixCmdPre">QuickFixCmdPre</a> and <a href="/neovim-docs-web/en/autocmd#QuickFixCmdPost">QuickFixCmdPost</a> are triggered.
 			A file that is opened for matching may use a buffer
 			number, but it is reused if possible to avoid
 			consuming buffer numbers.</div>
@@ -873,7 +873,7 @@ commands can be combined to create a NewGrep command:<pre>command! -nargs=+ NewG
 			Examples:<pre>:vimgrep /an error/ *.c
 :vimgrep /\&lt;FileName\&gt;/ *.h include/*
 :vimgrep /myfunc/ **/*.c</pre></div>
-<div class="old-help-para">			For the use of "**" see <a href="editing.html#starstar-wildcard">starstar-wildcard</a>.</div>
+<div class="old-help-para">			For the use of "**" see <a href="/neovim-docs-web/en/editing#starstar-wildcard">starstar-wildcard</a>.</div>
 <div class="old-help-para">:vim[grep][!] <code>{pattern}</code> <code>{file}</code> ...
 			Like above, but instead of enclosing the pattern in a
 			non-ID character use a white-separated pattern.  The
@@ -898,17 +898,17 @@ commands can be combined to create a NewGrep command:<pre>command! -nargs=+ NewG
 			list.</div>
 <div class="old-help-para">5.2 External grep</div>
 <div class="old-help-para">Vim can interface with "grep" and grep-like programs (such as the GNU
-id-utils) in a similar way to its compiler integration (see <a href="quickfix.html#%3Amake">:make</a> above).</div>
+id-utils) in a similar way to its compiler integration (see <a href="/neovim-docs-web/en/quickfix#%3Amake">:make</a> above).</div>
 <div class="old-help-para">[Unix trivia: The name for the Unix "grep" command comes from ":g/re/p", where
 "re" stands for Regular Expression.]</div>
 <div class="old-help-para">							    <a name="%3Agr"></a><code class="help-tag-right">:gr</code> <a name="%3Agrep"></a><code class="help-tag">:grep</code>
-:gr[ep][!] [arguments]	Just like ":make", but use <a href="options.html#'grepprg'">'grepprg'</a> instead of
-			<a href="options.html#'makeprg'">'makeprg'</a> and <a href="options.html#'grepformat'">'grepformat'</a> instead of <a href="options.html#'errorformat'">'errorformat'</a>.
-			When <a href="options.html#'grepprg'">'grepprg'</a> is "internal" this works like
-			<a href="quickfix.html#%3Avimgrep">:vimgrep</a>.  Note that the pattern needs to be
+:gr[ep][!] [arguments]	Just like ":make", but use <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a> instead of
+			<a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> and <a href="/neovim-docs-web/en/options#'grepformat'">'grepformat'</a> instead of <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>.
+			When <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a> is "internal" this works like
+			<a href="/neovim-docs-web/en/quickfix#%3Avimgrep">:vimgrep</a>.  Note that the pattern needs to be
 			enclosed in separator characters then.
 			If the encoding of the program output differs from the
-			<a href="options.html#'encoding'">'encoding'</a> option, you can use the <a href="options.html#'makeencoding'">'makeencoding'</a>
+			<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option, you can use the <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>
 			option to specify the encoding.</div>
 <div class="old-help-para">							    <a name="%3Algr"></a><code class="help-tag-right">:lgr</code> <a name="%3Algrep"></a><code class="help-tag">:lgrep</code>
 :lgr[ep][!] [arguments]	Same as ":grep", except the location list for the
@@ -923,14 +923,14 @@ id-utils) in a similar way to its compiler integration (see <a href="quickfix.ht
 			empty.  The second command executes "grepadd" for each
 			listed buffer.  Note the use of ! to avoid that
 			":grepadd" jumps to the first error, which is not
-			allowed with <a href="windows.html#%3Abufdo">:bufdo</a>.
+			allowed with <a href="/neovim-docs-web/en/windows#%3Abufdo">:bufdo</a>.
 			An example that uses the argument list and avoids
 			errors for files without matches:<pre>:silent argdo try
   \ | grepadd! something %
   \ | catch /E480:/
   \ | endtry"</pre></div>
 <div class="old-help-para">			If the encoding of the program output differs from the
-			<a href="options.html#'encoding'">'encoding'</a> option, you can use the <a href="options.html#'makeencoding'">'makeencoding'</a>
+			<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option, you can use the <a href="/neovim-docs-web/en/options#'makeencoding'">'makeencoding'</a>
 			option to specify the encoding.</div>
 <div class="old-help-para">							<a name="%3Algrepa"></a><code class="help-tag-right">:lgrepa</code> <a name="%3Algrepadd"></a><code class="help-tag">:lgrepadd</code>
 :lgrepa[dd][!] [arguments]
@@ -943,20 +943,20 @@ Will search all files with the .c extension for the substring "foo".  The
 arguments to :grep are passed straight to the "grep" program, so you can use
 whatever options your "grep" supports.</div>
 <div class="old-help-para">By default, :grep invokes grep with the -n option (show file and line
-numbers).  You can change this with the <a href="options.html#'grepprg'">'grepprg'</a> option.  You will need to set
-<a href="options.html#'grepprg'">'grepprg'</a> if:</div>
+numbers).  You can change this with the <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a> option.  You will need to set
+<a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a> if:</div>
 <div class="old-help-para">a)	You are using a program that isn't called "grep"
 b)	You have to call grep with a full path
 c)	You want to pass other options automatically (e.g. case insensitive
 	search.)</div>
-<div class="old-help-para">Once "grep" has executed, Vim parses the results using the <a href="options.html#'grepformat'">'grepformat'</a>
-option.  This option works in the same way as the <a href="options.html#'errorformat'">'errorformat'</a> option - see
-that for details.  You may need to change <a href="options.html#'grepformat'">'grepformat'</a> from the default if
+<div class="old-help-para">Once "grep" has executed, Vim parses the results using the <a href="/neovim-docs-web/en/options#'grepformat'">'grepformat'</a>
+option.  This option works in the same way as the <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> option - see
+that for details.  You may need to change <a href="/neovim-docs-web/en/options#'grepformat'">'grepformat'</a> from the default if
 your grep outputs in a non-standard format, or you are using some other
 program with a special format.</div>
 <div class="old-help-para">Once the results are parsed, Vim loads the first file containing a match and
 jumps to the appropriate line, in the same way that it jumps to a compiler
-error in <a href="quickfix.html#quickfix">quickfix</a> mode.  You can then use the <a href="quickfix.html#%3Acnext">:cnext</a>, <a href="quickfix.html#%3Aclist">:clist</a>, etc.
+error in <a href="/neovim-docs-web/en/quickfix#quickfix">quickfix</a> mode.  You can then use the <a href="/neovim-docs-web/en/quickfix#%3Acnext">:cnext</a>, <a href="/neovim-docs-web/en/quickfix#%3Aclist">:clist</a>, etc.
 commands to see the other matches.</div>
 <div class="old-help-para">5.4 Using :grep with id-utils</div>
 <div class="old-help-para">You can set up :grep to work with the GNU id-utils like this:<pre>:set grepprg=lid\ -Rgrep\ -s
@@ -1005,7 +1005,7 @@ not "b:current_compiler".  What the command actually does is the following:</div
 </div><div class="help-li" style=""> Set "b:current_compiler" to the value of "current_compiler".
 </div><div class="help-li" style=""> Without "!" the old value of "current_compiler" is restored.
 </div></div>
-<div class="old-help-para">For writing a compiler plugin, see <a href="usr_41.html#write-compiler-plugin">write-compiler-plugin</a>.</div>
+<div class="old-help-para">For writing a compiler plugin, see <a href="/neovim-docs-web/en/usr_41#write-compiler-plugin">write-compiler-plugin</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">GCC<span class="help-heading-tags">					<a name="quickfix-gcc"></a><span class="help-tag">quickfix-gcc</span>  	<a name="compiler-gcc"></a><span class="help-tag">compiler-gcc</span></span></h3></div>
 <div class="old-help-para">There's one variable you can set for the GCC compiler:</div>
 <div class="old-help-para">g:compiler_gcc_ignore_unmatched_lines
@@ -1029,7 +1029,7 @@ starting from version 2.0.  For older versions, you can get it from
 are parsed by Vim and presented for you in quick-fix mode.</div>
 <div class="old-help-para">Unfortunately, there is no standard way to run the tests.
 The alltests.py script seems to be used quite often, that's all.
-Useful values for the <a href="options.html#'makeprg'">'makeprg'</a> options therefore are:
+Useful values for the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> options therefore are:
  setlocal makeprg=./alltests.py " Run a testsuite
  setlocal makeprg=python\ %:S   " Run a single testcase</div>
 <div class="old-help-para"><h3 class="help-heading">TEX COMPILER<span class="help-heading-tags">						<a name="compiler-tex"></a><span class="help-tag">compiler-tex</span></span></h3></div>
@@ -1037,7 +1037,7 @@ Useful values for the <a href="options.html#'makeprg'">'makeprg'</a> options the
 uses make command if possible.  If the compiler finds a file named "Makefile"
 or "makefile" in the current directory, it supposes that you want to process
 yourTeX files with make, and the makefile does the right work.  In this case
-compiler sets <a href="options.html#'errorformat'">'errorformat'</a> forTeX output and leaves <a href="options.html#'makeprg'">'makeprg'</a> untouched.  If
+compiler sets <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> forTeX output and leaves <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> untouched.  If
 neither "Makefile" nor "makefile" is found, the compiler will not use make.
 You can force the compiler to ignore makefiles by defining
 b:tex_ignore_makefile or g:tex_ignore_makefile variable (they are checked for
@@ -1058,28 +1058,28 @@ filename without extension ".tex" and mean this as "make filename.dvi or
 filename.pdf or filename.some_result_extension according to compiler".</div>
 <div class="old-help-para">Note: tex command line syntax is set to usable both for MikTeX (suggestion
 by Srinath Avadhanula) and teTeX (checked by Artem Chuprina).  Suggestion
-from <a href="quickfix.html#errorformat-LaTeX">errorformat-LaTeX</a> is too complex to keep it working for different
+from <a href="/neovim-docs-web/en/quickfix#errorformat-LaTeX">errorformat-LaTeX</a> is too complex to keep it working for different
 shells and OSes and also does not allow to use other available TeX options,
 if any.  If your TeX doesn't support "-interaction=nonstopmode", please
 report it with different means to express \nonstopmode from the command line.</div>
 <div class="old-help-para"><h2 class="help-heading">7. The error format<span class="help-heading-tags">					<a name="error-file-format"></a><span class="help-tag">error-file-format</span></span></h2></div>
 <div class="old-help-para">					<a name="errorformat"></a><code class="help-tag-right">errorformat</code> <a name="E372"></a><code class="help-tag">E372</code> <a name="E373"></a><code class="help-tag">E373</code> <a name="E374"></a><code class="help-tag">E374</code>
 						<a name="E375"></a><code class="help-tag-right">E375</code> <a name="E376"></a><code class="help-tag">E376</code> <a name="E377"></a><code class="help-tag">E377</code> <a name="E378"></a><code class="help-tag">E378</code>
-The <a href="options.html#'errorformat'">'errorformat'</a> option specifies a list of formats that are recognized.  The
+The <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> option specifies a list of formats that are recognized.  The
 first format that matches with an error message is used.  You can add several
 formats for different messages your compiler produces, or even entries for
-multiple compilers.  See <a href="quickfix.html#efm-entries">efm-entries</a>.</div>
-<div class="old-help-para">Each entry in <a href="options.html#'errorformat'">'errorformat'</a> is a scanf-like string that describes the format.
+multiple compilers.  See <a href="/neovim-docs-web/en/quickfix#efm-entries">efm-entries</a>.</div>
+<div class="old-help-para">Each entry in <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> is a scanf-like string that describes the format.
 First, you need to know how scanf works.  Look in the documentation of your
 C compiler.  Below you find the % items that Vim understands.  Others are
 invalid.</div>
-<div class="old-help-para">Special characters in <a href="options.html#'errorformat'">'errorformat'</a> are comma and backslash.  See
-<a href="quickfix.html#efm-entries">efm-entries</a> for how to deal with them.  Note that a literal "%" is matched
+<div class="old-help-para">Special characters in <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> are comma and backslash.  See
+<a href="/neovim-docs-web/en/quickfix#efm-entries">efm-entries</a> for how to deal with them.  Note that a literal "%" is matched
 by "%%", thus it is not escaped with a backslash.
 Keep in mind that in the <code>:make</code> and <code>:grep</code> output all NUL characters are
 replaced with SOH (0x01).</div>
 <div class="old-help-para">Note: By default the difference between upper and lowercase is ignored.  If
-you want to match case, add "\C" to the pattern <a href="pattern.html#%2F%5CC">/\C</a>.</div>
+you want to match case, add "\C" to the pattern <a href="/neovim-docs-web/en/pattern#%2F%5CC">/\C</a>.</div>
 <div class="old-help-para">Vim will read lines of any length, but only the first 4095 bytes are used, the
 rest is ignored.  Items can only be 1023 bytes long.</div>
 <div class="old-help-para">Basic items</div>
@@ -1110,12 +1110,12 @@ rest is ignored.  Items can only be 1023 bytes long.</div>
 	%*{conv}	any scanf non-assignable conversion
 	%%		the single '%' character
 	%s		search text (finds a string)</div>
-<div class="old-help-para">The "%f" conversion may depend on the current <a href="options.html#'isfname'">'isfname'</a> setting.  "~/" is
+<div class="old-help-para">The "%f" conversion may depend on the current <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a> setting.  "~/" is
 expanded to the home directory and environment variables are expanded.</div>
 <div class="old-help-para">The "%f" and "%m" conversions have to detect the end of the string.  This
 normally happens by matching following characters and items.  When nothing is
 following the rest of the line is matched.  If "%f" is followed by a '%' or a
-backslash, it will look for a sequence of <a href="options.html#'isfname'">'isfname'</a> characters.</div>
+backslash, it will look for a sequence of <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a> characters.</div>
 <div class="old-help-para">On Windows a leading "C:" will be included in "%f", even when using "%f:".
 This means that a file name which is a single alphabetical letter will not be
 detected.</div>
@@ -1123,7 +1123,7 @@ detected.</div>
 that output a line like:<pre>^</pre>
 or<pre>---------^</pre>
 to indicate the column of the error.  This is to be used in a multi-line error
-message.  See <a href="quickfix.html#errorformat-javac">errorformat-javac</a> for a  useful example.</div>
+message.  See <a href="/neovim-docs-web/en/quickfix#errorformat-javac">errorformat-javac</a> for a  useful example.</div>
 <div class="old-help-para">The "%s" conversion specifies the text to search for, to locate the error line.
 The text is used as a literal string.  The anchors "^" and "$" are added to
 the text to locate the error line exactly matching the search text and the
@@ -1149,7 +1149,7 @@ internal directory stack.					<a name="E379"></a><code class="help-tag-right">E3
 <div class="old-help-para">When defining an "enter directory" or "leave directory" format, the "%D" or
 "%X" has to be given at the start of that substring.  Vim tracks the directory
 changes and prepends the current directory to each erroneous file found with a
-relative path.  See <a href="quickfix.html#quickfix-directory-stack">quickfix-directory-stack</a> for details, tips and
+relative path.  See <a href="/neovim-docs-web/en/quickfix#quickfix-directory-stack">quickfix-directory-stack</a> for details, tips and
 limitations.</div>
 <div class="old-help-para">Multi-line messages				<a name="errorformat-multi-line"></a><code class="help-tag-right">errorformat-multi-line</code></div>
 <div class="old-help-para">It is possible to read the output of programs that produce multi-line
@@ -1160,16 +1160,16 @@ prefixes are:
 	%I		start of a multi-line informational message
 	%N		start of a multi-line note message
 	%A		start of a multi-line message (unspecified type)
-	%&gt;		for next line start with current pattern again <a href="quickfix.html#efm-%25%3E">efm-%&gt;</a>
+	%&gt;		for next line start with current pattern again <a href="/neovim-docs-web/en/quickfix#efm-%25%3E">efm-%&gt;</a>
 	%C		continuation of a multi-line message
 	%Z		end of a multi-line message
-These can be used with '+' and '-', see <a href="quickfix.html#efm-ignore">efm-ignore</a> below.</div>
+These can be used with '+' and '-', see <a href="/neovim-docs-web/en/quickfix#efm-ignore">efm-ignore</a> below.</div>
 <div class="old-help-para">Using "\n" in the pattern won't work to match multi-line messages.</div>
 <div class="old-help-para">Example: Your compiler happens to write out errors in the following format
 (leading line numbers not being part of the actual output):</div>
 <div class="old-help-para"><div class="help-column_heading">     1	Error 275</div><div class="help-column_heading">     2	line 42</div><div class="help-column_heading">     3	column 3</div><div class="help-column_heading">     4	' ' expected after '--'</div></div>
 <div class="old-help-para">The appropriate error format string has to look like this:<pre>:set efm=%EError\ %n,%Cline\ %l,%Ccolumn\ %c,%Z%m</pre>
-And the <a href="quickfix.html#%3Aclist">:clist</a> error message generated for this error is:</div>
+And the <a href="/neovim-docs-web/en/quickfix#%3Aclist">:clist</a> error message generated for this error is:</div>
 <div class="old-help-para"> 1:42 col 3 error 275:  ' ' expected after '--'</div>
 <div class="old-help-para">Another example: Think of a Python interpreter that produces the following
 error message (line numbers are not part of the actual output):</div>
@@ -1186,7 +1186,7 @@ error message (line numbers are not part of the actual output):</div>
     11
     12	--------------------------------------------------------------
     13	Ran 27 tests in 0.063s</div>
-<div class="old-help-para">Say you want <a href="quickfix.html#%3Aclist">:clist</a> write the relevant information of this message only,
+<div class="old-help-para">Say you want <a href="/neovim-docs-web/en/quickfix#%3Aclist">:clist</a> write the relevant information of this message only,
 namely:
  5 unittests/dbfacadeTest.py:89:  AssertionError: 34 != 33</div>
 <div class="old-help-para">Then the error format string could be defined as follows:<pre>:set efm=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m</pre>
@@ -1198,7 +1198,7 @@ Error format strings are always parsed pattern by pattern until the first
 match occurs.
 							<a name="efm-%25%3E"></a><code class="help-tag-right">efm-%&gt;</code>
 The %&gt; item can be used to avoid trying patterns that appear earlier in
-<a href="options.html#'errorformat'">'errorformat'</a>.  This is useful for patterns that match just about anything.
+<a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>.  This is useful for patterns that match just about anything.
 For example, if the error looks like this:</div>
 <div class="old-help-para"><div class="help-column_heading">	Error in line 123 of foo.c:</div><div class="help-column_heading">	unknown variable "i"</div></div>
 <div class="old-help-para">This can be found with:<pre>:set efm=xxx,%E%&gt;Error in line %l of %f:,%Z%m</pre>
@@ -1231,7 +1231,7 @@ leading line numbers):</div>
     11	(67,3)  warning: 's' already defined</div>
 <div class="old-help-para">This logfile lists several messages for each file enclosed in [...] which are
 properly parsed by an error format like this:<pre>:set efm=%+P[%f],(%l\\,%c)%*[\ ]%t%*[^:]:\ %m,%-Q</pre>
-A call of <a href="quickfix.html#%3Aclist">:clist</a> writes them accordingly with their correct filenames:</div>
+A call of <a href="/neovim-docs-web/en/quickfix#%3Aclist">:clist</a> writes them accordingly with their correct filenames:</div>
 <div class="old-help-para">  2 a1.tt:1 col 17 error: ';' missing
   3 a1.tt:21 col 2 warning: variable 'z' not defined
   4 a1.tt:67 col 3 error: end of file found before string ended
@@ -1242,7 +1242,7 @@ can be used to match several patterns in the same line.  Thus it is possible
 to parse even nested files like in the following line:
   <code>{<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+quickfix.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/quickfix.html%0D%0DContext%3A%0D%0D%60%60%60%0DUnlike%20the%20other%20prefixes%20that%20all%20match%20against%20whole%20lines%2C%20%25P%2C%20%25Q%20and%20%25O%0Acan%20be%20used%20to%20match%20several%20patterns%20in%20the%20same%20line.%20%20Thus%20it%20is%20possible%0Ato%20parse%20even%20nested%20files%20like%20in%20the%20following%20line%3A%0A%20%20%7B%22file1%22%20%7B%22file2%22%20error1%7D%20error2%20%7B%22file3%22%20error3%20%7B%22file4%22%20error4%20error5%7D%7D%7D%0AThe%20%25O%20then%20parses%20over%20strings%20that%20do%20not%20contain%20any%20push%2Fpop%20file%20name%0Ainformation.%20%20See%20%7Cerrorformat-LaTeX%7C%20for%20an%20extended%20example.%0A%0D%60%60%60">"file1" {"</a>file2" error1}</code> error2 <code>{<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+quickfix.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/quickfix.html%0D%0DContext%3A%0D%0D%60%60%60%0DUnlike%20the%20other%20prefixes%20that%20all%20match%20against%20whole%20lines%2C%20%25P%2C%20%25Q%20and%20%25O%0Acan%20be%20used%20to%20match%20several%20patterns%20in%20the%20same%20line.%20%20Thus%20it%20is%20possible%0Ato%20parse%20even%20nested%20files%20like%20in%20the%20following%20line%3A%0A%20%20%7B%22file1%22%20%7B%22file2%22%20error1%7D%20error2%20%7B%22file3%22%20error3%20%7B%22file4%22%20error4%20error5%7D%7D%7D%0AThe%20%25O%20then%20parses%20over%20strings%20that%20do%20not%20contain%20any%20push%2Fpop%20file%20name%0Ainformation.%20%20See%20%7Cerrorformat-LaTeX%7C%20for%20an%20extended%20example.%0A%0D%60%60%60">"file3" error3 {"</a>file4" error4 error5}</code>}}
 The %O then parses over strings that do not contain any push/pop file name
-information.  See <a href="quickfix.html#errorformat-LaTeX">errorformat-LaTeX</a> for an extended example.</div>
+information.  See <a href="/neovim-docs-web/en/quickfix#errorformat-LaTeX">errorformat-LaTeX</a> for an extended example.</div>
 <div class="old-help-para">Ignoring and using whole messages			<a name="efm-ignore"></a><code class="help-tag-right">efm-ignore</code></div>
 <div class="old-help-para">The codes '+' or '-' can be combined with the uppercase codes above; in that
 case they have to precede the letter, e.g. '%+A' or '%-G':
@@ -1270,14 +1270,14 @@ be escaped), meta symbols have to be written with leading '%':
 			useful, the pattern already matches end of line.
 	%[		The single '[' character for a [] character range.
 	%~		The single '~' character.
-When using character classes in expressions (see <a href="pattern.html#%2F%5Ci">/\i</a> for an overview),
+When using character classes in expressions (see <a href="/neovim-docs-web/en/pattern#%2F%5Ci">/\i</a> for an overview),
 terms containing the "\+" quantifier can be written in the scanf() "%*"
 notation.  Example: "%\\d%\\+" ("\d\+", "any number") is equivalent to "%*\\d".
 Important note: The \(...\) grouping of sub-matches can not be used in format
 specifications because it is reserved for internal conversions.</div>
-<div class="old-help-para">Multiple entries in <a href="options.html#'errorformat'">'errorformat'</a>			<a name="efm-entries"></a><code class="help-tag-right">efm-entries</code></div>
+<div class="old-help-para">Multiple entries in <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>			<a name="efm-entries"></a><code class="help-tag-right">efm-entries</code></div>
 <div class="old-help-para">To be able to detect output from several compilers, several format patterns
-may be put in <a href="options.html#'errorformat'">'errorformat'</a>, separated by commas (note: blanks after the comma
+may be put in <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>, separated by commas (note: blanks after the comma
 are ignored).  The first pattern that has a complete match is used.  If no
 match is found, matching parts from the last one will be used, although the
 file name is removed and the error message is set to the whole message.  If
@@ -1288,7 +1288,7 @@ two in a ":set" command).  To include a backslash itself give two backslashes
 (you have to type four in a ":set" command).  You also need to put a backslash
 before a space for ":set".</div>
 <div class="old-help-para">Valid matches						<a name="quickfix-valid"></a><code class="help-tag-right">quickfix-valid</code></div>
-<div class="old-help-para">If a line does not completely match one of the entries in <a href="options.html#'errorformat'">'errorformat'</a>, the
+<div class="old-help-para">If a line does not completely match one of the entries in <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>, the
 whole line is put in the error message and the entry is marked "not valid"
 These lines are skipped with the ":cn" and ":cp" commands (unless there is
 no valid line at all).  You can use ":cl!" to display all the error messages.</div>
@@ -1302,7 +1302,7 @@ correct file.  You will have to do this by hand.</div>
 	errortype	type of the error, normally a single 'E' or 'W'
 	errornumber	number of the error (for lookup in the manual)
 	errormessage	description of the error</div>
-<div class="old-help-para">This can be matched with this <a href="options.html#'errorformat'">'errorformat'</a> entry:
+<div class="old-help-para">This can be matched with this <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> entry:
 	%f&gt;%l:%c:%t:%n:%m</div>
 <div class="old-help-para">Some examples for C compilers that produce single-line error outputs:
 %f:%l:\ %t%*[^0123456789]%n:\ %m	for Manx/Aztec C error messages
@@ -1318,7 +1318,7 @@ correct file.  You will have to do this by hand.</div>
 %f:%l:\ %m,In\ file\ included\ from\ %f:%l:,\^I\^Ifrom\ %f:%l%m
 					for GCC, with some extras</div>
 <div class="old-help-para">Extended examples for the handling of multi-line messages are given below,
-see <a href="quickfix.html#errorformat-Jikes">errorformat-Jikes</a> and <a href="quickfix.html#errorformat-LaTeX">errorformat-LaTeX</a>.</div>
+see <a href="/neovim-docs-web/en/quickfix#errorformat-Jikes">errorformat-Jikes</a> and <a href="/neovim-docs-web/en/quickfix#errorformat-LaTeX">errorformat-LaTeX</a>.</div>
 <div class="old-help-para">Note the backslash in front of a space and double quote.  It is required for
 the :set command.  There are two backslashes in front of a comma, one for the
 :set command and one to avoid recognizing the comma as a separator of error
@@ -1327,7 +1327,7 @@ formats.</div>
 <div class="old-help-para">If you have a compiler that produces error messages that do not fit in the
 format string, you could write a program that translates the error messages
 into this format.  You can use this program with the ":make" command by
-changing the <a href="options.html#'makeprg'">'makeprg'</a> option.  For example:<pre>:set mp=make\ \\\|&amp;\ error_filter</pre>
+changing the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> option.  For example:<pre>:set mp=make\ \\\|&amp;\ error_filter</pre>
 The backslashes before the pipe character are required to avoid it to be
 recognized as a command separator.  The backslash before each space is
 required for the set command.</div>
@@ -1335,7 +1335,7 @@ required for the set command.</div>
 <div class="old-help-para">Quickfix maintains a stack for saving all used directories parsed from the
 make output.  For GNU-make this is rather simple, as it always prints the
 absolute path of all directories it enters and leaves.  Regardless if this is
-done via a <a href="options.html#'cd'">'cd'</a> command in the makefile or with the parameter "-C dir" (change
+done via a <a href="/neovim-docs-web/en/options#'cd'">'cd'</a> command in the makefile or with the parameter "-C dir" (change
 to directory before reading the makefile).  It may be useful to use the switch
 "-w" to force GNU-make to print out the working directory before and after
 processing.</div>
@@ -1390,7 +1390,7 @@ directory" messages.</div>
 	    done</div>
 <div class="old-help-para">Add
     %DEntering\ dir\ '%f',%XLeaving\ dir
-to your <a href="options.html#'errorformat'">'errorformat'</a> to handle the above output.</div>
+to your <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> to handle the above output.</div>
 <div class="old-help-para">Note that Vim doesn't check if the directory name in a "leave directory"
 messages is the current directory.  This is why you could just use the message
 "Leaving dir".</div>
@@ -1398,9 +1398,9 @@ messages is the current directory.  This is why you could just use the message
 <div class="old-help-para">						<a name="errorformat-Jikes"></a><code class="help-tag-right">errorformat-Jikes</code>
 Jikes(TM), a source-to-bytecode Java compiler published by IBM Research,
 produces simple multi-line error messages.</div>
-<div class="old-help-para">An <a href="options.html#'errorformat'">'errorformat'</a> string matching the produced messages is shown below.
-The following lines can be placed in the user's <a href="starting.html#init.vim">init.vim</a> to overwrite Vim's
-recognized default formats, or see <a href="options.html#%3Aset%2B%3D">:set+=</a> how to install this format
+<div class="old-help-para">An <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> string matching the produced messages is shown below.
+The following lines can be placed in the user's <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> to overwrite Vim's
+recognized default formats, or see <a href="/neovim-docs-web/en/options#%3Aset%2B%3D">:set+=</a> how to install this format
 additionally to the default.<pre>:set efm=%A%f:%l:%c:%*\\d:%*\\d:,
       \%C%*\\s%trror:%m,
       \%+C%*[^:]%trror:%m,
@@ -1409,7 +1409,7 @@ additionally to the default.<pre>:set efm=%A%f:%l:%c:%*\\d:%*\\d:,
 <div class="old-help-para">Jikes(TM) produces a single-line error message when invoked with the option
 "+E", and can be matched with the following:<pre>:setl efm=%f:%l:%v:%*\\d:%*\\d:%*\\s%m</pre></div>
 <div class="old-help-para">						<a name="errorformat-javac"></a><code class="help-tag-right">errorformat-javac</code>
-This <a href="options.html#'errorformat'">'errorformat'</a> has been reported to work well for javac, which outputs a
+This <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> has been reported to work well for javac, which outputs a
 line with "^" to indicate the column of the error:<pre>:setl efm=%A%f:%l:\ %m,%-Z%p^,%-C%.%#</pre>
 or:<pre>:setl efm=%A%f:%l:\ %m,%+Z%p^,%+C%.%#,%-G%.%#</pre></div>
 <div class="old-help-para">Here is an alternative from Michael F. Lamb for Unix that filters the errors
@@ -1428,29 +1428,29 @@ In English, that sed script:
 <div class="old-help-para">						<a name="errorformat-ant"></a><code class="help-tag-right">errorformat-ant</code>
 For ant (<a href="https://jakarta.apache.org/">https://jakarta.apache.org/</a>) the above errorformat has to be modified
 to honour the leading [javac] in front of each javac output line:<pre>:set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#</pre>
-The <a href="options.html#'errorformat'">'errorformat'</a> can also be configured to handle ant together with either
+The <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> can also be configured to handle ant together with either
 javac or jikes.  If you're using jikes, you should tell ant to use jikes' +E
 command line switch which forces jikes to generate one-line error messages.
 This is what the second line (of a build.xml file) below does:<pre>&lt;property name = "build.compiler"       value = "jikes"/&gt;
 &lt;property name = "build.compiler.emacs" value = "true"/&gt;</pre>
-The <a href="options.html#'errorformat'">'errorformat'</a> which handles ant with both javac and jikes is:<pre>:set efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,
+The <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> which handles ant with both javac and jikes is:<pre>:set efm=\ %#[javac]\ %#%f:%l:%c:%*\\d:%*\\d:\ %t%[%^:]%#:%m,
          \%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#</pre></div>
 <div class="old-help-para">						<a name="errorformat-jade"></a><code class="help-tag-right">errorformat-jade</code>
 parsing jade (see <a href="http://www.jclark.com/">http://www.jclark.com/</a>) errors is simple:<pre>:set efm=jade:%f:%l:%c:%t:%m</pre></div>
 <div class="old-help-para">						<a name="errorformat-LaTeX"></a><code class="help-tag-right">errorformat-LaTeX</code>
-The following is an example how an <a href="options.html#'errorformat'">'errorformat'</a> string can be specified
+The following is an example how an <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> string can be specified
 for the (La)TeX typesetting system which displays error messages over
 multiple lines.  The output of ":clist" and ":cc" etc. commands displays
 multi-lines in a single line, leading white space is removed.
 It should be easy to adopt the above LaTeX errorformat to any compiler output
 consisting of multi-line errors.</div>
-<div class="old-help-para">The commands can be placed in a <a href="starting.html#vimrc">vimrc</a> file or some other Vim script file,
+<div class="old-help-para">The commands can be placed in a <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a> file or some other Vim script file,
 e.g. a script containing LaTeX related stuff which is loaded only when editing
 LaTeX sources.
 Make sure to copy all lines of the example (in the given order), afterwards
 remove the comment lines.  For the '\' notation at the start of some lines see
-<a href="repeat.html#line-continuation">line-continuation</a>.</div>
-<div class="old-help-para">		First prepare <a href="options.html#'makeprg'">'makeprg'</a> such that LaTeX will report multiple
+<a href="/neovim-docs-web/en/repeat#line-continuation">line-continuation</a>.</div>
+<div class="old-help-para">		First prepare <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> such that LaTeX will report multiple
 		errors; do not stop when the first error has occurred:<pre>:set makeprg=latex\ \\\\nonstopmode\ \\\\input\\{$*}</pre></div>
 <div class="old-help-para">		Start of multi-line error messages:<pre>:set efm=%E!\ LaTeX\ %trror:\ %m,
        \%E!\ %m,</pre></div>
@@ -1513,7 +1513,7 @@ by Vim.</div>
 list window is:</div>
 <div class="old-help-para">    <code>&lt;filename&gt;</code>&lt;lnum&gt;<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+quickfix.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/quickfix.html%0D%0DContext%3A%0D%0D%60%60%60%0DThe%20default%20format%20for%20the%20lines%20displayed%20in%20the%20quickfix%20window%20and%20location%0Alist%20window%20is%3A%0A%0A%20%20%20%20%3Cfilename%3E%7C%3Clnum%3E%20col%20%3Ccol%3E%7C%3Ctext%3E%0A%0AThe%20values%20displayed%20in%20each%20line%20correspond%20to%20the%20%22bufnr%22%2C%20%22lnum%22%2C%20%22col%22%20and%0A%22text%22%20fields%20returned%20by%20the%20%7Cgetqflist()%7C%20function.%0D%60%60%60">col &lt;col&gt;</a><code>&lt;text&gt;</code></div>
 <div class="old-help-para">The values displayed in each line correspond to the "bufnr", "lnum", "col" and
-"text" fields returned by the <a href="builtin.html#getqflist()">getqflist()</a> function.</div>
+"text" fields returned by the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> function.</div>
 <div class="old-help-para">For some quickfix/location lists, the displayed text needs to be customized.
 For example, if only the filename is present for a quickfix entry, then the
 two "|" field separator characters after the filename are not needed.  Another
@@ -1521,7 +1521,7 @@ use case is to customize the path displayed for a filename. By default, the
 complete path (which may be too long) is displayed for files which are not
 under the current directory tree. The file path may need to be simplified to a
 common parent directory.</div>
-<div class="old-help-para">The displayed text can be customized by setting the <a href="options.html#'quickfixtextfunc'">'quickfixtextfunc'</a> option
+<div class="old-help-para">The displayed text can be customized by setting the <a href="/neovim-docs-web/en/options#'quickfixtextfunc'">'quickfixtextfunc'</a> option
 to a Vim function.  This function will be called with a dict argument and
 should return a List of strings to be displayed in the quickfix or location
 list window. The dict argument will have the following fields:</div>
@@ -1535,18 +1535,18 @@ list window. The dict argument will have the following fields:</div>
     end_idx	index of the last entry for which text should be returned</div>
 <div class="old-help-para">The function should return a single line of text to display in the quickfix
 window for each entry from start_idx to end_idx. The function can obtain
-information about the entries using the <a href="builtin.html#getqflist()">getqflist()</a> function and specifying
+information about the entries using the <a href="/neovim-docs-web/en/builtin#getqflist()">getqflist()</a> function and specifying
 the quickfix list identifier "id". For a location list, getloclist() function
 can be used with the "winid" argument. If an empty list is returned, then the
 default format is used to display all the entries. If an item in the returned
 list is an empty string, then the default format is used to display the
 corresponding entry.</div>
 <div class="old-help-para">If a quickfix or location list specific customization is needed, then the
-<a href="options.html#'quickfixtextfunc'">'quickfixtextfunc'</a> attribute of the list can be set using the <a href="builtin.html#setqflist()">setqflist()</a> or
-<a href="builtin.html#setloclist()">setloclist()</a> function. This overrides the global <a href="options.html#'quickfixtextfunc'">'quickfixtextfunc'</a> option.</div>
-<div class="old-help-para">The example below displays the list of old files (<a href="eval.html#v%3Aoldfiles">v:oldfiles</a>) in a quickfix
+<a href="/neovim-docs-web/en/options#'quickfixtextfunc'">'quickfixtextfunc'</a> attribute of the list can be set using the <a href="/neovim-docs-web/en/builtin#setqflist()">setqflist()</a> or
+<a href="/neovim-docs-web/en/builtin#setloclist()">setloclist()</a> function. This overrides the global <a href="/neovim-docs-web/en/options#'quickfixtextfunc'">'quickfixtextfunc'</a> option.</div>
+<div class="old-help-para">The example below displays the list of old files (<a href="/neovim-docs-web/en/eval#v%3Aoldfiles">v:oldfiles</a>) in a quickfix
 window. As there is no line, column number and error text information
-associated with each entry, the <a href="options.html#'quickfixtextfunc'">'quickfixtextfunc'</a> function returns only the
+associated with each entry, the <a href="/neovim-docs-web/en/options#'quickfixtextfunc'">'quickfixtextfunc'</a> function returns only the
 filename.
 Example:<pre>" create a quickfix list from v:oldfiles
 call setqflist([], ' ', {'lines' : v:oldfiles, 'efm' : '%f',

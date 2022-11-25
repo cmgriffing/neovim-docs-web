@@ -16,9 +16,9 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Digraphs are used to enter characters that normally cannot be entered by
 an ordinary keyboard.  These are mostly printable non-ASCII characters.  The
 digraphs are easier to remember than the decimal number that can be entered
-with <code>CTRL-V</code> (see <a href="insert.html#i_CTRL-V">i_CTRL-V</a>).</div>
-<div class="old-help-para">There is a brief introduction on digraphs in the user manual: <a href="usr_24.html#24.9">24.9</a>
-An alternative is using the <a href="options.html#'keymap'">'keymap'</a> option.</div>
+with <code>CTRL-V</code> (see <a href="/neovim-docs-web/en/insert#i_CTRL-V">i_CTRL-V</a>).</div>
+<div class="old-help-para">There is a brief introduction on digraphs in the user manual: <a href="/neovim-docs-web/en/usr_24#24.9">24.9</a>
+An alternative is using the <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Defining digraphs<span class="help-heading-tags">					<a name="digraphs-define"></a><span class="help-tag">digraphs-define</span></span></h2></div>
 <div class="old-help-para">						<a name="%3Adig"></a><code class="help-tag-right">:dig</code> <a name="%3Adigraphs"></a><code class="help-tag">:digraphs</code>
 :dig[raphs][!]		Show currently defined digraphs.
@@ -28,7 +28,7 @@ An alternative is using the <a href="options.html#'keymap'">'keymap'</a> option.
 :dig[raphs] <code>{char1}</code><code>{char2}</code> <code>{number}</code> ...
 			Add digraph <code>{char1}</code><code>{char2}</code> to the list.  <code>{number}</code> is
 			the decimal representation of the character.  Normally
-			it is the Unicode character, see <a href="digraph.html#digraph-encoding">digraph-encoding</a>.
+			it is the Unicode character, see <a href="/neovim-docs-web/en/digraph#digraph-encoding">digraph-encoding</a>.
 			Example:<pre>:digr e: 235 a: 228</pre></div>
 <div class="old-help-para">			You can use <code>:exe</code> to enter a hex number:<pre>:exe 'digr += ' .. 0x2A72</pre></div>
 <div class="old-help-para">			Avoid defining a digraph with '_' (underscore) as the
@@ -36,7 +36,7 @@ An alternative is using the <a href="options.html#'keymap'">'keymap'</a> option.
 			future.
 			NOTE: This command cannot add a digraph that starts
 			with a white space.  If you want to add such digraph,
-			you can use <a href="builtin.html#digraph_set()">digraph_set()</a> instead.</div>
+			you can use <a href="/neovim-docs-web/en/builtin#digraph_set()">digraph_set()</a> instead.</div>
 <div class="old-help-para">Example of the output of ":digraphs":<pre>TH Þ  222  ss ß  223  a! à  224  a' á  225  a&gt; â  226  a? ã  227  a: ä  228</pre>
 The first two characters in each column are the characters you have to type to
 enter the digraph.</div>
@@ -45,8 +45,8 @@ if you look at it on a system that does not support digraphs or if you print
 this file.</div>
 <div class="old-help-para">							<a name="digraph-encoding"></a><code class="help-tag-right">digraph-encoding</code>
 The decimal number normally is the Unicode number of the character.  Note that
-the meaning doesn't change when <a href="options.html#'encoding'">'encoding'</a> changes.  The character will be
-converted from Unicode to <a href="options.html#'encoding'">'encoding'</a> when needed.  This does require the
+the meaning doesn't change when <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> changes.  The character will be
+converted from Unicode to <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> when needed.  This does require the
 conversion to be available, it might fail.  For the NUL character you will see
 "10".  That's because NUL characters are internally represented with a NL
 character.  When you write the file it will become a NUL character.</div>
@@ -56,7 +56,7 @@ This defines the "oe" digraph for a character that is number 339 in Unicode.</di
 <div class="old-help-para">There are two methods to enter digraphs:			<a name="i_digraph"></a><code class="help-tag-right">i_digraph</code>
 	<code>CTRL-K</code> <code>{char1}</code> <code>{char2}</code>		or
 	<code>{char1}</code> <code>&lt;BS&gt;</code> <code>{char2}</code>
-The first is always available; the second only when the <a href="options.html#'digraph'">'digraph'</a> option is
+The first is always available; the second only when the <a href="/neovim-docs-web/en/options#'digraph'">'digraph'</a> option is
 set.</div>
 <div class="old-help-para">If a digraph with <code>{char1}</code><code>{char2}</code> does not exist, Vim searches for a digraph
 <code>{char2}</code><code>{char1}</code>.  This helps when you don't remember which character comes
@@ -69,7 +69,7 @@ Example:<pre>'B' &lt;BS&gt; 'B'        will enter the broken '|' character (166)
 'a' &lt;BS&gt; '&gt;'        will enter an 'a' with a circumflex (226)
 CTRL-K '-' '-'        will enter a soft hyphen (173)</pre>
 The current digraphs are listed with the ":digraphs" command.  Some of the
-default ones are listed below <a href="digraph.html#digraph-table">digraph-table</a>.</div>
+default ones are listed below <a href="/neovim-docs-web/en/digraph#digraph-table">digraph-table</a>.</div>
 <div class="old-help-para">For <code>CTRL-K</code>, there is one general digraph: <code>CTRL-K</code> <code>&lt;Space&gt;</code> <code>{char}</code> will enter
 <code>{char}</code> with the highest bit set.  You can use this to enter meta-characters.</div>
 <div class="old-help-para">The <code>&lt;Esc&gt;</code> character cannot be part of a digraph.  When hitting <code>&lt;Esc&gt;</code>, Vim
@@ -79,7 +79,7 @@ hitting an <code>&lt;Esc&gt;</code> out of digraph context.  Use <code>CTRL-V</c
 <div class="old-help-para">If you accidentally typed an 'a' that should be an 'e', you will type 'a' <code>&lt;BS&gt;</code>
 'e'.  But that is a digraph, so you will not get what you want.  To correct
 this, you will have to type <code>&lt;BS&gt;</code> e again.  To avoid this don't set the
-<a href="options.html#'digraph'">'digraph'</a> option and use <code>CTRL-K</code> to enter digraphs.</div>
+<a href="/neovim-docs-web/en/options#'digraph'">'digraph'</a> option and use <code>CTRL-K</code> to enter digraphs.</div>
 <div class="old-help-para">You may have problems using Vim with characters which have a value above 128.
 For example: You insert ue (u-umlaut) and the editor echoes \334 in Insert
 mode.  After leaving the Insert mode everything is fine.  On some Unix systems

@@ -17,14 +17,14 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Vim has a few generic features that makes it easier to enter commands.  Colon
 commands can be abbreviated, edited and repeated.  Completion is available for
 nearly everything.</div>
-<div class="old-help-para"><a href="usr_20.html#20.1">20.1</a>  	Command line editing
-<a href="usr_20.html#20.2">20.2</a>  	Command line abbreviations
-<a href="usr_20.html#20.3">20.3</a>  	Command line completion
-<a href="usr_20.html#20.4">20.4</a>  	Command line history
-<a href="usr_20.html#20.5">20.5</a>  	Command line window</div>
-<div class="old-help-para">     Next chapter: <a href="usr_21.html#usr_21.txt">usr_21.txt</a>  Go away and come back
- Previous chapter: <a href="usr_12.html#usr_12.txt">usr_12.txt</a>  Clever tricks
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_20#20.1">20.1</a>  	Command line editing
+<a href="/neovim-docs-web/en/usr_20#20.2">20.2</a>  	Command line abbreviations
+<a href="/neovim-docs-web/en/usr_20#20.3">20.3</a>  	Command line completion
+<a href="/neovim-docs-web/en/usr_20#20.4">20.4</a>  	Command line history
+<a href="/neovim-docs-web/en/usr_20#20.5">20.5</a>  	Command line window</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_21#usr_21.txt">usr_21.txt</a>  Go away and come back
+ Previous chapter: <a href="/neovim-docs-web/en/usr_12#usr_12.txt">usr_12.txt</a>  Clever tricks
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Command line editing</h2></div>
 <div class="old-help-para">When you use a colon (:) command or search for a string with / or ?, Vim puts
 the cursor on the bottom of the screen.  There you type the command or search
@@ -77,7 +77,7 @@ of what you already typed, without executing it, press <code>CTRL-C</code> or <c
 	<code>&lt;Esc&gt;</code> is the universal "get out" key.  Unfortunately, in the good old
 	Vi pressing <code>&lt;Esc&gt;</code> in a command line executed the command!  Since that
 	might be considered to be a bug, Vim uses <code>&lt;Esc&gt;</code> to cancel the command.
-	But with the <a href="options.html#'cpoptions'">'cpoptions'</a> option it can be made Vi compatible.  And
+	But with the <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> option it can be made Vi compatible.  And
 	when using a mapping (which might be written for Vi) <code>&lt;Esc&gt;</code> also works
 	Vi compatible.  Therefore, using <code>CTRL-C</code> is a method that always works.</div>
 <div class="old-help-para">If you are at the start of the command line, pressing <code>&lt;BS&gt;</code> will cancel the
@@ -108,10 +108,10 @@ often used commands like ":w" (":write") and ":r" (":read").
 <div class="old-help-para"><a name="_short-option-names"></a><h3 class="help-heading">SHORT OPTION NAMES</h3></div>
 <div class="old-help-para">In the user manual the long version of the option names is used.  Many options
 also have a short name.  Unlike ":" commands, there is only one short name
-that works.  For example, the short name of <a href="options.html#'autoindent'">'autoindent'</a> is <a href="options.html#'ai'">'ai'</a>.  Thus these
+that works.  For example, the short name of <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> is <a href="/neovim-docs-web/en/options#'ai'">'ai'</a>.  Thus these
 two commands do the same thing:<pre>:set autoindent
 :set ai</pre>
-You can find the full list of long and short names here: <a href="quickref.html#option-list">option-list</a>.</div>
+You can find the full list of long and short names here: <a href="/neovim-docs-web/en/quickref#option-list">option-list</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="20.3"></a><span class="help-tag">20.3</span>  	Command line completion</span></h2></div>
 <div class="old-help-para">This is one of those Vim features that, by itself, is a reason to switch from
 Vi to Vim.  Once you have used this, you can't do without.</div>
@@ -178,12 +178,12 @@ option into the long name.</div>
 <div class="old-help-para">The <code>CTRL-L</code> command completes the word to the longest unambiguous string.  If
 you type ":edit i" and there are files "info.txt" and "info_backup.txt" you
 will get ":edit info".</div>
-<div class="old-help-para">The <a href="options.html#'wildmode'">'wildmode'</a> option can be used to change the way completion works.
-The <a href="options.html#'wildmenu'">'wildmenu'</a> option can be used to get a menu-like list of matches.
-Use the <a href="options.html#'suffixes'">'suffixes'</a> option to specify files that are less important and appear
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'wildmode'">'wildmode'</a> option can be used to change the way completion works.
+The <a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a> option can be used to get a menu-like list of matches.
+Use the <a href="/neovim-docs-web/en/options#'suffixes'">'suffixes'</a> option to specify files that are less important and appear
 at the end of the list of files.
-The <a href="options.html#'wildignore'">'wildignore'</a> option specifies files that are not listed at all.</div>
-<div class="old-help-para">More about all of this here: <a href="cmdline.html#cmdline-completion">cmdline-completion</a></div>
+The <a href="/neovim-docs-web/en/options#'wildignore'">'wildignore'</a> option specifies files that are not listed at all.</div>
+<div class="old-help-para">More about all of this here: <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a></div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="20.4"></a><span class="help-tag">20.4</span>  	Command line history</span></h2></div>
 <div class="old-help-para">In chapter 3 we briefly mentioned the history.  The basics are that you can
 use the <code>&lt;Up&gt;</code> key to recall an older command line.  <code>&lt;Down&gt;</code> then takes you back
@@ -192,7 +192,7 @@ to newer commands.</div>
 commands and for "/" and "?" search commands.  The "/" and "?" commands share
 the same history, because they are both search commands.  The three other
 histories are for expressions, debug mode commands and input lines for the
-input() function.  <a href="cmdline.html#cmdline-history">cmdline-history</a></div>
+input() function.  <a href="/neovim-docs-web/en/cmdline#cmdline-history">cmdline-history</a></div>
 <div class="old-help-para">Suppose you have done a ":set" command, typed ten more colon commands and then
 want to repeat that ":set" command again.  You could press ":" and then ten
 times <code>&lt;Up&gt;</code>.  There is a quicker way:<pre>:se&lt;Up&gt;</pre>
@@ -251,8 +251,8 @@ to find the previous command that contains "config".  It's a bit strange,
 because you are using a command line to search in the command line window.
 While typing that search command you can't open another command line window,
 there can be only one.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_21.html#usr_21.txt">usr_21.txt</a>  Go away and come back</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_21#usr_21.txt">usr_21.txt</a>  Go away and come back</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

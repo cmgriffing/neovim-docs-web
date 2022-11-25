@@ -17,13 +17,13 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">By now you know that Vim is very flexible.  This includes the menus used in
 the GUI.  You can define your own menu entries to make certain commands easily
 accessible.  This is for mouse-happy users only.</div>
-<div class="old-help-para"><a href="usr_42.html#42.1">42.1</a>  	Introduction
-<a href="usr_42.html#42.2">42.2</a>  	Menu commands
-<a href="usr_42.html#42.3">42.3</a>  	Various
-<a href="usr_42.html#42.4">42.4</a>  	Toolbar and popup menus</div>
-<div class="old-help-para">     Next chapter: <a href="usr_43.html#usr_43.txt">usr_43.txt</a>  Using filetypes
- Previous chapter: <a href="usr_41.html#usr_41.txt">usr_41.txt</a>  Write a Vim script
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_42#42.1">42.1</a>  	Introduction
+<a href="/neovim-docs-web/en/usr_42#42.2">42.2</a>  	Menu commands
+<a href="/neovim-docs-web/en/usr_42#42.3">42.3</a>  	Various
+<a href="/neovim-docs-web/en/usr_42#42.4">42.4</a>  	Toolbar and popup menus</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_43#usr_43.txt">usr_43.txt</a>  Using filetypes
+ Previous chapter: <a href="/neovim-docs-web/en/usr_41#usr_41.txt">usr_41.txt</a>  Write a Vim script
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Introduction</h2></div>
 <div class="old-help-para">The menus that Vim uses are defined in the file "$VIMRUNTIME/menu.vim".  If
 you want to write your own menus, you might first want to look through that
@@ -45,7 +45,7 @@ you would have typed them.  Thus in Insert mode, when <code>{keys}</code> is pla
 that text is inserted.</div>
 <div class="old-help-para"><a name="_accelerators"></a><h3 class="help-heading">ACCELERATORS</h3></div>
 <div class="old-help-para">The ampersand character (&amp;) is used to indicate an accelerator.  For instance,
-you can use Alt-F to select "File" and S to select "Save".  (The <a href="options.html#'winaltkeys'">'winaltkeys'</a>
+you can use Alt-F to select "File" and S to select "Save".  (The <a href="/neovim-docs-web/en/options#'winaltkeys'">'winaltkeys'</a>
 option may disable this though!).  Therefore, the <code>{menu-item}</code> looks like
 "&amp;File.&amp;Save".  The accelerator characters will be underlined in the menu.
    You must take care that each key is used only once in each menu.  Otherwise
@@ -143,7 +143,7 @@ This menu entry goes to the next file in the argument list with ":next".  Then
 it searches for the line that starts with "Code".
    The <code>&lt;SID&gt;</code> before the function name is the script ID.  This makes the
 function local to the current Vim script file.  This avoids problems when a
-function with the same name is defined in another script file.  See <a href="map.html#%3CSID%3E">&lt;SID&gt;</a>.</div>
+function with the same name is defined in another script file.  See <a href="/neovim-docs-web/en/map#%3CSID%3E">&lt;SID&gt;</a>.</div>
 <div class="old-help-para"><a name="_silent-menus"></a><h3 class="help-heading">SILENT MENUS</h3></div>
 <div class="old-help-para">The menu executes the <code>{keys}</code> as if you typed them.  For a ":" command this
 means you will see the command being echoed on the command line.  If it's a
@@ -176,7 +176,7 @@ You can delete a whole menu, with all its items, by using the menu name.
 Example:<pre>:aunmenu Syntax</pre>
 This deletes the Syntax menu and all the items in it.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="42.3"></a><span class="help-tag">42.3</span>  	Various</span></h2></div>
-<div class="old-help-para">You can change the appearance of the menus with flags in <a href="options.html#'guioptions'">'guioptions'</a>.  In the
+<div class="old-help-para">You can change the appearance of the menus with flags in <a href="/neovim-docs-web/en/options#'guioptions'">'guioptions'</a>.  In the
 default value they are all included, except "M".  You can remove a flag with a
 command like:<pre>:set guioptions-=m</pre></div>
 <div class="old-help-para">	m		When removed the menubar is not displayed.</div>
@@ -184,7 +184,7 @@ command like:<pre>:set guioptions-=m</pre></div>
 <div class="old-help-para">	g		When removed the inactive menu items are not made grey
 			but are completely removed.  (Does not work on all
 			systems.)</div>
-<div class="old-help-para">For translating menu items, see <a href="mlang.html#%3Amenutrans">:menutrans</a>.</div>
+<div class="old-help-para">For translating menu items, see <a href="/neovim-docs-web/en/mlang#%3Amenutrans">:menutrans</a>.</div>
 <div class="old-help-para">Since the mouse has to be used to select a menu item, it is a good idea to use
 the ":browse" command for selecting a file.  And ":confirm" to get a dialog
 instead of an error message, e.g., when the current buffer contains changes.
@@ -198,13 +198,13 @@ be used.  The default menus contain a few examples.</div>
 <div class="old-help-para">There are two special menus: ToolBar and PopUp.  Items that start with these
 names do not appear in the normal menu bar.</div>
 <div class="old-help-para"><a name="_toolbar"></a><h3 class="help-heading">TOOLBAR</h3></div>
-<div class="old-help-para">The toolbar appears only when the "T" flag is included in the <a href="options.html#'guioptions'">'guioptions'</a>
+<div class="old-help-para">The toolbar appears only when the "T" flag is included in the <a href="/neovim-docs-web/en/options#'guioptions'">'guioptions'</a>
 option.
    The toolbar uses icons rather than text to represent the command.  For
 example, the <code>{menu-item}</code> named "ToolBar.New" causes the "New" icon to appear
 on the toolbar.
    The Vim editor has 28 built-in icons.  You can find a table here:
-<a href="gui.html#builtin-tools">builtin-tools</a>.  Most of them are used in the default toolbar.  You can
+<a href="/neovim-docs-web/en/gui#builtin-tools">builtin-tools</a>.  Most of them are used in the default toolbar.  You can
 redefine what these items do (after the default menus are setup).
    You can add another bitmap for a toolbar item.  Or define a new toolbar
 item with a bitmap.  For example, define a new toolbar item with:<pre>:tmenu ToolBar.Compile  Compile the current file
@@ -214,7 +214,7 @@ with the name "Compile.bmp".  For Unix XPM format is used, the file name is
 "Compile.xpm".  The size must be 18 by 18 pixels.  On MS-Windows other sizes
 can be used as well, but it will look ugly.
    Put the bitmap in the directory "bitmaps" in one of the directories from
-<a href="options.html#'runtimepath'">'runtimepath'</a>.  E.g., for Unix "~/.config/nvim/bitmaps/Compile.xpm".</div>
+<a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  E.g., for Unix "~/.config/nvim/bitmaps/Compile.xpm".</div>
 <div class="old-help-para">You can define tooltips for the items in the toolbar.  A tooltip is a short
 text that explains what a toolbar item will do.  For example "Open file".  It
 appears when the mouse pointer is on the item, without moving for a moment.
@@ -223,8 +223,8 @@ Example:<pre>:tmenu ToolBar.Make  Run make in the current directory</pre></div>
 <div class="old-help-para">	Note:
 	Pay attention to the case used.  "Toolbar" and "toolbar" are different
 	from "ToolBar"!</div>
-<div class="old-help-para">To remove a tooltip, use the <a href="gui.html#%3Atunmenu">:tunmenu</a> command.</div>
-<div class="old-help-para">The <a href="vim_diff.html#'toolbar'">'toolbar'</a> option can be used to display text instead of a bitmap, or both
+<div class="old-help-para">To remove a tooltip, use the <a href="/neovim-docs-web/en/gui#%3Atunmenu">:tunmenu</a> command.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/vim_diff#'toolbar'">'toolbar'</a> option can be used to display text instead of a bitmap, or both
 text and a bitmap.  Most people use just the bitmap, since the text takes
 quite a bit of space.</div>
 <div class="old-help-para"><a name="_popup-menu"></a><h3 class="help-heading">POPUP MENU</h3></div>
@@ -232,7 +232,7 @@ quite a bit of space.</div>
 it by clicking the right mouse button.  Then you can select an item with the
 left mouse button.  On Unix the popup menu is used by pressing and holding the
 right mouse button.
-   The popup menu only appears when the <a href="options.html#'mousemodel'">'mousemodel'</a> has been set to "popup"
+   The popup menu only appears when the <a href="/neovim-docs-web/en/options#'mousemodel'">'mousemodel'</a> has been set to "popup"
 or "popup_setpos".  The difference between the two is that "popup_setpos"
 moves the cursor to the mouse pointer position.  When clicking inside a
 selection, the selection will be used unmodified.  When there is a selection
@@ -243,8 +243,8 @@ items like in the normal menus.</div>
 Douglas Adams, the only person who knew what this question really was about is
 now dead, unfortunately.  So now you might wonder what the meaning of death
 is...</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_43.html#usr_43.txt">usr_43.txt</a>  Using filetypes</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_43#usr_43.txt">usr_43.txt</a>  Using filetypes</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

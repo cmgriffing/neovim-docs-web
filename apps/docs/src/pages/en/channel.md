@@ -31,33 +31,33 @@ There are several ways to open a channel:
 </div>
 <div class="help-para">
   1. Through stdin/stdout when <code>nvim</code> is started with <code>--headless</code>, and a startup
-     script or --cmd  command opens the stdio channel using <a href="builtin.html#stdioopen()">stdioopen()</a>.
+     script or --cmd  command opens the stdio channel using <a href="/neovim-docs-web/en/builtin#stdioopen()">stdioopen()</a>.
 
 </div>
 <div class="help-para">
-  2. Through stdin, stdout and stderr of a process spawned by <a href="builtin.html#jobstart()">jobstart()</a>.
+  2. Through stdin, stdout and stderr of a process spawned by <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a>.
 
 </div>
 <div class="help-para">
   3. Through the PTY master end of a PTY opened with
-     <code>jobstart(..., {'pty': v:true})</code> or <a href="builtin.html#termopen()">termopen()</a>.
+     <code>jobstart(..., {'pty': v:true})</code> or <a href="/neovim-docs-web/en/builtin#termopen()">termopen()</a>.
 
 </div>
 <div class="help-para">
-  4. By connecting to a TCP/IP socket or named pipe with <a href="builtin.html#sockconnect()">sockconnect()</a>.
+  4. By connecting to a TCP/IP socket or named pipe with <a href="/neovim-docs-web/en/builtin#sockconnect()">sockconnect()</a>.
 
 </div>
 <div class="help-para">
   5. By another process connecting to a socket listened to by nvim. This only
-     supports RPC channels, see <a href="api.html#rpc-connecting">rpc-connecting</a>.
+     supports RPC channels, see <a href="/neovim-docs-web/en/api#rpc-connecting">rpc-connecting</a>.
 
 </div>
 <div class="help-para">
 Channels support multiple modes or protocols. In the most basic
 mode of operation, raw bytes are read and written to the channel.
-The <a href="api.html#RPC">RPC</a> protocol, based on the msgpack-rpc standard, enables nvim and the
+The <a href="/neovim-docs-web/en/api#RPC">RPC</a> protocol, based on the msgpack-rpc standard, enables nvim and the
 process at the other end to send remote calls and events to each other.
-The builtin <a href="nvim_terminal_emulator.html#terminal-emulator">terminal-emulator</a> is also implemented on top of PTY channels.
+The builtin <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal-emulator">terminal-emulator</a> is also implemented on top of PTY channels.
 
 </div>
 <div class="help-para">
@@ -66,8 +66,8 @@ Channel Id						<a name="channel-id"></a><code class="help-tag-right">channel-id
 </div>
 <div class="help-para">
 Each channel is identified by an integer id, unique for the life of the
-current Nvim session. Functions like <a href="builtin.html#stdioopen()">stdioopen()</a> return channel ids;
-functions like <a href="builtin.html#chansend()">chansend()</a> consume channel ids.
+current Nvim session. Functions like <a href="/neovim-docs-web/en/builtin#stdioopen()">stdioopen()</a> return channel ids;
+functions like <a href="/neovim-docs-web/en/builtin#chansend()">chansend()</a> consume channel ids.
 
 </div>
 <div class="help-para">
@@ -98,10 +98,10 @@ only bytes can be written to Nvim's own stderr.
 </div>
 <div class="help-para">
 <div class="help-column_heading">    Parameters:</div>
-<div class="help-li" style=""> <code>{chan-id}</code>   Channel handle. <a href="channel.html#channel-id">channel-id</a>
-</div><div class="help-li" style=""> <code>{data}</code>	    Raw data (<a href="builtin.html#readfile()">readfile()</a>-style list of strings) read from
+<div class="help-li" style=""> <code>{chan-id}</code>   Channel handle. <a href="/neovim-docs-web/en/channel#channel-id">channel-id</a>
+</div><div class="help-li" style=""> <code>{data}</code>	    Raw data (<a href="/neovim-docs-web/en/builtin#readfile()">readfile()</a>-style list of strings) read from
 		    the channel. EOF is a single-item list: <code>['']</code>. First and
-		    last items may be partial lines! <a href="channel.html#channel-lines">channel-lines</a>
+		    last items may be partial lines! <a href="/neovim-docs-web/en/channel#channel-lines">channel-lines</a>
 </div><div class="help-li" style=""> <code>{name}</code>	    Stream name (string) like "stdout", so the same function
 		    can handle multiple streams. Event names depend on how the
 		    channel was opened and in what mode/protocol.
@@ -135,7 +135,7 @@ only bytes can be written to Nvim's own stderr.
 </div>
 <div class="help-para">
     There are two ways to deal with this:
-<div class="help-li" style=""> 1. To wait for the entire output, use <a href="channel.html#channel-buffered">channel-buffered</a> mode.
+<div class="help-li" style=""> 1. To wait for the entire output, use <a href="/neovim-docs-web/en/channel#channel-buffered">channel-buffered</a> mode.
 </div><div class="help-li" style=""> 2. To read line-by-line, use the following code:
 <pre>let s:lines = ['']
 func! s:on_event(job_id, data, event) dict
@@ -147,13 +147,13 @@ func! s:on_event(job_id, data, event) dict
 endf</pre></div>
 </div>
 <div class="help-para">
-If the callback functions are <a href="eval.html#Dictionary-function">Dictionary-function</a>s, <a href="eval.html#self">self</a> refers to the
-options dictionary containing the callbacks. <a href="eval.html#Partial">Partial</a>s can also be used as
+If the callback functions are <a href="/neovim-docs-web/en/eval#Dictionary-function">Dictionary-function</a>s, <a href="/neovim-docs-web/en/eval#self">self</a> refers to the
+options dictionary containing the callbacks. <a href="/neovim-docs-web/en/eval#Partial">Partial</a>s can also be used as
 callbacks.
 
 </div>
 <div class="help-para">
-Data can be sent to the channel using the <a href="builtin.html#chansend()">chansend()</a> function. Here is a
+Data can be sent to the channel using the <a href="/neovim-docs-web/en/builtin#chansend()">chansend()</a> function. Here is a
 simple example, echoing some data through a cat-process:
 <pre>function! s:OnEvent(id, data, event) dict
   let str = join(a:data, "\n")
@@ -181,29 +181,29 @@ call chanclose(id, 'stdin')
 
 </div>
 <div class="help-para">
-For additional examples with jobs, see <a href="job_control.html#job-control">job-control</a>.
+For additional examples with jobs, see <a href="/neovim-docs-web/en/job_control#job-control">job-control</a>.
 
 </div>
 <div class="help-para">
 							      <a name="channel-pty"></a><code class="help-tag-right">channel-pty</code>
 Special case: PTY channels opened with <code>jobstart(..., {'pty': v:true})</code> do not
 preprocess ANSI escape sequences, these will be sent raw to the callback.
-However, change of PTY size can be signaled to the slave using <a href="builtin.html#jobresize()">jobresize()</a>.
-See also <a href="nvim_terminal_emulator.html#terminal-emulator">terminal-emulator</a>.
+However, change of PTY size can be signaled to the slave using <a href="/neovim-docs-web/en/builtin#jobresize()">jobresize()</a>.
+See also <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal-emulator">terminal-emulator</a>.
 
 </div>
 <div class="help-para">
-Terminal characteristics (termios) for <a href="various.html#%3Aterminal">:terminal</a> and PTY channels are copied
-from the host TTY, or if Nvim is <a href="starting.html#--headless">--headless</a> it uses default values:<pre>:echo system('nvim --headless +"te stty -a" +"sleep 1" +"1,/^$/print" +q')</pre>
+Terminal characteristics (termios) for <a href="/neovim-docs-web/en/various#%3Aterminal">:terminal</a> and PTY channels are copied
+from the host TTY, or if Nvim is <a href="/neovim-docs-web/en/starting#--headless">--headless</a> it uses default values:<pre>:echo system('nvim --headless +"te stty -a" +"sleep 1" +"1,/^$/print" +q')</pre>
 <h2 class="help-heading">3. Communicating using msgpack-rpc<span class="help-heading-tags">			      <a name="channel-rpc"></a><span class="help-tag">channel-rpc</span></span></h2>
 
 
 </div>
 <div class="help-para">
 When channels are opened with the <code>rpc</code> option set to true, the channel can be
-used for remote method calls in both directions, see <a href="api.html#msgpack-rpc">msgpack-rpc</a>. Note that
+used for remote method calls in both directions, see <a href="/neovim-docs-web/en/api#msgpack-rpc">msgpack-rpc</a>. Note that
 rpc channels are implicitly trusted and the process at the other end can
-invoke any <a href="api.html#api">api</a> function!
+invoke any <a href="/neovim-docs-web/en/api#api">api</a> function!
 
 </div>
 <div class="help-para">
@@ -213,13 +213,13 @@ invoke any <a href="api.html#api">api</a> function!
 </div>
 <div class="help-para">
 Nvim uses stdin/stdout to interact with the user over the terminal interface
-(TUI). If Nvim is <a href="starting.html#--headless">--headless</a> the TUI is not started and stdin/stdout can be
-used as a channel. See also <a href="starting.html#--embed">--embed</a>.
+(TUI). If Nvim is <a href="/neovim-docs-web/en/starting#--headless">--headless</a> the TUI is not started and stdin/stdout can be
+used as a channel. See also <a href="/neovim-docs-web/en/starting#--embed">--embed</a>.
 
 </div>
 <div class="help-para">
-Call <a href="builtin.html#stdioopen()">stdioopen()</a> during <a href="starting.html#startup">startup</a> to open the stdio channel as <a href="channel.html#channel-id">channel-id</a> 1.
-Nvim's stderr is always available as <a href="eval.html#v%3Astderr">v:stderr</a>, a write-only bytes channel.
+Call <a href="/neovim-docs-web/en/builtin#stdioopen()">stdioopen()</a> during <a href="/neovim-docs-web/en/starting#startup">startup</a> to open the stdio channel as <a href="/neovim-docs-web/en/channel#channel-id">channel-id</a> 1.
+Nvim's stderr is always available as <a href="/neovim-docs-web/en/eval#v%3Astderr">v:stderr</a>, a write-only bytes channel.
 
 </div>
 <div class="help-para">
@@ -244,20 +244,20 @@ If you want to type input for the job in a Vim window you have a few options:
   This will be complicated, since there are so many possible commands.
 </div><div class="help-li" style=""> Use a terminal window.  This works well if what you type goes directly to
   the job and the job output is directly displayed in the window.
-  See <a href="nvim_terminal_emulator.html#terminal">terminal</a>.
+  See <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal">terminal</a>.
 </div><div class="help-li" style=""> Use a window with a prompt buffer. This works well when entering a line for
   the job in Vim while displaying (possibly filtered) output from the job.
 </div>
 </div>
 <div class="help-para">
-A prompt buffer is created by setting <a href="options.html#'buftype'">'buftype'</a> to "prompt". You would
+A prompt buffer is created by setting <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> to "prompt". You would
 normally only do that in a newly created buffer.
 
 </div>
 <div class="help-para">
 The user can edit and enter one line of text at the very last line of the
 buffer.  When pressing Enter in the prompt line the callback set with
-<a href="builtin.html#prompt_setcallback()">prompt_setcallback()</a> is invoked.  It would normally send the line to a job.
+<a href="/neovim-docs-web/en/builtin#prompt_setcallback()">prompt_setcallback()</a> is invoked.  It would normally send the line to a job.
 Another callback would receive the output from the job and display it in the
 buffer, below the prompt (and above the next prompt).
 
@@ -265,20 +265,20 @@ buffer, below the prompt (and above the next prompt).
 <div class="help-para">
 Only the text in the last line, after the prompt, is editable. The rest of the
 buffer is not modifiable with Normal mode commands.  It can be modified by
-calling functions, such as <a href="builtin.html#append()">append()</a>.  Using other commands may mess up the
+calling functions, such as <a href="/neovim-docs-web/en/builtin#append()">append()</a>.  Using other commands may mess up the
 buffer.
 
 </div>
 <div class="help-para">
-After setting <a href="options.html#'buftype'">'buftype'</a> to "prompt" Vim does not automatically start Insert
+After setting <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> to "prompt" Vim does not automatically start Insert
 mode, use <code>:startinsert</code> if you want to enter Insert mode, so that the user
 can start typing a line.
 
 </div>
 <div class="help-para">
-The text of the prompt can be set with the <a href="builtin.html#prompt_setprompt()">prompt_setprompt()</a> function. If
-no prompt is set with <a href="builtin.html#prompt_setprompt()">prompt_setprompt()</a>, "% " is used. You can get the
-effective prompt text for a buffer, with <a href="builtin.html#prompt_getprompt()">prompt_getprompt()</a>.
+The text of the prompt can be set with the <a href="/neovim-docs-web/en/builtin#prompt_setprompt()">prompt_setprompt()</a> function. If
+no prompt is set with <a href="/neovim-docs-web/en/builtin#prompt_setprompt()">prompt_setprompt()</a>, "% " is used. You can get the
+effective prompt text for a buffer, with <a href="/neovim-docs-web/en/builtin#prompt_getprompt()">prompt_getprompt()</a>.
 
 </div>
 <div class="help-para">

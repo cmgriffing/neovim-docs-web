@@ -17,13 +17,13 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">An editing task is hardly ever unstructured.  A change often needs to be made
 several times.  In this chapter a number of useful ways to repeat a change
 will be explained.</div>
-<div class="old-help-para"><a href="usr_26.html#26.1">26.1</a>  	Repeating with Visual mode
-<a href="usr_26.html#26.2">26.2</a>  	Add and subtract
-<a href="usr_26.html#26.3">26.3</a>  	Making a change in many files
-<a href="usr_26.html#26.4">26.4</a>  	Using Vim from a shell script</div>
-<div class="old-help-para">     Next chapter: <a href="usr_27.html#usr_27.txt">usr_27.txt</a>  Search commands and patterns
- Previous chapter: <a href="usr_25.html#usr_25.txt">usr_25.txt</a>  Editing formatted text
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_26#26.1">26.1</a>  	Repeating with Visual mode
+<a href="/neovim-docs-web/en/usr_26#26.2">26.2</a>  	Add and subtract
+<a href="/neovim-docs-web/en/usr_26#26.3">26.3</a>  	Making a change in many files
+<a href="/neovim-docs-web/en/usr_26#26.4">26.4</a>  	Using Vim from a shell script</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_27#usr_27.txt">usr_27.txt</a>  Search commands and patterns
+ Previous chapter: <a href="/neovim-docs-web/en/usr_25#usr_25.txt">usr_25.txt</a>  Editing formatted text
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Repeating with Visual mode</h2></div>
 <div class="old-help-para">Visual mode is very handy for making a change in any sequence of lines.  You
 can see the highlighted text, thus you can check if the correct lines are
@@ -54,7 +54,7 @@ you have this list:</div>
 The "1." will change to "4.".  Again, you can use "." to repeat this on the
 other numbers.</div>
 <div class="old-help-para">The <code>CTRL-X</code> command does subtraction in a similar way.</div>
-<div class="old-help-para">The behavior of <code>CTRL-A</code> and <code>CTRL-X</code> depends on the value of <a href="options.html#'nrformats'">'nrformats'</a>. For
+<div class="old-help-para">The behavior of <code>CTRL-A</code> and <code>CTRL-X</code> depends on the value of <a href="/neovim-docs-web/en/options#'nrformats'">'nrformats'</a>. For
 example, if you use:<pre>:set nrformats+=octal</pre>
 pressing <code>CTRL-A</code> over "007" will increment to "010", because "007" will be
 identified as an octal number.</div>
@@ -135,8 +135,8 @@ can just continue and remember to edit the script later.
    The "-w" argument appends to an existing script.  That is good when you
 want to record the script bit by bit.  If you want to start from scratch and
 start all over, use the "-W" argument.  It overwrites any existing file.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_27.html#usr_27.txt">usr_27.txt</a>  Search commands and patterns</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_27#usr_27.txt">usr_27.txt</a>  Search commands and patterns</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

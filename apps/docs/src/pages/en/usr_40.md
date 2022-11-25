@@ -17,14 +17,14 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Vim is an extensible editor.  You can take a sequence of commands you use
 often and turn it into a new command.  Or redefine an existing command.
 Autocommands make it possible to execute commands automatically.</div>
-<div class="old-help-para"><a href="usr_40.html#40.1">40.1</a>  	Key mapping
-<a href="usr_40.html#40.2">40.2</a>  	Defining command-line commands
-<a href="usr_40.html#40.3">40.3</a>  	Autocommands</div>
-<div class="old-help-para">     Next chapter: <a href="usr_41.html#usr_41.txt">usr_41.txt</a>  Write a Vim script
- Previous chapter: <a href="usr_32.html#usr_32.txt">usr_32.txt</a>  The undo tree
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_40#40.1">40.1</a>  	Key mapping
+<a href="/neovim-docs-web/en/usr_40#40.2">40.2</a>  	Defining command-line commands
+<a href="/neovim-docs-web/en/usr_40#40.3">40.3</a>  	Autocommands</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_41#usr_41.txt">usr_41.txt</a>  Write a Vim script
+ Previous chapter: <a href="/neovim-docs-web/en/usr_32#usr_32.txt">usr_32.txt</a>  The undo tree
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Key mapping</h2></div>
-<div class="old-help-para">A simple mapping was explained in section <a href="usr_05.html#05.3">05.3</a>.  The principle is that one
+<div class="old-help-para">A simple mapping was explained in section <a href="/neovim-docs-web/en/usr_05#05.3">05.3</a>.  The principle is that one
 sequence of key strokes is translated into another sequence of key strokes.
 This is a simple, yet powerful mechanism.
    The simplest form is that one key is mapped to a sequence of keys.  Since
@@ -43,7 +43,7 @@ line.  The <code>&lt;CR&gt;</code> is required to execute the ":read" command.
    At this point of execution the text looks like this:</div>
 <div class="old-help-para"><div class="help-column_heading">	Date:</div><div class="help-column_heading">	Fri Jun 15 12:54:34 CEST 2001</div></div>
 <div class="old-help-para">Now "kJ" moves the cursor up and joins the lines together.
-   To decide which key or keys you use for mapping, see <a href="map.html#map-which-keys">map-which-keys</a>.</div>
+   To decide which key or keys you use for mapping, see <a href="/neovim-docs-web/en/map#map-which-keys">map-which-keys</a>.</div>
 <div class="old-help-para"><a name="_mapping-and-modes"></a><h3 class="help-heading">MAPPING AND MODES</h3></div>
 <div class="old-help-para">The ":map" command defines remapping for keys in Normal mode.  You can also
 define mappings for other modes.  For example, ":imap" applies to Insert mode.
@@ -142,7 +142,7 @@ mode, but not in Visual mode.  First define it for all three modes, then
 delete it for Visual mode:<pre>:map &lt;C-A&gt; /---&gt;&lt;CR&gt;
 :vunmap &lt;C-A&gt;</pre>
 Notice that the five characters "&lt;C-A&gt;" stand for the single key <code>CTRL-A</code>.</div>
-<div class="old-help-para">To remove all mappings use the <a href="map.html#%3Amapclear">:mapclear</a> command.  You can guess the
+<div class="old-help-para">To remove all mappings use the <a href="/neovim-docs-web/en/map#%3Amapclear">:mapclear</a> command.  You can guess the
 variations for different modes by now.  Be careful with this command, it can't
 be undone.</div>
 <div class="old-help-para"><a name="_special-characters"></a><h3 class="help-heading">SPECIAL CHARACTERS</h3></div>
@@ -169,7 +169,7 @@ mapping is triggered when typing the last character.
 inserted in the text while you type them.  When the abbreviation is triggered
 these characters are deleted and replaced by what the abbreviation produces.
 When typing the characters for a mapping, nothing is inserted until you type
-the last character that triggers it.  If the <a href="options.html#'showcmd'">'showcmd'</a> option is set, the
+the last character that triggers it.  If the <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a> option is set, the
 typed characters are displayed in the last line of the Vim window.
    An exception is when a mapping is ambiguous.  Suppose you have done two
 mappings:<pre>:imap aa foo
@@ -181,12 +181,12 @@ example, the first mapping is applied, resulting in "foo", and then the space
 is inserted.</div>
 <div class="old-help-para"><a name="_additionally..."></a><h3 class="help-heading">ADDITIONALLY...</h3></div>
 <div class="old-help-para">The <code>&lt;script&gt;</code> keyword can be used to make a mapping local to a script.  See
-<a href="map.html#%3Amap-%3Cscript%3E">:map-&lt;script&gt;</a>.</div>
+<a href="/neovim-docs-web/en/map#%3Amap-%3Cscript%3E">:map-&lt;script&gt;</a>.</div>
 <div class="old-help-para">The <code>&lt;buffer&gt;</code> keyword can be used to make a mapping local to a specific buffer.
-See <a href="map.html#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a></div>
+See <a href="/neovim-docs-web/en/map#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a></div>
 <div class="old-help-para">The <code>&lt;unique&gt;</code> keyword can be used to make defining a new mapping fail when it
 already exists.  Otherwise a new mapping simply overwrites the old one.  See
-<a href="map.html#%3Amap-%3Cunique%3E">:map-&lt;unique&gt;</a>.</div>
+<a href="/neovim-docs-web/en/map#%3Amap-%3Cunique%3E">:map-&lt;unique&gt;</a>.</div>
 <div class="old-help-para">To make a key do nothing, map it to <code>&lt;Nop&gt;</code> (five characters).  This will make
 the <code>&lt;F7&gt;</code> key do nothing at all:<pre>:map &lt;F7&gt; &lt;Nop&gt;| map! &lt;F7&gt; &lt;Nop&gt;</pre>
 There must be no space after <code>&lt;Nop&gt;</code>.</div>
@@ -254,7 +254,7 @@ defines the SaveIt command, which writes out the specified range to the file
 				The register specification is available as
 				<code>&lt;reg&gt;</code> (a.k.a. <code>&lt;register&gt;</code>).
 	-complete={type}	Type of command-line completion used.  See
-				<a href="map.html#%3Acommand-completion">:command-completion</a> for the list of possible
+				<a href="/neovim-docs-web/en/map#%3Acommand-completion">:command-completion</a> for the list of possible
 				values.
 	-bar			The command can be followed by | and another
 				command, or " and a comment.
@@ -269,12 +269,12 @@ To delete a user command use ":delcommand".  It takes a single argument, which
 is the name of the command.  Example:<pre>:delcommand SaveIt</pre>
 To delete all the user commands:<pre>:comclear</pre>
 Careful, this can't be undone!</div>
-<div class="old-help-para">More details about all this in the reference manual: <a href="map.html#user-commands">user-commands</a>.</div>
+<div class="old-help-para">More details about all this in the reference manual: <a href="/neovim-docs-web/en/map#user-commands">user-commands</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="40.3"></a><span class="help-tag">40.3</span>  	Autocommands</span></h2></div>
 <div class="old-help-para">An autocommand is a command that is executed automatically in response to some
 event, such as a file being read or written or a buffer change.  Through the
 use of autocommands you can train Vim to edit compressed files, for example.
-That is used in the <a href="pi_gzip.html#gzip">gzip</a> plugin.
+That is used in the <a href="/neovim-docs-web/en/pi_gzip#gzip">gzip</a> plugin.
    Autocommands are very powerful.  Use them with care and they will help you
 avoid typing many commands.  Use them carelessly and they will cause a lot of
 trouble.</div>
@@ -311,12 +311,12 @@ defining the new one.  Groups are explained later.</div>
 file is being edited.  It is commonly used to set option values.  For example,
 you know that "*.gsm" files are GNU assembly language.  To get the syntax file
 right, define this autocommand:<pre>:autocmd BufReadPost *.gsm  set filetype=asm</pre>
-If Vim is able to detect the type of file, it will set the <a href="options.html#'filetype'">'filetype'</a> option
+If Vim is able to detect the type of file, it will set the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> option
 for you.  This triggers the Filetype event.  Use this to do something when a
 certain type of file is edited.  For example, to load a list of abbreviations
 for text files:<pre>:autocmd Filetype text  source ~/.config/nvim/abbrevs.vim</pre>
 When starting to edit a new file, you could make Vim insert a skeleton:<pre>:autocmd BufNewFile *.[ch]  0read ~/skeletons/skel.c</pre>
-See <a href="autocmd.html#autocmd-events">autocmd-events</a> for a complete list of events.</div>
+See <a href="/neovim-docs-web/en/autocmd#autocmd-events">autocmd-events</a> for a complete list of events.</div>
 <div class="old-help-para"><a name="_patterns"></a><h3 class="help-heading">PATTERNS</h3></div>
 <div class="old-help-para">The <code>{file-pattern}</code> argument can actually be a comma-separated list of file
 patterns.  For example: "*.c,*.h" matches files ending in ".c" and ".h".
@@ -402,16 +402,16 @@ This also shows the use of a backslash to break a long command into more
 lines.  This can be used in Vim scripts (not at the command line).</div>
 <div class="old-help-para">When you want the autocommand do something complicated, which involves jumping
 around in the file and then returning to the original position, you may want
-to restore the view on the file.  See <a href="tips.html#restore-position">restore-position</a> for an example.</div>
+to restore the view on the file.  See <a href="/neovim-docs-web/en/tips#restore-position">restore-position</a> for an example.</div>
 <div class="old-help-para"><a name="_ignoring-events"></a><h3 class="help-heading">IGNORING EVENTS</h3></div>
-<div class="old-help-para">At times, you will not want to trigger an autocommand.  The <a href="options.html#'eventignore'">'eventignore'</a>
+<div class="old-help-para">At times, you will not want to trigger an autocommand.  The <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a>
 option contains a list of events that will be totally ignored.  For example,
 the following causes events for entering and leaving a window to be ignored:<pre>:set eventignore=WinEnter,WinLeave</pre>
 To ignore all events, use the following command:<pre>:set eventignore=all</pre>
-To set it back to the normal behavior, make <a href="options.html#'eventignore'">'eventignore'</a> empty:<pre>:set eventignore=</pre>
+To set it back to the normal behavior, make <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a> empty:<pre>:set eventignore=</pre>
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_40.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_40.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0A%09%3Aset%20eventignore%3D%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ANext%20chapter%3A%20%7Cusr_41.txt%7C%20%20Write%20a%20Vim%20script%0A%0ACopyright%3A%20see%20%7Cmanual-copyright%7C%20%20vim%3Atw%3D78%3Ats%3D8%3Anoet%3Aft%3Dhelp%3Anorl%3A%0D%60%60%60">==============================================================================</a></div>
-<div class="old-help-para">Next chapter: <a href="usr_41.html#usr_41.txt">usr_41.txt</a>  Write a Vim script</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">Next chapter: <a href="/neovim-docs-web/en/usr_41#usr_41.txt">usr_41.txt</a>  Write a Vim script</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

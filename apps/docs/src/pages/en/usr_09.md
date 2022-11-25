@@ -18,13 +18,13 @@ layout: ../../layouts/MainLayout.astro
 (GUI).  It can do the same things and a few more.  The GUI offers menus, a
 toolbar, scrollbars and other items.  This chapter is about these extra things
 that the GUI offers.</div>
-<div class="old-help-para"><a href="usr_09.html#09.1">09.1</a>  	Parts of the GUI
-<a href="usr_09.html#09.2">09.2</a>  	Using the mouse
-<a href="usr_09.html#09.3">09.3</a>  	The clipboard
-<a href="usr_09.html#09.4">09.4</a>  	Select mode</div>
-<div class="old-help-para">     Next chapter: <a href="usr_10.html#usr_10.txt">usr_10.txt</a>  Making big changes
- Previous chapter: <a href="usr_08.html#usr_08.txt">usr_08.txt</a>  Splitting windows
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_09#09.1">09.1</a>  	Parts of the GUI
+<a href="/neovim-docs-web/en/usr_09#09.2">09.2</a>  	Using the mouse
+<a href="/neovim-docs-web/en/usr_09#09.3">09.3</a>  	The clipboard
+<a href="/neovim-docs-web/en/usr_09#09.4">09.4</a>  	Select mode</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_10#usr_10.txt">usr_10.txt</a>  Making big changes
+ Previous chapter: <a href="/neovim-docs-web/en/usr_08#usr_08.txt">usr_08.txt</a>  Splitting windows
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Parts of the GUI</h2></div>
 <div class="old-help-para">You might have an icon on your desktop that starts gvim.  Otherwise, one of
 these commands should do it:<pre>gvim file.txt
@@ -78,22 +78,22 @@ pointer to the icon without clicking and don't move it for a second).</div>
 <div class="old-help-para">The "Edit/Global Settings/Toggle Toolbar" menu item can be used to make the
 toolbar disappear.  If you never want a toolbar, use this command in your
 vimrc file:<pre>:set guioptions-=T</pre>
-This removes the 'T' flag from the <a href="options.html#'guioptions'">'guioptions'</a> option.  Other parts of the
+This removes the 'T' flag from the <a href="/neovim-docs-web/en/options#'guioptions'">'guioptions'</a> option.  Other parts of the
 GUI can also be enabled or disabled with this option.  See the help for it.</div>
 <div class="old-help-para"><a name="_the-scrollbars"></a><h3 class="help-heading">THE SCROLLBARS</h3></div>
 <div class="old-help-para">By default there is one scrollbar on the right.  It does the obvious thing.
 When you split the window, each window will get its own scrollbar.
    You can make a horizontal scrollbar appear with the menu item
 Edit/Global Settings/Toggle Bottom Scrollbar.  This is useful in diff mode, or
-when the <a href="options.html#'wrap'">'wrap'</a> option has been reset (more about that later).</div>
+when the <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option has been reset (more about that later).</div>
 <div class="old-help-para">When there are vertically split windows, only the windows on the right side
 will have a scrollbar.  However, when you move the cursor to a window on the
 left, it will be this one that the scrollbar controls.  This takes a bit of
 time to get used to.
    When you work with vertically split windows, consider adding a scrollbar on
-the left.  This can be done with a menu item, or with the <a href="options.html#'guioptions'">'guioptions'</a> option:
+the left.  This can be done with a menu item, or with the <a href="/neovim-docs-web/en/options#'guioptions'">'guioptions'</a> option:
 <pre>:set guioptions+=l</pre>
-This adds the 'l' flag to <a href="options.html#'guioptions'">'guioptions'</a>.</div>
+This adds the 'l' flag to <a href="/neovim-docs-web/en/options#'guioptions'">'guioptions'</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="09.2"></a><span class="help-tag">09.2</span>  	Using the mouse</span></h2></div>
 <div class="old-help-para">Standards are wonderful.  In Microsoft Windows, you can use the mouse to
 select text in a standard manner.  The X Window system also has a standard
@@ -105,7 +105,7 @@ command makes the mouse behave like an X Window mouse:<pre>:behave xterm</pre>
 The following command makes the mouse work like a Microsoft Windows mouse:<pre>:behave mswin</pre>
 The default behavior of the mouse on Unix systems is xterm.  The default
 behavior on Windows systems is selected during the installation process.  For
-details about what the two behaviors are, see <a href="options.html#%3Abehave">:behave</a>.  Here follows a
+details about what the two behaviors are, see <a href="/neovim-docs-web/en/options#%3Abehave">:behave</a>.  Here follows a
 summary.</div>
 <div class="old-help-para"><a name="_xterm-mouse-behavior"></a><h3 class="help-heading">XTERM MOUSE BEHAVIOR</h3></div>
 <div class="old-help-para">Left mouse click		position the cursor
@@ -115,20 +115,20 @@ Right mouse click		extend the selected text until the mouse
 				pointer</div>
 <div class="old-help-para"><a name="_mswin-mouse-behavior"></a><h3 class="help-heading">MSWIN MOUSE BEHAVIOR</h3></div>
 <div class="old-help-para">Left mouse click		position the cursor
-Left mouse drag			select text in Select mode (see <a href="usr_09.html#09.4">09.4</a>)
+Left mouse drag			select text in Select mode (see <a href="/neovim-docs-web/en/usr_09#09.4">09.4</a>)
 Left mouse click, with Shift	extend the selected text until the mouse
 				pointer
 Middle mouse click		paste text from the clipboard
 Right mouse click		display a pop-up menu</div>
 <div class="old-help-para">The mouse can be further tuned.  Check out these options if you want to change
 the way how the mouse works:</div>
-<div class="old-help-para">	<a href="options.html#'mouse'">'mouse'</a>			in which mode the mouse is used by Vim
-	<a href="options.html#'mousemodel'">'mousemodel'</a>		what effect a mouse click has
-	<a href="options.html#'mousetime'">'mousetime'</a>		time between clicks for a double-click
-	<a href="options.html#'mousehide'">'mousehide'</a>		hide the mouse while typing
-	<a href="options.html#'selectmode'">'selectmode'</a>		whether the mouse starts Visual or Select mode</div>
+<div class="old-help-para">	<a href="/neovim-docs-web/en/options#'mouse'">'mouse'</a>			in which mode the mouse is used by Vim
+	<a href="/neovim-docs-web/en/options#'mousemodel'">'mousemodel'</a>		what effect a mouse click has
+	<a href="/neovim-docs-web/en/options#'mousetime'">'mousetime'</a>		time between clicks for a double-click
+	<a href="/neovim-docs-web/en/options#'mousehide'">'mousehide'</a>		hide the mouse while typing
+	<a href="/neovim-docs-web/en/options#'selectmode'">'selectmode'</a>		whether the mouse starts Visual or Select mode</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="09.3"></a><span class="help-tag">09.3</span>  	The clipboard</span></h2></div>
-<div class="old-help-para">In section <a href="usr_04.html#04.7">04.7</a> the basic use of the clipboard was explained.  There is one
+<div class="old-help-para">In section <a href="/neovim-docs-web/en/usr_04#04.7">04.7</a> the basic use of the clipboard was explained.  There is one
 essential thing to explain about X-windows: There are actually two places to
 exchange text between programs.  MS-Windows doesn't have this.</div>
 <div class="old-help-para">In X-Windows there is the "current selection".  This is the text that is
@@ -201,9 +201,9 @@ use the normal movement commands "hjkl", "w", etc.  Instead, use the shifted
 function keys.  <code>&lt;S-Left&gt;</code> (shifted cursor left key) moves the cursor left.  The
 selected text is changed like in Visual mode.  The other shifted cursor keys
 do what you expect.  <code>&lt;S-End&gt;</code> and <code>&lt;S-Home&gt;</code> also work.</div>
-<div class="old-help-para">You can tune the way Select mode works with the <a href="options.html#'selectmode'">'selectmode'</a> option.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_10.html#usr_10.txt">usr_10.txt</a>  Making big changes</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">You can tune the way Select mode works with the <a href="/neovim-docs-web/en/options#'selectmode'">'selectmode'</a> option.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_10#usr_10.txt">usr_10.txt</a>  Making big changes</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

@@ -17,21 +17,21 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Text hardly ever comes in one sentence per line.  This chapter is about
 breaking sentences to make them fit on a page and other formatting.
 Vim also has useful features for editing single-line paragraphs and tables.</div>
-<div class="old-help-para"><a href="usr_25.html#25.1">25.1</a>  	Breaking lines
-<a href="usr_25.html#25.2">25.2</a>  	Aligning text
-<a href="usr_25.html#25.3">25.3</a>  	Indents and tabs
-<a href="usr_25.html#25.4">25.4</a>  	Dealing with long lines
-<a href="usr_25.html#25.5">25.5</a>  	Editing tables</div>
-<div class="old-help-para">     Next chapter: <a href="usr_26.html#usr_26.txt">usr_26.txt</a>  Repeating
- Previous chapter: <a href="usr_24.html#usr_24.txt">usr_24.txt</a>  Inserting quickly
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_25#25.1">25.1</a>  	Breaking lines
+<a href="/neovim-docs-web/en/usr_25#25.2">25.2</a>  	Aligning text
+<a href="/neovim-docs-web/en/usr_25#25.3">25.3</a>  	Indents and tabs
+<a href="/neovim-docs-web/en/usr_25#25.4">25.4</a>  	Dealing with long lines
+<a href="/neovim-docs-web/en/usr_25#25.5">25.5</a>  	Editing tables</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_26#usr_26.txt">usr_26.txt</a>  Repeating
+ Previous chapter: <a href="/neovim-docs-web/en/usr_24#usr_24.txt">usr_24.txt</a>  Inserting quickly
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Breaking lines</h2></div>
 <div class="old-help-para">Vim has a number of functions that make dealing with text easier.  By default,
 the editor does not perform automatic line breaks.  In other words, you have
 to press <code>&lt;Enter&gt;</code> yourself.  This is useful when you are writing programs where
 you want to decide where the line ends.  It is not so good when you are
 creating documentation and want the text to be at most 70 character wide.
-   If you set the <a href="options.html#'textwidth'">'textwidth'</a> option, Vim automatically inserts line breaks.
+   If you set the <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> option, Vim automatically inserts line breaks.
 Suppose, for example, that you want a very narrow column of only 30
 characters.  You need to execute the following command:<pre>:set textwidth=30</pre>
 Now you start typing (ruler added):</div>
@@ -49,7 +49,7 @@ When Vim sees this, it inserts a line break and you get the following:</div>
 <div class="help-column_heading">	I taught programming for a</div><div class="help-column_heading">	while. One time, I was stopped</div><div class="help-column_heading">	by the Fort Worth police,</div><div class="help-column_heading">	because my homework was too</div><div class="help-column_heading">	hard. True story.</div></div>
 <div class="old-help-para">You do not have to type newlines; Vim puts them in automatically.</div>
 <div class="old-help-para">	Note:
-	The <a href="options.html#'wrap'">'wrap'</a> option makes Vim display lines with a line break, but this
+	The <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option makes Vim display lines with a line break, but this
 	doesn't insert a line break in the file.</div>
 <div class="old-help-para"><a name="_reformatting"></a><h3 class="help-heading">REFORMATTING</h3></div>
 <div class="old-help-para">The Vim editor is not a word processor.  In a word processor, if you delete
@@ -69,7 +69,7 @@ the "gq" operator.  The result is:</div>
 	12345678901234567890123456789012345
 <div class="help-column_heading">	I taught for a while. One</div><div class="help-column_heading">	time, I was stopped by the</div><div class="help-column_heading">	Fort Worth police, because my</div><div class="help-column_heading">	homework was too hard. True</div><div class="help-column_heading">	story.</div></div>
 <div class="old-help-para">Note: there is a way to do automatic formatting for specific types of text
-layouts, see <a href="change.html#auto-format">auto-format</a>.</div>
+layouts, see <a href="/neovim-docs-web/en/change#auto-format">auto-format</a>.</div>
 <div class="old-help-para">Since "gq" is an operator, you can use one of the three ways to select the
 text it works on: With Visual mode, with a movement and with a text object.
    The example above could also be done with "gq4j".  That's less typing, but
@@ -85,17 +85,17 @@ whole file by typing this:<pre>gggqG</pre>
    Warning: If your paragraphs are not properly separated, they will be joined
 together.  A common mistake is to have a line with a space or tab.  That's a
 blank line, but not an empty line.</div>
-<div class="old-help-para">Vim is able to format more than just plain text.  See <a href="change.html#fo-table">fo-table</a> for how to
-change this.  See the <a href="options.html#'joinspaces'">'joinspaces'</a> option to change the number of spaces used
+<div class="old-help-para">Vim is able to format more than just plain text.  See <a href="/neovim-docs-web/en/change#fo-table">fo-table</a> for how to
+change this.  See the <a href="/neovim-docs-web/en/options#'joinspaces'">'joinspaces'</a> option to change the number of spaces used
 after a full stop.
    It is possible to use an external program for formatting.  This is useful
 if your text can't be properly formatted with Vim's builtin command.  See the
-<a href="options.html#'formatprg'">'formatprg'</a> option.</div>
+<a href="/neovim-docs-web/en/options#'formatprg'">'formatprg'</a> option.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="25.2"></a><span class="help-tag">25.2</span>  	Aligning text</span></h2></div>
 <div class="old-help-para">To center a range of lines, use the following command:<pre>:{range}center [width]</pre>
 <code>{range}</code> is the usual command-line range.  [width] is an optional line width to
 use for centering.  If [width] is not specified, it defaults to the value of
-<a href="options.html#'textwidth'">'textwidth'</a>.  (If <a href="options.html#'textwidth'">'textwidth'</a> is 0, the default is 80.)
+<a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>.  (If <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> is 0, the default is 80.)
    For example:<pre>:1,5center 40</pre>
 results in the following:</div>
 <div class="old-help-para"><div class="help-column_heading">       I taught for a while. One</div><div class="help-column_heading">       time, I was stopped by the</div><div class="help-column_heading">     Fort Worth police, because my</div><div class="help-column_heading">      homework was too hard. True</div><div class="help-column_heading">		 story.</div></div>
@@ -117,7 +117,7 @@ This results in the following:</div>
 <div class="old-help-para">Vim has no built-in way of justifying text.  However, there is a neat macro
 package that does the job.  To use this package, execute the following
 command:<pre>:packadd justify</pre>
-Or put this line in your <a href="starting.html#vimrc">vimrc</a>:<pre>packadd! justify</pre>
+Or put this line in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:<pre>packadd! justify</pre>
 This Vim script file defines a new visual command "_j".  To justify a block of
 text, highlight the text in Visual mode and then execute "_j".
    Look in the file for more explanations.  To go there, do "gf" on this name:
@@ -130,40 +130,40 @@ normally enter this by typing a tab at the start of each line.  Take this
 text:
 <div class="help-column_heading">	the first line</div><div class="help-column_heading">	the second line</div></div>
 <div class="old-help-para">This is entered by typing a tab, some text, <code>&lt;Enter&gt;</code>, tab and more text.
-   The <a href="options.html#'autoindent'">'autoindent'</a> option inserts indents automatically:<pre>:set autoindent</pre>
+   The <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> option inserts indents automatically:<pre>:set autoindent</pre>
 When a new line is started it gets the same indent as the previous line.  In
 the above example, the tab after the <code>&lt;Enter&gt;</code> is not needed anymore.</div>
 <div class="old-help-para"><a name="_increasing-indent"></a><h3 class="help-heading">INCREASING INDENT</h3></div>
 <div class="old-help-para">To increase the amount of indent in a line, use the "&gt;" operator.  Often this
 is used as "&gt;&gt;", which adds indent to the current line.
-   The amount of indent added is specified with the <a href="options.html#'shiftwidth'">'shiftwidth'</a> option.  The
+   The amount of indent added is specified with the <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> option.  The
 default value is 8.  To make "&gt;&gt;" insert four spaces worth of indent, for
 example, type this:<pre>:set shiftwidth=4</pre>
 When used on the second line of the example text, this is what you get:</div>
 <div class="old-help-para"><div class="help-column_heading">	the first line</div><div class="help-column_heading">	    the second line</div></div>
 <div class="old-help-para">"4&gt;&gt;" will increase the indent of four lines.</div>
 <div class="old-help-para"><a name="_tabstop"></a><h3 class="help-heading">TABSTOP</h3></div>
-<div class="old-help-para">If you want to make indents a multiple of 4, you set <a href="options.html#'shiftwidth'">'shiftwidth'</a> to 4.  But
+<div class="old-help-para">If you want to make indents a multiple of 4, you set <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> to 4.  But
 when pressing a <code>&lt;Tab&gt;</code> you still get 8 spaces worth of indent.  To change this,
-set the <a href="options.html#'softtabstop'">'softtabstop'</a> option:<pre>:set softtabstop=4</pre>
+set the <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> option:<pre>:set softtabstop=4</pre>
 This will make the <code>&lt;Tab&gt;</code> key insert 4 spaces worth of indent.  If there are
 already four spaces, a <code>&lt;Tab&gt;</code> character is used (saving seven characters in the
-file).  (If you always want spaces and no tab characters, set the <a href="options.html#'expandtab'">'expandtab'</a>
+file).  (If you always want spaces and no tab characters, set the <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a>
 option.)</div>
 <div class="old-help-para">	Note:
-	You could set the <a href="options.html#'tabstop'">'tabstop'</a> option to 4.  However, if you edit the
-	file another time, with <a href="options.html#'tabstop'">'tabstop'</a> set to the default value of 8, it
+	You could set the <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> option to 4.  However, if you edit the
+	file another time, with <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> set to the default value of 8, it
 	will look wrong.  In other programs and when printing the indent will
-	also be wrong.  Therefore it is recommended to keep <a href="options.html#'tabstop'">'tabstop'</a> at eight
+	also be wrong.  Therefore it is recommended to keep <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> at eight
 	all the time.  That's the standard value everywhere.</div>
 <div class="old-help-para"><a name="_changing-tabs"></a><h3 class="help-heading">CHANGING TABS</h3></div>
 <div class="old-help-para">You edit a file which was written with a tabstop of 3.  In Vim it looks ugly,
 because it uses the normal tabstop value of 8.  You can fix this by setting
-<a href="options.html#'tabstop'">'tabstop'</a> to 3.  But you have to do this every time you edit this file.
-   Vim can change the use of tabstops in your file.  First, set <a href="options.html#'tabstop'">'tabstop'</a> to
+<a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> to 3.  But you have to do this every time you edit this file.
+   Vim can change the use of tabstops in your file.  First, set <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> to
 make the indents look good, then use the ":retab" command:<pre>:set tabstop=3
 :retab 8</pre>
-The ":retab" command will change <a href="options.html#'tabstop'">'tabstop'</a> to 8, while changing the text such
+The ":retab" command will change <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> to 8, while changing the text such
 that it looks the same.  It changes spans of white space into tabs and spaces
 for this.  You can now write the file.  Next time you edit it the indents will
 be right without setting an option.
@@ -174,7 +174,7 @@ real tab.</div>
 <div class="old-help-para">Sometimes you will be editing a file that is wider than the number of columns
 in the window.  When that occurs, Vim wraps the lines so that everything fits
 on the screen.
-   If you switch the <a href="options.html#'wrap'">'wrap'</a> option off, each line in the file shows up as one
+   If you switch the <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option off, each line in the file shows up as one
 line on the screen.  Then the ends of the long lines disappear off the screen
 to the right.
    When you move the cursor to a character that can't be seen, Vim will scroll
@@ -208,7 +208,7 @@ visible after the command left of it.</div>
 	zL				|<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_25.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_25.html%0D%0DContext%3A%0D%0D%60%60%60%0D%09zh%09%09%20%20%20%20%20%7C%3C--%20%20%20%20%20window%09%20--%3E%7C%0A%09zl%09%09%20%20%20%20%20%20%20%7C%3C--%09window%09%20%20%20--%3E%7C%0A%094zl%09%09%09%20%20%7C%3C--%09%20%20%20window%20%20%20%20%20--%3E%7C%0A%09zL%09%09%09%09%7C%3C--%09%20window%20%20%20%20%20--%3E%7C%0A%09zs%09%09%09%20%20%20%20%20%20%20%7C%3C--%09window%09%20%20%20--%3E%7C%0A%0A%0D%60%60%60">&lt;--</a>	 window     --&gt;|
 	zs			       |<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_25.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_25.html%0D%0DContext%3A%0D%0D%60%60%60%0D%09zl%09%09%20%20%20%20%20%20%20%7C%3C--%09window%09%20%20%20--%3E%7C%0A%094zl%09%09%09%20%20%7C%3C--%09%20%20%20window%20%20%20%20%20--%3E%7C%0A%09zL%09%09%09%09%7C%3C--%09%20window%20%20%20%20%20--%3E%7C%0A%09zs%09%09%09%20%20%20%20%20%20%20%7C%3C--%09window%09%20%20%20--%3E%7C%0A%0A%0AMOVING%20WITH%20WRAP%20OFF%0D%60%60%60">&lt;--</a>	window	   --&gt;|</div>
 <div class="old-help-para"><a name="_moving-with-wrap-off"></a><h3 class="help-heading">MOVING WITH WRAP OFF</h3></div>
-<div class="old-help-para">When <a href="options.html#'wrap'">'wrap'</a> is off and the text has scrolled horizontally, you can use the
+<div class="old-help-para">When <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> is off and the text has scrolled horizontally, you can use the
 following commands to move the cursor to a character you can see.  Thus text
 left and right of the window is ignored.  These never cause the text to
 scroll:</div>
@@ -221,13 +221,13 @@ scroll:</div>
 <div class="help-column_heading">	some long    text, part of which is visible in one line</div>		 g0  g^    gm	   gM g$</div>
 <div class="old-help-para"><h3 class="help-heading">BREAKING AT WORDS<span class="help-heading-tags">				<a name="edit-no-break"></a><span class="help-tag">edit-no-break</span></span></h3></div>
 <div class="old-help-para">When preparing text for use by another program, you might have to make
-paragraphs without a line break.  A disadvantage of using <a href="options.html#'nowrap'">'nowrap'</a> is that you
-can't see the whole sentence you are working on.  When <a href="options.html#'wrap'">'wrap'</a> is on, words are
+paragraphs without a line break.  A disadvantage of using <a href="/neovim-docs-web/en/options#'nowrap'">'nowrap'</a> is that you
+can't see the whole sentence you are working on.  When <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> is on, words are
 broken halfway, which makes them hard to read.
    A good solution for editing this kind of paragraph is setting the
-<a href="options.html#'linebreak'">'linebreak'</a> option.  Vim then breaks lines at an appropriate place when
+<a href="/neovim-docs-web/en/options#'linebreak'">'linebreak'</a> option.  Vim then breaks lines at an appropriate place when
 displaying the line.  The text in the file remains unchanged.
-   Without <a href="options.html#'linebreak'">'linebreak'</a> text might look like this:</div>
+   Without <a href="/neovim-docs-web/en/options#'linebreak'">'linebreak'</a> text might look like this:</div>
 <div class="old-help-para">	+---------------------------------+
 	|<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_25.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_25.html%0D%0DContext%3A%0D%0D%60%60%60%0D%20%20%20Without%20'linebreak'%20text%20might%20look%20like%20this%3A%0A%0A%09%2B---------------------------------%2B%0A%09%7Cletter%20generation%20program%20for%20a%20b%7C%0A%09%7Cank.%20%20They%20wanted%20to%20send%20out%20a%20s%7C%0A%09%7Cpecial%2C%20personalized%20letter%20to%20th%7C%0A%09%7Ceir%20richest%201000%20customers.%20%20Unfo%7C%0D%60%60%60">letter</a> generation program for a b|
 	|<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_25.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_25.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0A%09%2B---------------------------------%2B%0A%09%7Cletter%20generation%20program%20for%20a%20b%7C%0A%09%7Cank.%20%20They%20wanted%20to%20send%20out%20a%20s%7C%0A%09%7Cpecial%2C%20personalized%20letter%20to%20th%7C%0A%09%7Ceir%20richest%201000%20customers.%20%20Unfo%7C%0A%09%7Crtunately%20for%20the%20programmer%2C%20he%20%7C%0D%60%60%60">ank.</a>  They wanted to send out a s|
@@ -245,9 +245,9 @@ it looks like this:</div>
 Unfortunately for the programmer,|
 	+---------------------------------+</div>
 <div class="old-help-para">Related options:
-<a href="options.html#'breakat'">'breakat'</a> specifies the characters where a break can be inserted.
-<a href="options.html#'showbreak'">'showbreak'</a> specifies a string to show at the start of broken line.
-Set <a href="options.html#'textwidth'">'textwidth'</a> to zero to avoid a paragraph to be split.</div>
+<a href="/neovim-docs-web/en/options#'breakat'">'breakat'</a> specifies the characters where a break can be inserted.
+<a href="/neovim-docs-web/en/options#'showbreak'">'showbreak'</a> specifies a string to show at the start of broken line.
+Set <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> to zero to avoid a paragraph to be split.</div>
 <div class="old-help-para"><a name="_moving-by-visible-lines"></a><h3 class="help-heading">MOVING BY VISIBLE LINES</h3></div>
 <div class="old-help-para">The "j" and "k" commands move to the next and previous lines.  When used on
 a long line, this means moving a lot of screen lines at once.
@@ -331,7 +331,7 @@ placed before the "test 1" column.  Do this in seven steps:
 the "test 3" column didn't have text.</div>
 <div class="old-help-para">Go back to non-virtual cursor movements with:<pre>:set virtualedit=</pre>
 <a name="_virtual-replace-mode"></a><h3 class="help-heading">VIRTUAL REPLACE MODE</h3></div>
-<div class="old-help-para">The disadvantage of using <a href="options.html#'virtualedit'">'virtualedit'</a> is that it "feels" different.  You
+<div class="old-help-para">The disadvantage of using <a href="/neovim-docs-web/en/options#'virtualedit'">'virtualedit'</a> is that it "feels" different.  You
 can't recognize tabs or spaces beyond the end of line when moving the cursor
 around.  Another method can be used: Virtual Replace mode.
    Suppose you have a line in a table that contains both tabs and other
@@ -353,7 +353,7 @@ gap.  Thus what actually happens is that a tab is replaced by "x" and then
 blanks added to make the text after it keep its place.  In this case a
 tab is inserted.
    When you need to replace more than one character, you use the "R" command
-to go to Replace mode (see <a href="usr_04.html#04.9">04.9</a>).  This messes up the layout and replaces
+to go to Replace mode (see <a href="/neovim-docs-web/en/usr_04#04.9">04.9</a>).  This messes up the layout and replaces
 the wrong characters:</div>
 <div class="old-help-para"><div class="help-column_heading">	inp	0	0.534	0.693</div></div>
 <div class="old-help-para">		|
@@ -366,8 +366,8 @@ the wrong characters:</div>
 	gR0.786 |
 		V</div>
 <div class="old-help-para"><div class="help-column_heading">	inp	0.786	0.534	0.693</div></div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_26.html#usr_26.txt">usr_26.txt</a>  Repeating</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_26#usr_26.txt">usr_26.txt</a>  Repeating</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

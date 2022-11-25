@@ -69,7 +69,7 @@ info on where to obtain the necessary Arabic fonts.</div>
 <div class="old-help-para">Prior to the actual usage of Arabic within Vim, a number of settings
 need to be accounted for and invoked.</div>
 <div class="old-help-para">o  Setting the Arabic fonts</div>
-<div class="old-help-para"><div class="help-li" style="">  For Vim GUI set the <a href="options.html#'guifont'">'guifont'</a> to your_ARABIC_FONT.  This is done
+<div class="old-help-para"><div class="help-li" style="">  For Vim GUI set the <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> to your_ARABIC_FONT.  This is done
       by entering the following command in the Vim window.
 &gt;
 		:set guifont=your_ARABIC_FONT
@@ -77,7 +77,7 @@ need to be accounted for and invoked.</div>
 <div class="old-help-para">      NOTE: the string 'your_ARABIC_FONT' is used to denote a complete
 	    font name akin to that used in Linux/Unix systems.
 	    (e.g. -misc-fixed-medium-r-normal--20-200-75-75-c-100-iso10646-1)</div>
-<div class="old-help-para">      You can append the <a href="options.html#'guifont'">'guifont'</a> set command to your vimrc file
+<div class="old-help-para">      You can append the <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> set command to your vimrc file
       in order to get the same above noted results.  In other words,
       you can include ':set guifont=your_ARABIC_FONT' to your vimrc
       file.</div>
@@ -98,10 +98,10 @@ o  Enable Arabic settings [short-cut]</div>
 <div class="old-help-para">   In order to simplify and streamline things, you can either invoke
    Vim with the command-line option,</div>
 <div class="old-help-para">     % vim -A my_utf8_arabic_file ...</div>
-<div class="old-help-para">   or enable <a href="options.html#'arabic'">'arabic'</a> via the following command within Vim
+<div class="old-help-para">   or enable <a href="/neovim-docs-web/en/options#'arabic'">'arabic'</a> via the following command within Vim
 <pre>:set arabic</pre></div>
 <div class="old-help-para">   The two above noted possible invocations are the preferred manner
-   in which users are instructed to proceed.  Barring an enabled <a href="options.html#'termbidi'">'termbidi'</a>
+   in which users are instructed to proceed.  Barring an enabled <a href="/neovim-docs-web/en/options#'termbidi'">'termbidi'</a>
    setting, both command options:</div>
 <div class="old-help-para">     1. set the appropriate keymap
      2. enable the deletion of a single combined pair character
@@ -114,31 +114,31 @@ o  Enable Arabic settings [short-cut]</div>
 <pre>:set noarabic</pre></div>
 <div class="old-help-para">   which resets everything that the command had enabled without touching
    the global settings as they could affect other possible open buffers.
-   In short the <a href="options.html#'noarabic'">'noarabic'</a> command,</div>
+   In short the <a href="/neovim-docs-web/en/options#'noarabic'">'noarabic'</a> command,</div>
 <div class="old-help-para">     1. resets to the alternate keymap
      2. disables the deletion of a single combined pair character
      3. disables rightleft mode</div>
-<div class="old-help-para">   NOTE: the <a href="options.html#'arabic'">'arabic'</a> command takes into consideration <a href="options.html#'termbidi'">'termbidi'</a> for
+<div class="old-help-para">   NOTE: the <a href="/neovim-docs-web/en/options#'arabic'">'arabic'</a> command takes into consideration <a href="/neovim-docs-web/en/options#'termbidi'">'termbidi'</a> for
 	 possible external bi-directional (bidi) support from the
 	 terminal ("mlterm" for instance offers such support).
-	 <a href="options.html#'termbidi'">'termbidi'</a>, if available, is superior to rightleft support
+	 <a href="/neovim-docs-web/en/options#'termbidi'">'termbidi'</a>, if available, is superior to rightleft support
 	 and its support is preferred due to its level of offerings.
-	 <a href="options.html#'arabic'">'arabic'</a> when <a href="options.html#'termbidi'">'termbidi'</a> is enabled only sets the keymap.</div>
-<div class="old-help-para">	 For vertical window isolation while setting <a href="options.html#'termbidi'">'termbidi'</a> an LTR
+	 <a href="/neovim-docs-web/en/options#'arabic'">'arabic'</a> when <a href="/neovim-docs-web/en/options#'termbidi'">'termbidi'</a> is enabled only sets the keymap.</div>
+<div class="old-help-para">	 For vertical window isolation while setting <a href="/neovim-docs-web/en/options#'termbidi'">'termbidi'</a> an LTR
 	 vertical separator like "l" or "𝖨" may be used.  It may also be
 	 hidden by changing its color to the foreground color:<pre>:set fillchars=vert:l
 :hi WinSeparator ctermbg=White</pre></div>
 <div class="old-help-para">	Note that this is a workaround, not a proper solution.</div>
 <div class="old-help-para">   If, on the other hand, you'd like to be verbose and explicit and
-   are opting not to use the <a href="options.html#'arabic'">'arabic'</a> short-cut command, here's what
+   are opting not to use the <a href="/neovim-docs-web/en/options#'arabic'">'arabic'</a> short-cut command, here's what
    is needed (i.e. if you use ':set arabic' you can skip this section) -</div>
 <div class="old-help-para"><div class="help-li" style="">  Arabic Keymapping Activation
 </div></div>
 <div class="old-help-para">      To activate the Arabic keymap (i.e. to remap your English/Latin
       keyboard to look-n-feel like a standard Arabic one), set the
-      <a href="options.html#'keymap'">'keymap'</a> command to "arabic".  This is done by entering
+      <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> command to "arabic".  This is done by entering
 <pre>:set keymap=arabic</pre></div>
-<div class="old-help-para">      in your VIM window.  You can also append the <a href="options.html#'keymap'">'keymap'</a> set command to
+<div class="old-help-para">      in your VIM window.  You can also append the <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> set command to
       your vimrc file.  In other words, you can include ':set keymap=arabic'
       to your vimrc file.</div>
 <div class="old-help-para">      To turn toggle (or switch) your keymapping between Arabic and the
@@ -149,26 +149,26 @@ o  Enable Arabic settings [short-cut]</div>
       your current keymap.</div>
 <div class="old-help-para"><div class="help-li" style="">  Arabic deletion of a combined pair character
 </div></div>
-<div class="old-help-para">      By default Vim has the <a href="options.html#'delcombine'">'delcombine'</a> option disabled.  This option
+<div class="old-help-para">      By default Vim has the <a href="/neovim-docs-web/en/options#'delcombine'">'delcombine'</a> option disabled.  This option
       allows the deletion of ALEF in a LAM_ALEF (LAA) combined character
       and still retain the LAM (i.e. it reverts to treating the combined
       character as its natural two characters form -- this also pertains
       to harakat and their combined forms).  You can enable this option
       by entering
 <pre>:set delcombine</pre></div>
-<div class="old-help-para">      in our VIM window.  You can also append the <a href="options.html#'delcombine'">'delcombine'</a> set command
+<div class="old-help-para">      in our VIM window.  You can also append the <a href="/neovim-docs-web/en/options#'delcombine'">'delcombine'</a> set command
       to your vimrc file.  In other words, you can include ':set delcombine'
       to your vimrc file.</div>
 <div class="old-help-para"><div class="help-li" style="">  Arabic right-to-left Mode
 </div></div>
-<div class="old-help-para">      By default VIM starts in Left-to-right mode.  <a href="options.html#'rightleft'">'rightleft'</a> is the
+<div class="old-help-para">      By default VIM starts in Left-to-right mode.  <a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a> is the
       command that allows one to alter a window's orientation - that can
       be accomplished via,</div>
 <div class="old-help-para"><div class="help-li" style=""> Toggling between left-to-right and right-to-left modes is
 	accomplished through ':set rightleft' and ':set norightleft'.
 </div></div>
 <div class="old-help-para"><div class="help-li" style=""> While in Left-to-right mode, enter ':set rl' in the command line
-	(<a href="options.html#'rl'">'rl'</a> is the abbreviation for rightleft).
+	(<a href="/neovim-docs-web/en/options#'rl'">'rl'</a> is the abbreviation for rightleft).
 </div></div>
 <div class="old-help-para"><div class="help-li" style=""> Put the ':set rl' line in your vimrc file to start Vim in
         right-to-left mode permanently.
@@ -177,8 +177,8 @@ o  Enable Arabic settings [short-cut]</div>
 </div></div>
 <div class="old-help-para">      For certain commands the editing can be done in right-to-left mode.
       Currently this is only applicable to search commands.</div>
-<div class="old-help-para">      This is controlled with the <a href="options.html#'rightleftcmd'">'rightleftcmd'</a> option.  The default is
-      "search", which means that windows in which <a href="options.html#'rightleft'">'rightleft'</a> is set will
+<div class="old-help-para">      This is controlled with the <a href="/neovim-docs-web/en/options#'rightleftcmd'">'rightleftcmd'</a> option.  The default is
+      "search", which means that windows in which <a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a> is set will
       edit search commands in right-left mode.	To disable this behavior,
 <pre>:set rightleftcmd=</pre></div>
 <div class="old-help-para">      To enable right-left editing of search commands again,
@@ -187,9 +187,9 @@ o  Enable Arabic settings [short-cut]</div>
 </div></div>
 <div class="old-help-para">      To activate the required visual characters alterations (shaping,
       composing, combining) which the Arabic language requires, enable
-      the <a href="options.html#'arabicshape'">'arabicshape'</a> command.  This is done by entering
+      the <a href="/neovim-docs-web/en/options#'arabicshape'">'arabicshape'</a> command.  This is done by entering
 <pre>:set arabicshape</pre></div>
-<div class="old-help-para">      in our VIM window.  You can also append the <a href="options.html#'arabicshape'">'arabicshape'</a> set
+<div class="old-help-para">      in our VIM window.  You can also append the <a href="/neovim-docs-web/en/options#'arabicshape'">'arabicshape'</a> set
       command to your vimrc file.  In other words, you can include
       ':set arabicshape' to your vimrc file.</div>
 <div class="old-help-para"><h3 class="help-heading">Keymap/Keyboard<span class="help-heading-tags">						<a name="arabickeymap"></a><span class="help-tag">arabickeymap</span></span></h3></div>

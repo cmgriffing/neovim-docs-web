@@ -15,14 +15,14 @@ layout: ../../layouts/MainLayout.astro
   <div class="old-help-para">Spell checking</div>
 <div class="old-help-para"><h2 class="help-heading">1. Quick start<span class="help-heading-tags">					<a name="spell-quickstart"></a><span class="help-tag">spell-quickstart</span> <a name="E756"></a><span class="help-tag">E756</span></span></h2></div>
 <div class="old-help-para">This command switches on spell checking:<pre>:setlocal spell spelllang=en_us</pre>
-This switches on the <a href="options.html#'spell'">'spell'</a> option and specifies to check for US English.</div>
+This switches on the <a href="/neovim-docs-web/en/options#'spell'">'spell'</a> option and specifies to check for US English.</div>
 <div class="old-help-para">The words that are not recognized are highlighted with one of these:
-	SpellBad	word not recognized			<a href="syntax.html#hl-SpellBad">hl-SpellBad</a>
-	SpellCap	word not capitalised			<a href="syntax.html#hl-SpellCap">hl-SpellCap</a>
-	SpellRare	rare word				<a href="syntax.html#hl-SpellRare">hl-SpellRare</a>
-	SpellLocal	wrong spelling for selected region	<a href="syntax.html#hl-SpellLocal">hl-SpellLocal</a></div>
+	SpellBad	word not recognized			<a href="/neovim-docs-web/en/syntax#hl-SpellBad">hl-SpellBad</a>
+	SpellCap	word not capitalised			<a href="/neovim-docs-web/en/syntax#hl-SpellCap">hl-SpellCap</a>
+	SpellRare	rare word				<a href="/neovim-docs-web/en/syntax#hl-SpellRare">hl-SpellRare</a>
+	SpellLocal	wrong spelling for selected region	<a href="/neovim-docs-web/en/syntax#hl-SpellLocal">hl-SpellLocal</a></div>
 <div class="old-help-para">Vim only checks words for spelling, there is no grammar check.</div>
-<div class="old-help-para">If the <a href="options.html#'mousemodel'">'mousemodel'</a> option is set to "popup" and the cursor is on a badly
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'mousemodel'">'mousemodel'</a> option is set to "popup" and the cursor is on a badly
 spelled word or it is "popup_setpos" and the mouse pointer is on a badly
 spelled word, then the popup menu will contain a submenu to replace the bad
 word.  Note: this slows down the appearance of the popup menu.</div>
@@ -30,7 +30,7 @@ word.  Note: this slows down the appearance of the popup menu.</div>
 <div class="old-help-para">							<a name="%5Ds"></a><code class="help-tag-right">]s</code>
 ]s			Move to next misspelled word after the cursor.
 			A count before the command can be used to repeat.
-			<a href="options.html#'wrapscan'">'wrapscan'</a> applies.</div>
+			<a href="/neovim-docs-web/en/options#'wrapscan'">'wrapscan'</a> applies.</div>
 <div class="old-help-para">							<a name="%5Bs"></a><code class="help-tag-right">[s</code>
 [s			Like "]s" but search backwards, find the misspelled
 			word before the cursor.  Doesn't recognize words
@@ -45,8 +45,8 @@ word.  Note: this slows down the appearance of the popup menu.</div>
 <div class="old-help-para">To add words to your own word list:</div>
 <div class="old-help-para">							<a name="zg"></a><code class="help-tag-right">zg</code>
 zg			Add word under the cursor as a good word to the first
-			name in <a href="options.html#'spellfile'">'spellfile'</a>.  A count may precede the command
-			to indicate the entry in <a href="options.html#'spellfile'">'spellfile'</a> to be used.  A
+			name in <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>.  A count may precede the command
+			to indicate the entry in <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> to be used.  A
 			count of two uses the second entry.</div>
 <div class="old-help-para">			In Visual mode the selected characters are added as a
 			word (including white space!).
@@ -58,60 +58,60 @@ zg			Add word under the cursor as a good word to the first
 			another spell file the result is unpredictable.</div>
 <div class="old-help-para">							<a name="zG"></a><code class="help-tag-right">zG</code>
 zG			Like "zg" but add the word to the internal word list
-			<a href="spell.html#internal-wordlist">internal-wordlist</a>.</div>
+			<a href="/neovim-docs-web/en/spell#internal-wordlist">internal-wordlist</a>.</div>
 <div class="old-help-para">							<a name="zw"></a><code class="help-tag-right">zw</code>
 zw			Like "zg" but mark the word as a wrong (bad) word.
-			If the word already appears in <a href="options.html#'spellfile'">'spellfile'</a> it is
-			turned into a comment line.  See <a href="spell.html#spellfile-cleanup">spellfile-cleanup</a>
+			If the word already appears in <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> it is
+			turned into a comment line.  See <a href="/neovim-docs-web/en/spell#spellfile-cleanup">spellfile-cleanup</a>
 			for getting rid of those.</div>
 <div class="old-help-para">							<a name="zW"></a><code class="help-tag-right">zW</code>
 zW			Like "zw" but add the word to the internal word list
-			<a href="spell.html#internal-wordlist">internal-wordlist</a>.</div>
+			<a href="/neovim-docs-web/en/spell#internal-wordlist">internal-wordlist</a>.</div>
 <div class="old-help-para">zuw							<a name="zug"></a><code class="help-tag-right">zug</code> <a name="zuw"></a><code class="help-tag">zuw</code>
-zug			Undo <a href="spell.html#zw">zw</a> and <a href="spell.html#zg">zg</a>, remove the word from the entry in
-			<a href="options.html#'spellfile'">'spellfile'</a>.  Count used as with <a href="spell.html#zg">zg</a>.</div>
+zug			Undo <a href="/neovim-docs-web/en/spell#zw">zw</a> and <a href="/neovim-docs-web/en/spell#zg">zg</a>, remove the word from the entry in
+			<a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>.  Count used as with <a href="/neovim-docs-web/en/spell#zg">zg</a>.</div>
 <div class="old-help-para">zuW							<a name="zuG"></a><code class="help-tag-right">zuG</code> <a name="zuW"></a><code class="help-tag">zuW</code>
-zuG			Undo <a href="spell.html#zW">zW</a> and <a href="spell.html#zG">zG</a>, remove the word from the internal
-			word list.  Count used as with <a href="spell.html#zg">zg</a>.</div>
+zuG			Undo <a href="/neovim-docs-web/en/spell#zW">zW</a> and <a href="/neovim-docs-web/en/spell#zG">zG</a>, remove the word from the internal
+			word list.  Count used as with <a href="/neovim-docs-web/en/spell#zg">zg</a>.</div>
 <div class="old-help-para">						<a name="%3Aspe"></a><code class="help-tag-right">:spe</code> <a name="%3Aspellgood"></a><code class="help-tag">:spellgood</code> <a name="E1280"></a><code class="help-tag">E1280</code>
 :[count]spe[llgood] <code>{word}</code>
-			Add <code>{word}</code> as a good word to <a href="options.html#'spellfile'">'spellfile'</a>, like with
-			<a href="spell.html#zg">zg</a>.  Without count the first name is used, with a
+			Add <code>{word}</code> as a good word to <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>, like with
+			<a href="/neovim-docs-web/en/spell#zg">zg</a>.  Without count the first name is used, with a
 			count of two the second entry, etc.</div>
 <div class="old-help-para">:spe[llgood]! <code>{word}</code>	Add <code>{word}</code> as a good word to the internal word list,
-			like with <a href="spell.html#zG">zG</a>.</div>
+			like with <a href="/neovim-docs-web/en/spell#zG">zG</a>.</div>
 <div class="old-help-para">							<a name="%3Aspellw"></a><code class="help-tag-right">:spellw</code> <a name="%3Aspellwrong"></a><code class="help-tag">:spellwrong</code>
 :[count]spellw[rong] <code>{word}</code>
-			Add <code>{word}</code> as a wrong (bad) word to <a href="options.html#'spellfile'">'spellfile'</a>, as
-			with <a href="spell.html#zw">zw</a>.  Without count the first name is used, with
+			Add <code>{word}</code> as a wrong (bad) word to <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>, as
+			with <a href="/neovim-docs-web/en/spell#zw">zw</a>.  Without count the first name is used, with
 			a count of two the second entry, etc.</div>
 <div class="old-help-para">:spellw[rong]! <code>{word}</code>	Add <code>{word}</code> as a wrong (bad) word to the internal word
-			list, like with <a href="spell.html#zW">zW</a>.</div>
+			list, like with <a href="/neovim-docs-web/en/spell#zW">zW</a>.</div>
 <div class="old-help-para">							<a name="%3Aspellra"></a><code class="help-tag-right">:spellra</code> <a name="%3Aspellrare"></a><code class="help-tag">:spellrare</code>
 :[count]spellr[are] <code>{word}</code>
-			Add <code>{word}</code> as a rare word to <a href="options.html#'spellfile'">'spellfile'</a>, similar to
-			<a href="spell.html#zw">zw</a>.  Without count the first name is used, with
+			Add <code>{word}</code> as a rare word to <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>, similar to
+			<a href="/neovim-docs-web/en/spell#zw">zw</a>.  Without count the first name is used, with
 			a count of two the second entry, etc.</div>
 <div class="old-help-para">			There are no normal mode commands to mark words as
 			rare as this is a fairly uncommon command and all
 			intuitive commands for this are already taken. If you
 			want you can add mappings with e.g.:<pre>nnoremap z?  :exe ':spellrare  ' .. expand('&lt;cWORD&gt;')&lt;CR&gt;
 nnoremap z/  :exe ':spellrare! ' .. expand('&lt;cWORD&gt;')&lt;CR&gt;</pre></div>
-<div class="old-help-para">			<a href="spell.html#%3Aspellundo">:spellundo</a>, <a href="spell.html#zuw">zuw</a>, or <a href="spell.html#zuW">zuW</a> can be used to undo this.</div>
+<div class="old-help-para">			<a href="/neovim-docs-web/en/spell#%3Aspellundo">:spellundo</a>, <a href="/neovim-docs-web/en/spell#zuw">zuw</a>, or <a href="/neovim-docs-web/en/spell#zuW">zuW</a> can be used to undo this.</div>
 <div class="old-help-para">:spellr[rare]! <code>{word}</code>	Add <code>{word}</code> as a rare word to the internal word
-			list, similar to <a href="spell.html#zW">zW</a>.</div>
+			list, similar to <a href="/neovim-docs-web/en/spell#zW">zW</a>.</div>
 <div class="old-help-para">:[count]spellu[ndo] <code>{word}</code>				<a name="%3Aspellu"></a><code class="help-tag-right">:spellu</code> <a name="%3Aspellundo"></a><code class="help-tag">:spellundo</code>
-			Like <a href="spell.html#zuw">zuw</a>.  [count] used as with <a href="spell.html#%3Aspellgood">:spellgood</a>.</div>
-<div class="old-help-para">:spellu[ndo]! <code>{word}</code>	Like <a href="spell.html#zuW">zuW</a>.  [count] used as with <a href="spell.html#%3Aspellgood">:spellgood</a>.</div>
-<div class="old-help-para">After adding a word to <a href="options.html#'spellfile'">'spellfile'</a> with the above commands its associated
+			Like <a href="/neovim-docs-web/en/spell#zuw">zuw</a>.  [count] used as with <a href="/neovim-docs-web/en/spell#%3Aspellgood">:spellgood</a>.</div>
+<div class="old-help-para">:spellu[ndo]! <code>{word}</code>	Like <a href="/neovim-docs-web/en/spell#zuW">zuW</a>.  [count] used as with <a href="/neovim-docs-web/en/spell#%3Aspellgood">:spellgood</a>.</div>
+<div class="old-help-para">After adding a word to <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> with the above commands its associated
 ".spl" file will automatically be updated and reloaded.  If you change
-<a href="options.html#'spellfile'">'spellfile'</a> manually you need to use the <a href="spell.html#%3Amkspell">:mkspell</a> command.  This sequence of
+<a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> manually you need to use the <a href="/neovim-docs-web/en/spell#%3Amkspell">:mkspell</a> command.  This sequence of
 commands mostly works well:<pre>:edit &lt;file in 'spellfile'&gt;</pre></div>
 <div class="old-help-para">	(make changes to the spell file)<pre>:mkspell! %</pre>
-More details about the <a href="options.html#'spellfile'">'spellfile'</a> format below <a href="spell.html#spell-wordlist-format">spell-wordlist-format</a>.</div>
+More details about the <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> format below <a href="/neovim-docs-web/en/spell#spell-wordlist-format">spell-wordlist-format</a>.</div>
 <div class="old-help-para">							<a name="internal-wordlist"></a><code class="help-tag-right">internal-wordlist</code>
-The internal word list is used for all buffers where <a href="options.html#'spell'">'spell'</a> is set.  It is
-not stored, it is lost when you exit Vim.  It is also cleared when <a href="options.html#'encoding'">'encoding'</a>
+The internal word list is used for all buffers where <a href="/neovim-docs-web/en/options#'spell'">'spell'</a> is set.  It is
+not stored, it is lost when you exit Vim.  It is also cleared when <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>
 is set.</div>
 <div class="old-help-para">Finding suggestions for bad words:
 							<a name="z%3D"></a><code class="help-tag-right">z=</code>
@@ -138,7 +138,7 @@ z=			For the word under/after the cursor suggest correctly
 <div class="old-help-para">			If a count is used that suggestion is used, without
 			prompting.  For example, "1z=" always takes the first
 			suggestion.</div>
-<div class="old-help-para">			If <a href="options.html#'verbose'">'verbose'</a> is non-zero a score will be displayed
+<div class="old-help-para">			If <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> is non-zero a score will be displayed
 			with the suggestions to indicate the likeliness to the
 			badly spelled word (the higher the score the more
 			different).
@@ -147,33 +147,33 @@ z=			For the word under/after the cursor suggest correctly
 			the good word and <code>&lt;Esc&gt;</code>.  This does NOT work for Thai
 			and other languages without spaces between words.</div>
 <div class="old-help-para">					<a name="%3Aspellr"></a><code class="help-tag-right">:spellr</code> <a name="%3Aspellrepall"></a><code class="help-tag">:spellrepall</code> <a name="E752"></a><code class="help-tag">E752</code> <a name="E753"></a><code class="help-tag">E753</code>
-:spellr[epall]		Repeat the replacement done by <a href="spell.html#z%3D">z=</a> for all matches
+:spellr[epall]		Repeat the replacement done by <a href="/neovim-docs-web/en/spell#z%3D">z=</a> for all matches
 			with the replaced word in the current window.</div>
 <div class="old-help-para">In Insert mode, when the cursor is after a badly spelled word, you can use
 CTRL-X s to find suggestions.  This works like Insert mode completion.  Use
-CTRL-N to use the next suggestion, <code>CTRL-P</code> to go back. <a href="insert.html#i_CTRL-X_s">i_CTRL-X_s</a></div>
-<div class="old-help-para">The <a href="options.html#'spellsuggest'">'spellsuggest'</a> option influences how the list of suggestions is generated
-and sorted.  See <a href="options.html#'spellsuggest'">'spellsuggest'</a>.</div>
-<div class="old-help-para">The <a href="options.html#'spellcapcheck'">'spellcapcheck'</a> option is used to check the first word of a sentence
+CTRL-N to use the next suggestion, <code>CTRL-P</code> to go back. <a href="/neovim-docs-web/en/insert#i_CTRL-X_s">i_CTRL-X_s</a></div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'spellsuggest'">'spellsuggest'</a> option influences how the list of suggestions is generated
+and sorted.  See <a href="/neovim-docs-web/en/options#'spellsuggest'">'spellsuggest'</a>.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'spellcapcheck'">'spellcapcheck'</a> option is used to check the first word of a sentence
 starts with a capital.  This doesn't work for the first word in the file.
 When there is a line break right after a sentence the highlighting of the next
-line may be postponed.  Use <a href="various.html#CTRL-L">CTRL-L</a> when needed.  Also see <a href="spell.html#set-spc-auto">set-spc-auto</a> for
-how it can be set automatically when <a href="options.html#'spelllang'">'spelllang'</a> is set.</div>
-<div class="old-help-para">The <a href="options.html#'spelloptions'">'spelloptions'</a> option has a few more flags that influence the way spell
+line may be postponed.  Use <a href="/neovim-docs-web/en/various#CTRL-L">CTRL-L</a> when needed.  Also see <a href="/neovim-docs-web/en/spell#set-spc-auto">set-spc-auto</a> for
+how it can be set automatically when <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> is set.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'spelloptions'">'spelloptions'</a> option has a few more flags that influence the way spell
 checking works.</div>
 <div class="old-help-para">Vim counts the number of times a good word is encountered.  This is used to
 sort the suggestions: words that have been seen before get a small bonus,
 words that have been seen often get a bigger bonus.  The COMMON item in the
 affix file can be used to define common words, so that this mechanism also
-works in a new or short file <a href="spell.html#spell-COMMON">spell-COMMON</a>.</div>
+works in a new or short file <a href="/neovim-docs-web/en/spell#spell-COMMON">spell-COMMON</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">2. Remarks on spell checking<span class="help-heading-tags">				<a name="spell-remarks"></a><span class="help-tag">spell-remarks</span></span></h2></div>
 <div class="old-help-para"><a name="_performance"></a><h3 class="help-heading">PERFORMANCE</h3></div>
 <div class="old-help-para">Vim does on-the-fly spell checking.  To make this work fast the word list is
 loaded in memory.  Thus this uses a lot of memory (1 Mbyte or more).  There
 might also be a noticeable delay when the word list is loaded, which happens
-when <a href="options.html#'spell'">'spell'</a> is set and when <a href="options.html#'spelllang'">'spelllang'</a> is set while <a href="options.html#'spell'">'spell'</a> was already set.
+when <a href="/neovim-docs-web/en/options#'spell'">'spell'</a> is set and when <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> is set while <a href="/neovim-docs-web/en/options#'spell'">'spell'</a> was already set.
 To minimize the delay each word list is only loaded once, it is not deleted
-when <a href="options.html#'spelllang'">'spelllang'</a> is made empty or <a href="options.html#'spell'">'spell'</a> is reset.  When <a href="options.html#'encoding'">'encoding'</a> is set
+when <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> is made empty or <a href="/neovim-docs-web/en/options#'spell'">'spell'</a> is reset.  When <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is set
 all the word lists are reloaded, thus you may notice a delay then too.</div>
 <div class="old-help-para"><a name="_regions"></a><h3 class="help-heading">REGIONS</h3></div>
 <div class="old-help-para">A word may be spelled differently in various regions.  For example, English
@@ -185,12 +185,12 @@ comes in (at least) these variants:</div>
 	en_nz		New Zealand
 	en_us		USA</div>
 <div class="old-help-para">Words that are not used in one region but are used in another region are
-highlighted with SpellLocal <a href="syntax.html#hl-SpellLocal">hl-SpellLocal</a>.</div>
+highlighted with SpellLocal <a href="/neovim-docs-web/en/syntax#hl-SpellLocal">hl-SpellLocal</a>.</div>
 <div class="old-help-para">Always use lowercase letters for the language and region names.</div>
-<div class="old-help-para">When adding a word with <a href="spell.html#zg">zg</a> or another command it's always added for all
-regions.  You can change that by manually editing the <a href="options.html#'spellfile'">'spellfile'</a>.  See
-<a href="spell.html#spell-wordlist-format">spell-wordlist-format</a>.  Note that the regions as specified in the files in
-<a href="options.html#'spellfile'">'spellfile'</a> are only used when all entries in <a href="options.html#'spelllang'">'spelllang'</a> specify the same
+<div class="old-help-para">When adding a word with <a href="/neovim-docs-web/en/spell#zg">zg</a> or another command it's always added for all
+regions.  You can change that by manually editing the <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a>.  See
+<a href="/neovim-docs-web/en/spell#spell-wordlist-format">spell-wordlist-format</a>.  Note that the regions as specified in the files in
+<a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> are only used when all entries in <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> specify the same
 region (not counting files specified by their .spl name).</div>
 <div class="old-help-para">							<a name="spell-german"></a><code class="help-tag-right">spell-german</code>
 Specific exception: For German these special regions are used:
@@ -210,47 +210,47 @@ Yiddish requires using "utf-8" encoding, because of the special characters
 used.  If you are using latin1 Vim will use transliterated (romanized) Yiddish
 instead.  If you want to use transliterated Yiddish with utf-8 use "yi-tr".
 In a table:
-	<a href="options.html#'encoding'">'encoding'</a>	<a href="options.html#'spelllang'">'spelllang'</a>
+	<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>	<a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a>
 	utf-8		yi		Yiddish
 	latin1		yi		transliterated Yiddish
 	utf-8		yi-tr		transliterated Yiddish</div>
 <div class="old-help-para">							<a name="spell-cjk"></a><code class="help-tag-right">spell-cjk</code>
 Chinese, Japanese and other East Asian characters are normally marked as
 errors, because spell checking of these characters is not supported. If
-<a href="options.html#'spelllang'">'spelllang'</a> includes "cjk", these characters are not marked as errors.  This
+<a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> includes "cjk", these characters are not marked as errors.  This
 is useful when editing text with spell checking while some Asian words are
 present.</div>
 <div class="old-help-para"><h3 class="help-heading">SPELL FILES<span class="help-heading-tags">						<a name="spell-load"></a><span class="help-tag">spell-load</span></span></h3></div>
 <div class="old-help-para">Vim searches for spell files in the "spell" subdirectory of the directories in
-<a href="options.html#'runtimepath'">'runtimepath'</a>.  The name is: LL.EEE.spl, where:
+<a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  The name is: LL.EEE.spl, where:
 	LL	the language name
-	EEE	the value of <a href="options.html#'encoding'">'encoding'</a></div>
-<div class="old-help-para">The value for "LL" comes from <a href="options.html#'spelllang'">'spelllang'</a>, but excludes the region name.
+	EEE	the value of <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a></div>
+<div class="old-help-para">The value for "LL" comes from <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a>, but excludes the region name.
 Examples:
-<div class="help-column_heading">	<a href="options.html#'spelllang'">'spelllang'</a>	LL</div>	en_us		en
+<div class="help-column_heading">	<a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a>	LL</div>	en_us		en
 	en-rare		en-rare
 	medical_ca	medical</div>
-<div class="old-help-para">Only the first file is loaded, the one that is first in <a href="options.html#'runtimepath'">'runtimepath'</a>.  If
+<div class="old-help-para">Only the first file is loaded, the one that is first in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  If
 this succeeds then additionally files with the name LL.EEE.add.spl are loaded.
 All the ones that are found are used.</div>
-<div class="old-help-para">If no spell file is found the <a href="autocmd.html#SpellFileMissing">SpellFileMissing</a> autocommand event is
-triggered.  This may trigger the <a href="spell.html#spellfile.vim">spellfile.vim</a> plugin to offer you
+<div class="old-help-para">If no spell file is found the <a href="/neovim-docs-web/en/autocmd#SpellFileMissing">SpellFileMissing</a> autocommand event is
+triggered.  This may trigger the <a href="/neovim-docs-web/en/spell#spellfile.vim">spellfile.vim</a> plugin to offer you
 downloading the spell file.</div>
-<div class="old-help-para">Additionally, the files related to the names in <a href="options.html#'spellfile'">'spellfile'</a> are loaded.  These
-are the files that <a href="spell.html#zg">zg</a> and <a href="spell.html#zw">zw</a> add good and wrong words to.</div>
+<div class="old-help-para">Additionally, the files related to the names in <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> are loaded.  These
+are the files that <a href="/neovim-docs-web/en/spell#zg">zg</a> and <a href="/neovim-docs-web/en/spell#zw">zw</a> add good and wrong words to.</div>
 <div class="old-help-para">Exceptions:
-<div class="help-li" style=""> Vim uses "latin1" when <a href="options.html#'encoding'">'encoding'</a> is "iso-8859-15".  The euro sign doesn't
+<div class="help-li" style=""> Vim uses "latin1" when <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is "iso-8859-15".  The euro sign doesn't
   matter for spelling.
-</div><div class="help-li" style=""> When no spell file for <a href="options.html#'encoding'">'encoding'</a> is found "ascii" is tried.  This only
+</div><div class="help-li" style=""> When no spell file for <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is found "ascii" is tried.  This only
   works for languages where nearly all words are ASCII, such as English.  It
-  helps when <a href="options.html#'encoding'">'encoding'</a> is not "latin1", such as iso-8859-2, and English text
+  helps when <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is not "latin1", such as iso-8859-2, and English text
   is being edited.  For the ".add" files the same name as the found main
   spell file is used.
 </div></div>
 <div class="old-help-para">For example, with these values:
-	<a href="options.html#'runtimepath'">'runtimepath'</a> is "~/.config/nvim,/usr/share/nvim/runtime/,~/.config/nvim/after"
-	<a href="options.html#'encoding'">'encoding'</a>    is "iso-8859-2"
-	<a href="options.html#'spelllang'">'spelllang'</a>   is "pl"</div>
+	<a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> is "~/.config/nvim,/usr/share/nvim/runtime/,~/.config/nvim/after"
+	<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>    is "iso-8859-2"
+	<a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a>   is "pl"</div>
 <div class="old-help-para">Vim will look for:
 1. ~/.config/nvim/spell/pl.iso-8859-2.spl
 2. /usr/share/nvim/runtime/spell/pl.iso-8859-2.spl
@@ -258,7 +258,7 @@ are the files that <a href="spell.html#zg">zg</a> and <a href="spell.html#zw">zw
 4. /usr/share/nvim/runtime/spell/pl.iso-8859-2.add.spl
 5. ~/.config/nvim/after/spell/pl.iso-8859-2.add.spl</div>
 <div class="old-help-para">This assumes 1. is not found and 2. is found.</div>
-<div class="old-help-para">If <a href="options.html#'encoding'">'encoding'</a> is "latin1" Vim will look for:
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> is "latin1" Vim will look for:
 1. ~/.config/nvim/spell/pl.latin1.spl
 2. /usr/share/nvim/runtime/spell/pl.latin1.spl
 3. ~/.config/nvim/after/spell/pl.latin1.spl
@@ -267,8 +267,8 @@ are the files that <a href="spell.html#zg">zg</a> and <a href="spell.html#zw">zw
 6. ~/.config/nvim/after/spell/pl.ascii.spl</div>
 <div class="old-help-para">This assumes none of them are found (Polish doesn't make sense when leaving
 out the non-ASCII characters).</div>
-<div class="old-help-para">A spell file might not be available in the current <a href="options.html#'encoding'">'encoding'</a>.  See
-<a href="spell.html#spell-mkspell">spell-mkspell</a> about how to create a spell file.  Converting a spell file
+<div class="old-help-para">A spell file might not be available in the current <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.  See
+<a href="/neovim-docs-web/en/spell#spell-mkspell">spell-mkspell</a> about how to create a spell file.  Converting a spell file
 with "iconv" will NOT work!</div>
 <div class="old-help-para">						    <a name="spell-sug-file"></a><code class="help-tag-right">spell-sug-file</code> <a name="E781"></a><code class="help-tag">E781</code>
 If there is a file with exactly the same name as the ".spl" file but ending in
@@ -279,7 +279,7 @@ When loading a spell file Vim checks that it is properly formatted.  If you
 get an error the file may be truncated, modified or intended for another Vim
 version.</div>
 <div class="old-help-para"><h3 class="help-heading">SPELLFILE CLEANUP<span class="help-heading-tags">					<a name="spellfile-cleanup"></a><span class="help-tag">spellfile-cleanup</span></span></h3></div>
-<div class="old-help-para">The <a href="spell.html#zw">zw</a> command turns existing entries in <a href="options.html#'spellfile'">'spellfile'</a> into comment lines.
+<div class="old-help-para">The <a href="/neovim-docs-web/en/spell#zw">zw</a> command turns existing entries in <a href="/neovim-docs-web/en/options#'spellfile'">'spellfile'</a> into comment lines.
 This avoids having to write a new file every time, but results in the file
 only getting longer, never shorter.  To clean up the comment lines in all
 ".add" spell files do this:<pre>:runtime spell/cleanadd.vim</pre>
@@ -292,9 +292,9 @@ For example, to clean only files that were not changed in the last hour:<pre>let
 The default is one second.</div>
 <div class="old-help-para"><a name="_words"></a><h3 class="help-heading">WORDS</h3></div>
 <div class="old-help-para">Vim uses a fixed method to recognize a word.  This is independent of
-<a href="options.html#'iskeyword'">'iskeyword'</a>, so that it also works in help files and for languages that
-include characters like '-' in <a href="options.html#'iskeyword'">'iskeyword'</a>.  The word characters do depend on
-<a href="options.html#'encoding'">'encoding'</a>.</div>
+<a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>, so that it also works in help files and for languages that
+include characters like '-' in <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>.  The word characters do depend on
+<a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.</div>
 <div class="old-help-para">The table with word characters is stored in the main .spl file.  Therefore it
 matters what the current locale is when generating it!  A .add.spl file does
 not contain a word table though.</div>
@@ -312,7 +312,7 @@ for spelling mistakes.  When you make a change to one line and only that line
 is redrawn Vim won't look in the previous line, thus when "et" is at the end
 of the previous line "al." will be flagged as an error.  And when you type
 "the&lt;CR&gt;the" the highlighting doesn't appear until the first line is redrawn.
-Use <a href="various.html#CTRL-L">CTRL-L</a> to redraw right away.  "[s" will also stop at a word combination
+Use <a href="/neovim-docs-web/en/various#CTRL-L">CTRL-L</a> to redraw right away.  "[s" will also stop at a word combination
 with a line break.</div>
 <div class="old-help-para">When encountering a line break Vim skips characters such as '', '&gt;' and '"',
 so that comments in C, shell and Vim code can be spell checked.</div>
@@ -325,24 +325,24 @@ done:</div>
 <div class="old-help-para">For the second method adding the @NoSpell cluster will disable spell checking
 again.  This can be used, for example, to add @Spell to the comments of a
 program, and add @NoSpell for items that shouldn't be checked.
-Also see <a href="syntax.html#%3Asyn-spell">:syn-spell</a> for text that is not in a syntax item.</div>
+Also see <a href="/neovim-docs-web/en/syntax#%3Asyn-spell">:syn-spell</a> for text that is not in a syntax item.</div>
 <div class="old-help-para"><a name="_vim-scripts"></a><h3 class="help-heading">VIM SCRIPTS</h3></div>
 <div class="old-help-para">If you want to write a Vim script that does something with spelling, you may
 find these functions useful:</div>
 <div class="old-help-para">    spellbadword()	find badly spelled word at the cursor
     spellsuggest()	get list of spelling suggestions
     soundfold()		get the sound-a-like version of a word</div>
-<div class="old-help-para">SETTING <a href="options.html#'spellcapcheck'">'spellcapcheck'</a> AUTOMATICALLY			<a name="set-spc-auto"></a><code class="help-tag-right">set-spc-auto</code></div>
-<div class="old-help-para">After the <a href="options.html#'spelllang'">'spelllang'</a> option has been set successfully, Vim will source the
-files "spell/LANG.vim" in <a href="options.html#'runtimepath'">'runtimepath'</a>.  "LANG" is the value of <a href="options.html#'spelllang'">'spelllang'</a>
+<div class="old-help-para">SETTING <a href="/neovim-docs-web/en/options#'spellcapcheck'">'spellcapcheck'</a> AUTOMATICALLY			<a name="set-spc-auto"></a><code class="help-tag-right">set-spc-auto</code></div>
+<div class="old-help-para">After the <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> option has been set successfully, Vim will source the
+files "spell/LANG.vim" in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  "LANG" is the value of <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a>
 up to the first comma, dot or underscore.  This can be used to set options
-specifically for the language, especially <a href="options.html#'spellcapcheck'">'spellcapcheck'</a>.</div>
+specifically for the language, especially <a href="/neovim-docs-web/en/options#'spellcapcheck'">'spellcapcheck'</a>.</div>
 <div class="old-help-para">The distribution includes a few of these files.  Use this command to see what
 they do:<pre>:next $VIMRUNTIME/spell/*.vim</pre>
-Note that the default scripts don't set <a href="options.html#'spellcapcheck'">'spellcapcheck'</a> if it was changed from
+Note that the default scripts don't set <a href="/neovim-docs-web/en/options#'spellcapcheck'">'spellcapcheck'</a> if it was changed from
 the default value.  This assumes the user prefers another value then.</div>
 <div class="old-help-para"><h3 class="help-heading">DOUBLE SCORING<span class="help-heading-tags">						<a name="spell-double-scoring"></a><span class="help-tag">spell-double-scoring</span></span></h3></div>
-<div class="old-help-para">The <a href="options.html#'spellsuggest'">'spellsuggest'</a> option can be used to select "double" scoring.  This
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'spellsuggest'">'spellsuggest'</a> option can be used to select "double" scoring.  This
 mechanism is based on the principle that there are two kinds of spelling
 mistakes:</div>
 <div class="old-help-para">1. You know how to spell the word, but mistype something.  This results in a
@@ -353,7 +353,7 @@ mistakes:</div>
 <div class="old-help-para">Since scores for these two mistakes will be very different we use a list
 for each and mix them.</div>
 <div class="old-help-para">The sound-folding is slow and people that know the language won't make the
-second kind of mistakes.  Therefore <a href="options.html#'spellsuggest'">'spellsuggest'</a> can be set to select the
+second kind of mistakes.  Therefore <a href="/neovim-docs-web/en/options#'spellsuggest'">'spellsuggest'</a> can be set to select the
 preferred method for scoring the suggestions.</div>
 <div class="old-help-para"><h2 class="help-heading">3. Generating a spell file<span class="help-heading-tags">				<a name="spell-mkspell"></a><span class="help-tag">spell-mkspell</span></span></h2></div>
 <div class="old-help-para">Vim uses a binary file format for spelling.  This greatly speeds up loading
@@ -374,7 +374,7 @@ apply patches needed for Vim and build the .spl file.</div>
 <div class="old-help-para">Make sure your current locale is set properly, otherwise Vim doesn't know what
 characters are upper/lower case letters.  If the locale isn't available (e.g.,
 when using an MS-Windows codepage on Unix) add tables to the .aff file
-<a href="spell.html#spell-affix-chars">spell-affix-chars</a>.  If the .aff file doesn't define a table then the word
+<a href="/neovim-docs-web/en/spell#spell-affix-chars">spell-affix-chars</a>.  If the .aff file doesn't define a table then the word
 table of the currently active spelling is used.  If spelling is not active
 then Vim will try to guess.</div>
 <div class="old-help-para">							<a name="%3Amksp"></a><code class="help-tag-right">:mksp</code> <a name="%3Amkspell"></a><code class="help-tag">:mkspell</code>
@@ -385,7 +385,7 @@ then Vim will try to guess.</div>
 			file name.  Otherwise it should be a language name,
 			such as "en", without the region name.  The file
 			written will be "{outname}.{encoding}.spl", where
-			<code>{encoding}</code> is the value of the <a href="options.html#'encoding'">'encoding'</a> option.</div>
+			<code>{encoding}</code> is the value of the <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option.</div>
 <div class="old-help-para">			When the output file already exists [!] must be used
 			to overwrite it.</div>
 <div class="old-help-para">			When the [-ascii] argument is present, words with
@@ -401,14 +401,14 @@ then Vim will try to guess.</div>
 			into one en.spl file.
 			Up to eight regions can be combined. <a name="E754"></a><code class="help-tag">E754</code> <a name="E755"></a><code class="help-tag">E755</code>
 			The REP and SAL items of the first .aff file where
-			they appear are used. <a href="spell.html#spell-REP">spell-REP</a> <a href="spell.html#spell-SAL">spell-SAL</a>
+			they appear are used. <a href="/neovim-docs-web/en/spell#spell-REP">spell-REP</a> <a href="/neovim-docs-web/en/spell#spell-SAL">spell-SAL</a>
 								<a name="E845"></a><code class="help-tag-right">E845</code>
 			This command uses a lot of memory, required to find
 			the optimal word tree (Polish, Italian and Hungarian
 			require several hundred Mbyte).  The final result will
 			be much smaller, because compression is used.  To
 			avoid running out of memory compression will be done
-			now and then.  This can be tuned with the <a href="options.html#'mkspellmem'">'mkspellmem'</a>
+			now and then.  This can be tuned with the <a href="/neovim-docs-web/en/options#'mkspellmem'">'mkspellmem'</a>
 			option.</div>
 <div class="old-help-para">			After the spell file was written and it was being used
 			in a buffer it will be reloaded automatically.</div>
@@ -423,7 +423,7 @@ then Vim will try to guess.</div>
 <div class="old-help-para">Vim will report the number of duplicate words.  This might be a mistake in the
 list of words.  But sometimes it is used to have different prefixes and
 suffixes for the same basic word to avoid them combining (e.g. Czech uses
-this).  If you want Vim to report all duplicate words set the <a href="options.html#'verbose'">'verbose'</a>
+this).  If you want Vim to report all duplicate words set the <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a>
 option.</div>
 <div class="old-help-para">Since you might want to change a Myspell word list for use with Vim the
 following procedure is recommended:</div>
@@ -432,14 +432,14 @@ following procedure is recommended:</div>
 3. Change the xx_YY.aff and xx_YY.dic files to remove bad words, add missing
    words, define word characters with FOL/LOW/UPP, etc.  The distributed
    "*.diff" files can be used.
-4. Start Vim with the right locale and use <a href="spell.html#%3Amkspell">:mkspell</a> to generate the Vim
+4. Start Vim with the right locale and use <a href="/neovim-docs-web/en/spell#%3Amkspell">:mkspell</a> to generate the Vim
    spell file.
 5. Try out the spell file with ":set spell spelllang=xx" if you wrote it in
-   a spell directory in <a href="options.html#'runtimepath'">'runtimepath'</a>, or ":set spelllang=xx.enc.spl" if you
+   a spell directory in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>, or ":set spelllang=xx.enc.spl" if you
    wrote it somewhere else.</div>
 <div class="old-help-para">When the Myspell files are updated you can merge the differences:
 1. Obtain the new Myspell files as xx_YY.new.aff and xx_UU.new.dic.
-2. Use <a href="diff.html#diff-mode">diff-mode</a> to see what changed:<pre>nvim -d xx_YY.orig.dic xx_YY.new.dic</pre>
+2. Use <a href="/neovim-docs-web/en/diff#diff-mode">diff-mode</a> to see what changed:<pre>nvim -d xx_YY.orig.dic xx_YY.new.dic</pre>
 3. Take over the changes you like in xx_YY.dic.
    You may also need to change xx_YY.aff.
 4. Rename xx_YY.new.dic to xx_YY.orig.dic and xx_YY.new.aff to xx_YY.orig.aff.</div>
@@ -465,10 +465,10 @@ used spelling files, use this command:</div>
 			the number of times the word was found while
 			updating the screen.  Words that are in COMMON items
 			get a starting count of 10.</div>
-<div class="old-help-para">The format of the word list is used <a href="spell.html#spell-wordlist-format">spell-wordlist-format</a>.  You should be
+<div class="old-help-para">The format of the word list is used <a href="/neovim-docs-web/en/spell#spell-wordlist-format">spell-wordlist-format</a>.  You should be
 able to read it with ":mkspell" to generate one .spl file that includes all
 the words.</div>
-<div class="old-help-para">When all entries to <a href="options.html#'spelllang'">'spelllang'</a> use the same regions or no regions at all then
+<div class="old-help-para">When all entries to <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> use the same regions or no regions at all then
 the region information is included in the dumped words.  Otherwise only words
 for the current region are included and no "/regions" line is generated.</div>
 <div class="old-help-para">Comment lines with the name of the .spl file are used as a header above the
@@ -478,22 +478,22 @@ words that were generated from that .spl file.</div>
 get an error message.  But if the "spellfile.vim" plugin is active it will
 offer you to download the spell file.  Just follow the instructions, it will
 ask you where to write the file (there must be a writable directory in
-<a href="options.html#'runtimepath'">'runtimepath'</a> for this).</div>
+<a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> for this).</div>
 <div class="old-help-para">The plugin has a default place where to look for spell files, on the Vim ftp
 server.  The protocol used is SSL (<a href="https://">https://</a>) for security.  If you want to use
 another location or another protocol, set the g:spellfile_URL variable to the
 directory that holds the spell files.  You can use <a href="http://">http://</a> or ftp://, but you
-are taking a security risk then.  The <a href="pi_netrw.html#netrw">netrw</a> plugin is used for getting the
+are taking a security risk then.  The <a href="/neovim-docs-web/en/pi_netrw#netrw">netrw</a> plugin is used for getting the
 file, look there for the specific syntax of the URL.  Example:<pre>let g:spellfile_URL = 'https://ftp.nluug.nl/vim/runtime/spell'</pre>
 You may need to escape special characters.</div>
 <div class="old-help-para">The plugin will only ask about downloading a language once.  If you want to
 try again anyway restart Vim, or set g:spellfile_URL to another value (e.g.,
 prepend a space).</div>
 <div class="old-help-para">To avoid using the "spellfile.vim" plugin do this in your vimrc file:<pre>let loaded_spellfile_plugin = 1</pre>
-Instead of using the plugin you can define a <a href="autocmd.html#SpellFileMissing">SpellFileMissing</a> autocommand to
+Instead of using the plugin you can define a <a href="/neovim-docs-web/en/autocmd#SpellFileMissing">SpellFileMissing</a> autocommand to
 handle the missing file yourself.  You can use it like this:<pre>:au SpellFileMissing * call Download_spell_file(expand('&lt;amatch&gt;'))</pre>
 Thus the <code>&lt;amatch&gt;</code> item contains the name of the language.  Another important
-value is <a href="options.html#'encoding'">'encoding'</a>, since every encoding has its own spell file.  With two
+value is <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>, since every encoding has its own spell file.  With two
 exceptions:
 <div class="help-li" style=""> For ISO-8859-15 (latin9) the name "latin1" is used (the encodings only
   differ in characters not used in dictionary words).
@@ -529,7 +529,7 @@ extension.</div>
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">	/encoding=utf-8</div><div class="help-li" style=""> A line starting with "/encoding=", before any word, specifies the encoding
   of the file.  After the second '=' comes an encoding name.  This tells Vim
-  to setup conversion from the specified encoding to <a href="options.html#'encoding'">'encoding'</a>.  Thus you can
+  to setup conversion from the specified encoding to <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.  Thus you can
   use one word list for several target encodings.
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">	/regions=usca</div><div class="help-li" style=""> A line starting with "/regions=" specifies the region names that are
@@ -578,7 +578,7 @@ them before the Vim word list is made.  The tools for this can be found in the
 (the spell checker of Mozilla and OpenOffice.org).  A description can be found
 here:
 <div class="help-column_heading">	<a href="https://lingucomponent.openoffice.org/affix.readme">https://lingucomponent.openoffice.org/affix.readme</a></div>Note that affixes are case sensitive, this isn't obvious from the description.</div>
-<div class="old-help-para">Vim supports quite a few extras.  They are described below <a href="spell.html#spell-affix-vim">spell-affix-vim</a>.
+<div class="old-help-para">Vim supports quite a few extras.  They are described below <a href="/neovim-docs-web/en/spell#spell-affix-vim">spell-affix-vim</a>.
 Attempts have been made to keep this compatible with other spell checkers, so
 that the same files can often be used.  One other project that offers more
 than Myspell is Hunspell ( <a href="https://hunspell.github.io">https://hunspell.github.io</a> ).</div>
@@ -589,15 +589,15 @@ than Myspell is Hunspell ( <a href="https://hunspell.github.io">https://hunspell
 an error message if it's not there.  <a name="E760"></a><code class="help-tag">E760</code></div>
 <div class="old-help-para">What follows is one word per line.  White space at the end of the line is
 ignored, all other white space matters.  The encoding is specified in the
-affix file <a href="spell.html#spell-SET">spell-SET</a>.</div>
+affix file <a href="/neovim-docs-web/en/spell#spell-SET">spell-SET</a>.</div>
 <div class="old-help-para">Comment lines start with '#' or '/'.  See the example lines 8 and 12.  Note
 that putting a comment after a word is NOT allowed:</div>
 <div class="old-help-para"><div class="help-column_heading">		someword   # comment that causes an error!</div></div>
 <div class="old-help-para">After the word there is an optional slash and flags.  Most of these flags are
 letters that indicate the affixes that can be used with this word.  These are
-specified with SFX and PFX lines in the .aff file, see <a href="spell.html#spell-SFX">spell-SFX</a> and
-<a href="spell.html#spell-PFX">spell-PFX</a>.  Vim allows using other flag types with the FLAG item in the
-affix file <a href="spell.html#spell-FLAG">spell-FLAG</a>.</div>
+specified with SFX and PFX lines in the .aff file, see <a href="/neovim-docs-web/en/spell#spell-SFX">spell-SFX</a> and
+<a href="/neovim-docs-web/en/spell#spell-PFX">spell-PFX</a>.  Vim allows using other flag types with the FLAG item in the
+affix file <a href="/neovim-docs-web/en/spell#spell-FLAG">spell-FLAG</a>.</div>
 <div class="old-help-para">When the word only has lower-case letters it will also match with the word
 starting with an upper-case letter.</div>
 <div class="old-help-para">When the word includes an upper-case letter, this means the upper-case letter
@@ -610,14 +610,14 @@ not match either.</div>
 	ALS		ALS			als Als ALs AlS aLs aLS
 	AlS		AlS ALS			als Als ALs aLs aLS</div>
 <div class="old-help-para">The KEEPCASE affix ID can be used to specifically match a word with identical
-case only, see below <a href="spell.html#spell-KEEPCASE">spell-KEEPCASE</a>.</div>
+case only, see below <a href="/neovim-docs-web/en/spell#spell-KEEPCASE">spell-KEEPCASE</a>.</div>
 <div class="old-help-para">Note: in line 5 to 7 non-word characters are used.  You can include any
 character in a word.  When checking the text a word still only matches when it
 appears with a non-word character before and after it.  For Myspell a word
 starting with a non-word character probably won't work.</div>
 <div class="old-help-para">In line 12 the word "TCP/IP" is defined.  Since the slash has a special
 meaning the comma is used instead.  This is defined with the SLASH item in the
-affix file, see <a href="spell.html#spell-SLASH">spell-SLASH</a>.  Note that without this SLASH item the word
+affix file, see <a href="/neovim-docs-web/en/spell#spell-SLASH">spell-SLASH</a>.  Note that without this SLASH item the word
 will be "TCP,IP".</div>
 <div class="old-help-para"><h3 class="help-heading">AFFIX FILE FORMAT<span class="help-heading-tags">			<a name="spell-aff-format"></a><span class="help-tag">spell-aff-format</span> <a name="spell-affix-vim"></a><span class="help-tag">spell-affix-vim</span></span></h3></div>
 <div class="old-help-para">							<a name="spell-affix-comment"></a><code class="help-tag-right">spell-affix-comment</code>
@@ -630,16 +630,16 @@ a "#" character.  Example:</div>
 <div class="old-help-para"><h3 class="help-heading">ENCODING<span class="help-heading-tags">							<a name="spell-SET"></a><span class="help-tag">spell-SET</span></span></h3></div>
 <div class="old-help-para">The affix file can be in any encoding that is supported by "iconv".  However,
 in some cases the current locale should also be set properly at the time
-<a href="spell.html#%3Amkspell">:mkspell</a> is invoked.  Adding FOL/LOW/UPP lines removes this requirement
-<a href="spell.html#spell-FOL">spell-FOL</a>.</div>
+<a href="/neovim-docs-web/en/spell#%3Amkspell">:mkspell</a> is invoked.  Adding FOL/LOW/UPP lines removes this requirement
+<a href="/neovim-docs-web/en/spell#spell-FOL">spell-FOL</a>.</div>
 <div class="old-help-para">The encoding should be specified before anything where the encoding matters.
 The encoding applies both to the affix file and the dictionary file.  It is
 done with a SET line:</div>
 <div class="old-help-para"><div class="help-column_heading">	SET utf-8</div></div>
-<div class="old-help-para">The encoding can be different from the value of the <a href="options.html#'encoding'">'encoding'</a> option at the
-time ":mkspell" is used.  Vim will then convert everything to <a href="options.html#'encoding'">'encoding'</a> and
-generate a spell file for <a href="options.html#'encoding'">'encoding'</a>.  If some of the used characters to not
-fit in <a href="options.html#'encoding'">'encoding'</a> you will get an error message.
+<div class="old-help-para">The encoding can be different from the value of the <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option at the
+time ":mkspell" is used.  Vim will then convert everything to <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> and
+generate a spell file for <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>.  If some of the used characters to not
+fit in <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> you will get an error message.
 							<a name="spell-affix-mbyte"></a><code class="help-tag-right">spell-affix-mbyte</code>
 When using a multibyte encoding it's possible to use more different affix
 flags.  But Myspell doesn't support that, thus you may not want to use it
@@ -656,7 +656,7 @@ right encoding.</div>
 	AUTHOR		John Doe
 	EMAIL		john AT Doe DOT net
 	COPYRIGHT	LGPL</div>
-<div class="old-help-para">These fields are put in the .spl file as-is.  The <a href="spell.html#%3Aspellinfo">:spellinfo</a> command can be
+<div class="old-help-para">These fields are put in the .spl file as-is.  The <a href="/neovim-docs-web/en/spell#%3Aspellinfo">:spellinfo</a> command can be
 used to view the info.</div>
 <div class="old-help-para">							<a name="%3Aspellinfo"></a><code class="help-tag-right">:spellinfo</code> <a name="%3Aspelli"></a><code class="help-tag">:spelli</code>
 :spelli[nfo]		Display the information for the spell file(s) used for
@@ -686,14 +686,14 @@ as a word character, but use the ß character in all three.</div>
 When the encoding is UTF-8 no word characters need to be specified.</div>
 <div class="old-help-para">							<a name="E763"></a><code class="help-tag-right">E763</code>
 Vim allows you to use spell checking for several languages in the same file.
-You can list them in the <a href="options.html#'spelllang'">'spelllang'</a> option.  As a consequence all spell files
+You can list them in the <a href="/neovim-docs-web/en/options#'spelllang'">'spelllang'</a> option.  As a consequence all spell files
 for the same encoding must use the same word characters, otherwise they can't
 be combined without errors.</div>
 <div class="old-help-para">If you get an E763 warning that the word tables differ you need to update your
 ".spl" spell files.  If you downloaded the files, get the latest version of
 all spell files you use.  If you are only using one, e.g., German, then also
 download the recent English spell files.  Otherwise generate the .spl file
-again with <a href="spell.html#%3Amkspell">:mkspell</a>.  If you still get errors check the FOL, LOW and UPP
+again with <a href="/neovim-docs-web/en/spell#%3Amkspell">:mkspell</a>.  If you still get errors check the FOL, LOW and UPP
 lines in the used .aff files.</div>
 <div class="old-help-para">The XX.ascii.spl spell file generated with the "-ascii" argument will not
 contain the table with characters, so that it can be combine with spell files
@@ -735,7 +735,7 @@ documentation or the Aspell manual:
 <div class="old-help-para">The first line is a header and has four fields:
 	SFX <code>{flag}</code> <code>{combine}</code> <code>{count}</code></div>
 <div class="old-help-para"><code>{flag}</code>		The name used for the suffix.  Mostly it's a single letter,
-		but other characters can be used, see <a href="spell.html#spell-FLAG">spell-FLAG</a>.</div>
+		but other characters can be used, see <a href="/neovim-docs-web/en/spell#spell-FLAG">spell-FLAG</a>.</div>
 <div class="old-help-para"><code>{combine}</code>	Can be 'Y' or 'N'.  When 'Y' then the word plus suffix can
 		also have a prefix.  When 'N' then a prefix is not allowed.</div>
 <div class="old-help-para"><code>{count}</code>		The number of lines following.  If this is wrong you will get
@@ -752,7 +752,7 @@ documentation or the Aspell manual:
 		When <code>{strip}</code> is 0 (zero) then nothing is stripped.</div>
 <div class="old-help-para"><code>{add}</code>		Characters added to the basic word, after removing <code>{strip}</code>.
 		Optionally there is a '/' followed by flags.  The flags apply
-		to the word plus affix.  See <a href="spell.html#spell-affix-flags">spell-affix-flags</a></div>
+		to the word plus affix.  See <a href="/neovim-docs-web/en/spell#spell-affix-flags">spell-affix-flags</a></div>
 <div class="old-help-para"><code>{condition}</code>	A simplistic pattern.  Only when this matches with a basic
 		word will the suffix be used for that word.  This is normally
 		for using one suffix letter with different <code>{add}</code> and <code>{strip}</code>
@@ -800,16 +800,16 @@ used when both support combining.</div>
 <div class="old-help-para">Specifically, the affix flags can be used for:
 <div class="help-li" style=""> Suffixes on suffixes, as in the example above.  This works once, thus you
   can have two suffixes on a word (plus one prefix).
-</div><div class="help-li" style=""> Making the word with the affix rare, by using the <a href="spell.html#spell-RARE">spell-RARE</a> flag.
+</div><div class="help-li" style=""> Making the word with the affix rare, by using the <a href="/neovim-docs-web/en/spell#spell-RARE">spell-RARE</a> flag.
 </div><div class="help-li" style=""> Exclude the word with the affix from compounding, by using the
-  <a href="spell.html#spell-COMPOUNDFORBIDFLAG">spell-COMPOUNDFORBIDFLAG</a> flag.
+  <a href="/neovim-docs-web/en/spell#spell-COMPOUNDFORBIDFLAG">spell-COMPOUNDFORBIDFLAG</a> flag.
 </div><div class="help-li" style=""> Allow the word with the affix to be part of a compound word on the side of
-  the affix with the <a href="spell.html#spell-COMPOUNDPERMITFLAG">spell-COMPOUNDPERMITFLAG</a>.
+  the affix with the <a href="/neovim-docs-web/en/spell#spell-COMPOUNDPERMITFLAG">spell-COMPOUNDPERMITFLAG</a>.
 </div><div class="help-li" style=""> Use the NEEDCOMPOUND flag: word plus affix can only be used as part of a
-  compound word. <a href="spell.html#spell-NEEDCOMPOUND">spell-NEEDCOMPOUND</a>
+  compound word. <a href="/neovim-docs-web/en/spell#spell-NEEDCOMPOUND">spell-NEEDCOMPOUND</a>
 </div><div class="help-li" style=""> Compound flags: word plus affix can be part of a compound word at the end,
   middle, start, etc.  The flags are combined with the flags of the basic
-  word.  <a href="spell.html#spell-compound">spell-compound</a>
+  word.  <a href="/neovim-docs-web/en/spell#spell-compound">spell-compound</a>
 </div><div class="help-li" style=""> NEEDAFFIX: another affix is needed to make a valid word.
 </div><div class="help-li" style=""> CIRCUMFIX, as explained just below.
 </div></div>
@@ -823,7 +823,7 @@ flag to avoid lots of errors.</div>
 If a prefix has the CIRCUMFIX flag then only suffixes with the CIRCUMFIX flag
 can be added, and the other way around.
 An alternative is to only specify the suffix, and give that suffix two flags:
-the required prefix and the NEEDAFFIX flag.  <a href="spell.html#spell-NEEDAFFIX">spell-NEEDAFFIX</a></div>
+the required prefix and the NEEDAFFIX flag.  <a href="/neovim-docs-web/en/spell#spell-NEEDAFFIX">spell-NEEDAFFIX</a></div>
 <div class="old-help-para"><h3 class="help-heading">PFXPOSTPONE<span class="help-heading-tags">						<a name="spell-PFXPOSTPONE"></a><span class="help-tag">spell-PFXPOSTPONE</span></span></h3></div>
 <div class="old-help-para">When an affix file has very many prefixes that apply to many words it's not
 possible to build the whole word list in memory.  This applies to Hebrew (a
@@ -862,7 +862,7 @@ rare words.  Example:</div>
 words that are correct for the language, but are hardly ever used and could be
 a typing mistake anyway.</div>
 <div class="old-help-para">This flag can also be used on an affix, so that a basic word is not rare but
-the basic word plus affix is rare <a href="spell.html#spell-affix-flags">spell-affix-flags</a>.  However, if the word
+the basic word plus affix is rare <a href="/neovim-docs-web/en/spell#spell-affix-flags">spell-affix-flags</a>.  However, if the word
 also appears as a good word in another way (e.g., in another region) it won't
 be marked as rare.</div>
 <div class="old-help-para"><h3 class="help-heading">BAD WORDS<span class="help-heading-tags">						<a name="spell-BAD"></a><span class="help-tag">spell-BAD</span></span></h3></div>
@@ -940,7 +940,7 @@ examples with the sequence of word flags they require:
 prefix cannot be compounded after another word, and a word with a suffix
 cannot be compounded with a following word.  Thus the affix cannot appear
 on the inside of a compound word.  This can be changed with the
-<a href="spell.html#spell-COMPOUNDPERMITFLAG">spell-COMPOUNDPERMITFLAG</a>.</div>
+<a href="/neovim-docs-web/en/spell#spell-COMPOUNDPERMITFLAG">spell-COMPOUNDPERMITFLAG</a>.</div>
 <div class="old-help-para">							<a name="spell-NEEDCOMPOUND"></a><code class="help-tag-right">spell-NEEDCOMPOUND</code>
 The NEEDCOMPOUND flag is used to require that a word is used as part of a
 compound word.  The word itself is not a good word.  Example:</div>
@@ -1017,7 +1017,7 @@ for one syllable.  These are preferred over using characters from the set.
 With the example "ideeen" has three syllables, counted by "i", "ee" and "e".</div>
 <div class="old-help-para">Only case-folded letters need to be included.</div>
 <div class="old-help-para">Another way to restrict compounding was mentioned above: Adding the
-<a href="spell.html#spell-COMPOUNDFORBIDFLAG">spell-COMPOUNDFORBIDFLAG</a> flag to an affix causes all words that are made
+<a href="/neovim-docs-web/en/spell#spell-COMPOUNDFORBIDFLAG">spell-COMPOUNDFORBIDFLAG</a> flag to an affix causes all words that are made
 with that affix to not be used for compounding.</div>
 <div class="old-help-para"><h3 class="help-heading">UNLIMITED COMPOUNDING<span class="help-heading-tags">					<a name="spell-NOBREAK"></a><span class="help-tag">spell-NOBREAK</span></span></h3></div>
 <div class="old-help-para">For some languages, such as Thai, there is no space in between words.  This
@@ -1051,7 +1051,7 @@ used to make spelling suggestions.  The items define the "from" text and the
 number, but it must be there (for compatibility with Myspell).</div>
 <div class="old-help-para">Don't include simple one-character replacements or swaps.  Vim will try these
 anyway.  You can include whole words if you want to, but you might want to use
-the "file:" item in <a href="options.html#'spellsuggest'">'spellsuggest'</a> instead.</div>
+the "file:" item in <a href="/neovim-docs-web/en/options#'spellsuggest'">'spellsuggest'</a> instead.</div>
 <div class="old-help-para">You can include a space by using an underscore:</div>
 <div class="old-help-para"><div class="help-column_heading">	REP the_the the</div></div>
 <div class="old-help-para"><h3 class="help-heading">SIMILAR CHARACTERS<span class="help-heading-tags">					<a name="spell-MAP"></a><span class="help-tag">spell-MAP</span> <a name="E783"></a><span class="help-tag">E783</span></span></h3></div>
@@ -1067,7 +1067,7 @@ efficient if the first letter is ASCII or at least one without accents.</div>
 <div class="old-help-para">When soundfolding is specified in the affix file then ":mkspell" will normally
 produce a .sug file next to the .spl file.  This file is used to find
 suggestions by their sound-a-like form quickly.  At the cost of a lot of
-memory (the amount depends on the number of words, <a href="spell.html#%3Amkspell">:mkspell</a> will display an
+memory (the amount depends on the number of words, <a href="/neovim-docs-web/en/spell#%3Amkspell">:mkspell</a> will display an
 estimate when it's done).</div>
 <div class="old-help-para">To avoid producing a .sug file use this item in the affix file:</div>
 <div class="old-help-para"><div class="help-column_heading">	NOSUGFILE</div></div>
@@ -1099,13 +1099,13 @@ character.  Don't do this too much, all words will start looking alike.</div>
 <div class="old-help-para">Characters that do not appear in SOFOFROM will be left out, except that all
 white space is replaced by one space.  Sequences of the same character in
 SOFOFROM are replaced by one.</div>
-<div class="old-help-para">You can use the <a href="builtin.html#soundfold()">soundfold()</a> function to try out the results.  Or set the
-<a href="options.html#'verbose'">'verbose'</a> option to see the score in the output of the <a href="spell.html#z%3D">z=</a> command.</div>
+<div class="old-help-para">You can use the <a href="/neovim-docs-web/en/builtin#soundfold()">soundfold()</a> function to try out the results.  Or set the
+<a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> option to see the score in the output of the <a href="/neovim-docs-web/en/spell#z%3D">z=</a> command.</div>
 <div class="old-help-para"><h3 class="help-heading">UNSUPPORTED ITEMS<span class="help-heading-tags">				<a name="spell-affix-not-supported"></a><span class="help-tag">spell-affix-not-supported</span></span></h3></div>
 <div class="old-help-para">These items appear in the affix file of other spell checkers.  In Vim they are
 ignored, not supported or defined in another way.</div>
 <div class="old-help-para">ACCENT		(Hunspell)				<a name="spell-ACCENT"></a><code class="help-tag-right">spell-ACCENT</code>
-		Use MAP instead. <a href="spell.html#spell-MAP">spell-MAP</a></div>
+		Use MAP instead. <a href="/neovim-docs-web/en/spell#spell-MAP">spell-MAP</a></div>
 <div class="old-help-para">BREAK		(Hunspell)				<a name="spell-BREAK"></a><code class="help-tag-right">spell-BREAK</code>
 		Define break points.  Unclear how it works exactly.
 		Not supported.</div>
@@ -1130,29 +1130,29 @@ ignored, not supported or defined in another way.</div>
 		This is one line with the count of COMPOUND items, followed by
 		that many COMPOUND lines with a pattern.
 		Remove the first line with the count and rename the other
-		items to COMPOUNDRULE <a href="spell.html#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
+		items to COMPOUNDRULE <a href="/neovim-docs-web/en/spell#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
 <div class="old-help-para">COMPOUNDFIRST	(Hunspell)				<a name="spell-COMPOUNDFIRST"></a><code class="help-tag-right">spell-COMPOUNDFIRST</code>
-		Use COMPOUNDRULE instead. <a href="spell.html#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
+		Use COMPOUNDRULE instead. <a href="/neovim-docs-web/en/spell#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
 <div class="old-help-para">COMPOUNDBEGIN	(Hunspell)				<a name="spell-COMPOUNDBEGIN"></a><code class="help-tag-right">spell-COMPOUNDBEGIN</code>
 		Words signed with COMPOUNDBEGIN may be first elements in
 		compound words.
-		Use COMPOUNDRULE instead. <a href="spell.html#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
+		Use COMPOUNDRULE instead. <a href="/neovim-docs-web/en/spell#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
 <div class="old-help-para">COMPOUNDLAST	(Hunspell)				<a name="spell-COMPOUNDLAST"></a><code class="help-tag-right">spell-COMPOUNDLAST</code>
 		Words signed with COMPOUNDLAST may be last elements in
 		compound words.
-		Use COMPOUNDRULE instead. <a href="spell.html#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
+		Use COMPOUNDRULE instead. <a href="/neovim-docs-web/en/spell#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
 <div class="old-help-para">COMPOUNDEND	(Hunspell)				<a name="spell-COMPOUNDEND"></a><code class="help-tag-right">spell-COMPOUNDEND</code>
 		Probably the same as COMPOUNDLAST</div>
 <div class="old-help-para">COMPOUNDMIDDLE	(Hunspell)				<a name="spell-COMPOUNDMIDDLE"></a><code class="help-tag-right">spell-COMPOUNDMIDDLE</code>
 		Words signed with COMPOUNDMIDDLE may be middle elements in
 		compound words.
-		Use COMPOUNDRULE instead. <a href="spell.html#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
+		Use COMPOUNDRULE instead. <a href="/neovim-docs-web/en/spell#spell-COMPOUNDRULE">spell-COMPOUNDRULE</a></div>
 <div class="old-help-para">COMPOUNDRULES	(Hunspell)				<a name="spell-COMPOUNDRULES"></a><code class="help-tag-right">spell-COMPOUNDRULES</code>
 		Number of COMPOUNDRULE lines following.  Ignored, but the
 		argument must be a number.</div>
 <div class="old-help-para">COMPOUNDSYLLABLE  (Hunspell)			<a name="spell-COMPOUNDSYLLABLE"></a><code class="help-tag-right">spell-COMPOUNDSYLLABLE</code>
-		Use SYLLABLE and COMPOUNDSYLMAX instead. <a href="spell.html#spell-SYLLABLE">spell-SYLLABLE</a>
-		<a href="spell.html#spell-COMPOUNDSYLMAX">spell-COMPOUNDSYLMAX</a></div>
+		Use SYLLABLE and COMPOUNDSYLMAX instead. <a href="/neovim-docs-web/en/spell#spell-SYLLABLE">spell-SYLLABLE</a>
+		<a href="/neovim-docs-web/en/spell#spell-COMPOUNDSYLMAX">spell-COMPOUNDSYLMAX</a></div>
 <div class="old-help-para">KEY		(Hunspell)				<a name="spell-KEY"></a><code class="help-tag-right">spell-KEY</code>
 		Define characters that are close together on the keyboard.
 		Used to give better suggestions.  Not supported.</div>
@@ -1166,7 +1166,7 @@ ignored, not supported or defined in another way.</div>
 <div class="old-help-para">MAXNGRAMSUGS	(Hunspell)				<a name="spell-MAXNGRAMSUGS"></a><code class="help-tag-right">spell-MAXNGRAMSUGS</code>
 		Set number of n-gram suggestions.  Not supported.</div>
 <div class="old-help-para">PSEUDOROOT	(Hunspell)				<a name="spell-PSEUDOROOT"></a><code class="help-tag-right">spell-PSEUDOROOT</code>
-		Use NEEDAFFIX instead. <a href="spell.html#spell-NEEDAFFIX">spell-NEEDAFFIX</a></div>
+		Use NEEDAFFIX instead. <a href="/neovim-docs-web/en/spell#spell-NEEDAFFIX">spell-NEEDAFFIX</a></div>
 <div class="old-help-para">SUGSWITHDOTS	(Hunspell)				<a name="spell-SUGSWITHDOTS"></a><code class="help-tag-right">spell-SUGSWITHDOTS</code>
 		Adds dots to suggestions.  Vim doesn't need this.</div>
 <div class="old-help-para">SYLLABLENUM	(Hunspell)				<a name="spell-SYLLABLENUM"></a><code class="help-tag-right">spell-SYLLABLENUM</code>

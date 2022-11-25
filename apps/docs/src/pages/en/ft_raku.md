@@ -14,7 +14,7 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">Vim-raku provides syntax highlighting, indentation, and other support for
 editing Raku programs.</div>
-<div class="old-help-para">1. Using Unicode in your Raku files	<a href="ft_raku.html#raku-unicode">raku-unicode</a></div>
+<div class="old-help-para">1. Using Unicode in your Raku files	<a href="/neovim-docs-web/en/ft_raku#raku-unicode">raku-unicode</a></div>
 <div class="old-help-para"><h2 class="help-heading">1. Using Unicode in your Raku files<span class="help-heading-tags">                           <a name="raku-unicode"></a><span class="help-tag">raku-unicode</span></span></h2></div>
 <div class="old-help-para">Defining new operators using Unicode symbols is a good way to make your
 Raku program easy to read. See:
@@ -24,7 +24,7 @@ Raku program easy to read. See:
 Unicode operators is highly desirable. Your operating system provides input
 facilities, but using the features built in to Vim may be preferable.</div>
 <div class="old-help-para">The natural way to produce these symbols in Vim is to use digraph shortcuts
-(:help <a href="digraph.html#digraphs-use">digraphs-use</a>). Many of them are defined; type <code>:digraphs</code> to get
+(:help <a href="/neovim-docs-web/en/digraph#digraphs-use">digraphs-use</a>). Many of them are defined; type <code>:digraphs</code> to get
 the list. A convenient way to read the list of digraphs is to save them in a
 file. From the shell:<pre>vim +'redir &gt;/tmp/vim-digraphs-listing.txt' +digraphs +'redir END' +q</pre>
 Some of them are available with standard Vim digraphs:

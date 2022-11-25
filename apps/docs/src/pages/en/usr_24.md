@@ -18,19 +18,19 @@ layout: ../../layouts/MainLayout.astro
 and avoid typing mistakes.  Use Insert mode completion to repeat previously
 typed words.  Abbreviate long words to short ones.  Type characters that
 aren't on your keyboard.</div>
-<div class="old-help-para"><a href="usr_24.html#24.1">24.1</a>  	Making corrections
-<a href="usr_24.html#24.2">24.2</a>  	Showing matches
-<a href="usr_24.html#24.3">24.3</a>  	Completion
-<a href="usr_24.html#24.4">24.4</a>  	Repeating an insert
-<a href="usr_24.html#24.5">24.5</a>  	Copying from another line
-<a href="usr_24.html#24.6">24.6</a>  	Inserting a register
-<a href="usr_24.html#24.7">24.7</a>  	Abbreviations
-<a href="usr_24.html#24.8">24.8</a>  	Entering special characters
-<a href="usr_24.html#24.9">24.9</a>  	Digraphs
-<a href="usr_24.html#24.10">24.10</a>  	Normal mode commands</div>
-<div class="old-help-para">     Next chapter: <a href="usr_25.html#usr_25.txt">usr_25.txt</a>  Editing formatted text
- Previous chapter: <a href="usr_23.html#usr_23.txt">usr_23.txt</a>  Editing other files
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_24#24.1">24.1</a>  	Making corrections
+<a href="/neovim-docs-web/en/usr_24#24.2">24.2</a>  	Showing matches
+<a href="/neovim-docs-web/en/usr_24#24.3">24.3</a>  	Completion
+<a href="/neovim-docs-web/en/usr_24#24.4">24.4</a>  	Repeating an insert
+<a href="/neovim-docs-web/en/usr_24#24.5">24.5</a>  	Copying from another line
+<a href="/neovim-docs-web/en/usr_24#24.6">24.6</a>  	Inserting a register
+<a href="/neovim-docs-web/en/usr_24#24.7">24.7</a>  	Abbreviations
+<a href="/neovim-docs-web/en/usr_24#24.8">24.8</a>  	Entering special characters
+<a href="/neovim-docs-web/en/usr_24#24.9">24.9</a>  	Digraphs
+<a href="/neovim-docs-web/en/usr_24#24.10">24.10</a>  	Normal mode commands</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_25#usr_25.txt">usr_25.txt</a>  Editing formatted text
+ Previous chapter: <a href="/neovim-docs-web/en/usr_23#usr_23.txt">usr_23.txt</a>  Editing other files
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Making corrections</h2></div>
 <div class="old-help-para">The <code>&lt;BS&gt;</code> key was already mentioned.  It deletes the character just before the
 cursor.  The <code>&lt;Del&gt;</code> key does the same for the character under (after) the
@@ -77,7 +77,7 @@ leave Insert mode.  The extra typing doesn't matter then.
 	<code>&lt;End&gt;</code>		to end of the line
 	<code>&lt;PageDown&gt;</code>	a whole screenful down
 	<code>&lt;C-End&gt;</code>		to end of the file</div>
-<div class="old-help-para">There are a few more, see <a href="insert.html#ins-special-special">ins-special-special</a>.</div>
+<div class="old-help-para">There are a few more, see <a href="/neovim-docs-web/en/insert#ins-special-special">ins-special-special</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="24.2"></a><span class="help-tag">24.2</span>  	Showing matches</span></h2></div>
 <div class="old-help-para">When you type a ) it would be nice to see with which ( it matches.  To make
 Vim do that use this command:<pre>:set showmatch</pre>
@@ -89,7 +89,7 @@ might have forgotten the ( somewhere, or typed a ) too many.
    The match will also be shown for [] and {} pairs.  You don't have to wait
 with typing the next character, as soon as Vim sees it the cursor will move
 back and inserting continues as before.
-   You can change the time Vim waits with the <a href="options.html#'matchtime'">'matchtime'</a> option.  For
+   You can change the time Vim waits with the <a href="/neovim-docs-web/en/options#'matchtime'">'matchtime'</a> option.  For
 example, to make Vim wait one and a half second:<pre>:set matchtime=15</pre>
 The time is specified in tenths of a second.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="24.3"></a><span class="help-tag">24.3</span>  	Completion</span></h2></div>
@@ -126,11 +126,11 @@ default, it searches the following places:</div>
 	5. Tag files
 	6. All files #included by the current file</div>
 <div class="old-help-para"><a name="_options"></a><h3 class="help-heading">OPTIONS</h3></div>
-<div class="old-help-para">You can customize the search order with the <a href="options.html#'complete'">'complete'</a> option.</div>
-<div class="old-help-para">The <a href="options.html#'ignorecase'">'ignorecase'</a> option is used.  When it is set, case differences are ignored
+<div class="old-help-para">You can customize the search order with the <a href="/neovim-docs-web/en/options#'complete'">'complete'</a> option.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option is used.  When it is set, case differences are ignored
 when searching for matches.</div>
-<div class="old-help-para">A special option for completion is <a href="options.html#'infercase'">'infercase'</a>.  This is useful to find
-matches while ignoring case (<a href="options.html#'ignorecase'">'ignorecase'</a> must be set) but still using the
+<div class="old-help-para">A special option for completion is <a href="/neovim-docs-web/en/options#'infercase'">'infercase'</a>.  This is useful to find
+matches while ignoring case (<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> must be set) but still using the
 case of the word typed so far.  Thus if you type "For" and Vim finds a match
 "fortunately", it will result in "Fortunately".</div>
 <div class="old-help-para"><a name="_completing-specific-items"></a><h3 class="help-heading">COMPLETING SPECIFIC ITEMS</h3></div>
@@ -146,7 +146,7 @@ with a certain type of item:</div>
 	<code>CTRL-X</code> <code>CTRL-V</code>		Vim command line</div>
 <div class="old-help-para">After each of them <code>CTRL-N</code> can be used to find the next match, <code>CTRL-P</code> to find
 the previous match.
-   More information for each of these commands here: <a href="insert.html#ins-completion">ins-completion</a>.</div>
+   More information for each of these commands here: <a href="/neovim-docs-web/en/insert#ins-completion">ins-completion</a>.</div>
 <div class="old-help-para"><a name="_completing-file-names"></a><h3 class="help-heading">COMPLETING FILE NAMES</h3></div>
 <div class="old-help-para">Let's take <code>CTRL-X</code> <code>CTRL-F</code> as an example.  This will find file names.  It scans
 the current directory for files and displays each one that matches the word in
@@ -187,10 +187,10 @@ members of "struct foo" are valid here.</div>
 filetype plugins are enabled.  Your vimrc file should contain a line like
 this:<pre>filetype plugin on</pre>
 Or:<pre>filetype plugin indent on</pre>
-For C code you need to create a tags file and set the <a href="options.html#'tags'">'tags'</a> option.  That is
-explained <a href="insert.html#ft-c-omni">ft-c-omni</a>.  For other filetypes you may need to do something
-similar, look below <a href="insert.html#compl-omni-filetypes">compl-omni-filetypes</a>.  It only works for specific
-filetypes.  Check the value of the <a href="options.html#'omnifunc'">'omnifunc'</a> option to find out if it would
+For C code you need to create a tags file and set the <a href="/neovim-docs-web/en/options#'tags'">'tags'</a> option.  That is
+explained <a href="/neovim-docs-web/en/insert#ft-c-omni">ft-c-omni</a>.  For other filetypes you may need to do something
+similar, look below <a href="/neovim-docs-web/en/insert#compl-omni-filetypes">compl-omni-filetypes</a>.  It only works for specific
+filetypes.  Check the value of the <a href="/neovim-docs-web/en/options#'omnifunc'">'omnifunc'</a> option to find out if it would
 work.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="24.4"></a><span class="help-tag">24.4</span>  	Repeating an insert</span></h2></div>
 <div class="old-help-para">If you press <code>CTRL-A</code>, the editor inserts the text you typed the last time you
@@ -360,9 +360,9 @@ that combination.  Thus <code>CTRL-K</code> dP also works.  Since there is no di
 <div class="old-help-para">You can define your own digraphs.  Example:<pre>:digraph a" ä</pre>
 This defines that <code>CTRL-K</code> a" inserts an ä character.  You can also specify the
 character with a decimal number.  This defines the same digraph:<pre>:digraph a" 228</pre>
-More information about digraphs here: <a href="digraph.html#digraphs">digraphs</a>
+More information about digraphs here: <a href="/neovim-docs-web/en/digraph#digraphs">digraphs</a>
    Another way to insert special characters is with a keymap.  More about that
-here: <a href="usr_45.html#45.5">45.5</a></div>
+here: <a href="/neovim-docs-web/en/usr_45#45.5">45.5</a></div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="24.10"></a><span class="help-tag">24.10</span>  	Normal mode commands</span></h2></div>
 <div class="old-help-para">Insert mode offers a limited number of commands.  In Normal mode you have many
 more.  When you want to use one, you usually leave Insert mode with <code>&lt;Esc&gt;</code>,
@@ -373,8 +373,8 @@ end of the line:<pre>CTRL-O D</pre>
 You can execute only one Normal mode command this way.  But you can specify a
 register or a count.  A more complicated example:<pre>CTRL-O "g3dw</pre>
 This deletes up to the third word into register g.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_25.html#usr_25.txt">usr_25.txt</a>  Editing formatted text</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_25#usr_25.txt">usr_25.txt</a>  Editing formatted text</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

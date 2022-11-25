@@ -17,14 +17,14 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Vim works well in a terminal, but the GUI has a few extra items.  A file
 browser can be used for commands that use a file.  A dialog to make a choice
 between alternatives.  Use keyboard shortcuts to access menu items quickly.</div>
-<div class="old-help-para"><a href="usr_31.html#31.1">31.1</a>  	The file browser
-<a href="usr_31.html#31.2">31.2</a>  	Confirmation
-<a href="usr_31.html#31.3">31.3</a>  	Menu shortcuts
-<a href="usr_31.html#31.4">31.4</a>  	Vim window position and size
-<a href="usr_31.html#31.5">31.5</a>  	Various</div>
-<div class="old-help-para">     Next chapter: <a href="usr_32.html#usr_32.txt">usr_32.txt</a>  The undo tree
- Previous chapter: <a href="usr_30.html#usr_30.txt">usr_30.txt</a>  Editing programs
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_31#31.1">31.1</a>  	The file browser
+<a href="/neovim-docs-web/en/usr_31#31.2">31.2</a>  	Confirmation
+<a href="/neovim-docs-web/en/usr_31#31.3">31.3</a>  	Menu shortcuts
+<a href="/neovim-docs-web/en/usr_31#31.4">31.4</a>  	Vim window position and size
+<a href="/neovim-docs-web/en/usr_31#31.5">31.5</a>  	Various</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_32#usr_32.txt">usr_32.txt</a>  The undo tree
+ Previous chapter: <a href="/neovim-docs-web/en/usr_30#usr_30.txt">usr_30.txt</a>  Editing programs
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	The file browser</h2></div>
 <div class="old-help-para">When using the File/Open... menu you get a file browser.  This makes it easier
 to find the file you want to edit.  But what if you want to split a window to
@@ -44,7 +44,7 @@ file.
 browser.  By default it uses the same directory as the last time.  Thus when
 you used ":browse split" and selected a file in "/usr/local/share", the next
 time you use a ":browse" it will start in "/usr/local/share" again.
-   This can be changed with the <a href="options.html#'browsedir'">'browsedir'</a> option.  It can have one of three
+   This can be changed with the <a href="/neovim-docs-web/en/options#'browsedir'">'browsedir'</a> option.  It can have one of three
 values:</div>
 <div class="old-help-para">	last		Use the last directory browsed (default)
 	buffer		Use the same directory as the current buffer
@@ -63,7 +63,7 @@ Will start the browser in "/usr".</div>
 	shortcuts somewhere.</div>
 <div class="old-help-para">When you are not using the GUI version, you could use the file explorer window
 to select files like in a file browser.  However, this doesn't work for the
-":browse" command.  See <a href="pi_netrw.html#netrw-browse">netrw-browse</a>.</div>
+":browse" command.  See <a href="/neovim-docs-web/en/pi_netrw#netrw-browse">netrw-browse</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="31.2"></a><span class="help-tag">31.2</span>  	Confirmation</span></h2></div>
 <div class="old-help-para">Vim protects you from accidentally overwriting a file and other ways to lose
 changes.  If you do something that might be a bad thing to do, Vim produces an
@@ -112,7 +112,7 @@ let go of the <code>&lt;Alt&gt;</code> key and press p.</div>
 keys to move through the menus.  <code>&lt;Right&gt;</code> selects a submenu and <code>&lt;left&gt;</code> closes
 it.  <code>&lt;Esc&gt;</code> also closes a menu.  <code>&lt;Enter&gt;</code> selects a menu item.</div>
 <div class="old-help-para">There is a conflict between using the <code>&lt;Alt&gt;</code> key to select menu items, and
-using <code>&lt;Alt&gt;</code> key combinations for mappings.  The <a href="options.html#'winaltkeys'">'winaltkeys'</a> option tells Vim
+using <code>&lt;Alt&gt;</code> key combinations for mappings.  The <a href="/neovim-docs-web/en/options#'winaltkeys'">'winaltkeys'</a> option tells Vim
 what it should do with the <code>&lt;Alt&gt;</code> key.
    The default value "menu" is the smart choice: If the key combination is a
 menu shortcut it can't be mapped.  All other keys are available for mapping.
@@ -135,7 +135,7 @@ specific position.</div>
 <div class="old-help-para">The size of the Vim window is computed in characters.  Thus this depends on
 the size of the font being used.  You can see the current size with this
 command:<pre>:set lines columns</pre>
-To change the size set the <a href="options.html#'lines'">'lines'</a> and/or <a href="options.html#'columns'">'columns'</a> options to a new value:<pre>:set lines=50
+To change the size set the <a href="/neovim-docs-web/en/options#'lines'">'lines'</a> and/or <a href="/neovim-docs-web/en/options#'columns'">'columns'</a> options to a new value:<pre>:set lines=50
 :set columns=80</pre>
 Obtaining the size works in a terminal just like in the GUI.  Setting the size
 is not possible in most terminals.</div>
@@ -161,8 +161,8 @@ want to use the GUI after all, you can start it with:<pre>:gui</pre>
 Vim will open the GUI window and no longer use the terminal.  You can continue
 using the terminal for something else.  The "-f" argument is used here to run
 the GUI in the foreground.  You can also use ":gui -f".</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_32.html#usr_32.txt">usr_32.txt</a>  The undo tree</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_32#usr_32.txt">usr_32.txt</a>  The undo tree</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

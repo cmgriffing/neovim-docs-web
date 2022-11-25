@@ -21,7 +21,7 @@ Nvim delegates some features to dynamic "providers". This document describes
 the providers and how to install them.
 						<a name="E319"></a><code class="help-tag-right">E319</code>
 Use of a feature requiring a missing provider is an error:<pre>E319: No "foo" provider found. Run ":checkhealth provider"</pre>
-Run the <a href="pi_health.html#%3Acheckhealth">:checkhealth</a> command, and review the sections below.
+Run the <a href="/neovim-docs-web/en/pi_health#%3Acheckhealth">:checkhealth</a> command, and review the sections below.
 
 </div>
 <div class="help-para">
@@ -30,13 +30,13 @@ Run the <a href="pi_health.html#%3Acheckhealth">:checkhealth</a> command, and re
 
 </div>
 <div class="help-para">
-Nvim supports Python <a href="remote_plugin.html#remote-plugin">remote-plugin</a>s and the Vim legacy <a href="if_pyth.html#python3">python3</a> and
-<a href="if_pyth.html#pythonx">pythonx</a> interfaces (which are implemented as remote-plugins).
+Nvim supports Python <a href="/neovim-docs-web/en/remote_plugin#remote-plugin">remote-plugin</a>s and the Vim legacy <a href="/neovim-docs-web/en/if_pyth#python3">python3</a> and
+<a href="/neovim-docs-web/en/if_pyth#pythonx">pythonx</a> interfaces (which are implemented as remote-plugins).
 
 </div>
 <div class="help-para">
 Note: Only the Vim 7.3 legacy interface is supported, not later features such
-as <a href="vim_diff.html#python-bindeval">python-bindeval</a> (Vim 7.4); use the Nvim API instead. Python 2 is not
+as <a href="/neovim-docs-web/en/vim_diff#python-bindeval">python-bindeval</a> (Vim 7.4); use the Nvim API instead. Python 2 is not
 supported.
 
 </div>
@@ -45,7 +45,7 @@ supported.
 
 </div>
 <div class="help-para">
-To use Python plugins, you need the "pynvim" module. Run <a href="pi_health.html#%3Acheckhealth">:checkhealth</a> to see
+To use Python plugins, you need the "pynvim" module. Run <a href="/neovim-docs-web/en/pi_health#%3Acheckhealth">:checkhealth</a> to see
 if you already have it (some package managers install the module with Nvim
 itself).
 
@@ -59,7 +59,7 @@ a previous version was already installed.
 
 </div>
 <div class="help-para">
-See also <a href="provider.html#python-virtualenv">python-virtualenv</a>.
+See also <a href="/neovim-docs-web/en/provider#python-virtualenv">python-virtualenv</a>.
 
 </div>
 <div class="help-para">
@@ -81,7 +81,7 @@ To disable Python 3 support:<pre>let g:loaded_python3_provider = 0</pre>
 						<a name="python-virtualenv"></a><code class="help-tag-right">python-virtualenv</code>
 If you plan to use per-project virtualenvs often, you should assign one
 virtualenv for Neovim and hard-code the interpreter path via
-<a href="provider.html#g%3Apython3_host_prog">g:python3_host_prog</a> so that the "pynvim" package is not required
+<a href="/neovim-docs-web/en/provider#g%3Apython3_host_prog">g:python3_host_prog</a> so that the "pynvim" package is not required
 for each virtualenv.
 
 </div>
@@ -101,7 +101,7 @@ See also: <a href="https://github.com/zchee/deoplete-jedi/wiki/Setting-up-Python
 
 </div>
 <div class="help-para">
-Nvim supports Ruby <a href="remote_plugin.html#remote-plugin">remote-plugin</a>s and the Vim legacy <a href="if_ruby.html#ruby-vim">ruby-vim</a> interface
+Nvim supports Ruby <a href="/neovim-docs-web/en/remote_plugin#remote-plugin">remote-plugin</a>s and the Vim legacy <a href="/neovim-docs-web/en/if_ruby#ruby-vim">ruby-vim</a> interface
 (which is itself implemented as a Nvim remote-plugin).
 
 </div>
@@ -111,7 +111,7 @@ Nvim supports Ruby <a href="remote_plugin.html#remote-plugin">remote-plugin</a>s
 </div>
 <div class="help-para">
 To use Ruby plugins with Nvim, install the latest "neovim" RubyGem:<pre>gem install neovim</pre>
-Run <a href="pi_health.html#%3Acheckhealth">:checkhealth</a> to see if your system is up-to-date.
+Run <a href="/neovim-docs-web/en/pi_health#%3Acheckhealth">:checkhealth</a> to see if your system is up-to-date.
 
 </div>
 <div class="help-para">
@@ -135,9 +135,9 @@ To use the RVM "system" Ruby installation:<pre>let g:ruby_host_prog = 'rvm syste
 
 </div>
 <div class="help-para">
-Nvim supports Perl <a href="remote_plugin.html#remote-plugin">remote-plugin</a>s on Unix platforms. Support for polling STDIN
+Nvim supports Perl <a href="/neovim-docs-web/en/remote_plugin#remote-plugin">remote-plugin</a>s on Unix platforms. Support for polling STDIN
 on MS-Windows is currently lacking from all known event loop implementations.
-The Vim legacy <a href="if_perl.html#perl-vim">perl-vim</a> interface is also supported (which is itself
+The Vim legacy <a href="/neovim-docs-web/en/if_perl#perl-vim">perl-vim</a> interface is also supported (which is itself
 implemented as a Nvim remote-plugin).
 <a href="https://github.com/jacquesg/p5-Neovim-Ext">https://github.com/jacquesg/p5-Neovim-Ext</a>
 
@@ -152,7 +152,7 @@ Note: Only perl versions from 5.22 onward are supported.
 </div>
 <div class="help-para">
 To use perl remote-plugins with Nvim, install the "Neovim::Ext" cpan package:<pre>cpanm -n Neovim::Ext</pre>
-Run <a href="pi_health.html#%3Acheckhealth">:checkhealth</a> to see if your system is up-to-date.
+Run <a href="/neovim-docs-web/en/pi_health#%3Acheckhealth">:checkhealth</a> to see if your system is up-to-date.
 
 </div>
 <div class="help-para">
@@ -173,7 +173,7 @@ check for has("perl").<pre>let g:perl_host_prog = '/path/to/perl'</pre>
 
 </div>
 <div class="help-para">
-Nvim supports Node.js <a href="remote_plugin.html#remote-plugin">remote-plugin</a>s.
+Nvim supports Node.js <a href="/neovim-docs-web/en/remote_plugin#remote-plugin">remote-plugin</a>s.
 <a href="https://github.com/neovim/node-client/">https://github.com/neovim/node-client/</a>
 
 </div>
@@ -183,7 +183,7 @@ Nvim supports Node.js <a href="remote_plugin.html#remote-plugin">remote-plugin</
 </div>
 <div class="help-para">
 To use javascript remote-plugins with Nvim, install the "neovim" npm package:<pre>npm install -g neovim</pre>
-Run <a href="pi_health.html#%3Acheckhealth">:checkhealth</a> to see if your system is up-to-date.
+Run <a href="/neovim-docs-web/en/pi_health#%3Acheckhealth">:checkhealth</a> to see if your system is up-to-date.
 
 </div>
 <div class="help-para">
@@ -209,14 +209,14 @@ can be slow. To avoid this, set g:node_host_prog to the host path:<pre>let g:nod
 </div>
 <div class="help-para">
 Nvim has no direct connection to the system clipboard. Instead it depends on
-a <a href="provider.html#provider">provider</a> which transparently uses shell commands to communicate with the
+a <a href="/neovim-docs-web/en/provider#provider">provider</a> which transparently uses shell commands to communicate with the
 system clipboard or any other clipboard "backend".
 
 </div>
 <div class="help-para">
 To ALWAYS use the clipboard for ALL operations (instead of interacting with
 the '+' and/or '' registers explicitly):<pre>set clipboard+=unnamedplus</pre>
-See <a href="options.html#'clipboard'">'clipboard'</a> for details and options.
+See <a href="/neovim-docs-web/en/options#'clipboard'">'clipboard'</a> for details and options.
 
 </div>
 <div class="help-para">
@@ -226,7 +226,7 @@ registers. Nvim looks for these clipboard tools, in order of priority:
 
 </div>
 <div class="help-para">
-<div class="help-li" style=""> <a href="provider.html#g%3Aclipboard">g:clipboard</a>
+<div class="help-li" style=""> <a href="/neovim-docs-web/en/provider#g%3Aclipboard">g:clipboard</a>
 </div><div class="help-li" style=""> pbcopy, pbpaste (macOS)
 </div><div class="help-li" style=""> wl-copy, wl-paste (if $WAYLAND_DISPLAY is set)
 </div><div class="help-li" style=""> waycopy, waypaste (if $WAYLAND_DISPLAY is set)
@@ -254,13 +254,13 @@ For example this configuration integrates the tmux clipboard:<pre>let g:clipboar
       \   },
       \   'cache_enabled': 1,
       \ }</pre>
-If "cache_enabled" is <a href="eval.html#TRUE">TRUE</a> then when a selection is copied Nvim will cache
+If "cache_enabled" is <a href="/neovim-docs-web/en/eval#TRUE">TRUE</a> then when a selection is copied Nvim will cache
 the selection until the copy command process dies. When pasting, if the copy
 process has not died the cached selection is applied.
 
 </div>
 <div class="help-para">
-g:clipboard can also use functions (see <a href="eval.html#lambda">lambda</a>) instead of strings.
+g:clipboard can also use functions (see <a href="/neovim-docs-web/en/eval#lambda">lambda</a>) instead of strings.
 For example this configuration uses the g:foo variable as a fake clipboard:<pre>let g:clipboard = {
       \   'name': 'myClipboard',
       \   'copy': {
@@ -274,7 +274,7 @@ For example this configuration uses the g:foo variable as a fake clipboard:<pre>
       \ }</pre>
 The "copy" function stores a list of lines and the register type. The "paste"
 function returns the clipboard as a <code>[lines, regtype]</code> list, where <code>lines</code> is
-a list of lines and <code>regtype</code> is a register type conforming to <a href="builtin.html#setreg()">setreg()</a>.
+a list of lines and <code>regtype</code> is a register type conforming to <a href="/neovim-docs-web/en/builtin#setreg()">setreg()</a>.
 
 </div>
 <div class="help-para">
@@ -297,8 +297,8 @@ For Windows WSL, try this g:clipboard definition:
 
 </div>
 <div class="help-para">
-"Paste" is a separate concept from <a href="provider.html#clipboard">clipboard</a>: paste means "dump a bunch of
-text to the editor", whereas clipboard provides features like <a href="provider.html#quote%2B">quote+</a> to get
+"Paste" is a separate concept from <a href="/neovim-docs-web/en/provider#clipboard">clipboard</a>: paste means "dump a bunch of
+text to the editor", whereas clipboard provides features like <a href="/neovim-docs-web/en/provider#quote%2B">quote+</a> to get
 and set the OS clipboard directly.  For example, middle-click or <code>CTRL-SHIFT-v</code>
 (macOS: CMD-v) in your terminal is "paste", not "clipboard": the terminal
 application (Nvim) just gets a stream of text, it does not interact with the
@@ -307,7 +307,7 @@ clipboard directly.
 </div>
 <div class="help-para">
 							<a name="bracketed-paste-mode"></a><code class="help-tag-right">bracketed-paste-mode</code>
-Pasting in the <a href="term.html#TUI">TUI</a> depends on the "bracketed paste" terminal capability,
+Pasting in the <a href="/neovim-docs-web/en/term#TUI">TUI</a> depends on the "bracketed paste" terminal capability,
 which allows terminal applications to distinguish between user input and
 pasted text.  <a href="https://cirw.in/blog/bracketed-paste">https://cirw.in/blog/bracketed-paste</a>
 This works automatically if your terminal supports it.
@@ -315,7 +315,7 @@ This works automatically if your terminal supports it.
 </div>
 <div class="help-para">
 							<a name="ui-paste"></a><code class="help-tag-right">ui-paste</code>
-GUIs can paste by calling <a href="api.html#nvim_paste()">nvim_paste()</a>.
+GUIs can paste by calling <a href="/neovim-docs-web/en/api#nvim_paste()">nvim_paste()</a>.
 
 </div>
 <div class="help-para">
@@ -330,12 +330,12 @@ message area shows a "..." pulse.
 </div>
 <div class="help-para">
 In cmdline-mode only the first line is pasted, to avoid accidentally executing
-many commands.  Use the <a href="cmdline.html#cmdline-window">cmdline-window</a> if you really want to paste multiple
+many commands.  Use the <a href="/neovim-docs-web/en/cmdline#cmdline-window">cmdline-window</a> if you really want to paste multiple
 lines to the cmdline.
 
 </div>
 <div class="help-para">
-You can implement a custom paste handler by redefining <a href="lua.html#vim.paste()">vim.paste()</a>.
+You can implement a custom paste handler by redefining <a href="/neovim-docs-web/en/lua#vim.paste()">vim.paste()</a>.
 Example:<pre>vim.paste = (function(lines, phase)
   vim.api.nvim_put(lines, 'c', true, true)
 end)</pre>

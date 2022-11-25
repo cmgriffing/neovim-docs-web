@@ -18,15 +18,15 @@ layout: ../../layouts/MainLayout.astro
 executing program from inside Vim or by leaving Vim and coming back later.
 Furthermore, this is about the ways to remember the state of Vim and restore
 it later.</div>
-<div class="old-help-para"><a href="usr_21.html#21.1">21.1</a>  	Suspend and resume
-<a href="usr_21.html#21.2">21.2</a>  	Executing shell commands
-<a href="usr_21.html#21.3">21.3</a>  	Remembering information; ShaDa
-<a href="usr_21.html#21.4">21.4</a>  	Sessions
-<a href="usr_21.html#21.5">21.5</a>  	Views
-<a href="usr_21.html#21.6">21.6</a>  	Modelines</div>
-<div class="old-help-para">     Next chapter: <a href="usr_22.html#usr_22.txt">usr_22.txt</a>  Finding the file to edit
- Previous chapter: <a href="usr_20.html#usr_20.txt">usr_20.txt</a>  Typing command-line commands quickly
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_21#21.1">21.1</a>  	Suspend and resume
+<a href="/neovim-docs-web/en/usr_21#21.2">21.2</a>  	Executing shell commands
+<a href="/neovim-docs-web/en/usr_21#21.3">21.3</a>  	Remembering information; ShaDa
+<a href="/neovim-docs-web/en/usr_21#21.4">21.4</a>  	Sessions
+<a href="/neovim-docs-web/en/usr_21#21.5">21.5</a>  	Views
+<a href="/neovim-docs-web/en/usr_21#21.6">21.6</a>  	Modelines</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_22#usr_22.txt">usr_22.txt</a>  Finding the file to edit
+ Previous chapter: <a href="/neovim-docs-web/en/usr_20#usr_20.txt">usr_20.txt</a>  Typing command-line commands quickly
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Suspend and resume</h2></div>
 <div class="old-help-para">Like most Unix programs Vim can be suspended by pressing <code>CTRL-Z</code>.  This stops
 Vim and takes you back to the shell it was started in.  You can then do any
@@ -61,7 +61,7 @@ a look at an overview:</div>
 difference.  Without it executes the program normally, with the range a number
 of text lines is filtered through the program.</div>
 <div class="old-help-para">Executing a whole row of programs this way is possible.  But a shell is much
-better at it.  You can start a new shell with <a href="various.html#%3Aterminal">:terminal</a>.</div>
+better at it.  You can start a new shell with <a href="/neovim-docs-web/en/various#%3Aterminal">:terminal</a>.</div>
 <div class="old-help-para">This is similar to using <code>CTRL-Z</code> to suspend Vim.  The difference is that a new
 shell is started.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="21.3"></a><span class="help-tag">21.3</span>  	Remembering information; ShaDa</span></h2></div>
@@ -78,7 +78,7 @@ information:</div>
 <div class="old-help-para">Each time you exit Vim it will store this information in a file, the ShaDa
 file.  When Vim starts again, the ShaDa file is read and the information
 restored.</div>
-<div class="old-help-para">The <a href="options.html#'shada'">'shada'</a> option is set by default to restore a limited number of items.
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'shada'">'shada'</a> option is set by default to restore a limited number of items.
 You might want to set it to remember more information.  This is done through
 the following command:<pre>:set shada=string</pre>
 The string specifies what to save.  The syntax of this string is an option
@@ -103,12 +103,12 @@ starting Vim slower) you use a maximum of 500 lines:<pre>:set shada='1000,f1,&lt
 		used several times)
 	!	global variables that start with an uppercase letter and
 		don't contain lowercase letters
-	h	disable <a href="options.html#'hlsearch'">'hlsearch'</a> highlighting when starting
+	h	disable <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a> highlighting when starting
 	%	the buffer list (only restored when starting Vim without file
 		arguments)
-	c	convert the text using <a href="options.html#'encoding'">'encoding'</a>
+	c	convert the text using <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a>
 	n	name used for the ShaDa file (must be the last option)</div>
-<div class="old-help-para">See the <a href="options.html#'shada'">'shada'</a> option and <a href="starting.html#shada-file">shada-file</a> for more information.</div>
+<div class="old-help-para">See the <a href="/neovim-docs-web/en/options#'shada'">'shada'</a> option and <a href="/neovim-docs-web/en/starting#shada-file">shada-file</a> for more information.</div>
 <div class="old-help-para">When you run Vim multiple times, the last one exiting will store its
 information.  This may cause information that previously exiting Vims stored
 to be lost.  Each item can be remembered only once.</div>
@@ -121,7 +121,7 @@ And you are right back where you left Vim.  So you can get on with your work.
    Vim creates a mark each time you exit Vim.  The last one is '0.  The
 position that '0 pointed to is made '1.  And '1 is made to '2, and so forth.
 Mark '9 is lost.
-   The <a href="motion.html#%3Amarks">:marks</a> command is useful to find out where '0 to '9 will take you.</div>
+   The <a href="/neovim-docs-web/en/motion#%3Amarks">:marks</a> command is useful to find out where '0 to '9 will take you.</div>
 <div class="old-help-para"><a name="_getting-back-to-some-file"></a><h3 class="help-heading">GETTING BACK TO SOME FILE</h3></div>
 <div class="old-help-para">If you want to go back to a file that you edited recently, but not when
 exiting Vim, there is a slightly more complicated way.  You can see a list of
@@ -136,11 +136,11 @@ file:<pre>:split #&lt;3</pre>
 That #&lt;123 thing is a bit complicated when you just want to edit a file.
 Fortunately there is a simpler way:<pre>:browse oldfiles</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	1: ~/.config/nvim/init.vim</div><div class="help-column_heading">	2: ~/text/resume.txt</div><div class="help-column_heading">	3: /tmp/draft</div>	-- More --</div>
-<div class="old-help-para">You get the same list of files as with <a href="starting.html#%3Aoldfiles">:oldfiles</a>.  If you want to edit
+<div class="old-help-para">You get the same list of files as with <a href="/neovim-docs-web/en/starting#%3Aoldfiles">:oldfiles</a>.  If you want to edit
 "resume.txt" first press "q" to stop the listing.  You will get a prompt:</div>
 <div class="old-help-para"><div class="help-column_heading">	Type number and <code>&lt;Enter&gt;</code> (empty cancels):</div></div>
 <div class="old-help-para">Type "2" and press <code>&lt;Enter&gt;</code> to edit the second file.</div>
-<div class="old-help-para">More info at <a href="starting.html#%3Aoldfiles">:oldfiles</a>, <a href="eval.html#v%3Aoldfiles">v:oldfiles</a> and <a href="cmdline.html#c_%23%3C">c_#&lt;</a>.</div>
+<div class="old-help-para">More info at <a href="/neovim-docs-web/en/starting#%3Aoldfiles">:oldfiles</a>, <a href="/neovim-docs-web/en/eval#v%3Aoldfiles">v:oldfiles</a> and <a href="/neovim-docs-web/en/cmdline#c_%23%3C">c_#&lt;</a>.</div>
 <div class="old-help-para"><a name="_move-info-from-one-vim-to-another"></a><h3 class="help-heading">MOVE INFO FROM ONE VIM TO ANOTHER</h3></div>
 <div class="old-help-para">You can use the ":wshada" and ":rshada" commands to save and restore the
 information while still running Vim.  This is useful for exchanging register
@@ -163,7 +163,7 @@ your editing session and restoring it the next day.
    A Vim session contains all the information about what you are editing.
 This includes things such as the file list, window layout, global variables,
 options and other information.  (Exactly what is remembered is controlled by
-the <a href="options.html#'sessionoptions'">'sessionoptions'</a> option, described below.)
+the <a href="/neovim-docs-web/en/options#'sessionoptions'">'sessionoptions'</a> option, described below.)
    The following command creates a session file:<pre>:mksession vimbook.vim</pre>
 Later if you want to restore this session, you can use this command:<pre>:source vimbook.vim</pre>
 If you want to start Vim and restore a specific session, you can use the
@@ -173,7 +173,7 @@ session (actually, you can source any Vim script with -S, thus it might as
 well stand for "source").</div>
 <div class="old-help-para">The windows that were open are restored, with the same position and size as
 before.  Mappings and option values are like before.
-   What exactly is restored depends on the <a href="options.html#'sessionoptions'">'sessionoptions'</a> option.  The
+   What exactly is restored depends on the <a href="/neovim-docs-web/en/options#'sessionoptions'">'sessionoptions'</a> option.  The
 default value is "blank,buffers,curdir,folds,help,options,winsize".</div>
 <div class="old-help-para">	blank		keep empty windows
 	buffers		all buffers, not only the ones in a window
@@ -249,7 +249,7 @@ And to restore this again:<pre>:source ~/.config/nvim/secret.vim
 <div class="old-help-para">A session stores the looks of the whole of Vim.  When you want to store the
 properties for one window only, use a view.
    The use of a view is for when you want to edit a file in a specific way.
-For example, you have line numbers enabled with the <a href="options.html#'number'">'number'</a> option and
+For example, you have line numbers enabled with the <a href="/neovim-docs-web/en/options#'number'">'number'</a> option and
 defined a few folds.  Just like with sessions, you can remember this view on
 the file and restore it later.  Actually, when you store a session, it stores
 the view of each window.
@@ -259,7 +259,7 @@ file.  To store the view for the current window:<pre>:mkview</pre>
 Vim will decide where to store the view.  When you later edit the same file
 you get the view back with this command:<pre>:loadview</pre>
 That's easy, isn't it?
-   Now you want to view the file without the <a href="options.html#'number'">'number'</a> option on, or with all
+   Now you want to view the file without the <a href="/neovim-docs-web/en/options#'number'">'number'</a> option on, or with all
 folds open, you can set the options to make the window look that way.  Then
 store this view with:<pre>:mkview 1</pre>
 Obviously, you can get this back with:<pre>:loadview 1</pre>
@@ -283,18 +283,18 @@ editing a file doesn't work when sharing the file between several people.
 a line of text that tells Vim the values of options, to be used in this file
 only.
    A typical example is a C program where you make indents by a multiple of 4
-spaces.  This requires setting the <a href="options.html#'shiftwidth'">'shiftwidth'</a> option to 4.  This modeline
+spaces.  This requires setting the <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> option to 4.  This modeline
 will do that:</div>
 <div class="old-help-para">/* vim:set shiftwidth=4:/</div>
 <div class="old-help-para">Put this line as one of the first or last five lines in the file.  When
-editing the file, you will notice that <a href="options.html#'shiftwidth'">'shiftwidth'</a> will have been set to
+editing the file, you will notice that <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> will have been set to
 four.  When editing another file, it's set back to the default value of eight.
    For some files the modeline fits well in the header, thus it can be put at
 the top of the file.  For text files and other files where the modeline gets
 in the way of the normal contents, put it at the end of the file.</div>
-<div class="old-help-para">The <a href="options.html#'modelines'">'modelines'</a> option specifies how many lines at the start and end of the
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'modelines'">'modelines'</a> option specifies how many lines at the start and end of the
 file are inspected for containing a modeline.  To inspect ten lines:<pre>:set modelines=10</pre>
-The <a href="options.html#'modeline'">'modeline'</a> option can be used to switch this off.  Do this when you are
+The <a href="/neovim-docs-web/en/options#'modeline'">'modeline'</a> option can be used to switch this off.  Do this when you are
 working as root on Unix or Administrator on MS-Windows, or when you don't
 trust the files you are editing:<pre>:set nomodeline</pre>
 Use this format for the modeline:</div>
@@ -312,9 +312,9 @@ colon (otherwise it would be seen as the end of the modeline).</div>
 <div class="old-help-para">There is an extra backslash before the first colon, so that it's included in
 the ":set" command.  The text after the second colon is ignored, thus a remark
 can be placed there.</div>
-<div class="old-help-para">For more details see <a href="options.html#modeline">modeline</a>.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_22.html#usr_22.txt">usr_22.txt</a>  Finding the file to edit</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">For more details see <a href="/neovim-docs-web/en/options#modeline">modeline</a>.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_22#usr_22.txt">usr_22.txt</a>  Finding the file to edit</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

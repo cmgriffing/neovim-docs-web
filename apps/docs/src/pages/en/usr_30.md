@@ -17,15 +17,15 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Vim has various commands that aid in writing computer programs.  Compile a
 program and directly jump to reported errors.  Automatically set the indent
 for many languages and format comments.</div>
-<div class="old-help-para"><a href="usr_30.html#30.1">30.1</a>  	Compiling
-<a href="usr_30.html#30.2">30.2</a>  	Indenting C files
-<a href="usr_30.html#30.3">30.3</a>  	Automatic indenting
-<a href="usr_30.html#30.4">30.4</a>  	Other indenting
-<a href="usr_30.html#30.5">30.5</a>  	Tabs and spaces
-<a href="usr_30.html#30.6">30.6</a>  	Formatting comments</div>
-<div class="old-help-para">     Next chapter: <a href="usr_31.html#usr_31.txt">usr_31.txt</a>  Exploiting the GUI
- Previous chapter: <a href="usr_29.html#usr_29.txt">usr_29.txt</a>  Moving through programs
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_30#30.1">30.1</a>  	Compiling
+<a href="/neovim-docs-web/en/usr_30#30.2">30.2</a>  	Indenting C files
+<a href="/neovim-docs-web/en/usr_30#30.3">30.3</a>  	Automatic indenting
+<a href="/neovim-docs-web/en/usr_30#30.4">30.4</a>  	Other indenting
+<a href="/neovim-docs-web/en/usr_30#30.5">30.5</a>  	Tabs and spaces
+<a href="/neovim-docs-web/en/usr_30#30.6">30.6</a>  	Formatting comments</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_31#usr_31.txt">usr_31.txt</a>  Exploiting the GUI
+ Previous chapter: <a href="/neovim-docs-web/en/usr_29#usr_29.txt">usr_29.txt</a>  Moving through programs
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Compiling</h2></div>
 <div class="old-help-para">Vim has a set of so called "quickfix" commands.  They enable you to compile a
 program from within Vim and then go through the errors generated and fix them
@@ -77,7 +77,7 @@ Other commands to move around in the error list:</div>
 	:cc 3		to error nr 3</div>
 <div class="old-help-para"><a name="_using-another-compiler"></a><h3 class="help-heading">USING ANOTHER COMPILER</h3></div>
 <div class="old-help-para">The name of the program to run when the ":make" command is executed is defined
-by the <a href="options.html#'makeprg'">'makeprg'</a> option.  Usually this is set to "make", but Visual C++ users
+by the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> option.  Usually this is set to "make", but Visual C++ users
 should set this to "nmake" by executing the following command:<pre>:set makeprg=nmake</pre>
 You can also include arguments in this option.  Special characters need to
 be escaped with a backslash.  Example:<pre>:set makeprg=nmake\ -f\ project.mak</pre>
@@ -88,7 +88,7 @@ When you are editing main.c, then ":make" executes the following command:<pre>ma
 This is not too useful, so you will refine the command a little and use the :r
 (root) modifier:<pre>:set makeprg=make\ %:r:S.o</pre>
 Now the command executed is as follows:<pre>make main.o</pre>
-More about these modifiers here: <a href="cmdline.html#filename-modifiers">filename-modifiers</a>.</div>
+More about these modifiers here: <a href="/neovim-docs-web/en/cmdline#filename-modifiers">filename-modifiers</a>.</div>
 <div class="old-help-para"><a name="_old-error-lists"></a><h3 class="help-heading">OLD ERROR LISTS</h3></div>
 <div class="old-help-para">Suppose you ":make" a program.  There is a warning message in one file and an
 error message in another.  You fix the error and use ":make" again to check if
@@ -100,21 +100,21 @@ Then use ":clist" and ":cc <code>{nr}</code>" to jump to the place with the warn
 Vim remembers ten error lists.</div>
 <div class="old-help-para"><a name="_switching-compilers"></a><h3 class="help-heading">SWITCHING COMPILERS</h3></div>
 <div class="old-help-para">You have to tell Vim what format the error messages are that your compiler
-produces.  This is done with the <a href="options.html#'errorformat'">'errorformat'</a> option.  The syntax of this
+produces.  This is done with the <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> option.  The syntax of this
 option is quite complicated and it can be made to fit almost any compiler.
-You can find the explanation here: <a href="quickfix.html#errorformat">errorformat</a>.</div>
-<div class="old-help-para">You might be using various different compilers.  Setting the <a href="options.html#'makeprg'">'makeprg'</a> option,
-and especially the <a href="options.html#'errorformat'">'errorformat'</a> each time is not easy.  Vim offers a simple
+You can find the explanation here: <a href="/neovim-docs-web/en/quickfix#errorformat">errorformat</a>.</div>
+<div class="old-help-para">You might be using various different compilers.  Setting the <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> option,
+and especially the <a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> each time is not easy.  Vim offers a simple
 method for this.  For example, to switch to using the Microsoft Visual C++
 compiler:<pre>:compiler msvc</pre>
 This will find the Vim script for the "msvc" compiler and set the appropriate
 options.
-   You can write your own compiler files.  See <a href="usr_41.html#write-compiler-plugin">write-compiler-plugin</a>.</div>
+   You can write your own compiler files.  See <a href="/neovim-docs-web/en/usr_41#write-compiler-plugin">write-compiler-plugin</a>.</div>
 <div class="old-help-para"><a name="_output-redirection"></a><h3 class="help-heading">OUTPUT REDIRECTION</h3></div>
 <div class="old-help-para">The ":make" command redirects the output of the executed program to an error
-file.  How this works depends on various things, such as the <a href="options.html#'shell'">'shell'</a>.  If your
-":make" command doesn't capture the output, check the <a href="options.html#'makeef'">'makeef'</a> and
-<a href="options.html#'shellpipe'">'shellpipe'</a> options.  The <a href="options.html#'shellquote'">'shellquote'</a> and <a href="options.html#'shellxquote'">'shellxquote'</a> options might also
+file.  How this works depends on various things, such as the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a>.  If your
+":make" command doesn't capture the output, check the <a href="/neovim-docs-web/en/options#'makeef'">'makeef'</a> and
+<a href="/neovim-docs-web/en/options#'shellpipe'">'shellpipe'</a> options.  The <a href="/neovim-docs-web/en/options#'shellquote'">'shellquote'</a> and <a href="/neovim-docs-web/en/options#'shellxquote'">'shellxquote'</a> options might also
 matter.</div>
 <div class="old-help-para">In case you can't get ":make" to redirect the file for you, an alternative is
 to compile the program in another window and redirect the output into a file.
@@ -123,9 +123,9 @@ Jumping to errors will work like with the ":make" command.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="30.2"></a><span class="help-tag">30.2</span>  	Indenting C style text</span></h2></div>
 <div class="old-help-para">A program is much easier to understand when the lines have been properly
 indented.  Vim offers various ways to make this less work.  For C or C style
-programs like Java or C++, set the <a href="options.html#'cindent'">'cindent'</a> option.  Vim knows a lot about C
+programs like Java or C++, set the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option.  Vim knows a lot about C
 programs and will try very hard to automatically set the indent for you.  Set
-the <a href="options.html#'shiftwidth'">'shiftwidth'</a> option to the amount of spaces you want for a deeper level.
+the <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> option to the amount of spaces you want for a deeper level.
 Four spaces will work fine.  One ":set" command will do it:<pre>:set cindent shiftwidth=4</pre>
 With this option enabled, when you type something such as "if (x)", the next
 line will automatically be indented an additional level.</div>
@@ -161,17 +161,17 @@ to overrule it.</div>
 <div class="old-help-para">Different people have different styles of indentation.  By default Vim does a
 pretty good job of indenting in a way that 90% of programmers do.  There are
 different styles, however; so if you want to, you can customize the
-indentation style with the <a href="options.html#'cinoptions'">'cinoptions'</a> option.
-   By default <a href="options.html#'cinoptions'">'cinoptions'</a> is empty and Vim uses the default style.  You can
+indentation style with the <a href="/neovim-docs-web/en/options#'cinoptions'">'cinoptions'</a> option.
+   By default <a href="/neovim-docs-web/en/options#'cinoptions'">'cinoptions'</a> is empty and Vim uses the default style.  You can
 add various items where you want something different.  For example, to make
 curly braces be placed like this:</div>
 <div class="old-help-para"><div class="help-column_heading">	if (flag)</div><div class="help-column_heading">	  {</div><div class="help-column_heading">	    i = 8;</div><div class="help-column_heading">	    j = 0;</div><div class="help-column_heading">	  }</div></div>
 <div class="old-help-para">Use this command:<pre>:set cinoptions+={2</pre>
-There are many of these items.  See <a href="indent.html#cinoptions-values">cinoptions-values</a>.</div>
+There are many of these items.  See <a href="/neovim-docs-web/en/indent#cinoptions-values">cinoptions-values</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="30.3"></a><span class="help-tag">30.3</span>  	Automatic indenting</span></h2></div>
-<div class="old-help-para">You don't want to switch on the <a href="options.html#'cindent'">'cindent'</a> option manually every time you edit
+<div class="old-help-para">You don't want to switch on the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option manually every time you edit
 a C file.  This is how you make it work automatically:<pre>:filetype indent on</pre>
-Actually, this does a lot more than switching on <a href="options.html#'cindent'">'cindent'</a> for C files.  First
+Actually, this does a lot more than switching on <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> for C files.  First
 of all, it enables detecting the type of a file.  That's the same as what is
 used for syntax highlighting.
    When the filetype is known, Vim will search for an indent file for this
@@ -196,22 +196,22 @@ looks like this:</div>
 <div class="old-help-para">You use "~/.config/nvim" for <code>{directory}</code>.  Then the resulting file name is:</div>
 <div class="old-help-para"><div class="help-column_heading">	~/.config/nvim/indent/help.vim</div></div>
 <div class="old-help-para">Instead of switching the indenting off, you could write your own indent file.
-How to do that is explained here: <a href="indent.html#indent-expression">indent-expression</a>.</div>
+How to do that is explained here: <a href="/neovim-docs-web/en/indent#indent-expression">indent-expression</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="30.4"></a><span class="help-tag">30.4</span>  	Other indenting</span></h2></div>
-<div class="old-help-para">The simplest form of automatic indenting is with the <a href="options.html#'autoindent'">'autoindent'</a> option.
-It uses the indent from the previous line.  A bit smarter is the <a href="options.html#'smartindent'">'smartindent'</a>
+<div class="old-help-para">The simplest form of automatic indenting is with the <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> option.
+It uses the indent from the previous line.  A bit smarter is the <a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a>
 option.  This is useful for languages where no indent file is available.
-<a href="options.html#'smartindent'">'smartindent'</a> is not as smart as <a href="options.html#'cindent'">'cindent'</a>, but smarter than <a href="options.html#'autoindent'">'autoindent'</a>.
-   With <a href="options.html#'smartindent'">'smartindent'</a> set, an extra level of indentation is added for each {
+<a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a> is not as smart as <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a>, but smarter than <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a>.
+   With <a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a> set, an extra level of indentation is added for each {
 and removed for each }.  An extra level of indentation will also be added for
-any of the words in the <a href="options.html#'cinwords'">'cinwords'</a> option.  Lines that begin with # are
+any of the words in the <a href="/neovim-docs-web/en/options#'cinwords'">'cinwords'</a> option.  Lines that begin with # are
 treated specially: all indentation is removed.  This is done so that
 preprocessor directives will all start in column 1.  The indentation is
 restored for the next line.</div>
 <div class="old-help-para"><a name="_correcting-indents"></a><h3 class="help-heading">CORRECTING INDENTS</h3></div>
-<div class="old-help-para">When you are using <a href="options.html#'autoindent'">'autoindent'</a> or <a href="options.html#'smartindent'">'smartindent'</a> to get the indent of the
+<div class="old-help-para">When you are using <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> or <a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a> to get the indent of the
 previous line, there will be many times when you need to add or remove one
-<a href="options.html#'shiftwidth'">'shiftwidth'</a> worth of indent.  A quick way to do this is using the <code>CTRL-D</code> and
+<a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> worth of indent.  A quick way to do this is using the <code>CTRL-D</code> and
 CTRL-T commands in Insert mode.
    For example, you are typing a shell script that is supposed to look like
 this:</div>
@@ -221,13 +221,13 @@ You start by typing the first line, <code>&lt;Enter&gt;</code> and the start of 
 <div class="old-help-para"><div class="help-column_heading">	if test -n a; then</div><div class="help-column_heading">	echo</div></div>
 <div class="old-help-para">Now you see that you need an extra indent.  Type <code>CTRL-T</code>.  The result:</div>
 <div class="old-help-para"><div class="help-column_heading">	if test -n a; then</div><div class="help-column_heading">	   echo</div></div>
-<div class="old-help-para">The <code>CTRL-T</code> command, in Insert mode, adds one <a href="options.html#'shiftwidth'">'shiftwidth'</a> to the indent, no
+<div class="old-help-para">The <code>CTRL-T</code> command, in Insert mode, adds one <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> to the indent, no
 matter where in the line you are.
    You continue typing the second line, <code>&lt;Enter&gt;</code> and the third line.  This time
 the indent is OK.  Then <code>&lt;Enter&gt;</code> and the last line.  Now you have this:</div>
 <div class="old-help-para"><div class="help-column_heading">	if test -n a; then</div><div class="help-column_heading">	   echo a</div><div class="help-column_heading">	   echo "-------"</div><div class="help-column_heading">	   fi</div></div>
 <div class="old-help-para">To remove the superfluous indent in the last line press <code>CTRL-D</code>.  This deletes
-one <a href="options.html#'shiftwidth'">'shiftwidth'</a> worth of indent, no matter where you are in the line.
+one <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> worth of indent, no matter where you are in the line.
    When you are in Normal mode, you can use the "&gt;&gt;" and "&lt;&lt;" commands to
 shift lines.  "&gt;" and "&lt;" are operators, thus you have the usual three ways to
 specify the lines you want to indent.  A useful combination is:<pre>&gt;i{</pre>
@@ -237,12 +237,12 @@ the cursor is on "printf":</div>
 <div class="old-help-para">	original text		after "&gt;i{"		after "&gt;a{"</div>
 <div class="old-help-para"><div class="help-column_heading">	if (flag)		if (flag)		if (flag)</div><div class="help-column_heading">	{			{			    {</div><div class="help-column_heading">	printf("yes");		    printf("yes");	    printf("yes");</div><div class="help-column_heading">	flag = 0;		    flag = 0;		    flag = 0;</div><div class="help-column_heading">	}			}			    }</div></div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="30.5"></a><span class="help-tag">30.5</span>  	Tabs and spaces</span></h2></div>
-<div class="old-help-para"><a href="options.html#'tabstop'">'tabstop'</a> is set to eight by default.  Although you can change it, you quickly
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> is set to eight by default.  Although you can change it, you quickly
 run into trouble later.  Other programs won't know what tabstop value you
 used.  They probably use the default value of eight, and your text suddenly
 looks very different.  Also, most printers use a fixed tabstop value of eight.
-Thus it's best to keep <a href="options.html#'tabstop'">'tabstop'</a> alone.  (If you edit a file which was written
-with a different tabstop setting, see <a href="usr_25.html#25.3">25.3</a> for how to fix that.)
+Thus it's best to keep <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> alone.  (If you edit a file which was written
+with a different tabstop setting, see <a href="/neovim-docs-web/en/usr_25#25.3">25.3</a> for how to fix that.)
    For indenting lines in a program, using a multiple of eight spaces makes
 you quickly run into the right border of the window.  Using a single space
 doesn't provide enough visual difference.  Many people prefer to use four
@@ -259,9 +259,9 @@ handle this:</div>
 <div class="old-help-para"><a name="_spaces-and-tabs"></a><h3 class="help-heading">SPACES AND TABS</h3></div>
 <div class="old-help-para">If you are using a combination of tabs and spaces, you just edit normally.
 The Vim defaults do a fine job of handling things.
-   You can make life a little easier by setting the <a href="options.html#'softtabstop'">'softtabstop'</a> option.
+   You can make life a little easier by setting the <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a> option.
 This option tells Vim to make the <code>&lt;Tab&gt;</code> key look and feel as if tabs were set
-at the value of <a href="options.html#'softtabstop'">'softtabstop'</a>, but actually use a combination of tabs and
+at the value of <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>, but actually use a combination of tabs and
 spaces.
    After you execute the following command, every time you press the <code>&lt;Tab&gt;</code> key
 the cursor moves to the next 4-column boundary:<pre>:set softtabstop=4</pre>
@@ -270,7 +270,7 @@ in your text.  The second time, Vim takes out the 4 spaces and puts in a <code>&
 (thus taking you to column 8).  Thus Vim uses as many <code>&lt;Tab&gt;</code>s as possible, and
 then fills up with spaces.
    When backspacing it works the other way around.  A <code>&lt;BS&gt;</code> will always delete
-the amount specified with <a href="options.html#'softtabstop'">'softtabstop'</a>.  Then <code>&lt;Tab&gt;</code>s are used as many as
+the amount specified with <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>.  Then <code>&lt;Tab&gt;</code>s are used as many as
 possible and spaces to fill the gap.
    The following shows what happens pressing <code>&lt;Tab&gt;</code> a few times, and then using
 <code>&lt;BS&gt;</code>.  A "." stands for a space and "-------&gt;" for a <code>&lt;Tab&gt;</code>.</div>
@@ -279,12 +279,12 @@ possible and spaces to fill the gap.
 	<code>&lt;Tab&gt;</code><code>&lt;Tab&gt;</code><code>&lt;Tab&gt;</code>		  -------&gt;....
 	<code>&lt;Tab&gt;</code><code>&lt;Tab&gt;</code><code>&lt;Tab&gt;</code><code>&lt;BS&gt;</code>	  -------&gt;
 	<code>&lt;Tab&gt;</code><code>&lt;Tab&gt;</code><code>&lt;Tab&gt;</code><code>&lt;BS&gt;</code><code>&lt;BS&gt;</code>   ....</div>
-<div class="old-help-para">An alternative is to use the <a href="options.html#'smarttab'">'smarttab'</a> option.  When it's set, Vim uses
-<a href="options.html#'shiftwidth'">'shiftwidth'</a> for a <code>&lt;Tab&gt;</code> typed in the indent of a line, and a real <code>&lt;Tab&gt;</code> when
+<div class="old-help-para">An alternative is to use the <a href="/neovim-docs-web/en/options#'smarttab'">'smarttab'</a> option.  When it's set, Vim uses
+<a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> for a <code>&lt;Tab&gt;</code> typed in the indent of a line, and a real <code>&lt;Tab&gt;</code> when
 typed after the first non-blank character.  However, <code>&lt;BS&gt;</code> doesn't work like
-with <a href="options.html#'softtabstop'">'softtabstop'</a>.</div>
+with <a href="/neovim-docs-web/en/options#'softtabstop'">'softtabstop'</a>.</div>
 <div class="old-help-para"><a name="_just-spaces"></a><h3 class="help-heading">JUST SPACES</h3></div>
-<div class="old-help-para">If you want absolutely no tabs in your file, you can set the <a href="options.html#'expandtab'">'expandtab'</a>
+<div class="old-help-para">If you want absolutely no tabs in your file, you can set the <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a>
 option:<pre>:set expandtab</pre>
 When this option is set, the <code>&lt;Tab&gt;</code> key inserts a series of spaces.  Thus you
 get the same amount of white space as if a <code>&lt;Tab&gt;</code> character was inserted, but
@@ -293,7 +293,7 @@ there isn't a real <code>&lt;Tab&gt;</code> character in your file.
 <code>&lt;Tab&gt;</code> you have to press the <code>&lt;BS&gt;</code> key up to eight times to undo it.  If you are
 in the indent, pressing <code>CTRL-D</code> will be a lot quicker.</div>
 <div class="old-help-para"><a name="_changing-tabs-in-spaces-(and-back)"></a><h3 class="help-heading">CHANGING TABS IN SPACES (AND BACK)</h3></div>
-<div class="old-help-para">Setting <a href="options.html#'expandtab'">'expandtab'</a> does not affect any existing tabs.  In other words, any
+<div class="old-help-para">Setting <a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a> does not affect any existing tabs.  In other words, any
 tabs in the document remain tabs.  If you want to convert tabs to spaces, use
 the ":retab" command.  Use these commands:<pre>:set expandtab
 :%retab</pre>
@@ -331,27 +331,27 @@ press "o".  The result looks like this:</div>
 / ~
 </div></div>
 <div class="old-help-para">Vim has automatically inserted a star and a space for you.  Now you can type
-the comment text.  When it gets longer than <a href="options.html#'textwidth'">'textwidth'</a>, Vim will break the
+the comment text.  When it gets longer than <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>, Vim will break the
 line.  Again, the star is inserted automatically:</div>
 <div class="old-help-para"><div class="help-column_heading">	/*</div><div class="help-li" style=""> This is a test of the text formatting. ~
 </div><div class="help-li" style=""> Typing a lot of text here will make Vim ~
 </div><div class="help-li" style=""> break ~
 / ~
 </div></div>
-<div class="old-help-para">For this to work some flags must be present in <a href="options.html#'formatoptions'">'formatoptions'</a>:</div>
+<div class="old-help-para">For this to work some flags must be present in <a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a>:</div>
 <div class="old-help-para">	r	insert the star when typing <code>&lt;Enter&gt;</code> in Insert mode
 	o	insert the star when using "o" or "O" in Normal mode
-	c	break comment text according to <a href="options.html#'textwidth'">'textwidth'</a></div>
-<div class="old-help-para">See <a href="change.html#fo-table">fo-table</a> for more flags.</div>
+	c	break comment text according to <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a></div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/change#fo-table">fo-table</a> for more flags.</div>
 <div class="old-help-para">DEFINING A COMMENT</div>
-<div class="old-help-para">The <a href="options.html#'comments'">'comments'</a> option defines what a comment looks like.  Vim distinguishes
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'comments'">'comments'</a> option defines what a comment looks like.  Vim distinguishes
 between a single-line comment and a comment that has a different start, end
 and middle part.
    Many single-line comments start with a specific character.  In C++ // is
 used, in Makefiles #, in Vim scripts ".  For example, to make Vim understand
 C++ comments:<pre>:set comments=://</pre>
 The colon separates the flags of an item from the text by which the comment is
-recognized.  The general form of an item in <a href="options.html#'comments'">'comments'</a> is:</div>
+recognized.  The general form of an item in <a href="/neovim-docs-web/en/options#'comments'">'comments'</a> is:</div>
 <div class="old-help-para">	<code>{flags}</code>:{text}</div>
 <div class="old-help-para">The <code>{flags}</code> part can be empty, as in this case.
    Several of these items can be concatenated, separated by commas.  This
@@ -363,7 +363,7 @@ that start with "!".  Both use the flag "n".  This means that these comments
 nest.  Thus a line starting with "&gt;" may have another comment after the "&gt;".
 This allows formatting a message like this:</div>
 <div class="old-help-para"><div class="help-column_heading">	&gt; ! Did you see that site?</div><div class="help-column_heading">	&gt; ! It looks really great.</div><div class="help-column_heading">	&gt; I don't like it.  The</div><div class="help-column_heading">	&gt; colors are terrible.</div><div class="help-column_heading">	What is the URL of that</div><div class="help-column_heading">	site?</div></div>
-<div class="old-help-para">Try setting <a href="options.html#'textwidth'">'textwidth'</a> to a different value, e.g., 80, and format the text by
+<div class="old-help-para">Try setting <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> to a different value, e.g., 80, and format the text by
 Visually selecting it and typing "gq".  The result is:</div>
 <div class="old-help-para"><div class="help-column_heading">	&gt; ! Did you see that site?  It looks really great.</div><div class="help-column_heading">	&gt; I don't like it.  The colors are terrible.</div><div class="help-column_heading">	What is the URL of that site?</div></div>
 <div class="old-help-para">You will notice that Vim did not move text from one type of comment to
@@ -372,7 +372,7 @@ line, but since that line starts with "&gt; !" and the second line with "&gt;", 
 knows that this is a different kind of comment.</div>
 <div class="old-help-para">A THREE PART COMMENT</div>
 <div class="old-help-para">A C comment starts with "/*", has "*" in the middle and "*/" at the end.  The
-entry in <a href="options.html#'comments'">'comments'</a> for this looks like this:<pre>:set comments=s1:/*,mb:*,ex:*/</pre>
+entry in <a href="/neovim-docs-web/en/options#'comments'">'comments'</a> for this looks like this:<pre>:set comments=s1:/*,mb:*,ex:*/</pre>
 The start is defined with "s1:/*".  The "s" indicates the start of a
 three-piece comment.  The colon separates the flags from the text by which the
 comment is recognized: "/*".  There is one flag: "1".  This tells Vim that the
@@ -383,9 +383,9 @@ would consider text like "*pointer" also to be the middle of a comment.
    The end part "ex:*/" has the "e" for identification.  The "x" flag has a
 special meaning.  It means that after Vim automatically inserted a star,
 typing / will remove the extra space.</div>
-<div class="old-help-para">For more details see <a href="change.html#format-comments">format-comments</a>.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_31.html#usr_31.txt">usr_31.txt</a>  Exploiting the GUI</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">For more details see <a href="/neovim-docs-web/en/change#format-comments">format-comments</a>.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_31#usr_31.txt">usr_31.txt</a>  Exploiting the GUI</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

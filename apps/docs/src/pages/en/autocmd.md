@@ -13,13 +13,13 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">Automatic commands <a name="autocommand"></a><code class="help-tag">autocommand</code></div>
-<div class="old-help-para">For a basic explanation, see section <a href="usr_40.html#40.3">40.3</a> in the user manual.</div>
+<div class="old-help-para">For a basic explanation, see section <a href="/neovim-docs-web/en/usr_40#40.3">40.3</a> in the user manual.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Introduction<span class="help-heading-tags">						<a name="autocmd-intro"></a><span class="help-tag">autocmd-intro</span></span></h2></div>
 <div class="old-help-para">You can specify commands to be executed automatically when reading or writing
 a file, when entering or leaving a buffer or window, and when exiting Vim.
-For example, you can create an autocommand to set the <a href="options.html#'cindent'">'cindent'</a> option for
+For example, you can create an autocommand to set the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option for
 files matching.c.  You can also use autocommands to implement advanced
-features, such as editing compressed files (see <a href="autocmd.html#gzip-example">gzip-example</a>).  The usual
+features, such as editing compressed files (see <a href="/neovim-docs-web/en/autocmd#gzip-example">gzip-example</a>).  The usual
 place to put autocommands is in your vimrc file.</div>
 <div class="old-help-para">				<a name="E203"></a><code class="help-tag-right">E203</code> <a name="E204"></a><code class="help-tag">E204</code> <a name="E143"></a><code class="help-tag">E143</code> <a name="E855"></a><code class="help-tag">E855</code> <a name="E937"></a><code class="help-tag">E937</code> <a name="E952"></a><code class="help-tag">E952</code>
 WARNING: Using autocommands is very powerful, and may lead to unexpected side
@@ -42,17 +42,17 @@ effects.  Be careful not to destroy your text.
 :au[tocmd] [group] <code>{event}</code> <code>{aupat}</code> [++once] [++nested] <code>{cmd}</code>
 			Add <code>{cmd}</code> to the list of commands that Vim will
 			execute automatically on <code>{event}</code> for a file matching
-			<code>{aupat}</code> <a href="autocmd.html#autocmd-pattern">autocmd-pattern</a>.
+			<code>{aupat}</code> <a href="/neovim-docs-web/en/autocmd#autocmd-pattern">autocmd-pattern</a>.
 			Note: A quote character is seen as argument to the
 			:autocmd and won't start a comment.
 			Nvim always adds <code>{cmd}</code> after existing autocommands so
 			they execute in the order in which they were defined.
-			See <a href="autocmd.html#autocmd-nested">autocmd-nested</a> for [++nested].
+			See <a href="/neovim-docs-web/en/autocmd#autocmd-nested">autocmd-nested</a> for [++nested].
 							<a name="autocmd-once"></a><code class="help-tag-right">autocmd-once</code>
 			If [++once] is supplied the command is executed once,
 			then removed ("one shot").</div>
 <div class="old-help-para">The special pattern <code>&lt;buffer&gt;</code> or &lt;buffer=N&gt; defines a buffer-local autocommand.
-See <a href="autocmd.html#autocmd-buflocal">autocmd-buflocal</a>.</div>
+See <a href="/neovim-docs-web/en/autocmd#autocmd-buflocal">autocmd-buflocal</a>.</div>
 <div class="old-help-para">Note: The ":autocmd" command can only be followed by another command when the
 "|" appears where the pattern is expected.  This works:<pre>:augroup mine | au! BufRead | augroup END</pre>
 But this sees "augroup" as part of the defined command:<pre>:augroup mine | au! BufRead * | augroup END
@@ -85,12 +85,12 @@ When the [group] argument is not given, Vim uses the current group (as defined
 with ":augroup"); otherwise, Vim uses the group defined with [group].  Note
 that [group] must have been defined before.  You cannot define a new group
 with ":au group ..."; use ":augroup" for that.</div>
-<div class="old-help-para">While testing autocommands, you might find the <a href="options.html#'verbose'">'verbose'</a> option to be useful:<pre>:set verbose=9</pre>
+<div class="old-help-para">While testing autocommands, you might find the <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> option to be useful:<pre>:set verbose=9</pre>
 This setting makes Vim echo the autocommands as it executes them.</div>
 <div class="old-help-para">When defining an autocommand in a script, it will be able to call functions
 local to the script and use mappings local to the script.  When the event is
 triggered and the command executed, it will run in the context of the script
-it was defined in.  This matters if <a href="map.html#%3CSID%3E">&lt;SID&gt;</a> is used in a command.</div>
+it was defined in.  This matters if <a href="/neovim-docs-web/en/map#%3CSID%3E">&lt;SID&gt;</a> is used in a command.</div>
 <div class="old-help-para">When executing the commands, the message from one command overwrites a
 previous message.  This is different from when executing the commands
 manually.  Mostly the screen will not scroll up, thus there is no hit-enter
@@ -99,8 +99,8 @@ prompt.  When one command outputs two messages this can happen anyway.</div>
 <div class="old-help-para">:au[tocmd]! [group] <code>{event}</code> <code>{aupat}</code> [++once] [++nested] <code>{cmd}</code>
 			Remove all autocommands associated with <code>{event}</code> and
 			<code>{aupat}</code>, and add the command <code>{cmd}</code>.
-			See <a href="autocmd.html#autocmd-once">autocmd-once</a> for [++once].
-			See <a href="autocmd.html#autocmd-nested">autocmd-nested</a> for [++nested].</div>
+			See <a href="/neovim-docs-web/en/autocmd#autocmd-once">autocmd-once</a> for [++once].
+			See <a href="/neovim-docs-web/en/autocmd#autocmd-nested">autocmd-nested</a> for [++nested].</div>
 <div class="old-help-para">:au[tocmd]! [group] <code>{event}</code> <code>{aupat}</code>
 			Remove all autocommands associated with <code>{event}</code> and
 			<code>{aupat}</code>.</div>
@@ -110,7 +110,7 @@ prompt.  When one command outputs two messages this can happen anyway.</div>
 <div class="old-help-para">:au[tocmd]! [group] <code>{event}</code>
 			Remove ALL autocommands for <code>{event}</code>.
 			Warning: You should not do this without a group for
-			<a href="autocmd.html#BufRead">BufRead</a> and other common events, it can break
+			<a href="/neovim-docs-web/en/autocmd#BufRead">BufRead</a> and other common events, it can break
 			plugins, syntax highlighting, etc.</div>
 <div class="old-help-para">:au[tocmd]! [group]	Remove ALL autocommands.
 			Note: a quote will be seen as argument to the :autocmd
@@ -133,14 +133,14 @@ with ":augroup"); otherwise, Vim uses the group defined with [group].</div>
 [group]; otherwise, Vim lists the autocommands for ALL groups.  Note that this
 argument behavior differs from that for defining and removing autocommands.</div>
 <div class="old-help-para">In order to list buffer-local autocommands, use a pattern in the form <code>&lt;buffer&gt;</code>
-or &lt;buffer=N&gt;.  See <a href="autocmd.html#autocmd-buflocal">autocmd-buflocal</a>.</div>
+or &lt;buffer=N&gt;.  See <a href="/neovim-docs-web/en/autocmd#autocmd-buflocal">autocmd-buflocal</a>.</div>
 <div class="old-help-para">							<a name="%3Aautocmd-verbose"></a><code class="help-tag-right">:autocmd-verbose</code>
-When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing an autocommand will also display where it
+When <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> is non-zero, listing an autocommand will also display where it
 was last defined. Example:<pre>:verbose autocmd BufEnter
 FileExplorer  BufEnter
     *          call s:LocalBrowse(expand("&lt;amatch&gt;"))
         Last set from /usr/share/vim/vim-7.0/plugin/NetrwPlugin.vim</pre></div>
-<div class="old-help-para">See <a href="various.html#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/various#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
 <div class="old-help-para"><h2 class="help-heading">5. Events<span class="help-heading-tags">					<a name="autocmd-events"></a><span class="help-tag">autocmd-events</span> <a name="E215"></a><span class="help-tag">E215</span> <a name="E216"></a><span class="help-tag">E216</span></span></h2></div>
 <div class="old-help-para">You can specify a comma-separated list of event names.  No white space can be
 used in this list.  The command applies to all the events in the list.</div>
@@ -154,10 +154,10 @@ Vim uses only one of these four kinds when reading a file.  The "Pre" and
 <div class="old-help-para">Note that the autocommands for theReadPre events and all the Filter events
 are not allowed to change the current buffer (you will get an error message if
 this happens).  This is to prevent the file to be read into the wrong buffer.</div>
-<div class="old-help-para">Note that the <a href="options.html#'modified'">'modified'</a> flag is reset AFTER executing the BufReadPost
-and BufNewFile autocommands.  But when the <a href="options.html#'modified'">'modified'</a> option was set by the
+<div class="old-help-para">Note that the <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> flag is reset AFTER executing the BufReadPost
+and BufNewFile autocommands.  But when the <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> option was set by the
 autocommands, this doesn't happen.</div>
-<div class="old-help-para">You can use the <a href="options.html#'eventignore'">'eventignore'</a> option to ignore a number of events or all
+<div class="old-help-para">You can use the <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a> option to ignore a number of events or all
 events.</div>
 <div class="old-help-para">							<a name="events"></a><code class="help-tag-right">events</code> <a name="%7Bevent%7D"></a><code class="help-tag">{event}</code>
 Nvim recognizes the following events.  Names are case-insensitive.</div>
@@ -168,7 +168,7 @@ BufAdd				Just after creating a new buffer which is
 				list was renamed.
 				Not triggered for the initial buffers created
 				during startup.
-				Before <a href="autocmd.html#BufEnter">BufEnter</a>.
+				Before <a href="/neovim-docs-web/en/autocmd#BufEnter">BufEnter</a>.
 				NOTE: Current buffer "%" may be different from
 				the buffer being created "&lt;afile&gt;".
 							<a name="BufDelete"></a><code class="help-tag-right">BufDelete</code>
@@ -184,8 +184,8 @@ BufDelete			Before deleting a buffer from the buffer list.
 BufEnter			After entering a buffer.  Useful for setting
 				options for a file type.  Also executed when
 				starting to edit a buffer.
-				After <a href="autocmd.html#BufAdd">BufAdd</a>.
-				After <a href="autocmd.html#BufReadPost">BufReadPost</a>.
+				After <a href="/neovim-docs-web/en/autocmd#BufAdd">BufAdd</a>.
+				After <a href="/neovim-docs-web/en/autocmd#BufReadPost">BufReadPost</a>.
 							<a name="BufFilePost"></a><code class="help-tag-right">BufFilePost</code>
 BufFilePost			After changing the name of the current buffer
 				with the ":file" or ":saveas" command.
@@ -221,7 +221,7 @@ BufNewFile			When starting to edit a file that doesn't
 						<a name="BufRead"></a><code class="help-tag-right">BufRead</code> <a name="BufReadPost"></a><code class="help-tag">BufReadPost</code>
 BufRead or BufReadPost		When starting to edit a new buffer, after
 				reading the file into the buffer, before
-				processing modelines.  See <a href="autocmd.html#BufWinEnter">BufWinEnter</a> to do
+				processing modelines.  See <a href="/neovim-docs-web/en/autocmd#BufWinEnter">BufWinEnter</a> to do
 				something after processing modelines.
 				Also triggered:
 <div class="help-li" style=""> when writing an unnamed buffer in a way that
@@ -234,7 +234,7 @@ BufRead or BufReadPost		When starting to edit a new buffer, after
 </div><div class="help-li" style=""> when the file doesn't exist
 							<a name="BufReadCmd"></a><code class="help-tag-right">BufReadCmd</code>
 BufReadCmd			Before starting to edit a new buffer.  Should
-				read the file into the buffer. <a href="autocmd.html#Cmd-event">Cmd-event</a>
+				read the file into the buffer. <a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a>
 						<a name="BufReadPre"></a><code class="help-tag-right">BufReadPre</code> <a name="E200"></a><code class="help-tag">E200</code> <a name="E201"></a><code class="help-tag">E201</code>
 BufReadPre			When starting to edit a new buffer, before
 				reading the file into the buffer.  Not used
@@ -257,7 +257,7 @@ BufWinEnter			After a buffer is displayed in a window.  This
 				processing modelines) or when a hidden buffer
 				is displayed (and is no longer hidden).
 </div></div>
-<div class="old-help-para">				Not triggered for <a href="windows.html#%3Asplit">:split</a> without arguments,
+<div class="old-help-para">				Not triggered for <a href="/neovim-docs-web/en/windows#%3Asplit">:split</a> without arguments,
 				since the buffer does not change, or :split
 				with a file already open in a window.
 				Triggered for ":split" with the name of the
@@ -286,28 +286,28 @@ BufWrite or BufWritePre		Before writing the whole buffer to a file.
 							<a name="BufWriteCmd"></a><code class="help-tag-right">BufWriteCmd</code>
 BufWriteCmd			Before writing the whole buffer to a file.
 				Should do the writing of the file and reset
-				<a href="options.html#'modified'">'modified'</a> if successful, unless '+' is in
-				<a href="options.html#'cpo'">'cpo'</a> and writing to another file <a href="options.html#cpo-%2B">cpo-+</a>.
+				<a href="/neovim-docs-web/en/options#'modified'">'modified'</a> if successful, unless '+' is in
+				<a href="/neovim-docs-web/en/options#'cpo'">'cpo'</a> and writing to another file <a href="/neovim-docs-web/en/options#cpo-%2B">cpo-+</a>.
 				The buffer contents should not be changed.
-				When the command resets <a href="options.html#'modified'">'modified'</a> the undo
+				When the command resets <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> the undo
 				information is adjusted to mark older undo
-				states as <a href="options.html#'modified'">'modified'</a>, like <a href="editing.html#%3Awrite">:write</a> does.
-				<a href="autocmd.html#Cmd-event">Cmd-event</a>
+				states as <a href="/neovim-docs-web/en/options#'modified'">'modified'</a>, like <a href="/neovim-docs-web/en/editing#%3Awrite">:write</a> does.
+				<a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a>
 							<a name="BufWritePost"></a><code class="help-tag-right">BufWritePost</code>
 BufWritePost			After writing the whole buffer to a file
 				(should undo the commands for BufWritePre).
 							<a name="ChanInfo"></a><code class="help-tag-right">ChanInfo</code>
 ChanInfo			State of channel changed, for instance the
 				client of a RPC channel described itself.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    info
-				See <a href="api.html#nvim_get_chan_info()">nvim_get_chan_info()</a> for the format of
+				See <a href="/neovim-docs-web/en/api#nvim_get_chan_info()">nvim_get_chan_info()</a> for the format of
 				the info Dictionary.
 							<a name="ChanOpen"></a><code class="help-tag-right">ChanOpen</code>
 ChanOpen			Just after a channel was opened.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    info
-				See <a href="api.html#nvim_get_chan_info()">nvim_get_chan_info()</a> for the format of
+				See <a href="/neovim-docs-web/en/api#nvim_get_chan_info()">nvim_get_chan_info()</a> for the format of
 				the info Dictionary.
 							<a name="CmdUndefined"></a><code class="help-tag-right">CmdUndefined</code>
 CmdUndefined			When a user command is used but it isn't
@@ -318,26 +318,26 @@ CmdUndefined			When a user command is used but it isn't
 				NOTE: Autocompletion won't work until the
 				command is defined.  An alternative is to
 				always define the user command and have it
-				invoke an autoloaded function.  See <a href="userfunc.html#autoload">autoload</a>.
+				invoke an autoloaded function.  See <a href="/neovim-docs-web/en/userfunc#autoload">autoload</a>.
 							<a name="CmdlineChanged"></a><code class="help-tag-right">CmdlineChanged</code>
 CmdlineChanged			After a change was made to the text inside
 				command line.  Be careful not to mess up the
 				command line, it may cause Vim to lock up.
-				<code>&lt;afile&gt;</code> expands to the <a href="cmdline.html#cmdline-char">cmdline-char</a>.
+				<code>&lt;afile&gt;</code> expands to the <a href="/neovim-docs-web/en/cmdline#cmdline-char">cmdline-char</a>.
 							<a name="CmdlineEnter"></a><code class="help-tag-right">CmdlineEnter</code>
 CmdlineEnter			After entering the command-line (including
 				non-interactive use of ":" in a mapping: use
-				<a href="map.html#%3CCmd%3E">&lt;Cmd&gt;</a> instead to avoid this).
-				<code>&lt;afile&gt;</code> expands to the <a href="cmdline.html#cmdline-char">cmdline-char</a>.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+				<a href="/neovim-docs-web/en/map#%3CCmd%3E">&lt;Cmd&gt;</a> instead to avoid this).
+				<code>&lt;afile&gt;</code> expands to the <a href="/neovim-docs-web/en/cmdline#cmdline-char">cmdline-char</a>.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    cmdlevel
 				    cmdtype
 							<a name="CmdlineLeave"></a><code class="help-tag-right">CmdlineLeave</code>
 CmdlineLeave			Before leaving the command-line (including
 				non-interactive use of ":" in a mapping: use
-				<a href="map.html#%3CCmd%3E">&lt;Cmd&gt;</a> instead to avoid this).
-				<code>&lt;afile&gt;</code> expands to the <a href="cmdline.html#cmdline-char">cmdline-char</a>.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+				<a href="/neovim-docs-web/en/map#%3CCmd%3E">&lt;Cmd&gt;</a> instead to avoid this).
+				<code>&lt;afile&gt;</code> expands to the <a href="/neovim-docs-web/en/cmdline#cmdline-char">cmdline-char</a>.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    abort (mutable)
 				    cmdlevel
 				    cmdtype
@@ -350,16 +350,16 @@ CmdwinEnter			After entering the command-line window.
 				this special type of window.
 				<code>&lt;afile&gt;</code> expands to a single character,
 				indicating the type of command-line.
-				<a href="cmdline.html#cmdwin-char">cmdwin-char</a>
+				<a href="/neovim-docs-web/en/cmdline#cmdwin-char">cmdwin-char</a>
 							<a name="CmdwinLeave"></a><code class="help-tag-right">CmdwinLeave</code>
 CmdwinLeave			Before leaving the command-line window.
 				Useful to clean up any global setting done
 				with CmdwinEnter.
 				<code>&lt;afile&gt;</code> expands to a single character,
 				indicating the type of command-line.
-				<a href="cmdline.html#cmdwin-char">cmdwin-char</a>
+				<a href="/neovim-docs-web/en/cmdline#cmdwin-char">cmdwin-char</a>
 							<a name="ColorScheme"></a><code class="help-tag-right">ColorScheme</code>
-ColorScheme			After loading a color scheme. <a href="syntax.html#%3Acolorscheme">:colorscheme</a>
+ColorScheme			After loading a color scheme. <a href="/neovim-docs-web/en/syntax#%3Acolorscheme">:colorscheme</a>
 				Not triggered if the color scheme is not
 				found.
 				The pattern is matched against the
@@ -368,16 +368,16 @@ ColorScheme			After loading a color scheme. <a href="syntax.html#%3Acolorscheme"
 				set, and <code>&lt;amatch&gt;</code> for the new colorscheme
 				name.</div>
 <div class="old-help-para">							<a name="ColorSchemePre"></a><code class="help-tag-right">ColorSchemePre</code>
-ColorSchemePre			Before loading a color scheme. <a href="syntax.html#%3Acolorscheme">:colorscheme</a>
+ColorSchemePre			Before loading a color scheme. <a href="/neovim-docs-web/en/syntax#%3Acolorscheme">:colorscheme</a>
 				Useful to setup removing things added by a
 				color scheme, before another one is loaded.</div>
 <div class="old-help-para">CompleteChanged 					<a name="CompleteChanged"></a><code class="help-tag-right">CompleteChanged</code>
 				After each time the Insert mode completion
 				menu changed.  Not fired on popup menu hide,
-				use <a href="autocmd.html#CompleteDonePre">CompleteDonePre</a> or <a href="autocmd.html#CompleteDone">CompleteDone</a> for
+				use <a href="/neovim-docs-web/en/autocmd#CompleteDonePre">CompleteDonePre</a> or <a href="/neovim-docs-web/en/autocmd#CompleteDone">CompleteDone</a> for
 				that.</div>
-<div class="old-help-para">				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
-				    completed_item	See <a href="insert.html#complete-items">complete-items</a>.
+<div class="old-help-para">				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
+				    completed_item	See <a href="/neovim-docs-web/en/insert#complete-items">complete-items</a>.
 				    height		nr of items visible
 				    width		screen cells
 				    row			top screen row
@@ -385,42 +385,42 @@ ColorSchemePre			Before loading a color scheme. <a href="syntax.html#%3Acolorsch
 				    size		total nr of items
 				    scrollbar		TRUE if visible</div>
 <div class="old-help-para">				Non-recursive (event cannot trigger itself).
-				Cannot change the text. <a href="eval.html#textlock">textlock</a></div>
+				Cannot change the text. <a href="/neovim-docs-web/en/eval#textlock">textlock</a></div>
 <div class="old-help-para">				The size and position of the popup are also
-				available by calling <a href="builtin.html#pum_getpos()">pum_getpos()</a>.</div>
+				available by calling <a href="/neovim-docs-web/en/builtin#pum_getpos()">pum_getpos()</a>.</div>
 <div class="old-help-para">							<a name="CompleteDonePre"></a><code class="help-tag-right">CompleteDonePre</code>
 CompleteDonePre			After Insert mode completion is done.  Either
 				when something was completed or abandoning
-				completion. <a href="insert.html#ins-completion">ins-completion</a>
-				<a href="builtin.html#complete_info()">complete_info()</a> can be used, the info is
+				completion. <a href="/neovim-docs-web/en/insert#ins-completion">ins-completion</a>
+				<a href="/neovim-docs-web/en/builtin#complete_info()">complete_info()</a> can be used, the info is
 				cleared after triggering CompleteDonePre.
-				The <a href="eval.html#v%3Acompleted_item">v:completed_item</a> variable contains
+				The <a href="/neovim-docs-web/en/eval#v%3Acompleted_item">v:completed_item</a> variable contains
 				information about the completed item.</div>
 <div class="old-help-para">							<a name="CompleteDone"></a><code class="help-tag-right">CompleteDone</code>
 CompleteDone			After Insert mode completion is done.  Either
 				when something was completed or abandoning
-				completion. <a href="insert.html#ins-completion">ins-completion</a>
-				<a href="builtin.html#complete_info()">complete_info()</a> cannot be used, the info is
+				completion. <a href="/neovim-docs-web/en/insert#ins-completion">ins-completion</a>
+				<a href="/neovim-docs-web/en/builtin#complete_info()">complete_info()</a> cannot be used, the info is
 				cleared before triggering CompleteDone.  Use
 				CompleteDonePre if you need it.
-				<a href="eval.html#v%3Acompleted_item">v:completed_item</a> gives the completed item.</div>
+				<a href="/neovim-docs-web/en/eval#v%3Acompleted_item">v:completed_item</a> gives the completed item.</div>
 <div class="old-help-para">							<a name="CursorHold"></a><code class="help-tag-right">CursorHold</code>
 CursorHold			When the user doesn't press a key for the time
-				specified with <a href="options.html#'updatetime'">'updatetime'</a>.  Not triggered
+				specified with <a href="/neovim-docs-web/en/options#'updatetime'">'updatetime'</a>.  Not triggered
 				until the user has pressed a key (i.e. doesn't
-				fire every <a href="options.html#'updatetime'">'updatetime'</a> ms if you leave Vim to
-				make some coffee. :)  See <a href="windows.html#CursorHold-example">CursorHold-example</a>
+				fire every <a href="/neovim-docs-web/en/options#'updatetime'">'updatetime'</a> ms if you leave Vim to
+				make some coffee. :)  See <a href="/neovim-docs-web/en/windows#CursorHold-example">CursorHold-example</a>
 				for previewing tags.
 				This event is only triggered in Normal mode.
 				It is not triggered when waiting for a command
 				argument to be typed, or a movement after an
 				operator.
 				While recording the CursorHold event is not
-				triggered. <a href="repeat.html#q">q</a>
+				triggered. <a href="/neovim-docs-web/en/repeat#q">q</a>
 							<a name="%3CCursorHold%3E"></a><code class="help-tag-right">&lt;CursorHold&gt;</code>
 				Internally the autocommand is triggered by the
 				<code>&lt;CursorHold&gt;</code> key. In an expression mapping
-				<a href="builtin.html#getchar()">getchar()</a> may see this character.</div>
+				<a href="/neovim-docs-web/en/builtin#getchar()">getchar()</a> may see this character.</div>
 <div class="old-help-para">				Note: Interactive commands cannot be used for
 				this event.  There is no hit-enter prompt,
 				the screen is updated directly (when needed).
@@ -432,7 +432,7 @@ CursorHold			When the user doesn't press a key for the time
 CursorHoldI			Like CursorHold, but in Insert mode. Not
 				triggered when waiting for another key, e.g.
 				after <code>CTRL-V</code>, and not in <code>CTRL-X</code> mode
-				<a href="insert.html#insert_expand">insert_expand</a>.</div>
+				<a href="/neovim-docs-web/en/insert#insert_expand">insert_expand</a>.</div>
 <div class="old-help-para">							<a name="CursorMoved"></a><code class="help-tag-right">CursorMoved</code>
 CursorMoved			After the cursor was moved in Normal or Visual
 				mode or to another window.  Also when the text
@@ -442,8 +442,8 @@ CursorMoved			After the cursor was moved in Normal or Visual
 				while executing commands in a script file, or
 				when an operator is pending. Always triggered
 				when moving to another window.
-				For an example see <a href="tips.html#match-parens">match-parens</a>.
-				Note: Cannot be skipped with <a href="autocmd.html#%3Anoautocmd">:noautocmd</a>.
+				For an example see <a href="/neovim-docs-web/en/tips#match-parens">match-parens</a>.
+				Note: Cannot be skipped with <a href="/neovim-docs-web/en/autocmd#%3Anoautocmd">:noautocmd</a>.
 				Careful: This is triggered very often, don't
 				do anything that the user does not expect or
 				that is slow.
@@ -455,15 +455,15 @@ CursorMovedI			After the cursor was moved in Insert mode.
 DiffUpdated			After diffs have been updated.  Depending on
 				what kind of diff is being used (internal or
 				external) this can be triggered on every
-				change or when doing <a href="diff.html#%3Adiffupdate">:diffupdate</a>.
+				change or when doing <a href="/neovim-docs-web/en/diff#%3Adiffupdate">:diffupdate</a>.
 							<a name="DirChanged"></a><code class="help-tag-right">DirChanged</code>
-DirChanged			After the <a href="editing.html#current-directory">current-directory</a> was changed.
+DirChanged			After the <a href="/neovim-docs-web/en/editing#current-directory">current-directory</a> was changed.
 				The pattern can be:
 					"window"  to trigger on <code>:lcd</code>
 					"tabpage" to trigger on <code>:tcd</code>
 					"global"  to trigger on <code>:cd</code>
-					"auto"    to trigger on <a href="options.html#'autochdir'">'autochdir'</a>.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+					"auto"    to trigger on <a href="/neovim-docs-web/en/options#'autochdir'">'autochdir'</a>.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    cwd:            current working directory
 				    scope:          "global", "tabpage", "window"
 				    changed_window: v:true if we fired the event
@@ -471,10 +471,10 @@ DirChanged			After the <a href="editing.html#current-directory">current-director
 				<code>&lt;afile&gt;</code> is set to the new directory name.
 				Non-recursive (event cannot trigger itself).
 							<a name="DirChangedPre"></a><code class="help-tag-right">DirChangedPre</code>
-DirChangedPre			When the <a href="editing.html#current-directory">current-directory</a> is going to be
-				changed, as with <a href="autocmd.html#DirChanged">DirChanged</a>.
-				The pattern is like with <a href="autocmd.html#DirChanged">DirChanged</a>.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+DirChangedPre			When the <a href="/neovim-docs-web/en/editing#current-directory">current-directory</a> is going to be
+				changed, as with <a href="/neovim-docs-web/en/autocmd#DirChanged">DirChanged</a>.
+				The pattern is like with <a href="/neovim-docs-web/en/autocmd#DirChanged">DirChanged</a>.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    directory:      new working directory
 				    scope:          "global", "tabpage", "window"
 				    changed_window: v:true if we fired the event
@@ -484,16 +484,16 @@ DirChangedPre			When the <a href="editing.html#current-directory">current-direct
 							<a name="ExitPre"></a><code class="help-tag-right">ExitPre</code>
 ExitPre				When using <code>:quit</code>, <code>:wq</code> in a way it makes
 				Vim exit, or using <code>:qall</code>, just after
-				<a href="autocmd.html#QuitPre">QuitPre</a>.  Can be used to close any
+				<a href="/neovim-docs-web/en/autocmd#QuitPre">QuitPre</a>.  Can be used to close any
 				non-essential window.  Exiting may still be
 				cancelled if there is a modified buffer that
-				isn't automatically saved, use <a href="autocmd.html#VimLeavePre">VimLeavePre</a>
+				isn't automatically saved, use <a href="/neovim-docs-web/en/autocmd#VimLeavePre">VimLeavePre</a>
 				for really exiting.
-				See also <a href="autocmd.html#QuitPre">QuitPre</a>, <a href="autocmd.html#WinClosed">WinClosed</a>.
+				See also <a href="/neovim-docs-web/en/autocmd#QuitPre">QuitPre</a>, <a href="/neovim-docs-web/en/autocmd#WinClosed">WinClosed</a>.
 							<a name="FileAppendCmd"></a><code class="help-tag-right">FileAppendCmd</code>
 FileAppendCmd			Before appending to a file.  Should do the
 				appending to the file.  Use the '[ and ']
-				marks for the range of lines. <a href="autocmd.html#Cmd-event">Cmd-event</a>
+				marks for the range of lines. <a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a>
 							<a name="FileAppendPost"></a><code class="help-tag-right">FileAppendPost</code>
 FileAppendPost			After appending to a file.
 							<a name="FileAppendPre"></a><code class="help-tag-right">FileAppendPre</code>
@@ -505,7 +505,7 @@ FileChangedRO			Before making the first change to a read-only
 				a source control system.  Not triggered when
 				the change was caused by an autocommand.
 				Triggered when making the first change in
-				a buffer or the first change after <a href="options.html#'readonly'">'readonly'</a>
+				a buffer or the first change after <a href="/neovim-docs-web/en/options#'readonly'">'readonly'</a>
 				was set, just before the change is applied to
 				the text.
 				WARNING: If the autocommand moves the cursor
@@ -521,18 +521,18 @@ FileChangedShell		When Vim notices that the modification time of
 				a file has changed since editing started.
 				Also when the file attributes of the file
 				change or when the size of the file changes.
-				<a href="editing.html#timestamp">timestamp</a>
+				<a href="/neovim-docs-web/en/editing#timestamp">timestamp</a>
 				Triggered for each changed file, after:
 <div class="help-li" style=""> executing a shell command
-</div><div class="help-li" style=""> <a href="editing.html#%3Achecktime">:checktime</a>
-</div><div class="help-li" style=""> <a href="autocmd.html#FocusGained">FocusGained</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/editing#%3Achecktime">:checktime</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/autocmd#FocusGained">FocusGained</a>
 </div></div>
-<div class="old-help-para">				Not used when <a href="options.html#'autoread'">'autoread'</a> is set and the buffer
+<div class="old-help-para">				Not used when <a href="/neovim-docs-web/en/options#'autoread'">'autoread'</a> is set and the buffer
 				was not changed.  If a FileChangedShell
 				autocommand exists the warning message and
 				prompt is not given.
-				<a href="eval.html#v%3Afcs_reason">v:fcs_reason</a> indicates what happened. Set
-				<a href="eval.html#v%3Afcs_choice">v:fcs_choice</a> to control what happens next.
+				<a href="/neovim-docs-web/en/eval#v%3Afcs_reason">v:fcs_reason</a> indicates what happened. Set
+				<a href="/neovim-docs-web/en/eval#v%3Afcs_choice">v:fcs_choice</a> to control what happens next.
 				NOTE: Current buffer "%" may be different from
 				the buffer that was changed "&lt;afile&gt;".
 							<a name="E246"></a><code class="help-tag-right">E246</code> <a name="E811"></a><code class="help-tag">E811</code>
@@ -543,7 +543,7 @@ FileChangedShellPost		After handling a file that was changed outside
 				of Vim.  Can be used to update the statusline.
 							<a name="FileReadCmd"></a><code class="help-tag-right">FileReadCmd</code>
 FileReadCmd			Before reading a file with a ":read" command.
-				Should do the reading of the file. <a href="autocmd.html#Cmd-event">Cmd-event</a>
+				Should do the reading of the file. <a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a>
 							<a name="FileReadPost"></a><code class="help-tag-right">FileReadPost</code>
 FileReadPost			After reading a file with a ":read" command.
 				Note that Vim sets the '[ and '] marks to the
@@ -552,19 +552,19 @@ FileReadPost			After reading a file with a ":read" command.
 							<a name="FileReadPre"></a><code class="help-tag-right">FileReadPre</code>
 FileReadPre			Before reading a file with a ":read" command.
 							<a name="FileType"></a><code class="help-tag-right">FileType</code>
-FileType			When the <a href="options.html#'filetype'">'filetype'</a> option has been set.  The
+FileType			When the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> option has been set.  The
 				pattern is matched against the filetype.
 				<code>&lt;afile&gt;</code> is the name of the file where this
 				option was set.  <code>&lt;amatch&gt;</code> is the new value of
-				<a href="options.html#'filetype'">'filetype'</a>.
+				<a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>.
 				Cannot switch windows or buffers.
-				See <a href="filetype.html#filetypes">filetypes</a>.
+				See <a href="/neovim-docs-web/en/filetype#filetypes">filetypes</a>.
 							<a name="FileWriteCmd"></a><code class="help-tag-right">FileWriteCmd</code>
 FileWriteCmd			Before writing to a file, when not writing the
 				whole buffer.  Should do the writing to the
 				file.  Should not change the buffer.  Use the
 				'[ and '] marks for the range of lines.
-				<a href="autocmd.html#Cmd-event">Cmd-event</a>
+				<a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a>
 							<a name="FileWritePost"></a><code class="help-tag-right">FileWritePost</code>
 FileWritePost			After writing to a file, when not writing the
 				whole buffer.
@@ -576,21 +576,21 @@ FileWritePre			Before writing to a file, when not writing the
 FilterReadPost			After reading a file from a filter command.
 				Vim checks the pattern against the name of
 				the current buffer as with FilterReadPre.
-				Not triggered when <a href="options.html#'shelltemp'">'shelltemp'</a> is off.
+				Not triggered when <a href="/neovim-docs-web/en/options#'shelltemp'">'shelltemp'</a> is off.
 							<a name="FilterReadPre"></a><code class="help-tag-right">FilterReadPre</code> <a name="E135"></a><code class="help-tag">E135</code>
 FilterReadPre			Before reading a file from a filter command.
 				Vim checks the pattern against the name of
 				the current buffer, not the name of the
 				temporary file that is the output of the
 				filter command.
-				Not triggered when <a href="options.html#'shelltemp'">'shelltemp'</a> is off.
+				Not triggered when <a href="/neovim-docs-web/en/options#'shelltemp'">'shelltemp'</a> is off.
 							<a name="FilterWritePost"></a><code class="help-tag-right">FilterWritePost</code>
 FilterWritePost			After writing a file for a filter command or
 				making a diff with an external diff (see
-				<a href="autocmd.html#DiffUpdated">DiffUpdated</a> for internal diff).
+				<a href="/neovim-docs-web/en/autocmd#DiffUpdated">DiffUpdated</a> for internal diff).
 				Vim checks the pattern against the name of
 				the current buffer as with FilterWritePre.
-				Not triggered when <a href="options.html#'shelltemp'">'shelltemp'</a> is off.
+				Not triggered when <a href="/neovim-docs-web/en/options#'shelltemp'">'shelltemp'</a> is off.
 							<a name="FilterWritePre"></a><code class="help-tag-right">FilterWritePre</code>
 FilterWritePre			Before writing a file for a filter command or
 				making a diff with an external diff.
@@ -598,7 +598,7 @@ FilterWritePre			Before writing a file for a filter command or
 				the current buffer, not the name of the
 				temporary file that is the output of the
 				filter command.
-				Not triggered when <a href="options.html#'shelltemp'">'shelltemp'</a> is off.
+				Not triggered when <a href="/neovim-docs-web/en/options#'shelltemp'">'shelltemp'</a> is off.
 							<a name="FocusGained"></a><code class="help-tag-right">FocusGained</code>
 FocusGained			Nvim got focus.
 							<a name="FocusLost"></a><code class="help-tag-right">FocusLost</code>
@@ -612,54 +612,54 @@ FuncUndefined			When a user function is used but it isn't
 				<code>&lt;afile&gt;</code> are set to the name of the function.
 				NOTE: When writing Vim scripts a better
 				alternative is to use an autoloaded function.
-				See <a href="userfunc.html#autoload-functions">autoload-functions</a>.
+				See <a href="/neovim-docs-web/en/userfunc#autoload-functions">autoload-functions</a>.
 							<a name="UIEnter"></a><code class="help-tag-right">UIEnter</code>
-UIEnter				After a UI connects via <a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a>, or
-				after builtin TUI is started, after <a href="autocmd.html#VimEnter">VimEnter</a>.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+UIEnter				After a UI connects via <a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a>, or
+				after builtin TUI is started, after <a href="/neovim-docs-web/en/autocmd#VimEnter">VimEnter</a>.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    chan: 0 for builtin TUI
-				          1 for <a href="starting.html#--embed">--embed</a>
-				          <a href="channel.html#channel-id">channel-id</a> of the UI otherwise
+				          1 for <a href="/neovim-docs-web/en/starting#--embed">--embed</a>
+				          <a href="/neovim-docs-web/en/channel#channel-id">channel-id</a> of the UI otherwise
 							<a name="UILeave"></a><code class="help-tag-right">UILeave</code>
 UILeave				After a UI disconnects from Nvim, or after
-				builtin TUI is stopped, after <a href="autocmd.html#VimLeave">VimLeave</a>.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+				builtin TUI is stopped, after <a href="/neovim-docs-web/en/autocmd#VimLeave">VimLeave</a>.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    chan: 0 for builtin TUI
-				          1 for <a href="starting.html#--embed">--embed</a>
-				          <a href="channel.html#channel-id">channel-id</a> of the UI otherwise
+				          1 for <a href="/neovim-docs-web/en/starting#--embed">--embed</a>
+				          <a href="/neovim-docs-web/en/channel#channel-id">channel-id</a> of the UI otherwise
 							<a name="InsertChange"></a><code class="help-tag-right">InsertChange</code>
 InsertChange			When typing <code>&lt;Insert&gt;</code> while in Insert or
-				Replace mode.  The <a href="eval.html#v%3Ainsertmode">v:insertmode</a> variable
+				Replace mode.  The <a href="/neovim-docs-web/en/eval#v%3Ainsertmode">v:insertmode</a> variable
 				indicates the new mode.
 				Be careful not to move the cursor or do
 				anything else that the user does not expect.
 							<a name="InsertCharPre"></a><code class="help-tag-right">InsertCharPre</code>
 InsertCharPre			When a character is typed in Insert mode,
 				before inserting the char.
-				The <a href="eval.html#v%3Achar">v:char</a> variable indicates the char typed
+				The <a href="/neovim-docs-web/en/eval#v%3Achar">v:char</a> variable indicates the char typed
 				and can be changed during the event to insert
-				a different character.  When <a href="eval.html#v%3Achar">v:char</a> is set
+				a different character.  When <a href="/neovim-docs-web/en/eval#v%3Achar">v:char</a> is set
 				to more than one character this text is
 				inserted literally.</div>
-<div class="old-help-para">				Cannot change the text. <a href="eval.html#textlock">textlock</a>
-				Not triggered when <a href="options.html#'paste'">'paste'</a> is set.
+<div class="old-help-para">				Cannot change the text. <a href="/neovim-docs-web/en/eval#textlock">textlock</a>
+				Not triggered when <a href="/neovim-docs-web/en/options#'paste'">'paste'</a> is set.
 							<a name="InsertEnter"></a><code class="help-tag-right">InsertEnter</code>
 InsertEnter			Just before starting Insert mode.  Also for
 				Replace mode and Virtual Replace mode.  The
-				<a href="eval.html#v%3Ainsertmode">v:insertmode</a> variable indicates the mode.
+				<a href="/neovim-docs-web/en/eval#v%3Ainsertmode">v:insertmode</a> variable indicates the mode.
 				Be careful not to do anything else that the
 				user does not expect.
 				The cursor is restored afterwards.  If you do
-				not want that set <a href="eval.html#v%3Achar">v:char</a> to a non-empty
+				not want that set <a href="/neovim-docs-web/en/eval#v%3Achar">v:char</a> to a non-empty
 				string.
 							<a name="InsertLeavePre"></a><code class="help-tag-right">InsertLeavePre</code>
 InsertLeavePre			Just before leaving Insert mode.  Also when
-				using <code>CTRL-O</code> <a href="insert.html#i_CTRL-O">i_CTRL-O</a>.  Be careful not to
+				using <code>CTRL-O</code> <a href="/neovim-docs-web/en/insert#i_CTRL-O">i_CTRL-O</a>.  Be careful not to
 				change mode or use <code>:normal</code>, it will likely
 				cause trouble.
 							<a name="InsertLeave"></a><code class="help-tag-right">InsertLeave</code>
 InsertLeave			Just after leaving Insert mode.  Also when
-				using <code>CTRL-O</code> <a href="insert.html#i_CTRL-O">i_CTRL-O</a>.  But not for <a href="insert.html#i_CTRL-C">i_CTRL-C</a>.
+				using <code>CTRL-O</code> <a href="/neovim-docs-web/en/insert#i_CTRL-O">i_CTRL-O</a>.  But not for <a href="/neovim-docs-web/en/insert#i_CTRL-C">i_CTRL-C</a>.
 							<a name="MenuPopup"></a><code class="help-tag-right">MenuPopup</code>
 MenuPopup			Just before showing the popup menu (under the
 				right mouse button).  Useful for adjusting the
@@ -677,11 +677,11 @@ MenuPopup			Just before showing the popup menu (under the
 ModeChanged			After changing the mode. The pattern is
 				matched against <code>'old_mode:new_mode'</code>, for
 				example match against <code>*:c</code> to simulate
-				<a href="autocmd.html#CmdlineEnter">CmdlineEnter</a>.
-				The following values of <a href="eval.html#v%3Aevent">v:event</a> are set:
+				<a href="/neovim-docs-web/en/autocmd#CmdlineEnter">CmdlineEnter</a>.
+				The following values of <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> are set:
 					old_mode The mode before it changed.
 					new_mode The new mode as also returned
-						by <a href="builtin.html#mode()">mode()</a> called with a
+						by <a href="/neovim-docs-web/en/builtin#mode()">mode()</a> called with a
 						non-zero argument.
 				When ModeChanged is triggered, old_mode will
 				have the value of new_mode when the event was
@@ -694,64 +694,64 @@ ModeChanged			After changing the mode. The pattern is
 :au WinEnter,WinLeave * let &amp;l:rnu = mode() =~# '^[vV\x16]'</pre></div>
 <div class="old-help-para">							<a name="OptionSet"></a><code class="help-tag-right">OptionSet</code>
 OptionSet			After setting an option (except during
-				<a href="starting.html#startup">startup</a>).  The <a href="autocmd.html#autocmd-pattern">autocmd-pattern</a> is matched
-				against the long option name.  <a href="cmdline.html#%3Camatch%3E">&lt;amatch&gt;</a>
+				<a href="/neovim-docs-web/en/starting#startup">startup</a>).  The <a href="/neovim-docs-web/en/autocmd#autocmd-pattern">autocmd-pattern</a> is matched
+				against the long option name.  <a href="/neovim-docs-web/en/cmdline#%3Camatch%3E">&lt;amatch&gt;</a>
 				indicates what option has been set.</div>
-<div class="old-help-para">				<a href="eval.html#v%3Aoption_type">v:option_type</a> indicates whether it's global
+<div class="old-help-para">				<a href="/neovim-docs-web/en/eval#v%3Aoption_type">v:option_type</a> indicates whether it's global
 				or local scoped.
-				<a href="eval.html#v%3Aoption_command">v:option_command</a> indicates what type of
+				<a href="/neovim-docs-web/en/eval#v%3Aoption_command">v:option_command</a> indicates what type of
 				set/let command was used (follow the tag to
 				see the table).
-				<a href="eval.html#v%3Aoption_new">v:option_new</a> indicates the newly set value.
-				<a href="eval.html#v%3Aoption_oldlocal">v:option_oldlocal</a> has the old local value.
-				<a href="eval.html#v%3Aoption_oldglobal">v:option_oldglobal</a> has the old global value.
-				<a href="eval.html#v%3Aoption_old">v:option_old</a> indicates the old option value.</div>
-<div class="old-help-para">				<a href="eval.html#v%3Aoption_oldlocal">v:option_oldlocal</a> is only set when <a href="options.html#%3Aset">:set</a>
-				or <a href="options.html#%3Asetlocal">:setlocal</a> or a <a href="options.html#modeline">modeline</a> was used to set
-				the option. Similarly <a href="eval.html#v%3Aoption_oldglobal">v:option_oldglobal</a> is
-				only set when <a href="options.html#%3Aset">:set</a> or <a href="options.html#%3Asetglobal">:setglobal</a> was used.</div>
-<div class="old-help-para">				Note that when setting a <a href="options.html#global-local">global-local</a> string
-				option with <a href="options.html#%3Aset">:set</a>, then <a href="eval.html#v%3Aoption_old">v:option_old</a> is the
+				<a href="/neovim-docs-web/en/eval#v%3Aoption_new">v:option_new</a> indicates the newly set value.
+				<a href="/neovim-docs-web/en/eval#v%3Aoption_oldlocal">v:option_oldlocal</a> has the old local value.
+				<a href="/neovim-docs-web/en/eval#v%3Aoption_oldglobal">v:option_oldglobal</a> has the old global value.
+				<a href="/neovim-docs-web/en/eval#v%3Aoption_old">v:option_old</a> indicates the old option value.</div>
+<div class="old-help-para">				<a href="/neovim-docs-web/en/eval#v%3Aoption_oldlocal">v:option_oldlocal</a> is only set when <a href="/neovim-docs-web/en/options#%3Aset">:set</a>
+				or <a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a> or a <a href="/neovim-docs-web/en/options#modeline">modeline</a> was used to set
+				the option. Similarly <a href="/neovim-docs-web/en/eval#v%3Aoption_oldglobal">v:option_oldglobal</a> is
+				only set when <a href="/neovim-docs-web/en/options#%3Aset">:set</a> or <a href="/neovim-docs-web/en/options#%3Asetglobal">:setglobal</a> was used.</div>
+<div class="old-help-para">				Note that when setting a <a href="/neovim-docs-web/en/options#global-local">global-local</a> string
+				option with <a href="/neovim-docs-web/en/options#%3Aset">:set</a>, then <a href="/neovim-docs-web/en/eval#v%3Aoption_old">v:option_old</a> is the
 				old global value. However, for all other kinds
 				of options (local string options, global-local
 				number options, ...) it is the old local
 				value.</div>
 <div class="old-help-para">				OptionSet is not triggered on startup and for
-				the <a href="vim_diff.html#'key'">'key'</a> option for obvious reasons.</div>
+				the <a href="/neovim-docs-web/en/vim_diff#'key'">'key'</a> option for obvious reasons.</div>
 <div class="old-help-para">				Usage example: Check for the existence of the
-				directory in the <a href="options.html#'backupdir'">'backupdir'</a> and <a href="options.html#'undodir'">'undodir'</a>
+				directory in the <a href="/neovim-docs-web/en/options#'backupdir'">'backupdir'</a> and <a href="/neovim-docs-web/en/options#'undodir'">'undodir'</a>
 				options, create the directory if it doesn't
 				exist yet.</div>
 <div class="old-help-para">				Note: Do not reset the same option during this
 				autocommand, that may break plugins. You can
-				always use <a href="autocmd.html#%3Anoautocmd">:noautocmd</a> to prevent triggering
+				always use <a href="/neovim-docs-web/en/autocmd#%3Anoautocmd">:noautocmd</a> to prevent triggering
 				OptionSet.</div>
-<div class="old-help-para">				Non-recursive: <a href="options.html#%3Aset">:set</a> in the autocommand does
+<div class="old-help-para">				Non-recursive: <a href="/neovim-docs-web/en/options#%3Aset">:set</a> in the autocommand does
 				not trigger OptionSet again.</div>
 <div class="old-help-para">							<a name="QuickFixCmdPre"></a><code class="help-tag-right">QuickFixCmdPre</code>
-QuickFixCmdPre			Before a quickfix command is run (<a href="quickfix.html#%3Amake">:make</a>,
-				<a href="quickfix.html#%3Almake">:lmake</a>, <a href="quickfix.html#%3Agrep">:grep</a>, <a href="quickfix.html#%3Algrep">:lgrep</a>, <a href="quickfix.html#%3Agrepadd">:grepadd</a>,
-				<a href="quickfix.html#%3Algrepadd">:lgrepadd</a>, <a href="quickfix.html#%3Avimgrep">:vimgrep</a>, <a href="quickfix.html#%3Alvimgrep">:lvimgrep</a>,
-				<a href="quickfix.html#%3Avimgrepadd">:vimgrepadd</a>, <a href="quickfix.html#%3Alvimgrepadd">:lvimgrepadd</a>,
-				<a href="quickfix.html#%3Acfile">:cfile</a>, <a href="quickfix.html#%3Acgetfile">:cgetfile</a>, <a href="quickfix.html#%3Acaddfile">:caddfile</a>, <a href="quickfix.html#%3Alfile">:lfile</a>,
-				<a href="quickfix.html#%3Algetfile">:lgetfile</a>, <a href="quickfix.html#%3Aladdfile">:laddfile</a>, <a href="helphelp.html#%3Ahelpgrep">:helpgrep</a>,
-				<a href="helphelp.html#%3Alhelpgrep">:lhelpgrep</a>, <a href="quickfix.html#%3Acexpr">:cexpr</a>, <a href="quickfix.html#%3Acgetexpr">:cgetexpr</a>,
-				<a href="quickfix.html#%3Acaddexpr">:caddexpr</a>, <a href="quickfix.html#%3Acbuffer">:cbuffer</a>, <a href="quickfix.html#%3Acgetbuffer">:cgetbuffer</a>,
-				<a href="quickfix.html#%3Acaddbuffer">:caddbuffer</a>).
+QuickFixCmdPre			Before a quickfix command is run (<a href="/neovim-docs-web/en/quickfix#%3Amake">:make</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Almake">:lmake</a>, <a href="/neovim-docs-web/en/quickfix#%3Agrep">:grep</a>, <a href="/neovim-docs-web/en/quickfix#%3Algrep">:lgrep</a>, <a href="/neovim-docs-web/en/quickfix#%3Agrepadd">:grepadd</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Algrepadd">:lgrepadd</a>, <a href="/neovim-docs-web/en/quickfix#%3Avimgrep">:vimgrep</a>, <a href="/neovim-docs-web/en/quickfix#%3Alvimgrep">:lvimgrep</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Avimgrepadd">:vimgrepadd</a>, <a href="/neovim-docs-web/en/quickfix#%3Alvimgrepadd">:lvimgrepadd</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Acfile">:cfile</a>, <a href="/neovim-docs-web/en/quickfix#%3Acgetfile">:cgetfile</a>, <a href="/neovim-docs-web/en/quickfix#%3Acaddfile">:caddfile</a>, <a href="/neovim-docs-web/en/quickfix#%3Alfile">:lfile</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Algetfile">:lgetfile</a>, <a href="/neovim-docs-web/en/quickfix#%3Aladdfile">:laddfile</a>, <a href="/neovim-docs-web/en/helphelp#%3Ahelpgrep">:helpgrep</a>,
+				<a href="/neovim-docs-web/en/helphelp#%3Alhelpgrep">:lhelpgrep</a>, <a href="/neovim-docs-web/en/quickfix#%3Acexpr">:cexpr</a>, <a href="/neovim-docs-web/en/quickfix#%3Acgetexpr">:cgetexpr</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Acaddexpr">:caddexpr</a>, <a href="/neovim-docs-web/en/quickfix#%3Acbuffer">:cbuffer</a>, <a href="/neovim-docs-web/en/quickfix#%3Acgetbuffer">:cgetbuffer</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Acaddbuffer">:caddbuffer</a>).
 				The pattern is matched against the command
-				being run.  When <a href="quickfix.html#%3Agrep">:grep</a> is used but <a href="options.html#'grepprg'">'grepprg'</a>
+				being run.  When <a href="/neovim-docs-web/en/quickfix#%3Agrep">:grep</a> is used but <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a>
 				is set to "internal" it still matches "grep".
 				This command cannot be used to set the
-				<a href="options.html#'makeprg'">'makeprg'</a> and <a href="options.html#'grepprg'">'grepprg'</a> variables.
+				<a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> and <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a> variables.
 				If this command causes an error, the quickfix
 				command is not executed.
 							<a name="QuickFixCmdPost"></a><code class="help-tag-right">QuickFixCmdPost</code>
 QuickFixCmdPost			Like QuickFixCmdPre, but after a quickfix
 				command is run, before jumping to the first
-				location. For <a href="quickfix.html#%3Acfile">:cfile</a> and <a href="quickfix.html#%3Alfile">:lfile</a> commands
+				location. For <a href="/neovim-docs-web/en/quickfix#%3Acfile">:cfile</a> and <a href="/neovim-docs-web/en/quickfix#%3Alfile">:lfile</a> commands
 				it is run after error file is read and before
 				moving to the first error.
-				See <a href="quickfix.html#QuickFixCmdPost-example">QuickFixCmdPost-example</a>.
+				See <a href="/neovim-docs-web/en/quickfix#QuickFixCmdPost-example">QuickFixCmdPost-example</a>.
 							<a name="QuitPre"></a><code class="help-tag-right">QuitPre</code>
 QuitPre				When using <code>:quit</code>, <code>:wq</code> or <code>:qall</code>, before
 				deciding whether it closes the current window
@@ -759,7 +759,7 @@ QuitPre				When using <code>:quit</code>, <code>:wq</code> or <code>:qall</code>
 				before QuitPre is triggered.  Can be used to
 				close any non-essential window if the current
 				window is the last ordinary window.
-				See also <a href="autocmd.html#ExitPre">ExitPre</a>, <a href="autocmd.html#WinClosed">WinClosed</a>.
+				See also <a href="/neovim-docs-web/en/autocmd#ExitPre">ExitPre</a>, <a href="/neovim-docs-web/en/autocmd#WinClosed">WinClosed</a>.
 							<a name="RemoteReply"></a><code class="help-tag-right">RemoteReply</code>
 RemoteReply			When a reply from a Vim that functions as
 				server was received server2client().  The
@@ -771,33 +771,33 @@ RemoteReply			When a reply from a Vim that functions as
 				the reply should be read with remote_read()
 				to consume it.
 							<a name="SearchWrapped"></a><code class="help-tag-right">SearchWrapped</code>
-SearchWrapped			After making a search with <a href="pattern.html#n">n</a> or <a href="pattern.html#N">N</a> if the
+SearchWrapped			After making a search with <a href="/neovim-docs-web/en/pattern#n">n</a> or <a href="/neovim-docs-web/en/pattern#N">N</a> if the
 				search wraps around the document back to
 				the start/finish respectively.
 							<a name="RecordingEnter"></a><code class="help-tag-right">RecordingEnter</code>
 RecordingEnter			When a macro starts recording.
 				The pattern is the current file name, and
-				<a href="builtin.html#reg_recording()">reg_recording()</a> is the current register that
+				<a href="/neovim-docs-web/en/builtin#reg_recording()">reg_recording()</a> is the current register that
 				is used.
 							<a name="RecordingLeave"></a><code class="help-tag-right">RecordingLeave</code>
 RecordingLeave			When a macro stops recording.
 				The pattern is the current file name, and
-				<a href="builtin.html#reg_recording()">reg_recording()</a> is the recorded
+				<a href="/neovim-docs-web/en/builtin#reg_recording()">reg_recording()</a> is the recorded
 				register.
-				<a href="builtin.html#reg_recorded()">reg_recorded()</a> is only updated after this
+				<a href="/neovim-docs-web/en/builtin#reg_recorded()">reg_recorded()</a> is only updated after this
 				event.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    regcontents
 				    regname
 							<a name="SessionLoadPost"></a><code class="help-tag-right">SessionLoadPost</code>
 SessionLoadPost			After loading the session file created using
-				the <a href="starting.html#%3Amksession">:mksession</a> command.
+				the <a href="/neovim-docs-web/en/starting#%3Amksession">:mksession</a> command.
 							<a name="ShellCmdPost"></a><code class="help-tag-right">ShellCmdPost</code>
-ShellCmdPost			After executing a shell command with <a href="various.html#%3A%21cmd">:!cmd</a>,
-				<a href="quickfix.html#%3Amake">:make</a> and <a href="quickfix.html#%3Agrep">:grep</a>.  Can be used to check for
+ShellCmdPost			After executing a shell command with <a href="/neovim-docs-web/en/various#%3A%21cmd">:!cmd</a>,
+				<a href="/neovim-docs-web/en/quickfix#%3Amake">:make</a> and <a href="/neovim-docs-web/en/quickfix#%3Agrep">:grep</a>.  Can be used to check for
 				any changed files.
 				For non-blocking shell commands, see
-				<a href="job_control.html#job-control">job-control</a>.
+				<a href="/neovim-docs-web/en/job_control#job-control">job-control</a>.
 							<a name="Signal"></a><code class="help-tag-right">Signal</code>
 Signal				After Nvim receives a signal. The pattern is
 				matched against the signal name. Only
@@ -807,41 +807,41 @@ ShellFilterPost			After executing a shell command with
 				":{range}!cmd", ":w !cmd" or ":r !cmd".
 				Can be used to check for any changed files.
 							<a name="SourcePre"></a><code class="help-tag-right">SourcePre</code>
-SourcePre			Before sourcing a vim/lua file. <a href="repeat.html#%3Asource">:source</a>
+SourcePre			Before sourcing a vim/lua file. <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a>
 				<code>&lt;afile&gt;</code> is the name of the file being sourced.
 							<a name="SourcePost"></a><code class="help-tag-right">SourcePost</code>
-SourcePost			After sourcing a vim/lua file. <a href="repeat.html#%3Asource">:source</a>
+SourcePost			After sourcing a vim/lua file. <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a>
 				<code>&lt;afile&gt;</code> is the name of the file being sourced.
 				Not triggered when sourcing was interrupted.
 				Also triggered after a SourceCmd autocommand
 				was triggered.
 							<a name="SourceCmd"></a><code class="help-tag-right">SourceCmd</code>
-SourceCmd			When sourcing a vim/lua file. <a href="repeat.html#%3Asource">:source</a>
+SourceCmd			When sourcing a vim/lua file. <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a>
 				<code>&lt;afile&gt;</code> is the name of the file being sourced.
 				The autocommand must source this file.
-				<a href="autocmd.html#Cmd-event">Cmd-event</a>
+				<a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a>
 							<a name="SpellFileMissing"></a><code class="help-tag-right">SpellFileMissing</code>
 SpellFileMissing		When trying to load a spell checking file and
 				it can't be found.  The pattern is matched
 				against the language.  <code>&lt;amatch&gt;</code> is the
-				language, <a href="options.html#'encoding'">'encoding'</a> also matters.  See
-				<a href="spell.html#spell-SpellFileMissing">spell-SpellFileMissing</a>.
+				language, <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> also matters.  See
+				<a href="/neovim-docs-web/en/spell#spell-SpellFileMissing">spell-SpellFileMissing</a>.
 							<a name="StdinReadPost"></a><code class="help-tag-right">StdinReadPost</code>
 StdinReadPost			During startup, after reading from stdin into
-				the buffer, before executing modelines. <a href="starting.html#--">--</a>
+				the buffer, before executing modelines. <a href="/neovim-docs-web/en/starting#--">--</a>
 							<a name="StdinReadPre"></a><code class="help-tag-right">StdinReadPre</code>
 StdinReadPre			During startup, before reading from stdin into
-				the buffer. <a href="starting.html#--">--</a>
+				the buffer. <a href="/neovim-docs-web/en/starting#--">--</a>
 							<a name="SwapExists"></a><code class="help-tag-right">SwapExists</code>
 SwapExists			Detected an existing swap file when starting
 				to edit a file.  Only when it is possible to
 				select a way to handle the situation, when Vim
 				would ask the user what to do.
-				The <a href="eval.html#v%3Aswapname">v:swapname</a> variable holds the name of
+				The <a href="/neovim-docs-web/en/eval#v%3Aswapname">v:swapname</a> variable holds the name of
 				the swap file found, <code>&lt;afile&gt;</code> the file being
-				edited.  <a href="eval.html#v%3Aswapcommand">v:swapcommand</a> may contain a command
+				edited.  <a href="/neovim-docs-web/en/eval#v%3Aswapcommand">v:swapcommand</a> may contain a command
 				to be executed in the opened file.
-				The commands should set the <a href="eval.html#v%3Aswapchoice">v:swapchoice</a>
+				The commands should set the <a href="/neovim-docs-web/en/eval#v%3Aswapchoice">v:swapchoice</a>
 				variable to a string with one character to
 				tell Vim what should be done next:
 					'o'	open read-only
@@ -856,45 +856,45 @@ SwapExists			Detected an existing swap file when starting
 				Cannot change to another buffer, change
 				the buffer name or change directory.
 							<a name="Syntax"></a><code class="help-tag-right">Syntax</code>
-Syntax				When the <a href="options.html#'syntax'">'syntax'</a> option has been set.  The
+Syntax				When the <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> option has been set.  The
 				pattern is matched against the syntax name.
 				<code>&lt;afile&gt;</code> expands to the name of the file where
 				this option was set. <code>&lt;amatch&gt;</code> expands to the
-				new value of <a href="options.html#'syntax'">'syntax'</a>.
-				See <a href="syntax.html#%3Asyn-on">:syn-on</a>.
+				new value of <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a>.
+				See <a href="/neovim-docs-web/en/syntax#%3Asyn-on">:syn-on</a>.
 							<a name="TabEnter"></a><code class="help-tag-right">TabEnter</code>
-TabEnter			Just after entering a tab page. <a href="tabpage.html#tab-page">tab-page</a>
+TabEnter			Just after entering a tab page. <a href="/neovim-docs-web/en/tabpage#tab-page">tab-page</a>
 				After WinEnter.
 				Before BufEnter.
 							<a name="TabLeave"></a><code class="help-tag-right">TabLeave</code>
-TabLeave			Just before leaving a tab page. <a href="tabpage.html#tab-page">tab-page</a>
+TabLeave			Just before leaving a tab page. <a href="/neovim-docs-web/en/tabpage#tab-page">tab-page</a>
 				After WinLeave.
 							<a name="TabNew"></a><code class="help-tag-right">TabNew</code>
-TabNew				When creating a new tab page. <a href="tabpage.html#tab-page">tab-page</a>
+TabNew				When creating a new tab page. <a href="/neovim-docs-web/en/tabpage#tab-page">tab-page</a>
 				After WinEnter.
 				Before TabEnter.
 							<a name="TabNewEntered"></a><code class="help-tag-right">TabNewEntered</code>
-TabNewEntered			After entering a new tab page. <a href="tabpage.html#tab-page">tab-page</a>
+TabNewEntered			After entering a new tab page. <a href="/neovim-docs-web/en/tabpage#tab-page">tab-page</a>
 				After BufEnter.
 							<a name="TabClosed"></a><code class="help-tag-right">TabClosed</code>
 TabClosed			After closing a tab page. <code>&lt;afile&gt;</code> expands to
 				the tab page number.
 							<a name="TermOpen"></a><code class="help-tag-right">TermOpen</code>
-TermOpen			When a <a href="nvim_terminal_emulator.html#terminal">terminal</a> job is starting.  Can be
+TermOpen			When a <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal">terminal</a> job is starting.  Can be
 				used to configure the terminal buffer.
 							<a name="TermEnter"></a><code class="help-tag-right">TermEnter</code>
-TermEnter			After entering <a href="intro.html#Terminal-mode">Terminal-mode</a>.
+TermEnter			After entering <a href="/neovim-docs-web/en/intro#Terminal-mode">Terminal-mode</a>.
 				After TermOpen.
 							<a name="TermLeave"></a><code class="help-tag-right">TermLeave</code>
-TermLeave			After leaving <a href="intro.html#Terminal-mode">Terminal-mode</a>.
+TermLeave			After leaving <a href="/neovim-docs-web/en/intro#Terminal-mode">Terminal-mode</a>.
 				After TermClose.
 							<a name="TermClose"></a><code class="help-tag-right">TermClose</code>
-TermClose			When a <a href="nvim_terminal_emulator.html#terminal">terminal</a> job ends.
-				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+TermClose			When a <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal">terminal</a> job ends.
+				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    status
 							<a name="TermResponse"></a><code class="help-tag-right">TermResponse</code>
 TermResponse			After the response to t_RV is received from
-				the terminal.  The value of <a href="eval.html#v%3Atermresponse">v:termresponse</a>
+				the terminal.  The value of <a href="/neovim-docs-web/en/eval#v%3Atermresponse">v:termresponse</a>
 				can be used to do things depending on the
 				terminal version.  May be triggered halfway
 				through another event (file I/O, a shell
@@ -902,7 +902,7 @@ TermResponse			After the response to t_RV is received from
 							<a name="TextChanged"></a><code class="help-tag-right">TextChanged</code>
 TextChanged			After a change was made to the text in the
 				current buffer in Normal mode.  That is after
-				<a href="eval.html#b%3Achangedtick">b:changedtick</a> has changed (also when that
+				<a href="/neovim-docs-web/en/eval#b%3Achangedtick">b:changedtick</a> has changed (also when that
 				happened before the TextChanged autocommand
 				was defined).
 				Not triggered when there is typeahead or when
@@ -923,25 +923,25 @@ TextChangedP			After a change was made to the text in the
 				TextChanged.
 							<a name="TextChangedT"></a><code class="help-tag-right">TextChangedT</code>
 TextChangedT			After a change was made to the text in the
-				current buffer in <a href="intro.html#Terminal-mode">Terminal-mode</a>.  Otherwise
+				current buffer in <a href="/neovim-docs-web/en/intro#Terminal-mode">Terminal-mode</a>.  Otherwise
 				the same as TextChanged.
 							<a name="TextYankPost"></a><code class="help-tag-right">TextYankPost</code>
-TextYankPost			Just after a <a href="change.html#yank">yank</a> or <a href="change.html#deleting">deleting</a> command, but not
-				if the black hole register <a href="change.html#quote_">quote_</a> is used nor
-				for <a href="builtin.html#setreg()">setreg()</a>. Pattern must be *.				Sets these <a href="eval.html#v%3Aevent">v:event</a> keys:
+TextYankPost			Just after a <a href="/neovim-docs-web/en/change#yank">yank</a> or <a href="/neovim-docs-web/en/change#deleting">deleting</a> command, but not
+				if the black hole register <a href="/neovim-docs-web/en/change#quote_">quote_</a> is used nor
+				for <a href="/neovim-docs-web/en/builtin#setreg()">setreg()</a>. Pattern must be *.				Sets these <a href="/neovim-docs-web/en/eval#v%3Aevent">v:event</a> keys:
 				    inclusive
 				    operator
 				    regcontents
 				    regname
 				    regtype
 				    visual
-				The <code>inclusive</code> flag combined with the <a href="motion.html#'%5B">'[</a>
-				and <a href="motion.html#'%5D">']</a> marks can be used to calculate the
+				The <code>inclusive</code> flag combined with the <a href="/neovim-docs-web/en/motion#'%5B">'[</a>
+				and <a href="/neovim-docs-web/en/motion#'%5D">']</a> marks can be used to calculate the
 				precise region of the operation.</div>
 <div class="old-help-para">				Non-recursive (event cannot trigger itself).
-				Cannot change the text. <a href="eval.html#textlock">textlock</a>
+				Cannot change the text. <a href="/neovim-docs-web/en/eval#textlock">textlock</a>
 							<a name="User"></a><code class="help-tag-right">User</code>
-User				Not executed automatically.  Use <a href="autocmd.html#%3Adoautocmd">:doautocmd</a>
+User				Not executed automatically.  Use <a href="/neovim-docs-web/en/autocmd#%3Adoautocmd">:doautocmd</a>
 				to trigger this, typically for "custom events"
 				in a plugin.  Example:<pre>:autocmd User MyPlugin echom 'got MyPlugin event'
 :doautocmd User MyPlugin</pre></div>
@@ -954,7 +954,7 @@ VimEnter			After doing all the startup stuff, including
 				arguments, creating all windows and loading
 				the buffers in them.
 				Just before this event is triggered the
-				<a href="eval.html#v%3Avim_did_enter">v:vim_did_enter</a> variable is set, so that you
+				<a href="/neovim-docs-web/en/eval#v%3Avim_did_enter">v:vim_did_enter</a> variable is set, so that you
 				can do:<pre>if v:vim_did_enter
   call s:init()
 else
@@ -964,33 +964,33 @@ endif</pre></div>
 VimLeave			Before exiting Vim, just after writing the
 				.shada file.  Executed only once, like
 				VimLeavePre.
-				Use <a href="eval.html#v%3Adying">v:dying</a> to detect an abnormal exit.
-				Use <a href="eval.html#v%3Aexiting">v:exiting</a> to get the exit code.
-				Not triggered if <a href="eval.html#v%3Adying">v:dying</a> is 2 or more.
+				Use <a href="/neovim-docs-web/en/eval#v%3Adying">v:dying</a> to detect an abnormal exit.
+				Use <a href="/neovim-docs-web/en/eval#v%3Aexiting">v:exiting</a> to get the exit code.
+				Not triggered if <a href="/neovim-docs-web/en/eval#v%3Adying">v:dying</a> is 2 or more.
 							<a name="VimLeavePre"></a><code class="help-tag-right">VimLeavePre</code>
 VimLeavePre			Before exiting Vim, just before writing the
 				.shada file.  This is executed only once,
 				if there is a match with the name of what
 				happens to be the current buffer when exiting.
 				Mostly useful with a "*" pattern.<pre>:autocmd VimLeavePre * call CleanupStuff()</pre></div>
-<div class="old-help-para">				Use <a href="eval.html#v%3Adying">v:dying</a> to detect an abnormal exit.
-				Use <a href="eval.html#v%3Aexiting">v:exiting</a> to get the exit code.
-				Not triggered if <a href="eval.html#v%3Adying">v:dying</a> is 2 or more.
+<div class="old-help-para">				Use <a href="/neovim-docs-web/en/eval#v%3Adying">v:dying</a> to detect an abnormal exit.
+				Use <a href="/neovim-docs-web/en/eval#v%3Aexiting">v:exiting</a> to get the exit code.
+				Not triggered if <a href="/neovim-docs-web/en/eval#v%3Adying">v:dying</a> is 2 or more.
 							<a name="VimResized"></a><code class="help-tag-right">VimResized</code>
-VimResized			After the Vim window was resized, thus <a href="options.html#'lines'">'lines'</a>
-				and/or <a href="options.html#'columns'">'columns'</a> changed.  Not when starting
+VimResized			After the Vim window was resized, thus <a href="/neovim-docs-web/en/options#'lines'">'lines'</a>
+				and/or <a href="/neovim-docs-web/en/options#'columns'">'columns'</a> changed.  Not when starting
 				up though.
 							<a name="VimResume"></a><code class="help-tag-right">VimResume</code>
-VimResume			After Nvim resumes from <a href="starting.html#suspend">suspend</a> state.
+VimResume			After Nvim resumes from <a href="/neovim-docs-web/en/starting#suspend">suspend</a> state.
 							<a name="VimSuspend"></a><code class="help-tag-right">VimSuspend</code>
-VimSuspend			Before Nvim enters <a href="starting.html#suspend">suspend</a> state.
+VimSuspend			Before Nvim enters <a href="/neovim-docs-web/en/starting#suspend">suspend</a> state.
 							<a name="WinClosed"></a><code class="help-tag-right">WinClosed</code>
 WinClosed			After closing a window.  The pattern is
-				matched against the <a href="windows.html#window-ID">window-ID</a>.  Both
-				<code>&lt;amatch&gt;</code> and <code>&lt;afile&gt;</code> are set to the <a href="windows.html#window-ID">window-ID</a>.
+				matched against the <a href="/neovim-docs-web/en/windows#window-ID">window-ID</a>.  Both
+				<code>&lt;amatch&gt;</code> and <code>&lt;afile&gt;</code> are set to the <a href="/neovim-docs-web/en/windows#window-ID">window-ID</a>.
 				After WinLeave.
 				Non-recursive (event cannot trigger itself).
-				See also <a href="autocmd.html#ExitPre">ExitPre</a>, <a href="autocmd.html#QuitPre">QuitPre</a>.
+				See also <a href="/neovim-docs-web/en/autocmd#ExitPre">ExitPre</a>, <a href="/neovim-docs-web/en/autocmd#QuitPre">QuitPre</a>.
 							<a name="WinEnter"></a><code class="help-tag-right">WinEnter</code>
 WinEnter			After entering another window.  Not done for
 				the first window, when Vim has just started.
@@ -1019,10 +1019,10 @@ WinScrolled			After scrolling the content of a window or
 				only one WinScrolled event is triggered.  You
 				can use the <code>winlayout()</code> and <code>getwininfo()</code>
 				functions to see what changed.</div>
-<div class="old-help-para">				The pattern is matched against the <a href="windows.html#window-ID">window-ID</a>
+<div class="old-help-para">				The pattern is matched against the <a href="/neovim-docs-web/en/windows#window-ID">window-ID</a>
 				of the first window that scrolled or resized.
 				Both <code>&lt;amatch&gt;</code> and <code>&lt;afile&gt;</code> are set to the
-				<a href="windows.html#window-ID">window-ID</a>.</div>
+				<a href="/neovim-docs-web/en/windows#window-ID">window-ID</a>.</div>
 <div class="old-help-para">				Only starts triggering after startup finished
 				and the first screen redraw was done.</div>
 <div class="old-help-para">				Non-recursive: the event will not trigger
@@ -1045,11 +1045,11 @@ two ways:
    short file name (as you typed it) and the full file name (after expanding
    it to a full path and resolving symbolic links).</div>
 <div class="old-help-para">The special pattern <code>&lt;buffer&gt;</code> or &lt;buffer=N&gt; is used for buffer-local
-autocommands <a href="autocmd.html#autocmd-buflocal">autocmd-buflocal</a>.  This pattern is not matched against the name
+autocommands <a href="/neovim-docs-web/en/autocmd#autocmd-buflocal">autocmd-buflocal</a>.  This pattern is not matched against the name
 of a buffer.</div>
 <div class="old-help-para">Examples:<pre>:autocmd BufRead *.txt                set et</pre>
-Set the <a href="options.html#'et'">'et'</a> option for all text files.<pre>:autocmd BufRead /vim/src/*.c        set cindent</pre>
-Set the <a href="options.html#'cindent'">'cindent'</a> option for C files in the /vim/src directory.<pre>:autocmd BufRead /tmp/*.c        set ts=5</pre>
+Set the <a href="/neovim-docs-web/en/options#'et'">'et'</a> option for all text files.<pre>:autocmd BufRead /vim/src/*.c        set cindent</pre>
+Set the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option for C files in the /vim/src directory.<pre>:autocmd BufRead /tmp/*.c        set ts=5</pre>
 If you have a link from "/tmp/test.c" to "/home/nobody/vim/src/test.c", and
 you start editing "/tmp/test.c", this autocommand will match.</div>
 <div class="old-help-para">Note:  To match part of a path, but not from the root directory, use a '' as
@@ -1077,30 +1077,30 @@ The pattern is interpreted like mostly used in file names:
 	~	matches a '~'
 	,	separates patterns
 	\,	matches a ','
-	{ }	like \( \) in a <a href="pattern.html#pattern">pattern</a>
-	,	inside { }: like \| in a <a href="pattern.html#pattern">pattern</a>
+	{ }	like \( \) in a <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>
+	,	inside { }: like \| in a <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>
 	\}	literal }
 	\{	literal {
-	\\\{n,m\}  like \{n,m} in a <a href="pattern.html#pattern">pattern</a>
-	\	special meaning like in a <a href="pattern.html#pattern">pattern</a>
+	\\\{n,m\}  like \{n,m} in a <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>
+	\	special meaning like in a <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>
 	[ch]	matches 'c' or 'h'
 	[^ch]   match any character but 'c' and 'h'</div>
 <div class="old-help-para">Note that for all systems the '/' character is used for path separator (even
 Windows). This was done because the backslash is difficult to use in a pattern
 and to make the autocommands portable across different systems.</div>
-<div class="old-help-para">It is possible to use <a href="pattern.html#pattern">pattern</a> items, but they may not work as expected,
+<div class="old-help-para">It is possible to use <a href="/neovim-docs-web/en/pattern#pattern">pattern</a> items, but they may not work as expected,
 because of the translation done for the above.</div>
 <div class="old-help-para">							<a name="autocmd-changes"></a><code class="help-tag-right">autocmd-changes</code>
 Matching with the pattern is done when an event is triggered.  Changing the
 buffer name in one of the autocommands, or even deleting the buffer, does not
 change which autocommands will be executed.  Example:<pre>au BufEnter *.foo  bdel
 au BufEnter *.foo  set modified</pre>
-This will delete the current buffer and then set <a href="options.html#'modified'">'modified'</a> in what has become
+This will delete the current buffer and then set <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> in what has become
 the current buffer instead.  Vim doesn't take into account that "*.foo"
 doesn't match with that buffer name.  It matches "*.foo" with the name of the
 buffer at the moment the event was triggered.</div>
 <div class="old-help-para">However, buffer-local autocommands will not be executed for a buffer that has
-been wiped out with <a href="windows.html#%3Abwipe">:bwipe</a>.  After deleting the buffer with <a href="windows.html#%3Abdel">:bdel</a> the
+been wiped out with <a href="/neovim-docs-web/en/windows#%3Abwipe">:bwipe</a>.  After deleting the buffer with <a href="/neovim-docs-web/en/windows#%3Abdel">:bdel</a> the
 buffer actually still exists (it becomes unlisted), thus the autocommands are
 still executed.</div>
 <div class="old-help-para"><h2 class="help-heading">7. Buffer-local autocommands<span class="help-heading-tags">	<a name="autocmd-buflocal"></a><span class="help-tag">autocmd-buflocal</span> <a name="autocmd-buffer-local"></a><span class="help-tag">autocmd-buffer-local</span></span></h2>				<a name="%3Cbuffer%3E"></a><code class="help-tag-right">&lt;buffer&gt;</code> <a name="%3Cbuffer%3DN%3E"></a><code class="help-tag">&lt;buffer=N&gt;</code> <a name="%3Cbuffer%3Dabuf%3E"></a><code class="help-tag">&lt;buffer=abuf&gt;</code> <a name="E680"></a><code class="help-tag">E680</code></div>
@@ -1111,7 +1111,7 @@ pattern.  But it also means they must be explicitly added to each buffer.</div>
 	<code>&lt;buffer&gt;</code>	current buffer
 	&lt;buffer=99&gt;	buffer number 99
 	&lt;buffer=abuf&gt;	using <code>&lt;abuf&gt;</code> (only when executing autocommands)
-			<a href="cmdline.html#%3Cabuf%3E">&lt;abuf&gt;</a></div>
+			<a href="/neovim-docs-web/en/cmdline#%3Cabuf%3E">&lt;abuf&gt;</a></div>
 <div class="old-help-para">Examples:<pre>:au CursorHold &lt;buffer&gt;  echo 'hold'
 :au CursorHold &lt;buffer=33&gt;  echo 'hold'
 :au BufNewFile * au CursorHold &lt;buffer=abuf&gt;  echo 'hold'</pre>
@@ -1128,7 +1128,7 @@ Note that when an autocommand is defined for the current buffer, it is stored
 with the buffer number.  Thus it uses the form "&lt;buffer=12&gt;", where 12 is the
 number of the current buffer.  You will see this when listing autocommands,
 for example.</div>
-<div class="old-help-para">To test for presence of buffer-local autocommands use the <a href="builtin.html#exists()">exists()</a> function
+<div class="old-help-para">To test for presence of buffer-local autocommands use the <a href="/neovim-docs-web/en/builtin#exists()">exists()</a> function
 as follows:<pre>:if exists("#CursorHold#&lt;buffer=12&gt;") | ... | endif
 :if exists("#CursorHold#&lt;buffer&gt;") | ... | endif    " for current buffer</pre>
 When a buffer is wiped out its buffer-local autocommands are also gone, of
@@ -1180,13 +1180,13 @@ vimrc file again).</div>
 <div class="old-help-para">						<a name="FileExplorer"></a><code class="help-tag-right">FileExplorer</code>
 There is one group that is recognized by Vim: FileExplorer.  If this group
 exists Vim assumes that editing a directory is possible and will trigger a
-plugin that lists the files in that directory.  This is used by the <a href="pi_netrw.html#netrw">netrw</a>
+plugin that lists the files in that directory.  This is used by the <a href="/neovim-docs-web/en/pi_netrw#netrw">netrw</a>
 plugin.  This allows you to do:<pre>browse edit</pre>
 <h2 class="help-heading">9. Executing autocommands<span class="help-heading-tags">				<a name="autocmd-execute"></a><span class="help-tag">autocmd-execute</span></span></h2></div>
 <div class="old-help-para">Vim can also execute Autocommands non-automatically.  This is useful if you
 have changed autocommands, or when Vim has executed the wrong autocommands
 (e.g., the file pattern match was wrong).</div>
-<div class="old-help-para">Note that the <a href="options.html#'eventignore'">'eventignore'</a> option applies here too.  Events listed in this
+<div class="old-help-para">Note that the <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a> option applies here too.  Events listed in this
 option will not cause any commands to be executed.</div>
 <div class="old-help-para">				<a name="%3Ado"></a><code class="help-tag-right">:do</code> <a name="%3Adoau"></a><code class="help-tag">:doau</code> <a name="%3Adoaut"></a><code class="help-tag">:doaut</code> <a name="%3Adoautocmd"></a><code class="help-tag">:doautocmd</code> <a name="E217"></a><code class="help-tag">E217</code>
 :do[autocmd] [&lt;nomodeline&gt;] [group] <code>{event}</code> [fname]
@@ -1199,7 +1199,7 @@ option will not cause any commands to be executed.</div>
 			so you can base the autocommands for one extension on
 			another extension.  Example:<pre>:au BufEnter *.cpp so ~/.config/nvim/init_cpp.vim
 :au BufEnter *.cpp doau BufEnter x.c</pre></div>
-<div class="old-help-para">			Be careful to avoid endless loops.  <a href="autocmd.html#autocmd-nested">autocmd-nested</a></div>
+<div class="old-help-para">			Be careful to avoid endless loops.  <a href="/neovim-docs-web/en/autocmd#autocmd-nested">autocmd-nested</a></div>
 <div class="old-help-para">			When the [group] argument is not given, Vim executes
 			the autocommands for all groups.  When the [group]
 			argument is included, Vim executes only the matching
@@ -1211,7 +1211,7 @@ option will not cause any commands to be executed.</div>
 			settings from autocommands when editing a file. This
 			is skipped if <code>&lt;nomodeline&gt;</code> is specified. You probably
 			want to use <code>&lt;nomodeline&gt;</code> for events not used when
-			loading a buffer, such as <a href="autocmd.html#User">User</a>.
+			loading a buffer, such as <a href="/neovim-docs-web/en/autocmd#User">User</a>.
 			Modelines are also skipped when no matching
 			autocommands were executed.</div>
 <div class="old-help-para">						<a name="%3Adoautoa"></a><code class="help-tag-right">:doautoa</code> <a name="%3Adoautoall"></a><code class="help-tag">:doautoall</code>
@@ -1240,7 +1240,7 @@ FileAppendCmd	FileAppendPre	FileAppendPost	appending to a file
 FileWriteCmd	FileWritePre	FileWritePost	any other file write</div>
 <div class="old-help-para">When there is a matching "*Cmd" autocommand, it is assumed it will do the
 writing.  No further writing is done and the other events are not triggered.
-<a href="autocmd.html#Cmd-event">Cmd-event</a></div>
+<a href="/neovim-docs-web/en/autocmd#Cmd-event">Cmd-event</a></div>
 <div class="old-help-para">Note that theWritePost commands should undo any changes to the buffer that
 were caused by theWritePre commands; otherwise, writing the file will have
 the side effect of changing the buffer.</div>
@@ -1261,7 +1261,7 @@ which the lines are to be written.</div>
 Careful: '[ and '] change when using commands that change the buffer.
 </div></div>
 <div class="old-help-para">In commands which expect a file name, you can use "&lt;afile&gt;" for the file name
-that is being read <a href="cmdline.html#%3A%3Cafile%3E">:&lt;afile&gt;</a> (you can also use "%" for the current file
+that is being read <a href="/neovim-docs-web/en/cmdline#%3A%3Cafile%3E">:&lt;afile&gt;</a> (you can also use "%" for the current file
 name).  "&lt;abuf&gt;" can be used for the buffer number of the currently effective
 buffer.  This also works for buffers that don't have a name.  But it doesn't
 work for files without a buffer (e.g., with ":r file").</div>
@@ -1282,20 +1282,20 @@ Examples for reading and writing compressed files:<pre>:augroup gzip
 :augroup END</pre>
 The "gzip" group is used to be able to delete any existing autocommands with
 ":autocmd!", for when the file is sourced twice.</div>
-<div class="old-help-para">("&lt;afile&gt;:r" is the file name without the extension, see <a href="cmdline.html#%3A_%25%3A">:_%:</a>)</div>
+<div class="old-help-para">("&lt;afile&gt;:r" is the file name without the extension, see <a href="/neovim-docs-web/en/cmdline#%3A_%25%3A">:_%:</a>)</div>
 <div class="old-help-para">The commands executed for the BufNewFile, BufRead/BufReadPost, BufWritePost,
 FileAppendPost and VimLeave events do not set or reset the changed flag of the
 buffer.  When you decompress the buffer with the BufReadPost autocommands, you
 can still exit with ":q".  When you use ":undo" in BufWritePost to undo the
 changes made by BufWritePre commands, you can still do ":q" (this also makes
 "ZZ" work).  If you do want the buffer to be marked as modified, set the
-<a href="options.html#'modified'">'modified'</a> option.</div>
+<a href="/neovim-docs-web/en/options#'modified'">'modified'</a> option.</div>
 <div class="old-help-para">To execute Normal mode commands from an autocommand, use the ":normal"
 command.  Use with care!  If the Normal mode command is not finished, the user
 needs to type characters (e.g., after ":normal m" you need to type a mark
 name).</div>
 <div class="old-help-para">If you want the buffer to be unmodified after changing it, reset the
-<a href="options.html#'modified'">'modified'</a> option.  This makes it possible to exit the buffer with ":q"
+<a href="/neovim-docs-web/en/options#'modified'">'modified'</a> option.  This makes it possible to exit the buffer with ":q"
 instead of ":q!".</div>
 <div class="old-help-para">							<a name="autocmd-nested"></a><code class="help-tag-right">autocmd-nested</code> <a name="E218"></a><code class="help-tag">E218</code>
 By default, autocommands do not nest.  For example, if you use ":e" or ":w" in
@@ -1306,12 +1306,12 @@ The nesting is limited to 10 levels to get out of recursive loops.</div>
 <div class="old-help-para">It's possible to use the ":au" command in an autocommand.  This can be a
 self-modifying command!  This can be useful for an autocommand that should
 execute only once.</div>
-<div class="old-help-para">If you want to skip autocommands for one command, use the <a href="autocmd.html#%3Anoautocmd">:noautocmd</a> command
-modifier or the <a href="options.html#'eventignore'">'eventignore'</a> option.</div>
+<div class="old-help-para">If you want to skip autocommands for one command, use the <a href="/neovim-docs-web/en/autocmd#%3Anoautocmd">:noautocmd</a> command
+modifier or the <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a> option.</div>
 <div class="old-help-para">Note: When reading a file (with ":read file" or with a filter command) and the
 last line in the file does not have an <code>&lt;EOL&gt;</code>, Vim remembers this.  At the next
 write (with ":write file" or with a filter command), if the same line is
-written again as the last line in a file AND <a href="options.html#'binary'">'binary'</a> is set, Vim does not
+written again as the last line in a file AND <a href="/neovim-docs-web/en/options#'binary'">'binary'</a> is set, Vim does not
 supply an <code>&lt;EOL&gt;</code>.  This makes a filter command on the just read lines write the
 same file as was read, and makes a write command on just filtered lines write
 the same file as was read from the filter.  For example, another way to write
@@ -1371,12 +1371,12 @@ with ".", unlike Unix shells.</div>
 Autocommands do not change the current search patterns.  Vim saves the current
 search patterns before executing autocommands then restores them after the
 autocommands finish.  This means that autocommands do not affect the strings
-highlighted with the <a href="options.html#'hlsearch'">'hlsearch'</a> option.  Within autocommands, you can still
+highlighted with the <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a> option.  Within autocommands, you can still
 use search patterns normally, e.g., with the "n" command.
 If you want an autocommand to set the search pattern, such that it is used
 after the autocommand finishes, use the ":let @/ =" command.
 The search-highlighting cannot be switched off with ":nohlsearch" in an
-autocommand.  Use the 'h' flag in the <a href="options.html#'shada'">'shada'</a> option to disable search-
+autocommand.  Use the 'h' flag in the <a href="/neovim-docs-web/en/options#'shada'">'shada'</a> option to disable search-
 highlighting when starting Vim.</div>
 <div class="old-help-para">							<a name="Cmd-event"></a><code class="help-tag-right">Cmd-event</code>
 When using one of the "*Cmd" events, the matching autocommands are expected to
@@ -1389,26 +1389,26 @@ normal file name, for example "ftp://*".</div>
 <div class="old-help-para">When defining a BufReadCmd it will be difficult for Vim to recover a crashed
 editing session.  When recovering from the original file, Vim reads only those
 parts of a file that are not found in the swap file.  Since that is not
-possible with a BufReadCmd, use the <a href="recover.html#%3Apreserve">:preserve</a> command to make sure the
+possible with a BufReadCmd, use the <a href="/neovim-docs-web/en/recover#%3Apreserve">:preserve</a> command to make sure the
 original file isn't needed for recovery.  You might want to do this only when
 you expect the file to be modified.</div>
-<div class="old-help-para">For file read and write commands the <a href="eval.html#v%3Acmdarg">v:cmdarg</a> variable holds the "++enc="
+<div class="old-help-para">For file read and write commands the <a href="/neovim-docs-web/en/eval#v%3Acmdarg">v:cmdarg</a> variable holds the "++enc="
 and "++ff=" argument that are effective.  These should be used for the command
-that reads/writes the file.  The <a href="eval.html#v%3Acmdbang">v:cmdbang</a> variable is one when "!" was
+that reads/writes the file.  The <a href="/neovim-docs-web/en/eval#v%3Acmdbang">v:cmdbang</a> variable is one when "!" was
 used, zero otherwise.</div>
 <div class="old-help-para">See the $VIMRUNTIME/plugin/netrwPlugin.vim for examples.</div>
 <div class="old-help-para"><h2 class="help-heading">11. Disabling autocommands<span class="help-heading-tags">				<a name="autocmd-disable"></a><span class="help-tag">autocmd-disable</span></span></h2></div>
-<div class="old-help-para">To disable autocommands for some time use the <a href="options.html#'eventignore'">'eventignore'</a> option.  Note that
-this may cause unexpected behavior, make sure you restore <a href="options.html#'eventignore'">'eventignore'</a>
-afterwards, using a <a href="eval.html#%3Atry">:try</a> block with <a href="eval.html#%3Afinally">:finally</a>.</div>
+<div class="old-help-para">To disable autocommands for some time use the <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a> option.  Note that
+this may cause unexpected behavior, make sure you restore <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a>
+afterwards, using a <a href="/neovim-docs-web/en/eval#%3Atry">:try</a> block with <a href="/neovim-docs-web/en/eval#%3Afinally">:finally</a>.</div>
 <div class="old-help-para">							<a name="%3Anoautocmd"></a><code class="help-tag-right">:noautocmd</code> <a name="%3Anoa"></a><code class="help-tag">:noa</code>
 To disable autocommands for just one command use the ":noautocmd" command
-modifier.  This will set <a href="options.html#'eventignore'">'eventignore'</a> to "all" for the duration of the
+modifier.  This will set <a href="/neovim-docs-web/en/options#'eventignore'">'eventignore'</a> to "all" for the duration of the
 following command.  Example:<pre>:noautocmd w fname.gz</pre>
 This will write the file without triggering the autocommands defined by the
 gzip plugin.</div>
 <div class="old-help-para">Note that some autocommands are not triggered right away, but only later.
-This specifically applies to <a href="autocmd.html#CursorMoved">CursorMoved</a> and <a href="autocmd.html#TextChanged">TextChanged</a>.</div>
+This specifically applies to <a href="/neovim-docs-web/en/autocmd#CursorMoved">CursorMoved</a> and <a href="/neovim-docs-web/en/autocmd#TextChanged">TextChanged</a>.</div>
 
   
   

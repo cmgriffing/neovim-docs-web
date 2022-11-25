@@ -16,23 +16,23 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">			 Your own syntax highlighted</div>
 <div class="old-help-para">Vim comes with highlighting for a couple of hundred different file types.  If
 the file you are editing isn't included, read this chapter to find out how to
-get this type of file highlighted.  Also see <a href="syntax.html#%3Asyn-define">:syn-define</a> in the reference
+get this type of file highlighted.  Also see <a href="/neovim-docs-web/en/syntax#%3Asyn-define">:syn-define</a> in the reference
 manual.</div>
-<div class="old-help-para"><a href="usr_44.html#44.1">44.1</a>  	Basic syntax commands
-<a href="usr_44.html#44.2">44.2</a>  	Keywords
-<a href="usr_44.html#44.3">44.3</a>  	Matches
-<a href="usr_44.html#44.4">44.4</a>  	Regions
-<a href="usr_44.html#44.5">44.5</a>  	Nested items
-<a href="usr_44.html#44.6">44.6</a>  	Following groups
-<a href="usr_44.html#44.7">44.7</a>  	Other arguments
-<a href="usr_44.html#44.8">44.8</a>  	Clusters
-<a href="usr_44.html#44.9">44.9</a>  	Including another syntax file
-<a href="usr_44.html#44.10">44.10</a>  	Synchronizing
-<a href="usr_44.html#44.11">44.11</a>  	Installing a syntax file
-<a href="usr_44.html#44.12">44.12</a>  	Portable syntax file layout</div>
-<div class="old-help-para">     Next chapter: <a href="usr_45.html#usr_45.txt">usr_45.txt</a>  Select your language
- Previous chapter: <a href="usr_43.html#usr_43.txt">usr_43.txt</a>  Using filetypes
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_44#44.1">44.1</a>  	Basic syntax commands
+<a href="/neovim-docs-web/en/usr_44#44.2">44.2</a>  	Keywords
+<a href="/neovim-docs-web/en/usr_44#44.3">44.3</a>  	Matches
+<a href="/neovim-docs-web/en/usr_44#44.4">44.4</a>  	Regions
+<a href="/neovim-docs-web/en/usr_44#44.5">44.5</a>  	Nested items
+<a href="/neovim-docs-web/en/usr_44#44.6">44.6</a>  	Following groups
+<a href="/neovim-docs-web/en/usr_44#44.7">44.7</a>  	Other arguments
+<a href="/neovim-docs-web/en/usr_44#44.8">44.8</a>  	Clusters
+<a href="/neovim-docs-web/en/usr_44#44.9">44.9</a>  	Including another syntax file
+<a href="/neovim-docs-web/en/usr_44#44.10">44.10</a>  	Synchronizing
+<a href="/neovim-docs-web/en/usr_44#44.11">44.11</a>  	Installing a syntax file
+<a href="/neovim-docs-web/en/usr_44#44.12">44.12</a>  	Portable syntax file layout</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_45#usr_45.txt">usr_45.txt</a>  Select your language
+ Previous chapter: <a href="/neovim-docs-web/en/usr_43#usr_43.txt">usr_43.txt</a>  Using filetypes
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Basic syntax commands</h2></div>
 <div class="old-help-para">Using an existing syntax file to start with will save you a lot of time.  Try
 finding a syntax file in $VIMRUNTIME/syntax for a language that is similar.
@@ -51,7 +51,7 @@ You can use this to check which items have actually been defined.  Quite
 useful when you are experimenting with a new syntax file.  It also shows the
 colors used for each item, which helps to find out what is what.
    To list the items in a specific syntax group use:<pre>:syntax list {group-name}</pre>
-This also can be used to list clusters (explained in <a href="usr_44.html#44.8">44.8</a>).  Just include
+This also can be used to list clusters (explained in <a href="/neovim-docs-web/en/usr_44#44.8">44.8</a>).  Just include
 the @ in the name.</div>
 <div class="old-help-para"><a name="_matching-case"></a><h3 class="help-heading">MATCHING CASE</h3></div>
 <div class="old-help-para">Some languages are not case sensitive, such as Pascal.  Others, such as C, are
@@ -77,22 +77,22 @@ This example uses the group names "xType" and "xStatement".  By convention,
 each group name is prefixed by the filetype for the language being defined.
 This example defines syntax for the x language (eXample language without an
 interesting name).  In a syntax file for "csh" scripts the name "cshType"
-would be used.  Thus the prefix is equal to the value of <a href="options.html#'filetype'">'filetype'</a>.
+would be used.  Thus the prefix is equal to the value of <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>.
    These commands cause the words "int", "long" and "char" to be highlighted
 one way and the words "if", "then", "else" and "endif" to be highlighted
 another way.  Now you need to connect the x group names to standard Vim
 names.  You do this with the following commands:<pre>:highlight link xType Type
 :highlight link xStatement Statement</pre>
 This tells Vim to highlight "xType" like "Type" and "xStatement" like
-"Statement".  See <a href="syntax.html#group-name">group-name</a> for the standard names.</div>
+"Statement".  See <a href="/neovim-docs-web/en/syntax#group-name">group-name</a> for the standard names.</div>
 <div class="old-help-para"><a name="_unusual-keywords"></a><h3 class="help-heading">UNUSUAL KEYWORDS</h3></div>
-<div class="old-help-para">The characters used in a keyword must be in the <a href="options.html#'iskeyword'">'iskeyword'</a> option.  If you
+<div class="old-help-para">The characters used in a keyword must be in the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option.  If you
 use another character, the word will never match.  Vim doesn't give a warning
 message for this.
    The x language uses the '-' character in keywords.  This is how it's done:
 <pre>:setlocal iskeyword+=-
 :syntax keyword xStatement when-not</pre>
-The ":setlocal" command is used to change <a href="options.html#'iskeyword'">'iskeyword'</a> only for the current
+The ":setlocal" command is used to change <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> only for the current
 buffer.  Still it does change the behavior of commands like "w" and "*".  If
 that is not wanted, don't define a keyword but use a match (explained in the
 next section).</div>
@@ -115,7 +115,7 @@ You can use any other character, like a plus or a quote.</div>
 <div class="old-help-para">Now define a match for a comment.  In the x language it is anything from # to
 the end of a line:<pre>:syntax match xComment /#.*/</pre>
 Since you can use any search pattern, you can highlight very complex things
-with a match item.  See <a href="pattern.html#pattern">pattern</a> for help on search patterns.</div>
+with a match item.  See <a href="/neovim-docs-web/en/pattern#pattern">pattern</a> for help on search patterns.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="44.4"></a><span class="help-tag">44.4</span>  	Regions</span></h2></div>
 <div class="old-help-para">In the example x language, strings are enclosed in double quotation marks (").
 To highlight strings you define a region.  You need a region start (double
@@ -189,7 +189,7 @@ groups but the ones that are listed:
 <pre>:syntax region xList start=/\[/ end=/\]/ contains=ALLBUT,xString</pre>
 With the "TOP" item you can include all items that don't have a "contained"
 argument.  "CONTAINED" is used to only include items with a "contained"
-argument.  See <a href="syntax.html#%3Asyn-contains">:syn-contains</a> for the details.</div>
+argument.  See <a href="/neovim-docs-web/en/syntax#%3Asyn-contains">:syn-contains</a> for the details.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="44.6"></a><span class="help-tag">44.6</span>  	Following groups</span></h2></div>
 <div class="old-help-para">The x language has statements in this form:</div>
 <div class="old-help-para"><div class="help-column_heading">	if (condition) then</div></div>
@@ -257,7 +257,7 @@ of the pattern match, and then one character further.
 result is that in this text:</div>
 <div class="old-help-para"><div class="help-column_heading">	if (foo == bar)</div></div>
 <div class="old-help-para">Only the text "foo == bar" will be highlighted as xCond.</div>
-<div class="old-help-para">More about offsets here: <a href="syntax.html#%3Asyn-pattern-offset">:syn-pattern-offset</a>.</div>
+<div class="old-help-para">More about offsets here: <a href="/neovim-docs-web/en/syntax#%3Asyn-pattern-offset">:syn-pattern-offset</a>.</div>
 <div class="old-help-para"><a name="_oneline"></a><h3 class="help-heading">ONELINE</h3></div>
 <div class="old-help-para">The "oneline" argument indicates that the region does not cross a line
 boundary.  For example:<pre>:syntax region xIfThen start=/if/ end=/then/ oneline</pre>
@@ -315,7 +315,7 @@ You can remove syntax groups from this list as well:<pre>:syntax cluster xState 
 <div class="old-help-para">The C++ language syntax is a superset of the C language.  Because you do not
 want to write two syntax files, you can have the C++ syntax file read in the
 one for C by using the following command:<pre>:runtime! syntax/c.vim</pre>
-The ":runtime!" command searches <a href="options.html#'runtimepath'">'runtimepath'</a> for all "syntax/c.vim" files.
+The ":runtime!" command searches <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> for all "syntax/c.vim" files.
 This makes the C parts of the C++ syntax be defined like for C files.  If you
 have replaced the c.vim syntax file, or added items with an extra file, these
 will be loaded as well.
@@ -389,14 +389,14 @@ region.  In particular, you are not inside an if block.</div>
 "groupthere" arguments.  These groups are for syntax groups skipped during
 synchronization.  For example, the following skips over anything inside {},
 even if it would normally match another synchronization method:<pre>:syntax sync match xSpecial /{.*}/</pre>
-More about synchronizing in the reference manual: <a href="syntax.html#%3Asyn-sync">:syn-sync</a>.</div>
+More about synchronizing in the reference manual: <a href="/neovim-docs-web/en/syntax#%3Asyn-sync">:syn-sync</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="44.11"></a><span class="help-tag">44.11</span>  	Installing a syntax file</span></h2></div>
 <div class="old-help-para">When your new syntax file is ready to be used, drop it in a "syntax" directory
-in <a href="options.html#'runtimepath'">'runtimepath'</a>.  For Unix that would be "~/.config/nvim/syntax".
+in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  For Unix that would be "~/.config/nvim/syntax".
   The name of the syntax file must be equal to the file type, with ".vim"
 added.  Thus for the x language, the full path of the file would be:</div>
 <div class="old-help-para"><div class="help-column_heading">	~/.config/nvim/syntax/x.vim</div></div>
-<div class="old-help-para">You must also make the file type be recognized.  See <a href="usr_43.html#43.2">43.2</a>.</div>
+<div class="old-help-para">You must also make the file type be recognized.  See <a href="/neovim-docs-web/en/usr_43#43.2">43.2</a>.</div>
 <div class="old-help-para">If your file works well, you might want to make it available to other Vim
 users.  First read the next section to make sure your file works well for
 others.  Then e-mail it to the Vim maintainer: &lt;maintainer@vim.org&gt;.  Also
@@ -411,7 +411,7 @@ when installing a new version of Vim.
 existing syntax.  For example, to add new variable types to the C syntax file:
 <pre>:syntax keyword cType off_t uint</pre>
 Write the file with the same name as the original syntax file.  In this case
-"c.vim".  Place it in a directory near the end of <a href="options.html#'runtimepath'">'runtimepath'</a>.  This makes
+"c.vim".  Place it in a directory near the end of <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  This makes
 it loaded after the original syntax file.  For Unix this would be:</div>
 <div class="old-help-para"><div class="help-column_heading">	~/.config/nvim/after/syntax/c.vim</div></div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="44.12"></a><span class="help-tag">44.12</span>  	Portable syntax file layout</span></h2></div>
@@ -428,18 +428,18 @@ Use the same layout as the other syntax files.  Using an existing syntax file
 as an example will save you a lot of time.</div>
 <div class="old-help-para">Choose a good, descriptive name for your syntax file.  Use lowercase letters
 and digits.  Don't make it too long, it is used in many places: The name of
-the syntax file "name.vim", <a href="options.html#'filetype'">'filetype'</a>, b:current_syntax and the start of each
+the syntax file "name.vim", <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>, b:current_syntax and the start of each
 syntax group (nameType, nameStatement, nameString, etc).</div>
 <div class="old-help-para">Start with a check for "b:current_syntax".  If it is defined, some other
-syntax file, earlier in <a href="options.html#'runtimepath'">'runtimepath'</a> was already loaded:<pre>if exists("b:current_syntax")
+syntax file, earlier in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> was already loaded:<pre>if exists("b:current_syntax")
   finish
 endif</pre>
 Set "b:current_syntax" to the name of the syntax at the end.  Don't forget
 that included files do this too, you might have to reset "b:current_syntax" if
 you include two files.</div>
-<div class="old-help-para">Do not include anything that is a user preference.  Don't set <a href="options.html#'tabstop'">'tabstop'</a>,
-<a href="options.html#'expandtab'">'expandtab'</a>, etc.  These belong in a filetype plugin.</div>
-<div class="old-help-para">Do not include mappings or abbreviations.  Only include setting <a href="options.html#'iskeyword'">'iskeyword'</a> if
+<div class="old-help-para">Do not include anything that is a user preference.  Don't set <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a>,
+<a href="/neovim-docs-web/en/options#'expandtab'">'expandtab'</a>, etc.  These belong in a filetype plugin.</div>
+<div class="old-help-para">Do not include mappings or abbreviations.  Only include setting <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> if
 it is really necessary for recognizing keywords.</div>
 <div class="old-help-para">To allow users select their own preferred colors, make a different group name
 for every kind of highlighted item.  Then link each of them to one of the
@@ -454,8 +454,8 @@ hi def link nameCommand        Statement
 ... etc ...</pre>
 Add the "display" argument to items that are not used when syncing, to speed
 up scrolling backwards and <code>CTRL-L</code>.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_45.html#usr_45.txt">usr_45.txt</a>  Select your language</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_45#usr_45.txt">usr_45.txt</a>  Select your language</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

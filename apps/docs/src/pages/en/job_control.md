@@ -18,14 +18,14 @@ control multiple processes without blocking the current Nvim instance.</div>
 <div class="old-help-para"><a name="_-concepts"></a><h2 class="help-heading">Concepts</h2></div>
 <div class="old-help-para">Job Id							<a name="job-id"></a><code class="help-tag-right">job-id</code></div>
 <div class="old-help-para">Each job is identified by an integer id, unique for the life of the current
-Nvim session. Each job-id is a valid <a href="channel.html#channel-id">channel-id</a>: they share the same "key
-space". Functions like <a href="builtin.html#jobstart()">jobstart()</a> return job ids; functions like
-<a href="builtin.html#jobstop()">jobstop()</a>, <a href="builtin.html#chansend()">chansend()</a>, <a href="builtin.html#rpcnotify()">rpcnotify()</a>, and <a href="builtin.html#rpcrequest()">rpcrequest()</a> take job ids.</div>
-<div class="old-help-para">Job stdio streams form a <a href="channel.html#channel">channel</a> which can send and receive raw bytes or
-<a href="api.html#msgpack-rpc">msgpack-rpc</a> messages.</div>
+Nvim session. Each job-id is a valid <a href="/neovim-docs-web/en/channel#channel-id">channel-id</a>: they share the same "key
+space". Functions like <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a> return job ids; functions like
+<a href="/neovim-docs-web/en/builtin#jobstop()">jobstop()</a>, <a href="/neovim-docs-web/en/builtin#chansend()">chansend()</a>, <a href="/neovim-docs-web/en/builtin#rpcnotify()">rpcnotify()</a>, and <a href="/neovim-docs-web/en/builtin#rpcrequest()">rpcrequest()</a> take job ids.</div>
+<div class="old-help-para">Job stdio streams form a <a href="/neovim-docs-web/en/channel#channel">channel</a> which can send and receive raw bytes or
+<a href="/neovim-docs-web/en/api#msgpack-rpc">msgpack-rpc</a> messages.</div>
 <div class="old-help-para"><h2 class="help-heading">Usage<span class="help-heading-tags">							<a name="job-control-usage"></a><span class="help-tag">job-control-usage</span></span></h2></div>
-<div class="old-help-para">To control jobs, use the "job…" family of functions: <a href="builtin.html#jobstart()">jobstart()</a>,
-<a href="builtin.html#jobstop()">jobstop()</a>, etc.</div>
+<div class="old-help-para">To control jobs, use the "job…" family of functions: <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a>,
+<a href="/neovim-docs-web/en/builtin#jobstop()">jobstop()</a>, etc.</div>
 <div class="old-help-para">Example:<pre>function! s:OnEvent(job_id, data, event) dict
   if a:event == 'stdout'
     let str = self.shell.' stdout: '.join(a:data)
@@ -46,18 +46,18 @@ let job1 = jobstart(['bash'], extend({'shell': 'shell 1'}, s:callbacks))
 let job2 = jobstart(['bash', '-c', 'for i in {1..10}; do echo hello $i!; sleep 1; done'], extend({'shell': 'shell 2'}, s:callbacks))</pre>
 To test the above script, copy it to a file ~/foo.vim and run it:<pre>nvim -u ~/foo.vim</pre></div>
 <div class="old-help-para">Description of what happens:
-<div class="help-li" style=""> Two bash shells are spawned by <a href="builtin.html#jobstart()">jobstart()</a> with their stdin/stdout/stderr
+<div class="help-li" style=""> Two bash shells are spawned by <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a> with their stdin/stdout/stderr
     streams connected to nvim.
 </div><div class="help-li" style=""> The first shell is idle, waiting to read commands from its stdin.
 </div><div class="help-li" style=""> The second shell is started with -c which executes the command (a for-loop
     printing 0 through 9) and then exits.
-</div><div class="help-li" style=""> <code>OnEvent()</code> callback is passed to <a href="builtin.html#jobstart()">jobstart()</a> to handle various job
+</div><div class="help-li" style=""> <code>OnEvent()</code> callback is passed to <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a> to handle various job
     events. It displays stdout/stderr data received from the shells.
 </div></div>
-<div class="old-help-para">For <a href="channel.html#on_stdout">on_stdout</a> and <a href="channel.html#on_stderr">on_stderr</a> see <a href="channel.html#channel-callback">channel-callback</a>.
+<div class="old-help-para">For <a href="/neovim-docs-web/en/channel#on_stdout">on_stdout</a> and <a href="/neovim-docs-web/en/channel#on_stderr">on_stderr</a> see <a href="/neovim-docs-web/en/channel#channel-callback">channel-callback</a>.
 							<a name="on_exit"></a><code class="help-tag-right">on_exit</code>
 Arguments passed to on_exit callback:
-  0: <a href="job_control.html#job-id">job-id</a>
+  0: <a href="/neovim-docs-web/en/job_control#job-id">job-id</a>
   1: Exit-code of the process, or 128+SIGNUM if by signal (e.g. 143 on SIGTERM).
   2: Event type: "exit"</div>
 <div class="old-help-para">  Note: Buffered stdout/stderr data which has not been flushed by the sender
@@ -85,7 +85,7 @@ func! s:on_stdout(job_id, data, event) dict
   call extend(s:chunks, a:data[1:])
 endf</pre>
 </div></div>
-<div class="old-help-para">The <a href="builtin.html#jobstart-options">jobstart-options</a> dictionary is passed as <a href="eval.html#self">self</a> to the callback.
+<div class="old-help-para">The <a href="/neovim-docs-web/en/builtin#jobstart-options">jobstart-options</a> dictionary is passed as <a href="/neovim-docs-web/en/eval#self">self</a> to the callback.
 The above example could be written in this "object-oriented" style:<pre>let Shell = {}
 
 function Shell.on_stdout(_job_id, data, event)
@@ -111,13 +111,13 @@ endfunction
 
 let instance = Shell.new('bomb',
       \ 'for i in $(seq 9 -1 1); do echo $i 1&gt;&amp;$((i % 2 + 1)); sleep 1; done')</pre></div>
-<div class="old-help-para">To send data to the job's stdin, use <a href="builtin.html#chansend()">chansend()</a>:<pre>:call chansend(job1, "ls\n")
+<div class="old-help-para">To send data to the job's stdin, use <a href="/neovim-docs-web/en/builtin#chansend()">chansend()</a>:<pre>:call chansend(job1, "ls\n")
 :call chansend(job1, "invalid-command\n")
 :call chansend(job1, "exit\n")</pre></div>
-<div class="old-help-para">A job may be killed with <a href="builtin.html#jobstop()">jobstop()</a>:<pre>:call jobstop(job1)</pre></div>
-<div class="old-help-para">A job may be killed at any time with the <a href="builtin.html#jobstop()">jobstop()</a> function:
+<div class="old-help-para">A job may be killed with <a href="/neovim-docs-web/en/builtin#jobstop()">jobstop()</a>:<pre>:call jobstop(job1)</pre></div>
+<div class="old-help-para">A job may be killed at any time with the <a href="/neovim-docs-web/en/builtin#jobstop()">jobstop()</a> function:
 <pre>:call jobstop(job1)</pre></div>
-<div class="old-help-para">Individual streams can be closed without killing the job, see <a href="builtin.html#chanclose()">chanclose()</a>.</div>
+<div class="old-help-para">Individual streams can be closed without killing the job, see <a href="/neovim-docs-web/en/builtin#chanclose()">chanclose()</a>.</div>
 
   
   

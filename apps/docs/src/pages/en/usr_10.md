@@ -18,18 +18,18 @@ layout: ../../layouts/MainLayout.astro
 goes into making changes that are repeated or can affect a large amount of
 text.  The Visual mode allows doing various things with blocks of text.  Use
 an external program to do really complicated things.</div>
-<div class="old-help-para"><a href="usr_10.html#10.1">10.1</a>  	Record and playback commands
-<a href="usr_10.html#10.2">10.2</a>  	Substitution
-<a href="usr_10.html#10.3">10.3</a>  	Command ranges
-<a href="usr_10.html#10.4">10.4</a>  	The global command
-<a href="usr_10.html#10.5">10.5</a>  	Visual block mode
-<a href="usr_10.html#10.6">10.6</a>  	Reading and writing part of a file
-<a href="usr_10.html#10.7">10.7</a>  	Formatting text
-<a href="usr_10.html#10.8">10.8</a>  	Changing case
-<a href="usr_10.html#10.9">10.9</a>  	Using an external program</div>
-<div class="old-help-para">     Next chapter: <a href="usr_11.html#usr_11.txt">usr_11.txt</a>  Recovering from a crash
- Previous chapter: <a href="usr_09.html#usr_09.txt">usr_09.txt</a>  Using the GUI
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_10#10.1">10.1</a>  	Record and playback commands
+<a href="/neovim-docs-web/en/usr_10#10.2">10.2</a>  	Substitution
+<a href="/neovim-docs-web/en/usr_10#10.3">10.3</a>  	Command ranges
+<a href="/neovim-docs-web/en/usr_10#10.4">10.4</a>  	The global command
+<a href="/neovim-docs-web/en/usr_10#10.5">10.5</a>  	Visual block mode
+<a href="/neovim-docs-web/en/usr_10#10.6">10.6</a>  	Reading and writing part of a file
+<a href="/neovim-docs-web/en/usr_10#10.7">10.7</a>  	Formatting text
+<a href="/neovim-docs-web/en/usr_10#10.8">10.8</a>  	Changing case
+<a href="/neovim-docs-web/en/usr_10#10.9">10.9</a>  	Using an external program</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_11#usr_11.txt">usr_11.txt</a>  Recovering from a crash
+ Previous chapter: <a href="/neovim-docs-web/en/usr_09#usr_09.txt">usr_09.txt</a>  Using the GUI
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Record and playback commands</h2></div>
 <div class="old-help-para">The "." command repeats the preceding change.  But what if you want to do
 something more complex than a single change?  That's where command recording
@@ -118,7 +118,7 @@ in all lines with the following command:<pre>:%substitute/Professor/Teacher/</pr
 	on the abbreviation will be used.</div>
 <div class="old-help-para">The "%" before the command specifies the command works on all lines.  Without
 a range, ":s" only works on the current line.  More about ranges in the next
-section <a href="usr_10.html#10.3">10.3</a>.</div>
+section <a href="/neovim-docs-web/en/usr_10#10.3">10.3</a>.</div>
 <div class="old-help-para">By default, the ":substitute" command changes only the first occurrence on
 each line.  For example, the preceding command changes the line:</div>
 <div class="old-help-para"><div class="help-column_heading">	Professor Smith criticized Professor Johnson today.</div></div>
@@ -222,7 +222,7 @@ This is similar to the ":substitute" command.  But, instead of replacing the
 matched text with other text, the command <code>{command}</code> is executed.</div>
 <div class="old-help-para">	Note:
 	The command executed for ":global" must be one that starts with a
-	colon.  Normal mode commands can not be used directly.  The <a href="various.html#%3Anormal">:normal</a>
+	colon.  Normal mode commands can not be used directly.  The <a href="/neovim-docs-web/en/various#%3Anormal">:normal</a>
 	command can do this for you.</div>
 <div class="old-help-para">Suppose you want to change "foobar" to "barfoo", but only in C++ style
 comments.  These comments start with "//".  Use this command:<pre>:g+//+s/foobar/barfoo/g</pre>
@@ -311,14 +311,14 @@ starting with the same example text from above, and then typing "rx":</div>
 <div class="old-help-para"><div class="help-column_heading">	This is a xxxx line</div><div class="help-column_heading">	short</div><div class="help-column_heading">	Any other xxxx line</div></div>
 <div class="old-help-para">	Note:
 	If you want to include characters beyond the end of the line in the
-	block, check out the <a href="options.html#'virtualedit'">'virtualedit'</a> feature in chapter 25.</div>
+	block, check out the <a href="/neovim-docs-web/en/options#'virtualedit'">'virtualedit'</a> feature in chapter 25.</div>
 <div class="old-help-para"><a name="_shifting"></a><h3 class="help-heading">SHIFTING</h3></div>
 <div class="old-help-para">The command "&gt;" shifts the selected text to the right one shift amount,
 inserting whitespace.  The starting point for this shift is the left edge of
 the visual block.
    With the same example again, "&gt;" gives this result:</div>
 <div class="old-help-para"><div class="help-column_heading">	This is a	  long line</div><div class="help-column_heading">	short</div><div class="help-column_heading">	Any other	  long line</div></div>
-<div class="old-help-para">The shift amount is specified with the <a href="options.html#'shiftwidth'">'shiftwidth'</a> option.  To change it to
+<div class="old-help-para">The shift amount is specified with the <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> option.  To change it to
 use 4 spaces:<pre>:set shiftwidth=4</pre>
 The "&lt;" command removes one shift amount of whitespace at the left
 edge of the block.  This command is limited by the amount of text that is
@@ -328,7 +328,7 @@ removes what it can.</div>
 <div class="old-help-para">The "J" command joins all selected lines together into one line.  Thus it
 removes the line breaks.  Actually, the line break, leading white space and
 trailing white space is replaced by one space.  Two spaces are used after a
-line ending (that can be changed with the <a href="options.html#'joinspaces'">'joinspaces'</a> option).
+line ending (that can be changed with the <a href="/neovim-docs-web/en/options#'joinspaces'">'joinspaces'</a> option).
    Let's use the example that we got so familiar with now.  The result of
 using the "J" command:</div>
 <div class="old-help-para"><div class="help-column_heading">	This is a long line short Any other long line</div></div>
@@ -374,10 +374,10 @@ as you like.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="10.7"></a><span class="help-tag">10.7</span>  	Formatting text</span></h2></div>
 <div class="old-help-para">When you are typing plain text, it's nice if the length of each line is
 automatically trimmed to fit in the window.  To make this happen while
-inserting text, set the <a href="options.html#'textwidth'">'textwidth'</a> option:<pre>:set textwidth=78</pre>
+inserting text, set the <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> option:<pre>:set textwidth=78</pre>
 You might remember that in the example vimrc file this command was used for
 every text file.  Thus if you are using that vimrc file, you were already
-using it.  To check the current value of <a href="options.html#'textwidth'">'textwidth'</a>:<pre>:set textwidth</pre>
+using it.  To check the current value of <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>:<pre>:set textwidth</pre>
 Now lines will be broken to take only up to 78 characters.  However, when you
 insert text halfway through a line, or when you delete a few words, the lines
 will get too long or too short.  Vim doesn't automatically reformat the text.
@@ -449,18 +449,18 @@ line with the output of "date".  This is useful to add a timestamp to a file.</d
 <div class="old-help-para">Starting a shell, sending it text and capturing the output requires that Vim
 knows how the shell works exactly.  When you have problems with filtering,
 check the values of these options:</div>
-<div class="old-help-para">	<a href="options.html#'shell'">'shell'</a>		specifies the program that Vim uses to execute
+<div class="old-help-para">	<a href="/neovim-docs-web/en/options#'shell'">'shell'</a>		specifies the program that Vim uses to execute
 			external programs.
-	<a href="options.html#'shellcmdflag'">'shellcmdflag'</a>	argument to pass a command to the shell
-	<a href="options.html#'shellquote'">'shellquote'</a>	quote to be used around the command
-	<a href="options.html#'shellxquote'">'shellxquote'</a>	quote to be used around the command and redirection
-	<a href="options.html#'shellslash'">'shellslash'</a>	use forward slashes in the command (only for
+	<a href="/neovim-docs-web/en/options#'shellcmdflag'">'shellcmdflag'</a>	argument to pass a command to the shell
+	<a href="/neovim-docs-web/en/options#'shellquote'">'shellquote'</a>	quote to be used around the command
+	<a href="/neovim-docs-web/en/options#'shellxquote'">'shellxquote'</a>	quote to be used around the command and redirection
+	<a href="/neovim-docs-web/en/options#'shellslash'">'shellslash'</a>	use forward slashes in the command (only for
 			MS-Windows and alikes)
-	<a href="options.html#'shellredir'">'shellredir'</a>	string used to write the command output into a file</div>
+	<a href="/neovim-docs-web/en/options#'shellredir'">'shellredir'</a>	string used to write the command output into a file</div>
 <div class="old-help-para">On Unix this is hardly ever a problem, because there are two kinds of shells:
-"sh" like and "csh" like.  Vim checks the <a href="options.html#'shell'">'shell'</a> option and sets related
+"sh" like and "csh" like.  Vim checks the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a> option and sets related
 options automatically, depending on whether it sees "csh" somewhere in
-<a href="options.html#'shell'">'shell'</a>.
+<a href="/neovim-docs-web/en/options#'shell'">'shell'</a>.
    On MS-Windows, however, there are many different shells and you might have
 to tune the options to make filtering work.  Check the help for the options
 for more information.</div>
@@ -495,8 +495,8 @@ messed up.  Vim is very efficient and only redraws those parts of the screen
 that it knows need redrawing.  But it can't know about what another program
 has written.  To tell Vim to redraw the screen:<pre>CTRL-L</pre>
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_10.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_10.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0A%09CTRL-L%0A%0A%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%3D%0A%0ANext%20chapter%3A%20%7Cusr_11.txt%7C%20%20Recovering%20from%20a%20crash%0A%0ACopyright%3A%20see%20%7Cmanual-copyright%7C%20%20vim%3Atw%3D78%3Ats%3D8%3Anoet%3Aft%3Dhelp%3Anorl%3A%0D%60%60%60">==============================================================================</a></div>
-<div class="old-help-para">Next chapter: <a href="usr_11.html#usr_11.txt">usr_11.txt</a>  Recovering from a crash</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">Next chapter: <a href="/neovim-docs-web/en/usr_11#usr_11.txt">usr_11.txt</a>  Recovering from a crash</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

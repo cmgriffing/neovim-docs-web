@@ -17,17 +17,17 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">This chapter provides just enough information to edit a file with Vim.  Not
 well or fast, but you can edit.  Take some time to practice with these
 commands, they form the base for what follows.</div>
-<div class="old-help-para"><a href="usr_02.html#02.1">02.1</a>  	Running Vim for the First Time
-<a href="usr_02.html#02.2">02.2</a>  	Inserting text
-<a href="usr_02.html#02.3">02.3</a>  	Moving around
-<a href="usr_02.html#02.4">02.4</a>  	Deleting characters
-<a href="usr_02.html#02.5">02.5</a>  	Undo and Redo
-<a href="usr_02.html#02.6">02.6</a>  	Other editing commands
-<a href="usr_02.html#02.7">02.7</a>  	Getting out
-<a href="usr_02.html#02.8">02.8</a>  	Finding help</div>
-<div class="old-help-para">     Next chapter: <a href="usr_03.html#usr_03.txt">usr_03.txt</a>  Moving around
- Previous chapter: <a href="usr_01.html#usr_01.txt">usr_01.txt</a>  About the manuals
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_02#02.1">02.1</a>  	Running Vim for the First Time
+<a href="/neovim-docs-web/en/usr_02#02.2">02.2</a>  	Inserting text
+<a href="/neovim-docs-web/en/usr_02#02.3">02.3</a>  	Moving around
+<a href="/neovim-docs-web/en/usr_02#02.4">02.4</a>  	Deleting characters
+<a href="/neovim-docs-web/en/usr_02#02.5">02.5</a>  	Undo and Redo
+<a href="/neovim-docs-web/en/usr_02#02.6">02.6</a>  	Other editing commands
+<a href="/neovim-docs-web/en/usr_02#02.7">02.7</a>  	Getting out
+<a href="/neovim-docs-web/en/usr_02#02.8">02.8</a>  	Finding help</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_03#usr_03.txt">usr_03.txt</a>  Moving around
+ Previous chapter: <a href="/neovim-docs-web/en/usr_01#usr_01.txt">usr_01.txt</a>  About the manuals
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Running Vim for the First Time</h2></div>
 <div class="old-help-para">To start Vim, enter this command:<pre>gvim file.txt</pre>
 On Unix you can type this at any command prompt.  If you are running Microsoft
@@ -127,7 +127,7 @@ h     l
 The best way to learn these commands is by using them.  Use the "i" command to
 insert some more lines of text.  Then use the hjkl keys to move around and
 insert a word somewhere.  Don't forget to press <code>&lt;Esc&gt;</code> to go back to Normal
-mode.  <a href="pi_tutor.html#%3ATutor">:Tutor</a> is also a nice way to learn by doing.</div>
+mode.  <a href="/neovim-docs-web/en/pi_tutor#%3ATutor">:Tutor</a> is also a nice way to learn by doing.</div>
 <div class="old-help-para">For Japanese users, Hiroshi Iwatani suggested using this:</div>
 <div class="old-help-para">			Komsomolsk
 			    ^
@@ -206,9 +206,9 @@ edited.  Typing this command twice cancels the preceding "U".</div>
 <div class="help-column_heading">	A intelligent</div></div>
 <div class="old-help-para">The "U" command is a change by itself, which the "u" command undoes and <code>CTRL-R</code>
 redoes.  This might be a bit confusing.  Don't worry, with "u" and <code>CTRL-R</code> you
-can go to any of the situations you had.  More about that in section <a href="usr_32.html#32.2">32.2</a>.</div>
+can go to any of the situations you had.  More about that in section <a href="/neovim-docs-web/en/usr_32#32.2">32.2</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="02.6"></a><span class="help-tag">02.6</span>  	Other editing commands</span></h2></div>
-<div class="old-help-para">Vim has a large number of commands to change the text.  See <a href="quickref.html#Q_in">Q_in</a> and below.
+<div class="old-help-para">Vim has a large number of commands to change the text.  See <a href="/neovim-docs-web/en/quickref#Q_in">Q_in</a> and below.
 Here are a few often used ones.</div>
 <div class="old-help-para"><a name="_appending"></a><h3 class="help-heading">APPENDING</h3></div>
 <div class="old-help-para">The "i" command inserts a character before the character under the cursor.
@@ -246,7 +246,7 @@ count always comes before the command it applies to.</div>
 	Unlike many other editors, Vim does not automatically make a backup
 	file.  If you type "ZZ", your changes are committed and there's no
 	turning back.  You can configure the Vim editor to produce backup
-	files; see <a href="usr_07.html#07.4">07.4</a>.</div>
+	files; see <a href="/neovim-docs-web/en/usr_07#07.4">07.4</a>.</div>
 <div class="old-help-para"><a name="_discarding-changes"></a><h3 class="help-heading">DISCARDING CHANGES</h3></div>
 <div class="old-help-para">Sometimes you will make a sequence of changes and suddenly realize you were
 better off before you started.  Not to worry; Vim has a
@@ -282,7 +282,7 @@ k, and l move left, down, up and right.
    To get out of the help window, use the same command you use to get out of
 the editor: "ZZ".  This will only close the help window, not exit Vim.</div>
 <div class="old-help-para">As you read the help text, you will notice some text enclosed in vertical bars
-(for example, <a href="helphelp.html#help">help</a>).  This indicates a hyperlink.  If you position the
+(for example, <a href="/neovim-docs-web/en/helphelp#help">help</a>).  This indicates a hyperlink.  If you position the
 cursor anywhere between the bars and press <code>CTRL-]</code> (jump to tag), the help
 system takes you to the indicated subject.  (For reasons not discussed here,
 the Vim terminology for a hyperlink is tag.  So <code>CTRL-]</code> jumps to the location
@@ -293,7 +293,7 @@ nicely here.
    At the top of the help screen, there is the notation <a name="help.txt"></a><code class="help-tag">help.txt</code>.  This name
 between "*" characters is used by the help system to define a tag (hyperlink
 destination).
-   See <a href="usr_29.html#29.1">29.1</a> for details about using tags.</div>
+   See <a href="/neovim-docs-web/en/usr_29#29.1">29.1</a> for details about using tags.</div>
 <div class="old-help-para">To get help on a given subject, use the following command:<pre>:help {subject}</pre>
 To get help on the "x" command, for example, enter the following:<pre>:help x</pre>
 To find out how to delete text, use this command:<pre>:help deleting</pre>
@@ -311,9 +311,9 @@ These all begin with a dash (-).  To find what the -t argument does, for
 example, use the command:<pre>:help -t</pre>
 The Vim editor has a number of options that enable you to configure and
 customize the editor.  If you want help for an option, you need to enclose it
-in single quotation marks.  To find out what the <a href="options.html#'number'">'number'</a> option does, for
+in single quotation marks.  To find out what the <a href="/neovim-docs-web/en/options#'number'">'number'</a> option does, for
 example, use the following command:<pre>:help 'number'</pre>
-The table with all mode prefixes can be found below: <a href="usr_02.html#help-summary">help-summary</a>.</div>
+The table with all mode prefixes can be found below: <a href="/neovim-docs-web/en/usr_02#help-summary">help-summary</a>.</div>
 <div class="old-help-para">Special keys are enclosed in angle brackets.  To find help on the up-arrow key
 in Insert mode, for instance, use this command:<pre>:help i_&lt;Up&gt;</pre>
 If you see an error message that you don't understand, for example:</div>
@@ -326,7 +326,7 @@ Summary: 					<a name="help-summary"></a><code class="help-tag-right">help-summa
 2) Follow the links in bars to related help.  You can go from the detailed
    help to the user documentation, which describes certain commands more from
    a user perspective and less detailed.  E.g. after:<pre>:help pattern.txt</pre></div>
-<div class="old-help-para">   You can see the user guide topics <a href="usr_03.html#03.9">03.9</a> and <a href="usr_27.html#usr_27.txt">usr_27.txt</a> in the
+<div class="old-help-para">   You can see the user guide topics <a href="/neovim-docs-web/en/usr_03#03.9">03.9</a> and <a href="/neovim-docs-web/en/usr_27#usr_27.txt">usr_27.txt</a> in the
    introduction.</div>
 <div class="old-help-para">3) Options are enclosed in single apostrophes.  To go to the help topic for the
    list option:<pre>:help 'list'</pre></div>
@@ -334,9 +334,9 @@ Summary: 					<a name="help-summary"></a><code class="help-tag-right">help-summa
 <div class="old-help-para">   to open the help page which describes all option handling and then search
    using regular expressions, e.g. textwidth.
    Certain options have their own namespace, e.g.:<pre>:help cpo-&lt;letter&gt;</pre></div>
-<div class="old-help-para">   for the corresponding flag of the <a href="options.html#'cpoptions'">'cpoptions'</a> settings, substitute <code>&lt;letter&gt;</code>
+<div class="old-help-para">   for the corresponding flag of the <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> settings, substitute <code>&lt;letter&gt;</code>
    by a specific flag, e.g.:<pre>:help cpo-;</pre></div>
-<div class="old-help-para">   And for the <a href="options.html#'guioptions'">'guioptions'</a> flags:<pre>:help go-&lt;letter&gt;</pre>
+<div class="old-help-para">   And for the <a href="/neovim-docs-web/en/options#'guioptions'">'guioptions'</a> flags:<pre>:help go-&lt;letter&gt;</pre>
 4) Normal mode commands do not have a prefix. To go to the help page for the
    "gt" command:<pre>:help gt</pre>
 5) Insert mode commands start with i_.  Help for deleting a word:<pre>:help i_CTRL-W</pre>
@@ -378,8 +378,8 @@ Summary: 					<a name="help-summary"></a><code class="help-tag-right">help-summa
    Vim script functions always include the "()", so:<pre>:help append()</pre></div>
 <div class="old-help-para">   talks about the append Vim script function rather than how to append text
    in the current buffer.</div>
-<div class="old-help-para">14) Mappings are talked about in the help page :h <a href="map.html#map.txt">map.txt</a>. Use<pre>:help mapmode-i</pre></div>
-<div class="old-help-para">    to find out about the <a href="map.html#%3Aimap">:imap</a> command.  Also use :map-topic
+<div class="old-help-para">14) Mappings are talked about in the help page :h <a href="/neovim-docs-web/en/map#map.txt">map.txt</a>. Use<pre>:help mapmode-i</pre></div>
+<div class="old-help-para">    to find out about the <a href="/neovim-docs-web/en/map#%3Aimap">:imap</a> command.  Also use :map-topic
     to find out about certain subtopics particular for mappings.  e.g:<pre>:help :map-local</pre></div>
 <div class="old-help-para">    for buffer-local mappings or<pre>:help map-bar</pre></div>
 <div class="old-help-para">    for how the '|' is handled in mappings.</div>
@@ -390,22 +390,22 @@ Summary: 					<a name="help-summary"></a><code class="help-tag-right">help-summa
 <div class="old-help-para">    for moving the previous accessed window.  You can also access<pre>:help windows.txt</pre></div>
 <div class="old-help-para">    and read your way through if you are looking for window handling
     commands.</div>
-<div class="old-help-para">17) Use <a href="helphelp.html#%3Ahelpgrep">:helpgrep</a> to search in all help pages (and also of any installed
-    plugins).  See <a href="helphelp.html#%3Ahelpgrep">:helpgrep</a> for how to use it.
+<div class="old-help-para">17) Use <a href="/neovim-docs-web/en/helphelp#%3Ahelpgrep">:helpgrep</a> to search in all help pages (and also of any installed
+    plugins).  See <a href="/neovim-docs-web/en/helphelp#%3Ahelpgrep">:helpgrep</a> for how to use it.
     To search for a topic:<pre>:helpgrep topic</pre></div>
 <div class="old-help-para">    This takes you to the first match.  To go to the next one:<pre>:cnext</pre></div>
 <div class="old-help-para">    All matches are available in the quickfix window which can be opened
     with:<pre>:copen</pre></div>
 <div class="old-help-para">    Move around to the match you like and press Enter to jump to that help.</div>
 <div class="old-help-para">18) The user manual.  This describes help topics for beginners in a rather
-    friendly way.  Start at <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a> to find the table of content (as you
+    friendly way.  Start at <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a> to find the table of content (as you
     might have guessed):<pre>:help usr_toc.txt</pre></div>
 <div class="old-help-para">    Skim over the contents to find interesting topics. The "Digraphs" and
     "Entering special characters" items are in chapter 24, so to go to that
     particular help page:<pre>:help usr_24.txt</pre></div>
 <div class="old-help-para">    Also if you want to access a certain chapter in the help, the chapter
     number can be accessed directly like this:<pre>:help 10.1</pre></div>
-<div class="old-help-para">    which goes to chapter 10.1 in <a href="usr_10.html#usr_10.txt">usr_10.txt</a> and talks about recording
+<div class="old-help-para">    which goes to chapter 10.1 in <a href="/neovim-docs-web/en/usr_10#usr_10.txt">usr_10.txt</a> and talks about recording
     macros.</div>
 <div class="old-help-para">19) Highlighting groups.  Always start with hl-groupname.  E.g.<pre>:help hl-WarningMsg</pre></div>
 <div class="old-help-para">    talks about the WarningMsg highlighting group.</div>
@@ -430,9 +430,9 @@ Summary: 					<a name="help-summary"></a><code class="help-tag-right">help-summa
 <div class="old-help-para">    talks about the warning "Changing a readonly file".
     Sometimes, however, those error codes are not described, but rather are
     listed at the Vim command that usually causes this.  So:<pre>:help E128</pre></div>
-<div class="old-help-para">    takes you to the <a href="userfunc.html#%3Afunction">:function</a> command</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_03.html#usr_03.txt">usr_03.txt</a>  Moving around</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">    takes you to the <a href="/neovim-docs-web/en/userfunc#%3Afunction">:function</a> command</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_03#usr_03.txt">usr_03.txt</a>  Moving around</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

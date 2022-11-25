@@ -17,19 +17,19 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">This chapter shows you several ways of making corrections and moving text
 around.  It teaches you the three basic ways to change text: operator-motion,
 Visual mode and text objects.</div>
-<div class="old-help-para"><a href="usr_04.html#04.1">04.1</a>  	Operators and motions
-<a href="usr_04.html#04.2">04.2</a>  	Changing text
-<a href="usr_04.html#04.3">04.3</a>  	Repeating a change
-<a href="usr_04.html#04.4">04.4</a>  	Visual mode
-<a href="usr_04.html#04.5">04.5</a>  	Moving text
-<a href="usr_04.html#04.6">04.6</a>  	Copying text
-<a href="usr_04.html#04.7">04.7</a>  	Using the clipboard
-<a href="usr_04.html#04.8">04.8</a>  	Text objects
-<a href="usr_04.html#04.9">04.9</a>  	Replace mode
-<a href="usr_04.html#04.10">04.10</a>  	Conclusion</div>
-<div class="old-help-para">     Next chapter: <a href="usr_05.html#usr_05.txt">usr_05.txt</a>  Set your settings
- Previous chapter: <a href="usr_03.html#usr_03.txt">usr_03.txt</a>  Moving around
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_04#04.1">04.1</a>  	Operators and motions
+<a href="/neovim-docs-web/en/usr_04#04.2">04.2</a>  	Changing text
+<a href="/neovim-docs-web/en/usr_04#04.3">04.3</a>  	Repeating a change
+<a href="/neovim-docs-web/en/usr_04#04.4">04.4</a>  	Visual mode
+<a href="/neovim-docs-web/en/usr_04#04.5">04.5</a>  	Moving text
+<a href="/neovim-docs-web/en/usr_04#04.6">04.6</a>  	Copying text
+<a href="/neovim-docs-web/en/usr_04#04.7">04.7</a>  	Using the clipboard
+<a href="/neovim-docs-web/en/usr_04#04.8">04.8</a>  	Text objects
+<a href="/neovim-docs-web/en/usr_04#04.9">04.9</a>  	Replace mode
+<a href="/neovim-docs-web/en/usr_04#04.10">04.10</a>  	Conclusion</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_05#usr_05.txt">usr_05.txt</a>  Set your settings
+ Previous chapter: <a href="/neovim-docs-web/en/usr_03#usr_03.txt">usr_03.txt</a>  Moving around
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Operators and motions</h2></div>
 <div class="old-help-para">In chapter 2 you learned the "x" command to delete a single character.  And
 using a count: "4x" deletes four characters.
@@ -272,7 +272,7 @@ use another way.  You use the normal "y" (yank) and "p" (put) commands, but
 prepend "* (double-quote star) before it.  To copy a line to the clipboard:<pre>"*yy</pre>
 To put text from the clipboard back into the text:<pre>"*p</pre>
 This only works on versions of Vim that include clipboard support.  More about
-the clipboard can be found in section <a href="usr_09.html#09.3">09.3</a> and here: <a href="provider.html#clipboard">clipboard</a>.</div>
+the clipboard can be found in section <a href="/neovim-docs-web/en/usr_09#09.3">09.3</a> and here: <a href="/neovim-docs-web/en/provider#clipboard">clipboard</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="04.8"></a><span class="help-tag">04.8</span>  	Text objects</span></h2></div>
 <div class="old-help-para">If the cursor is in the middle of a word and you want to delete that word, you
 need to move back to its start before you can do "dw".  There is a simpler way
@@ -307,7 +307,7 @@ in the Visual selection.  Visual mode continues, thus you can do this several
 times.  For example, start Visual mode with "v" and select a sentence with
 "as".  Now you can repeat "as" to include more sentences.  Finally you use an
 operator to do something with the selected sentences.</div>
-<div class="old-help-para">You can find a long list of text objects here: <a href="motion.html#text-objects">text-objects</a>.</div>
+<div class="old-help-para">You can find a long list of text objects here: <a href="/neovim-docs-web/en/motion#text-objects">text-objects</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="04.9"></a><span class="help-tag">04.9</span>  	Replace mode</span></h2></div>
 <div class="old-help-para">The "R" command causes Vim to enter replace mode.  In this mode, each
 character you type replaces the one under the cursor.  This continues until
@@ -326,7 +326,7 @@ typed character.</div>
 <div class="old-help-para">The operators, movement commands and text objects give you the possibility to
 make lots of combinations.  Now that you know how they work, you can use N
 operators with M movement commands to make N * M commands!</div>
-<div class="old-help-para">You can find a list of operators here: <a href="motion.html#operator">operator</a>.</div>
+<div class="old-help-para">You can find a list of operators here: <a href="/neovim-docs-web/en/motion#operator">operator</a>.</div>
 <div class="old-help-para">For example, there are many other ways to delete pieces of text.  Here are a
 few common ones:</div>
 <div class="old-help-para">x	delete character under the cursor (short for "dl")
@@ -344,15 +344,15 @@ yank the text.  And so forth.</div>
 else:</div>
 <div class="old-help-para">	~	Change case of the character under the cursor, and move the
 		cursor to the next character.  This is not an operator (unless
-		<a href="options.html#'tildeop'">'tildeop'</a> is set), thus you can't use it with a motion
+		<a href="/neovim-docs-web/en/options#'tildeop'">'tildeop'</a> is set), thus you can't use it with a motion
 		command.  It does work in Visual mode, where it changes case
 		for all the selected text.</div>
 <div class="old-help-para">	I	Start Insert mode after moving the cursor to the first
 		non-blank in the line.</div>
 <div class="old-help-para">	A	Start Insert mode after moving the cursor to the end of the
 		line.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_05.html#usr_05.txt">usr_05.txt</a>  Set your settings</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_05#usr_05.txt">usr_05.txt</a>  Set your settings</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

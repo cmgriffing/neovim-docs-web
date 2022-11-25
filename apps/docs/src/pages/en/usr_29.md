@@ -18,14 +18,14 @@ layout: ../../layouts/MainLayout.astro
 contains many features to aid in writing programs.  Jump around to find where
 identifiers are defined and used.  Preview declarations in a separate window.
 There is more in the next chapter.</div>
-<div class="old-help-para"><a href="usr_29.html#29.1">29.1</a>  	Using tags
-<a href="usr_29.html#29.2">29.2</a>  	The preview window
-<a href="usr_29.html#29.3">29.3</a>  	Moving through a program
-<a href="usr_29.html#29.4">29.4</a>  	Finding global identifiers
-<a href="usr_29.html#29.5">29.5</a>  	Finding local identifiers</div>
-<div class="old-help-para">     Next chapter: <a href="usr_30.html#usr_30.txt">usr_30.txt</a>  Editing programs
- Previous chapter: <a href="usr_28.html#usr_28.txt">usr_28.txt</a>  Folding
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_29#29.1">29.1</a>  	Using tags
+<a href="/neovim-docs-web/en/usr_29#29.2">29.2</a>  	The preview window
+<a href="/neovim-docs-web/en/usr_29#29.3">29.3</a>  	Moving through a program
+<a href="/neovim-docs-web/en/usr_29#29.4">29.4</a>  	Finding global identifiers
+<a href="/neovim-docs-web/en/usr_29#29.5">29.5</a>  	Finding local identifiers</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_30#usr_30.txt">usr_30.txt</a>  Editing programs
+ Previous chapter: <a href="/neovim-docs-web/en/usr_28#usr_28.txt">usr_28.txt</a>  Folding
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Using tags</h2></div>
 <div class="old-help-para">What is a tag?  It is a location where an identifier is defined.  An example
 is a function definition in a C or C++ program.  A list of tags is kept in a
@@ -97,7 +97,7 @@ If a count is specified, the new window will be that many lines high.</div>
 <div class="old-help-para"><a name="_more-tags-files"></a><h3 class="help-heading">MORE TAGS FILES</h3></div>
 <div class="old-help-para">When you have files in many directories, you can create a tags file in each of
 them.  Vim will then only be able to jump to tags within that directory.
-   To find more tags files, set the <a href="options.html#'tags'">'tags'</a> option to include all the relevant
+   To find more tags files, set the <a href="/neovim-docs-web/en/options#'tags'">'tags'</a> option to include all the relevant
 tags files.  Example:<pre>:set tags=./tags,./../tags,./*/tags</pre>
 This finds a tags file in the same directory as the current file, one
 directory level higher and in all subdirectories.
@@ -168,12 +168,12 @@ Move the cursor to the line that contains the function you want to go to.
 Now press <code>&lt;Enter&gt;</code>.  Vim will go to the other window and jump to the selected
 function.</div>
 <div class="old-help-para"><a name="_related-items"></a><h3 class="help-heading">RELATED ITEMS</h3></div>
-<div class="old-help-para">To make case in tag names be ignored, you can set <a href="options.html#'ignorecase'">'ignorecase'</a> while leaving
-<a href="options.html#'tagcase'">'tagcase'</a> as "followic", or set <a href="options.html#'tagcase'">'tagcase'</a> to "ignore".</div>
-<div class="old-help-para">The <a href="options.html#'tagbsearch'">'tagbsearch'</a> option tells if the tags file is sorted or not.  The default
+<div class="old-help-para">To make case in tag names be ignored, you can set <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> while leaving
+<a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> as "followic", or set <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> to "ignore".</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'tagbsearch'">'tagbsearch'</a> option tells if the tags file is sorted or not.  The default
 is to assume a sorted tags file, which makes a tags search a lot faster, but
 doesn't work if the tags file isn't sorted.</div>
-<div class="old-help-para">The <a href="options.html#'taglength'">'taglength'</a> option can be used to tell Vim the number of significant
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'taglength'">'taglength'</a> option can be used to tell Vim the number of significant
 characters in a tag.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="29.2"></a><span class="help-tag">29.2</span>  	The preview window</span></h2></div>
 <div class="old-help-para">When you edit code that contains a function call, you need to use the correct
@@ -188,7 +188,7 @@ to use a <code>CTRL-W</code> command.
    If the name of a function appears in the text, you can get its definition
 in the preview window with:<pre>CTRL-W }</pre>
 There is a script that automatically displays the text where the word under
-the cursor was defined.  See <a href="windows.html#CursorHold-example">CursorHold-example</a>.</div>
+the cursor was defined.  See <a href="/neovim-docs-web/en/windows#CursorHold-example">CursorHold-example</a>.</div>
 <div class="old-help-para">To close the preview window use this command:<pre>:pclose</pre>
 To edit a specific file in the preview window, use ":pedit".  This can be
 useful to edit a header file, for example:<pre>:pedit defs.h</pre>
@@ -200,7 +200,7 @@ This will show the "stdio.h" file in the preview window, with the function
 prototype for popen():</div>
 <div class="old-help-para">FILEpopen __P((const char, const char));</div>
 <div class="old-help-para">You can specify the height of the preview window, when it is opened, with the
-<a href="options.html#'previewheight'">'previewheight'</a> option.</div>
+<a href="/neovim-docs-web/en/options#'previewheight'">'previewheight'</a> option.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="29.3"></a><span class="help-tag">29.3</span>  	Moving through a program</span></h2></div>
 <div class="old-help-para">Since a program is structured, Vim can recognize items in it.  Specific
 commands can be used to move around.
@@ -297,10 +297,10 @@ searched.  In most cases this results in the right declaration to be found.
 Also when the tags file is out of date.  Also when you don't have tags for the
 included files.
    However, a few things must be right for "[I" to do its work.  First of all,
-the <a href="options.html#'include'">'include'</a> option must specify how a file is included.  The default value
+the <a href="/neovim-docs-web/en/options#'include'">'include'</a> option must specify how a file is included.  The default value
 works for C and C++.  For other languages you will have to change it.</div>
 <div class="old-help-para"><a name="_locating-included-files"></a><h3 class="help-heading">LOCATING INCLUDED FILES</h3></div>
-<div class="old-help-para">   Vim will find included files in the places specified with the <a href="options.html#'path'">'path'</a>
+<div class="old-help-para">   Vim will find included files in the places specified with the <a href="/neovim-docs-web/en/options#'path'">'path'</a>
 option.  If a directory is missing, some include files will not be found.  You
 can discover this with this command:<pre>:checkpath</pre>
 It will list the include files that could not be found.  Also files included
@@ -314,7 +314,7 @@ includes.  The "functions.h" and "clib/exec_protos.h" files, included by
 	Vim is not a compiler.  It does not recognize "#ifdef" statements.
 	This means every "#include" statement is used, also when it comes
 	after "#if NEVER".</div>
-<div class="old-help-para">To fix the files that could not be found, add a directory to the <a href="options.html#'path'">'path'</a>
+<div class="old-help-para">To fix the files that could not be found, add a directory to the <a href="/neovim-docs-web/en/options#'path'">'path'</a>
 option.  A good place to find out about this is the Makefile.  Look out for
 lines that contain "-I" items, like "-I/usr/local/X11".  To add this directory
 use:<pre>:set path+=/usr/local/X11</pre>
@@ -324,7 +324,7 @@ This would find files in "/usr/local/include" as well as "/usr/X11/include".</di
 items is useful.  This will search down in all subdirectories.  Example:<pre>:set path+=/projects/invent/**/include</pre>
 This will find files in the directories:</div>
 <div class="old-help-para"><div class="help-column_heading">	/projects/invent/include</div><div class="help-column_heading">	/projects/invent/main/include</div><div class="help-column_heading">	/projects/invent/main/os/include</div>	etc.</div>
-<div class="old-help-para">There are even more possibilities.  Check out the <a href="options.html#'path'">'path'</a> option for info.
+<div class="old-help-para">There are even more possibilities.  Check out the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option for info.
    If you want to see which included files are actually found, use this
 command:<pre>:checkpath!</pre>
 You will get a (very long) list of included files, the files they include, and
@@ -345,7 +345,7 @@ jump back to where you started from.</div>
 <div class="old-help-para"><a name="_finding-defined-identifiers"></a><h3 class="help-heading">FINDING DEFINED IDENTIFIERS</h3></div>
 <div class="old-help-para">The "[I" command finds any identifier.  To find only macros, defined with
 "#define" use:<pre>[D</pre>
-Again, this searches in included files.  The <a href="options.html#'define'">'define'</a> option specifies what a
+Again, this searches in included files.  The <a href="/neovim-docs-web/en/options#'define'">'define'</a> option specifies what a
 line looks like that defines the items for "[D".  You could change it to make
 it work with other languages than C or C++.
    The commands related to "[D" are:</div>
@@ -378,8 +378,8 @@ for the identifier.  Example (cursor on "idx"):</div>
 	   |		if (strcmp(table[idx].name, name) == 0)
 	   +--		    return idx;
 		}</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_30.html#usr_30.txt">usr_30.txt</a>  Editing programs</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_30#usr_30.txt">usr_30.txt</a>  Editing programs</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

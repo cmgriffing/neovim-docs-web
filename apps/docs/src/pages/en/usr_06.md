@@ -18,15 +18,15 @@ layout: ../../layouts/MainLayout.astro
 not only looks nice, it also speeds up your work.  Change the colors used for
 the different sorts of text.  Print your text, with the colors you see on the
 screen.</div>
-<div class="old-help-para"><a href="usr_06.html#06.1">06.1</a>  	Switching it on
-<a href="usr_06.html#06.2">06.2</a>  	No or wrong colors?
-<a href="usr_06.html#06.3">06.3</a>  	Different colors
-<a href="usr_06.html#06.4">06.4</a>  	With colors or without colors
-<a href="usr_06.html#06.5">06.5</a>  	Printing with colors
-<a href="usr_06.html#06.6">06.6</a>  	Further reading</div>
-<div class="old-help-para">     Next chapter: <a href="usr_07.html#usr_07.txt">usr_07.txt</a>  Editing more than one file
- Previous chapter: <a href="usr_05.html#usr_05.txt">usr_05.txt</a>  Set your settings
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_06#06.1">06.1</a>  	Switching it on
+<a href="/neovim-docs-web/en/usr_06#06.2">06.2</a>  	No or wrong colors?
+<a href="/neovim-docs-web/en/usr_06#06.3">06.3</a>  	Different colors
+<a href="/neovim-docs-web/en/usr_06#06.4">06.4</a>  	With colors or without colors
+<a href="/neovim-docs-web/en/usr_06#06.5">06.5</a>  	Printing with colors
+<a href="/neovim-docs-web/en/usr_06#06.6">06.6</a>  	Further reading</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_07#usr_07.txt">usr_07.txt</a>  Editing more than one file
+ Previous chapter: <a href="/neovim-docs-web/en/usr_05#usr_05.txt">usr_05.txt</a>  Set your settings
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Switching it on</h2></div>
 <div class="old-help-para">Syntax highlighting is enabled by default.  Nvim will automagically detect the
 type of file and load the right syntax highlighting.</div>
@@ -52,17 +52,17 @@ type of file and load the right syntax highlighting.</div>
 	manually:<pre>:set filetype=fortran</pre></div>
 <div class="old-help-para">	To see which types are available, look in the directory
 	$VIMRUNTIME/syntax.  For the GUI you can use the Syntax menu.
-	Setting the filetype can also be done with a <a href="options.html#modeline">modeline</a>, so that the
+	Setting the filetype can also be done with a <a href="/neovim-docs-web/en/options#modeline">modeline</a>, so that the
 	file will be highlighted each time you edit it.  For example, this
 	line can be used in a Makefile (put it near the start or end of the
 	file):<pre># vim: syntax=make</pre></div>
 <div class="old-help-para">	You might know how to detect the file type yourself.  Often the file
 	name extension (after the dot) can be used.
-	See <a href="filetype.html#new-filetype">new-filetype</a> for how to tell Vim to detect that file type.</div>
+	See <a href="/neovim-docs-web/en/filetype#new-filetype">new-filetype</a> for how to tell Vim to detect that file type.</div>
 <div class="old-help-para"><div class="help-li" style=""> There is no highlighting for your file type.
 	You could try using a similar file type by manually setting it as
 	mentioned above.  If that isn't good enough, you can write your own
-	syntax file, see <a href="syntax.html#mysyntaxfile">mysyntaxfile</a>.
+	syntax file, see <a href="/neovim-docs-web/en/syntax#mysyntaxfile">mysyntaxfile</a>.
 </div></div>
 <div class="old-help-para">Or the colors could be wrong:</div>
 <div class="old-help-para"><div class="help-li" style=""> The colored text is very hard to read.
@@ -70,21 +70,21 @@ type of file and load the right syntax highlighting.</div>
 	(or another dark color) it will use light colors for text.  If it is
 	white (or another light color) it will use dark colors for text.  If
 	Vim guessed wrong the text will be hard to read.  To solve this, set
-	the <a href="options.html#'background'">'background'</a> option.  For a dark background:<pre>:set background=dark</pre>
+	the <a href="/neovim-docs-web/en/options#'background'">'background'</a> option.  For a dark background:<pre>:set background=dark</pre>
 </div></div>
 <div class="old-help-para">	And for a light background:<pre>:set background=light</pre></div>
 <div class="old-help-para">	Make sure you put this _before_ the ":syntax enable" command,
 	otherwise the colors will already have been set.  You could do
-	":syntax reset" after setting <a href="options.html#'background'">'background'</a> to make Vim set the default
+	":syntax reset" after setting <a href="/neovim-docs-web/en/options#'background'">'background'</a> to make Vim set the default
 	colors again.</div>
 <div class="old-help-para"><div class="help-li" style=""> The colors are wrong when scrolling bottom to top.
 	Vim doesn't read the whole file to parse the text.  It starts parsing
 	wherever you are viewing the file.  That saves a lot of time, but
 	sometimes the colors are wrong.  A simple fix is hitting <code>CTRL-L</code>.  Or
 	scroll back a bit and then forward again.
-	For a real fix, see <a href="syntax.html#%3Asyn-sync">:syn-sync</a>.  Some syntax files have a way to make
+	For a real fix, see <a href="/neovim-docs-web/en/syntax#%3Asyn-sync">:syn-sync</a>.  Some syntax files have a way to make
 	it look further back, see the help for the specific syntax file.  For
-	example, <a href="syntax.html#tex.vim">tex.vim</a> for the TeX syntax.
+	example, <a href="/neovim-docs-web/en/syntax#tex.vim">tex.vim</a> for the TeX syntax.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="06.3"></a><span class="help-tag">06.3</span>  	Different colors<span class="help-heading-tags">				<a name="%3Asyn-default-override"></a><span class="help-tag">:syn-default-override</span></span></span></h2></div>
 <div class="old-help-para">If you don't like the default colors, you can select another color scheme.  In
@@ -92,7 +92,7 @@ the GUI use the Edit/Color Scheme menu.  You can also type the command:<pre>:col
 "evening" is the name of the color scheme.  There are several others you might
 want to try out.  Look in the directory $VIMRUNTIME/colors.</div>
 <div class="old-help-para">When you found the color scheme that you like, add the ":colorscheme" command
-to your <a href="starting.html#init.vim">init.vim</a> file.</div>
+to your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> file.</div>
 <div class="old-help-para">You could also write your own color scheme.  This is how you do it:</div>
 <div class="old-help-para">1. Select a color scheme that comes close.  Copy this file to your own Vim
    directory.  For Unix, this should work:<pre>!mkdir -p ~/.config/nvim/colors
@@ -107,9 +107,9 @@ to your <a href="starting.html#init.vim">init.vim</a> file.</div>
 	guibg		background color in the GUI</div>
 <div class="old-help-para">   For example, to make comments green:<pre>:highlight Comment ctermfg=green guifg=green</pre></div>
 <div class="old-help-para">   Attributes you can use for "cterm" and "gui" are "bold" and "underline".
-   If you want both, use "bold,underline".  For details see the <a href="syntax.html#%3Ahighlight">:highlight</a>
+   If you want both, use "bold,underline".  For details see the <a href="/neovim-docs-web/en/syntax#%3Ahighlight">:highlight</a>
    command.</div>
-<div class="old-help-para">3. Tell Vim to always use your color scheme.  Put this line in your <a href="starting.html#vimrc">vimrc</a>:<pre>colorscheme mine</pre>
+<div class="old-help-para">3. Tell Vim to always use your color scheme.  Put this line in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:<pre>colorscheme mine</pre>
 If you want to see what the most often used color combinations look like, use
 this command:<pre>:runtime syntax/colortest.vim</pre>
 You will see text in various color combinations.  You can check which ones are
@@ -120,12 +120,12 @@ too slow, you might want to disable syntax highlighting for a moment:<pre>:synta
 When editing another file (or the same one) the colors will come back.</div>
 <div class="old-help-para">If you want to stop highlighting completely use:<pre>:syntax off</pre>
 This will completely disable syntax highlighting and remove it immediately for
-all buffers.  See <a href="syntax.html#%3Asyntax-off">:syntax-off</a> for more details.</div>
+all buffers.  See <a href="/neovim-docs-web/en/syntax#%3Asyntax-off">:syntax-off</a> for more details.</div>
 <div class="old-help-para">							<a name="%3Asyn-manual"></a><code class="help-tag-right">:syn-manual</code>
 If you want syntax highlighting only for specific files, use this:<pre>:syntax manual</pre>
 This will enable the syntax highlighting, but not switch it on automatically
 when starting to edit a buffer.  To switch highlighting on for the current
-buffer, set the <a href="options.html#'syntax'">'syntax'</a> option:<pre>:set syntax=ON</pre></div>
+buffer, set the <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> option:<pre>:set syntax=ON</pre></div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="06.5"></a><span class="help-tag">06.5</span>  	Printing with colors<span class="help-heading-tags">				<a name="syntax-printing"></a><span class="help-tag">syntax-printing</span></span></span></h2></div>
 <div class="old-help-para">In the MS-Windows version you can print the current file with this command:<pre>:hardcopy</pre>
 You will get the usual printer dialog, where you can select the printer and a
@@ -133,10 +133,10 @@ few settings.  If you have a color printer, the paper output should look the
 same as what you see inside Vim.  But when you use a dark background the
 colors will be adjusted to look good on white paper.</div>
 <div class="old-help-para">There are several options that change the way Vim prints:
-	<a href="options.html#'printdevice'">'printdevice'</a>
-	<a href="options.html#'printheader'">'printheader'</a>
-	<a href="options.html#'printfont'">'printfont'</a>
-	<a href="options.html#'printoptions'">'printoptions'</a></div>
+	<a href="/neovim-docs-web/en/options#'printdevice'">'printdevice'</a>
+	<a href="/neovim-docs-web/en/options#'printheader'">'printheader'</a>
+	<a href="/neovim-docs-web/en/options#'printfont'">'printfont'</a>
+	<a href="/neovim-docs-web/en/options#'printoptions'">'printoptions'</a></div>
 <div class="old-help-para">To print only a range of lines,  use Visual mode to select the lines and then
 type the command:<pre>v100j:hardcopy</pre>
 "v" starts Visual mode.  "100j" moves a hundred lines down, they will be
@@ -152,15 +152,15 @@ Some time later another window shows the HTML code.  Now write this somewhere
 (doesn't matter where, you throw it away later):
 <pre>:write main.c.html</pre>
 Open this file in your favorite browser and print it from there.  If all goes
-well, the output should look exactly as it does in Vim.  See <a href="syntax.html#2html.vim">2html.vim</a> for
+well, the output should look exactly as it does in Vim.  See <a href="/neovim-docs-web/en/syntax#2html.vim">2html.vim</a> for
 details.  Don't forget to delete the HTML file when you are done with it.</div>
 <div class="old-help-para">Instead of printing, you could also put the HTML file on a web server, and let
 others look at the colored text.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="06.6"></a><span class="help-tag">06.6</span>  	Further reading</span></h2></div>
-<div class="old-help-para"><a href="usr_44.html#usr_44.txt">usr_44.txt</a>  Your own syntax highlighted.
-<a href="syntax.html#syntax">syntax</a>      All the details.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_07.html#usr_07.txt">usr_07.txt</a>  Editing more than one file</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_44#usr_44.txt">usr_44.txt</a>  Your own syntax highlighted.
+<a href="/neovim-docs-web/en/syntax#syntax">syntax</a>      All the details.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_07#usr_07.txt">usr_07.txt</a>  Editing more than one file</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

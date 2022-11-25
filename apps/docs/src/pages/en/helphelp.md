@@ -23,7 +23,7 @@ layout: ../../layouts/MainLayout.astro
 			wide, the help window will appear just above the
 			current window.  Otherwise the new window is put at
 			the very top.
-			The <a href="options.html#'helplang'">'helplang'</a> option is used to select a language, if
+			The <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> option is used to select a language, if
 			the main help file is available in several languages.</div>
 <div class="old-help-para">						<a name="%7Bsubject%7D"></a><code class="help-tag-right">{subject}</code> <a name="E149"></a><code class="help-tag">E149</code> <a name="E661"></a><code class="help-tag">E661</code>
 :h[elp] <code>{subject}</code>	Like ":help", additionally jump to the tag <code>{subject}</code>.
@@ -49,15 +49,15 @@ layout: ../../layouts/MainLayout.astro
 </div><div class="help-li" style=""> The more alphanumeric characters match, the better.
 </div><div class="help-li" style=""> The shorter the length of the match, the better.
 </div></div>
-<div class="old-help-para">			The <a href="options.html#'helplang'">'helplang'</a> option is used to select a language, if
+<div class="old-help-para">			The <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> option is used to select a language, if
 			the <code>{subject}</code> is available in several languages.
 			To find a tag in a specific language, append "@ab",
 			where "ab" is the two-letter language code.  See
-			<a href="helphelp.html#help-translated">help-translated</a>.</div>
+			<a href="/neovim-docs-web/en/helphelp#help-translated">help-translated</a>.</div>
 <div class="old-help-para">			Note that the longer the <code>{subject}</code> you give, the less
 			matches will be found.  You can get an idea how this
 			all works by using commandline completion (type <code>CTRL-D</code>
-			after ":help subject" <a href="cmdline.html#c_CTRL-D">c_CTRL-D</a>).
+			after ":help subject" <a href="/neovim-docs-web/en/cmdline#c_CTRL-D">c_CTRL-D</a>).
 			If there are several matches, you can have them listed
 			by hitting <code>CTRL-D</code>.  Example:<pre>:help cont&lt;Ctrl-D&gt;</pre></div>
 <div class="old-help-para">			Instead of typing ":help <code>CTRL-V</code>" to search for help
@@ -84,7 +84,7 @@ layout: ../../layouts/MainLayout.astro
 			<code>CTRL-V</code> first to insert the <code>&lt;NL&gt;</code> or <code>&lt;CR&gt;</code>.  Example:<pre>:help so&lt;C-V&gt;&lt;CR&gt;only</pre></div>
 <div class="old-help-para">:h[elp]! [subject]	Like ":help", but in non-English help files prefer to
 			find a tag in a file with the same language as the
-			current file.  See <a href="helphelp.html#help-translated">help-translated</a>.</div>
+			current file.  See <a href="/neovim-docs-web/en/helphelp#help-translated">help-translated</a>.</div>
 <div class="old-help-para">							<a name="%3Ahelpc"></a><code class="help-tag-right">:helpc</code> <a name="%3Ahelpclose"></a><code class="help-tag">:helpclose</code>
 :helpc[lose]		Close one help window, if there is one.
 			Vim will try to restore the window layout (including
@@ -98,21 +98,21 @@ layout: ../../layouts/MainLayout.astro
 			The optional [@xx] specifies that only matches in the
 			"xx" language are to be found.
 			You can navigate through the matches with the
-			<a href="quickfix.html#quickfix">quickfix</a> commands, e.g., <a href="quickfix.html#%3Acnext">:cnext</a> to jump to the
-			next one.  Or use <a href="quickfix.html#%3Acwindow">:cwindow</a> to get the list of
+			<a href="/neovim-docs-web/en/quickfix#quickfix">quickfix</a> commands, e.g., <a href="/neovim-docs-web/en/quickfix#%3Acnext">:cnext</a> to jump to the
+			next one.  Or use <a href="/neovim-docs-web/en/quickfix#%3Acwindow">:cwindow</a> to get the list of
 			matches in the quickfix window.
-			<code>{pattern}</code> is used as a Vim regexp <a href="pattern.html#pattern">pattern</a>.
-			<a href="options.html#'ignorecase'">'ignorecase'</a> is not used, add "\c" to ignore case.
+			<code>{pattern}</code> is used as a Vim regexp <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>.
+			<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is not used, add "\c" to ignore case.
 			Example for case sensitive search:<pre>:helpgrep Uganda</pre></div>
 <div class="old-help-para">			Example for case ignoring search:<pre>:helpgrep uganda\c</pre></div>
 <div class="old-help-para">			Example for searching in French help:<pre>:helpgrep backspace@fr</pre></div>
 <div class="old-help-para">			The pattern does not support line breaks, it must
-			match within one line.  You can use <a href="quickfix.html#%3Agrep">:grep</a> instead,
+			match within one line.  You can use <a href="/neovim-docs-web/en/quickfix#%3Agrep">:grep</a> instead,
 			but then you need to get the list of help files in a
 			complicated way.
 			Cannot be followed by another command, everything is
 			used as part of the pattern.  But you can use
-			<a href="eval.html#%3Aexecute">:execute</a> when needed.
+			<a href="/neovim-docs-web/en/eval#%3Aexecute">:execute</a> when needed.
 			Compressed help files will not be searched (Fedora
 			compresses the help files).</div>
 <div class="old-help-para">							<a name="%3Alh"></a><code class="help-tag-right">:lh</code> <a name="%3Alhelpgrep"></a><code class="help-tag">:lhelpgrep</code>
@@ -130,32 +130,32 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">							<a name="%3Aviu"></a><code class="help-tag-right">:viu</code> <a name="%3Aviusage"></a><code class="help-tag">:viusage</code>
 :viu[sage]		Show help on Normal mode commands.  Added to simulate
 			the Nvi command.</div>
-<div class="old-help-para">When no argument is given to <a href="helphelp.html#%3Ahelp">:help</a> the file given with the <a href="options.html#'helpfile'">'helpfile'</a> option
+<div class="old-help-para">When no argument is given to <a href="/neovim-docs-web/en/helphelp#%3Ahelp">:help</a> the file given with the <a href="/neovim-docs-web/en/options#'helpfile'">'helpfile'</a> option
 will be opened.  Otherwise the specified tag is searched for in all "doc/tags"
-files in the directories specified in the <a href="options.html#'runtimepath'">'runtimepath'</a> option.</div>
+files in the directories specified in the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> option.</div>
 <div class="old-help-para">If you would like to open the help in the current window, see this tip:
-<a href="tips.html#help-curwin">help-curwin</a>.</div>
-<div class="old-help-para">The initial height of the help window can be set with the <a href="options.html#'helpheight'">'helpheight'</a> option
+<a href="/neovim-docs-web/en/tips#help-curwin">help-curwin</a>.</div>
+<div class="old-help-para">The initial height of the help window can be set with the <a href="/neovim-docs-web/en/options#'helpheight'">'helpheight'</a> option
 (default 20).
 						<a name="help-buffer-options"></a><code class="help-tag-right">help-buffer-options</code>
 When the help buffer is created, several local options are set to make sure
 the help text is displayed as it was intended:
-    <a href="options.html#'iskeyword'">'iskeyword'</a>		nearly all ASCII chars except ' ', '', '"' and '|'
-    <a href="options.html#'foldmethod'">'foldmethod'</a>	"manual"
-    <a href="options.html#'tabstop'">'tabstop'</a>		8
-    <a href="options.html#'arabic'">'arabic'</a>		off
-    <a href="options.html#'binary'">'binary'</a>		off
-    <a href="options.html#'buflisted'">'buflisted'</a>		off
-    <a href="options.html#'cursorbind'">'cursorbind'</a>	off
-    <a href="options.html#'diff'">'diff'</a>		off
-    <a href="options.html#'foldenable'">'foldenable'</a>	off
-    <a href="options.html#'list'">'list'</a>		off
-    <a href="options.html#'modifiable'">'modifiable'</a>	off
-    <a href="options.html#'number'">'number'</a>		off
-    <a href="options.html#'relativenumber'">'relativenumber'</a>	off
-    <a href="options.html#'rightleft'">'rightleft'</a>		off
-    <a href="options.html#'scrollbind'">'scrollbind'</a>	off
-    <a href="options.html#'spell'">'spell'</a>		off</div>
+    <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>		nearly all ASCII chars except ' ', '', '"' and '|'
+    <a href="/neovim-docs-web/en/options#'foldmethod'">'foldmethod'</a>	"manual"
+    <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a>		8
+    <a href="/neovim-docs-web/en/options#'arabic'">'arabic'</a>		off
+    <a href="/neovim-docs-web/en/options#'binary'">'binary'</a>		off
+    <a href="/neovim-docs-web/en/options#'buflisted'">'buflisted'</a>		off
+    <a href="/neovim-docs-web/en/options#'cursorbind'">'cursorbind'</a>	off
+    <a href="/neovim-docs-web/en/options#'diff'">'diff'</a>		off
+    <a href="/neovim-docs-web/en/options#'foldenable'">'foldenable'</a>	off
+    <a href="/neovim-docs-web/en/options#'list'">'list'</a>		off
+    <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a>	off
+    <a href="/neovim-docs-web/en/options#'number'">'number'</a>		off
+    <a href="/neovim-docs-web/en/options#'relativenumber'">'relativenumber'</a>	off
+    <a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a>		off
+    <a href="/neovim-docs-web/en/options#'scrollbind'">'scrollbind'</a>	off
+    <a href="/neovim-docs-web/en/options#'spell'">'spell'</a>		off</div>
 <div class="old-help-para">Jump to specific subjects by using tags.  This can be done in two ways:
 <div class="help-li" style=""> Use the "CTRL-]" command while standing on the name of a command or option.
   This only works when the tag is a keyword.  "&lt;C-Leftmouse&gt;" and
@@ -171,8 +171,8 @@ can jump to each one of them:
 2. Use the ":tag" command with a slash prepended to the tag.  E.g.:<pre>:tag /min</pre>
 3. Use ":tnext" to jump to the next matching tag.</div>
 <div class="old-help-para">It is possible to add help files for plugins and other items.  You don't need
-to change the distributed help files for that.  See <a href="usr_05.html#add-local-help">add-local-help</a>.</div>
-<div class="old-help-para">To write a local help file, see <a href="usr_41.html#write-local-help">write-local-help</a>.</div>
+to change the distributed help files for that.  See <a href="/neovim-docs-web/en/usr_05#add-local-help">add-local-help</a>.</div>
+<div class="old-help-para">To write a local help file, see <a href="/neovim-docs-web/en/usr_41#write-local-help">write-local-help</a>.</div>
 <div class="old-help-para">Note that the title lines from the local help files are automagically added to
 This is done when viewing the file in Vim, the file itself is not changed.  It
 is done by going through all help files and obtaining the first line of each
@@ -182,12 +182,12 @@ file.  The files in $VIMRUNTIME/doc are skipped.</div>
 :helpt[ags] [++t] <code>{dir}</code>
 			Generate the help tags file(s) for directory <code>{dir}</code>.
 			When <code>{dir}</code> is ALL then all "doc" directories in
-			<a href="options.html#'runtimepath'">'runtimepath'</a> will be used.</div>
+			<a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> will be used.</div>
 <div class="old-help-para">			All "*.txt" and "*.??x" files in the directory and
 			sub-directories are scanned for a help tag definition
 			in between stars.  The "*.??x" files are for
 			translated docs, they generate the "tags-??" file, see
-			<a href="helphelp.html#help-translated">help-translated</a>.  The generated tags files are
+			<a href="/neovim-docs-web/en/helphelp#help-translated">help-translated</a>.  The generated tags files are
 			sorted.
 			When there are duplicates an error message is given.
 			An existing tags file is silently overwritten.</div>
@@ -198,7 +198,7 @@ file.  The files in $VIMRUNTIME/doc are skipped.</div>
 			(requires write permission there):<pre>:helptags $VIMRUNTIME/doc</pre></div>
 <div class="old-help-para"><h2 class="help-heading">2. Translated help files<span class="help-heading-tags">				<a name="help-translated"></a><span class="help-tag">help-translated</span></span></h2></div>
 <div class="old-help-para">It is possible to add translated help files, next to the original English help
-files.  Vim will search for all help in "doc" directories in <a href="options.html#'runtimepath'">'runtimepath'</a>.</div>
+files.  Vim will search for all help in "doc" directories in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.</div>
 <div class="old-help-para">At this moment translations are available for:
 	Chinese  - multiple authors
 	French   - translated by David Blanchet
@@ -217,22 +217,22 @@ See the Vim website to find them: <a href="https://www.vim.org/translations.php"
 	howto.itx
 	...
 	tags-it</div>
-<div class="old-help-para">The <a href="options.html#'helplang'">'helplang'</a> option can be set to the preferred language(s).  The default is
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> option can be set to the preferred language(s).  The default is
 set according to the environment.  Vim will first try to find a matching tag
 in the preferred language(s).  English is used when it cannot be found.</div>
 <div class="old-help-para">To find a tag in a specific language, append "@ab" to a tag, where "ab" is the
 two-letter language code.  Example:<pre>:he user-manual@it
 :he user-manual@en</pre>
-The first one finds the Italian user manual, even when <a href="options.html#'helplang'">'helplang'</a> is empty.
-The second one finds the English user manual, even when <a href="options.html#'helplang'">'helplang'</a> is set to
+The first one finds the Italian user manual, even when <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> is empty.
+The second one finds the English user manual, even when <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> is set to
 "it".</div>
 <div class="old-help-para">When using command-line completion for the ":help" command, the "@en"
 extension is only shown when a tag exists for multiple languages.  When the
 tag only exists for English "@en" is omitted.  When the first candidate has an
-"@ab" extension and it matches the first language in <a href="options.html#'helplang'">'helplang'</a> "@ab" is also
+"@ab" extension and it matches the first language in <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> "@ab" is also
 omitted.</div>
-<div class="old-help-para">When using <a href="tagsrch.html#CTRL-%5D">CTRL-]</a> or ":help!" in a non-English help file Vim will try to
-find the tag in the same language.  If not found then <a href="options.html#'helplang'">'helplang'</a> will be used
+<div class="old-help-para">When using <a href="/neovim-docs-web/en/tagsrch#CTRL-%5D">CTRL-]</a> or ":help!" in a non-English help file Vim will try to
+find the tag in the same language.  If not found then <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> will be used
 to select a language.</div>
 <div class="old-help-para">Help files must use latin1 or utf-8 encoding.  Vim assumes the encoding is
 utf-8 when finding non-ASCII characters in the first line.  Thus you must
@@ -242,14 +242,14 @@ directory.  You can use a different encoding for different languages and use
 a different encoding for help files of the same language but in a different
 directory.</div>
 <div class="old-help-para">Hints for translators:
-<div class="help-li" style=""> Do not translate the tags.  This makes it possible to use <a href="options.html#'helplang'">'helplang'</a> to
+<div class="help-li" style=""> Do not translate the tags.  This makes it possible to use <a href="/neovim-docs-web/en/options#'helplang'">'helplang'</a> to
   specify the preferred language.  You may add new tags in your language.
 </div><div class="help-li" style=""> When you do not translate a part of a file, add tags to the English version,
   using the "tag@en" notation.
 </div><div class="help-li" style=""> Make a package with all the files and the tags file available for download.
   Users can drop it in one of the "doc" directories and start use it.
   Report this to Bram, so that he can add a link on www.vim.org.
-</div><div class="help-li" style=""> Use the <a href="helphelp.html#%3Ahelptags">:helptags</a> command to generate the tags files.  It will find all
+</div><div class="help-li" style=""> Use the <a href="/neovim-docs-web/en/helphelp#%3Ahelptags">:helptags</a> command to generate the tags files.  It will find all
   languages in the specified directory.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">3. Writing help files<span class="help-heading-tags">					<a name="help-writing"></a><span class="help-tag">help-writing</span></span></h2></div>
@@ -264,8 +264,8 @@ remainder of the line, after a Tab, describes the plugin purpose in a short
 way.  This will show up in the "LOCAL ADDITIONS" section of the main help</div>
 <div class="old-help-para">If you want to add a version number or last modification date, put it in the
 second line, right aligned.</div>
-<div class="old-help-para">At the bottom of the help file, place a Vim modeline to set the <a href="options.html#'textwidth'">'textwidth'</a>
-and <a href="options.html#'tabstop'">'tabstop'</a> options and the <a href="options.html#'filetype'">'filetype'</a> to "help".  Never set a global option
+<div class="old-help-para">At the bottom of the help file, place a Vim modeline to set the <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a>
+and <a href="/neovim-docs-web/en/options#'tabstop'">'tabstop'</a> options and the <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a> to "help".  Never set a global option
 in such a modeline, that can have undesired consequences.</div>
 <div class="old-help-para"><a name="_tags"></a><h3 class="help-heading">TAGS</h3></div>
 <div class="old-help-para">To define a help tag, place the name between asterisks (<a name="tag-name"></a><code class="help-tag">tag-name</code>).  The
@@ -273,12 +273,12 @@ tag-name should be different from all the Vim help tag names and ideally
 should begin with the name of the Vim plugin.  The tag name is usually right
 aligned on a line.</div>
 <div class="old-help-para">When referring to an existing help tag and to create a hot-link, place the
-name between two bars (|<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+helphelp.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/helphelp.html%0D%0DContext%3A%0D%0D%60%60%60%0Daligned%20on%20a%20line.%0A%0AWhen%20referring%20to%20an%20existing%20help%20tag%20and%20to%20create%20a%20hot-link%2C%20place%20the%0Aname%20between%20two%20bars%20(%7C)%20eg.%20%7Chelp-writing%7C.%0A%0AWhen%20referring%20to%20a%20Vim%20command%20and%20to%20create%20a%20hot-link%2C%20place%20the%0Aname%20between%20two%20backticks%2C%20eg.%20inside%20%60%3Afiletype%60.%20%20You%20will%20see%20this%20is%0D%60%60%60">)</a> eg. <a href="helphelp.html#help-writing">help-writing</a>.</div>
+name between two bars (|<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+helphelp.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/helphelp.html%0D%0DContext%3A%0D%0D%60%60%60%0Daligned%20on%20a%20line.%0A%0AWhen%20referring%20to%20an%20existing%20help%20tag%20and%20to%20create%20a%20hot-link%2C%20place%20the%0Aname%20between%20two%20bars%20(%7C)%20eg.%20%7Chelp-writing%7C.%0A%0AWhen%20referring%20to%20a%20Vim%20command%20and%20to%20create%20a%20hot-link%2C%20place%20the%0Aname%20between%20two%20backticks%2C%20eg.%20inside%20%60%3Afiletype%60.%20%20You%20will%20see%20this%20is%0D%60%60%60">)</a> eg. <a href="/neovim-docs-web/en/helphelp#help-writing">help-writing</a>.</div>
 <div class="old-help-para">When referring to a Vim command and to create a hot-link, place the
 name between two backticks, eg. inside <code>:filetype</code>.  You will see this is
 highlighted as a command, like a code block (see below).</div>
 <div class="old-help-para">When referring to a Vim option in the help file, place the option name between
-two single quotes, eg. <a href="options.html#'statusline'">'statusline'</a></div>
+two single quotes, eg. <a href="/neovim-docs-web/en/options#'statusline'">'statusline'</a></div>
 <div class="old-help-para">When referring to any other technical term, such as a filename or function
 parameter, surround it in backticks, eg. <code>~/.path/to/init.vim</code>.</div>
 <div class="old-help-para"><a name="_highlighting"></a><h3 class="help-heading">HIGHLIGHTING</h3></div>

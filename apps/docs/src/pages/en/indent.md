@@ -14,44 +14,44 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">This file is about indenting C programs and other files.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Indenting C style programs</h2></div>
-<div class="old-help-para">The basics for C style indenting are explained in section <a href="usr_30.html#30.2">30.2</a> of the user
+<div class="old-help-para">The basics for C style indenting are explained in section <a href="/neovim-docs-web/en/usr_30#30.2">30.2</a> of the user
 manual.</div>
 <div class="old-help-para">Vim has options for automatically indenting C style program files. Many
 programming languages including Java and C++ follow very closely the
 formatting conventions established with C.  These options affect only the
 indent and do not perform other formatting.  There are additional options that
-affect other kinds of formatting as well as indenting, see <a href="change.html#format-comments">format-comments</a>,
-<a href="change.html#fo-table">fo-table</a>, <a href="change.html#gq">gq</a> and <a href="change.html#formatting">formatting</a> for the main ones.</div>
+affect other kinds of formatting as well as indenting, see <a href="/neovim-docs-web/en/change#format-comments">format-comments</a>,
+<a href="/neovim-docs-web/en/change#fo-table">fo-table</a>, <a href="/neovim-docs-web/en/change#gq">gq</a> and <a href="/neovim-docs-web/en/change#formatting">formatting</a> for the main ones.</div>
 <div class="old-help-para">There are in fact four main methods available for indentation, each one
-overrides the previous if it is enabled, or non-empty for <a href="options.html#'indentexpr'">'indentexpr'</a>:
-<a href="options.html#'autoindent'">'autoindent'</a>	uses the indent from the previous line.
-<a href="options.html#'smartindent'">'smartindent'</a>	is like <a href="options.html#'autoindent'">'autoindent'</a> but also recognizes some C syntax to
+overrides the previous if it is enabled, or non-empty for <a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a>:
+<a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a>	uses the indent from the previous line.
+<a href="/neovim-docs-web/en/options#'smartindent'">'smartindent'</a>	is like <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> but also recognizes some C syntax to
 		increase/reduce the indent where appropriate.
-<a href="options.html#'cindent'">'cindent'</a>	Works more cleverly than the other two and is configurable to
+<a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a>	Works more cleverly than the other two and is configurable to
 		different indenting styles.
-<a href="options.html#'indentexpr'">'indentexpr'</a>	The most flexible of all: Evaluates an expression to compute
+<a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a>	The most flexible of all: Evaluates an expression to compute
 		the indent of a line.  When non-empty this method overrides
-		the other ones.  See <a href="indent.html#indent-expression">indent-expression</a>.
-The rest of this section describes the <a href="options.html#'cindent'">'cindent'</a> option.</div>
-<div class="old-help-para">Note that <a href="options.html#'cindent'">'cindent'</a> indenting does not work for every code scenario.  Vim
+		the other ones.  See <a href="/neovim-docs-web/en/indent#indent-expression">indent-expression</a>.
+The rest of this section describes the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option.</div>
+<div class="old-help-para">Note that <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> indenting does not work for every code scenario.  Vim
 is not a C compiler: it does not recognize all syntax.  One requirement is
 that toplevel functions have a '<code>{' in the first column.  Otherwise they are}</code>
 easily confused with declarations.</div>
 <div class="old-help-para">These five options control C program indenting:
-<a href="options.html#'cindent'">'cindent'</a>	Enables Vim to perform C program indenting automatically.
-<a href="options.html#'cinkeys'">'cinkeys'</a>	Specifies which keys trigger reindenting in insert mode.
-<a href="options.html#'cinoptions'">'cinoptions'</a>	Sets your preferred indent style.
-<a href="options.html#'cinwords'">'cinwords'</a>	Defines keywords that start an extra indent in the next line.
-<a href="options.html#'cinscopedecls'">'cinscopedecls'</a>	Defines strings that are recognized as a C++ scope declaration.</div>
-<div class="old-help-para">If <a href="options.html#'lisp'">'lisp'</a> is not on and <a href="options.html#'equalprg'">'equalprg'</a> is empty, the "=" operator indents using
+<a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a>	Enables Vim to perform C program indenting automatically.
+<a href="/neovim-docs-web/en/options#'cinkeys'">'cinkeys'</a>	Specifies which keys trigger reindenting in insert mode.
+<a href="/neovim-docs-web/en/options#'cinoptions'">'cinoptions'</a>	Sets your preferred indent style.
+<a href="/neovim-docs-web/en/options#'cinwords'">'cinwords'</a>	Defines keywords that start an extra indent in the next line.
+<a href="/neovim-docs-web/en/options#'cinscopedecls'">'cinscopedecls'</a>	Defines strings that are recognized as a C++ scope declaration.</div>
+<div class="old-help-para">If <a href="/neovim-docs-web/en/options#'lisp'">'lisp'</a> is not on and <a href="/neovim-docs-web/en/options#'equalprg'">'equalprg'</a> is empty, the "=" operator indents using
 Vim's built-in algorithm rather than calling an external program.</div>
-<div class="old-help-para">See <a href="autocmd.html#autocommand">autocommand</a> for how to set the <a href="options.html#'cindent'">'cindent'</a> option automatically for C code
+<div class="old-help-para">See <a href="/neovim-docs-web/en/autocmd#autocommand">autocommand</a> for how to set the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option automatically for C code
 files and reset it for others.</div>
 <div class="old-help-para">					<a name="cinkeys-format"></a><code class="help-tag-right">cinkeys-format</code> <a name="indentkeys-format"></a><code class="help-tag">indentkeys-format</code>
-The <a href="options.html#'cinkeys'">'cinkeys'</a> option is a string that controls Vim's indenting in response to
+The <a href="/neovim-docs-web/en/options#'cinkeys'">'cinkeys'</a> option is a string that controls Vim's indenting in response to
 typing certain characters or commands in certain contexts.  Note that this not
-only triggers C-indenting.  When <a href="options.html#'indentexpr'">'indentexpr'</a> is not empty <a href="options.html#'indentkeys'">'indentkeys'</a> is
-used instead.  The format of <a href="options.html#'cinkeys'">'cinkeys'</a> and <a href="options.html#'indentkeys'">'indentkeys'</a> is equal.</div>
+only triggers C-indenting.  When <a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a> is not empty <a href="/neovim-docs-web/en/options#'indentkeys'">'indentkeys'</a> is
+used instead.  The format of <a href="/neovim-docs-web/en/options#'cinkeys'">'cinkeys'</a> and <a href="/neovim-docs-web/en/options#'indentkeys'">'indentkeys'</a> is equal.</div>
 <div class="old-help-para">The default is "0{,0},0),0],:,0#,!^F,o,O,e" which specifies that indenting
 occurs as follows:</div>
 <div class="old-help-para">	"0{"	if you type '<code>{' as the first character in a line}</code>
@@ -73,7 +73,7 @@ occurs as follows:</div>
 	key for this.  Be careful if you define <code>CTRL-I</code> for this because <code>CTRL-I</code>
 	is the ASCII code for <code>&lt;Tab&gt;</code>.
 *	When a '' precedes the key, Vim will reindent the line before
-	inserting the key.  If <a href="options.html#'cinkeys'">'cinkeys'</a> contains "*&lt;Return&gt;", Vim reindents
+	inserting the key.  If <a href="/neovim-docs-web/en/options#'cinkeys'">'cinkeys'</a> contains "*&lt;Return&gt;", Vim reindents
 	the current line before opening a new line.
 0	When a zero precedes the key (but appears after '!' or '') Vim will
 	reindent the line only if the key is the first character you type in
@@ -83,7 +83,7 @@ occurs as follows:</div>
 type the key.  So ';' sets the indentation of a line which includes the ';'.</div>
 <div class="old-help-para">Special key names:</div>
 <div class="old-help-para">&gt;	Angle brackets mean spelled-out names of keys.  For example: "&lt;Up&gt;",
-	"&lt;Ins&gt;" (see <a href="intro.html#key-notation">key-notation</a>).
+	"&lt;Ins&gt;" (see <a href="/neovim-docs-web/en/intro#key-notation">key-notation</a>).
 ^	Letters preceded by a caret (^) are control characters.  For example:
 	"^F" is <code>CTRL-F</code>.
 o	Reindent a line when you use the "o" command or when Vim opens a new
@@ -107,28 +107,28 @@ e	Reindent a line that starts with "else" when you type the second 'e'.
 <div class="old-help-para">For an emacs-style indent mode where lines aren't indented every time you
 press <code>&lt;Enter&gt;</code> but only if you press <code>&lt;Tab&gt;</code>, I suggest:
 	:set cinkeys=0{,0},:,0#,!&lt;Tab&gt;,!^F
-You might also want to switch off <a href="options.html#'autoindent'">'autoindent'</a> then.</div>
+You might also want to switch off <a href="/neovim-docs-web/en/options#'autoindent'">'autoindent'</a> then.</div>
 <div class="old-help-para">Note: If you change the current line's indentation manually, Vim ignores the
 cindent settings for that line.  This prevents vim from reindenting after you
 have changed the indent by typing <code>&lt;BS&gt;</code>, <code>&lt;Tab&gt;</code>, or <code>&lt;Space&gt;</code> in the indent or
 used <code>CTRL-T</code> or <code>CTRL-D</code>.</div>
 <div class="old-help-para">						<a name="cinoptions-values"></a><code class="help-tag-right">cinoptions-values</code>
-The <a href="options.html#'cinoptions'">'cinoptions'</a> option sets how Vim performs indentation.  The value after
+The <a href="/neovim-docs-web/en/options#'cinoptions'">'cinoptions'</a> option sets how Vim performs indentation.  The value after
 the option character can be one of these (N is any number):
 	N	indent N spaces
 	-N	indent N spaces to the left
-	Ns	N times <a href="options.html#'shiftwidth'">'shiftwidth'</a> spaces
-	-Ns	N times <a href="options.html#'shiftwidth'">'shiftwidth'</a> spaces to the left</div>
+	Ns	N times <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> spaces
+	-Ns	N times <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> spaces to the left</div>
 <div class="old-help-para">In the list below,
 "N" represents a number of your choice (the number can be negative).  When
-there is an 's' after the number, Vim multiplies the number by <a href="options.html#'shiftwidth'">'shiftwidth'</a>:
-"1s" is <a href="options.html#'shiftwidth'">'shiftwidth'</a>, "2s" is two times <a href="options.html#'shiftwidth'">'shiftwidth'</a>, etc.  You can use a
-decimal point, too: "-0.5s" is minus half a <a href="options.html#'shiftwidth'">'shiftwidth'</a>.
-The examples below assume a <a href="options.html#'shiftwidth'">'shiftwidth'</a> of 4.
+there is an 's' after the number, Vim multiplies the number by <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>:
+"1s" is <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>, "2s" is two times <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>, etc.  You can use a
+decimal point, too: "-0.5s" is minus half a <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>.
+The examples below assume a <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> of 4.
 							<a name="cino-%3E"></a><code class="help-tag-right">cino-&gt;</code>
 	&gt;N    Amount added for "normal" indent.  Used after a line that should
 	      increase the indent (lines starting with "if", an opening brace,
-	      etc.).  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      etc.).  (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=		    cino=&gt;2		cino=&gt;2s<pre>if (cond)              if (cond)                  if (cond)
 {                      {                          {
     foo;                foo;                          foo;
@@ -205,7 +205,7 @@ LABEL:                    LABEL:            LABEL:
 }                   }                   }</pre></div>
 <div class="old-help-para">							<a name="cino-%3A"></a><code class="help-tag-right">cino-:</code>
 	:N    Place case labels N characters from the indent of the switch().
-	      (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=		    cino=:0<pre>switch (x)              switch(x)
 {                      {
     case 1:              case 1:
@@ -214,7 +214,7 @@ LABEL:                    LABEL:            LABEL:
 }                      }</pre></div>
 <div class="old-help-para">							<a name="cino-%3D"></a><code class="help-tag-right">cino-=</code>
 	=N    Place statements occurring after a case label N characters from
-	      the indent of the label.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      the indent of the label.  (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=		    cino==10<pre>case 11:                case 11:  a = a + 1;
     a = a + 1;                  b = b + 1;</pre></div>
 <div class="old-help-para">							<a name="cino-l"></a><code class="help-tag-right">cino-l</code>
@@ -227,7 +227,7 @@ LABEL:                    LABEL:            LABEL:
 <div class="old-help-para">							<a name="cino-b"></a><code class="help-tag-right">cino-b</code>
 	bN    If N != 0 Vim will align a final "break" with the case label,
 	      so that case..break looks like a sort of block.  (default: 0).
-	      When using 1, consider adding "0=break" to <a href="options.html#'cinkeys'">'cinkeys'</a>.</div>
+	      When using 1, consider adding "0=break" to <a href="/neovim-docs-web/en/options#'cinkeys'">'cinkeys'</a>.</div>
 <div class="old-help-para">		cino=		    cino=b1<pre>switch (x)              switch(x)
 {                      {
     case 1:                  case 1:
@@ -240,9 +240,9 @@ LABEL:                    LABEL:            LABEL:
 }                      }</pre></div>
 <div class="old-help-para">							<a name="cino-g"></a><code class="help-tag-right">cino-g</code>
 	gN    Place C++ scope declarations N characters from the indent of the
-	      block they are in.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>). By default, a scope
+	      block they are in.  (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>). By default, a scope
 	      declaration is "public:", "protected:" or "private:". This can
-	      be adjusted with the <a href="options.html#'cinscopedecls'">'cinscopedecls'</a> option.</div>
+	      be adjusted with the <a href="/neovim-docs-web/en/options#'cinscopedecls'">'cinscopedecls'</a> option.</div>
 <div class="old-help-para">		cino=		    cino=g0<pre>{                      {
     public:              public:
         a = b;          a = b;
@@ -251,7 +251,7 @@ LABEL:                    LABEL:            LABEL:
 <div class="old-help-para">							<a name="cino-h"></a><code class="help-tag-right">cino-h</code>
 	hN    Place statements occurring after a C++ scope declaration N
 	      characters from the indent of the label.  (default
-	      <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=		    cino=h10<pre>public:                public:   a = a + 1;
     a = a + 1;                  b = b + 1;</pre></div>
 <div class="old-help-para">							<a name="cino-N"></a><code class="help-tag-right">cino-N</code>
@@ -280,20 +280,20 @@ extern "C"                 extern "C"
 <div class="old-help-para">							<a name="cino-p"></a><code class="help-tag-right">cino-p</code>
 	pN    Parameter declarations for K&amp;R-style function declarations will
 	      be indented N characters from the margin.  (default
-	      <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=		    cino=p0		cino=p2s<pre>func(a, b)              func(a, b)          func(a, b)
     int a;              int a;                          int a;
     char b;              char b;                          char b;</pre></div>
 <div class="old-help-para">							<a name="cino-t"></a><code class="help-tag-right">cino-t</code>
 	tN    Indent a function return type declaration N characters from the
-	      margin.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      margin.  (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=		    cino=t0		cino=t7<pre>    int              int                         int
 func()              func()                  func()</pre></div>
 <div class="old-help-para">							<a name="cino-i"></a><code class="help-tag-right">cino-i</code>
 	iN    Indent C++ base class declarations and constructor
 	      initializations, if they start in a new line (otherwise they
 	      are aligned at the right side of the ':').
-	      (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=			  cino=i0<pre>class MyClass :            class MyClass :
     public BaseClass      public BaseClass
 {}                            {}
@@ -303,7 +303,7 @@ MyClass::MyClass() :            MyClass::MyClass() :
 <div class="old-help-para">							<a name="cino-%2B"></a><code class="help-tag-right">cino-+</code>
 	+N    Indent a continuation line (a line that spills onto the next)
               inside a function N additional characters.  (default
-              <a href="options.html#'shiftwidth'">'shiftwidth'</a>).
+              <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).
               Outside of a function, when the previous line ended in a
               backslash, the 2 * N is used.</div>
 <div class="old-help-para">		cino=			  cino=+10<pre>a = b + 9 *                    a = b + 9 *
@@ -311,7 +311,7 @@ MyClass::MyClass() :            MyClass::MyClass() :
 <div class="old-help-para">							<a name="cino-c"></a><code class="help-tag-right">cino-c</code>
 	cN    Indent comment lines after the comment opener, when there is no
 	      other text with which to align, N characters from the comment
-	      opener.  (default 3).  See also <a href="change.html#format-comments">format-comments</a>.</div>
+	      opener.  (default 3).  See also <a href="/neovim-docs-web/en/change#format-comments">format-comments</a>.</div>
 <div class="old-help-para">		cino=			  cino=c5<pre>/*                            /*
    text.                         text.
  */                             */</pre></div>
@@ -330,11 +330,11 @@ MyClass::MyClass() :            MyClass::MyClass() :
 c = d;                    c = d;</pre></div>
 <div class="old-help-para">							<a name="cino-("></a><code class="help-tag-right">cino-(</code>
 	(N    When in unclosed parentheses, indent N characters from the line
-	      with the unclosed parenthesis.  Add a <a href="options.html#'shiftwidth'">'shiftwidth'</a> for every
+	      with the unclosed parenthesis.  Add a <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> for every
 	      extra unclosed parentheses.  When N is 0 or the unclosed
 	      parenthesis is the first non-white character in its line, line
 	      up with the next non-white character after the unclosed
-	      parenthesis.  (default <a href="options.html#'shiftwidth'">'shiftwidth'</a> * 2).</div>
+	      parenthesis.  (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> * 2).</div>
 <div class="old-help-para">		cino=			  cino=(0<pre>if (c1 &amp;&amp; (c2 ||            if (c1 &amp;&amp; (c2 ||
             c3))                       c3))
     foo;                        foo;
@@ -343,7 +343,7 @@ if (c1 &amp;&amp;                    if (c1 &amp;&amp;
    {                               {</pre></div>
 <div class="old-help-para">							<a name="cino-u"></a><code class="help-tag-right">cino-u</code>
 	uN    Same as (N, but for one nesting level deeper.
-	      (default <a href="options.html#'shiftwidth'">'shiftwidth'</a>).</div>
+	      (default <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>).</div>
 <div class="old-help-para">		cino=			  cino=u2<pre>if (c123456789            if (c123456789
         &amp;&amp; (c22345                    &amp;&amp; (c22345
             || c3))                      || c3))</pre></div>
@@ -423,7 +423,7 @@ if (                            if (
 	JN    Indent JavaScript object declarations correctly by not confusing
 	      them with labels.  The value 'N' is currently unused but must be
 	      non-zero (e.g. 'J1').  If you enable this you probably also want
-	      to set <a href="indent.html#cino-j">cino-j</a>.<pre>var bar = {
+	      to set <a href="/neovim-docs-web/en/indent#cino-j">cino-j</a>.<pre>var bar = {
     foo: {
         that: this,
         some: ok,
@@ -461,18 +461,18 @@ N    Vim searches for unclosed comments at most N lines away.  This
 	cinoptions=&gt;s,e0,n0,f0,{0,}0,^0,L-1,:s,=s,l0,b0,gs,hs,N0,E0,ps,ts,is,+s,
 			c3,C0,/0,(2s,us,U0,w0,W0,k0,m0,j0,J0,)20,*70,#0,P0</div>
 <div class="old-help-para">Vim puts a line in column 1 if:
-<div class="help-li" style=""> It starts with '#' (preprocessor directives), if <a href="options.html#'cinkeys'">'cinkeys'</a> contains '#0'.
+<div class="help-li" style=""> It starts with '#' (preprocessor directives), if <a href="/neovim-docs-web/en/options#'cinkeys'">'cinkeys'</a> contains '#0'.
 </div><div class="help-li" style=""> It starts with a label (a keyword followed by ':', other than "case" and
-  "default") and <a href="options.html#'cinoptions'">'cinoptions'</a> does not contain an 'L' entry with a positive
+  "default") and <a href="/neovim-docs-web/en/options#'cinoptions'">'cinoptions'</a> does not contain an 'L' entry with a positive
   value.
 </div><div class="help-li" style=""> Any combination of indentations causes the line to have less than 0
   indentation.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">2. Indenting by expression<span class="help-heading-tags">				<a name="indent-expression"></a><span class="help-tag">indent-expression</span></span></h2></div>
-<div class="old-help-para">The basics for using flexible indenting are explained in section <a href="usr_30.html#30.3">30.3</a> of the
+<div class="old-help-para">The basics for using flexible indenting are explained in section <a href="/neovim-docs-web/en/usr_30#30.3">30.3</a> of the
 user manual.</div>
-<div class="old-help-para">If you want to write your own indent file, it must set the <a href="options.html#'indentexpr'">'indentexpr'</a>
-option.  Setting the <a href="options.html#'indentkeys'">'indentkeys'</a> option is often useful.
+<div class="old-help-para">If you want to write your own indent file, it must set the <a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a>
+option.  Setting the <a href="/neovim-docs-web/en/options#'indentkeys'">'indentkeys'</a> option is often useful.
 See the $VIMRUNTIME/indent/README.txt file for hints.
 See the $VIMRUNTIME/indent directory for examples.</div>
 <div class="old-help-para"><div class="help-column_heading">REMARKS ABOUT SPECIFIC INDENT FILES</div></div>
@@ -488,7 +488,7 @@ performance for correctness when dealing with very long forms.  A value of
 <div class="old-help-para">						<a name="g%3Aclojure_fuzzy_indent"></a><code class="help-tag-right">g:clojure_fuzzy_indent</code>
 					<a name="g%3Aclojure_fuzzy_indent_patterns"></a><code class="help-tag-right">g:clojure_fuzzy_indent_patterns</code>
 					<a name="g%3Aclojure_fuzzy_indent_blacklist"></a><code class="help-tag-right">g:clojure_fuzzy_indent_blacklist</code></div>
-<div class="old-help-para">The <a href="options.html#'lispwords'">'lispwords'</a> option is a list of comma-separated words that mark special
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'lispwords'">'lispwords'</a> option is a list of comma-separated words that mark special
 forms whose subforms should be indented with two spaces.</div>
 <div class="old-help-para">For example:
 <pre>(defn bad []
@@ -496,27 +496,27 @@ forms whose subforms should be indented with two spaces.</div>
 
 (defn good []
   "Correct indentation")</pre></div>
-<div class="old-help-para">If you would like to specify <a href="options.html#'lispwords'">'lispwords'</a> with a <a href="pattern.html#pattern">pattern</a> instead, you can use
+<div class="old-help-para">If you would like to specify <a href="/neovim-docs-web/en/options#'lispwords'">'lispwords'</a> with a <a href="/neovim-docs-web/en/pattern#pattern">pattern</a> instead, you can use
 the fuzzy indent feature:
 <pre>" Default
 let g:clojure_fuzzy_indent = 1
 let g:clojure_fuzzy_indent_patterns = ['^with', '^def', '^let']
 let g:clojure_fuzzy_indent_blacklist =
         \ ['-fn$', '\v^with-%(meta|out-str|loading-context)$']</pre></div>
-<div class="old-help-para"><a href="indent.html#g%3Aclojure_fuzzy_indent_patterns">g:clojure_fuzzy_indent_patterns</a> and <a href="indent.html#g%3Aclojure_fuzzy_indent_blacklist">g:clojure_fuzzy_indent_blacklist</a> are
+<div class="old-help-para"><a href="/neovim-docs-web/en/indent#g%3Aclojure_fuzzy_indent_patterns">g:clojure_fuzzy_indent_patterns</a> and <a href="/neovim-docs-web/en/indent#g%3Aclojure_fuzzy_indent_blacklist">g:clojure_fuzzy_indent_blacklist</a> are
 lists of patterns that will be matched against the unqualified symbol at the
 head of a list.  This means that a pattern like <code>"^foo"</code> will match all these
 candidates: <code>foobar</code>, <code>my.ns/foobar</code>, and <code>#'foobar</code>.</div>
 <div class="old-help-para">Each candidate word is tested for special treatment in this order:</div>
-<div class="old-help-para">	1. Return true if word is literally in <a href="options.html#'lispwords'">'lispwords'</a>
+<div class="old-help-para">	1. Return true if word is literally in <a href="/neovim-docs-web/en/options#'lispwords'">'lispwords'</a>
 	2. Return false if word matches a pattern in
-	   <a href="indent.html#g%3Aclojure_fuzzy_indent_blacklist">g:clojure_fuzzy_indent_blacklist</a>
+	   <a href="/neovim-docs-web/en/indent#g%3Aclojure_fuzzy_indent_blacklist">g:clojure_fuzzy_indent_blacklist</a>
 	3. Return true if word matches a pattern in
-	   <a href="indent.html#g%3Aclojure_fuzzy_indent_patterns">g:clojure_fuzzy_indent_patterns</a>
+	   <a href="/neovim-docs-web/en/indent#g%3Aclojure_fuzzy_indent_patterns">g:clojure_fuzzy_indent_patterns</a>
 	4. Return false and indent normally otherwise</div>
 <div class="old-help-para">					<a name="g%3Aclojure_special_indent_words"></a><code class="help-tag-right">g:clojure_special_indent_words</code></div>
 <div class="old-help-para">Some forms in Clojure are indented such that every subform is indented by only
-two spaces, regardless of <a href="options.html#'lispwords'">'lispwords'</a>.  If you have a custom construct that
+two spaces, regardless of <a href="/neovim-docs-web/en/options#'lispwords'">'lispwords'</a>.  If you have a custom construct that
 should be indented in this idiosyncratic fashion, you can add your symbols to
 the default list below.
 <pre>" Default
@@ -559,7 +559,7 @@ free source form, whereas they are not indented if the Fortran is in fixed
 source form because of the left margin requirements.  Hence manual indent
 corrections will be necessary for labelled statements and continuation lines
 when fixed source form is being used.  For further discussion of the method
-used for the detection of source format see <a href="syntax.html#ft-fortran-syntax">ft-fortran-syntax</a>.</div>
+used for the detection of source format see <a href="/neovim-docs-web/en/syntax#ft-fortran-syntax">ft-fortran-syntax</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">Do loops</div>All do loops are left unindented by default.  Do loops can be unstructured in
 Fortran with (possibly multiple) loops ending on a labelled executable
 statement of almost arbitrary type.  Correct indentation requires
@@ -618,31 +618,31 @@ Preferences corresponds to:<pre>:let g:MATLAB_function_indent = {0, 1 or 2 (defa
 Where 0 is for Classic, 1 for Indent nested functions and 2 for Indent all
 functions.</div>
 <div class="old-help-para"><h3 class="help-heading">PHP<span class="help-heading-tags">				<a name="ft-php-indent"></a><span class="help-tag">ft-php-indent</span> <a name="php-indent"></a><span class="help-tag">php-indent</span> <a name="php-indenting"></a><span class="help-tag">php-indenting</span></span></h3></div>
-<div class="old-help-para">NOTE:	PHP files will be indented correctly only if PHP <a href="syntax.html#syntax">syntax</a> is active.</div>
-<div class="old-help-para">If you are editing a file in Unix <a href="options.html#'fileformat'">'fileformat'</a> and '\r' characters are present
+<div class="old-help-para">NOTE:	PHP files will be indented correctly only if PHP <a href="/neovim-docs-web/en/syntax#syntax">syntax</a> is active.</div>
+<div class="old-help-para">If you are editing a file in Unix <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> and '\r' characters are present
 before new lines, indentation won't proceed correctly ; you have to remove
 those useless characters first with a command like:<pre>:%s /\r$//g</pre>
-Or, you can simply <a href="eval.html#%3Alet">:let</a> the variable PHP_removeCRwhenUnix to 1 and the
-script will silently remove them when Vim loads a PHP file (at each <a href="autocmd.html#BufRead">BufRead</a>).</div>
+Or, you can simply <a href="/neovim-docs-web/en/eval#%3Alet">:let</a> the variable PHP_removeCRwhenUnix to 1 and the
+script will silently remove them when Vim loads a PHP file (at each <a href="/neovim-docs-web/en/autocmd#BufRead">BufRead</a>).</div>
 <div class="old-help-para"><div class="help-column_heading">OPTIONS:</div></div>
 <div class="old-help-para">PHP indenting can be altered in several ways by modifying the values of some
 global variables:</div>
 <div class="old-help-para">					<a name="php-comment"></a><code class="help-tag-right">php-comment</code> <a name="PHP_autoformatcomment"></a><code class="help-tag">PHP_autoformatcomment</code>
 To not enable auto-formatting of comments by default (if you want to use your
-own <a href="options.html#'formatoptions'">'formatoptions'</a>):<pre>:let g:PHP_autoformatcomment = 0</pre>
-Else, 't' will be removed from the <a href="options.html#'formatoptions'">'formatoptions'</a> string and "qrowcb" will be
-added, see <a href="change.html#fo-table">fo-table</a> for more information.
+own <a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a>):<pre>:let g:PHP_autoformatcomment = 0</pre>
+Else, 't' will be removed from the <a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a> string and "qrowcb" will be
+added, see <a href="/neovim-docs-web/en/change#fo-table">fo-table</a> for more information.
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+indent.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/indent.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0AElse%2C%20't'%20will%20be%20removed%20from%20the%20'formatoptions'%20string%20and%20%22qrowcb%22%20will%20be%0Aadded%2C%20see%20%7Cfo-table%7C%20for%20more%20information.%0A-------------%0A%0A%09%09%09%09%09%09%09%2APHP_outdentSLComments%2A%0ATo%20add%20extra%20indentation%20to%20single-line%20comments%3A%20%3E%0A%20%20%20%20%3Alet%20g%3APHP_outdentSLComments%20%3D%20N%0D%60%60%60">-------------</a></div>
 <div class="old-help-para">							<a name="PHP_outdentSLComments"></a><code class="help-tag-right">PHP_outdentSLComments</code>
 To add extra indentation to single-line comments:<pre>:let g:PHP_outdentSLComments = N</pre>
-With N being the number of <a href="options.html#'shiftwidth'">'shiftwidth'</a> to add.</div>
+With N being the number of <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> to add.</div>
 <div class="old-help-para">Only single-line comments will be affected such as:<pre># Comment
 // Comment
 /* Comment */</pre>
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+indent.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/indent.html%0D%0DContext%3A%0D%0D%60%60%60%0D%20%20%20%20%23%20Comment%0A%20%20%20%20%2F%2F%20Comment%0A%20%20%20%20%2F%2A%20Comment%20%2A%2F%0A-------------%0A%0A%09%09%09%09%09%09%09%2APHP_default_indenting%2A%0ATo%20add%20extra%20indentation%20to%20every%20PHP%20lines%20with%20N%20being%20the%20number%20of%0A'shiftwidth'%20to%20add%3A%20%3E%0D%60%60%60">-------------</a></div>
 <div class="old-help-para">							<a name="PHP_default_indenting"></a><code class="help-tag-right">PHP_default_indenting</code>
 To add extra indentation to every PHP lines with N being the number of
-<a href="options.html#'shiftwidth'">'shiftwidth'</a> to add:<pre>:let g:PHP_default_indenting = N</pre>
+<a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> to add:<pre>:let g:PHP_default_indenting = N</pre>
 For example, with N = 1, this will give:
 <pre>&lt;?php
     if (!isset($History_lst_sel))
@@ -661,7 +661,7 @@ To indent PHP escape tags as the surrounding non-PHP code (only affects the
 PHP escape tags):<pre>:let g:PHP_outdentphpescape = 0</pre>
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+indent.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/indent.html%0D%0DContext%3A%0D%0D%60%60%60%0DTo%20indent%20PHP%20escape%20tags%20as%20the%20surrounding%20non-PHP%20code%20(only%20affects%20the%0APHP%20escape%20tags)%3A%20%3E%0A%20%20%20%20%3Alet%20g%3APHP_outdentphpescape%20%3D%200%0A-------------%0A%0A%09%09%09%09%09%09%09%2APHP_removeCRwhenUnix%2A%0ATo%20automatically%20remove%20'%5Cr'%20characters%20when%20the%20'fileformat'%20is%20set%20to%20Unix%3A%20%3E%0A%20%20%20%20%3Alet%20g%3APHP_removeCRwhenUnix%20%3D%201%0D%60%60%60">-------------</a></div>
 <div class="old-help-para">							<a name="PHP_removeCRwhenUnix"></a><code class="help-tag-right">PHP_removeCRwhenUnix</code>
-To automatically remove '\r' characters when the <a href="options.html#'fileformat'">'fileformat'</a> is set to Unix:<pre>:let g:PHP_removeCRwhenUnix = 1</pre>
+To automatically remove '\r' characters when the <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> is set to Unix:<pre>:let g:PHP_removeCRwhenUnix = 1</pre>
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+indent.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/indent.html%0D%0DContext%3A%0D%0D%60%60%60%0D%09%09%09%09%09%09%09%2APHP_removeCRwhenUnix%2A%0ATo%20automatically%20remove%20'%5Cr'%20characters%20when%20the%20'fileformat'%20is%20set%20to%20Unix%3A%20%3E%0A%20%20%20%20%3Alet%20g%3APHP_removeCRwhenUnix%20%3D%201%0A-------------%0A%0A%09%09%09%09%09%09%09%2APHP_BracesAtCodeLevel%2A%0ATo%20indent%20braces%20at%20the%20same%20level%20than%20the%20code%20they%20contain%3A%20%3E%0A%20%20%20%20%3Alet%20g%3APHP_BracesAtCodeLevel%20%3D%201%0D%60%60%60">-------------</a></div>
 <div class="old-help-para">							<a name="PHP_BracesAtCodeLevel"></a><code class="help-tag-right">PHP_BracesAtCodeLevel</code>
 To indent braces at the same level than the code they contain:<pre>:let g:PHP_BracesAtCodeLevel = 1</pre>
@@ -719,10 +719,10 @@ indentation:<pre>function call_the_thing(
   );
 }</pre>
 <h3 class="help-heading">PYTHON<span class="help-heading-tags">							<a name="ft-python-indent"></a><span class="help-tag">ft-python-indent</span></span></h3></div>
-<div class="old-help-para">The amount of indent can be set with the <code>g:python_indent</code> <a href="eval.html#Dictionary">Dictionary</a>, which
+<div class="old-help-para">The amount of indent can be set with the <code>g:python_indent</code> <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>, which
 needs to be created before adding the items:<pre>let g:python_indent = {}</pre>
 The examples given are the defaults.  Note that the dictionary values are set
-to an expression, so that you can change the value of <a href="options.html#'shiftwidth'">'shiftwidth'</a> later
+to an expression, so that you can change the value of <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a> later
 without having to update these values.</div>
 <div class="old-help-para">Indent after an open paren:<pre>let g:python_indent.open_paren = 'shiftwidth() * 2'</pre>
 Indent after a nested paren:<pre>let g:python_indent.nested_paren = 'shiftwidth()'</pre>
@@ -731,7 +731,7 @@ By default, the closing paren on a multiline construct lines up under the first
 non-whitespace character of the previous line.
 If you prefer that it's lined up under the first character of the line that
 starts the multiline construct, reset this key:<pre>let g:python_indent.closed_paren_align_last_line = v:false</pre>
-The method uses <a href="builtin.html#searchpair()">searchpair()</a> to look back for unclosed parentheses.  This
+The method uses <a href="/neovim-docs-web/en/builtin#searchpair()">searchpair()</a> to look back for unclosed parentheses.  This
 can sometimes be slow, thus it timeouts after 150 msec.  If you notice the
 indenting isn't correct, you can set a larger timeout in msec:<pre>let g:python_indent.searchpair_timeout = 500</pre>
 If looking back for unclosed parenthesis is still too slow, especially during
@@ -744,13 +744,13 @@ g:pyindent_searchpair_timeout
 g:pyindent_disable_parentheses_indenting</pre>
 R								<a name="ft-r-indent"></a><code class="help-tag-right">ft-r-indent</code></div>
 <div class="old-help-para">Function arguments are aligned if they span for multiple lines. If you prefer
-do not have the arguments of functions aligned, put in your <a href="starting.html#vimrc">vimrc</a>:
+do not have the arguments of functions aligned, put in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:
 <pre>let r_indent_align_args = 0</pre></div>
 <div class="old-help-para">All lines beginning with a comment character, #, get the same indentation
 level of the normal R code. Users of Emacs/ESS may be used to have lines
 beginning with a single # indented in the 40th column, ## indented as R code,
 and ### not indented. If you prefer that lines beginning with comment
-characters are aligned as they are by Emacs/ESS, put in your <a href="starting.html#vimrc">vimrc</a>:
+characters are aligned as they are by Emacs/ESS, put in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:
 <pre>let r_indent_ess_comments = 1</pre></div>
 <div class="old-help-para">If you prefer that lines beginning with a single # are aligned at a column
 different from the 40th one, you should set a new value to the variable
@@ -758,7 +758,7 @@ r_indent_comment_column, as in the example below:
 <pre>let r_indent_comment_column = 30</pre></div>
 <div class="old-help-para">Any code after a line that ends with "&lt;-" is indented. Emacs/ESS does not
 indent the code if it is a top level function. If you prefer that the
-Vim-R-plugin behaves like Emacs/ESS in this regard, put in your <a href="starting.html#vimrc">vimrc</a>:
+Vim-R-plugin behaves like Emacs/ESS in this regard, put in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>:
 <pre>let r_indent_ess_compatible = 1</pre></div>
 <div class="old-help-para">Below is an example of indentation with and without this option enabled:
 <pre>### r_indent_ess_compatible = 1           ### r_indent_ess_compatible = 0
@@ -770,11 +770,11 @@ foo &lt;-                                    foo &lt;-
 <div class="old-help-para">The code will be indented after lines that match the pattern
 <code>'\(&amp;\||\|+\|-\|\*\|/\|=\|\~\|%\|-&gt;\)\s*$'</code>. If you want indentation after
 lines that match a different pattern, you should set the appropriate value of
-<code>r_indent_op_pattern</code> in your <a href="starting.html#vimrc">vimrc</a>.</div>
+<code>r_indent_op_pattern</code> in your <a href="/neovim-docs-web/en/starting#vimrc">vimrc</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">SHELL<span class="help-heading-tags">							<a name="ft-sh-indent"></a><span class="help-tag">ft-sh-indent</span></span></h3></div>
 <div class="old-help-para">The amount of indent applied under various circumstances in a shell file can
-be configured by setting the following keys in the <a href="eval.html#Dictionary">Dictionary</a>
-b:sh_indent_defaults to a specific amount or to a <a href="eval.html#Funcref">Funcref</a> that references a
+be configured by setting the following keys in the <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>
+b:sh_indent_defaults to a specific amount or to a <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> that references a
 function that will return the amount desired:</div>
 <div class="old-help-para">b:sh_indent_options['default']	Default amount of indent.</div>
 <div class="old-help-para">b:sh_indent_options['continuation-line']
@@ -800,7 +800,7 @@ au BufReadPost *     let b:verilog_indent_modules = 1
 au BufReadPost *   endif
 au BufReadPost * endif</pre>
 Furthermore, setting the variable b:verilog_indent_width to change the
-indenting width (default is <a href="options.html#'shiftwidth'">'shiftwidth'</a>):<pre>let b:verilog_indent_width = 4
+indenting width (default is <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a>):<pre>let b:verilog_indent_width = 4
 let b:verilog_indent_width = shiftwidth() * 2</pre>
 In addition, you can turn the verbose mode for debug issue:<pre>let b:verilog_indent_verbose = 1</pre>
 Make sure to do ":set cmdheight=2" first to allow the display of the message.</div>

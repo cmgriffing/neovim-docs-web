@@ -18,13 +18,13 @@ layout: ../../layouts/MainLayout.astro
 stores enough information to be able to restore most of your work.  This
 chapter shows you how to get your work back and explains how the swap file is
 used.</div>
-<div class="old-help-para"><a href="usr_11.html#11.1">11.1</a>  	Basic recovery
-<a href="usr_11.html#11.2">11.2</a>  	Where is the swap file?
-<a href="usr_11.html#11.3">11.3</a>  	Crashed or not?
-<a href="usr_11.html#11.4">11.4</a>  	Further reading</div>
-<div class="old-help-para">     Next chapter: <a href="usr_12.html#usr_12.txt">usr_12.txt</a>  Clever tricks
- Previous chapter: <a href="usr_10.html#usr_10.txt">usr_10.txt</a>  Making big changes
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_11#11.1">11.1</a>  	Basic recovery
+<a href="/neovim-docs-web/en/usr_11#11.2">11.2</a>  	Where is the swap file?
+<a href="/neovim-docs-web/en/usr_11#11.3">11.3</a>  	Crashed or not?
+<a href="/neovim-docs-web/en/usr_11#11.4">11.4</a>  	Further reading</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_12#usr_12.txt">usr_12.txt</a>  Clever tricks
+ Previous chapter: <a href="/neovim-docs-web/en/usr_10#usr_10.txt">usr_10.txt</a>  Making big changes
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Basic recovery</h2></div>
 <div class="old-help-para">In most cases recovering a file is quite simple, assuming you know which file
 you were editing (and the harddisk is still working).  Start Vim on the file,
@@ -35,7 +35,7 @@ see these messages (with different file names, of course):</div>
 <div class="old-help-para"><div class="help-column_heading">	Using swap file ".help.txt.swp"</div><div class="help-column_heading">	Original file "~/vim/runtime/doc/help.txt"</div><div class="help-column_heading">	Recovery completed. You should check if everything is OK.</div><div class="help-column_heading">	(You might want to write out this file under another name</div><div class="help-column_heading">	and run diff with the original file to check for changes)</div><div class="help-column_heading">	You may want to delete the .swp file now.</div></div>
 <div class="old-help-para">To be on the safe side, write this file under another name:<pre>:write help.txt.recovered</pre>
 Compare the file with the original file to check if you ended up with what you
-expected.  Diff mode is very useful for this <a href="usr_08.html#08.7">08.7</a>.  For example:<pre>:write help.txt.recovered
+expected.  Diff mode is very useful for this <a href="/neovim-docs-web/en/usr_08#08.7">08.7</a>.  For example:<pre>:write help.txt.recovered
 :edit #
 :diffsp help.txt</pre>
 Watch out for the original file to contain a more recent version (you saved
@@ -50,8 +50,8 @@ contents, you will get this message:</div>
 file after making changes.  It is safe to delete the swap file now.</div>
 <div class="old-help-para">It is normal that the last few changes can not be recovered.  Vim flushes the
 changes to disk when you don't type for about four seconds, or after typing
-about two hundred characters.  This is set with the <a href="options.html#'updatetime'">'updatetime'</a> and
-<a href="options.html#'updatecount'">'updatecount'</a> options.  Thus when Vim didn't get a chance to save itself when
+about two hundred characters.  This is set with the <a href="/neovim-docs-web/en/options#'updatetime'">'updatetime'</a> and
+<a href="/neovim-docs-web/en/options#'updatecount'">'updatecount'</a> options.  Thus when Vim didn't get a chance to save itself when
 the system went down, the changes after the last flush will be lost.</div>
 <div class="old-help-para">If you were editing without a file name, give an empty string as argument:<pre>vim -r ""</pre>
 You must be in the right directory, otherwise Vim can't find the swap file.</div>
@@ -79,12 +79,12 @@ the swap file.</div>
 This is also handy when the swap file is in another directory than expected.
 Vim recognizes files with the pattern.s[uvw][a-z] as swap files.</div>
 <div class="old-help-para">If this still does not work, see what file names Vim reports and rename the
-files accordingly.  Check the <a href="options.html#'directory'">'directory'</a> option to see where Vim may have
+files accordingly.  Check the <a href="/neovim-docs-web/en/options#'directory'">'directory'</a> option to see where Vim may have
 put the swap file.</div>
 <div class="old-help-para">	Note:
 	Vim tries to find the swap file by searching the directories in the
-	<a href="options.html#'dir'">'dir'</a> option, looking for files that match "filename.sw?".  If
-	wildcard expansion doesn't work (e.g., when the <a href="options.html#'shell'">'shell'</a> option is
+	<a href="/neovim-docs-web/en/options#'dir'">'dir'</a> option, looking for files that match "filename.sw?".  If
+	wildcard expansion doesn't work (e.g., when the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a> option is
 	invalid), Vim does a desperate try to find the file "filename.swp".
 	If that fails too, you will have to give the name of the swapfile
 	itself to be able to recover the file.</div>
@@ -128,7 +128,7 @@ will automatically delete it:
 </div><div class="help-li" style=""> The flag that the file was modified is not set.
 </div><div class="help-li" style=""> The process is not running.
 </div></div>
-<div class="old-help-para">You can programmatically deal with this situation with the <a href="autocmd.html#FileChangedShell">FileChangedShell</a>
+<div class="old-help-para">You can programmatically deal with this situation with the <a href="/neovim-docs-web/en/autocmd#FileChangedShell">FileChangedShell</a>
 autocommand event.</div>
 <div class="old-help-para"><div class="help-column_heading">UNREADABLE SWAP FILE</div></div>
 <div class="old-help-para">Sometimes the line</div>
@@ -183,19 +183,19 @@ the case when the other edit session puts the swap files in another directory
 or when the path name for the file is different when editing it on different
 machines.  Therefore, don't rely on Vim always warning you.</div>
 <div class="old-help-para">If you really don't want to see this message, you can add the 'A' flag to the
-<a href="options.html#'shortmess'">'shortmess'</a> option.  But it's very unusual that you need this.</div>
-<div class="old-help-para">For programmatic access to the swap file, see <a href="builtin.html#swapinfo()">swapinfo()</a>.</div>
+<a href="/neovim-docs-web/en/options#'shortmess'">'shortmess'</a> option.  But it's very unusual that you need this.</div>
+<div class="old-help-para">For programmatic access to the swap file, see <a href="/neovim-docs-web/en/builtin#swapinfo()">swapinfo()</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="11.4"></a><span class="help-tag">11.4</span>  	Further reading</span></h2></div>
-<div class="old-help-para"><a href="recover.html#swap-file">swap-file</a>  	An explanation about where the swap file will be created and
+<div class="old-help-para"><a href="/neovim-docs-web/en/recover#swap-file">swap-file</a>  	An explanation about where the swap file will be created and
 		what its name is.
-<a href="recover.html#%3Apreserve">:preserve</a>  	Manually flushing the swap file to disk.
-<a href="recover.html#%3Aswapname">:swapname</a>  	See the name of the swap file for the current file.
-<a href="options.html#'updatecount'">'updatecount'</a>	Number of key strokes after which the swap file is flushed to
+<a href="/neovim-docs-web/en/recover#%3Apreserve">:preserve</a>  	Manually flushing the swap file to disk.
+<a href="/neovim-docs-web/en/recover#%3Aswapname">:swapname</a>  	See the name of the swap file for the current file.
+<a href="/neovim-docs-web/en/options#'updatecount'">'updatecount'</a>	Number of key strokes after which the swap file is flushed to
 		disk.
-<a href="options.html#'updatetime'">'updatetime'</a>	Timeout after which the swap file is flushed to disk.
-<a href="options.html#'directory'">'directory'</a>	List of directory names where to store the swap file.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_12.html#usr_12.txt">usr_12.txt</a>  Clever tricks</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<a href="/neovim-docs-web/en/options#'updatetime'">'updatetime'</a>	Timeout after which the swap file is flushed to disk.
+<a href="/neovim-docs-web/en/options#'directory'">'directory'</a>	List of directory names where to store the swap file.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_12#usr_12.txt">usr_12.txt</a>  Clever tricks</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

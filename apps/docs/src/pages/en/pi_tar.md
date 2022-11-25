@@ -18,7 +18,7 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Author:  Charles E. Campbell  &lt;NcampObell@SdrPchip.AorgM-NOSPAM&gt;
 	  (remove NOSPAM from Campbell's email first)
 Copyright 2005-2017:
-	The VIM LICENSE (see <a href="uganda.html#copyright">copyright</a>) applies to the files in this
+	The VIM LICENSE (see <a href="/neovim-docs-web/en/uganda#copyright">copyright</a>) applies to the files in this
 	package, including tarPlugin.vim, tar.vim, and pi_tar.txt.  Like
 	anything else that's except use "tar.vim" instead of "VIM".  Like
 	anything else that's free, tar.vim and its associated files are
@@ -41,7 +41,7 @@ Copyright 2005-2017:
    VIMUNTAR~</div>
 <div class="old-help-para">   :Vimuntar [vimhome]</div>
 <div class="old-help-para">	This command copies, if necessary, the tarball to the .vim or vimfiles
-	directory using the first writable directory in the <a href="options.html#'runtimepath'">'runtimepath'</a>
+	directory using the first writable directory in the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>
 	when no [vimhome] is specified.  Otherwise, the [vimhome] argument
 	allows the user to specify that directory, instead.</div>
 <div class="old-help-para">	The copy is done using the command in <a name="g%3Atar_copycmd"></a><code class="help-tag">g:tar_copycmd</code> , which is<pre>cp   for cygwin, unix, macunix
@@ -90,7 +90,7 @@ let g:loaded_tar      = 1</pre></div>
 				  files in a zip archive created unencrypted
 				  swap files.  I am applying a similar fix
 				  used on zip.vim to tar.vim: new buffers
-				  are opened with <a href="recover.html#%3Anoswapfile">:noswapfile</a>.
+				  are opened with <a href="/neovim-docs-web/en/recover#%3Anoswapfile">:noswapfile</a>.
 		May 16, 2017	* When the mouse option isn't empty, the
 				  leftmouse can be used to select a file
 				  in the tar-file listing.
@@ -102,8 +102,8 @@ let g:loaded_tar      = 1</pre></div>
 	v28	Jun 23, 2011	* a few more decompression options (tbz tb2 txz)
 	v27	May 31, 2011	* moved cygwin detection before g:tar_copycmd
 				  handling
-<div class="help-li" style=""> inserted additional <a href="motion.html#%3Akeepj">:keepj</a> modifiers
-</div><div class="help-li" style=""> changed silent  to  sil!  (<a href="various.html#%3Asilent">:silent</a>)
+<div class="help-li" style=""> inserted additional <a href="/neovim-docs-web/en/motion#%3Akeepj">:keepj</a> modifiers
+</div><div class="help-li" style=""> changed silent  to  sil!  (<a href="/neovim-docs-web/en/various#%3Asilent">:silent</a>)
 	v26	Aug 09, 2010	* uses buffer-local instead of window variables
 				  to hold tarfile name
 </div><div class="help-li" style=""> inserted keepj before 0d to protect jump list

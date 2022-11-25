@@ -13,31 +13,31 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">Expression evaluation <a name="expression"></a><code class="help-tag">expression</code> <a name="expr"></a><code class="help-tag">expr</code> <a name="E15"></a><code class="help-tag">E15</code> <a name="eval"></a><code class="help-tag">eval</code></div>
-<div class="old-help-para">Using expressions is introduced in chapter 41 of the user manual <a href="usr_41.html#usr_41.txt">usr_41.txt</a>.</div>
+<div class="old-help-para">Using expressions is introduced in chapter 41 of the user manual <a href="/neovim-docs-web/en/usr_41#usr_41.txt">usr_41.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Variables<span class="help-heading-tags">						<a name="variables"></a><span class="help-tag">variables</span></span></h2></div>
 <div class="old-help-para"><div class="help-column_heading">1.1 Variable types</div>						<a name="E712"></a><code class="help-tag-right">E712</code> <a name="E896"></a><code class="help-tag">E896</code> <a name="E897"></a><code class="help-tag">E897</code> <a name="E899"></a><code class="help-tag">E899</code>
 There are seven types of variables:</div>
 <div class="old-help-para">							<a name="Number"></a><code class="help-tag-right">Number</code> <a name="Integer"></a><code class="help-tag">Integer</code>
-Number		A 32 or 64 bit signed number.  <a href="eval.html#expr-number">expr-number</a>
-		The number of bits is available in <a href="eval.html#v%3Anumbersize">v:numbersize</a>.
+Number		A 32 or 64 bit signed number.  <a href="/neovim-docs-web/en/eval#expr-number">expr-number</a>
+		The number of bits is available in <a href="/neovim-docs-web/en/eval#v%3Anumbersize">v:numbersize</a>.
 		Examples:  -123  0x10  0177  0o177  0b1011</div>
-<div class="old-help-para">Float		A floating point number. <a href="eval.html#floating-point-format">floating-point-format</a> <a name="Float"></a><code class="help-tag">Float</code>
+<div class="old-help-para">Float		A floating point number. <a href="/neovim-docs-web/en/eval#floating-point-format">floating-point-format</a> <a name="Float"></a><code class="help-tag">Float</code>
 		Examples: 123.456  1.15e-6  -1.1e3</div>
 <div class="old-help-para">String		A NUL terminated string of 8-bit unsigned characters (bytes).
-		<a href="eval.html#expr-string">expr-string</a> Examples: "ab\txx\"--"  'x-z''a,c'</div>
-<div class="old-help-para">Funcref		A reference to a function <a href="eval.html#Funcref">Funcref</a>.
+		<a href="/neovim-docs-web/en/eval#expr-string">expr-string</a> Examples: "ab\txx\"--"  'x-z''a,c'</div>
+<div class="old-help-para">Funcref		A reference to a function <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>.
 		Example: function("strlen")
 		It can be bound to a dictionary and arguments, it then works
 		like a Partial.
 		Example: function("Callback", [arg], myDict)</div>
-<div class="old-help-para">List		An ordered sequence of items, see <a href="eval.html#List">List</a> for details.
+<div class="old-help-para">List		An ordered sequence of items, see <a href="/neovim-docs-web/en/eval#List">List</a> for details.
 		Example: [1, 2, ['a', 'b']]</div>
 <div class="old-help-para">Dictionary	An associative, unordered array: Each entry has a key and a
-		value. <a href="eval.html#Dictionary">Dictionary</a>
+		value. <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>
 		Examples:
 			<code>{"blue": "#0000ff", "red": "#ff0000"}</code>
 			#{blue: "#0000ff", red: "#ff0000"}</div>
-<div class="old-help-para">Blob		Binary Large Object. Stores any sequence of bytes.  See <a href="eval.html#Blob">Blob</a>
+<div class="old-help-para">Blob		Binary Large Object. Stores any sequence of bytes.  See <a href="/neovim-docs-web/en/eval#Blob">Blob</a>
 		for details.
 		Example: 0zFF00ED015DAF
 		0z is an empty Blob.</div>
@@ -54,10 +54,10 @@ is zero. Examples:
 <div class="old-help-para">To force conversion from String to Number, add zero to it:<pre>:echo "0100" + 0</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	64</div></div>
 <div class="old-help-para">To avoid a leading zero to cause octal conversion, or for using a different
-base, use <a href="builtin.html#str2nr()">str2nr()</a>.</div>
+base, use <a href="/neovim-docs-web/en/builtin#str2nr()">str2nr()</a>.</div>
 <div class="old-help-para">						<a name="TRUE"></a><code class="help-tag-right">TRUE</code> <a name="FALSE"></a><code class="help-tag">FALSE</code> <a name="Boolean"></a><code class="help-tag">Boolean</code>
 For boolean operators Numbers are used.  Zero is FALSE, non-zero is TRUE.
-You can also use <a href="eval.html#v%3Afalse">v:false</a> and <a href="eval.html#v%3Atrue">v:true</a>.
+You can also use <a href="/neovim-docs-web/en/eval#v%3Afalse">v:false</a> and <a href="/neovim-docs-web/en/eval#v%3Atrue">v:true</a>.
 When TRUE is returned from a function it is the Number one, FALSE is the
 number zero.</div>
 <div class="old-help-para">Note that in the command:<pre>:if "foo"
@@ -67,14 +67,14 @@ non-zero number it means TRUE:<pre>:if "8foo"
 :" executed</pre>
 To test for a non-empty string, use empty():<pre>:if !empty("foo")</pre></div>
 <div class="old-help-para">							<a name="non-zero-arg"></a><code class="help-tag-right">non-zero-arg</code>
-Function arguments often behave slightly different from <a href="eval.html#TRUE">TRUE</a>: If the
-argument is present and it evaluates to a non-zero Number, <a href="eval.html#v%3Atrue">v:true</a> or a
+Function arguments often behave slightly different from <a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>: If the
+argument is present and it evaluates to a non-zero Number, <a href="/neovim-docs-web/en/eval#v%3Atrue">v:true</a> or a
 non-empty String, then the value is considered to be TRUE.
 Note that " " and "0" are also non-empty strings, thus considered to be TRUE.
 A List, Dictionary or Float is not a Number or String, thus evaluate to FALSE.</div>
 <div class="old-help-para">				<a name="E745"></a><code class="help-tag-right">E745</code> <a name="E728"></a><code class="help-tag">E728</code> <a name="E703"></a><code class="help-tag">E703</code> <a name="E729"></a><code class="help-tag">E729</code> <a name="E730"></a><code class="help-tag">E730</code> <a name="E731"></a><code class="help-tag">E731</code>
 				<a name="E974"></a><code class="help-tag-right">E974</code> <a name="E975"></a><code class="help-tag">E975</code> <a name="E976"></a><code class="help-tag">E976</code>
-<a href="eval.html#List">List</a>, <a href="eval.html#Dictionary">Dictionary</a>, <a href="eval.html#Funcref">Funcref</a>, and <a href="eval.html#Blob">Blob</a> types are not automatically
+<a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>, <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>, and <a href="/neovim-docs-web/en/eval#Blob">Blob</a> types are not automatically
 converted.</div>
 <div class="old-help-para">							<a name="E805"></a><code class="help-tag-right">E805</code> <a name="E806"></a><code class="help-tag">E806</code> <a name="E808"></a><code class="help-tag">E808</code>
 When mixing Number and Float the Number is converted to Float.  Otherwise
@@ -85,8 +85,8 @@ When expecting a Float a Number can also be used, but nothing else.</div>
 <div class="old-help-para">					<a name="no-type-checking"></a><code class="help-tag-right">no-type-checking</code>
 You will not get an error if you try to change the type of a variable.</div>
 <div class="old-help-para"><div class="help-column_heading">1.2 Function references</div>							<a name="Funcref"></a><code class="help-tag-right">Funcref</code> <a name="E695"></a><code class="help-tag">E695</code> <a name="E718"></a><code class="help-tag">E718</code>
-A Funcref variable is obtained with the <a href="builtin.html#function()">function()</a> function, the <a href="builtin.html#funcref()">funcref()</a>
-function or created with the lambda expression <a href="eval.html#expr-lambda">expr-lambda</a>.  It can be used
+A Funcref variable is obtained with the <a href="/neovim-docs-web/en/builtin#function()">function()</a> function, the <a href="/neovim-docs-web/en/builtin#funcref()">funcref()</a>
+function or created with the lambda expression <a href="/neovim-docs-web/en/eval#expr-lambda">expr-lambda</a>.  It can be used
 in an expression in the place of a function name, before the parenthesis
 around the arguments, to invoke the function it refers to.  Example:<pre>:let Fn = function("MyFunc")
 :echo Fn()</pre></div>
@@ -99,11 +99,11 @@ Dictionary entry.  Example:<pre>:function dict.init() dict
 :   let self.val = 0
 :endfunction</pre>
 The key of the Dictionary can start with a lower case letter.  The actual
-function name is not used here.  Also see <a href="eval.html#numbered-function">numbered-function</a>.</div>
-<div class="old-help-para">A Funcref can also be used with the <a href="userfunc.html#%3Acall">:call</a> command:<pre>:call Fn()
+function name is not used here.  Also see <a href="/neovim-docs-web/en/eval#numbered-function">numbered-function</a>.</div>
+<div class="old-help-para">A Funcref can also be used with the <a href="/neovim-docs-web/en/userfunc#%3Acall">:call</a> command:<pre>:call Fn()
 :call dict.init()</pre>
-The name of the referenced function can be obtained with <a href="builtin.html#string()">string()</a>.<pre>:let func = string(Fn)</pre>
-You can use <a href="builtin.html#call()">call()</a> to invoke a Funcref and use a list variable for the
+The name of the referenced function can be obtained with <a href="/neovim-docs-web/en/builtin#string()">string()</a>.<pre>:let func = string(Fn)</pre>
+You can use <a href="/neovim-docs-web/en/builtin#call()">call()</a> to invoke a Funcref and use a list variable for the
 arguments:<pre>:let r = call(Fn, mylist)</pre></div>
 <div class="old-help-para">								<a name="Partial"></a><code class="help-tag-right">Partial</code>
 A Funcref optionally binds a Dictionary and/or arguments.  This is also called
@@ -142,14 +142,14 @@ after the List.  Indexes are zero-based, thus the first item has index zero.<pre
 When the resulting item is a list this can be repeated:<pre>:let item = nestlist[0][1]        " get the first list, second item: 12</pre></div>
 <div class="old-help-para">A negative index is counted from the end.  Index -1 refers to the last item in
 the List, -2 to the last but one item, etc.<pre>:let last = mylist[-1]                " get the last item: "four"</pre>
-To avoid an error for an invalid index use the <a href="builtin.html#get()">get()</a> function.  When an item
+To avoid an error for an invalid index use the <a href="/neovim-docs-web/en/builtin#get()">get()</a> function.  When an item
 is not available it returns zero or the default value you specify:<pre>:echo get(mylist, idx)
 :echo get(mylist, idx, "NONE")</pre>
 <div class="help-column_heading">List concatenation</div></div>
 <div class="old-help-para">Two lists can be concatenated with the "+" operator:<pre>:let longlist = mylist + [5, 6]
 :let mylist += [7, 8]</pre>
 To prepend or append an item turn the item into a list by putting [] around
-it.  To change a list in-place see <a href="eval.html#list-modification">list-modification</a> below.</div>
+it.  To change a list in-place see <a href="/neovim-docs-web/en/eval#list-modification">list-modification</a> below.</div>
 <div class="old-help-para"><div class="help-column_heading">Sublist</div>							<a name="sublist"></a><code class="help-tag-right">sublist</code>
 A part of the List can be obtained by specifying the first and last index,
 separated by a colon in square brackets:<pre>:let shortlist = mylist[2:-1]        " get List [3, "four"]</pre>
@@ -174,7 +174,7 @@ change "bb":<pre>:let aa = [1, 2, 3]
 :call add(aa, 4)
 :echo bb</pre></div>
 <div class="old-help-para">	[1, 2, 3, 4]</div>
-<div class="old-help-para">Making a copy of a list is done with the <a href="builtin.html#copy()">copy()</a> function.  Using [:] also
+<div class="old-help-para">Making a copy of a list is done with the <a href="/neovim-docs-web/en/builtin#copy()">copy()</a> function.  Using [:] also
 works, as explained above.  This creates a shallow copy of the list: Changing
 a list item in the list will also change the item in the copied list:<pre>:let aa = [[1, 'a'], 2, 3]
 :let bb = copy(aa)
@@ -183,7 +183,7 @@ a list item in the list will also change the item in the copied list:<pre>:let a
 :echo aa</pre></div>
 <div class="old-help-para">	[[1, aaa], 2, 3, 4]<pre>:echo bb</pre></div>
 <div class="old-help-para">	[[1, aaa], 2, 3]</div>
-<div class="old-help-para">To make a completely independent list use <a href="builtin.html#deepcopy()">deepcopy()</a>.  This also makes a
+<div class="old-help-para">To make a completely independent list use <a href="/neovim-docs-web/en/builtin#deepcopy()">deepcopy()</a>.  This also makes a
 copy of the values in the list, recursively.  Up to a hundred levels deep.</div>
 <div class="old-help-para">The operator "is" can be used to check if two variables refer to the same
 List.  "isnot" does the opposite.  In contrast "==" compares if two lists have
@@ -217,7 +217,7 @@ This works like:<pre>:let var1 = mylist[0]
 Except that there is no error if there are only two items.  "rest" will be an
 empty list then.</div>
 <div class="old-help-para"><div class="help-column_heading">List modification</div>							<a name="list-modification"></a><code class="help-tag-right">list-modification</code>
-To change a specific item of a list use <a href="eval.html#%3Alet">:let</a> this way:<pre>:let list[4] = "four"
+To change a specific item of a list use <a href="/neovim-docs-web/en/eval#%3Alet">:let</a> this way:<pre>:let list[4] = "four"
 :let listlist[0][3] = item</pre>
 To change part of a list you can specify the first and last item to be
 modified.  The value must at least have the number of items in the range:<pre>:let list[3:5] = [3, 4, 5]</pre>
@@ -236,7 +236,7 @@ Changing the order of items in a list:<pre>:call sort(list)                " sor
 :call reverse(list)                " reverse the order of items
 :call uniq(sort(list))                " sort and remove duplicates</pre>
 <div class="help-column_heading">For loop</div></div>
-<div class="old-help-para">The <a href="eval.html#%3Afor">:for</a> loop executes commands for each item in a <a href="eval.html#List">List</a>, <a href="eval.html#String">String</a> or <a href="eval.html#Blob">Blob</a>.
+<div class="old-help-para">The <a href="/neovim-docs-web/en/eval#%3Afor">:for</a> loop executes commands for each item in a <a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#String">String</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a>.
 A variable is set to each item in sequence.  Example with a List:<pre>:for item in mylist
 :   call Doit(item)
 :endfor</pre>
@@ -246,13 +246,13 @@ This works like:<pre>:let index = 0
 :   :call Doit(item)
 :   let index = index + 1
 :endwhile</pre>
-If all you want to do is modify each item in the list then the <a href="builtin.html#map()">map()</a>
+If all you want to do is modify each item in the list then the <a href="/neovim-docs-web/en/builtin#map()">map()</a>
 function will be a simpler method than a for loop.</div>
-<div class="old-help-para">Just like the <a href="eval.html#%3Alet">:let</a> command, <a href="eval.html#%3Afor">:for</a> also accepts a list of variables.  This
+<div class="old-help-para">Just like the <a href="/neovim-docs-web/en/eval#%3Alet">:let</a> command, <a href="/neovim-docs-web/en/eval#%3Afor">:for</a> also accepts a list of variables.  This
 requires the argument to be a List of Lists.<pre>:for [lnum, col] in [[1, 3], [2, 8], [3, 0]]
 :   call Doit(lnum, col)
 :endfor</pre>
-This works like a <a href="eval.html#%3Alet">:let</a> command is done for each list item.  Again, the types
+This works like a <a href="/neovim-docs-web/en/eval#%3Alet">:let</a> command is done for each list item.  Again, the types
 must remain the same to avoid an error.</div>
 <div class="old-help-para">It is also possible to put remaining items in a List variable:<pre>:for [i, j; rest] in listlist
 :   call Doit(i, j)
@@ -309,26 +309,26 @@ An extra comma after the last entry is ignored.</div>
 :let mydict["four"] = 4</pre>
 You can add new entries to an existing Dictionary this way, unlike Lists.</div>
 <div class="old-help-para">For keys that consist entirely of letters, digits and underscore the following
-form can be used <a href="eval.html#expr-entry">expr-entry</a>:<pre>:let val = mydict.one
+form can be used <a href="/neovim-docs-web/en/eval#expr-entry">expr-entry</a>:<pre>:let val = mydict.one
 :let mydict.four = 4</pre>
 Since an entry can be any type, also a List and a Dictionary, the indexing and
 key lookup can be repeated:<pre>:echo dict.key[idx].key</pre>
 <div class="help-column_heading">Dictionary to List conversion</div></div>
 <div class="old-help-para">You may want to loop over the entries in a dictionary.  For this you need to
-turn the Dictionary into a List and pass it to <a href="eval.html#%3Afor">:for</a>.</div>
-<div class="old-help-para">Most often you want to loop over the keys, using the <a href="builtin.html#keys()">keys()</a> function:<pre>:for key in keys(mydict)
+turn the Dictionary into a List and pass it to <a href="/neovim-docs-web/en/eval#%3Afor">:for</a>.</div>
+<div class="old-help-para">Most often you want to loop over the keys, using the <a href="/neovim-docs-web/en/builtin#keys()">keys()</a> function:<pre>:for key in keys(mydict)
 :   echo key .. ': ' .. mydict[key]
 :endfor</pre>
 The List of keys is unsorted.  You may want to sort them first:<pre>:for key in sort(keys(mydict))</pre>
-To loop over the values use the <a href="builtin.html#values()">values()</a> function:<pre>:for v in values(mydict)
+To loop over the values use the <a href="/neovim-docs-web/en/builtin#values()">values()</a> function:<pre>:for v in values(mydict)
 :   echo "value: " .. v
 :endfor</pre>
-If you want both the key and the value use the <a href="builtin.html#items()">items()</a> function.  It returns
+If you want both the key and the value use the <a href="/neovim-docs-web/en/builtin#items()">items()</a> function.  It returns
 a List in which each item is a List with two items, the key and the value:<pre>:for [key, value] in items(mydict)
 :   echo key .. ': ' .. value
 :endfor</pre>
 <div class="help-column_heading">Dictionary identity</div>							<a name="dict-identity"></a><code class="help-tag-right">dict-identity</code>
-Just like Lists you need to use <a href="builtin.html#copy()">copy()</a> and <a href="builtin.html#deepcopy()">deepcopy()</a> to make a copy of a
+Just like Lists you need to use <a href="/neovim-docs-web/en/builtin#copy()">copy()</a> and <a href="/neovim-docs-web/en/builtin#deepcopy()">deepcopy()</a> to make a copy of a
 Dictionary.  Otherwise, assignment results in referring to the same
 Dictionary:<pre>:let onedict = {'a': 1, 'b': 2}
 :let adict = onedict
@@ -336,22 +336,22 @@ Dictionary:<pre>:let onedict = {'a': 1, 'b': 2}
 :echo onedict['a']
 11</pre>
 Two Dictionaries compare equal if all the key-value pairs compare equal.  For
-more info see <a href="eval.html#list-identity">list-identity</a>.</div>
+more info see <a href="/neovim-docs-web/en/eval#list-identity">list-identity</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">Dictionary modification</div>							<a name="dict-modification"></a><code class="help-tag-right">dict-modification</code>
 To change an already existing entry of a Dictionary, or to add a new entry,
-use <a href="eval.html#%3Alet">:let</a> this way:<pre>:let dict[4] = "four"
+use <a href="/neovim-docs-web/en/eval#%3Alet">:let</a> this way:<pre>:let dict[4] = "four"
 :let dict['one'] = item</pre>
-Removing an entry from a Dictionary is done with <a href="builtin.html#remove()">remove()</a> or <a href="eval.html#%3Aunlet">:unlet</a>.
+Removing an entry from a Dictionary is done with <a href="/neovim-docs-web/en/builtin#remove()">remove()</a> or <a href="/neovim-docs-web/en/eval#%3Aunlet">:unlet</a>.
 Three ways to remove the entry with key "aaa" from dict:<pre>:let i = remove(dict, 'aaa')
 :unlet dict.aaa
 :unlet dict['aaa']</pre>
-Merging a Dictionary with another is done with <a href="builtin.html#extend()">extend()</a>:<pre>:call extend(adict, bdict)</pre>
+Merging a Dictionary with another is done with <a href="/neovim-docs-web/en/builtin#extend()">extend()</a>:<pre>:call extend(adict, bdict)</pre>
 This extends adict with all entries from bdict.  Duplicate keys cause entries
 in adict to be overwritten.  An optional third argument can change this.
 Note that the order of entries in a Dictionary is irrelevant, thus don't
 expect ":echo adict" to show the items from bdict after the older entries in
 adict.</div>
-<div class="old-help-para">Weeding out entries from a Dictionary can be done with <a href="builtin.html#filter()">filter()</a>:<pre>:call filter(dict, 'v:val =~ "x"')</pre>
+<div class="old-help-para">Weeding out entries from a Dictionary can be done with <a href="/neovim-docs-web/en/builtin#filter()">filter()</a>:<pre>:call filter(dict, 'v:val =~ "x"')</pre>
 This removes all entries from "dict" with a value not matching 'x'.
 This can also be used to remove all entries:<pre>call filter(dict, 0)</pre>
 <div class="help-column_heading">Dictionary function</div>				<a name="Dictionary-function"></a><code class="help-tag-right">Dictionary-function</code> <a name="self"></a><code class="help-tag">self</code> <a name="E725"></a><code class="help-tag">E725</code> <a name="E862"></a><code class="help-tag">E862</code>
@@ -362,7 +362,7 @@ special way with a dictionary.  Example:<pre>:function Mylen() dict
 :let mydict = {'data': [0, 1, 2, 3], 'len': function("Mylen")}
 :echo mydict.len()</pre>
 This is like a method in object oriented programming.  The entry in the
-Dictionary is a <a href="eval.html#Funcref">Funcref</a>.  The local variable "self" refers to the dictionary
+Dictionary is a <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>.  The local variable "self" refers to the dictionary
 the function was invoked from.</div>
 <div class="old-help-para">It is also possible to add a function without the "dict" attribute as a
 Funcref to a Dictionary, but the "self" variable is not available then.</div>
@@ -373,9 +373,9 @@ assigned to a Dictionary in this way:<pre>:let mydict = {'data': [0, 1, 2, 3]}
 :   return len(self.data)
 :endfunction
 :echo mydict.len()</pre>
-The function will then get a number and the value of dict.len is a <a href="eval.html#Funcref">Funcref</a>
+The function will then get a number and the value of dict.len is a <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>
 that references this function.  The function can only be used through a
-<a href="eval.html#Funcref">Funcref</a>.  It will automatically be deleted when there is no <a href="eval.html#Funcref">Funcref</a>
+<a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>.  It will automatically be deleted when there is no <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>
 remaining that refers to it.</div>
 <div class="old-help-para">It is not necessary to use the "dict" attribute for a numbered function.</div>
 <div class="old-help-para">If you get an error for a numbered function, you can find out what it is with
@@ -392,13 +392,13 @@ Functions that can be used with a Dictionary:<pre>:if has_key(dict, 'foo')      
 <div class="help-column_heading">1.5 Blobs</div>						<a name="blob"></a><code class="help-tag-right">blob</code> <a name="Blob"></a><code class="help-tag">Blob</code> <a name="Blobs"></a><code class="help-tag">Blobs</code> <a name="E978"></a><code class="help-tag">E978</code>
 A Blob is a binary object.  It can be used to read an image from a file and
 send it over a channel, for example.</div>
-<div class="old-help-para">A Blob mostly behaves like a <a href="eval.html#List">List</a> of numbers, where each number has the
+<div class="old-help-para">A Blob mostly behaves like a <a href="/neovim-docs-web/en/eval#List">List</a> of numbers, where each number has the
 value of an 8-bit byte, from 0 to 255.</div>
 <div class="old-help-para"><div class="help-column_heading">Blob creation</div></div>
-<div class="old-help-para">A Blob can be created with a <a href="eval.html#blob-literal">blob-literal</a>:<pre>:let b = 0zFF00ED015DAF</pre>
+<div class="old-help-para">A Blob can be created with a <a href="/neovim-docs-web/en/eval#blob-literal">blob-literal</a>:<pre>:let b = 0zFF00ED015DAF</pre>
 Dots can be inserted between bytes (pair of hex characters) for readability,
 they don't change the value:<pre>:let b = 0zFF00.ED01.5DAF</pre>
-A blob can be read from a file with <a href="builtin.html#readfile()">readfile()</a> passing the <code>{type}</code> argument
+A blob can be read from a file with <a href="/neovim-docs-web/en/builtin#readfile()">readfile()</a> passing the <code>{type}</code> argument
 set to "B", for example:<pre>:let b = readfile('image.png', 'B')</pre>
 <div class="help-column_heading">Blob index</div>							<a name="blob-index"></a><code class="help-tag-right">blob-index</code> <a name="E979"></a><code class="help-tag">E979</code>
 A byte in the Blob can be accessed by putting the index in square brackets
@@ -407,11 +407,11 @@ after the Blob.  Indexes are zero-based, thus the first byte has index zero.<pre
 :let byte = myblob[2]                " get the third byte: 0x22</pre>
 A negative index is counted from the end.  Index -1 refers to the last byte in
 the Blob, -2 to the last but one byte, etc.<pre>:let last = myblob[-1]                " get the last byte: 0x33</pre>
-To avoid an error for an invalid index use the <a href="builtin.html#get()">get()</a> function.  When an item
+To avoid an error for an invalid index use the <a href="/neovim-docs-web/en/builtin#get()">get()</a> function.  When an item
 is not available it returns -1 or the default value you specify:<pre>:echo get(myblob, idx)
 :echo get(myblob, idx, 999)</pre>
 <div class="help-column_heading">Blob iteration</div></div>
-<div class="old-help-para">The <a href="eval.html#%3Afor">:for</a> loop executes commands for each byte of a Blob.  The loop variable is
+<div class="old-help-para">The <a href="/neovim-docs-web/en/eval#%3Afor">:for</a> loop executes commands for each byte of a Blob.  The loop variable is
 set to each byte in the Blob.  Example:<pre>:for byte in 0z112233
 :   call Doit(byte)
 :endfor</pre>
@@ -419,7 +419,7 @@ This calls Doit() with 0x11, 0x22 and 0x33.</div>
 <div class="old-help-para"><div class="help-column_heading">Blob concatenation</div></div>
 <div class="old-help-para">Two blobs can be concatenated with the "+" operator:<pre>:let longblob = myblob + 0z4455
 :let myblob += 0z6677</pre>
-To change a blob in-place see <a href="eval.html#blob-modification">blob-modification</a> below.</div>
+To change a blob in-place see <a href="/neovim-docs-web/en/eval#blob-modification">blob-modification</a> below.</div>
 <div class="old-help-para"><div class="help-column_heading">Part of a blob</div></div>
 <div class="old-help-para">A part of the Blob can be obtained by specifying the first and last index,
 separated by a colon in square brackets:<pre>:let myblob = 0z00112233
@@ -435,7 +435,7 @@ message.</div>
 <div class="old-help-para">If the second index is equal to or greater than the length of the Blob the
 length minus one is used:<pre>:echo myblob[2:8]                " result: 0z2233</pre>
 <div class="help-column_heading">Blob modification</div>							<a name="blob-modification"></a><code class="help-tag-right">blob-modification</code>
-To change a specific byte of a blob use <a href="eval.html#%3Alet">:let</a> this way:<pre>:let blob[4] = 0x44</pre>
+To change a specific byte of a blob use <a href="/neovim-docs-web/en/eval#%3Alet">:let</a> this way:<pre>:let blob[4] = 0x44</pre>
 When the index is just one beyond the end of the Blob, it is appended. Any
 higher index is an error.</div>
 <div class="old-help-para">To change a sequence of bytes the [:] notation can be used:<pre>let blob[1:3] = 0z445566</pre>
@@ -443,14 +443,14 @@ The length of the replaced bytes must be exactly the same as the value
 provided. <a name="E972"></a><code class="help-tag">E972</code></div>
 <div class="old-help-para">To change part of a blob you can specify the first and last byte to be
 modified.  The value must have the same number of bytes in the range:<pre>:let blob[3:5] = 0z334455</pre>
-You can also use the functions <a href="builtin.html#add()">add()</a>, <a href="builtin.html#remove()">remove()</a> and <a href="builtin.html#insert()">insert()</a>.</div>
+You can also use the functions <a href="/neovim-docs-web/en/builtin#add()">add()</a>, <a href="/neovim-docs-web/en/builtin#remove()">remove()</a> and <a href="/neovim-docs-web/en/builtin#insert()">insert()</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">Blob identity</div></div>
 <div class="old-help-para">Blobs can be compared for equality:<pre>if blob == 0z001122</pre>
 And for equal identity:<pre>if blob is otherblob</pre></div>
 <div class="old-help-para">							<a name="blob-identity"></a><code class="help-tag-right">blob-identity</code> <a name="E977"></a><code class="help-tag">E977</code>
 When variable "aa" is a Blob and you assign it to another variable "bb", both
 variables refer to the same Blob.  Then the "is" operator returns true.</div>
-<div class="old-help-para">When making a copy using [:] or <a href="builtin.html#copy()">copy()</a> the values are the same, but the
+<div class="old-help-para">When making a copy using [:] or <a href="/neovim-docs-web/en/builtin#copy()">copy()</a> the values are the same, but the
 identity is different:<pre>:let blob = 0z112233
 :let blob2 = blob
 :echo blob == blob2</pre></div>
@@ -459,31 +459,31 @@ identity is different:<pre>:let blob = 0z112233
 :echo blob == blob3</pre></div>
 <div class="old-help-para">	1<pre>:echo blob is blob3</pre></div>
 <div class="old-help-para">	0</div>
-<div class="old-help-para">Making a copy of a Blob is done with the <a href="builtin.html#copy()">copy()</a> function.  Using [:] also
+<div class="old-help-para">Making a copy of a Blob is done with the <a href="/neovim-docs-web/en/builtin#copy()">copy()</a> function.  Using [:] also
 works, as explained above.</div>
 <div class="old-help-para"><div class="help-column_heading">1.6 More about variables</div>							<a name="more-variables"></a><code class="help-tag-right">more-variables</code>
-If you need to know the type of a variable or expression, use the <a href="builtin.html#type()">type()</a>
+If you need to know the type of a variable or expression, use the <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 function.</div>
-<div class="old-help-para">When the '!' flag is included in the <a href="options.html#'shada'">'shada'</a> option, global variables that
+<div class="old-help-para">When the '!' flag is included in the <a href="/neovim-docs-web/en/options#'shada'">'shada'</a> option, global variables that
 start with an uppercase letter, and don't contain a lowercase letter, are
-stored in the shada file <a href="starting.html#shada-file">shada-file</a>.</div>
-<div class="old-help-para">When the <a href="options.html#'sessionoptions'">'sessionoptions'</a> option contains "global", global variables that
+stored in the shada file <a href="/neovim-docs-web/en/starting#shada-file">shada-file</a>.</div>
+<div class="old-help-para">When the <a href="/neovim-docs-web/en/options#'sessionoptions'">'sessionoptions'</a> option contains "global", global variables that
 start with an uppercase letter and contain at least one lowercase letter are
-stored in the session file <a href="starting.html#session-file">session-file</a>.</div>
+stored in the session file <a href="/neovim-docs-web/en/starting#session-file">session-file</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">variable name		can be stored where</div>my_var_6		not
 My_Var_6		session file
 MY_VAR_6		shada file</div>
 <div class="old-help-para">It's possible to form a variable name with curly braces, see
-<a href="eval.html#curly-braces-names">curly-braces-names</a>.</div>
+<a href="/neovim-docs-web/en/eval#curly-braces-names">curly-braces-names</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">2. Expression syntax<span class="help-heading-tags">					<a name="expression-syntax"></a><span class="help-tag">expression-syntax</span></span></h2></div>
 <div class="old-help-para">Expression syntax summary, from least to most significant:</div>
-<div class="old-help-para"><a href="eval.html#expr1">expr1</a>  	expr2
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr1">expr1</a>  	expr2
 	expr2 ? expr1 : expr1	if-then-else</div>
-<div class="old-help-para"><a href="eval.html#expr2">expr2</a>  	expr3
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr2">expr2</a>  	expr3
 	expr3 || expr3 ...	logical OR</div>
-<div class="old-help-para"><a href="eval.html#expr3">expr3</a>  	expr4
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr3">expr3</a>  	expr4
 	expr4 &amp;&amp; expr4 ...	logical AND</div>
-<div class="old-help-para"><a href="eval.html#expr4">expr4</a>  	expr5
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr4">expr4</a>  	expr5
 	expr5 == expr5		equal
 	expr5 != expr5		not equal
 	expr5 &gt;	 expr5		greater than
@@ -496,35 +496,35 @@ MY_VAR_6		shada file</div>
 	expr5 ==# expr5		equal, match case
 	etc.			As above, append ? for ignoring case, # for
 				matching case</div>
-<div class="old-help-para">	expr5 is expr5		same <a href="eval.html#List">List</a>, <a href="eval.html#Dictionary">Dictionary</a> or <a href="eval.html#Blob">Blob</a> instance
-	expr5 isnot expr5	different <a href="eval.html#List">List</a>, <a href="eval.html#Dictionary">Dictionary</a> or <a href="eval.html#Blob">Blob</a>
+<div class="old-help-para">	expr5 is expr5		same <a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a> instance
+	expr5 isnot expr5	different <a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a>
 				instance</div>
-<div class="old-help-para"><a href="eval.html#expr5">expr5</a>  	expr6
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr5">expr5</a>  	expr6
 	expr6 +	 expr6 ...	number addition, list or blob concatenation
 	expr6 -		 expr6 ...	number subtraction
 	expr6 .	 expr6 ...	string concatenation
 	expr6 .. expr6 ...	string concatenation</div>
-<div class="old-help-para"><a href="eval.html#expr6">expr6</a>  	expr7
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr6">expr6</a>  	expr7
 	expr7 *	 expr7 ...	number multiplication
 	expr7 /	 expr7 ...	number division
 	expr7 %	 expr7 ...	number modulo</div>
-<div class="old-help-para"><a href="eval.html#expr7">expr7</a>  	expr8
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr7">expr7</a>  	expr8
 	! expr7			logical NOT
 <div class="help-li" style=""> expr7			unary minus
 </div><div class="help-li" style=""> expr7			unary plus
 </div></div>
-<div class="old-help-para"><a href="eval.html#expr8">expr8</a>  	expr9
-	expr8[expr1]		byte of a String or item of a <a href="eval.html#List">List</a>
-	expr8[expr1 : expr1]	substring of a String or sublist of a <a href="eval.html#List">List</a>
-	expr8.name		entry in a <a href="eval.html#Dictionary">Dictionary</a>
-	expr8(expr1, ...)	function call with <a href="eval.html#Funcref">Funcref</a> variable
-	expr8-&gt;name(expr1, ...)	<a href="eval.html#method">method</a> call</div>
-<div class="old-help-para"><a href="eval.html#expr9">expr9</a>  	number			number constant
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr8">expr8</a>  	expr9
+	expr8[expr1]		byte of a String or item of a <a href="/neovim-docs-web/en/eval#List">List</a>
+	expr8[expr1 : expr1]	substring of a String or sublist of a <a href="/neovim-docs-web/en/eval#List">List</a>
+	expr8.name		entry in a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>
+	expr8(expr1, ...)	function call with <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> variable
+	expr8-&gt;name(expr1, ...)	<a href="/neovim-docs-web/en/eval#method">method</a> call</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/eval#expr9">expr9</a>  	number			number constant
 	"string"		string constant, backslash is special
 string		string constant, ' is doubled
-	[expr1, ...]		<a href="eval.html#List">List</a>
-	<code>{expr1: expr1, ...}</code>	<a href="eval.html#Dictionary">Dictionary</a>
-	#{key: expr1, ...}	<a href="eval.html#Dictionary">Dictionary</a>
+	[expr1, ...]		<a href="/neovim-docs-web/en/eval#List">List</a>
+	<code>{expr1: expr1, ...}</code>	<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>
+	#{key: expr1, ...}	<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>
 	&amp;option			option value
 	(expr1)			nested expression
 	variable		internal variable
@@ -541,13 +541,13 @@ All expressions within one level are parsed from left to right.</div>
 -----</div>
 <div class="old-help-para">expr2 ? expr1 : expr1</div>
 <div class="old-help-para">The expression before the '?' is evaluated to a number.  If it evaluates to
-<a href="eval.html#TRUE">TRUE</a>, the result is the value of the expression between the '?' and ':',
+<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>, the result is the value of the expression between the '?' and ':',
 otherwise the result is the value of the expression after the ':'.
 Example:<pre>:echo lnum == 1 ? "top" : lnum</pre>
 Since the first expression is an "expr2", it cannot contain another ?:.  The
 other two expressions can, thus allow for recursive use of ?:.
 Example:<pre>:echo lnum == 1 ? "top" : lnum == 1000 ? "last" : lnum</pre>
-To keep this readable, using <a href="repeat.html#line-continuation">line-continuation</a> is suggested:<pre>:echo lnum == 1
+To keep this readable, using <a href="/neovim-docs-web/en/repeat#line-continuation">line-continuation</a> is suggested:<pre>:echo lnum == 1
 :\        ? "top"
 :\        : lnum == 1000
 :\                ? "last"
@@ -560,17 +560,17 @@ use in a variable such as "a:1".</div>
 expr4 &amp;&amp; expr4 ..	logical AND		<a name="expr-%26%26"></a><code class="help-tag-right">expr-&amp;&amp;</code></div>
 <div class="old-help-para">The "||" and "&amp;&amp;" operators take one argument on each side.  The arguments
 are (converted to) Numbers.  The result is:</div>
-<div class="old-help-para"><div class="help-column_heading">    input			 output</div><div class="help-column_heading">n1	n2		n1 || n2	n1 &amp;&amp; n2</div><a href="eval.html#FALSE">FALSE</a>  	<a href="eval.html#FALSE">FALSE</a>  		<a href="eval.html#FALSE">FALSE</a>  		<a href="eval.html#FALSE">FALSE</a>
-<a href="eval.html#FALSE">FALSE</a>  	<a href="eval.html#TRUE">TRUE</a>  		<a href="eval.html#TRUE">TRUE</a>  		<a href="eval.html#FALSE">FALSE</a>
-<a href="eval.html#TRUE">TRUE</a>  	<a href="eval.html#FALSE">FALSE</a>  		<a href="eval.html#TRUE">TRUE</a>  		<a href="eval.html#FALSE">FALSE</a>
-<a href="eval.html#TRUE">TRUE</a>  	<a href="eval.html#TRUE">TRUE</a>  		<a href="eval.html#TRUE">TRUE</a>  		<a href="eval.html#TRUE">TRUE</a></div>
+<div class="old-help-para"><div class="help-column_heading">    input			 output</div><div class="help-column_heading">n1	n2		n1 || n2	n1 &amp;&amp; n2</div><a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>  	<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>  		<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>  		<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>
+<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>  	<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  		<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  		<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>
+<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  	<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>  		<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  		<a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>
+<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  	<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  		<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>  		<a href="/neovim-docs-web/en/eval#TRUE">TRUE</a></div>
 <div class="old-help-para">The operators can be concatenated, for example:<pre>&amp;nu || &amp;list &amp;&amp; &amp;shell == "csh"</pre>
 Note that "&amp;&amp;" takes precedence over "||", so this has the meaning of:<pre>&amp;nu || (&amp;list &amp;&amp; &amp;shell == "csh")</pre>
 Once the result is known, the expression "short-circuits", that is, further
 arguments are not evaluated.  This is like what happens in C.  For example:<pre>let a = 1
 echo a || b</pre>
-This is valid even if there is no variable called "b" because "a" is <a href="eval.html#TRUE">TRUE</a>,
-so the result must be <a href="eval.html#TRUE">TRUE</a>.  Similarly below:<pre>echo exists("b") &amp;&amp; b == "yes"</pre>
+This is valid even if there is no variable called "b" because "a" is <a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>,
+so the result must be <a href="/neovim-docs-web/en/eval#TRUE">TRUE</a>.  Similarly below:<pre>echo exists("b") &amp;&amp; b == "yes"</pre>
 This is valid whether "b" has been defined or not.  The second clause will
 only be evaluated if "b" has been defined.</div>
 <div class="old-help-para">expr4							<a name="expr4"></a><code class="help-tag-right">expr4</code>
@@ -586,7 +586,7 @@ if it evaluates to true.</div>
 			<a name="expr-%3C%3F"></a><code class="help-tag-right">expr-&lt;?</code>  <a name="expr-%3C%3D%3F"></a><code class="help-tag">expr-&lt;=?</code> <a name="expr-%3D~%3F"></a><code class="help-tag">expr-=~?</code> <a name="expr-%21~%3F"></a><code class="help-tag">expr-!~?</code>
 			<a name="expr-is"></a><code class="help-tag-right">expr-is</code> <a name="expr-isnot"></a><code class="help-tag">expr-isnot</code> <a name="expr-is%23"></a><code class="help-tag">expr-is#</code> <a name="expr-isnot%23"></a><code class="help-tag">expr-isnot#</code>
 			<a name="expr-is%3F"></a><code class="help-tag-right">expr-is?</code> <a name="expr-isnot%3F"></a><code class="help-tag">expr-isnot?</code>
-<div class="help-column_heading">		use <a href="options.html#'ignorecase'">'ignorecase'</a>    match case	   ignore case</div>equal			==		==#		==?
+<div class="help-column_heading">		use <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a>    match case	   ignore case</div>equal			==		==#		==?
 not equal		!=		!=#		!=?
 greater than		&gt;		&gt;#		&gt;?
 greater than or equal	&gt;=		&gt;=#		&gt;=?
@@ -599,29 +599,29 @@ different instance	isnot		isnot#		isnot?</div>
 <div class="old-help-para">Examples:
 "abc" ==# "Abc"	  evaluates to 0
 "abc" ==? "Abc"	  evaluates to 1
-"abc" == "Abc"	  evaluates to 1 if <a href="options.html#'ignorecase'">'ignorecase'</a> is set, 0 otherwise</div>
+"abc" == "Abc"	  evaluates to 1 if <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is set, 0 otherwise</div>
 <div class="old-help-para">							<a name="E691"></a><code class="help-tag-right">E691</code> <a name="E692"></a><code class="help-tag">E692</code>
-A <a href="eval.html#List">List</a> can only be compared with a <a href="eval.html#List">List</a> and only "equal", "not equal",
+A <a href="/neovim-docs-web/en/eval#List">List</a> can only be compared with a <a href="/neovim-docs-web/en/eval#List">List</a> and only "equal", "not equal",
 "is" and "isnot" can be used.  This compares the values of the list,
 recursively.  Ignoring case means case is ignored when comparing item values.</div>
 <div class="old-help-para">							<a name="E735"></a><code class="help-tag-right">E735</code> <a name="E736"></a><code class="help-tag">E736</code>
-A <a href="eval.html#Dictionary">Dictionary</a> can only be compared with a <a href="eval.html#Dictionary">Dictionary</a> and only "equal", "not
+A <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> can only be compared with a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> and only "equal", "not
 equal", "is" and "isnot" can be used.  This compares the key/values of the
-<a href="eval.html#Dictionary">Dictionary</a> recursively.  Ignoring case means case is ignored when comparing
+<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> recursively.  Ignoring case means case is ignored when comparing
 item values.</div>
 <div class="old-help-para">							<a name="E694"></a><code class="help-tag-right">E694</code>
-A <a href="eval.html#Funcref">Funcref</a> can only be compared with a <a href="eval.html#Funcref">Funcref</a> and only "equal", "not
+A <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> can only be compared with a <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> and only "equal", "not
 equal", "is" and "isnot" can be used.  Case is never ignored.  Whether
 arguments or a Dictionary are bound (with a partial) matters.  The
 Dictionaries must also be equal (or the same, in case of "is") and the
 arguments must be equal (or the same).</div>
 <div class="old-help-para">To compare Funcrefs to see if they refer to the same function, ignoring bound
-Dictionary and arguments, use <a href="builtin.html#get()">get()</a> to get the function name:<pre>if get(Part1, 'name') == get(Part2, 'name')
+Dictionary and arguments, use <a href="/neovim-docs-web/en/builtin#get()">get()</a> to get the function name:<pre>if get(Part1, 'name') == get(Part2, 'name')
    " Part1 and Part2 refer to the same function</pre>
-Using "is" or "isnot" with a <a href="eval.html#List">List</a>, <a href="eval.html#Dictionary">Dictionary</a> or <a href="eval.html#Blob">Blob</a> checks whether
-the expressions are referring to the same <a href="eval.html#List">List</a>, <a href="eval.html#Dictionary">Dictionary</a> or <a href="eval.html#Blob">Blob</a>
-instance.  A copy of a <a href="eval.html#List">List</a> is different from the original <a href="eval.html#List">List</a>.  When
-using "is" without a <a href="eval.html#List">List</a>, <a href="eval.html#Dictionary">Dictionary</a> or <a href="eval.html#Blob">Blob</a>, it is equivalent to
+Using "is" or "isnot" with a <a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a> checks whether
+the expressions are referring to the same <a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a>
+instance.  A copy of a <a href="/neovim-docs-web/en/eval#List">List</a> is different from the original <a href="/neovim-docs-web/en/eval#List">List</a>.  When
+using "is" without a <a href="/neovim-docs-web/en/eval#List">List</a>, <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a>, it is equivalent to
 using "equal", using "isnot" is equivalent to using "not equal".  Except that
 a different type means the values are different:<pre>echo 4 == '4'
 1
@@ -640,34 +640,34 @@ Inside a List or Dictionary this conversion is not used.</div>
 results in the mathematical difference (comparing byte values), not
 necessarily the alphabetical difference in the local language.</div>
 <div class="old-help-para">When using the operators with a trailing '#', or the short version and
-<a href="options.html#'ignorecase'">'ignorecase'</a> is off, the comparing is done with strcmp(): case matters.</div>
+<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is off, the comparing is done with strcmp(): case matters.</div>
 <div class="old-help-para">When using the operators with a trailing '?', or the short version and
-<a href="options.html#'ignorecase'">'ignorecase'</a> is set, the comparing is done with stricmp(): case is ignored.</div>
-<div class="old-help-para"><a href="options.html#'smartcase'">'smartcase'</a> is not used.</div>
+<a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is set, the comparing is done with stricmp(): case is ignored.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> is not used.</div>
 <div class="old-help-para">The "=~" and "!~" operators match the lefthand argument with the righthand
-argument, which is used as a pattern.  See <a href="pattern.html#pattern">pattern</a> for what a pattern is.
-This matching is always done like <a href="options.html#'magic'">'magic'</a> was set and <a href="options.html#'cpoptions'">'cpoptions'</a> is empty, no
-matter what the actual value of <a href="options.html#'magic'">'magic'</a> or <a href="options.html#'cpoptions'">'cpoptions'</a> is.  This makes scripts
+argument, which is used as a pattern.  See <a href="/neovim-docs-web/en/pattern#pattern">pattern</a> for what a pattern is.
+This matching is always done like <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> was set and <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> is empty, no
+matter what the actual value of <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> or <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> is.  This makes scripts
 portable.  To avoid backslashes in the regexp pattern to be doubled, use a
-single-quote string, see <a href="eval.html#literal-string">literal-string</a>.
+single-quote string, see <a href="/neovim-docs-web/en/eval#literal-string">literal-string</a>.
 Since a string is considered to be a single line, a multi-line pattern
 (containing \n, backslash-n) will not match.  However, a literal NL character
 can be matched like an ordinary character.  Examples:
 	"foo\nbar" =~ "\n"	evaluates to 1
 	"foo\nbar" =~ "\\n"	evaluates to 0</div>
 <div class="old-help-para">expr5 and expr6						<a name="expr5"></a><code class="help-tag-right">expr5</code> <a name="expr6"></a><code class="help-tag">expr6</code>
-<h3 class="help-heading">expr6 + expr6   Number addition, <a href="eval.html#List">List</a> or <a href="eval.html#Blob">Blob</a> concatenation<span class="help-heading-tags">	<a name="expr-%2B"></a><span class="help-tag">expr-+</span></span></h3>expr6 - expr6   Number subtraction				<a name="expr--"></a><code class="help-tag-right">expr--</code>
+<h3 class="help-heading">expr6 + expr6   Number addition, <a href="/neovim-docs-web/en/eval#List">List</a> or <a href="/neovim-docs-web/en/eval#Blob">Blob</a> concatenation<span class="help-heading-tags">	<a name="expr-%2B"></a><span class="help-tag">expr-+</span></span></h3>expr6 - expr6   Number subtraction				<a name="expr--"></a><code class="help-tag-right">expr--</code>
 expr6 . expr6   String concatenation				<a name="expr-."></a><code class="help-tag-right">expr-.</code>
 expr6 .. expr6  String concatenation				<a name="expr-.."></a><code class="help-tag-right">expr-..</code></div>
-<div class="old-help-para">For <a href="eval.html#Lists">Lists</a> only "+" is possible and then both expr6 must be a list.  The
+<div class="old-help-para">For <a href="/neovim-docs-web/en/eval#Lists">Lists</a> only "+" is possible and then both expr6 must be a list.  The
 result is a new list with the two lists Concatenated.</div>
 <div class="old-help-para">For String concatenation ".." is preferred, since "." is ambiguous, it is also
-used for <a href="eval.html#Dict">Dict</a> member access and floating point numbers.</div>
+used for <a href="/neovim-docs-web/en/eval#Dict">Dict</a> member access and floating point numbers.</div>
 <div class="old-help-para">expr7 * expr7  Number multiplication				<a name="expr-star"></a><code class="help-tag-right">expr-star</code>
 expr7 / expr7  Number division					<a name="expr-%2F"></a><code class="help-tag-right">expr-/</code>
 expr7 % expr7  Number modulo					<a name="expr-%25"></a><code class="help-tag-right">expr-%</code></div>
 <div class="old-help-para">For all, except "." and "..", Strings are converted to Numbers.
-For bitwise operators see <a href="builtin.html#and()">and()</a>, <a href="builtin.html#or()">or()</a> and <a href="builtin.html#xor()">xor()</a>.</div>
+For bitwise operators see <a href="/neovim-docs-web/en/builtin#and()">and()</a>, <a href="/neovim-docs-web/en/builtin#or()">or()</a> and <a href="/neovim-docs-web/en/builtin#xor()">xor()</a>.</div>
 <div class="old-help-para">Note the difference between "+" and ".":
 	"123" + "456" = 579
 	"123" . "456" = "123456"</div>
@@ -688,7 +688,7 @@ attempts to concatenate a Float and a String.</div>
 	 &gt;0 / 0  =  0x7fffffffffffffff	(like positive infinity)
 	 &lt;0 / 0  = -0x7fffffffffffffff	(like negative infinity)</div>
 <div class="old-help-para">When the righthand side of '%' is zero, the result is 0.</div>
-<div class="old-help-para">None of these work for <a href="eval.html#Funcref">Funcref</a>s.</div>
+<div class="old-help-para">None of these work for <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a>s.</div>
 <div class="old-help-para">. and % do not work for Float. <a name="E804"></a><code class="help-tag">E804</code></div>
 <div class="old-help-para">expr7							<a name="expr7"></a><code class="help-tag-right">expr7</code>
 -----
@@ -696,7 +696,7 @@ attempts to concatenate a Float and a String.</div>
 <div class="help-li" style=""> expr7			unary minus		<a name="expr-unary--"></a><code class="help-tag-right">expr-unary--</code>  
 </div><div class="help-li" style=""> expr7			unary plus		<a name="expr-unary-%2B"></a><code class="help-tag-right">expr-unary-+</code>  
 </div></div>
-<div class="old-help-para">For '!' <a href="eval.html#TRUE">TRUE</a> becomes <a href="eval.html#FALSE">FALSE</a>, <a href="eval.html#FALSE">FALSE</a> becomes <a href="eval.html#TRUE">TRUE</a> (one).
+<div class="old-help-para">For '!' <a href="/neovim-docs-web/en/eval#TRUE">TRUE</a> becomes <a href="/neovim-docs-web/en/eval#FALSE">FALSE</a>, <a href="/neovim-docs-web/en/eval#FALSE">FALSE</a> becomes <a href="/neovim-docs-web/en/eval#TRUE">TRUE</a> (one).
 For '-' the sign of the number is changed.
 For '+' the number is unchanged.  Note: "++" has no effect.</div>
 <div class="old-help-para">A String will be converted to a Number first.</div>
@@ -706,14 +706,14 @@ For '+' the number is unchanged.  Note: "++" has no effect.</div>
 	--9	    == 9</div>
 <div class="old-help-para">expr8							<a name="expr8"></a><code class="help-tag-right">expr8</code>
 -----
-This expression is either <a href="eval.html#expr9">expr9</a> or a sequence of the alternatives below,
+This expression is either <a href="/neovim-docs-web/en/eval#expr9">expr9</a> or a sequence of the alternatives below,
 in any order.  E.g., these are all possible:
 	expr8[expr1].name
 	expr8.name[expr1]
 	expr8(expr1, ...)[expr1].name
 	expr8-&gt;(expr1, ...)[expr1]
 Evaluation is always from left to right.</div>
-<div class="old-help-para">expr8[expr1]		item of String or <a href="eval.html#List">List</a>  	<a name="expr-%5B%5D"></a><code class="help-tag">expr-[]</code> <a name="E111"></a><code class="help-tag">E111</code>
+<div class="old-help-para">expr8[expr1]		item of String or <a href="/neovim-docs-web/en/eval#List">List</a>  	<a name="expr-%5B%5D"></a><code class="help-tag">expr-[]</code> <a name="E111"></a><code class="help-tag">E111</code>
 							<a name="subscript"></a><code class="help-tag-right">subscript</code>
 In legacy Vim script:
 If expr8 is a Number or String this results in a String that contains the
@@ -728,18 +728,18 @@ cursor:<pre>:let c = getline(".")[col(".") - 1]</pre>
 If the length of the String is less than the index, the result is an empty
 String.  A negative index always results in an empty string (reason: backward
 compatibility).  Use [-1:] to get the last byte.</div>
-<div class="old-help-para">If expr8 is a <a href="eval.html#List">List</a> then it results the item at index expr1.  See <a href="eval.html#list-index">list-index</a>
+<div class="old-help-para">If expr8 is a <a href="/neovim-docs-web/en/eval#List">List</a> then it results the item at index expr1.  See <a href="/neovim-docs-web/en/eval#list-index">list-index</a>
 for possible index values.  If the index is out of range this results in an
 error.  Example:<pre>:let item = mylist[-1]                " get last item</pre>
-Generally, if a <a href="eval.html#List">List</a> index is equal to or higher than the length of the
-<a href="eval.html#List">List</a>, or more negative than the length of the <a href="eval.html#List">List</a>, this results in an
+Generally, if a <a href="/neovim-docs-web/en/eval#List">List</a> index is equal to or higher than the length of the
+<a href="/neovim-docs-web/en/eval#List">List</a>, or more negative than the length of the <a href="/neovim-docs-web/en/eval#List">List</a>, this results in an
 error.</div>
-<div class="old-help-para">expr8[expr1a : expr1b]	substring or <a href="eval.html#sublist">sublist</a>  		<a name="expr-%5B%3A%5D"></a><code class="help-tag-right">expr-[:]</code> <a name="substring"></a><code class="help-tag">substring</code></div>
+<div class="old-help-para">expr8[expr1a : expr1b]	substring or <a href="/neovim-docs-web/en/eval#sublist">sublist</a>  		<a name="expr-%5B%3A%5D"></a><code class="help-tag-right">expr-[:]</code> <a name="substring"></a><code class="help-tag">substring</code></div>
 <div class="old-help-para">If expr8 is a String this results in the substring with the bytes or
 characters from expr1a to and including expr1b.  expr8 is used as a String,
 expr1a and expr1b are used as a Number.</div>
 <div class="old-help-para">In legacy Vim script the indexes are byte indexes.  This doesn't recognize
-multibyte encodings, see <a href="builtin.html#byteidx()">byteidx()</a> for computing the indexes.  If expr8 is
+multibyte encodings, see <a href="/neovim-docs-web/en/builtin#byteidx()">byteidx()</a> for computing the indexes.  If expr8 is
 a Number it is first converted to a String.</div>
 <div class="old-help-para">If expr1a is omitted zero is used.  If expr1b is omitted the length of the
 string minus one is used.</div>
@@ -753,23 +753,23 @@ expr1b is smaller than expr1a the result is an empty string.</div>
 :let s = line(".")[4:]                " from the fifth byte to the end
 :let s = s[:-3]                        " remove last two bytes</pre></div>
 <div class="old-help-para">							<a name="slice"></a><code class="help-tag-right">slice</code>
-If expr8 is a <a href="eval.html#List">List</a> this results in a new <a href="eval.html#List">List</a> with the items indicated by
+If expr8 is a <a href="/neovim-docs-web/en/eval#List">List</a> this results in a new <a href="/neovim-docs-web/en/eval#List">List</a> with the items indicated by
 the indexes expr1a and expr1b.  This works like with a String, as explained
-just above. Also see <a href="eval.html#sublist">sublist</a> below.  Examples:<pre>:let l = mylist[:3]                " first four items
+just above. Also see <a href="/neovim-docs-web/en/eval#sublist">sublist</a> below.  Examples:<pre>:let l = mylist[:3]                " first four items
 :let l = mylist[4:4]                " List with one item
 :let l = mylist[:]                " shallow copy of a List</pre>
-If expr8 is a <a href="eval.html#Blob">Blob</a> this results in a new <a href="eval.html#Blob">Blob</a> with the bytes in the
+If expr8 is a <a href="/neovim-docs-web/en/eval#Blob">Blob</a> this results in a new <a href="/neovim-docs-web/en/eval#Blob">Blob</a> with the bytes in the
 indexes expr1a and expr1b, inclusive.  Examples:<pre>:let b = 0zDEADBEEF
 :let bs = b[1:2]                " 0zADBE
 :let bs = b[]                        " copy of 0zDEADBEEF</pre>
-Using expr8[expr1] or expr8[expr1a : expr1b] on a <a href="eval.html#Funcref">Funcref</a> results in an
+Using expr8[expr1] or expr8[expr1a : expr1b] on a <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> results in an
 error.</div>
 <div class="old-help-para">Watch out for confusion between a namespace and a variable followed by a colon
 for a sublist:<pre>mylist[n:]     " uses variable n
 mylist[s:]     " uses namespace s:, error!</pre>
-expr8.name		entry in a <a href="eval.html#Dictionary">Dictionary</a>  		<a name="expr-entry"></a><code class="help-tag-right">expr-entry</code></div>
-<div class="old-help-para">If expr8 is a <a href="eval.html#Dictionary">Dictionary</a> and it is followed by a dot, then the following
-name will be used as a key in the <a href="eval.html#Dictionary">Dictionary</a>.  This is just like:
+expr8.name		entry in a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>  		<a name="expr-entry"></a><code class="help-tag-right">expr-entry</code></div>
+<div class="old-help-para">If expr8 is a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> and it is followed by a dot, then the following
+name will be used as a key in the <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>.  This is just like:
 expr8[name].</div>
 <div class="old-help-para">The name must consist of alphanumeric characters, just like a variable name,
 but it may start with a number.  Curly braces cannot be used.</div>
@@ -780,8 +780,8 @@ but it may start with a number.  Curly braces cannot be used.</div>
 :echo dict .2                " error because of space before the dot</pre>
 Note that the dot is also used for String concatenation.  To avoid confusion
 always put spaces around the dot for String concatenation.</div>
-<div class="old-help-para">expr8(expr1, ...)	<a href="eval.html#Funcref">Funcref</a> function call</div>
-<div class="old-help-para">When expr8 is a <a href="eval.html#Funcref">Funcref</a> type variable, invoke the function it refers to.</div>
+<div class="old-help-para">expr8(expr1, ...)	<a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> function call</div>
+<div class="old-help-para">When expr8 is a <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> type variable, invoke the function it refers to.</div>
 <div class="old-help-para">expr8-&gt;name([args])	method call			<a name="method"></a><code class="help-tag-right">method</code> <a name="-%3E"></a><code class="help-tag">-&gt;</code>
 expr8-&gt;{lambda}([args])</div>
 <div class="old-help-para">							<a name="E260"></a><code class="help-tag-right">E260</code> <a name="E276"></a><code class="help-tag">E276</code>
@@ -790,7 +790,7 @@ There can also be methods specifically for the type of "expr8".</div>
 <div class="old-help-para">This allows for chaining, passing the value that one method returns to the
 next method:<pre>mylist-&gt;filter(filterexpr)-&gt;map(mapexpr)-&gt;sort()-&gt;join()</pre></div>
 <div class="old-help-para">Example of using a lambda:<pre>GetPercentage()-&gt;{x -&gt; x * 100}()-&gt;printf('%d%%')</pre></div>
-<div class="old-help-para">When using -&gt; the <a href="eval.html#expr7">expr7</a> operators will be applied first, thus:<pre>-1.234-&gt;string()</pre>
+<div class="old-help-para">When using -&gt; the <a href="/neovim-docs-web/en/eval#expr7">expr7</a> operators will be applied first, thus:<pre>-1.234-&gt;string()</pre>
 Is equivalent to:<pre>(-1.234)-&gt;string()</pre>
 And NOT:<pre>-(1.234-&gt;string())</pre></div>
 <div class="old-help-para">							<a name="E274"></a><code class="help-tag-right">E274</code>
@@ -847,8 +847,8 @@ also use functions, like the following:<pre>:let pi = acos(-1.0)
 The precision and range of floating points numbers depends on what "double"
 means in the library Vim was compiled with.  There is no way to change this at
 runtime.</div>
-<div class="old-help-para">The default for displaying a <a href="eval.html#Float">Float</a> is to use 6 decimal places, like using
-printf("%g", f).  You can select something else when using the <a href="builtin.html#printf()">printf()</a>
+<div class="old-help-para">The default for displaying a <a href="/neovim-docs-web/en/eval#Float">Float</a> is to use 6 decimal places, like using
+printf("%g", f).  You can select something else when using the <a href="/neovim-docs-web/en/builtin#printf()">printf()</a>
 function.  Example:<pre>:echo printf('%.15e', atan(1))</pre></div>
 <div class="old-help-para">	7.853981633974483e-01</div>
 <div class="old-help-para">string					<a name="string"></a><code class="help-tag-right">string</code> <a name="String"></a><code class="help-tag">String</code> <a name="expr-string"></a><code class="help-tag">expr-string</code> <a name="E114"></a><code class="help-tag">E114</code>
@@ -904,7 +904,7 @@ option						<a name="expr-option"></a><code class="help-tag-right">expr-option</
 &amp;l:option		local option value</div>
 <div class="old-help-para">Examples:<pre>echo "tabstop is " .. &amp;tabstop
 if &amp;expandtab</pre>
-Any option name can be used here.  See <a href="options.html#options">options</a>.  When using the local value
+Any option name can be used here.  See <a href="/neovim-docs-web/en/options#options">options</a>.  When using the local value
 and there is no buffer-local or window-local value, the global value is used
 anyway.</div>
 <div class="old-help-para">register						<a name="expr-register"></a><code class="help-tag-right">expr-register</code> <a name="%40r"></a><code class="help-tag">@r</code>
@@ -912,10 +912,10 @@ anyway.</div>
 @r			contents of register 'r'</div>
 <div class="old-help-para">The result is the contents of the named register, as a single string.
 Newlines are inserted where required.  To get the contents of the unnamed
-register use @" or @@.  See <a href="change.html#registers">registers</a> for an explanation of the available
+register use @" or @@.  See <a href="/neovim-docs-web/en/change#registers">registers</a> for an explanation of the available
 registers.</div>
 <div class="old-help-para">When using the '=' register you get the expression itself, not what it
-evaluates to.  Use <a href="builtin.html#eval()">eval()</a> to evaluate it.</div>
+evaluates to.  Use <a href="/neovim-docs-web/en/builtin#eval()">eval()</a> to evaluate it.</div>
 <div class="old-help-para">nesting							<a name="expr-nesting"></a><code class="help-tag-right">expr-nesting</code> <a name="E110"></a><code class="help-tag">E110</code>
 -------
 (expr1)			nested expression</div>
@@ -938,15 +938,15 @@ does expand all variables that the shell knows about.  Example:<pre>:echo $shell
 The first one probably doesn't echo anything, the second echoes the $shell
 variable (if your shell supports it).</div>
 <div class="old-help-para">internal variable					<a name="expr-variable"></a><code class="help-tag-right">expr-variable</code>
-<a name="_-variable-internal-variable"></a><h3 class="help-heading">variable		internal variable</h3>See below <a href="eval.html#internal-variables">internal-variables</a>.</div>
+<a name="_-variable-internal-variable"></a><h3 class="help-heading">variable		internal variable</h3>See below <a href="/neovim-docs-web/en/eval#internal-variables">internal-variables</a>.</div>
 <div class="old-help-para">function call		<a name="expr-function"></a><code class="help-tag-right">expr-function</code> <a name="E116"></a><code class="help-tag">E116</code> <a name="E118"></a><code class="help-tag">E118</code> <a name="E119"></a><code class="help-tag">E119</code> <a name="E120"></a><code class="help-tag">E120</code>
-<a name="_-function(expr1,-...)-function-call"></a><h3 class="help-heading">function(expr1, ...)	function call</h3>See below <a href="eval.html#functions">functions</a>.</div>
+<a name="_-function(expr1,-...)-function-call"></a><h3 class="help-heading">function(expr1, ...)	function call</h3>See below <a href="/neovim-docs-web/en/eval#functions">functions</a>.</div>
 <div class="old-help-para">lambda expression				<a name="expr-lambda"></a><code class="help-tag-right">expr-lambda</code> <a name="lambda"></a><code class="help-tag">lambda</code>
 <a name="_-{args-->-expr1}-lambda-expression"></a><h3 class="help-heading"><code>{args -&gt; expr1}</code>		lambda expression</h3></div>
 <div class="old-help-para">A lambda expression creates a new unnamed function which returns the result of
-evaluating <a href="eval.html#expr1">expr1</a>.  Lambda expressions differ from <a href="eval.html#user-function">user-function</a>s in
+evaluating <a href="/neovim-docs-web/en/eval#expr1">expr1</a>.  Lambda expressions differ from <a href="/neovim-docs-web/en/eval#user-function">user-function</a>s in
 the following ways:</div>
-<div class="old-help-para">1. The body of the lambda expression is an <a href="eval.html#expr1">expr1</a> and not a sequence of <a href="intro.html#Ex">Ex</a>
+<div class="old-help-para">1. The body of the lambda expression is an <a href="/neovim-docs-web/en/eval#expr1">expr1</a> and not a sequence of <a href="/neovim-docs-web/en/intro#Ex">Ex</a>
    commands.
 2. The prefix "a:" should not be used for arguments.  E.g.:<pre>:let F = {arg1, arg2 -&gt; arg1 - arg2}
 :echo F(5, 2)</pre></div>
@@ -966,9 +966,9 @@ the function returns:<pre>:function Foo(arg)
 :echo Bar(6)</pre></div>
 <div class="old-help-para">	5
 Note that the variables must exist in the outer scope before the lambda is
-defined for this to work.  See also <a href="userfunc.html#%3Afunc-closure">:func-closure</a>.</div>
+defined for this to work.  See also <a href="/neovim-docs-web/en/userfunc#%3Afunc-closure">:func-closure</a>.</div>
 <div class="old-help-para">Lambda and closure support can be checked with:<pre>if has('lambda')</pre>
-Examples for using a lambda expression with <a href="builtin.html#sort()">sort()</a>, <a href="builtin.html#map()">map()</a> and <a href="builtin.html#filter()">filter()</a>:<pre>:echo map([1, 2, 3], {idx, val -&gt; val + 1})</pre></div>
+Examples for using a lambda expression with <a href="/neovim-docs-web/en/builtin#sort()">sort()</a>, <a href="/neovim-docs-web/en/builtin#map()">map()</a> and <a href="/neovim-docs-web/en/builtin#filter()">filter()</a>:<pre>:echo map([1, 2, 3], {idx, val -&gt; val + 1})</pre></div>
 <div class="old-help-para">	[2, 3, 4]<pre>:echo sort([3,7,2,1,4], {a, b -&gt; a - b})</pre></div>
 <div class="old-help-para">	[1, 2, 3, 4, 7]</div>
 <div class="old-help-para">The lambda expression is also useful for jobs and timers:<pre>:let timer = timer_start(500,
@@ -988,29 +988,29 @@ Recommendation: don't do this.</div>
 <div class="old-help-para">Notice how execute() is used to execute an Ex command.  That's ugly though.</div>
 <div class="old-help-para">Lambda expressions have internal names like '<code>&lt;lambda&gt;</code>42'.  If you get an error
 for a lambda expression, you can find what it is with the following command:<pre>:function &lt;lambda&gt;42</pre>
-See also: <a href="eval.html#numbered-function">numbered-function</a></div>
+See also: <a href="/neovim-docs-web/en/eval#numbered-function">numbered-function</a></div>
 <div class="old-help-para"><h2 class="help-heading">3. Internal variable<span class="help-heading-tags">				<a name="internal-variables"></a><span class="help-tag">internal-variables</span> <a name="E461"></a><span class="help-tag">E461</span></span></h2></div>
 <div class="old-help-para">An internal variable name can be made up of letters, digits and '_'.  But it
 cannot start with a digit.  It's also possible to use curly braces, see
-<a href="eval.html#curly-braces-names">curly-braces-names</a>.</div>
-<div class="old-help-para">An internal variable is created with the ":let" command <a href="eval.html#%3Alet">:let</a>.
+<a href="/neovim-docs-web/en/eval#curly-braces-names">curly-braces-names</a>.</div>
+<div class="old-help-para">An internal variable is created with the ":let" command <a href="/neovim-docs-web/en/eval#%3Alet">:let</a>.
 An internal variable is explicitly destroyed with the ":unlet" command
-<a href="eval.html#%3Aunlet">:unlet</a>.
+<a href="/neovim-docs-web/en/eval#%3Aunlet">:unlet</a>.
 Using a name that is not an internal variable or refers to a variable that has
 been destroyed results in an error.</div>
 <div class="old-help-para">						<a name="variable-scope"></a><code class="help-tag-right">variable-scope</code>
 There are several name spaces for variables.  Which one is to be used is
 specified by what is prepended:</div>
 <div class="old-help-para">		(nothing) In a function: local to a function; otherwise: global
-<a href="eval.html#buffer-variable">buffer-variable</a>    b:	  Local to the current buffer.
-<a href="eval.html#window-variable">window-variable</a>    w:	  Local to the current window.
-<a href="eval.html#tabpage-variable">tabpage-variable</a>   t:	  Local to the current tab page.
-<a href="eval.html#global-variable">global-variable</a>    g:	  Global.
-<a href="eval.html#local-variable">local-variable</a>     l:	  Local to a function.
-<a href="eval.html#script-variable">script-variable</a>    s:	  Local to a <a href="repeat.html#%3Asource">:source</a>'<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+eval.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/eval.html%0D%0DContext%3A%0D%0D%60%60%60%0D%7Ctabpage-variable%7C%20%20%20t%3A%09%20%20Local%20to%20the%20current%20tab%20page.%0A%7Cglobal-variable%7C%20%20%20%20g%3A%09%20%20Global.%0A%7Clocal-variable%7C%20%20%20%20%20l%3A%09%20%20Local%20to%20a%20function.%0A%7Cscript-variable%7C%20%20%20%20s%3A%09%20%20Local%20to%20a%20%7C%3Asource%7C'ed%20Vim%20script.%0A%7Cfunction-argument%7C%20%20a%3A%09%20%20Function%20argument%20(only%20inside%20a%20function).%0A%7Cvim-variable%7C%20%20%20%20%20%20%20v%3A%09%20%20Global%2C%20predefined%20by%20Vim.%0A%0D%60%60%60">ed</a> Vim script.
-<a href="userfunc.html#function-argument">function-argument</a>  a:	  Function argument (only inside a function).
-<a href="eval.html#vim-variable">vim-variable</a>       v:	  Global, predefined by Vim.</div>
-<div class="old-help-para">The scope name by itself can be used as a <a href="eval.html#Dictionary">Dictionary</a>.  For example, to
+<a href="/neovim-docs-web/en/eval#buffer-variable">buffer-variable</a>    b:	  Local to the current buffer.
+<a href="/neovim-docs-web/en/eval#window-variable">window-variable</a>    w:	  Local to the current window.
+<a href="/neovim-docs-web/en/eval#tabpage-variable">tabpage-variable</a>   t:	  Local to the current tab page.
+<a href="/neovim-docs-web/en/eval#global-variable">global-variable</a>    g:	  Global.
+<a href="/neovim-docs-web/en/eval#local-variable">local-variable</a>     l:	  Local to a function.
+<a href="/neovim-docs-web/en/eval#script-variable">script-variable</a>    s:	  Local to a <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a>'<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+eval.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/eval.html%0D%0DContext%3A%0D%0D%60%60%60%0D%7Ctabpage-variable%7C%20%20%20t%3A%09%20%20Local%20to%20the%20current%20tab%20page.%0A%7Cglobal-variable%7C%20%20%20%20g%3A%09%20%20Global.%0A%7Clocal-variable%7C%20%20%20%20%20l%3A%09%20%20Local%20to%20a%20function.%0A%7Cscript-variable%7C%20%20%20%20s%3A%09%20%20Local%20to%20a%20%7C%3Asource%7C'ed%20Vim%20script.%0A%7Cfunction-argument%7C%20%20a%3A%09%20%20Function%20argument%20(only%20inside%20a%20function).%0A%7Cvim-variable%7C%20%20%20%20%20%20%20v%3A%09%20%20Global%2C%20predefined%20by%20Vim.%0A%0D%60%60%60">ed</a> Vim script.
+<a href="/neovim-docs-web/en/userfunc#function-argument">function-argument</a>  a:	  Function argument (only inside a function).
+<a href="/neovim-docs-web/en/eval#vim-variable">vim-variable</a>       v:	  Global, predefined by Vim.</div>
+<div class="old-help-para">The scope name by itself can be used as a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>.  For example, to
 delete all script-local variables:<pre>:for k in keys(s:)
 :    unlet s:[k]
 :endfor</pre></div>
@@ -1018,12 +1018,12 @@ delete all script-local variables:<pre>:for k in keys(s:)
 A variable name that is preceded with "b:" is local to the current buffer.
 Thus you can have several "b:foo" variables, one for each buffer.
 This kind of variable is deleted when the buffer is wiped out or deleted with
-<a href="windows.html#%3Abdelete">:bdelete</a>.</div>
+<a href="/neovim-docs-web/en/windows#%3Abdelete">:bdelete</a>.</div>
 <div class="old-help-para">One local buffer variable is predefined:
 					<a name="b%3Achangedtick"></a><code class="help-tag-right">b:changedtick</code> <a name="changetick"></a><code class="help-tag">changetick</code>
 b:changedtick	The total number of changes to the current buffer.  It is
 		incremented for each change.  An undo command is also a change
-		in this case.  Resetting <a href="options.html#'modified'">'modified'</a> when writing the buffer is
+		in this case.  Resetting <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> when writing the buffer is
 		also counted.
 		This can be used to perform an action only when the buffer has
 		changed.  Example:<pre>:if my_changedtick != b:changedtick
@@ -1104,51 +1104,51 @@ else
   echo "script executed " .. s:counter .. " times now"
 endif</pre>
 Note that this means that filetype plugins don't get a different set of script
-variables for each buffer.  Use local buffer variables instead <a href="eval.html#b%3Avar">b:var</a>.</div>
+variables for each buffer.  Use local buffer variables instead <a href="/neovim-docs-web/en/eval#b%3Avar">b:var</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">PREDEFINED VIM VARIABLES<span class="help-heading-tags">			<a name="vim-variable"></a><span class="help-tag">vim-variable</span> <a name="v%3Avar"></a><span class="help-tag">v:var</span> <a name="v%3A"></a><span class="help-tag">v:</span></span></h3>								<a name="E963"></a><code class="help-tag-right">E963</code>
 Some variables can be set by the user, but the type cannot be changed.</div>
 <div class="old-help-para">					<a name="v%3Aargv"></a><code class="help-tag-right">v:argv</code> <a name="argv-variable"></a><code class="help-tag">argv-variable</code>
 v:argv		The command line arguments Vim was invoked with.  This is a
 		list of strings.  The first item is the Vim command.
-		See <a href="eval.html#v%3Aprogpath">v:progpath</a> for the command with full path.</div>
+		See <a href="/neovim-docs-web/en/eval#v%3Aprogpath">v:progpath</a> for the command with full path.</div>
 <div class="old-help-para">					<a name="v%3Abeval_col"></a><code class="help-tag-right">v:beval_col</code> <a name="beval_col-variable"></a><code class="help-tag">beval_col-variable</code>
 v:beval_col	The number of the column, over which the mouse pointer is.
-		This is the byte index in the <a href="eval.html#v%3Abeval_lnum">v:beval_lnum</a> line.
-		Only valid while evaluating the <a href="vim_diff.html#'balloonexpr'">'balloonexpr'</a> option.</div>
+		This is the byte index in the <a href="/neovim-docs-web/en/eval#v%3Abeval_lnum">v:beval_lnum</a> line.
+		Only valid while evaluating the <a href="/neovim-docs-web/en/vim_diff#'balloonexpr'">'balloonexpr'</a> option.</div>
 <div class="old-help-para">					<a name="v%3Abeval_bufnr"></a><code class="help-tag-right">v:beval_bufnr</code> <a name="beval_bufnr-variable"></a><code class="help-tag">beval_bufnr-variable</code>
 v:beval_bufnr	The number of the buffer, over which the mouse pointer is. Only
-		valid while evaluating the <a href="vim_diff.html#'balloonexpr'">'balloonexpr'</a> option.</div>
+		valid while evaluating the <a href="/neovim-docs-web/en/vim_diff#'balloonexpr'">'balloonexpr'</a> option.</div>
 <div class="old-help-para">					<a name="v%3Abeval_lnum"></a><code class="help-tag-right">v:beval_lnum</code> <a name="beval_lnum-variable"></a><code class="help-tag">beval_lnum-variable</code>
 v:beval_lnum	The number of the line, over which the mouse pointer is. Only
-		valid while evaluating the <a href="vim_diff.html#'balloonexpr'">'balloonexpr'</a> option.</div>
+		valid while evaluating the <a href="/neovim-docs-web/en/vim_diff#'balloonexpr'">'balloonexpr'</a> option.</div>
 <div class="old-help-para">					<a name="v%3Abeval_text"></a><code class="help-tag-right">v:beval_text</code> <a name="beval_text-variable"></a><code class="help-tag">beval_text-variable</code>
 v:beval_text	The text under or after the mouse pointer.  Usually a word as
-		it is useful for debugging a C program.  <a href="options.html#'iskeyword'">'iskeyword'</a> applies,
+		it is useful for debugging a C program.  <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> applies,
 		but a dot and "-&gt;" before the position is included.  When on a
 		']' the text before it is used, including the matching '[' and
 		word before it.  When on a Visual area within one line the
-		highlighted text is used.  Also see <a href="cmdline.html#%3Ccexpr%3E">&lt;cexpr&gt;</a>.
-		Only valid while evaluating the <a href="vim_diff.html#'balloonexpr'">'balloonexpr'</a> option.</div>
+		highlighted text is used.  Also see <a href="/neovim-docs-web/en/cmdline#%3Ccexpr%3E">&lt;cexpr&gt;</a>.
+		Only valid while evaluating the <a href="/neovim-docs-web/en/vim_diff#'balloonexpr'">'balloonexpr'</a> option.</div>
 <div class="old-help-para">					<a name="v%3Abeval_winnr"></a><code class="help-tag-right">v:beval_winnr</code> <a name="beval_winnr-variable"></a><code class="help-tag">beval_winnr-variable</code>
 v:beval_winnr	The number of the window, over which the mouse pointer is. Only
-		valid while evaluating the <a href="vim_diff.html#'balloonexpr'">'balloonexpr'</a> option.  The first
+		valid while evaluating the <a href="/neovim-docs-web/en/vim_diff#'balloonexpr'">'balloonexpr'</a> option.  The first
 		window has number zero (unlike most other places where a
 		window gets a number).</div>
 <div class="old-help-para">					<a name="v%3Abeval_winid"></a><code class="help-tag-right">v:beval_winid</code> <a name="beval_winid-variable"></a><code class="help-tag">beval_winid-variable</code>
-v:beval_winid	The <a href="windows.html#window-ID">window-ID</a> of the window, over which the mouse pointer
+v:beval_winid	The <a href="/neovim-docs-web/en/windows#window-ID">window-ID</a> of the window, over which the mouse pointer
 		is.  Otherwise like v:beval_winnr.</div>
 <div class="old-help-para">					<a name="v%3Achar"></a><code class="help-tag-right">v:char</code> <a name="char-variable"></a><code class="help-tag">char-variable</code>
-v:char		Argument for evaluating <a href="options.html#'formatexpr'">'formatexpr'</a> and used for the typed
-		character when using <code>&lt;expr&gt;</code> in an abbreviation <a href="map.html#%3Amap-%3Cexpr%3E">:map-&lt;expr&gt;</a>.
-		It is also used by the <a href="autocmd.html#InsertCharPre">InsertCharPre</a> and <a href="autocmd.html#InsertEnter">InsertEnter</a> events.</div>
+v:char		Argument for evaluating <a href="/neovim-docs-web/en/options#'formatexpr'">'formatexpr'</a> and used for the typed
+		character when using <code>&lt;expr&gt;</code> in an abbreviation <a href="/neovim-docs-web/en/map#%3Amap-%3Cexpr%3E">:map-&lt;expr&gt;</a>.
+		It is also used by the <a href="/neovim-docs-web/en/autocmd#InsertCharPre">InsertCharPre</a> and <a href="/neovim-docs-web/en/autocmd#InsertEnter">InsertEnter</a> events.</div>
 <div class="old-help-para">			<a name="v%3Acharconvert_from"></a><code class="help-tag-right">v:charconvert_from</code> <a name="charconvert_from-variable"></a><code class="help-tag">charconvert_from-variable</code>
 v:charconvert_from
 		The name of the character encoding of a file to be converted.
-		Only valid while evaluating the <a href="options.html#'charconvert'">'charconvert'</a> option.</div>
+		Only valid while evaluating the <a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a> option.</div>
 <div class="old-help-para">			<a name="v%3Acharconvert_to"></a><code class="help-tag-right">v:charconvert_to</code> <a name="charconvert_to-variable"></a><code class="help-tag">charconvert_to-variable</code>
 v:charconvert_to
 		The name of the character encoding of a file after conversion.
-		Only valid while evaluating the <a href="options.html#'charconvert'">'charconvert'</a> option.</div>
+		Only valid while evaluating the <a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a> option.</div>
 <div class="old-help-para">					<a name="v%3Acmdarg"></a><code class="help-tag-right">v:cmdarg</code> <a name="cmdarg-variable"></a><code class="help-tag">cmdarg-variable</code>
 v:cmdarg	This variable is used for two purposes:
 		1. The extra arguments given to a file read/write command.
@@ -1160,27 +1160,27 @@ v:cmdarg	This variable is used for two purposes:
 		   included here, because it will be executed anyway.
 		2. When printing a PostScript file with ":hardcopy" this is
 		   the argument for the ":hardcopy" command.  This can be used
-		   in <a href="options.html#'printexpr'">'printexpr'</a>.</div>
+		   in <a href="/neovim-docs-web/en/options#'printexpr'">'printexpr'</a>.</div>
 <div class="old-help-para">						<a name="v%3Acollate"></a><code class="help-tag-right">v:collate</code> <a name="collate-variable"></a><code class="help-tag">collate-variable</code>
 v:collate	The current locale setting for collation order of the runtime
 		environment.  This allows Vim scripts to be aware of the
 		current locale encoding.  Technical: it's the value of
 		LC_COLLATE.  When not using a locale the value is "C".
-		This variable can not be set directly, use the <a href="mlang.html#%3Alanguage">:language</a>
+		This variable can not be set directly, use the <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a>
 		command.
-		See <a href="mlang.html#multi-lang">multi-lang</a>.</div>
+		See <a href="/neovim-docs-web/en/mlang#multi-lang">multi-lang</a>.</div>
 <div class="old-help-para">					<a name="v%3Acmdbang"></a><code class="help-tag-right">v:cmdbang</code> <a name="cmdbang-variable"></a><code class="help-tag">cmdbang-variable</code>
 v:cmdbang	Set like v:cmdarg for a file read/write command.  When a "!"
 		was used the value is 1, otherwise it is 0.  Note that this
-		can only be used in autocommands.  For user commands <a href="map.html#%3Cbang%3E">&lt;bang&gt;</a>
+		can only be used in autocommands.  For user commands <a href="/neovim-docs-web/en/map#%3Cbang%3E">&lt;bang&gt;</a>
 		can be used.</div>
 <div class="old-help-para">				<a name="v%3Acompleted_item"></a><code class="help-tag-right">v:completed_item</code> <a name="completed_item-variable"></a><code class="help-tag">completed_item-variable</code>
 v:completed_item
-		Dictionary containing the most recent <a href="insert.html#complete-items">complete-items</a> after
-		<a href="autocmd.html#CompleteDone">CompleteDone</a>.  Empty if the completion failed, or after
+		Dictionary containing the most recent <a href="/neovim-docs-web/en/insert#complete-items">complete-items</a> after
+		<a href="/neovim-docs-web/en/autocmd#CompleteDone">CompleteDone</a>.  Empty if the completion failed, or after
 		leaving and re-entering insert mode.
 		Note: Plugins can modify the value to emulate the builtin
-		<a href="autocmd.html#CompleteDone">CompleteDone</a> event behavior.</div>
+		<a href="/neovim-docs-web/en/autocmd#CompleteDone">CompleteDone</a> event behavior.</div>
 <div class="old-help-para">					<a name="v%3Acount"></a><code class="help-tag-right">v:count</code> <a name="count-variable"></a><code class="help-tag">count-variable</code>
 v:count		The count given for the last Normal mode command.  Can be used
 		to get the count before a mapping.  Read-only.  Example:<pre>:map _x :&lt;C-U&gt;echo "the count is " .. v:count&lt;CR&gt;</pre></div>
@@ -1188,7 +1188,7 @@ v:count		The count given for the last Normal mode command.  Can be used
 		get when typing ':' after a count.
 		When there are two counts, as in "3d2w", they are multiplied,
 		just like what happens in the command, "d6w" for the example.
-		Also used for evaluating the <a href="options.html#'formatexpr'">'formatexpr'</a> option.</div>
+		Also used for evaluating the <a href="/neovim-docs-web/en/options#'formatexpr'">'formatexpr'</a> option.</div>
 <div class="old-help-para">					<a name="v%3Acount1"></a><code class="help-tag-right">v:count1</code> <a name="count1-variable"></a><code class="help-tag">count1-variable</code>
 v:count1	Just like "v:count", but defaults to one when no count is
 		used.</div>
@@ -1197,9 +1197,9 @@ v:ctype		The current locale setting for characters of the runtime
 		environment.  This allows Vim scripts to be aware of the
 		current locale encoding.  Technical: it's the value of
 		LC_CTYPE.  When not using a locale the value is "C".
-		This variable can not be set directly, use the <a href="mlang.html#%3Alanguage">:language</a>
+		This variable can not be set directly, use the <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a>
 		command.
-		See <a href="mlang.html#multi-lang">multi-lang</a>.</div>
+		See <a href="/neovim-docs-web/en/mlang#multi-lang">multi-lang</a>.</div>
 <div class="old-help-para">					<a name="v%3Adying"></a><code class="help-tag-right">v:dying</code> <a name="dying-variable"></a><code class="help-tag">dying-variable</code>
 v:dying		Normally zero.  When a deadly signal is caught it's set to
 		one.  When multiple signals are caught the number increases.
@@ -1209,15 +1209,15 @@ v:dying		Normally zero.  When a deadly signal is caught it's set to
 <div class="old-help-para">		Note: if another deadly signal is caught when v:dying is one,
 		VimLeave autocommands will not be executed.</div>
 <div class="old-help-para">					<a name="v%3Aexiting"></a><code class="help-tag-right">v:exiting</code> <a name="exiting-variable"></a><code class="help-tag">exiting-variable</code>
-v:exiting	Exit code, or <a href="eval.html#v%3Anull">v:null</a> before invoking the <a href="autocmd.html#VimLeavePre">VimLeavePre</a>
-		and <a href="autocmd.html#VimLeave">VimLeave</a> autocmds.  See <a href="editing.html#%3Aq">:q</a>, <a href="editing.html#%3Ax">:x</a> and <a href="quickfix.html#%3Acquit">:cquit</a>.
+v:exiting	Exit code, or <a href="/neovim-docs-web/en/eval#v%3Anull">v:null</a> before invoking the <a href="/neovim-docs-web/en/autocmd#VimLeavePre">VimLeavePre</a>
+		and <a href="/neovim-docs-web/en/autocmd#VimLeave">VimLeave</a> autocmds.  See <a href="/neovim-docs-web/en/editing#%3Aq">:q</a>, <a href="/neovim-docs-web/en/editing#%3Ax">:x</a> and <a href="/neovim-docs-web/en/quickfix#%3Acquit">:cquit</a>.
 		Example:<pre>:au VimLeave * echo "Exit value is " .. v:exiting
 
                 *v:echospace* *echospace-variable*</pre>
 v:echospace	Number of screen cells that can be used for an <code>:echo</code> message
-		in the last screen line before causing the <a href="message.html#hit-enter-prompt">hit-enter-prompt</a>.
-		Depends on <a href="options.html#'showcmd'">'showcmd'</a>, <a href="options.html#'ruler'">'ruler'</a> and <a href="options.html#'columns'">'columns'</a>.  You need to
-		check <a href="options.html#'cmdheight'">'cmdheight'</a> for whether there are full-width lines
+		in the last screen line before causing the <a href="/neovim-docs-web/en/message#hit-enter-prompt">hit-enter-prompt</a>.
+		Depends on <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a>, <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a> and <a href="/neovim-docs-web/en/options#'columns'">'columns'</a>.  You need to
+		check <a href="/neovim-docs-web/en/options#'cmdheight'">'cmdheight'</a> for whether there are full-width lines
 		available above the last line.</div>
 <div class="old-help-para">					<a name="v%3Aerrmsg"></a><code class="help-tag-right">v:errmsg</code> <a name="errmsg-variable"></a><code class="help-tag">errmsg-variable</code>
 v:errmsg	Last given error message.
@@ -1227,7 +1227,7 @@ v:errmsg	Last given error message.
 :if v:errmsg != ""
 :  ... handle error</pre></div>
 <div class="old-help-para">				<a name="v%3Aerrors"></a><code class="help-tag-right">v:errors</code> <a name="errors-variable"></a><code class="help-tag">errors-variable</code> <a name="assert-return"></a><code class="help-tag">assert-return</code>
-v:errors	Errors found by assert functions, such as <a href="testing.html#assert_true()">assert_true()</a>.
+v:errors	Errors found by assert functions, such as <a href="/neovim-docs-web/en/testing#assert_true()">assert_true()</a>.
 		This is a list of strings.
 		The assert functions append an item when an assert fails.
 		The return value indicates this: a one is returned if an item
@@ -1236,53 +1236,53 @@ v:errors	Errors found by assert functions, such as <a href="testing.html#assert_
 <div class="old-help-para">		If v:errors is set to anything but a list it is made an empty
 		list by the assert function.</div>
 <div class="old-help-para">					<a name="v%3Aevent"></a><code class="help-tag-right">v:event</code> <a name="event-variable"></a><code class="help-tag">event-variable</code>
-v:event		Dictionary of event data for the current <a href="autocmd.html#autocommand">autocommand</a>.  Valid
+v:event		Dictionary of event data for the current <a href="/neovim-docs-web/en/autocmd#autocommand">autocommand</a>.  Valid
 		only during the event lifetime; storing or passing v:event is
 		invalid!  Copy it instead:<pre>au TextYankPost * let g:foo = deepcopy(v:event)</pre></div>
 <div class="old-help-para">		Keys vary by event; see the documentation for the specific
-		event, e.g. <a href="autocmd.html#DirChanged">DirChanged</a> or <a href="autocmd.html#TextYankPost">TextYankPost</a>.
+		event, e.g. <a href="/neovim-docs-web/en/autocmd#DirChanged">DirChanged</a> or <a href="/neovim-docs-web/en/autocmd#TextYankPost">TextYankPost</a>.
 <div class="help-column_heading">			KEY		DESCRIPTION</div>			abort		Whether the event triggered during
-					an aborting condition (e.g. <a href="cmdline.html#c_Esc">c_Esc</a> or
-					<a href="cmdline.html#c_CTRL-C">c_CTRL-C</a> for <a href="autocmd.html#CmdlineLeave">CmdlineLeave</a>).
-			chan		<a href="channel.html#channel-id">channel-id</a> or 0 for "internal".
+					an aborting condition (e.g. <a href="/neovim-docs-web/en/cmdline#c_Esc">c_Esc</a> or
+					<a href="/neovim-docs-web/en/cmdline#c_CTRL-C">c_CTRL-C</a> for <a href="/neovim-docs-web/en/autocmd#CmdlineLeave">CmdlineLeave</a>).
+			chan		<a href="/neovim-docs-web/en/channel#channel-id">channel-id</a> or 0 for "internal".
 			cmdlevel	Level of cmdline.
-			cmdtype		Type of cmdline, <a href="cmdline.html#cmdline-char">cmdline-char</a>.
+			cmdtype		Type of cmdline, <a href="/neovim-docs-web/en/cmdline#cmdline-char">cmdline-char</a>.
 			cwd		Current working directory.
-			inclusive	Motion is <a href="motion.html#inclusive">inclusive</a>, else exclusive.
+			inclusive	Motion is <a href="/neovim-docs-web/en/motion#inclusive">inclusive</a>, else exclusive.
 			scope		Event-specific scope name.
-			operator	Current <a href="motion.html#operator">operator</a>.  Also set for Ex
-					commands (unlike <a href="eval.html#v%3Aoperator">v:operator</a>). For
-					example if <a href="autocmd.html#TextYankPost">TextYankPost</a> is triggered
-					by the <a href="change.html#%3Ayank">:yank</a> Ex command then
+			operator	Current <a href="/neovim-docs-web/en/motion#operator">operator</a>.  Also set for Ex
+					commands (unlike <a href="/neovim-docs-web/en/eval#v%3Aoperator">v:operator</a>). For
+					example if <a href="/neovim-docs-web/en/autocmd#TextYankPost">TextYankPost</a> is triggered
+					by the <a href="/neovim-docs-web/en/change#%3Ayank">:yank</a> Ex command then
 					<code>v:event.operator</code> is "y".
 			regcontents	Text stored in the register as a
-					<a href="builtin.html#readfile()">readfile()</a>-style list of lines.
+					<a href="/neovim-docs-web/en/builtin#readfile()">readfile()</a>-style list of lines.
 			regname		Requested register (e.g "x" for "xyy)
 					or the empty string for an unnamed
 					operation.
 			regtype		Type of register as returned by
-					<a href="builtin.html#getregtype()">getregtype()</a>.
+					<a href="/neovim-docs-web/en/builtin#getregtype()">getregtype()</a>.
 			visual		Selection is visual (as opposed to,
 					e.g., via motion).
 			completed_item    Current selected complete item on
-					<a href="autocmd.html#CompleteChanged">CompleteChanged</a>, Is <code>{}</code> when no complete
+					<a href="/neovim-docs-web/en/autocmd#CompleteChanged">CompleteChanged</a>, Is <code>{}</code> when no complete
 					item selected.
-			height 		Height of popup menu on <a href="autocmd.html#CompleteChanged">CompleteChanged</a>
-			width   	width of popup menu on <a href="autocmd.html#CompleteChanged">CompleteChanged</a>
-			row  	 	Row count of popup menu on <a href="autocmd.html#CompleteChanged">CompleteChanged</a>,
+			height 		Height of popup menu on <a href="/neovim-docs-web/en/autocmd#CompleteChanged">CompleteChanged</a>
+			width   	width of popup menu on <a href="/neovim-docs-web/en/autocmd#CompleteChanged">CompleteChanged</a>
+			row  	 	Row count of popup menu on <a href="/neovim-docs-web/en/autocmd#CompleteChanged">CompleteChanged</a>,
 					relative to screen.
-			col  	 	Col count of popup menu on <a href="autocmd.html#CompleteChanged">CompleteChanged</a>,
+			col  	 	Col count of popup menu on <a href="/neovim-docs-web/en/autocmd#CompleteChanged">CompleteChanged</a>,
 					relative to screen.
 			size 		Total number of completion items on
-					<a href="autocmd.html#CompleteChanged">CompleteChanged</a>.
-			scrollbar 	Is <a href="eval.html#v%3Atrue">v:true</a> if popup menu have scrollbar, or
-					<a href="eval.html#v%3Afalse">v:false</a> if not.
-			changed_window 	Is <a href="eval.html#v%3Atrue">v:true</a> if the the event fired
-					while changing window (or tab) on <a href="autocmd.html#DirChanged">DirChanged</a>.
-			status		Job status or exit code, -1 means "unknown". <a href="autocmd.html#TermClose">TermClose</a></div>
+					<a href="/neovim-docs-web/en/autocmd#CompleteChanged">CompleteChanged</a>.
+			scrollbar 	Is <a href="/neovim-docs-web/en/eval#v%3Atrue">v:true</a> if popup menu have scrollbar, or
+					<a href="/neovim-docs-web/en/eval#v%3Afalse">v:false</a> if not.
+			changed_window 	Is <a href="/neovim-docs-web/en/eval#v%3Atrue">v:true</a> if the the event fired
+					while changing window (or tab) on <a href="/neovim-docs-web/en/autocmd#DirChanged">DirChanged</a>.
+			status		Job status or exit code, -1 means "unknown". <a href="/neovim-docs-web/en/autocmd#TermClose">TermClose</a></div>
 <div class="old-help-para">					<a name="v%3Aexception"></a><code class="help-tag-right">v:exception</code> <a name="exception-variable"></a><code class="help-tag">exception-variable</code>
 v:exception	The value of the exception most recently caught and not
-		finished.  See also <a href="eval.html#v%3Athrowpoint">v:throwpoint</a> and <a href="eval.html#throw-variables">throw-variables</a>.
+		finished.  See also <a href="/neovim-docs-web/en/eval#v%3Athrowpoint">v:throwpoint</a> and <a href="/neovim-docs-web/en/eval#throw-variables">throw-variables</a>.
 		Example:<pre>:try
 :  throw "oops"
 :catch /.*/
@@ -1291,12 +1291,12 @@ v:exception	The value of the exception most recently caught and not
 <div class="old-help-para">		Output: "caught oops".</div>
 <div class="old-help-para">					<a name="v%3Afalse"></a><code class="help-tag-right">v:false</code> <a name="false-variable"></a><code class="help-tag">false-variable</code>
 v:false		Special value used to put "false" in JSON and msgpack.  See
-		<a href="builtin.html#json_encode()">json_encode()</a>.  This value is converted to "v:false" when used
-		as a String (e.g. in <a href="eval.html#expr5">expr5</a> with string concatenation
-		operator) and to zero when used as a Number (e.g. in <a href="eval.html#expr5">expr5</a>
-		or <a href="eval.html#expr7">expr7</a> when used with numeric operators). Read-only.</div>
+		<a href="/neovim-docs-web/en/builtin#json_encode()">json_encode()</a>.  This value is converted to "v:false" when used
+		as a String (e.g. in <a href="/neovim-docs-web/en/eval#expr5">expr5</a> with string concatenation
+		operator) and to zero when used as a Number (e.g. in <a href="/neovim-docs-web/en/eval#expr5">expr5</a>
+		or <a href="/neovim-docs-web/en/eval#expr7">expr7</a> when used with numeric operators). Read-only.</div>
 <div class="old-help-para">					<a name="v%3Afcs_reason"></a><code class="help-tag-right">v:fcs_reason</code> <a name="fcs_reason-variable"></a><code class="help-tag">fcs_reason-variable</code>
-v:fcs_reason	The reason why the <a href="autocmd.html#FileChangedShell">FileChangedShell</a> event was triggered.
+v:fcs_reason	The reason why the <a href="/neovim-docs-web/en/autocmd#FileChangedShell">FileChangedShell</a> event was triggered.
 		Can be used in an autocommand to decide what to do and/or what
 		to set v:fcs_choice to.  Possible values:
 			deleted		file no longer exists
@@ -1306,14 +1306,14 @@ v:fcs_reason	The reason why the <a href="autocmd.html#FileChangedShell">FileChan
 			mode		mode of file changed
 			time		only file timestamp changed</div>
 <div class="old-help-para">					<a name="v%3Afcs_choice"></a><code class="help-tag-right">v:fcs_choice</code> <a name="fcs_choice-variable"></a><code class="help-tag">fcs_choice-variable</code>
-v:fcs_choice	What should happen after a <a href="autocmd.html#FileChangedShell">FileChangedShell</a> event was
+v:fcs_choice	What should happen after a <a href="/neovim-docs-web/en/autocmd#FileChangedShell">FileChangedShell</a> event was
 		triggered.  Can be used in an autocommand to tell Vim what to
 		do with the affected buffer:
 			reload		Reload the buffer (does not work if
 					the file was deleted).
 			edit		Reload the buffer and detect the
 					values for options such as
-					<a href="options.html#'fileformat'">'fileformat'</a>, <a href="options.html#'fileencoding'">'fileencoding'</a>, <a href="options.html#'binary'">'binary'</a>
+					<a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a>, <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>, <a href="/neovim-docs-web/en/options#'binary'">'binary'</a>
 					(does not work if the file was
 					deleted).
 			ask		Ask the user what to do, as if there
@@ -1325,111 +1325,111 @@ v:fcs_choice	What should happen after a <a href="autocmd.html#FileChangedShell">
 		The default is empty.  If another (invalid) value is used then
 		Vim behaves like it is empty, there is no warning message.</div>
 <div class="old-help-para">					<a name="v%3Afname"></a><code class="help-tag-right">v:fname</code> <a name="fname-variable"></a><code class="help-tag">fname-variable</code>
-v:fname		When evaluating <a href="options.html#'includeexpr'">'includeexpr'</a>: the file name that was
+v:fname		When evaluating <a href="/neovim-docs-web/en/options#'includeexpr'">'includeexpr'</a>: the file name that was
 		detected.  Empty otherwise.</div>
 <div class="old-help-para">					<a name="v%3Afname_in"></a><code class="help-tag-right">v:fname_in</code> <a name="fname_in-variable"></a><code class="help-tag">fname_in-variable</code>
 v:fname_in	The name of the input file.  Valid while evaluating:
-<div class="help-column_heading">			option		used for</div>			<a href="options.html#'charconvert'">'charconvert'</a>	file to be converted
-			<a href="options.html#'diffexpr'">'diffexpr'</a>	original file
-			<a href="options.html#'patchexpr'">'patchexpr'</a>	original file
-			<a href="options.html#'printexpr'">'printexpr'</a>	file to be printed
-		And set to the swap file name for <a href="autocmd.html#SwapExists">SwapExists</a>.</div>
+<div class="help-column_heading">			option		used for</div>			<a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a>	file to be converted
+			<a href="/neovim-docs-web/en/options#'diffexpr'">'diffexpr'</a>	original file
+			<a href="/neovim-docs-web/en/options#'patchexpr'">'patchexpr'</a>	original file
+			<a href="/neovim-docs-web/en/options#'printexpr'">'printexpr'</a>	file to be printed
+		And set to the swap file name for <a href="/neovim-docs-web/en/autocmd#SwapExists">SwapExists</a>.</div>
 <div class="old-help-para">					<a name="v%3Afname_out"></a><code class="help-tag-right">v:fname_out</code> <a name="fname_out-variable"></a><code class="help-tag">fname_out-variable</code>
 v:fname_out	The name of the output file.  Only valid while
 		evaluating:
-<div class="help-column_heading">			option		used for</div>			<a href="options.html#'charconvert'">'charconvert'</a>	resulting converted file (*)			<a href="options.html#'diffexpr'">'diffexpr'</a>	output of diff
-			<a href="options.html#'patchexpr'">'patchexpr'</a>	resulting patched file
+<div class="help-column_heading">			option		used for</div>			<a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a>	resulting converted file (*)			<a href="/neovim-docs-web/en/options#'diffexpr'">'diffexpr'</a>	output of diff
+			<a href="/neovim-docs-web/en/options#'patchexpr'">'patchexpr'</a>	resulting patched file
 		() When doing conversion for a write command (e.g., ":w
 		file") it will be equal to v:fname_in.  When doing conversion
 		for a read command (e.g., ":e file") it will be a temporary
 		file and different from v:fname_in.</div>
 <div class="old-help-para">					<a name="v%3Afname_new"></a><code class="help-tag-right">v:fname_new</code> <a name="fname_new-variable"></a><code class="help-tag">fname_new-variable</code>
 v:fname_new	The name of the new version of the file.  Only valid while
-		evaluating <a href="options.html#'diffexpr'">'diffexpr'</a>.</div>
+		evaluating <a href="/neovim-docs-web/en/options#'diffexpr'">'diffexpr'</a>.</div>
 <div class="old-help-para">					<a name="v%3Afname_diff"></a><code class="help-tag-right">v:fname_diff</code> <a name="fname_diff-variable"></a><code class="help-tag">fname_diff-variable</code>
 v:fname_diff	The name of the diff (patch) file.  Only valid while
-		evaluating <a href="options.html#'patchexpr'">'patchexpr'</a>.</div>
+		evaluating <a href="/neovim-docs-web/en/options#'patchexpr'">'patchexpr'</a>.</div>
 <div class="old-help-para">					<a name="v%3Afolddashes"></a><code class="help-tag-right">v:folddashes</code> <a name="folddashes-variable"></a><code class="help-tag">folddashes-variable</code>
-v:folddashes	Used for <a href="options.html#'foldtext'">'foldtext'</a>: dashes representing foldlevel of a closed
+v:folddashes	Used for <a href="/neovim-docs-web/en/options#'foldtext'">'foldtext'</a>: dashes representing foldlevel of a closed
 		fold.
-		Read-only in the <a href="eval.html#sandbox">sandbox</a>. <a href="fold.html#fold-foldtext">fold-foldtext</a></div>
+		Read-only in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>. <a href="/neovim-docs-web/en/fold#fold-foldtext">fold-foldtext</a></div>
 <div class="old-help-para">					<a name="v%3Afoldlevel"></a><code class="help-tag-right">v:foldlevel</code> <a name="foldlevel-variable"></a><code class="help-tag">foldlevel-variable</code>
-v:foldlevel	Used for <a href="options.html#'foldtext'">'foldtext'</a>: foldlevel of closed fold.
-		Read-only in the <a href="eval.html#sandbox">sandbox</a>. <a href="fold.html#fold-foldtext">fold-foldtext</a></div>
+v:foldlevel	Used for <a href="/neovim-docs-web/en/options#'foldtext'">'foldtext'</a>: foldlevel of closed fold.
+		Read-only in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>. <a href="/neovim-docs-web/en/fold#fold-foldtext">fold-foldtext</a></div>
 <div class="old-help-para">					<a name="v%3Afoldend"></a><code class="help-tag-right">v:foldend</code> <a name="foldend-variable"></a><code class="help-tag">foldend-variable</code>
-v:foldend	Used for <a href="options.html#'foldtext'">'foldtext'</a>: last line of closed fold.
-		Read-only in the <a href="eval.html#sandbox">sandbox</a>. <a href="fold.html#fold-foldtext">fold-foldtext</a></div>
+v:foldend	Used for <a href="/neovim-docs-web/en/options#'foldtext'">'foldtext'</a>: last line of closed fold.
+		Read-only in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>. <a href="/neovim-docs-web/en/fold#fold-foldtext">fold-foldtext</a></div>
 <div class="old-help-para">					<a name="v%3Afoldstart"></a><code class="help-tag-right">v:foldstart</code> <a name="foldstart-variable"></a><code class="help-tag">foldstart-variable</code>
-v:foldstart	Used for <a href="options.html#'foldtext'">'foldtext'</a>: first line of closed fold.
-		Read-only in the <a href="eval.html#sandbox">sandbox</a>. <a href="fold.html#fold-foldtext">fold-foldtext</a></div>
+v:foldstart	Used for <a href="/neovim-docs-web/en/options#'foldtext'">'foldtext'</a>: first line of closed fold.
+		Read-only in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>. <a href="/neovim-docs-web/en/fold#fold-foldtext">fold-foldtext</a></div>
 <div class="old-help-para">					<a name="v%3Ahlsearch"></a><code class="help-tag-right">v:hlsearch</code> <a name="hlsearch-variable"></a><code class="help-tag">hlsearch-variable</code>
 v:hlsearch	Variable that indicates whether search highlighting is on.
-		Setting it makes sense only if <a href="options.html#'hlsearch'">'hlsearch'</a> is enabled. Setting
-		this variable to zero acts like the <a href="pattern.html#%3Anohlsearch">:nohlsearch</a> command,
+		Setting it makes sense only if <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a> is enabled. Setting
+		this variable to zero acts like the <a href="/neovim-docs-web/en/pattern#%3Anohlsearch">:nohlsearch</a> command,
 		setting it to one acts like<pre>let &amp;hlsearch = &amp;hlsearch</pre></div>
 <div class="old-help-para">		Note that the value is restored when returning from a
-		function. <a href="userfunc.html#function-search-undo">function-search-undo</a>.</div>
+		function. <a href="/neovim-docs-web/en/userfunc#function-search-undo">function-search-undo</a>.</div>
 <div class="old-help-para">					<a name="v%3Ainsertmode"></a><code class="help-tag-right">v:insertmode</code> <a name="insertmode-variable"></a><code class="help-tag">insertmode-variable</code>
-v:insertmode	Used for the <a href="autocmd.html#InsertEnter">InsertEnter</a> and <a href="autocmd.html#InsertChange">InsertChange</a> autocommand
+v:insertmode	Used for the <a href="/neovim-docs-web/en/autocmd#InsertEnter">InsertEnter</a> and <a href="/neovim-docs-web/en/autocmd#InsertChange">InsertChange</a> autocommand
 		events.  Values:
 			i	Insert mode
 			r	Replace mode
 			v	Virtual Replace mode</div>
 <div class="old-help-para">						<a name="v%3Akey"></a><code class="help-tag-right">v:key</code> <a name="key-variable"></a><code class="help-tag">key-variable</code>
-v:key		Key of the current item of a <a href="eval.html#Dictionary">Dictionary</a>.  Only valid while
-		evaluating the expression used with <a href="builtin.html#map()">map()</a> and <a href="builtin.html#filter()">filter()</a>.
+v:key		Key of the current item of a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>.  Only valid while
+		evaluating the expression used with <a href="/neovim-docs-web/en/builtin#map()">map()</a> and <a href="/neovim-docs-web/en/builtin#filter()">filter()</a>.
 		Read-only.</div>
 <div class="old-help-para">						<a name="v%3Alang"></a><code class="help-tag-right">v:lang</code> <a name="lang-variable"></a><code class="help-tag">lang-variable</code>
 v:lang		The current locale setting for messages of the runtime
 		environment.  This allows Vim scripts to be aware of the
 		current language.  Technical: it's the value of LC_MESSAGES.
 		The value is system dependent.
-		This variable can not be set directly, use the <a href="mlang.html#%3Alanguage">:language</a>
+		This variable can not be set directly, use the <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a>
 		command.
-		It can be different from <a href="eval.html#v%3Actype">v:ctype</a> when messages are desired
+		It can be different from <a href="/neovim-docs-web/en/eval#v%3Actype">v:ctype</a> when messages are desired
 		in a different language than what is used for character
-		encoding.  See <a href="mlang.html#multi-lang">multi-lang</a>.</div>
+		encoding.  See <a href="/neovim-docs-web/en/mlang#multi-lang">multi-lang</a>.</div>
 <div class="old-help-para">						<a name="v%3Alc_time"></a><code class="help-tag-right">v:lc_time</code> <a name="lc_time-variable"></a><code class="help-tag">lc_time-variable</code>
 v:lc_time	The current locale setting for time messages of the runtime
 		environment.  This allows Vim scripts to be aware of the
 		current language.  Technical: it's the value of LC_TIME.
-		This variable can not be set directly, use the <a href="mlang.html#%3Alanguage">:language</a>
-		command.  See <a href="mlang.html#multi-lang">multi-lang</a>.</div>
+		This variable can not be set directly, use the <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a>
+		command.  See <a href="/neovim-docs-web/en/mlang#multi-lang">multi-lang</a>.</div>
 <div class="old-help-para">						<a name="v%3Alnum"></a><code class="help-tag-right">v:lnum</code> <a name="lnum-variable"></a><code class="help-tag">lnum-variable</code>
-v:lnum		Line number for the <a href="options.html#'foldexpr'">'foldexpr'</a> <a href="fold.html#fold-expr">fold-expr</a>, <a href="options.html#'formatexpr'">'formatexpr'</a> and
-		<a href="options.html#'indentexpr'">'indentexpr'</a> expressions, tab page number for <a href="options.html#'guitablabel'">'guitablabel'</a>
-		and <a href="options.html#'guitabtooltip'">'guitabtooltip'</a>.  Only valid while one of these
+v:lnum		Line number for the <a href="/neovim-docs-web/en/options#'foldexpr'">'foldexpr'</a> <a href="/neovim-docs-web/en/fold#fold-expr">fold-expr</a>, <a href="/neovim-docs-web/en/options#'formatexpr'">'formatexpr'</a> and
+		<a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a> expressions, tab page number for <a href="/neovim-docs-web/en/options#'guitablabel'">'guitablabel'</a>
+		and <a href="/neovim-docs-web/en/options#'guitabtooltip'">'guitabtooltip'</a>.  Only valid while one of these
 		expressions is being evaluated.  Read-only when in the
-		<a href="eval.html#sandbox">sandbox</a>.</div>
+		<a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>.</div>
 <div class="old-help-para">						<a name="v%3Alua"></a><code class="help-tag-right">v:lua</code> <a name="lua-variable"></a><code class="help-tag">lua-variable</code>
 v:lua		Prefix for calling Lua functions from expressions.
-		See <a href="lua.html#v%3Alua-call">v:lua-call</a> for more information.</div>
+		See <a href="/neovim-docs-web/en/lua#v%3Alua-call">v:lua-call</a> for more information.</div>
 <div class="old-help-para">					<a name="v%3Amouse_win"></a><code class="help-tag-right">v:mouse_win</code> <a name="mouse_win-variable"></a><code class="help-tag">mouse_win-variable</code>
-v:mouse_win	Window number for a mouse click obtained with <a href="builtin.html#getchar()">getchar()</a>.
-		First window has number 1, like with <a href="builtin.html#winnr()">winnr()</a>.  The value is
+v:mouse_win	Window number for a mouse click obtained with <a href="/neovim-docs-web/en/builtin#getchar()">getchar()</a>.
+		First window has number 1, like with <a href="/neovim-docs-web/en/builtin#winnr()">winnr()</a>.  The value is
 		zero when there was no mouse button click.</div>
 <div class="old-help-para">					<a name="v%3Amouse_winid"></a><code class="help-tag-right">v:mouse_winid</code> <a name="mouse_winid-variable"></a><code class="help-tag">mouse_winid-variable</code>
-v:mouse_winid	<a href="windows.html#window-ID">window-ID</a> for a mouse click obtained with <a href="builtin.html#getchar()">getchar()</a>.
+v:mouse_winid	<a href="/neovim-docs-web/en/windows#window-ID">window-ID</a> for a mouse click obtained with <a href="/neovim-docs-web/en/builtin#getchar()">getchar()</a>.
 		The value is zero when there was no mouse button click.</div>
 <div class="old-help-para">					<a name="v%3Amouse_lnum"></a><code class="help-tag-right">v:mouse_lnum</code> <a name="mouse_lnum-variable"></a><code class="help-tag">mouse_lnum-variable</code>
-v:mouse_lnum	Line number for a mouse click obtained with <a href="builtin.html#getchar()">getchar()</a>.
+v:mouse_lnum	Line number for a mouse click obtained with <a href="/neovim-docs-web/en/builtin#getchar()">getchar()</a>.
 		This is the text line number, not the screen line number.  The
 		value is zero when there was no mouse button click.</div>
 <div class="old-help-para">					<a name="v%3Amouse_col"></a><code class="help-tag-right">v:mouse_col</code> <a name="mouse_col-variable"></a><code class="help-tag">mouse_col-variable</code>
-v:mouse_col	Column number for a mouse click obtained with <a href="builtin.html#getchar()">getchar()</a>.
-		This is the screen column number, like with <a href="builtin.html#virtcol()">virtcol()</a>.  The
+v:mouse_col	Column number for a mouse click obtained with <a href="/neovim-docs-web/en/builtin#getchar()">getchar()</a>.
+		This is the screen column number, like with <a href="/neovim-docs-web/en/builtin#virtcol()">virtcol()</a>.  The
 		value is zero when there was no mouse button click.</div>
 <div class="old-help-para">				<a name="v%3Amsgpack_types"></a><code class="help-tag-right">v:msgpack_types</code> <a name="msgpack_types-variable"></a><code class="help-tag">msgpack_types-variable</code>
-v:msgpack_types	Dictionary containing msgpack types used by <a href="builtin.html#msgpackparse()">msgpackparse()</a>
-		and <a href="builtin.html#msgpackdump()">msgpackdump()</a>. All types inside dictionary are fixed
+v:msgpack_types	Dictionary containing msgpack types used by <a href="/neovim-docs-web/en/builtin#msgpackparse()">msgpackparse()</a>
+		and <a href="/neovim-docs-web/en/builtin#msgpackdump()">msgpackdump()</a>. All types inside dictionary are fixed
 		(not editable) empty lists. To check whether some list is one
-		of msgpack types, use <a href="motion.html#is">is</a> operator.</div>
+		of msgpack types, use <a href="/neovim-docs-web/en/motion#is">is</a> operator.</div>
 <div class="old-help-para">					<a name="v%3Anull"></a><code class="help-tag-right">v:null</code> <a name="null-variable"></a><code class="help-tag">null-variable</code>
 v:null		Special value used to put "null" in JSON and NIL in msgpack.
-		See <a href="builtin.html#json_encode()">json_encode()</a>.  This value is converted to "v:null" when
-		used as a String (e.g. in <a href="eval.html#expr5">expr5</a> with string concatenation
-		operator) and to zero when used as a Number (e.g. in <a href="eval.html#expr5">expr5</a>
-		or <a href="eval.html#expr7">expr7</a> when used with numeric operators). Read-only.
+		See <a href="/neovim-docs-web/en/builtin#json_encode()">json_encode()</a>.  This value is converted to "v:null" when
+		used as a String (e.g. in <a href="/neovim-docs-web/en/eval#expr5">expr5</a> with string concatenation
+		operator) and to zero when used as a Number (e.g. in <a href="/neovim-docs-web/en/eval#expr5">expr5</a>
+		or <a href="/neovim-docs-web/en/eval#expr7">expr7</a> when used with numeric operators). Read-only.
 		In some places <code>v:null</code> can be used for a List, Dict, etc.
 		that is not set.  That is slightly different than an empty
 		List, Dict, etc.</div>
@@ -1441,51 +1441,51 @@ v:numbermin	Minimum value of a number (negative).</div>
 v:numbersize	Number of bits in a Number.  This is normally 64, but on some
 		systems it may be 32.</div>
 <div class="old-help-para">					<a name="v%3Aoldfiles"></a><code class="help-tag-right">v:oldfiles</code> <a name="oldfiles-variable"></a><code class="help-tag">oldfiles-variable</code>
-v:oldfiles	List of file names that is loaded from the <a href="starting.html#shada">shada</a> file on
+v:oldfiles	List of file names that is loaded from the <a href="/neovim-docs-web/en/starting#shada">shada</a> file on
 		startup.  These are the files that Vim remembers marks for.
 		The length of the List is limited by the ' argument of the
-		<a href="options.html#'shada'">'shada'</a> option (default is 100).
-		When the <a href="starting.html#shada">shada</a> file is not used the List is empty.
-		Also see <a href="starting.html#%3Aoldfiles">:oldfiles</a> and <a href="cmdline.html#c_%23%3C">c_#&lt;</a>.
+		<a href="/neovim-docs-web/en/options#'shada'">'shada'</a> option (default is 100).
+		When the <a href="/neovim-docs-web/en/starting#shada">shada</a> file is not used the List is empty.
+		Also see <a href="/neovim-docs-web/en/starting#%3Aoldfiles">:oldfiles</a> and <a href="/neovim-docs-web/en/cmdline#c_%23%3C">c_#&lt;</a>.
 		The List can be modified, but this has no effect on what is
-		stored in the <a href="starting.html#shada">shada</a> file later.  If you use values other
+		stored in the <a href="/neovim-docs-web/en/starting#shada">shada</a> file later.  If you use values other
 		than String this will cause trouble.</div>
 <div class="old-help-para">						    <a name="v%3Aoption_new"></a><code class="help-tag-right">v:option_new</code>
-v:option_new    New value of the option. Valid while executing an <a href="autocmd.html#OptionSet">OptionSet</a>
+v:option_new    New value of the option. Valid while executing an <a href="/neovim-docs-web/en/autocmd#OptionSet">OptionSet</a>
 		autocommand.
 						    <a name="v%3Aoption_old"></a><code class="help-tag-right">v:option_old</code>
-v:option_old    Old value of the option. Valid while executing an <a href="autocmd.html#OptionSet">OptionSet</a>
+v:option_old    Old value of the option. Valid while executing an <a href="/neovim-docs-web/en/autocmd#OptionSet">OptionSet</a>
 		autocommand. Depending on the command used for setting and the
 		kind of option this is either the local old value or the
 		global old value.
 						    <a name="v%3Aoption_oldlocal"></a><code class="help-tag-right">v:option_oldlocal</code>
 v:option_oldlocal
 		Old local value of the option. Valid while executing an
-		<a href="autocmd.html#OptionSet">OptionSet</a> autocommand.
+		<a href="/neovim-docs-web/en/autocmd#OptionSet">OptionSet</a> autocommand.
 						    <a name="v%3Aoption_oldglobal"></a><code class="help-tag-right">v:option_oldglobal</code>
 v:option_oldglobal
 		Old global value of the option. Valid while executing an
-		<a href="autocmd.html#OptionSet">OptionSet</a> autocommand.
+		<a href="/neovim-docs-web/en/autocmd#OptionSet">OptionSet</a> autocommand.
 						    <a name="v%3Aoption_type"></a><code class="help-tag-right">v:option_type</code>
 v:option_type   Scope of the set command. Valid while executing an
-		<a href="autocmd.html#OptionSet">OptionSet</a> autocommand. Can be either "global" or "local"
+		<a href="/neovim-docs-web/en/autocmd#OptionSet">OptionSet</a> autocommand. Can be either "global" or "local"
 						    <a name="v%3Aoption_command"></a><code class="help-tag-right">v:option_command</code>
 v:option_command
 		Command used to set the option. Valid while executing an
-		<a href="autocmd.html#OptionSet">OptionSet</a> autocommand.
-<div class="help-column_heading">			value		option was set via</div>			"setlocal"	<a href="options.html#%3Asetlocal">:setlocal</a> or ":let l:xxx"
-			"setglobal"	<a href="options.html#%3Asetglobal">:setglobal</a> or ":let g:xxx"
-			"set"		<a href="options.html#%3Aset">:set</a> or <a href="eval.html#%3Alet">:let</a>
-			"modeline"	<a href="options.html#modeline">modeline</a>
+		<a href="/neovim-docs-web/en/autocmd#OptionSet">OptionSet</a> autocommand.
+<div class="help-column_heading">			value		option was set via</div>			"setlocal"	<a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a> or ":let l:xxx"
+			"setglobal"	<a href="/neovim-docs-web/en/options#%3Asetglobal">:setglobal</a> or ":let g:xxx"
+			"set"		<a href="/neovim-docs-web/en/options#%3Aset">:set</a> or <a href="/neovim-docs-web/en/eval#%3Alet">:let</a>
+			"modeline"	<a href="/neovim-docs-web/en/options#modeline">modeline</a>
 					<a name="v%3Aoperator"></a><code class="help-tag-right">v:operator</code> <a name="operator-variable"></a><code class="help-tag">operator-variable</code>
 v:operator	The last operator given in Normal mode.  This is a single
 		character except for commands starting with <code>&lt;g&gt;</code> or <code>&lt;z&gt;</code>,
 		in which case it is two characters.  Best used alongside
-		<a href="eval.html#v%3Aprevcount">v:prevcount</a> and <a href="eval.html#v%3Aregister">v:register</a>.  Useful if you want to cancel
+		<a href="/neovim-docs-web/en/eval#v%3Aprevcount">v:prevcount</a> and <a href="/neovim-docs-web/en/eval#v%3Aregister">v:register</a>.  Useful if you want to cancel
 		Operator-pending mode and then use the operator, e.g.:<pre>:omap O &lt;Esc&gt;:call MyMotion(v:operator)&lt;CR&gt;</pre></div>
 <div class="old-help-para">		The value remains set until another operator is entered, thus
 		don't expect it to be empty.
-		v:operator is not set for <a href="change.html#%3Adelete">:delete</a>, <a href="change.html#%3Ayank">:yank</a> or other Ex
+		v:operator is not set for <a href="/neovim-docs-web/en/change#%3Adelete">:delete</a>, <a href="/neovim-docs-web/en/change#%3Ayank">:yank</a> or other Ex
 		commands.
 		Read-only.</div>
 <div class="old-help-para">					<a name="v%3Aprevcount"></a><code class="help-tag-right">v:prevcount</code> <a name="prevcount-variable"></a><code class="help-tag">prevcount-variable</code>
@@ -1496,7 +1496,7 @@ v:prevcount	The count given for the last but one Normal mode command.
 <div class="old-help-para">		Read-only.</div>
 <div class="old-help-para">					<a name="v%3Aprofiling"></a><code class="help-tag-right">v:profiling</code> <a name="profiling-variable"></a><code class="help-tag">profiling-variable</code>
 v:profiling	Normally zero.  Set to one after using ":profile start".
-		See <a href="repeat.html#profiling">profiling</a>.</div>
+		See <a href="/neovim-docs-web/en/repeat#profiling">profiling</a>.</div>
 <div class="old-help-para">					<a name="v%3Aprogname"></a><code class="help-tag-right">v:progname</code> <a name="progname-variable"></a><code class="help-tag">progname-variable</code>
 v:progname	The name by which Nvim was invoked (with path removed).
 		Read-only.</div>
@@ -1509,9 +1509,9 @@ v:register	The name of the register in effect for the current normal mode
 		register).  Or for the currently executing normal mode mapping
 		(use this in custom commands that take a register).
 		If none is supplied it is the default register '"', unless
-		<a href="options.html#'clipboard'">'clipboard'</a> contains "unnamed" or "unnamedplus", then it is
+		<a href="/neovim-docs-web/en/options#'clipboard'">'clipboard'</a> contains "unnamed" or "unnamedplus", then it is
 		'' or '+'.
-		Also see <a href="builtin.html#getreg()">getreg()</a> and <a href="builtin.html#setreg()">setreg()</a></div>
+		Also see <a href="/neovim-docs-web/en/builtin#getreg()">getreg()</a> and <a href="/neovim-docs-web/en/builtin#setreg()">setreg()</a></div>
 <div class="old-help-para">					<a name="v%3Ascrollstart"></a><code class="help-tag-right">v:scrollstart</code> <a name="scrollstart-variable"></a><code class="help-tag">scrollstart-variable</code>
 v:scrollstart	String describing the script or function that caused the
 		screen to scroll up.  It's only set when it is empty, thus the
@@ -1521,13 +1521,13 @@ v:scrollstart	String describing the script or function that caused the
 		hit-enter prompt.</div>
 <div class="old-help-para">					<a name="v%3Aservername"></a><code class="help-tag-right">v:servername</code> <a name="servername-variable"></a><code class="help-tag">servername-variable</code>
 v:servername	Primary listen-address of Nvim, the first item returned by
-		<a href="builtin.html#serverlist()">serverlist()</a>. Usually this is the named pipe created by Nvim
-		at <a href="starting.html#startup">startup</a> or given by <a href="starting.html#--listen">--listen</a> (or the deprecated
-		<a href="deprecated.html#%24NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</a> env var).</div>
-<div class="old-help-para">		See also <a href="builtin.html#serverstart()">serverstart()</a> <a href="builtin.html#serverstop()">serverstop()</a>.
+		<a href="/neovim-docs-web/en/builtin#serverlist()">serverlist()</a>. Usually this is the named pipe created by Nvim
+		at <a href="/neovim-docs-web/en/starting#startup">startup</a> or given by <a href="/neovim-docs-web/en/starting#--listen">--listen</a> (or the deprecated
+		<a href="/neovim-docs-web/en/deprecated#%24NVIM_LISTEN_ADDRESS">$NVIM_LISTEN_ADDRESS</a> env var).</div>
+<div class="old-help-para">		See also <a href="/neovim-docs-web/en/builtin#serverstart()">serverstart()</a> <a href="/neovim-docs-web/en/builtin#serverstop()">serverstop()</a>.
 		Read-only.</div>
 <div class="old-help-para">								       <a name="%24NVIM"></a><code class="help-tag-right">$NVIM</code>
-		$NVIM is set by <a href="nvim_terminal_emulator.html#terminal">terminal</a> and <a href="builtin.html#jobstart()">jobstart()</a>, and is thus
+		$NVIM is set by <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal">terminal</a> and <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a>, and is thus
 		a hint that the current environment is a subprocess of Nvim.
 		Example:<pre>if $NVIM
   echo nvim_get_chan_info(v:parent)
@@ -1536,9 +1536,9 @@ endif</pre></div>
 <div class="old-help-para">v:searchforward			<a name="v%3Asearchforward"></a><code class="help-tag-right">v:searchforward</code> <a name="searchforward-variable"></a><code class="help-tag">searchforward-variable</code>
 		Search direction:  1 after a forward search, 0 after a
 		backward search.  It is reset to forward when directly setting
-		the last search pattern, see <a href="change.html#quote%2F">quote/</a>.
+		the last search pattern, see <a href="/neovim-docs-web/en/change#quote%2F">quote/</a>.
 		Note that the value is restored when returning from a
-		function. <a href="userfunc.html#function-search-undo">function-search-undo</a>.
+		function. <a href="/neovim-docs-web/en/userfunc#function-search-undo">function-search-undo</a>.
 		Read-write.</div>
 <div class="old-help-para">					<a name="v%3Ashell_error"></a><code class="help-tag-right">v:shell_error</code> <a name="shell_error-variable"></a><code class="help-tag">shell_error-variable</code>
 v:shell_error	Result of the last shell command.  When non-zero, the last
@@ -1554,15 +1554,15 @@ v:shell_error	Result of the last shell command.  When non-zero, the last
 v:statusmsg	Last given status message.
 		Modifiable (can be set).</div>
 <div class="old-help-para">					<a name="v%3Astderr"></a><code class="help-tag-right">v:stderr</code> <a name="stderr-variable"></a><code class="help-tag">stderr-variable</code>
-v:stderr	<a href="channel.html#channel-id">channel-id</a> corresponding to stderr. The value is always 2;
+v:stderr	<a href="/neovim-docs-web/en/channel#channel-id">channel-id</a> corresponding to stderr. The value is always 2;
 		use this variable to make your code more descriptive.
-		Unlike stdin and stdout (see <a href="builtin.html#stdioopen()">stdioopen()</a>), stderr is always
+		Unlike stdin and stdout (see <a href="/neovim-docs-web/en/builtin#stdioopen()">stdioopen()</a>), stderr is always
 		open for writing. Example:<pre>:call chansend(v:stderr, "error: toaster empty\n")</pre></div>
 <div class="old-help-para">					<a name="v%3Aswapname"></a><code class="help-tag-right">v:swapname</code> <a name="swapname-variable"></a><code class="help-tag">swapname-variable</code>
-v:swapname	Only valid when executing <a href="autocmd.html#SwapExists">SwapExists</a> autocommands: Name of
+v:swapname	Only valid when executing <a href="/neovim-docs-web/en/autocmd#SwapExists">SwapExists</a> autocommands: Name of
 		the swap file found.  Read-only.</div>
 <div class="old-help-para">					<a name="v%3Aswapchoice"></a><code class="help-tag-right">v:swapchoice</code> <a name="swapchoice-variable"></a><code class="help-tag">swapchoice-variable</code>
-v:swapchoice	<a href="autocmd.html#SwapExists">SwapExists</a> autocommands can set this to the selected choice
+v:swapchoice	<a href="/neovim-docs-web/en/autocmd#SwapExists">SwapExists</a> autocommands can set this to the selected choice
 		for handling an existing swap file:
 			'o'	Open read-only
 			'e'	Edit anyway
@@ -1575,26 +1575,26 @@ v:swapchoice	<a href="autocmd.html#SwapExists">SwapExists</a> autocommands can s
 		no SwapExists autocommand.  The default is empty.</div>
 <div class="old-help-para">					<a name="v%3Aswapcommand"></a><code class="help-tag-right">v:swapcommand</code> <a name="swapcommand-variable"></a><code class="help-tag">swapcommand-variable</code>
 v:swapcommand	Normal mode command to be executed after a file has been
-		opened.  Can be used for a <a href="autocmd.html#SwapExists">SwapExists</a> autocommand to have
+		opened.  Can be used for a <a href="/neovim-docs-web/en/autocmd#SwapExists">SwapExists</a> autocommand to have
 		another Vim open the file and jump to the right place.  For
 		example, when jumping to a tag the value is ":tag tagname\r".
 		For ":edit +cmd file" the value is ":cmd\r".</div>
 <div class="old-help-para">				<a name="v%3At_TYPE"></a><code class="help-tag-right">v:t_TYPE</code> <a name="v%3At_bool"></a><code class="help-tag">v:t_bool</code> <a name="t_bool-variable"></a><code class="help-tag">t_bool-variable</code>
-v:t_bool	Value of <a href="eval.html#Boolean">Boolean</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_bool	Value of <a href="/neovim-docs-web/en/eval#Boolean">Boolean</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_dict"></a><code class="help-tag-right">v:t_dict</code> <a name="t_dict-variable"></a><code class="help-tag">t_dict-variable</code>
-v:t_dict	Value of <a href="eval.html#Dictionary">Dictionary</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_dict	Value of <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_float"></a><code class="help-tag-right">v:t_float</code> <a name="t_float-variable"></a><code class="help-tag">t_float-variable</code>
-v:t_float	Value of <a href="eval.html#Float">Float</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_float	Value of <a href="/neovim-docs-web/en/eval#Float">Float</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_func"></a><code class="help-tag-right">v:t_func</code> <a name="t_func-variable"></a><code class="help-tag">t_func-variable</code>
-v:t_func	Value of <a href="eval.html#Funcref">Funcref</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_func	Value of <a href="/neovim-docs-web/en/eval#Funcref">Funcref</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_list"></a><code class="help-tag-right">v:t_list</code> <a name="t_list-variable"></a><code class="help-tag">t_list-variable</code>
-v:t_list	Value of <a href="eval.html#List">List</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_list	Value of <a href="/neovim-docs-web/en/eval#List">List</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_number"></a><code class="help-tag-right">v:t_number</code> <a name="t_number-variable"></a><code class="help-tag">t_number-variable</code>
-v:t_number	Value of <a href="eval.html#Number">Number</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_number	Value of <a href="/neovim-docs-web/en/eval#Number">Number</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_string"></a><code class="help-tag-right">v:t_string</code> <a name="t_string-variable"></a><code class="help-tag">t_string-variable</code>
-v:t_string	Value of <a href="eval.html#String">String</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a>
+v:t_string	Value of <a href="/neovim-docs-web/en/eval#String">String</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a>
 					<a name="v%3At_blob"></a><code class="help-tag-right">v:t_blob</code> <a name="t_blob-variable"></a><code class="help-tag">t_blob-variable</code>
-v:t_blob	Value of <a href="eval.html#Blob">Blob</a> type.  Read-only.  See: <a href="builtin.html#type()">type()</a></div>
+v:t_blob	Value of <a href="/neovim-docs-web/en/eval#Blob">Blob</a> type.  Read-only.  See: <a href="/neovim-docs-web/en/builtin#type()">type()</a></div>
 <div class="old-help-para">				<a name="v%3Atermresponse"></a><code class="help-tag-right">v:termresponse</code> <a name="termresponse-variable"></a><code class="help-tag">termresponse-variable</code>
 v:termresponse	The escape sequence returned by the terminal for the DA
 		(request primary device attributes) control sequence.  It is
@@ -1612,12 +1612,12 @@ v:termresponse	The escape sequence returned by the terminal for the DA
 v:testing	Must be set before using <code>test_garbagecollect_now()</code>.</div>
 <div class="old-help-para">				<a name="v%3Athis_session"></a><code class="help-tag-right">v:this_session</code> <a name="this_session-variable"></a><code class="help-tag">this_session-variable</code>
 v:this_session	Full filename of the last loaded or saved session file.
-		Empty when no session file has been saved.  See <a href="starting.html#%3Amksession">:mksession</a>.
+		Empty when no session file has been saved.  See <a href="/neovim-docs-web/en/starting#%3Amksession">:mksession</a>.
 		Modifiable (can be set).</div>
 <div class="old-help-para">					<a name="v%3Athrowpoint"></a><code class="help-tag-right">v:throwpoint</code> <a name="throwpoint-variable"></a><code class="help-tag">throwpoint-variable</code>
 v:throwpoint	The point where the exception most recently caught and not
 		finished was thrown.  Not set when commands are typed.  See
-		also <a href="eval.html#v%3Aexception">v:exception</a> and <a href="eval.html#throw-variables">throw-variables</a>.
+		also <a href="/neovim-docs-web/en/eval#v%3Aexception">v:exception</a> and <a href="/neovim-docs-web/en/eval#throw-variables">throw-variables</a>.
 		Example:<pre>:try
 :  throw "oops"
 :catch /.*/
@@ -1626,21 +1626,21 @@ v:throwpoint	The point where the exception most recently caught and not
 <div class="old-help-para">		Output: "Exception from test.vim, line 2"</div>
 <div class="old-help-para">					<a name="v%3Atrue"></a><code class="help-tag-right">v:true</code> <a name="true-variable"></a><code class="help-tag">true-variable</code>
 v:true		Special value used to put "true" in JSON and msgpack.  See
-		<a href="builtin.html#json_encode()">json_encode()</a>.  This value is converted to "v:true" when used
-		as a String (e.g. in <a href="eval.html#expr5">expr5</a> with string concatenation
-		operator) and to one when used as a Number (e.g. in <a href="eval.html#expr5">expr5</a> or
-		<a href="eval.html#expr7">expr7</a> when used with numeric operators). Read-only.</div>
+		<a href="/neovim-docs-web/en/builtin#json_encode()">json_encode()</a>.  This value is converted to "v:true" when used
+		as a String (e.g. in <a href="/neovim-docs-web/en/eval#expr5">expr5</a> with string concatenation
+		operator) and to one when used as a Number (e.g. in <a href="/neovim-docs-web/en/eval#expr5">expr5</a> or
+		<a href="/neovim-docs-web/en/eval#expr7">expr7</a> when used with numeric operators). Read-only.</div>
 <div class="old-help-para">						<a name="v%3Aval"></a><code class="help-tag-right">v:val</code> <a name="val-variable"></a><code class="help-tag">val-variable</code>
-v:val		Value of the current item of a <a href="eval.html#List">List</a> or <a href="eval.html#Dictionary">Dictionary</a>.  Only
-		valid while evaluating the expression used with <a href="builtin.html#map()">map()</a> and
-		<a href="builtin.html#filter()">filter()</a>.  Read-only.</div>
+v:val		Value of the current item of a <a href="/neovim-docs-web/en/eval#List">List</a> or <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>.  Only
+		valid while evaluating the expression used with <a href="/neovim-docs-web/en/builtin#map()">map()</a> and
+		<a href="/neovim-docs-web/en/builtin#filter()">filter()</a>.  Read-only.</div>
 <div class="old-help-para">					<a name="v%3Aversion"></a><code class="help-tag-right">v:version</code> <a name="version-variable"></a><code class="help-tag">version-variable</code>
 v:version	Vim version number: major version times 100 plus minor
 		version.  Vim 5.0 is 500, Vim 5.1 is 501.
 		Read-only.
-		Use <a href="builtin.html#has()">has()</a> to check the Nvim (not Vim) version:<pre>:if has("nvim-0.2.1")</pre></div>
+		Use <a href="/neovim-docs-web/en/builtin#has()">has()</a> to check the Nvim (not Vim) version:<pre>:if has("nvim-0.2.1")</pre></div>
 <div class="old-help-para">				<a name="v%3Avim_did_enter"></a><code class="help-tag-right">v:vim_did_enter</code> <a name="vim_did_enter-variable"></a><code class="help-tag">vim_did_enter-variable</code>
-v:vim_did_enter	0 during startup, 1 just before <a href="autocmd.html#VimEnter">VimEnter</a>.
+v:vim_did_enter	0 during startup, 1 just before <a href="/neovim-docs-web/en/autocmd#VimEnter">VimEnter</a>.
 		Read-only.</div>
 <div class="old-help-para">					<a name="v%3Awarningmsg"></a><code class="help-tag-right">v:warningmsg</code> <a name="warningmsg-variable"></a><code class="help-tag">warningmsg-variable</code>
 v:warningmsg	Last given warning message.
@@ -1648,19 +1648,19 @@ v:warningmsg	Last given warning message.
 <div class="old-help-para">					<a name="v%3Awindowid"></a><code class="help-tag-right">v:windowid</code> <a name="windowid-variable"></a><code class="help-tag">windowid-variable</code>
 v:windowid	Application-specific window "handle" which may be set by any
 		attached UI. Defaults to zero.
-		Note: For Nvim <a href="windows.html#windows">windows</a> use <a href="builtin.html#winnr()">winnr()</a> or <a href="builtin.html#win_getid()">win_getid()</a>, see
-		<a href="windows.html#window-ID">window-ID</a>.</div>
+		Note: For Nvim <a href="/neovim-docs-web/en/windows#windows">windows</a> use <a href="/neovim-docs-web/en/builtin#winnr()">winnr()</a> or <a href="/neovim-docs-web/en/builtin#win_getid()">win_getid()</a>, see
+		<a href="/neovim-docs-web/en/windows#window-ID">window-ID</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">4. Builtin Functions<span class="help-heading-tags">				<a name="vim-function"></a><span class="help-tag">vim-function</span> <a name="functions"></a><span class="help-tag">functions</span></span></h2></div>
 <div class="old-help-para">The Vimscript subsystem (referred to as "eval" internally) provides builtin
-functions.  Scripts can also define <a href="eval.html#user-function">user-function</a>s.</div>
-<div class="old-help-para">See <a href="usr_41.html#function-list">function-list</a> to browse functions by topic.</div>
+functions.  Scripts can also define <a href="/neovim-docs-web/en/eval#user-function">user-function</a>s.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/usr_41#function-list">function-list</a> to browse functions by topic.</div>
 <div class="old-help-para">The alphabetic list of all builtin functions and details are in a separate
-help file: <a href="builtin.html#builtin-functions">builtin-functions</a>.</div>
+help file: <a href="/neovim-docs-web/en/builtin#builtin-functions">builtin-functions</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">5. Defining functions<span class="help-heading-tags">					<a name="user-function"></a><span class="help-tag">user-function</span></span></h2></div>
 <div class="old-help-para">New functions can be defined.  These can be called just like builtin
 functions.  The function takes arguments, executes a sequence of Ex commands
 and can return a value.</div>
-<div class="old-help-para">You can find most information about defining functions in <a href="userfunc.html#userfunc.txt">userfunc.txt</a>.</div>
+<div class="old-help-para">You can find most information about defining functions in <a href="/neovim-docs-web/en/userfunc#userfunc.txt">userfunc.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">6. Curly braces names<span class="help-heading-tags">					<a name="curly-braces-names"></a><span class="help-tag">curly-braces-names</span></span></h2></div>
 <div class="old-help-para">In most places where you can use a variable, you can use a "curly braces name"
 variable.  This is a regular variable name with one or more expressions
@@ -1673,7 +1673,7 @@ name.  So in the above example, if the variable "adjective" was set to
 <div class="old-help-para">One application for this is to create a set of variables governed by an option
 value.  For example, the statement<pre>echo my_{&amp;background}_message</pre>
 would output the contents of "my_dark_message" or "my_light_message" depending
-on the current value of <a href="options.html#'background'">'background'</a>.</div>
+on the current value of <a href="/neovim-docs-web/en/options#'background'">'background'</a>.</div>
 <div class="old-help-para">You can use multiple brace pairs:<pre>echo my_{adverb}_{adjective}_message</pre>
 ..or even nest them:<pre>echo my_{ad{end_of_word}}_message</pre>
 where "end_of_word" is either "verb" or "jective".</div>
@@ -1700,15 +1700,15 @@ This would call the function "my_func_whizz(parameter)".</div>
 			<code>{expr1}</code>.  <code>{var-name}</code> must refer to a list and <code>{idx}</code>
 			must be a valid index in that list.  For nested list
 			the index can be repeated.
-			This cannot be used to add an item to a <a href="eval.html#List">List</a>.
+			This cannot be used to add an item to a <a href="/neovim-docs-web/en/eval#List">List</a>.
 			This cannot be used to set a byte in a String.  You
 			can do that like this:<pre>:let var = var[0:2] .. 'X' .. var[4:]</pre></div>
-<div class="old-help-para">			When <code>{var-name}</code> is a <a href="eval.html#Blob">Blob</a> then <code>{idx}</code> can be the
+<div class="old-help-para">			When <code>{var-name}</code> is a <a href="/neovim-docs-web/en/eval#Blob">Blob</a> then <code>{idx}</code> can be the
 			length of the blob, in which case one byte is
 			appended.</div>
 <div class="old-help-para">							<a name="E711"></a><code class="help-tag-right">E711</code> <a name="E719"></a><code class="help-tag">E719</code>
 :let <code>{var-name}</code>[{idx1}:{idx2}] = <code>{expr1}</code>		<a name="E708"></a><code class="help-tag-right">E708</code> <a name="E709"></a><code class="help-tag">E709</code> <a name="E710"></a><code class="help-tag">E710</code>
-			Set a sequence of items in a <a href="eval.html#List">List</a> to the result of
+			Set a sequence of items in a <a href="/neovim-docs-web/en/eval#List">List</a> to the result of
 			the expression <code>{expr1}</code>, which must be a list with the
 			correct number of items.
 			<code>{idx1}</code> can be omitted, zero is used instead.
@@ -1737,7 +1737,7 @@ This would call the function "my_func_whizz(parameter)".</div>
 			Write the result of the expression <code>{expr1}</code> in register
 			<code>{reg-name}</code>.  <code>{reg-name}</code> must be a single letter, and
 			must be the name of a writable register (see
-			<a href="change.html#registers">registers</a>).  "@@" can be used for the unnamed
+			<a href="/neovim-docs-web/en/change#registers">registers</a>).  "@@" can be used for the unnamed
 			register, "@/" for the search pattern.
 			If the result of <code>{expr1}</code> ends in a <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code>, the
 			register will be linewise, otherwise it will be set to
@@ -1753,12 +1753,12 @@ This would call the function "my_func_whizz(parameter)".</div>
 			expression <code>{expr1}</code>.  A String or Number value is
 			always converted to the type of the option.
 			For an option local to a window or buffer the effect
-			is just like using the <a href="options.html#%3Aset">:set</a> command: both the local
+			is just like using the <a href="/neovim-docs-web/en/options#%3Aset">:set</a> command: both the local
 			value and the global value are changed.
 			Example:<pre>:let &amp;path = &amp;path .. ',/usr/local/include'</pre>
 :let &amp;{option-name} .= <code>{expr1}</code>
 			For a string option: Append <code>{expr1}</code> to the value.
-			Does not insert a comma like <a href="options.html#%3Aset%2B%3D">:set+=</a>.</div>
+			Does not insert a comma like <a href="/neovim-docs-web/en/options#%3Aset%2B%3D">:set+=</a>.</div>
 <div class="old-help-para">:let &amp;{option-name} += <code>{expr1}</code>
 :let &amp;{option-name} -= <code>{expr1}</code>
 			For a number or boolean option: Add or subtract
@@ -1768,19 +1768,19 @@ This would call the function "my_func_whizz(parameter)".</div>
 :let &amp;l:{option-name} += <code>{expr1}</code>
 :let &amp;l:{option-name} -= <code>{expr1}</code>
 			Like above, but only set the local value of an option
-			(if there is one).  Works like <a href="options.html#%3Asetlocal">:setlocal</a>.</div>
+			(if there is one).  Works like <a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a>.</div>
 <div class="old-help-para">:let &amp;g:{option-name} = <code>{expr1}</code>
 :let &amp;g:{option-name} .= <code>{expr1}</code>
 :let &amp;g:{option-name} += <code>{expr1}</code>
 :let &amp;g:{option-name} -= <code>{expr1}</code>
 			Like above, but only set the global value of an option
-			(if there is one).  Works like <a href="options.html#%3Asetglobal">:setglobal</a>.</div>
+			(if there is one).  Works like <a href="/neovim-docs-web/en/options#%3Asetglobal">:setglobal</a>.</div>
 <div class="old-help-para">:let [{name1}, <code>{name2}</code>, ...] = <code>{expr1}</code>		<a name="%3Alet-unpack"></a><code class="help-tag-right">:let-unpack</code> <a name="E687"></a><code class="help-tag">E687</code> <a name="E688"></a><code class="help-tag">E688</code>
-			<code>{expr1}</code> must evaluate to a <a href="eval.html#List">List</a>.  The first item in
+			<code>{expr1}</code> must evaluate to a <a href="/neovim-docs-web/en/eval#List">List</a>.  The first item in
 			the list is assigned to <code>{name1}</code>, the second item to
 			<code>{name2}</code>, etc.
 			The number of names must match the number of items in
-			the <a href="eval.html#List">List</a>.
+			the <a href="/neovim-docs-web/en/eval#List">List</a>.
 			Each name can be one of the items of the ":let"
 			command as mentioned above.
 			Example:<pre>:let [s, item] = GetItem(s)</pre></div>
@@ -1795,9 +1795,9 @@ This would call the function "my_func_whizz(parameter)".</div>
 :let [{name1}, <code>{name2}</code>, ...] += <code>{expr1}</code>
 :let [{name1}, <code>{name2}</code>, ...] -= <code>{expr1}</code>
 			Like above, but append/add/subtract the value for each
-			<a href="eval.html#List">List</a> item.</div>
+			<a href="/neovim-docs-web/en/eval#List">List</a> item.</div>
 <div class="old-help-para">:let [{name}, ..., ; <code>{lastname}</code>] = <code>{expr1}</code>				<a name="E452"></a><code class="help-tag-right">E452</code>
-			Like <a href="eval.html#%3Alet-unpack">:let-unpack</a> above, but the <a href="eval.html#List">List</a> may have more
+			Like <a href="/neovim-docs-web/en/eval#%3Alet-unpack">:let-unpack</a> above, but the <a href="/neovim-docs-web/en/eval#List">List</a> may have more
 			items than there are names.  A list of the remaining
 			items is assigned to <code>{lastname}</code>.  If there are no
 			remaining items <code>{lastname}</code> is set to an empty list.
@@ -1806,17 +1806,17 @@ This would call the function "my_func_whizz(parameter)".</div>
 :let [{name}, ..., ; <code>{lastname}</code>] += <code>{expr1}</code>
 :let [{name}, ..., ; <code>{lastname}</code>] -= <code>{expr1}</code>
 			Like above, but append/add/subtract the value for each
-			<a href="eval.html#List">List</a> item.</div>
+			<a href="/neovim-docs-web/en/eval#List">List</a> item.</div>
 <div class="old-help-para">						<a name="%3Alet%3D%3C%3C"></a><code class="help-tag-right">:let=&lt;&lt;</code> <a name="%3Alet-heredoc"></a><code class="help-tag">:let-heredoc</code>
 						<a name="E990"></a><code class="help-tag-right">E990</code> <a name="E991"></a><code class="help-tag">E991</code> <a name="E172"></a><code class="help-tag">E172</code> <a name="E221"></a><code class="help-tag">E221</code>
 :let <code>{var-name}</code> =&lt;&lt; [trim] <code>{endmarker}</code>
 text...
 text...
 <code>{endmarker}</code>
-			Set internal variable <code>{var-name}</code> to a <a href="eval.html#List">List</a>
+			Set internal variable <code>{var-name}</code> to a <a href="/neovim-docs-web/en/eval#List">List</a>
 			containing the lines of text bounded by the string
 			<code>{endmarker}</code>. The lines of text is used as a
-			<a href="eval.html#literal-string">literal-string</a>.
+			<a href="/neovim-docs-web/en/eval#literal-string">literal-string</a>.
 			<code>{endmarker}</code> must not contain white space.
 			<code>{endmarker}</code> cannot start with a lower case character.
 			The last line should end only with the <code>{endmarker}</code>
@@ -1844,7 +1844,7 @@ END</pre></div>
 			Cannot be followed by another command, but can be
 			followed by a comment.</div>
 <div class="old-help-para">			To avoid line continuation to be applied, consider
-			adding 'C' to <a href="options.html#'cpoptions'">'cpoptions'</a>:<pre>set cpo+=C
+			adding 'C' to <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>:<pre>set cpo+=C
 let var =&lt;&lt; END
    \ leading backslash
 END
@@ -1880,12 +1880,12 @@ DATA</pre></div>
 :unl[et][!] <code>{name}</code> ...				<a name="%3Aunlet"></a><code class="help-tag-right">:unlet</code> <a name="%3Aunl"></a><code class="help-tag">:unl</code> <a name="E108"></a><code class="help-tag">E108</code> <a name="E795"></a><code class="help-tag">E795</code>
 			Remove the internal variable <code>{name}</code>.  Several variable
 			names can be given, they are all removed.  The name
-			may also be a <a href="eval.html#List">List</a> or <a href="eval.html#Dictionary">Dictionary</a> item.
+			may also be a <a href="/neovim-docs-web/en/eval#List">List</a> or <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> item.
 			With [!] no error message is given for non-existing
 			variables.
-			One or more items from a <a href="eval.html#List">List</a> can be removed:<pre>:unlet list[3]          " remove fourth item
+			One or more items from a <a href="/neovim-docs-web/en/eval#List">List</a> can be removed:<pre>:unlet list[3]          " remove fourth item
 :unlet list[3:]   " remove fourth item to last</pre></div>
-<div class="old-help-para">			One item from a <a href="eval.html#Dictionary">Dictionary</a> can be removed at a time:<pre>:unlet dict['two']
+<div class="old-help-para">			One item from a <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> can be removed at a time:<pre>:unlet dict['two']
 :unlet dict.two</pre></div>
 <div class="old-help-para">			This is especially useful to clean up used global
 			variables and script-local variables (these are not
@@ -1903,9 +1903,9 @@ DATA</pre></div>
 :cons[t] <code>{var-name}</code> = <code>{expr1}</code>
 :cons[t] [{name1}, <code>{name2}</code>, ...] = <code>{expr1}</code>
 :cons[t] [{name}, ..., ; <code>{lastname}</code>] = <code>{expr1}</code>
-			Similar to <a href="eval.html#%3Alet">:let</a>, but additionally lock the variable
+			Similar to <a href="/neovim-docs-web/en/eval#%3Alet">:let</a>, but additionally lock the variable
 			after setting the value.  This is the same as locking
-			the variable with <a href="eval.html#%3Alockvar">:lockvar</a> just after <a href="eval.html#%3Alet">:let</a>, thus:<pre>:const x = 1</pre></div>
+			the variable with <a href="/neovim-docs-web/en/eval#%3Alockvar">:lockvar</a> just after <a href="/neovim-docs-web/en/eval#%3Alet">:let</a>, thus:<pre>:const x = 1</pre></div>
 <div class="old-help-para">			is equivalent to:<pre>:let x = 1
 :lockvar! x</pre></div>
 <div class="old-help-para">			This is useful if you want to make sure the variable
@@ -1917,7 +1917,7 @@ const lconst = [0, lvar]
 let lconst[0] = 2  " Error!
 let lconst[1][0] = 'b'  " OK</pre></div>
 <div class="old-help-para">							<a name="E995"></a><code class="help-tag-right">E995</code>
-			<a href="eval.html#%3Aconst">:const</a> does not allow to for changing a variable.<pre>:let x = 1
+			<a href="/neovim-docs-web/en/eval#%3Aconst">:const</a> does not allow to for changing a variable.<pre>:let x = 1
 :const x = 2  " Error!</pre></div>
 <div class="old-help-para">							<a name="E996"></a><code class="help-tag-right">E996</code>
 			Note that environment variables, option values and
@@ -1926,7 +1926,7 @@ let lconst[1][0] = 'b'  " OK</pre></div>
 <div class="old-help-para">:cons[t]
 :cons[t] <code>{var-name}</code>
 			If no argument is given or only <code>{var-name}</code> is given,
-			the behavior is the same as <a href="eval.html#%3Alet">:let</a>.</div>
+			the behavior is the same as <a href="/neovim-docs-web/en/eval#%3Alet">:let</a>.</div>
 <div class="old-help-para">:lockv[ar][!] [depth] <code>{name}</code> ...			<a name="%3Alockvar"></a><code class="help-tag-right">:lockvar</code> <a name="%3Alockv"></a><code class="help-tag">:lockv</code>
 			Lock the internal variable <code>{name}</code>.  Locking means that
 			it can no longer be changed (until it is unlocked).
@@ -1939,37 +1939,37 @@ let lconst[1][0] = 'b'  " OK</pre></div>
 			If you try to lock or unlock a built-in variable you
 			will get an error message "E940: Cannot lock or unlock
 			variable <code>{name}</code>".</div>
-<div class="old-help-para">			[depth] is relevant when locking a <a href="eval.html#List">List</a> or
-			<a href="eval.html#Dictionary">Dictionary</a>.  It specifies how deep the locking goes:
-				1	Lock the <a href="eval.html#List">List</a> or <a href="eval.html#Dictionary">Dictionary</a> itself,
+<div class="old-help-para">			[depth] is relevant when locking a <a href="/neovim-docs-web/en/eval#List">List</a> or
+			<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>.  It specifies how deep the locking goes:
+				1	Lock the <a href="/neovim-docs-web/en/eval#List">List</a> or <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> itself,
 					cannot add or remove items, but can
 					still change their values.
 				2	Also lock the values, cannot change
-					the items.  If an item is a <a href="eval.html#List">List</a> or
-					<a href="eval.html#Dictionary">Dictionary</a>, cannot add or remove
+					the items.  If an item is a <a href="/neovim-docs-web/en/eval#List">List</a> or
+					<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>, cannot add or remove
 					items, but can still change the
 					values.
-				3	Like 2 but for the <a href="eval.html#List">List</a> /
-					<a href="eval.html#Dictionary">Dictionary</a> in the <a href="eval.html#List">List</a> /
-					<a href="eval.html#Dictionary">Dictionary</a>, one level deeper.
-			The default [depth] is 2, thus when <code>{name}</code> is a <a href="eval.html#List">List</a>
-			or <a href="eval.html#Dictionary">Dictionary</a> the values cannot be changed.
+				3	Like 2 but for the <a href="/neovim-docs-web/en/eval#List">List</a> /
+					<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> in the <a href="/neovim-docs-web/en/eval#List">List</a> /
+					<a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a>, one level deeper.
+			The default [depth] is 2, thus when <code>{name}</code> is a <a href="/neovim-docs-web/en/eval#List">List</a>
+			or <a href="/neovim-docs-web/en/eval#Dictionary">Dictionary</a> the values cannot be changed.
 								<a name="E743"></a><code class="help-tag-right">E743</code>
 			For unlimited depth use [!] and omit [depth].
 			However, there is a maximum depth of 100 to catch
 			loops.</div>
-<div class="old-help-para">			Note that when two variables refer to the same <a href="eval.html#List">List</a>
-			and you lock one of them, the <a href="eval.html#List">List</a> will also be
+<div class="old-help-para">			Note that when two variables refer to the same <a href="/neovim-docs-web/en/eval#List">List</a>
+			and you lock one of them, the <a href="/neovim-docs-web/en/eval#List">List</a> will also be
 			locked when used through the other variable.
 			Example:<pre>:let l = [0, 1, 2, 3]
 :let cl = l
 :lockvar l
 :let cl[1] = 99                " won't work!</pre></div>
 <div class="old-help-para">			You may want to make a copy of a list to avoid this.
-			See <a href="builtin.html#deepcopy()">deepcopy()</a>.</div>
+			See <a href="/neovim-docs-web/en/builtin#deepcopy()">deepcopy()</a>.</div>
 <div class="old-help-para">:unlo[ckvar][!] [depth] <code>{name}</code> ...			<a name="%3Aunlockvar"></a><code class="help-tag-right">:unlockvar</code> <a name="%3Aunlo"></a><code class="help-tag">:unlo</code>
 			Unlock the internal variable <code>{name}</code>.  Does the
-			opposite of <a href="eval.html#%3Alockvar">:lockvar</a>.</div>
+			opposite of <a href="/neovim-docs-web/en/eval#%3Alockvar">:lockvar</a>.</div>
 <div class="old-help-para">			No error is given if <code>{name}</code> does not exist.</div>
 <div class="old-help-para">:if <code>{expr1}</code>			<a name="%3Aif"></a><code class="help-tag-right">:if</code> <a name="%3Aend"></a><code class="help-tag">:end</code> <a name="%3Aendif"></a><code class="help-tag">:endif</code> <a name="%3Aen"></a><code class="help-tag">:en</code> <a name="E171"></a><code class="help-tag">E171</code> <a name="E579"></a><code class="help-tag">E579</code> <a name="E580"></a><code class="help-tag">E580</code>
 :en[dif]		Execute the commands until the next matching <code>:else</code>
@@ -2019,28 +2019,28 @@ let lconst[1][0] = 'b'  " OK</pre></div>
 <div class="old-help-para">:for <code>{var}</code> in <code>{object}</code>					<a name="%3Afor"></a><code class="help-tag-right">:for</code> <a name="E690"></a><code class="help-tag">E690</code> <a name="E732"></a><code class="help-tag">E732</code>
 :endfo[r]						<a name="%3Aendfo"></a><code class="help-tag-right">:endfo</code> <a name="%3Aendfor"></a><code class="help-tag">:endfor</code>
 			Repeat the commands between <code>:for</code> and <code>:endfor</code> for
-			each item in <code>{object}</code>.  <code>{object}</code> can be a <a href="eval.html#List">List</a>,
-			a <a href="eval.html#Blob">Blob</a> or a <a href="eval.html#String">String</a>.</div>
+			each item in <code>{object}</code>.  <code>{object}</code> can be a <a href="/neovim-docs-web/en/eval#List">List</a>,
+			a <a href="/neovim-docs-web/en/eval#Blob">Blob</a> or a <a href="/neovim-docs-web/en/eval#String">String</a>.</div>
 <div class="old-help-para">			Variable <code>{var}</code> is set to the value of each item.</div>
 <div class="old-help-para">			When an error is detected for a command inside the
 			loop, execution continues after the <code>endfor</code>.
 			Changing <code>{object}</code> inside the loop affects what items
 			are used.  Make a copy if this is unwanted:<pre>:for item in copy(mylist)</pre></div>
-<div class="old-help-para">			When <code>{object}</code> is a <a href="eval.html#List">List</a> and not making a copy, Vim
-			stores a reference to the next item in the <a href="eval.html#List">List</a>
+<div class="old-help-para">			When <code>{object}</code> is a <a href="/neovim-docs-web/en/eval#List">List</a> and not making a copy, Vim
+			stores a reference to the next item in the <a href="/neovim-docs-web/en/eval#List">List</a>
 			before executing the commands with the current item.
 			Thus the current item can be removed without effect.
 			Removing any later item means it will not be found.
 			Thus the following example works (an inefficient way
-			to make a <a href="eval.html#List">List</a> empty):<pre>for item in mylist
+			to make a <a href="/neovim-docs-web/en/eval#List">List</a> empty):<pre>for item in mylist
    call remove(mylist, 0)
 endfor</pre></div>
-<div class="old-help-para">			Note that reordering the <a href="eval.html#List">List</a> (e.g., with sort() or
+<div class="old-help-para">			Note that reordering the <a href="/neovim-docs-web/en/eval#List">List</a> (e.g., with sort() or
 			reverse()) may have unexpected effects.</div>
-<div class="old-help-para">			When <code>{object}</code> is a <a href="eval.html#Blob">Blob</a>, Vim always makes a copy to
-			iterate over.  Unlike with <a href="eval.html#List">List</a>, modifying the
-			<a href="eval.html#Blob">Blob</a> does not affect the iteration.</div>
-<div class="old-help-para">			When <code>{object}</code> is a <a href="eval.html#String">String</a> each item is a string with
+<div class="old-help-para">			When <code>{object}</code> is a <a href="/neovim-docs-web/en/eval#Blob">Blob</a>, Vim always makes a copy to
+			iterate over.  Unlike with <a href="/neovim-docs-web/en/eval#List">List</a>, modifying the
+			<a href="/neovim-docs-web/en/eval#Blob">Blob</a> does not affect the iteration.</div>
+<div class="old-help-para">			When <code>{object}</code> is a <a href="/neovim-docs-web/en/eval#String">String</a> each item is a string with
 			one character, plus any combining characters.</div>
 <div class="old-help-para">:for [{var1}, <code>{var2}</code>, ...] in <code>{listlist}</code>
 :endfo[r]
@@ -2119,7 +2119,7 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 			meaning (e.g., '|' or '"') and doesn't occur inside
 			<code>{pattern}</code>.
 			Information about the exception is available in
-			<a href="eval.html#v%3Aexception">v:exception</a>.  Also see <a href="eval.html#throw-variables">throw-variables</a>.
+			<a href="/neovim-docs-web/en/eval#v%3Aexception">v:exception</a>.  Also see <a href="/neovim-docs-web/en/eval#throw-variables">throw-variables</a>.
 			NOTE: It is not reliable to ":catch" the TEXT of
 			an error message because it may vary in different
 			locales.</div>
@@ -2153,7 +2153,7 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 <div class="old-help-para">							<a name="%3Aec"></a><code class="help-tag-right">:ec</code> <a name="%3Aecho"></a><code class="help-tag">:echo</code>
 :ec[ho] <code>{expr1}</code> ..	Echoes each <code>{expr1}</code>, with a space in between.  The
 			first <code>{expr1}</code> starts on a new line.
-			Also see <a href="cmdline.html#%3Acomment">:comment</a>.
+			Also see <a href="/neovim-docs-web/en/cmdline#%3Acomment">:comment</a>.
 			Use "\n" to start a new line.  Use "\r" to move the
 			cursor to the first column.
 			Uses the highlighting set by the <code>:echohl</code> command.
@@ -2170,8 +2170,8 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 <div class="old-help-para">							<a name="%3Aecho-self-refer"></a><code class="help-tag-right">:echo-self-refer</code>
 			When printing nested containers echo prints second
 			occurrence of the self-referencing container using
-			"[...@level]" (self-referencing <a href="eval.html#List">List</a>) or
-			"{...@level}" (self-referencing <a href="eval.html#Dict">Dict</a>):<pre>:let l = []
+			"[...@level]" (self-referencing <a href="/neovim-docs-web/en/eval#List">List</a>) or
+			"{...@level}" (self-referencing <a href="/neovim-docs-web/en/eval#Dict">Dict</a>):<pre>:let l = []
 :call add(l, l)
 :let l2 = []
 :call add(l2, [l2])
@@ -2181,16 +2181,16 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 			level.</div>
 <div class="old-help-para">							<a name="%3Aechon"></a><code class="help-tag-right">:echon</code>
 :echon <code>{expr1}</code> ..	Echoes each <code>{expr1}</code>, without anything added.  Also see
-			<a href="cmdline.html#%3Acomment">:comment</a>.
+			<a href="/neovim-docs-web/en/cmdline#%3Acomment">:comment</a>.
 			Uses the highlighting set by the <code>:echohl</code> command.
 			Cannot be followed by a comment.
 			Example:<pre>:echon "the value of 'shell' is " &amp;shell</pre></div>
 <div class="old-help-para">			Note the difference between using <code>:echo</code>, which is a
 			Vim command, and <code>:!echo</code>, which is an external shell
 			command:<pre>:!echo %                --&gt; filename</pre></div>
-<div class="old-help-para">			The arguments of ":!" are expanded, see <a href="cmdline.html#%3A_%25">:_%</a>.<pre>:!echo "%"                --&gt; filename or "filename"</pre></div>
+<div class="old-help-para">			The arguments of ":!" are expanded, see <a href="/neovim-docs-web/en/cmdline#%3A_%25">:_%</a>.<pre>:!echo "%"                --&gt; filename or "filename"</pre></div>
 <div class="old-help-para">			Like the previous example.  Whether you see the double
-			quotes or not depends on your <a href="options.html#'shell'">'shell'</a>.<pre>:echo %                        --&gt; nothing</pre></div>
+			quotes or not depends on your <a href="/neovim-docs-web/en/options#'shell'">'shell'</a>.<pre>:echo %                        --&gt; nothing</pre></div>
 <div class="old-help-para">			The '%' is an illegal character in an expression.<pre>:echo "%"                --&gt; %</pre></div>
 <div class="old-help-para">			This just echoes the '%' character.<pre>:echo expand("%")        --&gt; filename</pre></div>
 <div class="old-help-para">			This calls the expand() function to expand the '%'.</div>
@@ -2202,7 +2202,7 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 			otherwise all following echo's will be highlighted.</div>
 <div class="old-help-para">							<a name="%3Aechom"></a><code class="help-tag-right">:echom</code> <a name="%3Aechomsg"></a><code class="help-tag">:echomsg</code>
 :echom[sg] <code>{expr1}</code> ..	Echo the expression(s) as a true message, saving the
-			message in the <a href="message.html#message-history">message-history</a>.
+			message in the <a href="/neovim-docs-web/en/message#message-history">message-history</a>.
 			Spaces are placed between the arguments as with the
 			<code>:echo</code> command.  But unprintable characters are
 			displayed, not interpreted.
@@ -2213,16 +2213,16 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 			String, string() is used to turn it into a string.
 			Uses the highlighting set by the <code>:echohl</code> command.
 			Example:<pre>:echomsg "It's a Zizzer Zazzer Zuzz, as you can plainly see."</pre></div>
-<div class="old-help-para">			See <a href="eval.html#%3Aecho-redraw">:echo-redraw</a> to avoid the message disappearing
+<div class="old-help-para">			See <a href="/neovim-docs-web/en/eval#%3Aecho-redraw">:echo-redraw</a> to avoid the message disappearing
 			when the screen is redrawn.
 							<a name="%3Aechoe"></a><code class="help-tag-right">:echoe</code> <a name="%3Aechoerr"></a><code class="help-tag">:echoerr</code>
 :echoe[rr] <code>{expr1}</code> ..	Echo the expression(s) as an error message, saving the
-			message in the <a href="message.html#message-history">message-history</a>.  When used in a
+			message in the <a href="/neovim-docs-web/en/message#message-history">message-history</a>.  When used in a
 			script or function the line number will be added.
 			Spaces are placed between the arguments as with the
 			<code>:echomsg</code> command.  When used inside a try conditional,
 			the message is raised as an error exception instead
-			(see <a href="eval.html#try-echoerr">try-echoerr</a>).
+			(see <a href="/neovim-docs-web/en/eval#try-echoerr">try-echoerr</a>).
 			Example:<pre>:echoerr "This script just failed!"</pre></div>
 <div class="old-help-para">			If you just want a highlighted message use <code>:echohl</code>.
 			And to get a beep:<pre>:exe "normal \&lt;Esc&gt;"</pre></div>
@@ -2254,10 +2254,10 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 <div class="old-help-para">			":execute" is also a nice way to avoid having to type
 			control characters in a Vim script for a ":normal"
 			command:<pre>:execute "normal ixxx\&lt;Esc&gt;"</pre></div>
-<div class="old-help-para">			This has an <code>&lt;Esc&gt;</code> character, see <a href="eval.html#expr-string">expr-string</a>.</div>
+<div class="old-help-para">			This has an <code>&lt;Esc&gt;</code> character, see <a href="/neovim-docs-web/en/eval#expr-string">expr-string</a>.</div>
 <div class="old-help-para">			Be careful to correctly escape special characters in
-			file names.  The <a href="builtin.html#fnameescape()">fnameescape()</a> function can be used
-			for Vim commands, <a href="builtin.html#shellescape()">shellescape()</a> for <a href="various.html#%3A%21">:!</a> commands.
+			file names.  The <a href="/neovim-docs-web/en/builtin#fnameescape()">fnameescape()</a> function can be used
+			for Vim commands, <a href="/neovim-docs-web/en/builtin#shellescape()">shellescape()</a> for <a href="/neovim-docs-web/en/various#%3A%21">:!</a> commands.
 			Examples:<pre>:execute "e " .. fnameescape(filename)
 :execute "!ls " .. shellescape(filename, 1)</pre></div>
 <div class="old-help-para">			Note: The executed string may be any command-line, but
@@ -2284,15 +2284,15 @@ try | edit | catch /^Vim(edit):E\d\+/ | echo "error" | endtry</pre></div>
 <div class="old-help-para">The Vim script language comprises an exception handling feature.  This section
 explains how it can be used in a Vim script.</div>
 <div class="old-help-para">Exceptions may be raised by Vim on an error or on interrupt, see
-<a href="eval.html#catch-errors">catch-errors</a> and <a href="eval.html#catch-interrupt">catch-interrupt</a>.  You can also explicitly throw an
-exception by using the ":throw" command, see <a href="eval.html#throw-catch">throw-catch</a>.</div>
+<a href="/neovim-docs-web/en/eval#catch-errors">catch-errors</a> and <a href="/neovim-docs-web/en/eval#catch-interrupt">catch-interrupt</a>.  You can also explicitly throw an
+exception by using the ":throw" command, see <a href="/neovim-docs-web/en/eval#throw-catch">throw-catch</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">TRY CONDITIONALS<span class="help-heading-tags">					<a name="try-conditionals"></a><span class="help-tag">try-conditionals</span></span></h3></div>
 <div class="old-help-para">Exceptions can be caught or can cause cleanup code to be executed.  You can
 use a try conditional to specify catch clauses (that catch exceptions) and/or
 a finally clause (to be executed for cleanup).
-   A try conditional begins with a <a href="eval.html#%3Atry">:try</a> command and ends at the matching
-<a href="eval.html#%3Aendtry">:endtry</a> command.  In between, you can use a <a href="eval.html#%3Acatch">:catch</a> command to start
-a catch clause, or a <a href="eval.html#%3Afinally">:finally</a> command to start a finally clause.  There may
+   A try conditional begins with a <a href="/neovim-docs-web/en/eval#%3Atry">:try</a> command and ends at the matching
+<a href="/neovim-docs-web/en/eval#%3Aendtry">:endtry</a> command.  In between, you can use a <a href="/neovim-docs-web/en/eval#%3Acatch">:catch</a> command to start
+a catch clause, or a <a href="/neovim-docs-web/en/eval#%3Afinally">:finally</a> command to start a finally clause.  There may
 be none or multiple catch clauses, but there is at most one finally clause,
 which must not be followed by any catch clauses.  The lines before the catch
 clauses and the finally clause is called a try block.<pre>:try
@@ -2332,20 +2332,20 @@ that try conditional and none of the catch clauses is executed.  Only the
 finally clause, if present, is taken.  The exception pends during execution of
 the finally clause.  It is resumed at the ":endtry", so that commands after
 the ":endtry" are not executed and the exception might be caught elsewhere,
-see <a href="eval.html#try-nesting">try-nesting</a>.
+see <a href="/neovim-docs-web/en/eval#try-nesting">try-nesting</a>.
    When during execution of a catch clause another exception is thrown, the
 remaining lines in that catch clause are not executed.  The new exception is
 not matched against the patterns in any of the ":catch" commands of the same
 try conditional and none of its catch clauses is taken.  If there is, however,
 a finally clause, it is executed, and the exception pends during its
 execution.  The commands following the ":endtry" are not executed.  The new
-exception might, however, be caught elsewhere, see <a href="eval.html#try-nesting">try-nesting</a>.
+exception might, however, be caught elsewhere, see <a href="/neovim-docs-web/en/eval#try-nesting">try-nesting</a>.
    When during execution of the finally clause (if present) an exception is
 thrown, the remaining lines in the finally clause are skipped.  If the finally
 clause has been taken because of an exception from the try block or one of the
 catch clauses, the original (pending) exception is discarded.  The commands
 following the ":endtry" are not executed, and the exception from the finally
-clause is propagated and can be caught elsewhere, see <a href="eval.html#try-nesting">try-nesting</a>.</div>
+clause is propagated and can be caught elsewhere, see <a href="/neovim-docs-web/en/eval#try-nesting">try-nesting</a>.</div>
 <div class="old-help-para">The finally clause is also executed, when a ":break" or ":continue" for
 a ":while" loop enclosing the complete try conditional is executed from the
 try block or a catch clause.  Or when a ":return" or ":finish" is executed
@@ -2361,7 +2361,7 @@ clause, the rest of the finally clause is skipped, and the ":break",
 clause has been taken because of an exception or an earlier ":break",
 ":continue", ":return", or ":finish" from the try block or a catch clause,
 this pending exception or command is discarded.</div>
-<div class="old-help-para">For examples see <a href="eval.html#throw-catch">throw-catch</a> and <a href="eval.html#try-finally">try-finally</a>.</div>
+<div class="old-help-para">For examples see <a href="/neovim-docs-web/en/eval#throw-catch">throw-catch</a> and <a href="/neovim-docs-web/en/eval#try-finally">try-finally</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">NESTING OF TRY CONDITIONALS<span class="help-heading-tags">				<a name="try-nesting"></a><span class="help-tag">try-nesting</span></span></h3></div>
 <div class="old-help-para">Try conditionals can be nested arbitrarily.  That is, a complete try
 conditional can be put into the try block, a catch clause, or the finally
@@ -2380,16 +2380,16 @@ An error message is displayed in case of an uncaught exception explicitly
 thrown by a ":throw" command.  For uncaught error and interrupt exceptions
 implicitly raised by Vim, the error message(s) or interrupt message are shown
 as usual.</div>
-<div class="old-help-para">For examples see <a href="eval.html#throw-catch">throw-catch</a>.</div>
+<div class="old-help-para">For examples see <a href="/neovim-docs-web/en/eval#throw-catch">throw-catch</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">EXAMINING EXCEPTION HANDLING CODE<span class="help-heading-tags">			<a name="except-examine"></a><span class="help-tag">except-examine</span></span></h3></div>
 <div class="old-help-para">Exception handling code can get tricky.  If you are in doubt what happens, set
-<a href="options.html#'verbose'">'verbose'</a> to 13 or use the ":13verbose" command modifier when sourcing your
+<a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> to 13 or use the ":13verbose" command modifier when sourcing your
 script file.  Then you see when an exception is thrown, discarded, caught, or
 finished.  When using a verbosity level of at least 14, things pending in
 a finally clause are also shown.  This information is also given in debug mode
-(see <a href="repeat.html#debug-scripts">debug-scripts</a>).</div>
+(see <a href="/neovim-docs-web/en/repeat#debug-scripts">debug-scripts</a>).</div>
 <div class="old-help-para"><h3 class="help-heading">THROWING AND CATCHING EXCEPTIONS<span class="help-heading-tags">			<a name="throw-catch"></a><span class="help-tag">throw-catch</span></span></h3></div>
-<div class="old-help-para">You can throw any number or string as an exception.  Use the <a href="eval.html#%3Athrow">:throw</a> command
+<div class="old-help-para">You can throw any number or string as an exception.  Use the <a href="/neovim-docs-web/en/eval#%3Athrow">:throw</a> command
 and pass the value to be thrown as argument:<pre>:throw 4711
 :throw "string"</pre></div>
 <div class="old-help-para">							<a name="throw-expression"></a><code class="help-tag-right">throw-expression</code>
@@ -2426,8 +2426,8 @@ exception is then propagated to the caller of the command.
 :endif</pre>
 Here neither of "then" or "else" is displayed.</div>
 <div class="old-help-para">							<a name="catch-order"></a><code class="help-tag-right">catch-order</code>
-Exceptions can be caught by a try conditional with one or more <a href="eval.html#%3Acatch">:catch</a>
-commands, see <a href="eval.html#try-conditionals">try-conditionals</a>.   The values to be caught by each ":catch"
+Exceptions can be caught by a try conditional with one or more <a href="/neovim-docs-web/en/eval#%3Acatch">:catch</a>
+commands, see <a href="/neovim-docs-web/en/eval#try-conditionals">try-conditionals</a>.   The values to be caught by each ":catch"
 command can be specified as a pattern argument.  The subsequent catch clause
 gets executed when a matching exception is caught.
    Example:<pre>:function! Foo(value)
@@ -2453,10 +2453,10 @@ The first ":catch" here matches always, so that the second catch clause is
 never taken.</div>
 <div class="old-help-para">							<a name="throw-variables"></a><code class="help-tag-right">throw-variables</code>
 If you catch an exception by a general pattern, you may access the exact value
-in the variable <a href="eval.html#v%3Aexception">v:exception</a>:<pre>:  catch /^\d\+$/
+in the variable <a href="/neovim-docs-web/en/eval#v%3Aexception">v:exception</a>:<pre>:  catch /^\d\+$/
 :    echo "Number thrown.  Value is" v:exception</pre>
 You may also be interested where an exception was thrown.  This is stored in
-<a href="eval.html#v%3Athrowpoint">v:throwpoint</a>.  Note that "v:exception" and "v:throwpoint" are valid for the
+<a href="/neovim-docs-web/en/eval#v%3Athrowpoint">v:throwpoint</a>.  Note that "v:exception" and "v:throwpoint" are valid for the
 exception most recently caught as long it is not finished.
    Example:<pre>:function! Caught()
 :  if v:exception != ""
@@ -2547,7 +2547,7 @@ Note that this method cannot be used to "rethrow" Vim error or interrupt
 exceptions, because it is not possible to fake Vim internal exceptions.
 Trying so causes an error exception.  You should throw your own exception
 denoting the situation.  If you want to cause a Vim error exception containing
-the original error exception value, you can use the <a href="eval.html#%3Aechoerr">:echoerr</a> command:<pre>:try
+the original error exception value, you can use the <a href="/neovim-docs-web/en/eval#%3Aechoerr">:echoerr</a> command:<pre>:try
 :  try
 :    asdf
 :  catch /.*/
@@ -2637,12 +2637,12 @@ working correctly:<pre>:try
 :sleep 1</pre>
 If you need to put commands that could fail into a finally clause, you should
 think about catching or ignoring the errors in these commands, see
-<a href="eval.html#catch-errors">catch-errors</a> and <a href="eval.html#ignore-errors">ignore-errors</a>.</div>
+<a href="/neovim-docs-web/en/eval#catch-errors">catch-errors</a> and <a href="/neovim-docs-web/en/eval#ignore-errors">ignore-errors</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">CATCHING ERRORS<span class="help-heading-tags">						<a name="catch-errors"></a><span class="help-tag">catch-errors</span></span></h3></div>
 <div class="old-help-para">If you want to catch specific errors, you just have to put the code to be
 watched in a try block and add a catch clause for the error message.  The
 presence of the try conditional causes all errors to be converted to an
-exception.  No message is displayed and <a href="eval.html#v%3Aerrmsg">v:errmsg</a> is not set then.  To find
+exception.  No message is displayed and <a href="/neovim-docs-web/en/eval#v%3Aerrmsg">v:errmsg</a> is not set then.  To find
 the right pattern for the ":catch" command, you have to know how the format of
 the error exception is.
    Error exceptions have the following format:<pre>Vim({cmdname}):{errmsg}</pre>
@@ -2672,14 +2672,14 @@ Some commands like<pre>:let x = novar</pre>
 produce multiple error messages, here:<pre>E121: Undefined variable: novar
 E15: Invalid expression:  novar</pre>
 Only the first is used for the exception value, since it is the most specific
-one (see <a href="eval.html#except-several-errors">except-several-errors</a>).  So you can catch it by<pre>:catch /^Vim(\a\+):E121:/</pre>
+one (see <a href="/neovim-docs-web/en/eval#except-several-errors">except-several-errors</a>).  So you can catch it by<pre>:catch /^Vim(\a\+):E121:/</pre>
 You can catch all errors related to the name "nofunc" by<pre>:catch /\&lt;nofunc\&gt;/</pre>
 You can catch all Vim errors in the ":write" and ":read" commands by<pre>:catch /^Vim(\(write\|read\)):E\d\+:/</pre>
 You can catch all Vim errors by the pattern<pre>:catch /^Vim\((\a\+)\)\=:E\d\+:/</pre></div>
 <div class="old-help-para">							<a name="catch-text"></a><code class="help-tag-right">catch-text</code>
 NOTE: You should never catch the error message text itself:<pre>:catch /No such variable/</pre>
 only works in the English locale, but not when the user has selected
-a different language by the <a href="mlang.html#%3Alanguage">:language</a> command.  It is however helpful to
+a different language by the <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a> command.  It is however helpful to
 cite the message text in a comment:<pre>:catch /^Vim(\a\+):E108:/   " No such variable</pre>
 <h3 class="help-heading">IGNORING ERRORS<span class="help-heading-tags">						<a name="ignore-errors"></a><span class="help-tag">ignore-errors</span></span></h3></div>
 <div class="old-help-para">You can ignore errors in a specific Vim command by catching them locally:<pre>:try
@@ -2737,14 +2737,14 @@ script is not terminated, then.
 You can interrupt a task here by pressing <code>CTRL-C</code>; the script then asks for
 a new command.  If you press <code>CTRL-C</code> at the prompt, the script is terminated.</div>
 <div class="old-help-para">For testing what happens when <code>CTRL-C</code> would be pressed on a specific line in
-your script, use the debug mode and execute the <a href="repeat.html#%3Equit">&gt;quit</a> or <a href="repeat.html#%3Einterrupt">&gt;interrupt</a>
-command on that line.  See <a href="repeat.html#debug-scripts">debug-scripts</a>.</div>
+your script, use the debug mode and execute the <a href="/neovim-docs-web/en/repeat#%3Equit">&gt;quit</a> or <a href="/neovim-docs-web/en/repeat#%3Einterrupt">&gt;interrupt</a>
+command on that line.  See <a href="/neovim-docs-web/en/repeat#debug-scripts">debug-scripts</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">CATCHING ALL<span class="help-heading-tags">						<a name="catch-all"></a><span class="help-tag">catch-all</span></span></h3></div>
 <div class="old-help-para">The commands<pre>:catch /.*/
 :catch //
 :catch</pre>
 catch everything, error exceptions, interrupt exceptions and exceptions
-explicitly thrown by the <a href="eval.html#%3Athrow">:throw</a> command.  This is useful at the top level of
+explicitly thrown by the <a href="/neovim-docs-web/en/eval#%3Athrow">:throw</a> command.  This is useful at the top level of
 a script in order to catch unexpected things.
    Example:<pre>:try
 :
@@ -2800,7 +2800,7 @@ abandoned and the exception is propagated to the caller of the command.
 :  echo "Caught:" v:exception "from" v:throwpoint
 :endtry</pre>
 Here, the ":write" command does not write the file currently being edited (as
-you can see by checking <a href="options.html#'modified'">'modified'</a>), since the exception from the BufWritePre
+you can see by checking <a href="/neovim-docs-web/en/options#'modified'">'modified'</a>), since the exception from the BufWritePre
 autocommand abandons the ":write".  The exception is then caught and the
 script displays:<pre>Caught: FAIL from BufWrite Auto commands for "*"</pre></div>
 <div class="old-help-para">							<a name="except-autocmd-Post"></a><code class="help-tag-right">except-autocmd-Post</code>
@@ -2905,7 +2905,7 @@ it in parentheses, for instance throw the string "EXCEPT:IO:WRITEERR(myfile)"
 for an error when writing "myfile".
    With the appropriate patterns in the ":catch" command, you can catch for
 base classes or derived classes of your hierarchy.  Additional information in
-parentheses can be cut out from <a href="eval.html#v%3Aexception">v:exception</a> with the ":substitute" command.
+parentheses can be cut out from <a href="/neovim-docs-web/en/eval#v%3Aexception">v:exception</a> with the ":substitute" command.
    Example:<pre>:function! CheckRange(a, func)
 :  if a:a &lt; 0
 :    throw "EXCEPT:MATHERR:RANGE(" .. a:func .. ")"
@@ -2966,7 +2966,7 @@ The exceptions raised by Vim itself (on error or when pressing <code>CTRL-C</cod
 a flat hierarchy:  they are all in the "Vim" class.  You cannot throw yourself
 exceptions with the "Vim" prefix; they are reserved for Vim.
    Vim error exceptions are parameterized with the name of the command that
-failed, if known.  See <a href="eval.html#catch-errors">catch-errors</a>.</div>
+failed, if known.  See <a href="/neovim-docs-web/en/eval#catch-errors">catch-errors</a>.</div>
 <div class="old-help-para"><a name="_peculiarities"></a><h3 class="help-heading">PECULIARITIES</h3>							<a name="except-compat"></a><code class="help-tag-right">except-compat</code>
 The exception handling concept requires that the command sequence causing the
 exception is aborted immediately and control is transferred to finally clauses
@@ -2993,8 +2993,8 @@ conditional of a new script, you might change the control flow of the existing
 script on error.  You get the immediate abortion on error and can catch the
 error in the new script.  If however the sourced script suppresses error
 messages by using the ":silent!" command (checking for errors by testing
-<a href="eval.html#v%3Aerrmsg">v:errmsg</a> if appropriate), its execution path is not changed.  The error is
-not converted to an exception.  (See <a href="various.html#%3Asilent">:silent</a>.)  So the only remaining cause
+<a href="/neovim-docs-web/en/eval#v%3Aerrmsg">v:errmsg</a> if appropriate), its execution path is not changed.  The error is
+not converted to an exception.  (See <a href="/neovim-docs-web/en/various#%3Asilent">:silent</a>.)  So the only remaining cause
 where this happens is for scripts that don't care about errors and produce
 error messages.  You probably won't want to use such code from your new
 scripts.</div>
@@ -3051,7 +3051,7 @@ catch /.*/
     echo "outer catch:" v:exception
 endtry</pre>
 This displays "outer catch: Vim(unlet):E488: Trailing characters", and then
-a "E600: Missing :endtry" error message is given, see <a href="eval.html#except-single-line">except-single-line</a>.</div>
+a "E600: Missing :endtry" error message is given, see <a href="/neovim-docs-web/en/eval#except-single-line">except-single-line</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">9. Examples<span class="help-heading-tags">						<a name="eval-examples"></a><span class="help-tag">eval-examples</span></span></h2></div>
 <div class="old-help-para"><div class="help-column_heading">Printing in Binary</div><pre>:" The function Nr2Bin() returns the binary string representation of a number.
 :func Nr2Bin(nr)
@@ -3098,7 +3098,7 @@ how to get the file name, line number and column number out of a line like
 The input is in the variable "line", the results in the variables "file",
 "lnum" and "col". (idea from Michael Geddes)</div>
 <div class="old-help-para"><div class="help-column_heading">getting the scriptnames in a Dictionary</div>						<a name="scriptnames-dictionary"></a><code class="help-tag-right">scriptnames-dictionary</code>
-The <a href="repeat.html#%3Ascriptnames">:scriptnames</a> command can be used to get a list of all script files that
+The <a href="/neovim-docs-web/en/repeat#%3Ascriptnames">:scriptnames</a> command can be used to get a list of all script files that
 have been sourced.  There is no equivalent function or variable for this
 (because it's rarely needed).  In case you need to manipulate the list this
 code can be used:<pre>" Get the output of ":scriptnames" in the scriptnames_output variable.
@@ -3123,18 +3123,18 @@ for line in split(scriptnames_output, "\n")
 endfor
 unlet scriptnames_output</pre>
 <h2 class="help-heading">The sandbox<span class="help-heading-tags">					<a name="eval-sandbox"></a><span class="help-tag">eval-sandbox</span> <a name="sandbox"></a><span class="help-tag">sandbox</span></span></h2></div>
-<div class="old-help-para">The <a href="options.html#'foldexpr'">'foldexpr'</a>, <a href="options.html#'formatexpr'">'formatexpr'</a>, <a href="options.html#'includeexpr'">'includeexpr'</a>, <a href="options.html#'indentexpr'">'indentexpr'</a>, <a href="options.html#'statusline'">'statusline'</a> and
-<a href="options.html#'foldtext'">'foldtext'</a> options may be evaluated in a sandbox.  This means that you are
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'foldexpr'">'foldexpr'</a>, <a href="/neovim-docs-web/en/options#'formatexpr'">'formatexpr'</a>, <a href="/neovim-docs-web/en/options#'includeexpr'">'includeexpr'</a>, <a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a>, <a href="/neovim-docs-web/en/options#'statusline'">'statusline'</a> and
+<a href="/neovim-docs-web/en/options#'foldtext'">'foldtext'</a> options may be evaluated in a sandbox.  This means that you are
 protected from these expressions having nasty side effects.  This gives some
 safety for when these options are set from a modeline.  It is also used when
 the command from a tags file is executed and for <code>CTRL-R</code> = in the command line.
-The sandbox is also used for the <a href="eval.html#%3Asandbox">:sandbox</a> command.</div>
+The sandbox is also used for the <a href="/neovim-docs-web/en/eval#%3Asandbox">:sandbox</a> command.</div>
 <div class="old-help-para">								<a name="E48"></a><code class="help-tag-right">E48</code>
 These items are not allowed in the sandbox:
 <div class="help-li" style=""> changing the buffer text
 </div><div class="help-li" style=""> defining or changing mapping, autocommands, user commands
-</div><div class="help-li" style=""> setting certain options (see <a href="options.html#option-summary">option-summary</a>)
-</div><div class="help-li" style=""> setting certain v: variables (see <a href="eval.html#v%3Avar">v:var</a>)  <a name="E794"></a><code class="help-tag">E794</code>
+</div><div class="help-li" style=""> setting certain options (see <a href="/neovim-docs-web/en/options#option-summary">option-summary</a>)
+</div><div class="help-li" style=""> setting certain v: variables (see <a href="/neovim-docs-web/en/eval#v%3Avar">v:var</a>)  <a name="E794"></a><code class="help-tag">E794</code>
 </div><div class="help-li" style=""> executing a shell command
 </div><div class="help-li" style=""> reading or writing a file
 </div><div class="help-li" style=""> jumping to another buffer or editing a file
@@ -3144,7 +3144,7 @@ This is not guaranteed 100% secure, but it should block most attacks.
 <div class="old-help-para">							<a name="%3Asan"></a><code class="help-tag-right">:san</code> <a name="%3Asandbox"></a><code class="help-tag">:sandbox</code>
 :san[dbox] <code>{cmd}</code>	Execute <code>{cmd}</code> in the sandbox.  Useful to evaluate an
 			option that may have been set from a modeline, e.g.
-			<a href="options.html#'foldexpr'">'foldexpr'</a>.</div>
+			<a href="/neovim-docs-web/en/options#'foldexpr'">'foldexpr'</a>.</div>
 <div class="old-help-para">							<a name="sandbox-option"></a><code class="help-tag-right">sandbox-option</code>
 A few options contain an expression.  When this expression is evaluated it may
 have to be done in the sandbox to avoid a security risk.  But the sandbox is
@@ -3161,7 +3161,7 @@ option will still be marked as it was set in the sandbox.</div>
 <div class="old-help-para">In a few situations it is not allowed to change the text in the buffer, jump
 to another window and some other things that might confuse or break what Vim
 is currently doing.  This mostly applies to things that happen when Vim is
-actually doing something else.  For example, evaluating the <a href="vim_diff.html#'balloonexpr'">'balloonexpr'</a> may
+actually doing something else.  For example, evaluating the <a href="/neovim-docs-web/en/vim_diff#'balloonexpr'">'balloonexpr'</a> may
 happen any moment the mouse cursor is resting at some position.</div>
 <div class="old-help-para">This is not allowed when the textlock is active:
 <div class="help-li" style=""> changing the buffer text
@@ -3171,7 +3171,7 @@ happen any moment the mouse cursor is resting at some position.</div>
 </div><div class="help-li" style=""> etc.
 </div></div>
 <div class="old-help-para"><h2 class="help-heading">Command-line expressions highlighting<span class="help-heading-tags">		<a name="expr-highlight"></a><span class="help-tag">expr-highlight</span></span></h2></div>
-<div class="old-help-para">Expressions entered by the user in <a href="insert.html#i_CTRL-R_%3D">i_CTRL-R_=</a>, <a href="cmdline.html#c_CTRL-%5C_e">c_CTRL-\_e</a>, <a href="change.html#quote%3D">quote=</a> are
+<div class="old-help-para">Expressions entered by the user in <a href="/neovim-docs-web/en/insert#i_CTRL-R_%3D">i_CTRL-R_=</a>, <a href="/neovim-docs-web/en/cmdline#c_CTRL-%5C_e">c_CTRL-\_e</a>, <a href="/neovim-docs-web/en/change#quote%3D">quote=</a> are
 highlighted by the built-in expressions parser.  It uses highlight groups
 described in the table below, which may be overridden by colorschemes.
 							<a name="hl-NvimInvalid"></a><code class="help-tag-right">hl-NvimInvalid</code>
@@ -3183,71 +3183,71 @@ place of any non-Nvim-prefixed group NvimInvalid linking to <code>Error</code> i
 and some other intermediate groups are present.</div>
 <div class="old-help-para"><div class="help-column_heading">Group                              Default link            Colored expression</div><a name="hl-NvimInternalError"></a><code class="help-tag">hl-NvimInternalError</code>               None, red/red           Parser bug</div>
 <div class="old-help-para"><a name="hl-NvimAssignment"></a><code class="help-tag">hl-NvimAssignment</code>                  Operator                Generic assignment
-<a name="hl-NvimPlainAssignment"></a><code class="help-tag">hl-NvimPlainAssignment</code>             NvimAssignment          <code>=</code> in <a href="eval.html#%3Alet">:let</a>
+<a name="hl-NvimPlainAssignment"></a><code class="help-tag">hl-NvimPlainAssignment</code>             NvimAssignment          <code>=</code> in <a href="/neovim-docs-web/en/eval#%3Alet">:let</a>
 <a name="hl-NvimAugmentedAssignment"></a><code class="help-tag">hl-NvimAugmentedAssignment</code>         NvimAssignment          Generic, <code>+=</code>/`-=`/`.=`
-<a name="hl-NvimAssignmentWithAddition"></a><code class="help-tag">hl-NvimAssignmentWithAddition</code>      NvimAugmentedAssignment <code>+=</code> in <a href="eval.html#%3Alet%2B%3D">:let+=</a>
-<a name="hl-NvimAssignmentWithSubtraction"></a><code class="help-tag">hl-NvimAssignmentWithSubtraction</code>   NvimAugmentedAssignment <code>-=</code> in <a href="eval.html#%3Alet-%3D">:let-=</a>
-<a name="hl-NvimAssignmentWithConcatenation"></a><code class="help-tag">hl-NvimAssignmentWithConcatenation</code> NvimAugmentedAssignment <code>.=</code> in <a href="eval.html#%3Alet.%3D">:let.=</a></div>
+<a name="hl-NvimAssignmentWithAddition"></a><code class="help-tag">hl-NvimAssignmentWithAddition</code>      NvimAugmentedAssignment <code>+=</code> in <a href="/neovim-docs-web/en/eval#%3Alet%2B%3D">:let+=</a>
+<a name="hl-NvimAssignmentWithSubtraction"></a><code class="help-tag">hl-NvimAssignmentWithSubtraction</code>   NvimAugmentedAssignment <code>-=</code> in <a href="/neovim-docs-web/en/eval#%3Alet-%3D">:let-=</a>
+<a name="hl-NvimAssignmentWithConcatenation"></a><code class="help-tag">hl-NvimAssignmentWithConcatenation</code> NvimAugmentedAssignment <code>.=</code> in <a href="/neovim-docs-web/en/eval#%3Alet.%3D">:let.=</a></div>
 <div class="old-help-para"><a name="hl-NvimOperator"></a><code class="help-tag">hl-NvimOperator</code>                    Operator                Generic operator</div>
 <div class="old-help-para"><a name="hl-NvimUnaryOperator"></a><code class="help-tag">hl-NvimUnaryOperator</code>               NvimOperator            Generic unary op
-<a name="hl-NvimUnaryPlus"></a><code class="help-tag">hl-NvimUnaryPlus</code>                   NvimUnaryOperator       <a href="eval.html#expr-unary-%2B">expr-unary-+</a>
-<a name="hl-NvimUnaryMinus"></a><code class="help-tag">hl-NvimUnaryMinus</code>                  NvimUnaryOperator       <a href="eval.html#expr-unary--">expr-unary--</a>
-<a name="hl-NvimNot"></a><code class="help-tag">hl-NvimNot</code>                         NvimUnaryOperator       <a href="eval.html#expr-%21">expr-!</a></div>
+<a name="hl-NvimUnaryPlus"></a><code class="help-tag">hl-NvimUnaryPlus</code>                   NvimUnaryOperator       <a href="/neovim-docs-web/en/eval#expr-unary-%2B">expr-unary-+</a>
+<a name="hl-NvimUnaryMinus"></a><code class="help-tag">hl-NvimUnaryMinus</code>                  NvimUnaryOperator       <a href="/neovim-docs-web/en/eval#expr-unary--">expr-unary--</a>
+<a name="hl-NvimNot"></a><code class="help-tag">hl-NvimNot</code>                         NvimUnaryOperator       <a href="/neovim-docs-web/en/eval#expr-%21">expr-!</a></div>
 <div class="old-help-para"><a name="hl-NvimBinaryOperator"></a><code class="help-tag">hl-NvimBinaryOperator</code>              NvimOperator            Generic binary op
-<a name="hl-NvimComparison"></a><code class="help-tag">hl-NvimComparison</code>                  NvimBinaryOperator      Any <a href="eval.html#expr4">expr4</a> operator
-<a name="hl-NvimComparisonModifier"></a><code class="help-tag">hl-NvimComparisonModifier</code>          NvimComparison          <code>#</code>/`?` near <a href="eval.html#expr4">expr4</a> op
-<a name="hl-NvimBinaryPlus"></a><code class="help-tag">hl-NvimBinaryPlus</code>                  NvimBinaryOperator      <a href="eval.html#expr-%2B">expr-+</a>
-<a name="hl-NvimBinaryMinus"></a><code class="help-tag">hl-NvimBinaryMinus</code>                 NvimBinaryOperator      <a href="eval.html#expr--">expr--</a>
-<a name="hl-NvimConcat"></a><code class="help-tag">hl-NvimConcat</code>                      NvimBinaryOperator      <a href="eval.html#expr-.">expr-.</a>
-<a name="hl-NvimConcatOrSubscript"></a><code class="help-tag">hl-NvimConcatOrSubscript</code>           NvimConcat              <a href="eval.html#expr-.">expr-.</a> or <a href="eval.html#expr-entry">expr-entry</a>
-<a name="hl-NvimOr"></a><code class="help-tag">hl-NvimOr</code>                          NvimBinaryOperator      <a href="eval.html#expr-barbar">expr-barbar</a>
-<a name="hl-NvimAnd"></a><code class="help-tag">hl-NvimAnd</code>                         NvimBinaryOperator      <a href="eval.html#expr-%26%26">expr-&amp;&amp;</a>
-<a name="hl-NvimMultiplication"></a><code class="help-tag">hl-NvimMultiplication</code>              NvimBinaryOperator      <a href="eval.html#expr-star">expr-star</a>
-<a name="hl-NvimDivision"></a><code class="help-tag">hl-NvimDivision</code>                    NvimBinaryOperator      <a href="eval.html#expr-%2F">expr-/</a>
-<a name="hl-NvimMod"></a><code class="help-tag">hl-NvimMod</code>                         NvimBinaryOperator      <a href="eval.html#expr-%25">expr-%</a></div>
-<div class="old-help-para"><a name="hl-NvimTernary"></a><code class="help-tag">hl-NvimTernary</code>                     NvimOperator            <code>?</code> in <a href="eval.html#expr1">expr1</a>
-<a name="hl-NvimTernaryColon"></a><code class="help-tag">hl-NvimTernaryColon</code>                NvimTernary             <code>:</code> in <a href="eval.html#expr1">expr1</a></div>
+<a name="hl-NvimComparison"></a><code class="help-tag">hl-NvimComparison</code>                  NvimBinaryOperator      Any <a href="/neovim-docs-web/en/eval#expr4">expr4</a> operator
+<a name="hl-NvimComparisonModifier"></a><code class="help-tag">hl-NvimComparisonModifier</code>          NvimComparison          <code>#</code>/`?` near <a href="/neovim-docs-web/en/eval#expr4">expr4</a> op
+<a name="hl-NvimBinaryPlus"></a><code class="help-tag">hl-NvimBinaryPlus</code>                  NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-%2B">expr-+</a>
+<a name="hl-NvimBinaryMinus"></a><code class="help-tag">hl-NvimBinaryMinus</code>                 NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr--">expr--</a>
+<a name="hl-NvimConcat"></a><code class="help-tag">hl-NvimConcat</code>                      NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-.">expr-.</a>
+<a name="hl-NvimConcatOrSubscript"></a><code class="help-tag">hl-NvimConcatOrSubscript</code>           NvimConcat              <a href="/neovim-docs-web/en/eval#expr-.">expr-.</a> or <a href="/neovim-docs-web/en/eval#expr-entry">expr-entry</a>
+<a name="hl-NvimOr"></a><code class="help-tag">hl-NvimOr</code>                          NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-barbar">expr-barbar</a>
+<a name="hl-NvimAnd"></a><code class="help-tag">hl-NvimAnd</code>                         NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-%26%26">expr-&amp;&amp;</a>
+<a name="hl-NvimMultiplication"></a><code class="help-tag">hl-NvimMultiplication</code>              NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-star">expr-star</a>
+<a name="hl-NvimDivision"></a><code class="help-tag">hl-NvimDivision</code>                    NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-%2F">expr-/</a>
+<a name="hl-NvimMod"></a><code class="help-tag">hl-NvimMod</code>                         NvimBinaryOperator      <a href="/neovim-docs-web/en/eval#expr-%25">expr-%</a></div>
+<div class="old-help-para"><a name="hl-NvimTernary"></a><code class="help-tag">hl-NvimTernary</code>                     NvimOperator            <code>?</code> in <a href="/neovim-docs-web/en/eval#expr1">expr1</a>
+<a name="hl-NvimTernaryColon"></a><code class="help-tag">hl-NvimTernaryColon</code>                NvimTernary             <code>:</code> in <a href="/neovim-docs-web/en/eval#expr1">expr1</a></div>
 <div class="old-help-para"><a name="hl-NvimParenthesis"></a><code class="help-tag">hl-NvimParenthesis</code>                 Delimiter               Generic bracket
-<a name="hl-NvimLambda"></a><code class="help-tag">hl-NvimLambda</code>                      NvimParenthesis         <code>{</code>/`}` in <a href="eval.html#lambda">lambda</a>
-<a name="hl-NvimNestingParenthesis"></a><code class="help-tag">hl-NvimNestingParenthesis</code>          NvimParenthesis         <code>(</code>/`)` in <a href="eval.html#expr-nesting">expr-nesting</a>
-<a name="hl-NvimCallingParenthesis"></a><code class="help-tag">hl-NvimCallingParenthesis</code>          NvimParenthesis         <code>(</code>/`)` in <a href="eval.html#expr-function">expr-function</a></div>
+<a name="hl-NvimLambda"></a><code class="help-tag">hl-NvimLambda</code>                      NvimParenthesis         <code>{</code>/`}` in <a href="/neovim-docs-web/en/eval#lambda">lambda</a>
+<a name="hl-NvimNestingParenthesis"></a><code class="help-tag">hl-NvimNestingParenthesis</code>          NvimParenthesis         <code>(</code>/`)` in <a href="/neovim-docs-web/en/eval#expr-nesting">expr-nesting</a>
+<a name="hl-NvimCallingParenthesis"></a><code class="help-tag">hl-NvimCallingParenthesis</code>          NvimParenthesis         <code>(</code>/`)` in <a href="/neovim-docs-web/en/eval#expr-function">expr-function</a></div>
 <div class="old-help-para"><a name="hl-NvimSubscript"></a><code class="help-tag">hl-NvimSubscript</code>                   NvimParenthesis         Generic subscript
-<a name="hl-NvimSubscriptBracket"></a><code class="help-tag">hl-NvimSubscriptBracket</code>            NvimSubscript           <code>[</code>/`]` in <a href="eval.html#expr-%5B%5D">expr-[]</a>
-<a name="hl-NvimSubscriptColon"></a><code class="help-tag">hl-NvimSubscriptColon</code>              NvimSubscript           <code>:</code> in <a href="eval.html#expr-%5B%3A%5D">expr-[:]</a>
+<a name="hl-NvimSubscriptBracket"></a><code class="help-tag">hl-NvimSubscriptBracket</code>            NvimSubscript           <code>[</code>/`]` in <a href="/neovim-docs-web/en/eval#expr-%5B%5D">expr-[]</a>
+<a name="hl-NvimSubscriptColon"></a><code class="help-tag">hl-NvimSubscriptColon</code>              NvimSubscript           <code>:</code> in <a href="/neovim-docs-web/en/eval#expr-%5B%3A%5D">expr-[:]</a>
 <a name="hl-NvimCurly"></a><code class="help-tag">hl-NvimCurly</code>                       NvimSubscript           <code>{</code>/`}` in
-                                                           <a href="eval.html#curly-braces-names">curly-braces-names</a></div>
+                                                           <a href="/neovim-docs-web/en/eval#curly-braces-names">curly-braces-names</a></div>
 <div class="old-help-para"><a name="hl-NvimContainer"></a><code class="help-tag">hl-NvimContainer</code>                   NvimParenthesis         Generic container
-<a name="hl-NvimDict"></a><code class="help-tag">hl-NvimDict</code>                        NvimContainer           <code>{</code>/`}` in <a href="eval.html#dict">dict</a> literal
-<a name="hl-NvimList"></a><code class="help-tag">hl-NvimList</code>                        NvimContainer           <code>[</code>/`]` in <a href="eval.html#list">list</a> literal</div>
+<a name="hl-NvimDict"></a><code class="help-tag">hl-NvimDict</code>                        NvimContainer           <code>{</code>/`}` in <a href="/neovim-docs-web/en/eval#dict">dict</a> literal
+<a name="hl-NvimList"></a><code class="help-tag">hl-NvimList</code>                        NvimContainer           <code>[</code>/`]` in <a href="/neovim-docs-web/en/eval#list">list</a> literal</div>
 <div class="old-help-para"><a name="hl-NvimIdentifier"></a><code class="help-tag">hl-NvimIdentifier</code>                  Identifier              Generic identifier
 <a name="hl-NvimIdentifierScope"></a><code class="help-tag">hl-NvimIdentifierScope</code>             NvimIdentifier          Namespace: letter
                                                            before <code>:</code> in
-                                                           <a href="eval.html#internal-variables">internal-variables</a>
+                                                           <a href="/neovim-docs-web/en/eval#internal-variables">internal-variables</a>
 <a name="hl-NvimIdentifierScopeDelimiter"></a><code class="help-tag">hl-NvimIdentifierScopeDelimiter</code>    NvimIdentifier          <code>:</code> after namespace
                                                            letter
 <a name="hl-NvimIdentifierName"></a><code class="help-tag">hl-NvimIdentifierName</code>              NvimIdentifier          Rest of the ident
 <a name="hl-NvimIdentifierKey"></a><code class="help-tag">hl-NvimIdentifierKey</code>               NvimIdentifier          Identifier after
-                                                           <a href="eval.html#expr-entry">expr-entry</a></div>
-<div class="old-help-para"><a name="hl-NvimColon"></a><code class="help-tag">hl-NvimColon</code>                       Delimiter               <code>:</code> in <a href="eval.html#dict">dict</a> literal
-<a name="hl-NvimComma"></a><code class="help-tag">hl-NvimComma</code>                       Delimiter               <code>,</code> in <a href="eval.html#dict">dict</a> or <a href="eval.html#list">list</a>
+                                                           <a href="/neovim-docs-web/en/eval#expr-entry">expr-entry</a></div>
+<div class="old-help-para"><a name="hl-NvimColon"></a><code class="help-tag">hl-NvimColon</code>                       Delimiter               <code>:</code> in <a href="/neovim-docs-web/en/eval#dict">dict</a> literal
+<a name="hl-NvimComma"></a><code class="help-tag">hl-NvimComma</code>                       Delimiter               <code>,</code> in <a href="/neovim-docs-web/en/eval#dict">dict</a> or <a href="/neovim-docs-web/en/eval#list">list</a>
                                                            literal or
-                                                           <a href="eval.html#expr-function">expr-function</a>
-<a name="hl-NvimArrow"></a><code class="help-tag">hl-NvimArrow</code>                       Delimiter               <code>-&gt;</code> in <a href="eval.html#lambda">lambda</a></div>
-<div class="old-help-para"><a name="hl-NvimRegister"></a><code class="help-tag">hl-NvimRegister</code>                    SpecialChar             <a href="eval.html#expr-register">expr-register</a>
+                                                           <a href="/neovim-docs-web/en/eval#expr-function">expr-function</a>
+<a name="hl-NvimArrow"></a><code class="help-tag">hl-NvimArrow</code>                       Delimiter               <code>-&gt;</code> in <a href="/neovim-docs-web/en/eval#lambda">lambda</a></div>
+<div class="old-help-para"><a name="hl-NvimRegister"></a><code class="help-tag">hl-NvimRegister</code>                    SpecialChar             <a href="/neovim-docs-web/en/eval#expr-register">expr-register</a>
 <a name="hl-NvimNumber"></a><code class="help-tag">hl-NvimNumber</code>                      Number                  Non-prefix digits
                                                            in integer
-                                                           <a href="eval.html#expr-number">expr-number</a>
-<a name="hl-NvimNumberPrefix"></a><code class="help-tag">hl-NvimNumberPrefix</code>                Type                    <code>0</code> for <a href="eval.html#octal-number">octal-number</a>
-                                                           <code>0x</code> for <a href="eval.html#hex-number">hex-number</a>
-                                                           <code>0b</code> for <a href="eval.html#binary-number">binary-number</a>
+                                                           <a href="/neovim-docs-web/en/eval#expr-number">expr-number</a>
+<a name="hl-NvimNumberPrefix"></a><code class="help-tag">hl-NvimNumberPrefix</code>                Type                    <code>0</code> for <a href="/neovim-docs-web/en/eval#octal-number">octal-number</a>
+                                                           <code>0x</code> for <a href="/neovim-docs-web/en/eval#hex-number">hex-number</a>
+                                                           <code>0b</code> for <a href="/neovim-docs-web/en/eval#binary-number">binary-number</a>
 <a name="hl-NvimFloat"></a><code class="help-tag">hl-NvimFloat</code>                       NvimNumber              Floating-point
                                                            number</div>
-<div class="old-help-para"><a name="hl-NvimOptionSigil"></a><code class="help-tag">hl-NvimOptionSigil</code>                 Type                    <code>&amp;</code> in <a href="eval.html#expr-option">expr-option</a>
+<div class="old-help-para"><a name="hl-NvimOptionSigil"></a><code class="help-tag">hl-NvimOptionSigil</code>                 Type                    <code>&amp;</code> in <a href="/neovim-docs-web/en/eval#expr-option">expr-option</a>
 <a name="hl-NvimOptionScope"></a><code class="help-tag">hl-NvimOptionScope</code>                 NvimIdentifierScope     Option scope if any
 <a name="hl-NvimOptionScopeDelimiter"></a><code class="help-tag">hl-NvimOptionScopeDelimiter</code>        NvimIdentifierScopeDelimiter
                                                            <code>:</code> after option scope
 <a name="hl-NvimOptionName"></a><code class="help-tag">hl-NvimOptionName</code>                  NvimIdentifier          Option name</div>
-<div class="old-help-para"><a name="hl-NvimEnvironmentSigil"></a><code class="help-tag">hl-NvimEnvironmentSigil</code>            NvimOptionSigil         <code>$</code> in <a href="eval.html#expr-env">expr-env</a>
+<div class="old-help-para"><a name="hl-NvimEnvironmentSigil"></a><code class="help-tag">hl-NvimEnvironmentSigil</code>            NvimOptionSigil         <code>$</code> in <a href="/neovim-docs-web/en/eval#expr-env">expr-env</a>
 <a name="hl-NvimEnvironmentName"></a><code class="help-tag">hl-NvimEnvironmentName</code>             NvimIdentifier          Env variable name</div>
 <div class="old-help-para"><a name="hl-NvimString"></a><code class="help-tag">hl-NvimString</code>                      String                  Generic string
 <a name="hl-NvimStringBody"></a><code class="help-tag">hl-NvimStringBody</code>                  NvimString              Generic string
@@ -3255,18 +3255,18 @@ and some other intermediate groups are present.</div>
 <a name="hl-NvimStringQuote"></a><code class="help-tag">hl-NvimStringQuote</code>                 NvimString              Generic string quote
 <a name="hl-NvimStringSpecial"></a><code class="help-tag">hl-NvimStringSpecial</code>               SpecialChar             Generic string
                                                            non-literal body</div>
-<div class="old-help-para"><a name="hl-NvimSingleQuote"></a><code class="help-tag">hl-NvimSingleQuote</code>                 NvimStringQuote         <code>'</code> in <a href="eval.html#expr-'">expr-'</a>
+<div class="old-help-para"><a name="hl-NvimSingleQuote"></a><code class="help-tag">hl-NvimSingleQuote</code>                 NvimStringQuote         <code>'</code> in <a href="/neovim-docs-web/en/eval#expr-'">expr-'</a>
 <a name="hl-NvimSingleQuotedBody"></a><code class="help-tag">hl-NvimSingleQuotedBody</code>            NvimStringBody          Literal part of
-                                                           <a href="eval.html#expr-'">expr-'</a> string body
-<a name="hl-NvimSingleQuotedQuote"></a><code class="help-tag">hl-NvimSingleQuotedQuote</code>           NvimStringSpecial       <code>''</code> inside <a href="eval.html#expr-'">expr-'</a>
+                                                           <a href="/neovim-docs-web/en/eval#expr-'">expr-'</a> string body
+<a name="hl-NvimSingleQuotedQuote"></a><code class="help-tag">hl-NvimSingleQuotedQuote</code>           NvimStringSpecial       <code>''</code> inside <a href="/neovim-docs-web/en/eval#expr-'">expr-'</a>
                                                            string body</div>
-<div class="old-help-para"><a name="hl-NvimDoubleQuote"></a><code class="help-tag">hl-NvimDoubleQuote</code>                 NvimStringQuote         <code>"</code> in <a href="eval.html#expr-quote">expr-quote</a>
+<div class="old-help-para"><a name="hl-NvimDoubleQuote"></a><code class="help-tag">hl-NvimDoubleQuote</code>                 NvimStringQuote         <code>"</code> in <a href="/neovim-docs-web/en/eval#expr-quote">expr-quote</a>
 <a name="hl-NvimDoubleQuotedBody"></a><code class="help-tag">hl-NvimDoubleQuotedBody</code>            NvimStringBody          Literal part of
-                                                           <a href="eval.html#expr-quote">expr-quote</a> body
-<a name="hl-NvimDoubleQuotedEscape"></a><code class="help-tag">hl-NvimDoubleQuotedEscape</code>          NvimStringSpecial       Valid <a href="eval.html#expr-quote">expr-quote</a>
+                                                           <a href="/neovim-docs-web/en/eval#expr-quote">expr-quote</a> body
+<a name="hl-NvimDoubleQuotedEscape"></a><code class="help-tag">hl-NvimDoubleQuotedEscape</code>          NvimStringSpecial       Valid <a href="/neovim-docs-web/en/eval#expr-quote">expr-quote</a>
                                                            escape sequence
 <a name="hl-NvimDoubleQuotedUnknownEscape"></a><code class="help-tag">hl-NvimDoubleQuotedUnknownEscape</code>   NvimInvalidValue        Unrecognized
-                                                           <a href="eval.html#expr-quote">expr-quote</a> escape
+                                                           <a href="/neovim-docs-web/en/eval#expr-quote">expr-quote</a> escape
                                                            sequence</div>
 
   

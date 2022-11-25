@@ -13,9 +13,9 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">Editing compressed files with Vim <a name="bzip2"></a><code class="help-tag">bzip2</code> <a name="compress"></a><code class="help-tag">compress</code></div>
-<div class="old-help-para">1. Autocommands			<a href="pi_gzip.html#gzip-autocmd">gzip-autocmd</a></div>
-<div class="old-help-para">The functionality mentioned here is a <a href="usr_05.html#standard-plugin">standard-plugin</a>.
-This plugin is only available if <a href="vim_diff.html#'compatible'">'compatible'</a> is not set.
+<div class="old-help-para">1. Autocommands			<a href="/neovim-docs-web/en/pi_gzip#gzip-autocmd">gzip-autocmd</a></div>
+<div class="old-help-para">The functionality mentioned here is a <a href="/neovim-docs-web/en/usr_05#standard-plugin">standard-plugin</a>.
+This plugin is only available if <a href="/neovim-docs-web/en/vim_diff#'compatible'">'compatible'</a> is not set.
 You can avoid loading this plugin by setting the "loaded_gzip" variable:<pre>:let loaded_gzip = 1</pre>
 <h2 class="help-heading">1. Autocommands<span class="help-heading-tags">						<a name="gzip-autocmd"></a><span class="help-tag">gzip-autocmd</span></span></h2></div>
 <div class="old-help-para">The plugin installs autocommands to intercept reading and writing of files
@@ -30,7 +30,7 @@ with these extensions:</div>
 <div class="old-help-para">That's actually the only thing you need to know.  There are no options.</div>
 <div class="old-help-para">After decompressing a file, the filetype will be detected again.  This will
 make a file like "foo.c.gz" get the "c" filetype.</div>
-<div class="old-help-para">If you have <a href="options.html#'patchmode'">'patchmode'</a> set, it will be appended after the extension for
+<div class="old-help-para">If you have <a href="/neovim-docs-web/en/options#'patchmode'">'patchmode'</a> set, it will be appended after the extension for
 compression.  Thus editing the patchmode file will not give you the automatic
 decompression.  You have to rename the file if you want this.</div>
 

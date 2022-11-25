@@ -13,7 +13,7 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">The Python Interface to NVim <a name="python"></a><code class="help-tag">python</code> <a name="Python"></a><code class="help-tag">Python</code></div>
-<div class="old-help-para">See <a href="provider.html#provider-python">provider-python</a> for more information.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/provider#provider-python">provider-python</a> for more information.</div>
 <div class="old-help-para"><h2 class="help-heading">Commands<span class="help-heading-tags">						<a name="python-commands"></a><span class="help-tag">python-commands</span></span></h2></div>
 <div class="old-help-para">					<a name="%3Apython"></a><code class="help-tag-right">:python</code> <a name="%3Apy"></a><code class="help-tag">:py</code> <a name="E263"></a><code class="help-tag">E263</code> <a name="E264"></a><code class="help-tag">E264</code> <a name="E887"></a><code class="help-tag">E887</code>
 :[range]py[thon] <code>{stmt}</code>
@@ -24,10 +24,10 @@ layout: ../../layouts/MainLayout.astro
 <code>{endmarker}</code>
 			Execute Python script <code>{script}</code>.  Useful for including
 			python code in Vim scripts.  Requires Python, see
-			<a href="if_pyth.html#script-here">script-here</a>.</div>
+			<a href="/neovim-docs-web/en/if_pyth#script-here">script-here</a>.</div>
 <div class="old-help-para">The <code>{endmarker}</code> below the <code>{script}</code> must NOT be preceded by any white space.</div>
 <div class="old-help-para">If [endmarker] is omitted from after the "&lt;&lt;", a dot '.' must be used after
-<code>{script}</code>, like for the <a href="insert.html#%3Aappend">:append</a> and <a href="insert.html#%3Ainsert">:insert</a> commands.</div>
+<code>{script}</code>, like for the <a href="/neovim-docs-web/en/insert#%3Aappend">:append</a> and <a href="/neovim-docs-web/en/insert#%3Ainsert">:insert</a> commands.</div>
 <div class="old-help-para">Example:<pre>function! IcecreamInitialize()
 python &lt;&lt; EOF
 class StrawberryIcecream:
@@ -69,11 +69,11 @@ EOF
 			Execute the Python script in <code>{file}</code>.  The whole
 			argument is used as a single file name.</div>
 <div class="old-help-para">Both of these commands do essentially the same thing - they execute a piece of
-Python code, with the "current range" <a href="if_pyth.html#python-range">python-range</a> set to the given line
+Python code, with the "current range" <a href="/neovim-docs-web/en/if_pyth#python-range">python-range</a> set to the given line
 range.</div>
 <div class="old-help-para">In the case of :python, the code to execute is in the command-line.
 In the case of :pyfile, the code to execute is the contents of the given file.</div>
-<div class="old-help-para">Python commands cannot be used in the <a href="eval.html#sandbox">sandbox</a>.</div>
+<div class="old-help-para">Python commands cannot be used in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>.</div>
 <div class="old-help-para">To pass arguments you need to set sys.argv[] explicitly.  Example:<pre>:python sys.argv = ["foo", "bar"]
 :pyfile myscript.py</pre>
 Here are some examples					<a name="python-examples"></a><code class="help-tag-right">python-examples</code><pre>:python from vim import *
@@ -103,7 +103,7 @@ endif</pre>
 Note that "EOF" must be at the start of the line.</div>
 <div class="old-help-para"><h2 class="help-heading">The vim module<span class="help-heading-tags">							<a name="python-vim"></a><span class="help-tag">python-vim</span></span></h2></div>
 <div class="old-help-para">Python code gets all of its access to vim (with one exception - see
-<a href="if_pyth.html#python-output">python-output</a> below) via the "vim" module.  The vim module implements two
+<a href="/neovim-docs-web/en/if_pyth#python-output">python-output</a> below) via the "vim" module.  The vim module implements two
 methods, three constants, and one error object.  You need to import the vim
 module before using it:<pre>:python import vim</pre>
 Overview<pre>:py print "Hello"                # displays a message
@@ -138,7 +138,7 @@ normal('"a2dd"aP')</pre></div>
 	older.  This only works with Python 2.3 and later:<pre>:py vim.command("python print 'Hello again Python'")</pre>
 vim.eval(str)						<a name="python-eval"></a><code class="help-tag-right">python-eval</code>
 	Evaluates the expression str using the vim internal expression
-	evaluator (see <a href="eval.html#expression">expression</a>).  Returns the expression result as:
+	evaluator (see <a href="/neovim-docs-web/en/eval#expression">expression</a>).  Returns the expression result as:
 <div class="help-li" style=""> a string if the Vim expression evaluates to a string or number
 </div><div class="help-li" style=""> a list if the Vim expression evaluates to a Vim list
 </div><div class="help-li" style=""> a dictionary if the Vim expression evaluates to a Vim dictionary
@@ -148,11 +148,11 @@ vim.eval(str)						<a name="python-eval"></a><code class="help-tag-right">python
                                     # string.atoi() to convert to
                                     # a number.</pre>
 vim.strwidth(str)					<a name="python-strwidth"></a><code class="help-tag-right">python-strwidth</code>
-	Like <a href="builtin.html#strwidth()">strwidth()</a>: returns number of display cells str occupies, tab
+	Like <a href="/neovim-docs-web/en/builtin#strwidth()">strwidth()</a>: returns number of display cells str occupies, tab
 	is counted as one cell.
 </div></div>
 <div class="old-help-para">vim.foreach_rtp(callable)				<a name="python-foreach_rtp"></a><code class="help-tag-right">python-foreach_rtp</code>
-	Call the given callable for each path in <a href="options.html#'runtimepath'">'runtimepath'</a> until either
+	Call the given callable for each path in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> until either
 	callable returns something but None, the exception is raised or there
 	are no longer paths. If stopped in case callable returned non-None,
 	vim.foreach_rtp function returns the value returned by callable.</div>
@@ -187,10 +187,10 @@ Constants of the "vim" module</div>
 :py n = len(vim.windows)        # Number of elements
 :py for w in vim.windows:        # Sequential access</pre></div>
 <div class="old-help-para">	Note: vim.windows object always accesses current tab page.
-	<a href="if_pyth.html#python-tabpage">python-tabpage</a>.windows objects are bound to parent <a href="if_pyth.html#python-tabpage">python-tabpage</a>
+	<a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a>.windows objects are bound to parent <a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a>
 	object and always use windows from that tab page (or throw vim.error
 	in case tab page was deleted). You can keep a reference to both
-	without keeping a reference to vim module object or <a href="if_pyth.html#python-tabpage">python-tabpage</a>,
+	without keeping a reference to vim module object or <a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a>,
 	they will not lose their properties in this case.</div>
 <div class="old-help-para">vim.tabpages						<a name="python-tabpages"></a><code class="help-tag-right">python-tabpages</code>
 	A sequence object providing access to the list of vim tab pages. The
@@ -209,13 +209,13 @@ Constants of the "vim" module</div>
 <div class="old-help-para">	The last case deserves a little explanation.  When the :python or
 	:pyfile command specifies a range, this range of lines becomes the
 	"current range".  A range is a bit like a buffer, but with all access
-	restricted to a subset of lines.  See <a href="if_pyth.html#python-range">python-range</a> for more details.</div>
+	restricted to a subset of lines.  See <a href="/neovim-docs-web/en/if_pyth#python-range">python-range</a> for more details.</div>
 <div class="old-help-para">	Note: When assigning to vim.current.{buffer,window,tabpage} it expects
-	valid <a href="if_pyth.html#python-buffer">python-buffer</a>, <a href="if_pyth.html#python-window">python-window</a> or <a href="if_pyth.html#python-tabpage">python-tabpage</a> objects
-	respectively. Assigning triggers normal (with <a href="autocmd.html#autocommand">autocommand</a>s)
+	valid <a href="/neovim-docs-web/en/if_pyth#python-buffer">python-buffer</a>, <a href="/neovim-docs-web/en/if_pyth#python-window">python-window</a> or <a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a> objects
+	respectively. Assigning triggers normal (with <a href="/neovim-docs-web/en/autocmd#autocommand">autocommand</a>s)
 	switching to given buffer, window or tab page. It is the only way to
 	switch UI objects in python: you can't assign to
-	<a href="if_pyth.html#python-tabpage">python-tabpage</a>.window attribute. To switch without triggering
+	<a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a>.window attribute. To switch without triggering
 	autocommands use<pre>py &lt;&lt; EOF
 saved_eventignore = vim.options['eventignore']
 vim.options['eventignore'] = 'all'
@@ -226,18 +226,18 @@ finally:
 EOF</pre></div>
 <div class="old-help-para">vim.vars						<a name="python-vars"></a><code class="help-tag-right">python-vars</code>
 vim.vvars						<a name="python-vvars"></a><code class="help-tag-right">python-vvars</code>
-	Dictionary-like objects holding dictionaries with global (<a href="eval.html#g%3A">g:</a>) and
-	vim (<a href="eval.html#v%3A">v:</a>) variables respectively.</div>
+	Dictionary-like objects holding dictionaries with global (<a href="/neovim-docs-web/en/eval#g%3A">g:</a>) and
+	vim (<a href="/neovim-docs-web/en/eval#v%3A">v:</a>) variables respectively.</div>
 <div class="old-help-para">vim.options						<a name="python-options"></a><code class="help-tag-right">python-options</code>
 	Object partly supporting mapping protocol (supports setting and
 	getting items) providing a read-write access to global options.
-	Note: unlike <a href="options.html#%3Aset">:set</a> this provides access only to global options. You
+	Note: unlike <a href="/neovim-docs-web/en/options#%3Aset">:set</a> this provides access only to global options. You
 	cannot use this object to obtain or set local options' values or
 	access local-only options in any fashion. Raises KeyError if no global
 	option with such name exists (i.e. does not raise KeyError for
-	<a href="options.html#global-local">global-local</a> options and global only options, but does for window-
-	and buffer-local ones).  Use <a href="if_pyth.html#python-buffer">python-buffer</a> objects to access to
-	buffer-local options and <a href="if_pyth.html#python-window">python-window</a> objects to access to
+	<a href="/neovim-docs-web/en/options#global-local">global-local</a> options and global only options, but does for window-
+	and buffer-local ones).  Use <a href="/neovim-docs-web/en/if_pyth#python-buffer">python-buffer</a> objects to access to
+	buffer-local options and <a href="/neovim-docs-web/en/if_pyth#python-window">python-window</a> objects to access to
 	window-local options.</div>
 <div class="old-help-para">	Type of this object is available via "Options" attribute of vim
 	module.</div>
@@ -254,11 +254,11 @@ vim.vvars						<a name="python-vvars"></a><code class="help-tag-right">python-vv
 	supported, and may cause the program to crash.  This should probably be
 	fixed.</div>
 <div class="old-help-para">				  <a name="python3-directory"></a><code class="help-tag-right">python3-directory</code> <a name="pythonx-directory"></a><code class="help-tag">pythonx-directory</code>
-Python <a href="options.html#'runtimepath'">'runtimepath'</a> handling				<a name="python-special-path"></a><code class="help-tag-right">python-special-path</code></div>
+Python <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> handling				<a name="python-special-path"></a><code class="help-tag-right">python-special-path</code></div>
 <div class="old-help-para">In python vim.VIM_SPECIAL_PATH special directory is used as a replacement for
-the list of paths found in <a href="options.html#'runtimepath'">'runtimepath'</a>: with this directory in sys.path and
+the list of paths found in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>: with this directory in sys.path and
 vim.path_hooks in sys.path_hooks python will try to load module from
-<code>{rtp}</code>/python3 and <code>{rtp}</code>/pythonx for each <code>{rtp}</code> found in <a href="options.html#'runtimepath'">'runtimepath'</a>.</div>
+<code>{rtp}</code>/python3 and <code>{rtp}</code>/pythonx for each <code>{rtp}</code> found in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.</div>
 <div class="old-help-para">Implementation is similar to the following, but written in C:<pre>from imp import find_module, load_module
 import vim
 import sys
@@ -323,12 +323,12 @@ vim.path_hook(path)					<a name="python-path_hook"></a><code class="help-tag-rig
 	hook. You should not rely on this method being present in future
 	versions, but can use it for debugging.</div>
 <div class="old-help-para">	It returns a list of <code>{rtp}</code>/python3 and <code>{rtp}</code>/pythonx
-	directories for each <code>{rtp}</code> in <a href="options.html#'runtimepath'">'runtimepath'</a>.</div>
+	directories for each <code>{rtp}</code> in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Buffer objects<span class="help-heading-tags">						<a name="python-buffer"></a><span class="help-tag">python-buffer</span></span></h2></div>
 <div class="old-help-para">Buffer objects represent vim buffers.  You can obtain them in a number of ways:
-<div class="help-li" style=""> via vim.current.buffer (<a href="if_pyth.html#python-current">python-current</a>)
-</div><div class="help-li" style=""> from indexing vim.buffers (<a href="if_pyth.html#python-buffers">python-buffers</a>)
-</div><div class="help-li" style=""> from the "buffer" attribute of a window (<a href="if_pyth.html#python-window">python-window</a>)
+<div class="help-li" style=""> via vim.current.buffer (<a href="/neovim-docs-web/en/if_pyth#python-current">python-current</a>)
+</div><div class="help-li" style=""> from indexing vim.buffers (<a href="/neovim-docs-web/en/if_pyth#python-buffers">python-buffers</a>)
+</div><div class="help-li" style=""> from the "buffer" attribute of a window (<a href="/neovim-docs-web/en/if_pyth#python-window">python-window</a>)
 </div></div>
 <div class="old-help-para">Buffer objects have two read-only attributes - name - the full file name for
 the buffer, and number - the buffer number.  They also have three methods
@@ -346,18 +346,18 @@ line numbers, which start from 1.  This is particularly relevant when dealing
 with marks (see below) which use vim line numbers.</div>
 <div class="old-help-para">The buffer object attributes are:
 	b.vars		Dictionary-like object used to access
-			<a href="eval.html#buffer-variable">buffer-variable</a>s.
+			<a href="/neovim-docs-web/en/eval#buffer-variable">buffer-variable</a>s.
 	b.options	Mapping object (supports item getting, setting and
 			deleting) that provides access to buffer-local options
-			and buffer-local values of <a href="options.html#global-local">global-local</a> options. Use
-			<a href="if_pyth.html#python-window">python-window</a>.options if option is window-local,
+			and buffer-local values of <a href="/neovim-docs-web/en/options#global-local">global-local</a> options. Use
+			<a href="/neovim-docs-web/en/if_pyth#python-window">python-window</a>.options if option is window-local,
 			this object will raise KeyError. If option is
-			<a href="options.html#global-local">global-local</a> and local value is missing getting it
+			<a href="/neovim-docs-web/en/options#global-local">global-local</a> and local value is missing getting it
 			will return None.
 	b.name		String, RW. Contains buffer name (full path).
-			Note: when assigning to b.name <a href="autocmd.html#BufFilePre">BufFilePre</a> and
-			<a href="autocmd.html#BufFilePost">BufFilePost</a> autocommands are launched.
-	b.number	Buffer number. Can be used as <a href="if_pyth.html#python-buffers">python-buffers</a> key.
+			Note: when assigning to b.name <a href="/neovim-docs-web/en/autocmd#BufFilePre">BufFilePre</a> and
+			<a href="/neovim-docs-web/en/autocmd#BufFilePost">BufFilePost</a> autocommands are launched.
+	b.number	Buffer number. Can be used as <a href="/neovim-docs-web/en/if_pyth#python-buffers">python-buffers</a> key.
 			Read-only.
 	b.valid		True or False. Buffer object becomes invalid when
 			corresponding buffer is wiped out.</div>
@@ -371,9 +371,9 @@ with marks (see below) which use vim line numbers.</div>
 	b.append(list, nr)  Idem, below line "nr"
 	b.mark(name)	Return a tuple (row,col) representing the position
 			of the named mark (can also get the []"&lt;&gt; marks)
-	b.range(s,e)	Return a range object (see <a href="if_pyth.html#python-range">python-range</a>) which
+	b.range(s,e)	Return a range object (see <a href="/neovim-docs-web/en/if_pyth#python-range">python-range</a>) which
 			represents the part of the given buffer between line
-			numbers s and e <a href="motion.html#inclusive">inclusive</a>.</div>
+			numbers s and e <a href="/neovim-docs-web/en/motion#inclusive">inclusive</a>.</div>
 <div class="old-help-para">Note that when adding a line it must not contain a line break character '\n'.
 A trailing '\n' is allowed and ignored, so that you can do:<pre>:py b.append(f.readlines())</pre>
 Buffer object type is available using "Buffer" attribute of vim module.</div>
@@ -393,8 +393,8 @@ Buffer object type is available using "Buffer" attribute of vim module.</div>
 <h2 class="help-heading">Range objects<span class="help-heading-tags">						<a name="python-range"></a><span class="help-tag">python-range</span></span></h2></div>
 <div class="old-help-para">Range objects represent a part of a vim buffer.  You can obtain them in a
 number of ways:
-<div class="help-li" style=""> via vim.current.range (<a href="if_pyth.html#python-current">python-current</a>)
-</div><div class="help-li" style=""> from a buffer's range() method (<a href="if_pyth.html#python-buffer">python-buffer</a>)
+<div class="help-li" style=""> via vim.current.range (<a href="/neovim-docs-web/en/if_pyth#python-current">python-current</a>)
+</div><div class="help-li" style=""> from a buffer's range() method (<a href="/neovim-docs-web/en/if_pyth#python-buffer">python-buffer</a>)
 </div></div>
 <div class="old-help-para">A range object is almost identical in operation to a buffer object.  However,
 all operations are restricted to the lines within the range (this line range
@@ -417,10 +417,10 @@ the range.append() method).</div>
 	vim.command("%d,%dhardcopy!" % (r.start+1,r.end+1))</div>
 <div class="old-help-para"><h2 class="help-heading">Window objects<span class="help-heading-tags">						<a name="python-window"></a><span class="help-tag">python-window</span></span></h2></div>
 <div class="old-help-para">Window objects represent vim windows.  You can obtain them in a number of ways:
-<div class="help-li" style=""> via vim.current.window (<a href="if_pyth.html#python-current">python-current</a>)
-</div><div class="help-li" style=""> from indexing vim.windows (<a href="if_pyth.html#python-windows">python-windows</a>)
-</div><div class="help-li" style=""> from indexing "windows" attribute of a tab page (<a href="if_pyth.html#python-tabpage">python-tabpage</a>)
-</div><div class="help-li" style=""> from the "window" attribute of a tab page (<a href="if_pyth.html#python-tabpage">python-tabpage</a>)
+<div class="help-li" style=""> via vim.current.window (<a href="/neovim-docs-web/en/if_pyth#python-current">python-current</a>)
+</div><div class="help-li" style=""> from indexing vim.windows (<a href="/neovim-docs-web/en/if_pyth#python-windows">python-windows</a>)
+</div><div class="help-li" style=""> from indexing "windows" attribute of a tab page (<a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a>)
+</div><div class="help-li" style=""> from the "window" attribute of a tab page (<a href="/neovim-docs-web/en/if_pyth#python-tabpage">python-tabpage</a>)
 </div></div>
 <div class="old-help-para">You can manipulate window objects only through their attributes.  They have no
 methods, and no sequence or other interface.</div>
@@ -430,15 +430,15 @@ methods, and no sequence or other interface.</div>
 				This is a tuple, (row,col).
 	height (read-write)	The window height, in rows
 	width (read-write)	The window width, in columns
-	vars (read-only)	The window <a href="eval.html#w%3A">w:</a> variables. Attribute is
+	vars (read-only)	The window <a href="/neovim-docs-web/en/eval#w%3A">w:</a> variables. Attribute is
 				unassignable, but you can change window
 				variables this way
 	options (read-only)	The window-local options. Attribute is
 				unassignable, but you can change window
 				options this way. Provides access only to
 				window-local options, for buffer-local use
-				<a href="if_pyth.html#python-buffer">python-buffer</a> and for global ones use
-				<a href="if_pyth.html#python-options">python-options</a>. If option is <a href="options.html#global-local">global-local</a>
+				<a href="/neovim-docs-web/en/if_pyth#python-buffer">python-buffer</a> and for global ones use
+				<a href="/neovim-docs-web/en/if_pyth#python-options">python-options</a>. If option is <a href="/neovim-docs-web/en/options#global-local">global-local</a>
 				and local value is missing getting it will
 				return None.
 	number (read-only)	Window number.  The first window has number 1.
@@ -456,24 +456,24 @@ The width attribute is writable only if the screen is split vertically.</div>
 <div class="old-help-para"><h2 class="help-heading">Tab page objects<span class="help-heading-tags">					<a name="python-tabpage"></a><span class="help-tag">python-tabpage</span></span></h2></div>
 <div class="old-help-para">Tab page objects represent vim tab pages. You can obtain them in a number of
 ways:
-<div class="help-li" style=""> via vim.current.tabpage (<a href="if_pyth.html#python-current">python-current</a>)
-</div><div class="help-li" style=""> from indexing vim.tabpages (<a href="if_pyth.html#python-tabpages">python-tabpages</a>)
+<div class="help-li" style=""> via vim.current.tabpage (<a href="/neovim-docs-web/en/if_pyth#python-current">python-current</a>)
+</div><div class="help-li" style=""> from indexing vim.tabpages (<a href="/neovim-docs-web/en/if_pyth#python-tabpages">python-tabpages</a>)
 </div></div>
 <div class="old-help-para">You can use this object to access tab page windows. They have no methods and
 no sequence or other interfaces.</div>
 <div class="old-help-para">Tab page attributes are:
 	number		The tab page number like the one returned by
-			<a href="builtin.html#tabpagenr()">tabpagenr()</a>.
-	windows		Like <a href="if_pyth.html#python-windows">python-windows</a>, but for current tab page.
-	vars		The tab page <a href="eval.html#t%3A">t:</a> variables.
+			<a href="/neovim-docs-web/en/builtin#tabpagenr()">tabpagenr()</a>.
+	windows		Like <a href="/neovim-docs-web/en/if_pyth#python-windows">python-windows</a>, but for current tab page.
+	vars		The tab page <a href="/neovim-docs-web/en/eval#t%3A">t:</a> variables.
 	window		Current tabpage window.
 	valid		True or False. Tab page object becomes invalid when
 			corresponding tab page is closed.</div>
 <div class="old-help-para">TabPage object type is available using "TabPage" attribute of vim module.</div>
 <div class="old-help-para"><h2 class="help-heading">pyeval() and py3eval() Vim functions<span class="help-heading-tags">			<a name="python-pyeval"></a><span class="help-tag">python-pyeval</span></span></h2></div>
-<div class="old-help-para">To facilitate bi-directional interface, you can use <a href="builtin.html#pyeval()">pyeval()</a> and <a href="builtin.html#py3eval()">py3eval()</a>
+<div class="old-help-para">To facilitate bi-directional interface, you can use <a href="/neovim-docs-web/en/builtin#pyeval()">pyeval()</a> and <a href="/neovim-docs-web/en/builtin#py3eval()">py3eval()</a>
 functions to evaluate Python expressions and pass their values to Vim script.
-<a href="builtin.html#pyxeval()">pyxeval()</a> is also available.</div>
+<a href="/neovim-docs-web/en/builtin#pyxeval()">pyxeval()</a> is also available.</div>
 <div class="old-help-para"><h2 class="help-heading">Python 3<span class="help-heading-tags">						<a name="python3"></a><span class="help-tag">python3</span></span></h2></div>
 <div class="old-help-para">As Python 3 is the only supported version in Nvim, "python" is synonymous
 with "python3" in the current version. However, code that aims to support older

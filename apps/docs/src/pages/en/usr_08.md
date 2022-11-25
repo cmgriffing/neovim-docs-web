@@ -17,18 +17,18 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Display two different files above each other.  Or view two locations in the
 file at the same time.  See the difference between two files by putting them
 side by side.  All this is possible with split windows.</div>
-<div class="old-help-para"><a href="usr_08.html#08.1">08.1</a>  	Split a window
-<a href="usr_08.html#08.2">08.2</a>  	Split a window on another file
-<a href="usr_08.html#08.3">08.3</a>  	Window size
-<a href="usr_08.html#08.4">08.4</a>  	Vertical splits
-<a href="usr_08.html#08.5">08.5</a>  	Moving windows
-<a href="usr_08.html#08.6">08.6</a>  	Commands for all windows
-<a href="usr_08.html#08.7">08.7</a>  	Viewing differences with diff mode
-<a href="usr_08.html#08.8">08.8</a>  	Various
-<a href="usr_08.html#08.9">08.9</a>  	Tab pages</div>
-<div class="old-help-para">     Next chapter: <a href="usr_09.html#usr_09.txt">usr_09.txt</a>  Using the GUI
- Previous chapter: <a href="usr_07.html#usr_07.txt">usr_07.txt</a>  Editing more than one file
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_08#08.1">08.1</a>  	Split a window
+<a href="/neovim-docs-web/en/usr_08#08.2">08.2</a>  	Split a window on another file
+<a href="/neovim-docs-web/en/usr_08#08.3">08.3</a>  	Window size
+<a href="/neovim-docs-web/en/usr_08#08.4">08.4</a>  	Vertical splits
+<a href="/neovim-docs-web/en/usr_08#08.5">08.5</a>  	Moving windows
+<a href="/neovim-docs-web/en/usr_08#08.6">08.6</a>  	Commands for all windows
+<a href="/neovim-docs-web/en/usr_08#08.7">08.7</a>  	Viewing differences with diff mode
+<a href="/neovim-docs-web/en/usr_08#08.8">08.8</a>  	Various
+<a href="/neovim-docs-web/en/usr_08#08.9">08.9</a>  	Tab pages</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_09#usr_09.txt">usr_09.txt</a>  Using the GUI
+ Previous chapter: <a href="/neovim-docs-web/en/usr_07#usr_07.txt">usr_07.txt</a>  Editing more than one file
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Split a window</h2></div>
 <div class="old-help-para">The easiest way to open a new window is to use the following command:<pre>:split</pre>
 This command splits the screen into two windows and leaves the cursor in the
@@ -104,11 +104,11 @@ using the mouse is faster.  Position the mouse pointer on a status line.  Now
 press the left mouse button and drag.  The status line will move, thus making
 the window on one side higher and the other smaller.</div>
 <div class="old-help-para"><a name="_options"></a><h3 class="help-heading">OPTIONS</h3></div>
-<div class="old-help-para">The <a href="options.html#'winheight'">'winheight'</a> option can be set to a minimal desired height of a window and
-<a href="options.html#'winminheight'">'winminheight'</a> to a hard minimum height.
-   Likewise, there is <a href="options.html#'winwidth'">'winwidth'</a> for the minimal desired width and
-<a href="options.html#'winminwidth'">'winminwidth'</a> for the hard minimum width.
-   The <a href="options.html#'equalalways'">'equalalways'</a> option, when set, makes Vim equalize the windows sizes
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'winheight'">'winheight'</a> option can be set to a minimal desired height of a window and
+<a href="/neovim-docs-web/en/options#'winminheight'">'winminheight'</a> to a hard minimum height.
+   Likewise, there is <a href="/neovim-docs-web/en/options#'winwidth'">'winwidth'</a> for the minimal desired width and
+<a href="/neovim-docs-web/en/options#'winminwidth'">'winminwidth'</a> for the hard minimum width.
+   The <a href="/neovim-docs-web/en/options#'equalalways'">'equalalways'</a> option, when set, makes Vim equalize the windows sizes
 when a window is closed or opened.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="08.4"></a><span class="help-tag">08.4</span>  	Vertical splits</span></h2></div>
 <div class="old-help-para">The ":split" command creates the new window above the current one.  To make
@@ -143,7 +143,7 @@ to move between them:</div>
 	<code>CTRL-W</code> b	move to the BOTTOM window</div>
 <div class="old-help-para">You will notice the same letters as used for moving the cursor.  And the
 cursor keys can also be used, if you like.
-   More commands to move to other windows: <a href="quickref.html#Q_wi">Q_wi</a>.</div>
+   More commands to move to other windows: <a href="/neovim-docs-web/en/quickref#Q_wi">Q_wi</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="08.5"></a><span class="help-tag">08.5</span>  	Moving windows</span></h2></div>
 <div class="old-help-para">You have split a few windows, but now they are in the wrong place.  Then you
 need a command to move the window somewhere else.  For example, you have three
@@ -232,7 +232,7 @@ file in the argument list.  ":vertical all" does it with vertical splits.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="08.7"></a><span class="help-tag">08.7</span>  	Viewing differences with diff mode</span></h2></div>
 <div class="old-help-para">There is a special way to start Nvim, which shows the differences between two
 files.  Let's take a file "main.c" and insert a few characters in one line.
-Write this file with the <a href="options.html#'backup'">'backup'</a> option set, so that the backup file
+Write this file with the <a href="/neovim-docs-web/en/options#'backup'">'backup'</a> option set, so that the backup file
 "main.c~" will contain the previous version of the file.
 Type this command in a shell to start Nvim in diff mode:<pre>nvim -d main.c~ main.c</pre>
 Vim will start, with two windows side by side.  You will only see the line
@@ -318,9 +318,9 @@ The change will now be removed by getting the text from the other window.
 Since there are no changes left now, Vim puts all text in a closed fold.
 "do" stands for "diff obtain".  "dg" would have been better, but that already
 has a different meaning ("dgg" deletes from the cursor until the first line).</div>
-<div class="old-help-para">For details about diff mode, see <a href="diff.html#diff-mode">diff-mode</a>.</div>
+<div class="old-help-para">For details about diff mode, see <a href="/neovim-docs-web/en/diff#diff-mode">diff-mode</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="08.8"></a><span class="help-tag">08.8</span>  	Various</span></h2></div>
-<div class="old-help-para">The <a href="options.html#'laststatus'">'laststatus'</a> option can be used to specify when the last window has a
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'laststatus'">'laststatus'</a> option can be used to specify when the last window has a
 statusline:</div>
 <div class="old-help-para">	0	never
 	1	only when there are split windows (the default)
@@ -333,8 +333,8 @@ For Command-line commands this is done by prepending an "s".  For example:
 tag.
    For Normal mode commands a <code>CTRL-W</code> is prepended.  <code>CTRL-^</code> jumps to the
 alternate file, <code>CTRL-W</code> <code>CTRL-^</code> splits the window and edits the alternate file.</div>
-<div class="old-help-para">The <a href="options.html#'splitbelow'">'splitbelow'</a> option can be set to make a new window appear below the
-current window.  The <a href="options.html#'splitright'">'splitright'</a> option can be set to make a vertically split
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'splitbelow'">'splitbelow'</a> option can be set to make a new window appear below the
+current window.  The <a href="/neovim-docs-web/en/options#'splitright'">'splitright'</a> option can be set to make a vertically split
 window appear right of the current window.</div>
 <div class="old-help-para">When splitting a window you can prepend a modifier command to tell where the
 window is to appear:</div>
@@ -408,9 +408,9 @@ Will show the help text for "gt" in a new tab page.</div>
 	Closes all tab pages except the current one.  Unless there are unsaved
 	changes in other tab pages.
 </div></div>
-<div class="old-help-para">For more information about tab pages see <a href="tabpage.html#tab-page">tab-page</a>.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_09.html#usr_09.txt">usr_09.txt</a>  Using the GUI</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para">For more information about tab pages see <a href="/neovim-docs-web/en/tabpage#tab-page">tab-page</a>.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_09#usr_09.txt">usr_09.txt</a>  Using the GUI</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

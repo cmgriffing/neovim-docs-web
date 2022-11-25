@@ -18,7 +18,7 @@ means.  It is not complete though.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Old messages <a name="%3Ames"></a><span class="help-tag">:mes</span> <a name="message-history"></a><span class="help-tag">message-history</span></h2></div>
 <div class="old-help-para">The ":messages" command can be used to view previously given messages.  This
 is especially useful when messages have been overwritten or truncated.  This
-depends on the <a href="options.html#'shortmess'">'shortmess'</a> option.</div>
+depends on the <a href="/neovim-docs-web/en/options#'shortmess'">'shortmess'</a> option.</div>
 <div class="old-help-para">	:mes[sages]		Show all messages.</div>
 <div class="old-help-para">	:{count}mes[sages]	Show the <code>{count}</code> most recent messages.</div>
 <div class="old-help-para">	:mes[sages] clear	Clear all messages.</div>
@@ -69,27 +69,27 @@ Internal error: {function}
 fatal error in cs_manage_matches
 Invalid count for del_bytes(): {N}</pre>
 This is an internal error.  If you can reproduce it, please send in a bug
-report. <a href="intro.html#bugs">bugs</a></div>
+report. <a href="/neovim-docs-web/en/intro#bugs">bugs</a></div>
 <div class="old-help-para"><pre>ATTENTION
 Found a swap file by the name ...</pre>
-See <a href="usr_11.html#ATTENTION">ATTENTION</a>.</div>
+See <a href="/neovim-docs-web/en/usr_11#ATTENTION">ATTENTION</a>.</div>
 <div class="old-help-para">							<a name="E92"></a><code class="help-tag-right">E92</code><pre>Buffer {N} not found</pre>
 The buffer you requested does not exist.  This can also happen when you have
 wiped out a buffer which contains a mark or is referenced in another way.
-<a href="windows.html#%3Abwipeout">:bwipeout</a></div>
+<a href="/neovim-docs-web/en/windows#%3Abwipeout">:bwipeout</a></div>
 <div class="old-help-para">							<a name="E95"></a><code class="help-tag-right">E95</code><pre>Buffer with this name already exists</pre>
 You cannot have two buffers with exactly the same name.  This includes the
 path leading to the file.</div>
 <div class="old-help-para">							<a name="E72"></a><code class="help-tag-right">E72</code><pre>Close error on swap file</pre>
-The <a href="recover.html#swap-file">swap-file</a>, that is used to keep a copy of the edited text, could not be
+The <a href="/neovim-docs-web/en/recover#swap-file">swap-file</a>, that is used to keep a copy of the edited text, could not be
 closed properly.  Mostly harmless.</div>
 <div class="old-help-para">							<a name="E169"></a><code class="help-tag-right">E169</code><pre>Command too recursive</pre>
 This happens when an Ex command executes an Ex command that executes an Ex
-command, etc.  The limit is 200 or the value of <a href="options.html#'maxfuncdepth'">'maxfuncdepth'</a>, whatever is
+command, etc.  The limit is 200 or the value of <a href="/neovim-docs-web/en/options#'maxfuncdepth'">'maxfuncdepth'</a>, whatever is
 larger.  When it's more there probably is an endless loop.  Probably a
-<a href="eval.html#%3Aexecute">:execute</a> or <a href="repeat.html#%3Asource">:source</a> command is involved.</div>
+<a href="/neovim-docs-web/en/eval#%3Aexecute">:execute</a> or <a href="/neovim-docs-web/en/repeat#%3Asource">:source</a> command is involved.</div>
 <div class="old-help-para">							<a name="E254"></a><code class="help-tag-right">E254</code><pre>Cannot allocate color {name}</pre>
-The color name <code>{name}</code> is unknown.  See <a href="syntax.html#gui-colors">gui-colors</a> for a list of colors that
+The color name <code>{name}</code> is unknown.  See <a href="/neovim-docs-web/en/syntax#gui-colors">gui-colors</a> for a list of colors that
 are available on most systems.</div>
 <div class="old-help-para">							<a name="E458"></a><code class="help-tag-right">E458</code><pre>Cannot allocate colormap entry, some colors may be incorrect</pre>
 This means that there are not enough colors available for Vim.  It will still
@@ -124,32 +124,32 @@ place.  If you really want to write the file under this name, you have to
 manually delete the link or the file, or change the permissions so that Vim
 can overwrite.</div>
 <div class="old-help-para">							<a name="E46"></a><code class="help-tag-right">E46</code><pre>Cannot change read-only variable "{name}"</pre>
-You are trying to assign a value to an argument of a function <a href="userfunc.html#a%3Avar">a:var</a> or a Vim
-internal variable <a href="eval.html#v%3Avar">v:var</a> which is read-only.</div>
+You are trying to assign a value to an argument of a function <a href="/neovim-docs-web/en/userfunc#a%3Avar">a:var</a> or a Vim
+internal variable <a href="/neovim-docs-web/en/eval#v%3Avar">v:var</a> which is read-only.</div>
 <div class="old-help-para">							<a name="E90"></a><code class="help-tag-right">E90</code><pre>Cannot unload last buffer</pre>
 Vim always requires one buffer to be loaded, otherwise there would be nothing
 to display in the window.</div>
 <div class="old-help-para">							<a name="E40"></a><code class="help-tag-right">E40</code><pre>Can't open errorfile &lt;filename&gt;</pre>
 When using the ":make" or ":grep" commands: The file used to save the error
 messages or grep output cannot be opened.  This can have several causes:
-<div class="help-li" style=""> <a href="options.html#'shellredir'">'shellredir'</a> has a wrong value.
+<div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'shellredir'">'shellredir'</a> has a wrong value.
 </div><div class="help-li" style=""> The shell changes directory, causing the error file to be written in another
-  directory.  This could be fixed by changing <a href="options.html#'makeef'">'makeef'</a>, but then the make
+  directory.  This could be fixed by changing <a href="/neovim-docs-web/en/options#'makeef'">'makeef'</a>, but then the make
   command is still executed in the wrong directory.
-</div><div class="help-li" style=""> <a href="options.html#'makeef'">'makeef'</a> has a wrong value.
-</div><div class="help-li" style=""> The <a href="options.html#'grepprg'">'grepprg'</a> or <a href="options.html#'makeprg'">'makeprg'</a> could not be executed.  This cannot always be
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'makeef'">'makeef'</a> has a wrong value.
+</div><div class="help-li" style=""> The <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a> or <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> could not be executed.  This cannot always be
   detected (especially on MS-Windows).  Check your $PATH.
 </div></div>
 <div class="old-help-para"><pre>Can't open file C:\TEMP\VIoD243.TMP</pre>
 On MS-Windows, this message appears when the output of an external command was
 to be read, but the command didn't run successfully.  This can be caused by
-many things.  Check the <a href="options.html#'shell'">'shell'</a>, <a href="options.html#'shellquote'">'shellquote'</a>, <a href="options.html#'shellxquote'">'shellxquote'</a>, <a href="options.html#'shellslash'">'shellslash'</a> and
+many things.  Check the <a href="/neovim-docs-web/en/options#'shell'">'shell'</a>, <a href="/neovim-docs-web/en/options#'shellquote'">'shellquote'</a>, <a href="/neovim-docs-web/en/options#'shellxquote'">'shellxquote'</a>, <a href="/neovim-docs-web/en/options#'shellslash'">'shellslash'</a> and
 related options.  It might also be that the external command was not found,
 there is no different error message for that.</div>
 <div class="old-help-para">							<a name="E12"></a><code class="help-tag-right">E12</code><pre>Command not allowed from exrc/vimrc in current dir or tag search</pre>
 Some commands are not allowed for security reasons.  These commands mostly
 come from a .exrc or .nvimrc file in the current directory, or from a tags
-file.  Also see <a href="vim_diff.html#'secure'">'secure'</a>.</div>
+file.  Also see <a href="/neovim-docs-web/en/vim_diff#'secure'">'secure'</a>.</div>
 <div class="old-help-para">							<a name="E74"></a><code class="help-tag-right">E74</code><pre>Command too complex</pre>
 A mapping resulted in a very long command string.  Could be caused by a
 mapping that indirectly calls itself.</div>
@@ -157,19 +157,19 @@ mapping that indirectly calls itself.</div>
 When writing a file and the text "CONVERSION ERROR" appears, this means that
 some bits were lost when converting text from the internally used UTF-8 to the
 format of the file.  The file will not be marked unmodified.  If you care
-about the loss of information, set the <a href="options.html#'fileencoding'">'fileencoding'</a> option to another value
+about the loss of information, set the <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> option to another value
 that can handle the characters in the buffer and write again.  If you don't
-care, you can abandon the buffer or reset the <a href="options.html#'modified'">'modified'</a> option.
-If there is a backup file, when <a href="options.html#'writebackup'">'writebackup'</a> or <a href="options.html#'backup'">'backup'</a> is set, it will not
+care, you can abandon the buffer or reset the <a href="/neovim-docs-web/en/options#'modified'">'modified'</a> option.
+If there is a backup file, when <a href="/neovim-docs-web/en/options#'writebackup'">'writebackup'</a> or <a href="/neovim-docs-web/en/options#'backup'">'backup'</a> is set, it will not
 be deleted, so you can move it back into place if you want to discard the
 changes.</div>
 <div class="old-help-para">							<a name="E302"></a><code class="help-tag-right">E302</code><pre>Could not rename swap file</pre>
-When the file name changes, Vim tries to rename the <a href="recover.html#swap-file">swap-file</a> as well.
+When the file name changes, Vim tries to rename the <a href="/neovim-docs-web/en/recover#swap-file">swap-file</a> as well.
 This failed and the old swap file is now still used.  Mostly harmless.</div>
 <div class="old-help-para">							<a name="E43"></a><code class="help-tag-right">E43</code> <a name="E44"></a><code class="help-tag">E44</code><pre>Damaged match string
 Corrupted regexp program</pre>
 Something inside Vim went wrong and resulted in a corrupted regexp.  If you
-know how to reproduce this problem, please report it. <a href="intro.html#bugs">bugs</a></div>
+know how to reproduce this problem, please report it. <a href="/neovim-docs-web/en/intro#bugs">bugs</a></div>
 <div class="old-help-para">							<a name="E208"></a><code class="help-tag-right">E208</code> <a name="E209"></a><code class="help-tag">E209</code> <a name="E210"></a><code class="help-tag">E210</code><pre>Error writing to "{filename}"
 Error closing "{filename}"
 Error reading "{filename}"</pre>
@@ -207,14 +207,14 @@ happens when you use ":w! filename" and a swapfile is found.
 You are trying to write a file under a name which is also used in another
 buffer.  This would result in two versions of the same file.</div>
 <div class="old-help-para">							<a name="E142"></a><code class="help-tag-right">E142</code><pre>File not written: Writing is disabled by 'write' option</pre>
-The <a href="options.html#'write'">'write'</a> option is off.  This makes all commands that try to write a file
-generate this message.  This could be caused by a <a href="starting.html#-m">-m</a> commandline argument.
-You can switch the <a href="options.html#'write'">'write'</a> option on with ":set write".</div>
+The <a href="/neovim-docs-web/en/options#'write'">'write'</a> option is off.  This makes all commands that try to write a file
+generate this message.  This could be caused by a <a href="/neovim-docs-web/en/starting#-m">-m</a> commandline argument.
+You can switch the <a href="/neovim-docs-web/en/options#'write'">'write'</a> option on with ":set write".</div>
 <div class="old-help-para">							<a name="E25"></a><code class="help-tag-right">E25</code><pre>Nvim does not have a built-in GUI</pre>
 Neovim does not have a built in GUI, so <code>:gvim</code> and <code>:gui</code> don't work.</div>
 <div class="old-help-para">							<a name="E49"></a><code class="help-tag-right">E49</code><pre>Invalid scroll size</pre>
-This is caused by setting an invalid value for the <a href="options.html#'scroll'">'scroll'</a>, <a href="options.html#'scrolljump'">'scrolljump'</a> or
-<a href="options.html#'scrolloff'">'scrolloff'</a> options.</div>
+This is caused by setting an invalid value for the <a href="/neovim-docs-web/en/options#'scroll'">'scroll'</a>, <a href="/neovim-docs-web/en/options#'scrolljump'">'scrolljump'</a> or
+<a href="/neovim-docs-web/en/options#'scrolloff'">'scrolloff'</a> options.</div>
 <div class="old-help-para">							<a name="E17"></a><code class="help-tag-right">E17</code><pre>"{filename}" is a directory</pre>
 You tried to write a file with the name of a directory.  This is not possible.
 You probably need to append a file name.</div>
@@ -229,15 +229,15 @@ the other way around.  It should be used like this: <code>{foo,bar}</code>.  Thi
 "foo" and "bar".</div>
 <div class="old-help-para">							<a name="E315"></a><code class="help-tag-right">E315</code><pre>ml_get: invalid lnum: {number}</pre>
 This is an internal Vim error.  Please try to find out how it can be
-reproduced, and submit a <a href="intro.html#bug-report">bug-report</a>.</div>
+reproduced, and submit a <a href="/neovim-docs-web/en/intro#bug-report">bug-report</a>.</div>
 <div class="old-help-para">							<a name="E173"></a><code class="help-tag-right">E173</code><pre>{number} more files to edit</pre>
 You are trying to exit, while the last item in the argument list has not been
 edited.  This protects you from accidentally exiting when you still have more
-files to work on.  See <a href="editing.html#argument-list">argument-list</a>.  If you do want to exit, just do it
+files to work on.  See <a href="/neovim-docs-web/en/editing#argument-list">argument-list</a>.  If you do want to exit, just do it
 again and it will work.</div>
 <div class="old-help-para">							<a name="E23"></a><code class="help-tag-right">E23</code> <a name="E194"></a><code class="help-tag">E194</code><pre>No alternate file
 No alternate file name to substitute for '#'</pre>
-The alternate file is not defined yet.  See <a href="editing.html#alternate-file">alternate-file</a>.</div>
+The alternate file is not defined yet.  See <a href="/neovim-docs-web/en/editing#alternate-file">alternate-file</a>.</div>
 <div class="old-help-para">							<a name="E32"></a><code class="help-tag-right">E32</code><pre>No file name</pre>
 The current buffer has no name.  To write it, use ":w fname".  Or give the
 buffer a name with ":file fname".</div>
@@ -248,7 +248,7 @@ cannot be written.  You need to give the buffer a file name:<pre>:buffer {number
 <div class="old-help-para">							<a name="E33"></a><code class="help-tag-right">E33</code><pre>No previous substitute regular expression</pre>
 When using the '~' character in a pattern, it is replaced with the previously
 used pattern in a ":substitute" command.  This fails when no such command has
-been used yet.  See <a href="pattern.html#%2F~">/~</a>.  This also happens when using ":s/pat/%/", where the
+been used yet.  See <a href="/neovim-docs-web/en/pattern#%2F~">/~</a>.  This also happens when using ":s/pat/%/", where the
 "%" stands for the previous substitute string.</div>
 <div class="old-help-para">							<a name="E35"></a><code class="help-tag-right">E35</code><pre>No previous regular expression</pre>
 When using an empty search pattern, the previous search pattern is used.  But
@@ -263,27 +263,27 @@ mapping.  All variations of this command give the same message: ":cunmap",
 ":unmap!", etc.  A few hints:
 <div class="help-li" style=""> Check for trailing white space.
 </div><div class="help-li" style=""> If the mapping is buffer-local you need to use ":unmap <code>&lt;buffer&gt;</code>".
-  <a href="map.html#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a>
+  <a href="/neovim-docs-web/en/map#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a>
 </div></div>
 <div class="old-help-para">							<a name="E37"></a><code class="help-tag-right">E37</code> <a name="E89"></a><code class="help-tag">E89</code><pre>No write since last change (add ! to override)
 No write since last change for buffer {N} (add ! to override)</pre>
-You are trying to <a href="editing.html#abandon">abandon</a> a file that has changes.  Vim protects you from
+You are trying to <a href="/neovim-docs-web/en/editing#abandon">abandon</a> a file that has changes.  Vim protects you from
 losing your work.  You can either write the changed file with ":w", or, if you
-are sure, <a href="editing.html#abandon">abandon</a> it anyway, and lose all the changes.  This can be done by
+are sure, <a href="/neovim-docs-web/en/editing#abandon">abandon</a> it anyway, and lose all the changes.  This can be done by
 adding a '!' character just after the command you used.  Example:<pre>:e other_file</pre>
 changes to:<pre>:e! other_file</pre></div>
 <div class="old-help-para">							<a name="E162"></a><code class="help-tag-right">E162</code><pre>No write since last change for buffer "{name}"</pre>
 This appears when you try to exit Vim while some buffers are changed.  You
-will either have to write the changed buffer (with <a href="editing.html#%3Aw">:w</a>), or use a command to
+will either have to write the changed buffer (with <a href="/neovim-docs-web/en/editing#%3Aw">:w</a>), or use a command to
 abandon the buffer forcefully, e.g., with ":qa!".  Careful, make sure you
 don't throw away changes you really want to keep.  You might have forgotten
-about a buffer, especially when <a href="options.html#'hidden'">'hidden'</a> is set.</div>
+about a buffer, especially when <a href="/neovim-docs-web/en/options#'hidden'">'hidden'</a> is set.</div>
 <div class="old-help-para"><pre>[No write since last change]</pre>
 This appears when executing a shell command while at least one buffer was
-changed.  To avoid the message reset the <a href="options.html#'warn'">'warn'</a> option.</div>
+changed.  To avoid the message reset the <a href="/neovim-docs-web/en/options#'warn'">'warn'</a> option.</div>
 <div class="old-help-para">							<a name="E38"></a><code class="help-tag-right">E38</code><pre>Null argument</pre>
 Something inside Vim went wrong and resulted in a NULL pointer.  If you know
-how to reproduce this problem, please report it. <a href="intro.html#bugs">bugs</a></div>
+how to reproduce this problem, please report it. <a href="/neovim-docs-web/en/intro#bugs">bugs</a></div>
 <div class="old-help-para">						<a name="E41"></a><code class="help-tag-right">E41</code> <a name="E82"></a><code class="help-tag">E82</code> <a name="E83"></a><code class="help-tag">E83</code> <a name="E342"></a><code class="help-tag">E342</code><pre>Out of memory!
 Out of memory!  (allocating {number} bytes)
 Cannot allocate any buffer, exiting...
@@ -296,9 +296,9 @@ start again.</div>
 <div class="old-help-para">Buffers are only partly kept in memory, thus editing a very large file is
 unlikely to cause an out-of-memory situation.  Undo information is completely
 in memory, you can reduce that with these options:
-<div class="help-li" style=""> <a href="options.html#'undolevels'">'undolevels'</a>  Set to a low value, or to -1 to disable undo completely.  This
+<div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'undolevels'">'undolevels'</a>  Set to a low value, or to -1 to disable undo completely.  This
   helps for a change that affects all lines.
-</div><div class="help-li" style=""> <a href="options.html#'undoreload'">'undoreload'</a> Set to zero to disable.
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'undoreload'">'undoreload'</a> Set to zero to disable.
 </div></div>
 <div class="old-help-para">							<a name="E339"></a><code class="help-tag-right">E339</code><pre>Pattern too long</pre>
 This happens on systems with 16 bit ints: The compiled regexp pattern is
@@ -307,19 +307,19 @@ It also happens when the offset of a rule doesn't fit in the space available.
 Try simplifying the pattern.</div>
 <div class="old-help-para">							<a name="E45"></a><code class="help-tag-right">E45</code><pre>'readonly' option is set (add ! to override)</pre>
 You are trying to write a file that was marked as read-only.  To write the
-file anyway, either reset the <a href="options.html#'readonly'">'readonly'</a> option, or add a '!' character just
+file anyway, either reset the <a href="/neovim-docs-web/en/options#'readonly'">'readonly'</a> option, or add a '!' character just
 after the command you used.  Example:<pre>:w</pre>
 changes to:<pre>:w!</pre></div>
 <div class="old-help-para">							<a name="E294"></a><code class="help-tag-right">E294</code> <a name="E295"></a><code class="help-tag">E295</code> <a name="E301"></a><code class="help-tag">E301</code><pre>Read error in swap file
 Seek error in swap file read
 Oops, lost the swap file!!!</pre>
-Vim tried to read text from the <a href="recover.html#swap-file">swap-file</a>, but something went wrong.  The
+Vim tried to read text from the <a href="/neovim-docs-web/en/recover#swap-file">swap-file</a>, but something went wrong.  The
 text in the related buffer may now be corrupted!  Check carefully before you
 write a buffer.  You may want to write it in another file and check for
 differences.</div>
 <div class="old-help-para">							<a name="E192"></a><code class="help-tag-right">E192</code><pre>Recursive use of :normal too deep</pre>
 You are using a ":normal" command, whose argument again uses a ":normal"
-command in a recursive way.  This is restricted to <a href="options.html#'maxmapdepth'">'maxmapdepth'</a> levels.  This
+command in a recursive way.  This is restricted to <a href="/neovim-docs-web/en/options#'maxmapdepth'">'maxmapdepth'</a> levels.  This
 example illustrates how to get this message:<pre>:map gq :normal gq&lt;CR&gt;</pre>
 If you type "gq", it will execute this mapping, which will call "gq" again.</div>
 <div class="old-help-para">							<a name="E22"></a><code class="help-tag-right">E22</code><pre>Scripts nested too deep</pre>
@@ -333,17 +333,17 @@ already exists or finds a symbolic link in its place.  This shouldn't happen,
 because Vim already checked that the file doesn't exist.  Either someone else
 opened the same file at exactly the same moment (very unlikely) or someone is
 attempting a symlink attack (could happen when editing a file in /tmp or when
-<a href="options.html#'directory'">'directory'</a> starts with "/tmp", which is a bad choice).</div>
+<a href="/neovim-docs-web/en/options#'directory'">'directory'</a> starts with "/tmp", which is a bad choice).</div>
 <div class="old-help-para">							<a name="E432"></a><code class="help-tag-right">E432</code><pre>Tags file not sorted: {file name}</pre>
 Vim (and Vi) expect tags files to be sorted in ASCII order.  Binary searching
 can then be used, which is a lot faster than a linear search.  If your tags
-files are not properly sorted, reset the <a href="options.html#'tagbsearch'">'tagbsearch'</a> option.
+files are not properly sorted, reset the <a href="/neovim-docs-web/en/options#'tagbsearch'">'tagbsearch'</a> option.
 This message is only given when Vim detects a problem when searching for a
 tag.  Sometimes this message is not given, even though the tags file is not
 properly sorted.</div>
 <div class="old-help-para">							<a name="E424"></a><code class="help-tag-right">E424</code><pre>Too many different highlighting attributes in use</pre>
 Vim can only handle about 223 different kinds of highlighting.  If you run
-into this limit, you have used too many <a href="syntax.html#%3Ahighlight">:highlight</a> commands with different
+into this limit, you have used too many <a href="/neovim-docs-web/en/syntax#%3Ahighlight">:highlight</a> commands with different
 arguments.  A ":highlight link" is not counted.</div>
 <div class="old-help-para">							<a name="E77"></a><code class="help-tag-right">E77</code><pre>Too many file names</pre>
 When expanding file names, more than one match was found.  Only one match is
@@ -351,9 +351,9 @@ allowed for the command that was used.</div>
 <div class="old-help-para">							<a name="E303"></a><code class="help-tag-right">E303</code><pre>Unable to open swap file for "{filename}", recovery impossible</pre>
 Vim was not able to create a swap file.  You can still edit the file, but if
 Vim unexpectedly exits the changes will be lost.  And Vim may consume a lot of
-memory when editing a big file.  You may want to change the <a href="options.html#'directory'">'directory'</a> option
-to avoid this error.  This error is not given when <a href="options.html#'directory'">'directory'</a> is empty.  See
-<a href="recover.html#swap-file">swap-file</a>.</div>
+memory when editing a big file.  You may want to change the <a href="/neovim-docs-web/en/options#'directory'">'directory'</a> option
+to avoid this error.  This error is not given when <a href="/neovim-docs-web/en/options#'directory'">'directory'</a> is empty.  See
+<a href="/neovim-docs-web/en/recover#swap-file">swap-file</a>.</div>
 <div class="old-help-para">							<a name="E140"></a><code class="help-tag-right">E140</code><pre>Use ! to write partial buffer</pre>
 When using a range to write part of a buffer, it is unusual to overwrite the
 original file.  It is probably a mistake (e.g., when Visual mode was active
@@ -365,23 +365,23 @@ Messages like this appear when starting up.  This is not a Vim problem, your
 X11 configuration is wrong.</div>
 <div class="old-help-para">							<a name="W10"></a><code class="help-tag-right">W10</code><pre>Warning: Changing a readonly file</pre>
 The file is read-only and you are making a change to it anyway.  You can use
-the <a href="autocmd.html#FileChangedRO">FileChangedRO</a> autocommand event to avoid this message (the autocommand
-must reset the <a href="options.html#'readonly'">'readonly'</a> option).  See <a href="options.html#'modifiable'">'modifiable'</a> to completely disallow
+the <a href="/neovim-docs-web/en/autocmd#FileChangedRO">FileChangedRO</a> autocommand event to avoid this message (the autocommand
+must reset the <a href="/neovim-docs-web/en/options#'readonly'">'readonly'</a> option).  See <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a> to completely disallow
 making changes to a file.
-This message is only given for the first change after <a href="options.html#'readonly'">'readonly'</a> has been set.</div>
+This message is only given for the first change after <a href="/neovim-docs-web/en/options#'readonly'">'readonly'</a> has been set.</div>
 <div class="old-help-para">							<a name="W13"></a><code class="help-tag-right">W13</code><pre>Warning: File "{filename}" has been created after editing started</pre>
 You are editing a file in Vim when it didn't exist, but it does exist now.
 You will have to decide if you want to keep the version in Vim or the newly
-created file.  This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.</div>
+created file.  This message is not given when <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> is not empty.</div>
 <div class="old-help-para">							<a name="W11"></a><code class="help-tag-right">W11</code><pre>Warning: File "{filename}" has changed since editing started</pre>
 The file which you have started editing has got another timestamp and the
 contents changed (more precisely: When reading the file again with the current
 option settings and autocommands you would end up with different text).  This
 probably means that some other program changed the file.  You will have to
 find out what happened, and decide which version of the file you want to keep.
-Set the <a href="options.html#'autoread'">'autoread'</a> option if you want to do this automatically.
-This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.
-Also see the <a href="autocmd.html#FileChangedShell">FileChangedShell</a> autocommand.</div>
+Set the <a href="/neovim-docs-web/en/options#'autoread'">'autoread'</a> option if you want to do this automatically.
+This message is not given when <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> is not empty.
+Also see the <a href="/neovim-docs-web/en/autocmd#FileChangedShell">FileChangedShell</a> autocommand.</div>
 <div class="old-help-para">There is one situation where you get this message even though there is nothing
 wrong: If you save a file in Windows on the day the daylight saving time
 starts.  It can be fixed in one of these ways:
@@ -397,17 +397,17 @@ Protection" or register Vim as a trusted service/application.</div>
 <div class="old-help-para">							<a name="W12"></a><code class="help-tag-right">W12</code><pre>Warning: File "{filename}" has changed and the buffer was changed in Vim as well</pre>
 Like the above, and the buffer for the file was changed in this Vim as well.
 You will have to decide if you want to keep the version in this Vim or the one
-on disk.  This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.</div>
+on disk.  This message is not given when <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> is not empty.</div>
 <div class="old-help-para">							<a name="W16"></a><code class="help-tag-right">W16</code><pre>Warning: Mode of file "{filename}" has changed since editing started</pre>
 When the timestamp for a buffer was changed and the contents are still the
 same but the mode (permissions) have changed.  This usually occurs when
 checking out a file from a version control system, which causes the read-only
-bit to be reset.  It should be safe to reload the file.  Set <a href="options.html#'autoread'">'autoread'</a> to
+bit to be reset.  It should be safe to reload the file.  Set <a href="/neovim-docs-web/en/options#'autoread'">'autoread'</a> to
 automatically reload the file.</div>
 <div class="old-help-para">							<a name="E211"></a><code class="help-tag-right">E211</code><pre>File "{filename}" no longer available</pre>
 The file which you have started editing has disappeared, or is no longer
 accessible.  Make sure you write the buffer somewhere to avoid losing
-changes.  This message is not given when <a href="options.html#'buftype'">'buftype'</a> is not empty.</div>
+changes.  This message is not given when <a href="/neovim-docs-web/en/options#'buftype'">'buftype'</a> is not empty.</div>
 <div class="old-help-para">							<a name="W14"></a><code class="help-tag-right">W14</code><pre>Warning: List of file names overflow</pre>
 You must be using an awful lot of buffers.  It's now possible that two buffers
 have the same number, which causes various problems.  You might want to exit
@@ -418,20 +418,20 @@ a buffer will not always work, better restart Vim.</div>
 <div class="old-help-para">							<a name="E296"></a><code class="help-tag-right">E296</code> <a name="E297"></a><code class="help-tag">E297</code><pre>Seek error in swap file write
 Write error in swap file</pre>
 This mostly happens when the disk is full.  Vim could not write text into the
-<a href="recover.html#swap-file">swap-file</a>.  It's not directly harmful, but when Vim unexpectedly exits some
+<a href="/neovim-docs-web/en/recover#swap-file">swap-file</a>.  It's not directly harmful, but when Vim unexpectedly exits some
 text may be lost without recovery being possible.  Vim might run out of memory
 when this problem persists.</div>
 <div class="old-help-para">							<a name="E10"></a><code class="help-tag-right">E10</code><pre>\\ should be followed by /, ? or &amp;</pre>
 A command line started with a backslash or the range of a command contained a
 backslash in a wrong place.  This is often caused by command-line continuation
-being disabled.  Remove the 'C' flag from the <a href="options.html#'cpoptions'">'cpoptions'</a> option to enable it.</div>
+being disabled.  Remove the 'C' flag from the <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> option to enable it.</div>
 <div class="old-help-para">							<a name="E471"></a><code class="help-tag-right">E471</code><pre>Argument required</pre>
 Ex command was executed without a mandatory argument(s).</div>
 <div class="old-help-para">							<a name="E474"></a><code class="help-tag-right">E474</code> <a name="E475"></a><code class="help-tag">E475</code> <a name="E983"></a><code class="help-tag">E983</code><pre>Invalid argument
 Invalid argument: {arg}
 Duplicate argument: {arg}</pre>
-Ex command or function was given an invalid argument. Or <a href="builtin.html#jobstart()">jobstart()</a> or
-<a href="builtin.html#system()">system()</a> was given a non-executable command.</div>
+Ex command or function was given an invalid argument. Or <a href="/neovim-docs-web/en/builtin#jobstart()">jobstart()</a> or
+<a href="/neovim-docs-web/en/builtin#system()">system()</a> was given a non-executable command.</div>
 <div class="old-help-para">							<a name="E488"></a><code class="help-tag-right">E488</code><pre>Trailing characters</pre>
 An argument was given to an Ex command that does not permit one.
 Or the argument has invalid characters and has not been recognized.</div>
@@ -440,7 +440,7 @@ Don't panic!</pre>
 You have added a "!" after an Ex command that doesn't permit one.</div>
 <div class="old-help-para">							<a name="E481"></a><code class="help-tag-right">E481</code><pre>No range allowed</pre>
 A range was specified for an Ex command that doesn't permit one.  See
-<a href="cmdline.html#cmdline-ranges">cmdline-ranges</a>.</div>
+<a href="/neovim-docs-web/en/cmdline#cmdline-ranges">cmdline-ranges</a>.</div>
 <div class="old-help-para">							<a name="E482"></a><code class="help-tag-right">E482</code> <a name="E483"></a><code class="help-tag">E483</code><pre>Can't create file {filename}
 Can't get temp file name</pre>
 Vim cannot create a temporary file.</div>
@@ -448,12 +448,12 @@ Vim cannot create a temporary file.</div>
 Can't read file {filename}</pre>
 Vim cannot read a temporary file.  Especially on Windows, this can be caused
 by wrong escaping of special characters for cmd.exe; the approach was
-changed with patch 7.3.443.  Try using <a href="builtin.html#shellescape()">shellescape()</a> for all shell arguments
-given to <a href="builtin.html#system()">system()</a>, or explicitly add escaping with ^.  Also see
-<a href="options.html#'shellxquote'">'shellxquote'</a> and <a href="options.html#'shellxescape'">'shellxescape'</a>.</div>
+changed with patch 7.3.443.  Try using <a href="/neovim-docs-web/en/builtin#shellescape()">shellescape()</a> for all shell arguments
+given to <a href="/neovim-docs-web/en/builtin#system()">system()</a>, or explicitly add escaping with ^.  Also see
+<a href="/neovim-docs-web/en/options#'shellxquote'">'shellxquote'</a> and <a href="/neovim-docs-web/en/options#'shellxescape'">'shellxescape'</a>.</div>
 <div class="old-help-para">							<a name="E464"></a><code class="help-tag-right">E464</code><pre>Ambiguous use of user-defined command</pre>
 There are two user-defined commands with a common name prefix, and you used
-Command-line completion to execute one of them. <a href="map.html#user-cmd-ambiguous">user-cmd-ambiguous</a>
+Command-line completion to execute one of them. <a href="/neovim-docs-web/en/map#user-cmd-ambiguous">user-cmd-ambiguous</a>
 Example:<pre>:command MyCommand1 echo "one"
 :command MyCommand2 echo "two"
 :MyCommand</pre></div>
@@ -475,7 +475,7 @@ src/ex_cmds.lua.  Update the lookup table by re-running the build.<pre></pre>
 and the screen is about to be redrawn:
 <div class="help-li" style=""> After executing an external command (e.g., ":!ls" and "=").
 </div><div class="help-li" style=""> Something is displayed on the status line that is longer than the width of
-  the window, or runs into the <a href="options.html#'showcmd'">'showcmd'</a> or <a href="options.html#'ruler'">'ruler'</a> output.
+  the window, or runs into the <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a> or <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a> output.
 </div></div>
 <div class="old-help-para">-&gt; Press <code>&lt;Enter&gt;</code> or <code>&lt;Space&gt;</code> to redraw the screen and continue, without that
    key being used otherwise.
@@ -484,32 +484,32 @@ and the screen is about to be redrawn:
    keys, may not work normally, because the terminal is still set to a state
    for executing the external command.
 -&gt; Press 'k', <code>&lt;Up&gt;</code>, 'u', 'b' or 'g' to scroll back in the messages.  This
-   works the same way as at the <a href="message.html#more-prompt">more-prompt</a>.  Only works when <a href="options.html#'more'">'more'</a> is on.
+   works the same way as at the <a href="/neovim-docs-web/en/message#more-prompt">more-prompt</a>.  Only works when <a href="/neovim-docs-web/en/options#'more'">'more'</a> is on.
 -&gt; Pressing 'j', 'f', 'd' or <code>&lt;Down&gt;</code> is ignored when messages scrolled off the
-   top of the screen and <a href="options.html#'more'">'more'</a> is on, to avoid that typing one 'j' or 'f' too
+   top of the screen and <a href="/neovim-docs-web/en/options#'more'">'more'</a> is on, to avoid that typing one 'j' or 'f' too
    many causes the messages to disappear.
 -&gt; Press <code>&lt;C-Y&gt;</code> to copy (yank) a modeless selection to the clipboard register.
 -&gt; Use a menu.  The characters defined for Cmdline-mode are used.
--&gt; When <a href="options.html#'mouse'">'mouse'</a> contains the 'r' flag, clicking the left mouse button works
+-&gt; When <a href="/neovim-docs-web/en/options#'mouse'">'mouse'</a> contains the 'r' flag, clicking the left mouse button works
    like pressing <code>&lt;Space&gt;</code>.  This makes it impossible to select text though.
 -&gt; For the GUI clicking the left mouse button in the last line works like
    pressing <code>&lt;Space&gt;</code>.</div>
 <div class="old-help-para">If you accidentally hit <code>&lt;Enter&gt;</code> or <code>&lt;Space&gt;</code> and you want to see the displayed
-text then use <a href="message.html#g%3C">g&lt;</a>.  This only works when <a href="options.html#'more'">'more'</a> is set.</div>
+text then use <a href="/neovim-docs-web/en/message#g%3C">g&lt;</a>.  This only works when <a href="/neovim-docs-web/en/options#'more'">'more'</a> is set.</div>
 <div class="old-help-para">To reduce the number of hit-enter prompts:
-<div class="help-li" style=""> Set <a href="options.html#'cmdheight'">'cmdheight'</a> to 2 or higher.
-</div><div class="help-li" style=""> Add flags to <a href="options.html#'shortmess'">'shortmess'</a>.
-</div><div class="help-li" style=""> Reset <a href="options.html#'showcmd'">'showcmd'</a> and/or <a href="options.html#'ruler'">'ruler'</a>.
-</div><div class="help-li" style=""> Make sure <code>:echo</code> text is within <a href="eval.html#v%3Aechospace">v:echospace</a> screen cells.
+<div class="help-li" style=""> Set <a href="/neovim-docs-web/en/options#'cmdheight'">'cmdheight'</a> to 2 or higher.
+</div><div class="help-li" style=""> Add flags to <a href="/neovim-docs-web/en/options#'shortmess'">'shortmess'</a>.
+</div><div class="help-li" style=""> Reset <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a> and/or <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a>.
+</div><div class="help-li" style=""> Make sure <code>:echo</code> text is within <a href="/neovim-docs-web/en/eval#v%3Aechospace">v:echospace</a> screen cells.
 </div></div>
 <div class="old-help-para">If your script causes the hit-enter prompt and you don't know why, you may
-find the <a href="eval.html#v%3Ascrollstart">v:scrollstart</a> variable useful.</div>
-<div class="old-help-para">Also see <a href="options.html#'mouse'">'mouse'</a>.  The hit-enter message is highlighted with the <a href="syntax.html#hl-Question">hl-Question</a>
+find the <a href="/neovim-docs-web/en/eval#v%3Ascrollstart">v:scrollstart</a> variable useful.</div>
+<div class="old-help-para">Also see <a href="/neovim-docs-web/en/options#'mouse'">'mouse'</a>.  The hit-enter message is highlighted with the <a href="/neovim-docs-web/en/syntax#hl-Question">hl-Question</a>
 group.</div>
 <div class="old-help-para">						<a name="more-prompt"></a><code class="help-tag-right">more-prompt</code> <a name="pager"></a><code class="help-tag">pager</code><pre>-- More --
 -- More -- SPACE/d/j: screen/page/line down, b/u/k: up, q: quit</pre>
 This message is given when the screen is filled with messages.  It is only
-given when the <a href="options.html#'more'">'more'</a> option is on.  It is highlighted with the <a href="syntax.html#hl-MoreMsg">hl-MoreMsg</a>
+given when the <a href="/neovim-docs-web/en/options#'more'">'more'</a> option is on.  It is highlighted with the <a href="/neovim-docs-web/en/syntax#hl-MoreMsg">hl-MoreMsg</a>
 group.</div>
 <div class="old-help-para"><div class="help-column_heading">Type					effect</div>     <code>&lt;CR&gt;</code> or <code>&lt;NL&gt;</code> or j or <code>&lt;Down&gt;</code>	one more line
      d					down a page (half a screen)
@@ -531,11 +531,11 @@ group.</div>
 <div class="old-help-para">Any other key causes the meaning of the keys to be displayed.</div>
 <div class="old-help-para">()  Clicking the left mouse button only works:
 <div class="help-li" style=""> For the GUI: in the last line of the screen.
-</div><div class="help-li" style=""> When 'r' is included in <a href="options.html#'mouse'">'mouse'</a> (but then selecting text won't work).
+</div><div class="help-li" style=""> When 'r' is included in <a href="/neovim-docs-web/en/options#'mouse'">'mouse'</a> (but then selecting text won't work).
 </div></div>
 <div class="old-help-para">Note: The typed key is directly obtained from the terminal, it is not mapped
 and typeahead is ignored.</div>
-<div class="old-help-para">The <a href="message.html#g%3C">g&lt;</a> command can be used to see the last page of previous command output.
+<div class="old-help-para">The <a href="/neovim-docs-web/en/message#g%3C">g&lt;</a> command can be used to see the last page of previous command output.
 This is especially useful if you accidentally typed <code>&lt;Space&gt;</code> at the hit-enter
 prompt.</div>
 

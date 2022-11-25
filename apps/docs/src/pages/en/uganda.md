@@ -15,15 +15,15 @@ layout: ../../layouts/MainLayout.astro
   <div class="old-help-para"> <a name="Uganda"></a><code class="help-tag">Uganda</code> <a name="copying"></a><code class="help-tag">copying</code> <a name="copyright"></a><code class="help-tag">copyright</code> <a name="license"></a><code class="help-tag">license</code>
 <a name="_summary"></a><h3 class="help-heading">SUMMARY</h3>								<a name="iccf"></a><code class="help-tag-right">iccf</code> <a name="ICCF"></a><code class="help-tag">ICCF</code>
 Vim is Charityware.  You can use and copy it as much as you like, but you are
-encouraged to make a donation for needy children in Uganda.  Please see <a href="uganda.html#kcc">kcc</a>
+encouraged to make a donation for needy children in Uganda.  Please see <a href="/neovim-docs-web/en/uganda#kcc">kcc</a>
 below or visit the ICCF web site, available at these URLs:</div>
 <div class="old-help-para">	<a href="https://iccf-holland.org/">https://iccf-holland.org/</a>
 	<a href="https://www.vim.org/iccf/">https://www.vim.org/iccf/</a>
 	<a href="https://www.iccf.nl/">https://www.iccf.nl/</a></div>
 <div class="old-help-para">You can also sponsor the development of Vim.  Vim sponsors can vote for
-features.  See <a href="intro.html#sponsor">sponsor</a>.  The money goes to Uganda anyway.</div>
+features.  See <a href="/neovim-docs-web/en/intro#sponsor">sponsor</a>.  The money goes to Uganda anyway.</div>
 <div class="old-help-para">The Open Publication License applies to the Vim documentation, see
-<a href="usr_01.html#manual-copyright">manual-copyright</a>.</div>
+<a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>.</div>
 <div class="old-help-para">=== begin of license ===</div>
 <div class="old-help-para"><a name="_vim-license"></a><h3 class="help-heading">VIM LICENSE</h3></div>
 <div class="old-help-para">I)  There are no restrictions on distributing unmodified copies of Vim except
@@ -106,7 +106,7 @@ features.  See <a href="intro.html#sponsor">sponsor</a>.  The money goes to Ugan
   file and consider helping needy children in Uganda.
 </div></div>
 <div class="old-help-para"><div class="help-li" style=""> If you want to support further Vim development consider becoming a
-  <a href="intro.html#sponsor">sponsor</a>.  The money goes to Uganda anyway.
+  <a href="/neovim-docs-web/en/intro#sponsor">sponsor</a>.  The money goes to Uganda anyway.
 </div></div>
 <div class="old-help-para"><div class="help-li" style=""> According to Richard Stallman the Vim license is GNU GPL compatible.
   A few minor changes have been made since he checked it, but that should not
@@ -190,7 +190,7 @@ on the ICCF web site.</div>
 			p.o. box 1658
 			Masaka, Uganda, East Africa</div>
 <div class="old-help-para">Sending money:						<a name="iccf-donations"></a><code class="help-tag-right">iccf-donations</code></div>
-<div class="old-help-para">Check the ICCF web site for the latest information!  See <a href="uganda.html#iccf">iccf</a> for the URL.</div>
+<div class="old-help-para">Check the ICCF web site for the latest information!  See <a href="/neovim-docs-web/en/uganda#iccf">iccf</a> for the URL.</div>
 <div class="old-help-para">USA:		The methods mentioned below can be used.
 		If you must send a check send it to our Canadian partner:
 		<a href="https://www.kuwasha.net/">https://www.kuwasha.net/</a></div>

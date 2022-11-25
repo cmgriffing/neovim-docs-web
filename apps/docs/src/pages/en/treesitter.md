@@ -22,35 +22,35 @@ changes. This documentation may also not fully reflect the latest changes.</div>
 search for in the <code>parser</code> runtime directory. By default, Nvim bundles only
 parsers for C, Lua, and Vimscript, but parsers can be installed manually or
 via a plugin like <a href="https://github.com/nvim-treesitter/nvim-treesitter">https://github.com/nvim-treesitter/nvim-treesitter</a>.
-Parsers are searched for as <code>parser/{lang}.*</code> in any <a href="options.html#'runtimepath'">'runtimepath'</a> directory.
+Parsers are searched for as <code>parser/{lang}.*</code> in any <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> directory.
 If multiple parsers for the same language are found, the first one is used.
 (This typically implies the priority "user config &gt; plugins &gt; bundled".
 A parser can also be loaded manually using a full path:<pre>vim.treesitter.require_language("python", "/path/to/python.so")</pre></div>
 <div class="old-help-para"><h2 class="help-heading">LANGUAGE TREES<span class="help-heading-tags">                                       <a name="treesitter-languagetree"></a><span class="help-tag">treesitter-languagetree</span></span></h2>                                                                <a name="LanguageTree"></a><code class="help-tag-right">LanguageTree</code></div>
 <div class="old-help-para">As buffers can contain multiple languages (e.g., Vimscript commands in a Lua
 file), multiple parsers may be needed to parse the full buffer. These are
-combined in a <a href="treesitter.html#LanguageTree">LanguageTree</a> object.</div>
+combined in a <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> object.</div>
 <div class="old-help-para">To create a LanguageTree (parser object) for a buffer and a given language,
 use<pre>tsparser = vim.treesitter.get_parser(bufnr, lang)</pre></div>
-<div class="old-help-para"><code>bufnr=0</code> can be used for current buffer. <code>lang</code> will default to <a href="options.html#'filetype'">'filetype'</a>.
+<div class="old-help-para"><code>bufnr=0</code> can be used for current buffer. <code>lang</code> will default to <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>.
 Currently, the parser will be retained for the lifetime of a buffer but this
 is subject to change. A plugin should keep a reference to the parser object as
 long as it wants incremental updates.</div>
 <div class="old-help-para">Whenever you need to access the current syntax tree, parse the buffer:<pre>tstree = tsparser:parse()</pre></div>
-<div class="old-help-para">This will return a table of immutable <a href="treesitter.html#treesitter-tree">treesitter-tree</a>s that represent the
+<div class="old-help-para">This will return a table of immutable <a href="/neovim-docs-web/en/treesitter#treesitter-tree">treesitter-tree</a>s that represent the
 current state of the buffer. When the plugin wants to access the state after a
 (possible) edit it should call <code>parse()</code> again. If the buffer wasn't edited,
 the same tree will be returned again without extra work. If the buffer was
 parsed before, incremental parsing will be done of the changed parts.</div>
-<div class="old-help-para">Note: To use the parser directly inside a <a href="api.html#nvim_buf_attach()">nvim_buf_attach()</a> Lua callback, you
-must call <a href="treesitter.html#get_parser()">get_parser()</a> before you register your callback. But preferably
+<div class="old-help-para">Note: To use the parser directly inside a <a href="/neovim-docs-web/en/api#nvim_buf_attach()">nvim_buf_attach()</a> Lua callback, you
+must call <a href="/neovim-docs-web/en/treesitter#get_parser()">get_parser()</a> before you register your callback. But preferably
 parsing shouldn't be done directly in the change callback anyway as they will
 be very frequent. Rather a plugin that does any kind of analysis on a tree
 should use a timer to throttle too frequent updates.</div>
-<div class="old-help-para">See <a href="treesitter.html#lua-treesitter-languagetree">lua-treesitter-languagetree</a> for the list of available methods.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/treesitter#lua-treesitter-languagetree">lua-treesitter-languagetree</a> for the list of available methods.</div>
 <div class="old-help-para"><h2 class="help-heading">TREESITTER TREES<span class="help-heading-tags">                                             <a name="treesitter-tree"></a><span class="help-tag">treesitter-tree</span></span></h2>                                                                      <a name="tstree"></a><code class="help-tag-right">tstree</code></div>
 <div class="old-help-para">A "treesitter tree" represents the parsed contents of a buffer, which can be
-used to perform further analysis. It is a <a href="luaref.html#luaref-userdata">luaref-userdata</a> reference to an
+used to perform further analysis. It is a <a href="/neovim-docs-web/en/luaref#luaref-userdata">luaref-userdata</a> reference to an
 object held by the tree-sitter library.</div>
 <div class="old-help-para">An instance <code>tstree</code> of a treesitter tree supports the following methods.</div>
 <div class="old-help-para">tstree:root()                                           <a name="tstree%3Aroot()"></a><code class="help-tag-right">tstree:root()</code>
@@ -60,7 +60,7 @@ object held by the tree-sitter library.</div>
 <div class="old-help-para"><h2 class="help-heading">TREESITTER NODES<span class="help-heading-tags">                                             <a name="treesitter-node"></a><span class="help-tag">treesitter-node</span></span></h2>                                                                      <a name="tsnode"></a><code class="help-tag-right">tsnode</code></div>
 <div class="old-help-para">A "treesitter node" represents one specific element of the parsed contents of
 a buffer, which can be captured by aQuery for, e.g., highlighting. It is a
-<a href="luaref.html#luaref-userdata">luaref-userdata</a> reference to an object held by the tree-sitter library.</div>
+<a href="/neovim-docs-web/en/luaref#luaref-userdata">luaref-userdata</a> reference to an object held by the tree-sitter library.</div>
 <div class="old-help-para">An instance <code>tsnode</code> of a treesitter node supports the following methods.</div>
 <div class="old-help-para">tsnode:parent()                                         <a name="tsnode%3Aparent()"></a><code class="help-tag-right">tsnode:parent()</code>
     Get the node's immediate parent.</div>
@@ -129,7 +129,7 @@ tsnode:named_descendant_for_range({start_row}, <code>{start_col}</code>, <code>{
     Get the smallest named node within this node that spans the given range of
     (row, column) positions</div>
 <div class="old-help-para"><h2 class="help-heading">TREESITTER QUERIES<span class="help-heading-tags">                                          <a name="treesitter-query"></a><span class="help-tag">treesitter-query</span></span></h2></div>
-<div class="old-help-para">Treesitter queries are a way to extract information about a parsed <a href="treesitter.html#tstree">tstree</a>,
+<div class="old-help-para">Treesitter queries are a way to extract information about a parsed <a href="/neovim-docs-web/en/treesitter#tstree">tstree</a>,
 e.g., for the purpose of highlighting. Briefly, a <code>query</code> consists of one or
 more patterns. A <code>pattern</code> is defined over node types in the syntax tree. A
 <code>match</code> corresponds to specific elements of the syntax tree which match a
@@ -139,15 +139,15 @@ adds arbitrary metadata and conditional data to a match.</div>
 <div class="old-help-para">Queries are written in a lisp-like language documented in
 <a href="https://tree-sitter.github.io/tree-sitter/using-parsers#query-syntax">https://tree-sitter.github.io/tree-sitter/using-parsers#query-syntax</a>
 Note: The predicates listed there page differ from those Nvim supports. See
-<a href="treesitter.html#treesitter-predicates">treesitter-predicates</a> for a complete list of predicates supported by Nvim.</div>
+<a href="/neovim-docs-web/en/treesitter#treesitter-predicates">treesitter-predicates</a> for a complete list of predicates supported by Nvim.</div>
 <div class="old-help-para">Nvim looks for queries as <code>*.scm</code> files in a <code>queries</code> directory under
 <code>runtimepath</code>, where each file contains queries for a specific language and
 purpose, e.g., <code>queries/lua/highlights.scm</code> for highlighting Lua files.
 By default, the first query on <code>runtimepath</code> is used (which usually implies
 that user config takes precedence over plugins, which take precedence over
 queries bundled with Neovim). If a query should extend other queries instead
-of replacing them, use <a href="treesitter.html#treesitter-query-modeline-extends">treesitter-query-modeline-extends</a>.</div>
-<div class="old-help-para">See <a href="treesitter.html#lua-treesitter-query">lua-treesitter-query</a> for the list of available methods for working with
+of replacing them, use <a href="/neovim-docs-web/en/treesitter#treesitter-query-modeline-extends">treesitter-query-modeline-extends</a>.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/treesitter#lua-treesitter-query">lua-treesitter-query</a> for the list of available methods for working with
 treesitter queries from Lua.</div>
 <div class="old-help-para"><h3 class="help-heading">TREESITTER QUERY PREDICATES<span class="help-heading-tags">                            <a name="treesitter-predicates"></a><span class="help-tag">treesitter-predicates</span></span></h3></div>
 <div class="old-help-para">Predicates are special scheme nodes that are evaluated to conditionally capture
@@ -159,11 +159,11 @@ nodes. For example, the <code>eq?</code> predicate can be used as follows:<pre>(
 ((node1) @left (node2) @right (#eq? @left @right))</pre></div>
 <div class="old-help-para">    <code>match?</code>                                      <a name="treesitter-predicate-match%3F"></a><code class="help-tag-right">treesitter-predicate-match?</code>
     <code>vim-match?</code>                              <a name="treesitter-predicate-vim-match%3F"></a><code class="help-tag-right">treesitter-predicate-vim-match?</code>
-         Match a <a href="pattern.html#regexp">regexp</a> against the text corresponding to a node:<pre>((identifier) @constant (#match? @constant "^[A-Z_]+$"))</pre></div>
+         Match a <a href="/neovim-docs-web/en/pattern#regexp">regexp</a> against the text corresponding to a node:<pre>((identifier) @constant (#match? @constant "^[A-Z_]+$"))</pre></div>
 <div class="old-help-para">         Note: The <code>^</code> and <code>$</code> anchors will match the start and end of the
                node's text.</div>
 <div class="old-help-para">    <code>lua-match?</code>                              <a name="treesitter-predicate-lua-match%3F"></a><code class="help-tag-right">treesitter-predicate-lua-match?</code>
-         Match <a href="lua.html#lua-patterns">lua-patterns</a> against the text corresponding to a node,
+         Match <a href="/neovim-docs-web/en/lua#lua-patterns">lua-patterns</a> against the text corresponding to a node,
          similar to <code>match?</code></div>
 <div class="old-help-para">    <code>contains?</code>                                <a name="treesitter-predicate-contains%3F"></a><code class="help-tag-right">treesitter-predicate-contains?</code>
         Match a string against parts of the text corresponding to a node:<pre>((identifier) @foo (#contains? @foo "foo"))
@@ -176,8 +176,8 @@ nodes. For example, the <code>eq?</code> predicate can be used as follows:<pre>(
 <div class="old-help-para">                                                 <a name="lua-treesitter-not-predicate"></a><code class="help-tag-right">lua-treesitter-not-predicate</code>
 Each predicate has a <code>not-</code> prefixed predicate that is just the negation of
 the predicate.</div>
-<div class="old-help-para">Further predicates can be added via <code>vim.treesitter.query.</code><a href="treesitter.html#add_predicate()">add_predicate()</a>.
-Use <code>vim.treesitter.query.</code><a href="treesitter.html#list_predicates()">list_predicates()</a> to list all available
+<div class="old-help-para">Further predicates can be added via <code>vim.treesitter.query.</code><a href="/neovim-docs-web/en/treesitter#add_predicate()">add_predicate()</a>.
+Use <code>vim.treesitter.query.</code><a href="/neovim-docs-web/en/treesitter#list_predicates()">list_predicates()</a> to list all available
 predicates.</div>
 <div class="old-help-para"><h3 class="help-heading">TREESITTER QUERY DIRECTIVES<span class="help-heading-tags">                            <a name="treesitter-directives"></a><span class="help-tag">treesitter-directives</span></span></h3></div>
 <div class="old-help-para">Treesitter directives store metadata for a node or match and perform side
@@ -202,8 +202,8 @@ effects. For example, the <code>set!</code> directive sets metadata on the match
             <code>{end_row}</code>
             <code>{end_col}</code></div>
 <div class="old-help-para">        Example:<pre>((identifier) @constant (#offset! @constant 0 1 0 -1))</pre></div>
-<div class="old-help-para">Further directives can be added via <code>vim.treesitter.query.</code><a href="treesitter.html#add_directive()">add_directive()</a>.
-Use <code>vim.treesitter.query.</code><a href="treesitter.html#list_directives()">list_directives()</a> to list all available
+<div class="old-help-para">Further directives can be added via <code>vim.treesitter.query.</code><a href="/neovim-docs-web/en/treesitter#add_directive()">add_directive()</a>.
+Use <code>vim.treesitter.query.</code><a href="/neovim-docs-web/en/treesitter#list_directives()">list_directives()</a> to list all available
 directives.</div>
 <div class="old-help-para"><h3 class="help-heading">TREESITTER QUERY MODELINES<span class="help-heading-tags">                          <a name="treesitter-query-modeline"></a><span class="help-tag">treesitter-query-modeline</span></span></h3></div>
 <div class="old-help-para">Neovim supports to customize the behavior of the queries using a set of
@@ -220,7 +220,7 @@ currently supported modeline alternatives:</div>
         Specifies that this query should be used as an extension for the
         query, i.e. that it should be merged with the others.
         Note: The order of the extensions, and the query that will be used as
-        a base depends on your <a href="options.html#'runtimepath'">'runtimepath'</a> value.</div>
+        a base depends on your <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> value.</div>
 <div class="old-help-para">Note: These modeline comments must be at the top of the query, but can be
 repeated, for example, the following two modeline blocks are both valid:<pre>;; inherits: foo,bar
 ;; extends
@@ -230,7 +230,7 @@ repeated, for example, the following two modeline blocks are both valid:<pre>;; 
 ;; inherits: baz</pre></div>
 <div class="old-help-para"><h2 class="help-heading">TREESITTER SYNTAX HIGHLIGHTING<span class="help-heading-tags">                          <a name="treesitter-highlight"></a><span class="help-tag">treesitter-highlight</span></span></h2></div>
 <div class="old-help-para">Syntax highlighting is specified through queries named <code>highlights.scm</code>,
-which match a <a href="treesitter.html#tsnode">tsnode</a> in the parsed <a href="treesitter.html#tstree">tstree</a> to a <code>capture</code> that can be
+which match a <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a> in the parsed <a href="/neovim-docs-web/en/treesitter#tstree">tstree</a> to a <code>capture</code> that can be
 assigned a highlight group. For example, the query<pre>(parameters (identifier) @parameter)</pre></div>
 <div class="old-help-para">matches any <code>identifier</code> node inside a function <code>parameter</code> node (e.g., the
 <code>bar</code> in <code>foo(bar)</code>) to the capture named <code>@parameter</code>. It is also possible to
@@ -241,7 +241,7 @@ vim.treesitter.start().</div>
 <div class="old-help-para">                                                 <a name="treesitter-highlight-groups"></a><code class="help-tag-right">treesitter-highlight-groups</code>
 The capture names, with <code>@</code> included, are directly usable as highlight groups.
 For many commonly used captures, the corresponding highlight groups are linked
-to Nvim's standard <a href="syntax.html#highlight-groups">highlight-groups</a> by default but can be overridden in
+to Nvim's standard <a href="/neovim-docs-web/en/syntax#highlight-groups">highlight-groups</a> by default but can be overridden in
 colorschemes.</div>
 <div class="old-help-para">A fallback system is implemented, so that more specific groups fallback to
 more generic ones. For instance, in a language that has separate doc comments,
@@ -254,7 +254,7 @@ language, by appending the language name after an additional dot. For
 instance, to highlight comments differently per language:<pre>hi @comment.c guifg=Blue
 hi @comment.lua @guifg=DarkBlue
 hi link @comment.doc.java String</pre></div>
-<div class="old-help-para">The following captures are linked by default to standard <a href="syntax.html#group-name">group-name</a>s:
+<div class="old-help-para">The following captures are linked by default to standard <a href="/neovim-docs-web/en/syntax#group-name">group-name</a>s:
 <pre>@text.literal      Comment
 @text.reference    Identifier
 @text.title        Title
@@ -307,11 +307,11 @@ hi link @comment.doc.java String</pre></div>
 @tag               Tag</pre></div>
 <div class="old-help-para">                                                  <a name="treesitter-highlight-spell"></a><code class="help-tag-right">treesitter-highlight-spell</code>
 The special <code>@spell</code> capture can be used to indicate that a node should be
-spell checked by Nvim's builtin <a href="spell.html#spell">spell</a> checker. For example, the following
+spell checked by Nvim's builtin <a href="/neovim-docs-web/en/spell#spell">spell</a> checker. For example, the following
 capture marks comments as to be checked:<pre>(comment) @spell</pre></div>
 <div class="old-help-para">There is also <code>@nospell</code> which disables spellchecking regions with <code>@spell</code>.</div>
 <div class="old-help-para">                                                <a name="treesitter-highlight-conceal"></a><code class="help-tag-right">treesitter-highlight-conceal</code>
-Treesitter highlighting supports <a href="syntax.html#conceal">conceal</a> via the <code>conceal</code> metadata. By
+Treesitter highlighting supports <a href="/neovim-docs-web/en/syntax#conceal">conceal</a> via the <code>conceal</code> metadata. By
 convention, nodes to be concealed are captured as <code>@conceal</code>, but any capture
 can be used. For example, the following query can be used to hide code block
 delimiters in Markdown:<pre>(fenced_code_block_delimiter) @conceal (#set! conceal "")</pre></div>
@@ -319,9 +319,9 @@ delimiters in Markdown:<pre>(fenced_code_block_delimiter) @conceal (#set! concea
 legacy syntax) can be given a custom highlight. For example, the following
 (ill-advised) query replaces the <code>!=</code> operator by a Unicode glyph, which is
 still highlighted the same as other operators:<pre>"!=" @operator (#set! conceal "≠")</pre></div>
-<div class="old-help-para">Conceals specified in this way respect <a href="options.html#'conceallevel'">'conceallevel'</a>.</div>
+<div class="old-help-para">Conceals specified in this way respect <a href="/neovim-docs-web/en/options#'conceallevel'">'conceallevel'</a>.</div>
 <div class="old-help-para">                                               <a name="treesitter-highlight-priority"></a><code class="help-tag-right">treesitter-highlight-priority</code>
-Treesitter uses <a href="api.html#nvim_buf_set_extmark()">nvim_buf_set_extmark()</a> to set highlights with a default
+Treesitter uses <a href="/neovim-docs-web/en/api#nvim_buf_set_extmark()">nvim_buf_set_extmark()</a> to set highlights with a default
 priority of 100. This enables plugins to set a highlighting priority lower or
 higher than tree-sitter. It is also possible to change the priority of an
 individual query pattern manually by setting its <code>"priority"</code> metadata
@@ -368,10 +368,10 @@ get_node_at_cursor(<code>{winnr}</code>)                             <a name="ge
 </div><div class="help-li" style="margin-left: 3rem;"> ignore_injections boolean Ignore injected languages
                    (default true)
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata <a href="treesitter.html#tsnode">tsnode</a> under the cursor</div>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a> under the cursor</div>
 <div class="old-help-para">get_node_range(<code>{node_or_range}</code>)                             <a name="get_node_range()"></a><code class="help-tag-right">get_node_range()</code>
     Returns the node's range or an unpacked range table</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node_or_range}</code>  (userdata|table) <a href="treesitter.html#tsnode">tsnode</a> or table of positions
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node_or_range}</code>  (userdata|table) <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a> or table of positions
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">    Return:</div>        (table) <code>{ start_row, start_col, end_row, end_col }</code></div>
 <div class="old-help-para">get_parser(<code>{bufnr}</code>, <code>{lang}</code>, <code>{opts}</code>)                             <a name="get_parser()"></a><code class="help-tag-right">get_parser()</code>
@@ -384,30 +384,30 @@ get_node_at_cursor(<code>{winnr}</code>)                             <a name="ge
                  filetype)
 </div><div class="help-li" style=""> <code>{opts}</code>   (table|nil) Options to pass to the created language tree
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        LanguageTree <a href="treesitter.html#LanguageTree">LanguageTree</a> object to use for parsing</div>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        LanguageTree <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> object to use for parsing</div>
 <div class="old-help-para">get_string_parser(<code>{str}</code>, <code>{lang}</code>, <code>{opts}</code>)                 <a name="get_string_parser()"></a><code class="help-tag-right">get_string_parser()</code>
     Returns a string parser</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{str}</code>   (string) Text to parse
 </div><div class="help-li" style=""> <code>{lang}</code>  (string) Language of this string
 </div><div class="help-li" style=""> <code>{opts}</code>  (table|nil) Options to pass to the created language tree
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        LanguageTree <a href="treesitter.html#LanguageTree">LanguageTree</a> object to use for parsing</div>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        LanguageTree <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> object to use for parsing</div>
 <div class="old-help-para">is_ancestor(<code>{dest}</code>, <code>{source}</code>)                                  <a name="is_ancestor()"></a><code class="help-tag-right">is_ancestor()</code>
     Determines whether a node is the ancestor of another</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{dest}</code>    userdata Possible ancestor <a href="treesitter.html#tsnode">tsnode</a>
-</div><div class="help-li" style=""> <code>{source}</code>  userdata Possible descendant <a href="treesitter.html#tsnode">tsnode</a>
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{dest}</code>    userdata Possible ancestor <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a>
+</div><div class="help-li" style=""> <code>{source}</code>  userdata Possible descendant <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a>
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">    Return:</div>        (boolean) True if <code>{dest}</code> is an ancestor of <code>{source}</code></div>
 <div class="old-help-para">is_in_node_range(<code>{node}</code>, <code>{line}</code>, <code>{col}</code>)                   <a name="is_in_node_range()"></a><code class="help-tag-right">is_in_node_range()</code>
     Determines whether (line, col) position is in node range</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>  userdata <a href="treesitter.html#tsnode">tsnode</a> defining the range
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>  userdata <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a> defining the range
 </div><div class="help-li" style=""> <code>{line}</code>  (number) Line (0-based)
 </div><div class="help-li" style=""> <code>{col}</code>   (number) Column (0-based)
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">    Return:</div>        (boolean) True if the position is in node range</div>
 <div class="old-help-para">node_contains(<code>{node}</code>, <code>{range}</code>)                               <a name="node_contains()"></a><code class="help-tag-right">node_contains()</code>
     Determines if a node contains a range</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>   userdata <a href="treesitter.html#tsnode">tsnode</a>
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>   userdata <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a>
 </div><div class="help-li" style=""> <code>{range}</code>  (table)
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">    Return:</div>        (boolean) True if the <code>{node}</code> contains the <code>{range}</code></div>
@@ -473,7 +473,7 @@ require_language(<code>{lang}</code>, <code>{path}</code>, <code>{silent}</code>
 </div></div>
 <div class="old-help-para">get_node_text(<code>{node}</code>, <code>{source}</code>, <code>{opts}</code>)                      <a name="get_node_text()"></a><code class="help-tag-right">get_node_text()</code>
     Gets the text corresponding to a given node</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>    userdata <a href="treesitter.html#tsnode">tsnode</a>
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>    userdata <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a>
 </div><div class="help-li" style=""> <code>{source}</code>  (number|string) Buffer or string from which the <code>{node}</code> is
                   extracted
 </div><div class="help-li" style=""> <code>{opts}</code>    (table|nil) Optional parameters.
@@ -506,7 +506,7 @@ get_query_files(<code>{lang}</code>, <code>{query_name}</code>, <code>{is_includ
 <div class="old-help-para">parse_query(<code>{lang}</code>, <code>{query}</code>)                                   <a name="parse_query()"></a><code class="help-tag-right">parse_query()</code>
     Parse <code>{query}</code> as a string. (If the query is in a file, the caller should
     read the contents into a string before calling).</div>
-<div class="old-help-para">    Returns a <code>Query</code> (see <a href="treesitter.html#lua-treesitter-query">lua-treesitter-query</a>) object which can be used to search nodes in
+<div class="old-help-para">    Returns a <code>Query</code> (see <a href="/neovim-docs-web/en/treesitter#lua-treesitter-query">lua-treesitter-query</a>) object which can be used to search nodes in
     the syntax tree for the patterns defined in <code>{query}</code> using <code>iter_*</code> methods below.</div>
 <div class="old-help-para">    Exposes <code>info</code> and <code>captures</code> with additional context about <code>{query}</code>.
 <div class="help-li" style=""> <code>captures</code> contains the list of unique capture names defined in <code>{query}</code>.
@@ -536,7 +536,7 @@ Query:iter_captures({self}, <code>{node}</code>, <code>{source}</code>, <code>{s
   local row1, col1, row2, col2 = node:range() -- range of the capture
   ... use the info here ...
 end</pre></div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>    userdata <a href="treesitter.html#tsnode">tsnode</a> under which the search will occur
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>    userdata <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a> under which the search will occur
 </div><div class="help-li" style=""> <code>{source}</code>  (number|string) Source buffer or string to extract text from
 </div><div class="help-li" style=""> <code>{start}</code>   (number) Starting line for the search
 </div><div class="help-li" style=""> <code>{stop}</code>    (number) Stopping line for the search (end-exclusive)
@@ -549,7 +549,7 @@ end</pre></div>
 Query:iter_matches({self}, <code>{node}</code>, <code>{source}</code>, <code>{start}</code>, <code>{stop}</code>)
     Iterates the matches of self on a given range.</div>
 <div class="old-help-para">    Iterate over all matches within a <code>{node}</code>. The arguments are the same as
-    for <a href="treesitter.html#Query%3Aiter_captures()">Query:iter_captures()</a> but the iterated values are different: an
+    for <a href="/neovim-docs-web/en/treesitter#Query%3Aiter_captures()">Query:iter_captures()</a> but the iterated values are different: an
     (1-based) index of the pattern in the query, a table mapping capture
     indices to nodes, and metadata from any directives processing the match.
     If the query has more than one pattern, the capture table might be sparse
@@ -563,7 +563,7 @@ Query:iter_matches({self}, <code>{node}</code>, <code>{source}</code>, <code>{st
     ... use the info here ...
   end
 end</pre></div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>    userdata <a href="treesitter.html#tsnode">tsnode</a> under which the search will occur
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{node}</code>    userdata <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a> under which the search will occur
 </div><div class="help-li" style=""> <code>{source}</code>  (number|string) Source buffer or string to search
 </div><div class="help-li" style=""> <code>{start}</code>   (number) Starting line for the search
 </div><div class="help-li" style=""> <code>{stop}</code>    (number) Stopping line for the search (end-exclusive)
@@ -583,7 +583,7 @@ end</pre></div>
 <div class="old-help-para"><h2 class="help-heading">Lua module: vim.treesitter.highlighter<span class="help-heading-tags">            <a name="lua-treesitter-highlighter"></a><span class="help-tag">lua-treesitter-highlighter</span></span></h2></div>
 <div class="old-help-para">new(<code>{tree}</code>, <code>{opts}</code>)                                        <a name="highlighter.new()"></a><code class="help-tag-right">highlighter.new()</code>
     Creates a new highlighter using</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{tree}</code>  LanguageTree <a href="treesitter.html#LanguageTree">LanguageTree</a> parser object to use for highlighting
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{tree}</code>  LanguageTree <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> parser object to use for highlighting
 </div><div class="help-li" style=""> <code>{opts}</code>  (table|nil) Configuration of the highlighter:
 </div><div class="help-li" style="margin-left: 3rem;"> queries table overwrite queries used by the highlighter
 </div></div>
@@ -598,27 +598,27 @@ end</pre></div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
 <div class="old-help-para">LanguageTree:contains({self}, <code>{range}</code>)               <a name="LanguageTree%3Acontains()"></a><code class="help-tag-right">LanguageTree:contains()</code>
-    Determines whether <code>{range}</code> is contained in the <a href="treesitter.html#LanguageTree">LanguageTree</a>.</div>
+    Determines whether <code>{range}</code> is contained in the <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a>.</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{range}</code>  (table) <code>{ start_line, start_col, end_line, end_col }</code>
 </div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
 <div class="old-help-para"><div class="help-column_heading">    Return:</div>        (boolean)</div>
 <div class="old-help-para">LanguageTree:destroy({self})                          <a name="LanguageTree%3Adestroy()"></a><code class="help-tag-right">LanguageTree:destroy()</code>
-    Destroys this <a href="treesitter.html#LanguageTree">LanguageTree</a> and all its children.</div>
+    Destroys this <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> and all its children.</div>
 <div class="old-help-para">    Any cleanup logic should be performed here.</div>
 <div class="old-help-para">    Note: This DOES NOT remove this tree from a parent. Instead, <code>remove_child</code> must be called on the parent to remove it.</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
 <div class="old-help-para">                                               <a name="LanguageTree%3Afor_each_child()"></a><code class="help-tag-right">LanguageTree:for_each_child()</code>
 LanguageTree:for_each_child({self}, <code>{fn}</code>, <code>{include_self}</code>)
-    Invokes the callback for each <a href="treesitter.html#LanguageTree">LanguageTree</a> and its children recursively</div>
+    Invokes the callback for each <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> and its children recursively</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{fn}</code>            function(tree: LanguageTree, lang: string)
 </div><div class="help-li" style=""> <code>{include_self}</code>  (boolean) Whether to include the invoking tree in the
                         results
 </div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
 <div class="old-help-para">LanguageTree:for_each_tree({self}, <code>{fn}</code>)        <a name="LanguageTree%3Afor_each_tree()"></a><code class="help-tag">LanguageTree:for_each_tree()</code>
-    Invokes the callback for each <a href="treesitter.html#LanguageTree">LanguageTree</a> recursively.</div>
+    Invokes the callback for each <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> recursively.</div>
 <div class="old-help-para">    Note: This includes the invoking tree's child trees as well.</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{fn}</code>    function(tree: TSTree, languageTree: LanguageTree)
 </div><div class="help-li" style=""> <code>{self}</code>
@@ -655,20 +655,20 @@ LanguageTree:named_node_for_range({self}, <code>{range}</code>, <code>{opts}</co
                    (default true)
 </div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata|nil Found <a href="treesitter.html#tsnode">tsnode</a></div>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata|nil Found <a href="/neovim-docs-web/en/treesitter#tsnode">tsnode</a></div>
 <div class="old-help-para">LanguageTree:parse({self})                              <a name="LanguageTree%3Aparse()"></a><code class="help-tag-right">LanguageTree:parse()</code>
     Parses all defined regions using a treesitter parser for the language this
     tree represents. This will run the injection query for this language to
     determine if any child languages should be created.</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata[] Table of parsed <a href="treesitter.html#tstree">tstree</a>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata[] Table of parsed <a href="/neovim-docs-web/en/treesitter#tstree">tstree</a>
         (table) Change list</div>
 <div class="old-help-para">LanguageTree:register_cbs({self}, <code>{cbs}</code>)         <a name="LanguageTree%3Aregister_cbs()"></a><code class="help-tag-right">LanguageTree:register_cbs()</code>
-    Registers callbacks for the <a href="treesitter.html#LanguageTree">LanguageTree</a>.</div>
-<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{cbs}</code>   (table) An <a href="api.html#nvim_buf_attach()">nvim_buf_attach()</a>-like table argument with the
+    Registers callbacks for the <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a>.</div>
+<div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{cbs}</code>   (table) An <a href="/neovim-docs-web/en/api#nvim_buf_attach()">nvim_buf_attach()</a>-like table argument with the
                 following handlers:
-</div><div class="help-li" style="margin-left: 3rem;"> <code>on_bytes</code> : see <a href="api.html#nvim_buf_attach()">nvim_buf_attach()</a>, but this will be called after the parsers callback.
+</div><div class="help-li" style="margin-left: 3rem;"> <code>on_bytes</code> : see <a href="/neovim-docs-web/en/api#nvim_buf_attach()">nvim_buf_attach()</a>, but this will be called after the parsers callback.
 </div><div class="help-li" style="margin-left: 3rem;"> <code>on_changedtree</code> : a callback that will be called every time
                   the tree has syntactical changes. It will only be passed one
                   argument, which is a table of the ranges (as node ranges)
@@ -692,14 +692,14 @@ LanguageTree:tree_for_range({self}, <code>{range}</code>, <code>{opts}</code>)
                    (default true)
 </div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata|nil Contained <a href="treesitter.html#tstree">tstree</a></div>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        userdata|nil Contained <a href="/neovim-docs-web/en/treesitter#tstree">tstree</a></div>
 <div class="old-help-para">LanguageTree:trees({self})                              <a name="LanguageTree%3Atrees()"></a><code class="help-tag-right">LanguageTree:trees()</code>
     Returns all trees this language tree contains. Does not include child
     languages.</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{self}</code>
 </div></div>
 <div class="old-help-para">new(<code>{source}</code>, <code>{lang}</code>, <code>{opts}</code>)                             <a name="languagetree.new()"></a><code class="help-tag-right">languagetree.new()</code>
-    A <a href="treesitter.html#LanguageTree">LanguageTree</a> holds the treesitter parser for a given language <code>{lang}</code>
+    A <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> holds the treesitter parser for a given language <code>{lang}</code>
     used to parse a buffer. As the buffer may contain injected languages, the LanguageTree needs to store parsers for these child languages as well (which in turn
     may contain child languages themselves, hence the name).</div>
 <div class="old-help-para"><div class="help-column_heading">    Parameters:</div><div class="help-li" style=""> <code>{source}</code>  (number|string) Buffer or a string of text to parse
@@ -710,7 +710,7 @@ LanguageTree:tree_for_range({self}, <code>{range}</code>, <code>{opts}</code>)
                     runtime file searching for the injection language query
                     per language.
 </div></div>
-<div class="old-help-para"><div class="help-column_heading">    Return:</div>        LanguageTree <a href="treesitter.html#LanguageTree">LanguageTree</a> parser object</div>
+<div class="old-help-para"><div class="help-column_heading">    Return:</div>        LanguageTree <a href="/neovim-docs-web/en/treesitter#LanguageTree">LanguageTree</a> parser object</div>
 
   
   

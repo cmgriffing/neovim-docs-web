@@ -159,7 +159,7 @@ in eval.c:
   returned.
 </div><div class="help-li" style=""> eval_has_provider(name): Checks the <code>g:loaded_{name}_provider</code> variable
   which must be set to 2 by the provider script to indicate that it is
-  "enabled and working". Called by <a href="builtin.html#has()">has()</a> to check if features are available.
+  "enabled and working". Called by <a href="/neovim-docs-web/en/builtin#has()">has()</a> to check if features are available.
 </div>
 </div>
 <div class="help-para">
@@ -173,7 +173,7 @@ reflects whether Python support is working.
 							<a name="provider-reload"></a><code class="help-tag-right">provider-reload</code>
 Sometimes a GUI or other application may want to force a provider to
 "reload".  To reload a provider, undefine its "loaded" flag, then use
-<a href="repeat.html#%3Aruntime">:runtime</a> to reload it:<pre>:unlet g:loaded_clipboard_provider
+<a href="/neovim-docs-web/en/repeat#%3Aruntime">:runtime</a> to reload it:<pre>:unlet g:loaded_clipboard_provider
 :runtime autoload/provider/clipboard.vim</pre>
 <h3 class="help-heading">DOCUMENTATION<span class="help-heading-tags">						<a name="dev-doc"></a><span class="help-tag">dev-doc</span></span></h3>
 
@@ -187,11 +187,11 @@ Sometimes a GUI or other application may want to force a provider to
 </div><div class="help-li" style="margin-left: 3rem;"> See <a href="https://developers.google.com/style/tone">https://developers.google.com/style/tone</a>
 </div><div class="help-li" style="margin-left: 3rem;"> Prefer the active voice: "Foo does X", not "X is done by Foo".
 </div><div class="help-li" style=""> Vim differences:
-</div><div class="help-li" style="margin-left: 3rem;"> Do not prefix help tags with "nvim-". Use <a href="vim_diff.html#vim_diff.txt">vim_diff.txt</a> to catalog
+</div><div class="help-li" style="margin-left: 3rem;"> Do not prefix help tags with "nvim-". Use <a href="/neovim-docs-web/en/vim_diff#vim_diff.txt">vim_diff.txt</a> to catalog
       differences from Vim; no other distinction is necessary.
 </div><div class="help-li" style="margin-left: 3rem;"> If a Vim feature is removed, delete its help section and move its tag to
-      <a href="vim_diff.html#vim_diff.txt">vim_diff.txt</a>.
-</div><div class="help-li" style=""> Mention deprecated features in <a href="deprecated.html#deprecated.txt">deprecated.txt</a> and delete their old doc.
+      <a href="/neovim-docs-web/en/vim_diff#vim_diff.txt">vim_diff.txt</a>.
+</div><div class="help-li" style=""> Mention deprecated features in <a href="/neovim-docs-web/en/deprecated#deprecated.txt">deprecated.txt</a> and delete their old doc.
 </div><div class="help-li" style=""> Use consistent language.
 </div><div class="help-li" style="margin-left: 3rem;"> "terminal" in a help tag always means "the embedded terminal emulator",
       not "the user host terminal".
@@ -229,7 +229,7 @@ Strict "vimdoc" subset:
 </div><div class="help-li" style=""> Separate blocks (paragraphs) of content by a blank line(s).
 </div><div class="help-li" style=""> Do not use indentation in random places—that prevents the page from using
   "flow" layout. If you need a preformatted section, put it in
-  a <a href="helphelp.html#help-codeblock">help-codeblock</a> starting with "&gt;".
+  a <a href="/neovim-docs-web/en/helphelp#help-codeblock">help-codeblock</a> starting with "&gt;".
 </div>
 </div>
 <div class="help-para">
@@ -238,7 +238,7 @@ Strict "vimdoc" subset:
 </div>
 <div class="help-para">
 Nvim API documentation lives in the source code, as docstrings (Doxygen
-comments) on the function definitions.  The <a href="api.html#api">api</a> :help is generated
+comments) on the function definitions.  The <a href="/neovim-docs-web/en/api#api">api</a> :help is generated
 from the docstrings defined in src/nvim/api/*.c.
 
 </div>
@@ -253,7 +253,7 @@ Docstring format:
 </div>
 </div>
 <div class="help-para">
-Example: the help for <a href="api.html#nvim_open_win()">nvim_open_win()</a> is generated from a docstring defined
+Example: the help for <a href="/neovim-docs-web/en/api#nvim_open_win()">nvim_open_win()</a> is generated from a docstring defined
 in src/nvim/api/win_config.c like this:<pre>/// Opens a new window.
 /// ...
 ///
@@ -277,7 +277,7 @@ in src/nvim/api/win_config.c like this:<pre>/// Opens a new window.
 <div class="help-column_heading">Lua docstrings</div>
 							<a name="dev-lua-doc"></a><code class="help-tag-right">dev-lua-doc</code>
 Lua documentation lives in the source code, as docstrings on the function
-definitions.  The <a href="lua.html#lua-vim">lua-vim</a> :help is generated from the docstrings.
+definitions.  The <a href="/neovim-docs-web/en/lua#lua-vim">lua-vim</a> :help is generated from the docstrings.
 
 </div>
 <div class="help-para">
@@ -291,7 +291,7 @@ Docstring format:
 </div>
 </div>
 <div class="help-para">
-Example: the help for <a href="lua.html#vim.paste()">vim.paste()</a> is generated from a docstring decorating
+Example: the help for <a href="/neovim-docs-web/en/lua#vim.paste()">vim.paste()</a> is generated from a docstring decorating
 vim.paste in runtime/lua/vim/_editor.lua like this:<pre>--- Paste handler, invoked by |nvim_paste()| when a conforming UI
 --- (such as the |TUI|) pastes text into the editor.
 ---
@@ -313,7 +313,7 @@ vim.paste in runtime/lua/vim/_editor.lua like this:<pre>--- Paste handler, invok
 
 </div>
 <div class="help-para">
-<div class="help-li" style=""> Keep the core Lua modules <a href="lua.html#lua-stdlib">lua-stdlib</a> simple. Avoid elaborate OOP or
+<div class="help-li" style=""> Keep the core Lua modules <a href="/neovim-docs-web/en/lua#lua-stdlib">lua-stdlib</a> simple. Avoid elaborate OOP or
   pseudo-OOP designs. Plugin authors just want functions to call, they don't
   want to learn a big, fancy inheritance hierarchy. Thus avoid specialized
   objects; tables or values are usually better.
@@ -325,7 +325,7 @@ vim.paste in runtime/lua/vim/_editor.lua like this:<pre>--- Paste handler, invok
 
 </div>
 <div class="help-para">
-Use this format to name new RPC <a href="api.html#API">API</a> functions:
+Use this format to name new RPC <a href="/neovim-docs-web/en/api#API">API</a> functions:
 
 </div>
 <div class="help-para">
@@ -363,7 +363,7 @@ Do NOT use these deprecated verbs:
 Use consistent names for <code>{thing}</code> (nouns) in API functions: buffer is called
 "buf" everywhere, not "buffer" in some places and "buf" in others.
 <div class="help-li" style=""> buf       Buffer
-</div><div class="help-li" style=""> chan      <a href="channel.html#channel">channel</a>
+</div><div class="help-li" style=""> chan      <a href="/neovim-docs-web/en/channel#channel">channel</a>
 </div><div class="help-li" style=""> cmd       Command
 </div><div class="help-li" style=""> cmdline   Command-line UI or input
 </div><div class="help-li" style=""> fn        Function
@@ -412,8 +412,8 @@ Example:
 </div>
 <div class="help-para">
 							<a name="api-client"></a><code class="help-tag-right">api-client</code>
-API clients wrap the Nvim <a href="api.html#API">API</a> to provide idiomatic "SDKs" for their
-respective platforms (see <a href="intro.html#jargon">jargon</a>). You can build a new API client for your
+API clients wrap the Nvim <a href="/neovim-docs-web/en/api#API">API</a> to provide idiomatic "SDKs" for their
+respective platforms (see <a href="/neovim-docs-web/en/intro#jargon">jargon</a>). You can build a new API client for your
 favorite platform or programming language.
 
 </div>
@@ -434,11 +434,11 @@ The Python client is the reference implementation for API clients.
 </div>
 <div class="help-para">
 <div class="help-li" style=""> API clients exist to hide msgpack-rpc details. The wrappers can be
-  automatically generated by reading the <a href="api.html#api-metadata">api-metadata</a> from Nvim. <a href="api.html#api-mapping">api-mapping</a>
-</div><div class="help-li" style=""> Clients should call <a href="api.html#nvim_set_client_info()">nvim_set_client_info()</a> after connecting, so users and
-  plugins can detect the client by handling the <a href="autocmd.html#ChanInfo">ChanInfo</a> event. This avoids
+  automatically generated by reading the <a href="/neovim-docs-web/en/api#api-metadata">api-metadata</a> from Nvim. <a href="/neovim-docs-web/en/api#api-mapping">api-mapping</a>
+</div><div class="help-li" style=""> Clients should call <a href="/neovim-docs-web/en/api#nvim_set_client_info()">nvim_set_client_info()</a> after connecting, so users and
+  plugins can detect the client by handling the <a href="/neovim-docs-web/en/autocmd#ChanInfo">ChanInfo</a> event. This avoids
   the need for special variables or other client hints.
-</div><div class="help-li" style=""> Clients should handle <a href="api.html#nvim_error_event">nvim_error_event</a> notifications, which will be sent
+</div><div class="help-li" style=""> Clients should handle <a href="/neovim-docs-web/en/api#nvim_error_event">nvim_error_event</a> notifications, which will be sent
   if an async request to nvim was rejected or caused an error.
 </div>
 </div>
@@ -471,7 +471,7 @@ Examples of API-client package names:
 
 </div>
 <div class="help-para">
-<div class="help-li" style=""> Separate the transport layer from the rest of the library. <a href="api.html#rpc-connecting">rpc-connecting</a>
+<div class="help-li" style=""> Separate the transport layer from the rest of the library. <a href="/neovim-docs-web/en/api#rpc-connecting">rpc-connecting</a>
 </div><div class="help-li" style=""> Use a MessagePack library that implements at least version 5 of the
   MessagePack spec, which supports the BIN and EXT types used by Nvim.
 </div><div class="help-li" style=""> Use a single-threaded event loop library/pattern.
@@ -498,7 +498,7 @@ Examples of API-client package names:
 
 </div>
 <div class="help-para">
-External UIs should be aware of the <a href="api.html#api-contract">api-contract</a>. In particular, future
+External UIs should be aware of the <a href="/neovim-docs-web/en/api#api-contract">api-contract</a>. In particular, future
 versions of Nvim may add new items to existing events. The API is strongly
 backwards-compatible, but clients must not break if new (optional) fields are
 added to existing events.
@@ -513,18 +513,18 @@ External UIs are expected to implement these common features:
 
 </div>
 <div class="help-para">
-<div class="help-li" style=""> Call <a href="api.html#nvim_set_client_info()">nvim_set_client_info()</a> after connecting, so users and plugins can
-  detect the UI by handling the <a href="autocmd.html#ChanInfo">ChanInfo</a> event. This avoids the need for
+<div class="help-li" style=""> Call <a href="/neovim-docs-web/en/api#nvim_set_client_info()">nvim_set_client_info()</a> after connecting, so users and plugins can
+  detect the UI by handling the <a href="/neovim-docs-web/en/autocmd#ChanInfo">ChanInfo</a> event. This avoids the need for
   special variables and UI-specific config files (gvimrc, macvimrc, …).
-</div><div class="help-li" style=""> Cursor style (shape, color) should conform to the <a href="options.html#'guicursor'">'guicursor'</a> properties
+</div><div class="help-li" style=""> Cursor style (shape, color) should conform to the <a href="/neovim-docs-web/en/options#'guicursor'">'guicursor'</a> properties
   delivered with the mode_info_set UI event.
 </div><div class="help-li" style=""> Send the ALT/META ("Option" on macOS) key as a |&lt;M-| chord.
 </div><div class="help-li" style=""> Send the "super" key (Windows key, Apple key) as a |&lt;D-| chord.
 </div><div class="help-li" style=""> Avoid mappings that conflict with the Nvim keymap-space; GUIs have many new
   chords (<code>&lt;C-,&gt;</code> <code>&lt;C-Enter&gt;</code> <code>&lt;C-S-x&gt;</code> <code>&lt;D-x&gt;</code>) and patterns ("shift shift") that do
   not potentially conflict with Nvim defaults, plugins, etc.
-</div><div class="help-li" style=""> Consider the "option_set" <a href="ui.html#ui-global">ui-global</a> event as a hint for other GUI
-  behaviors. Various UI-related options (<a href="options.html#'guifont'">'guifont'</a>, <a href="options.html#'ambiwidth'">'ambiwidth'</a>, …) are
+</div><div class="help-li" style=""> Consider the "option_set" <a href="/neovim-docs-web/en/ui#ui-global">ui-global</a> event as a hint for other GUI
+  behaviors. Various UI-related options (<a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a>, <a href="/neovim-docs-web/en/options#'ambiwidth'">'ambiwidth'</a>, …) are
   published in this event. See also "mouse_on", "mouse_off".
 </div>
 </div>

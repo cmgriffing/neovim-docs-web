@@ -17,27 +17,27 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">The Structured Query Language (SQL) is a standard which specifies statements
 that allow a user to interact with a relational database.  Vim includes
 features for navigation, indentation and syntax highlighting.</div>
-<div class="old-help-para">1. Navigation					<a href="ft_sql.html#sql-navigation">sql-navigation</a>
-    1.1 Matchit					<a href="ft_sql.html#sql-matchit">sql-matchit</a>
-    1.2 Text Object Motions			<a href="ft_sql.html#sql-object-motions">sql-object-motions</a>
-    1.3 Predefined Object Motions		<a href="ft_sql.html#sql-predefined-objects">sql-predefined-objects</a>
-    1.4 Macros					<a href="ft_sql.html#sql-macros">sql-macros</a>
-2. SQL Dialects					<a href="ft_sql.html#sql-dialects">sql-dialects</a>
-    2.1 SQLSetType				<a href="ft_sql.html#SQLSetType">SQLSetType</a>
-    2.2 SQLGetType				<a href="ft_sql.html#SQLGetType">SQLGetType</a>
-    2.3 SQL Dialect Default			<a href="ft_sql.html#sql-type-default">sql-type-default</a>
-3. Adding new SQL Dialects			<a href="ft_sql.html#sql-adding-dialects">sql-adding-dialects</a>
-4. OMNI SQL Completion				<a href="ft_sql.html#sql-completion">sql-completion</a>
-    4.1 Static mode				<a href="ft_sql.html#sql-completion-static">sql-completion-static</a>
-    4.2 Dynamic mode				<a href="ft_sql.html#sql-completion-dynamic">sql-completion-dynamic</a>
-    4.3 Tutorial				<a href="ft_sql.html#sql-completion-tutorial">sql-completion-tutorial</a>
-	4.3.1 Complete Tables			<a href="ft_sql.html#sql-completion-tables">sql-completion-tables</a>
-	4.3.2 Complete Columns			<a href="ft_sql.html#sql-completion-columns">sql-completion-columns</a>
-	4.3.3 Complete Procedures		<a href="ft_sql.html#sql-completion-procedures">sql-completion-procedures</a>
-	4.3.4 Complete Views			<a href="ft_sql.html#sql-completion-views">sql-completion-views</a>
-    4.4 Completion Customization		<a href="ft_sql.html#sql-completion-customization">sql-completion-customization</a>
-    4.5 SQL Maps				<a href="ft_sql.html#sql-completion-maps">sql-completion-maps</a>
-    4.6 Using with other filetypes		<a href="ft_sql.html#sql-completion-filetypes">sql-completion-filetypes</a></div>
+<div class="old-help-para">1. Navigation					<a href="/neovim-docs-web/en/ft_sql#sql-navigation">sql-navigation</a>
+    1.1 Matchit					<a href="/neovim-docs-web/en/ft_sql#sql-matchit">sql-matchit</a>
+    1.2 Text Object Motions			<a href="/neovim-docs-web/en/ft_sql#sql-object-motions">sql-object-motions</a>
+    1.3 Predefined Object Motions		<a href="/neovim-docs-web/en/ft_sql#sql-predefined-objects">sql-predefined-objects</a>
+    1.4 Macros					<a href="/neovim-docs-web/en/ft_sql#sql-macros">sql-macros</a>
+2. SQL Dialects					<a href="/neovim-docs-web/en/ft_sql#sql-dialects">sql-dialects</a>
+    2.1 SQLSetType				<a href="/neovim-docs-web/en/ft_sql#SQLSetType">SQLSetType</a>
+    2.2 SQLGetType				<a href="/neovim-docs-web/en/ft_sql#SQLGetType">SQLGetType</a>
+    2.3 SQL Dialect Default			<a href="/neovim-docs-web/en/ft_sql#sql-type-default">sql-type-default</a>
+3. Adding new SQL Dialects			<a href="/neovim-docs-web/en/ft_sql#sql-adding-dialects">sql-adding-dialects</a>
+4. OMNI SQL Completion				<a href="/neovim-docs-web/en/ft_sql#sql-completion">sql-completion</a>
+    4.1 Static mode				<a href="/neovim-docs-web/en/ft_sql#sql-completion-static">sql-completion-static</a>
+    4.2 Dynamic mode				<a href="/neovim-docs-web/en/ft_sql#sql-completion-dynamic">sql-completion-dynamic</a>
+    4.3 Tutorial				<a href="/neovim-docs-web/en/ft_sql#sql-completion-tutorial">sql-completion-tutorial</a>
+	4.3.1 Complete Tables			<a href="/neovim-docs-web/en/ft_sql#sql-completion-tables">sql-completion-tables</a>
+	4.3.2 Complete Columns			<a href="/neovim-docs-web/en/ft_sql#sql-completion-columns">sql-completion-columns</a>
+	4.3.3 Complete Procedures		<a href="/neovim-docs-web/en/ft_sql#sql-completion-procedures">sql-completion-procedures</a>
+	4.3.4 Complete Views			<a href="/neovim-docs-web/en/ft_sql#sql-completion-views">sql-completion-views</a>
+    4.4 Completion Customization		<a href="/neovim-docs-web/en/ft_sql#sql-completion-customization">sql-completion-customization</a>
+    4.5 SQL Maps				<a href="/neovim-docs-web/en/ft_sql#sql-completion-maps">sql-completion-maps</a>
+    4.6 Using with other filetypes		<a href="/neovim-docs-web/en/ft_sql#sql-completion-filetypes">sql-completion-filetypes</a></div>
 <div class="old-help-para"><h2 class="help-heading">1. Navigation</h2></div>
 <div class="old-help-para">The SQL ftplugin provides a number of options to assist with file
 navigation.</div>
@@ -86,9 +86,9 @@ when matched
 create[ or replace] procedure|function|event
 returns</pre>
 1.2 Text Object Motions				<a name="sql-object-motions"></a><code class="help-tag-right">sql-object-motions</code>
-<a name="_-vim-has-a-number-of-predefined-keys-for-working-with-text-|object-motions|."></a><h3 class="help-heading">Vim has a number of predefined keys for working with text <a href="motion.html#object-motions">object-motions</a>.</h3>This filetype plugin attempts to translate these keys to maps which make sense
+<a name="_-vim-has-a-number-of-predefined-keys-for-working-with-text-|object-motions|."></a><h3 class="help-heading">Vim has a number of predefined keys for working with text <a href="/neovim-docs-web/en/motion#object-motions">object-motions</a>.</h3>This filetype plugin attempts to translate these keys to maps which make sense
 for the SQL language.</div>
-<div class="old-help-para">The following <a href="intro.html#Normal">Normal</a> mode and <a href="visual.html#Visual">Visual</a> mode maps exist (when you edit a SQL
+<div class="old-help-para">The following <a href="/neovim-docs-web/en/intro#Normal">Normal</a> mode and <a href="/neovim-docs-web/en/visual#Visual">Visual</a> mode maps exist (when you edit a SQL
 file):<pre>]]                    move forward to the next 'begin'
 [[                    move backwards to the previous 'begin'
 ][                    move forward to the next 'end'
@@ -100,10 +100,10 @@ objects.  Depends on which database vendor you are using, the list of objects
 must be configurable.  The filetype plugin attempts to define many of the
 standard objects, plus many additional ones.  In order to make this as
 flexible as possible, you can override the list of objects from within your
-<a href="starting.html#vimrc">vimrc</a> with the following:<pre>let g:ftplugin_sql_objects = 'function,procedure,event,table,trigger' ..
+<a href="/neovim-docs-web/en/starting#vimrc">vimrc</a> with the following:<pre>let g:ftplugin_sql_objects = 'function,procedure,event,table,trigger' ..
             \ ',schema,service,publication,database,datatype,domain' ..
             \ ',index,subscription,synchronization,view,variable'</pre>
-The following <a href="intro.html#Normal">Normal</a> mode and <a href="visual.html#Visual">Visual</a> mode maps have been created which use
+The following <a href="/neovim-docs-web/en/intro#Normal">Normal</a> mode and <a href="/neovim-docs-web/en/visual#Visual">Visual</a> mode maps have been created which use
 the above list:<pre>]}                    move forward to the next 'create &lt;object name&gt;'
 [{                    move backward to the previous 'create &lt;object name&gt;'</pre>
 Repeatedly pressing ]} will cycle through each of these create statements:<pre>create table t1 (
@@ -131,18 +131,18 @@ create global temporary table t3 (
     ...
 );</pre>
 By default, the ftplugin only searches for CREATE statements.  You can also
-override this via your <a href="starting.html#init.vim">init.vim</a> with the following:<pre>let g:ftplugin_sql_statements = 'create,alter'</pre>
+override this via your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> with the following:<pre>let g:ftplugin_sql_statements = 'create,alter'</pre>
 The filetype plugin defines three types of comments:<pre>1.  --
 2.  //
 3.  /*
      *
      */</pre>
-The following <a href="intro.html#Normal">Normal</a> mode and <a href="visual.html#Visual">Visual</a> mode maps have been created to work
+The following <a href="/neovim-docs-web/en/intro#Normal">Normal</a> mode and <a href="/neovim-docs-web/en/visual#Visual">Visual</a> mode maps have been created to work
 with comments:<pre>]"                    move forward to the beginning of a comment
 ["                    move forward to the end of a comment</pre>
 1.4 Macros					   <a name="sql-macros"></a><code class="help-tag-right">sql-macros</code>
 ----------
-Vim's feature to find macro definitions, <a href="options.html#'define'">'define'</a>, is supported using this
+Vim's feature to find macro definitions, <a href="/neovim-docs-web/en/options#'define'">'define'</a>, is supported using this
 regular expression:<pre>\c\&lt;\(VARIABLE\|DECLARE\|IN\|OUT\|INOUT\)\&gt;</pre>
 This addresses the following code:<pre>CREATE VARIABLE myVar1 INTEGER;
 
@@ -186,17 +186,17 @@ you must either create:
     2.  Custom autocmds
     3.  Manual steps / commands</div>
 <div class="old-help-para">The majority of people work with only one vendor's database product, it would
-be nice to specify a default in your <a href="starting.html#init.vim">init.vim</a>.</div>
+be nice to specify a default in your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>.</div>
 <div class="old-help-para">2.1 SQLSetType					<a name="sqlsettype"></a><code class="help-tag-right">sqlsettype</code> <a name="SQLSetType"></a><code class="help-tag">SQLSetType</code>
 <a name="_-for-the-people-that-work-with-many-different-databases,-it-is-nice-to-be"></a><h3 class="help-heading">For the people that work with many different databases, it is nice to be</h3>able to flip between the various vendors rules (indent, syntax) on a per
 buffer basis, at any time.  The ftplugin/sql.vim file defines this function:<pre>SQLSetType</pre>
 Executing this function without any parameters will set the indent and syntax
-scripts back to their defaults, see <a href="ft_sql.html#sql-type-default">sql-type-default</a>.  You can use the <code>&lt;Tab&gt;</code>
+scripts back to their defaults, see <a href="/neovim-docs-web/en/ft_sql#sql-type-default">sql-type-default</a>.  You can use the <code>&lt;Tab&gt;</code>
 key to complete the optional parameter.</div>
 <div class="old-help-para">After typing the function name and a space, you can use the completion to
 supply a parameter.  The function takes the name of the Vim script you want to
-source.  Using the <a href="cmdline.html#cmdline-completion">cmdline-completion</a> feature, the SQLSetType function will
-search the <a href="options.html#'runtimepath'">'runtimepath'</a> for all Vim scripts with a name containing "sql".
+source.  Using the <a href="/neovim-docs-web/en/cmdline#cmdline-completion">cmdline-completion</a> feature, the SQLSetType function will
+search the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> for all Vim scripts with a name containing "sql".
 This takes the guess work out of the spelling of the names.  The following are
 examples:<pre>:SQLSetType
 :SQLSetType sqloracle
@@ -211,10 +211,10 @@ of available Vim script names:<pre>:SQL&lt;Tab&gt;&lt;space&gt;&lt;Tab&gt;</pre>
 This will echo:<pre>Current SQL dialect in use:sqlanywhere</pre>
 2.3 SQL Dialect Default				<a name="sql-type-default"></a><code class="help-tag-right">sql-type-default</code>
 <a name="_-as-mentioned-earlier,-the-default-syntax-rules-for-vim-is-based-on-oracle"></a><h3 class="help-heading">As mentioned earlier, the default syntax rules for Vim is based on Oracle</h3>(PL/SQL).  You can override this default by placing one of the following in
-your <a href="starting.html#init.vim">init.vim</a>:<pre>let g:sql_type_default = 'sqlanywhere'
+your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>:<pre>let g:sql_type_default = 'sqlanywhere'
 let g:sql_type_default = 'sqlinformix'
 let g:sql_type_default = 'mysql'</pre>
-If you added the following to your <a href="starting.html#init.vim">init.vim</a>:<pre>let g:sql_type_default = 'sqlinformix'</pre>
+If you added the following to your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>:<pre>let g:sql_type_default = 'sqlinformix'</pre>
 The next time edit a SQL file the following scripts will be automatically
 loaded by Vim:<pre>ftplugin/sql.vim
 syntax/sqlinformix.vim
@@ -226,7 +226,7 @@ exist.</div>
 <div class="old-help-para">If you begin working with a SQL dialect which does not have any customizations
 available with the default Vim distribution you can check <a href="https://www.vim.org">https://www.vim.org</a>
 to see if any customization currently exist.  If not, you can begin by cloning
-an existing script.  Read <a href="filetype.html#filetype-plugins">filetype-plugins</a> for more details.</div>
+an existing script.  Read <a href="/neovim-docs-web/en/filetype#filetype-plugins">filetype-plugins</a> for more details.</div>
 <div class="old-help-para">To help identify these scripts, try to create the files with a "sql" prefix.
 If you decide you wish to create customizations for the SQLite database, you
 can create any of the following:<pre>Unix
@@ -252,7 +252,7 @@ imap &lt;buffer&gt; &lt;C-C&gt;f &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sq
 imap &lt;buffer&gt; &lt;C-C&gt;o &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlOption')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;
 imap &lt;buffer&gt; &lt;C-C&gt;T &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlType')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;
 imap &lt;buffer&gt; &lt;C-C&gt;s &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlStatement')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;</pre>
-The use of "&lt;C-C&gt;" can be user chosen by using the following in your <a href="starting.html#init.vim">init.vim</a>
+The use of "&lt;C-C&gt;" can be user chosen by using the following in your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>
 as it may not work properly on all platforms:<pre>let g:ftplugin_sql_omni_key = '&lt;C-C&gt;'</pre>
 The static maps (which are based on the syntax highlight groups) follow this
 format:<pre>imap &lt;buffer&gt; &lt;C-C&gt;k &lt;C-\&gt;&lt;C-O&gt;:call sqlcomplete#Map('sqlKeyword')&lt;CR&gt;&lt;C-X&gt;&lt;C-O&gt;
@@ -286,11 +286,11 @@ This command breaks down as:<pre>imap                   - Create an insert map
                          plugin will also cache this result until Vim is
                          restarted.  The syntax list is retrieved using
                          the syntaxcomplete plugin.</pre>
-Using the <a href="options.html#'syntax'">'syntax'</a> keyword is a special case.  This instructs the
+Using the <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a> keyword is a special case.  This instructs the
 syntaxcomplete plugin to retrieve all syntax items.  So this will effectively
 work for any of Vim's SQL syntax files.  At the time of writing this includes
 10 different syntax files for the different dialects of SQL (see section 3
-above, <a href="ft_sql.html#sql-dialects">sql-dialects</a>).</div>
+above, <a href="/neovim-docs-web/en/ft_sql#sql-dialects">sql-dialects</a>).</div>
 <div class="old-help-para">Here are some examples of the entries which are pulled from the syntax files:<pre>All
     - Contains the contents of all syntax highlight groups
 Statements
@@ -336,7 +336,7 @@ the space bar):
 </div><div class="help-li" style=""> This allows you to quickly drill down into a
 			     table to view its columns and back again.
 </div><div class="help-li" style=""> <code>&lt;Right&gt;</code> and <code>&lt;Left&gt;</code> can also be chosen via
-			     your <a href="starting.html#init.vim">init.vim</a><pre>let g:ftplugin_sql_omni_key_right = '&lt;Right&gt;'
+			     your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a><pre>let g:ftplugin_sql_omni_key_right = '&lt;Right&gt;'
 let g:ftplugin_sql_omni_key_left  = '&lt;Left&gt;'</pre>
 The SQL completion plugin caches various lists that are displayed in
 the popup window.  This makes the re-displaying of these lists very
@@ -462,10 +462,10 @@ database.</div>
 <div class="old-help-para">4.4 Completion Customization			<a name="sql-completion-customization"></a><code class="help-tag-right">sql-completion-customization</code>
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+ft_sql.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/ft_sql.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0A%0A4.4%20Completion%20Customization%09%09%09%2Asql-completion-customization%2A%0A----------------------------%0A%0AThe%20SQL%20completion%20plugin%20can%20be%20customized%20through%20various%20options%20set%20in%0Ayour%20%7Cinit.vim%7C%3A%20%3E%0A%20%20%20%20omni_sql_no_default_maps%0D%60%60%60">----------------------------</a></div>
 <div class="old-help-para">The SQL completion plugin can be customized through various options set in
-your <a href="starting.html#init.vim">init.vim</a>:<pre>omni_sql_no_default_maps</pre>
+your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>:<pre>omni_sql_no_default_maps</pre>
 <div class="help-li" style=""> Default: This variable is not defined
 </div><div class="help-li" style=""> If this variable is defined, no maps are created for OMNI
-	  completion.  See <a href="ft_sql.html#sql-completion-maps">sql-completion-maps</a> for further discussion.
+	  completion.  See <a href="/neovim-docs-web/en/ft_sql#sql-completion-maps">sql-completion-maps</a> for further discussion.
 &gt;
     omni_sql_use_tbl_alias
 </div><div class="help-li" style=""> Default: a
@@ -488,7 +488,7 @@ My_table_NAME --&gt; MtN</pre></div>
                MYTABLENAME --&gt; M
 
 omni_sql_ignorecase</pre>
-<div class="help-li" style=""> Default: Current setting for <a href="options.html#'ignorecase'">'ignorecase'</a>
+<div class="help-li" style=""> Default: Current setting for <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a>
 </div><div class="help-li" style="margin-left: 3rem;"> Valid settings are 0 or 1.
 </div><div class="help-li" style=""> When entering a few letters before initiating completion, the list
 	  will be filtered to display only the entries which begin with the
@@ -503,7 +503,7 @@ omni_sql_ignorecase</pre>
 </div><div class="help-li" style=""> Default:
 	  ['syntax','sqlKeyword','sqlFunction','sqlOption','sqlType','sqlStatement']
 </div><div class="help-li" style=""> sqlcomplete can be used in conjunction with other completion
-	  plugins.  This is outlined at <a href="ft_sql.html#sql-completion-filetypes">sql-completion-filetypes</a>.  When the
+	  plugins.  This is outlined at <a href="/neovim-docs-web/en/ft_sql#sql-completion-filetypes">sql-completion-filetypes</a>.  When the
 	  filetype is changed temporarily to SQL, the sqlcompletion plugin
 	  will cache the syntax groups listed in the List specified in this
 	  option.
@@ -551,12 +551,12 @@ plugin.<pre>&lt;C-C&gt;t</pre>
 <a name="_-you-can-create-as-many-additional-key-maps-as-you-like.-generally,-the-maps"></a><h3 class="help-heading">You can create as many additional key maps as you like.  Generally, the maps</h3>will be specifying different syntax highlight groups.</div>
 <div class="old-help-para">If you do not wish the default maps created or the key choices do not work on
 your platform (often a case onnix) you define the following variable in
-your <a href="starting.html#init.vim">init.vim</a>:<pre>let g:omni_sql_no_default_maps = 1</pre>
+your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>:<pre>let g:omni_sql_no_default_maps = 1</pre>
 Do not edit ftplugin/sql.vim directly!  If you change this file your changes
 will be over written on future updates.  Vim has a special directory structure
 which allows you to make customizations without changing the files that are
 included with the Vim distribution.  If you wish to customize the maps
-create an after/ftplugin/sql.vim (see <a href="options.html#after-directory">after-directory</a>) and place the same
+create an after/ftplugin/sql.vim (see <a href="/neovim-docs-web/en/options#after-directory">after-directory</a>) and place the same
 maps from the ftplugin/sql.vim in it using your own key strokes.  <code>&lt;C-C&gt;</code> was
 chosen since it will work on both Windows andnix platforms.  On the windows
 platform you can also use <code>&lt;C-Space&gt;</code> or ALT keys.</div>
@@ -574,18 +574,18 @@ Step 1
 Begins by editing a Perl file.  Vim automatically sets the filetype to
 "perl".  By default, Vim runs the appropriate filetype file
 ftplugin/perl.vim.  If you are using the syntax completion plugin by following
-the directions at <a href="insert.html#ft-syntax-omni">ft-syntax-omni</a> then the <a href="options.html#'omnifunc'">'omnifunc'</a> option has been set to
+the directions at <a href="/neovim-docs-web/en/insert#ft-syntax-omni">ft-syntax-omni</a> then the <a href="/neovim-docs-web/en/options#'omnifunc'">'omnifunc'</a> option has been set to
 "syntax#Complete".  Pressing <code>&lt;C-X&gt;</code><code>&lt;C-O&gt;</code> will display the omni popup containing
 the syntax items for Perl.</div>
 <div class="old-help-para">Step 2
 ------
 Manually setting the filetype to "sql" will also fire the appropriate filetype
 files ftplugin/sql.vim.  This file will define a number of buffer specific
-maps for SQL completion, see <a href="ft_sql.html#sql-completion-maps">sql-completion-maps</a>.  Now these maps have
+maps for SQL completion, see <a href="/neovim-docs-web/en/ft_sql#sql-completion-maps">sql-completion-maps</a>.  Now these maps have
 been created and the SQL completion plugin has been initialized.  All SQL
 syntax items have been cached in preparation.  The SQL filetype script detects
 we are attempting to use two different completion plugins.  Since the SQL maps
-begin with <code>&lt;C-C&gt;</code>, the maps will toggle the <a href="options.html#'omnifunc'">'omnifunc'</a> when in use.  So you
+begin with <code>&lt;C-C&gt;</code>, the maps will toggle the <a href="/neovim-docs-web/en/options#'omnifunc'">'omnifunc'</a> when in use.  So you
 can use <code>&lt;C-X&gt;</code><code>&lt;C-O&gt;</code> to continue using the completion for Perl (using the syntax
 completion plugin) and <code>&lt;C-C&gt;</code> to use the SQL completion features.</div>
 <div class="old-help-para">Step 3

@@ -13,118 +13,118 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">Key mapping, abbreviations and user-defined commands.</div>
-<div class="old-help-para">This subject is introduced in sections <a href="usr_05.html#05.3">05.3</a>, <a href="usr_24.html#24.7">24.7</a> and <a href="usr_40.html#40.1">40.1</a> of the user
+<div class="old-help-para">This subject is introduced in sections <a href="/neovim-docs-web/en/usr_05#05.3">05.3</a>, <a href="/neovim-docs-web/en/usr_24#24.7">24.7</a> and <a href="/neovim-docs-web/en/usr_40#40.1">40.1</a> of the user
 manual.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Key mapping <a name="mapping"></a><span class="help-tag">mapping</span> <a name="macro"></a><span class="help-tag">macro</span></h2></div>
 <div class="old-help-para">Key mapping is used to change the meaning of typed keys.  The most common use
 is to define a sequence of commands for a function key.  Example:<pre>:map &lt;F2&gt; a&lt;C-R&gt;=strftime("%c")&lt;CR&gt;&lt;Esc&gt;</pre>
-This appends the current date and time after the cursor (in &lt;&gt; notation <a href="intro.html#%3C%3E">&lt;&gt;</a>).</div>
+This appends the current date and time after the cursor (in &lt;&gt; notation <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a>).</div>
 <div class="old-help-para"><h3 class="help-heading">1.1 MAP COMMANDS<span class="help-heading-tags">					<a name="%3Amap-commands"></a><span class="help-tag">:map-commands</span></span></h3></div>
 <div class="old-help-para">There are commands to enter new mappings, remove mappings and list mappings.
-See <a href="map.html#map-overview">map-overview</a> for the various forms of "map" and their relationships with
+See <a href="/neovim-docs-web/en/map#map-overview">map-overview</a> for the various forms of "map" and their relationships with
 modes.</div>
 <div class="old-help-para"><code>{lhs}</code>	means left-hand-side	<a name="%7Blhs%7D"></a><code class="help-tag">{lhs}</code>
 <code>{rhs}</code>	means right-hand-side	<a name="%7Brhs%7D"></a><code class="help-tag">{rhs}</code></div>
-<div class="old-help-para">:map	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Amap"></a><code class="help-tag-right">:map</code>
-:nm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-n">mapmode-n</a>  		<a name="%3Anm"></a><code class="help-tag-right">:nm</code> <a name="%3Anmap"></a><code class="help-tag">:nmap</code>
-:vm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-v">mapmode-v</a>  		<a name="%3Avm"></a><code class="help-tag-right">:vm</code> <a name="%3Avmap"></a><code class="help-tag">:vmap</code>
-:xm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-x">mapmode-x</a>  		<a name="%3Axm"></a><code class="help-tag-right">:xm</code> <a name="%3Axmap"></a><code class="help-tag">:xmap</code>
-:smap	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-s">mapmode-s</a>  		    <a name="%3Asmap"></a><code class="help-tag-right">:smap</code>
-:om[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-o">mapmode-o</a>  		<a name="%3Aom"></a><code class="help-tag-right">:om</code> <a name="%3Aomap"></a><code class="help-tag">:omap</code>
-:map!	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-ic">mapmode-ic</a>  		<a name="%3Amap%21"></a><code class="help-tag-right">:map!</code>
-:im[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-i">mapmode-i</a>  		<a name="%3Aim"></a><code class="help-tag-right">:im</code> <a name="%3Aimap"></a><code class="help-tag">:imap</code>
-:lm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-l">mapmode-l</a>  		<a name="%3Alm"></a><code class="help-tag-right">:lm</code> <a name="%3Alma"></a><code class="help-tag">:lma</code> <a name="%3Almap"></a><code class="help-tag">:lmap</code>
-:cm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-c">mapmode-c</a>  		<a name="%3Acm"></a><code class="help-tag-right">:cm</code> <a name="%3Acmap"></a><code class="help-tag">:cmap</code>
-:tma[p]	<code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-t">mapmode-t</a>  		<a name="%3Atma"></a><code class="help-tag-right">:tma</code> <a name="%3Atmap"></a><code class="help-tag">:tmap</code>
+<div class="old-help-para">:map	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Amap"></a><code class="help-tag-right">:map</code>
+:nm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-n">mapmode-n</a>  		<a name="%3Anm"></a><code class="help-tag-right">:nm</code> <a name="%3Anmap"></a><code class="help-tag">:nmap</code>
+:vm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-v">mapmode-v</a>  		<a name="%3Avm"></a><code class="help-tag-right">:vm</code> <a name="%3Avmap"></a><code class="help-tag">:vmap</code>
+:xm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-x">mapmode-x</a>  		<a name="%3Axm"></a><code class="help-tag-right">:xm</code> <a name="%3Axmap"></a><code class="help-tag">:xmap</code>
+:smap	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-s">mapmode-s</a>  		    <a name="%3Asmap"></a><code class="help-tag-right">:smap</code>
+:om[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-o">mapmode-o</a>  		<a name="%3Aom"></a><code class="help-tag-right">:om</code> <a name="%3Aomap"></a><code class="help-tag">:omap</code>
+:map!	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-ic">mapmode-ic</a>  		<a name="%3Amap%21"></a><code class="help-tag-right">:map!</code>
+:im[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-i">mapmode-i</a>  		<a name="%3Aim"></a><code class="help-tag-right">:im</code> <a name="%3Aimap"></a><code class="help-tag">:imap</code>
+:lm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-l">mapmode-l</a>  		<a name="%3Alm"></a><code class="help-tag-right">:lm</code> <a name="%3Alma"></a><code class="help-tag">:lma</code> <a name="%3Almap"></a><code class="help-tag">:lmap</code>
+:cm[ap]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-c">mapmode-c</a>  		<a name="%3Acm"></a><code class="help-tag-right">:cm</code> <a name="%3Acmap"></a><code class="help-tag">:cmap</code>
+:tma[p]	<code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-t">mapmode-t</a>  		<a name="%3Atma"></a><code class="help-tag-right">:tma</code> <a name="%3Atmap"></a><code class="help-tag">:tmap</code>
 			Map the key sequence <code>{lhs}</code> to <code>{rhs}</code> for the modes
 			where the map command applies.  The result, including
 			<code>{rhs}</code>, is then further scanned for mappings.  This
 			allows for nested and recursive use of mappings.
 			Note: Trailing spaces are included in the <code>{rhs}</code>,
 			because space is a valid Normal mode command.
-			See <a href="map.html#map-trailing-white">map-trailing-white</a>.</div>
+			See <a href="/neovim-docs-web/en/map#map-trailing-white">map-trailing-white</a>.</div>
 <div class="old-help-para">						<a name="%3Anore"></a><code class="help-tag-right">:nore</code> <a name="%3Anorem"></a><code class="help-tag">:norem</code>
-:no[remap]  <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-nvo">mapmode-nvo</a>  	<a name="%3Ano"></a><code class="help-tag">:no</code>  <a name="%3Anoremap"></a><code class="help-tag">:noremap</code> <a name="%3Anor"></a><code class="help-tag">:nor</code>
-:nn[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-n">mapmode-n</a>  	<a name="%3Ann"></a><code class="help-tag">:nn</code>  <a name="%3Annoremap"></a><code class="help-tag">:nnoremap</code>
-:vn[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-v">mapmode-v</a>  	<a name="%3Avn"></a><code class="help-tag">:vn</code>  <a name="%3Avnoremap"></a><code class="help-tag">:vnoremap</code>
-:xn[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-x">mapmode-x</a>  	<a name="%3Axn"></a><code class="help-tag">:xn</code>  <a name="%3Axnoremap"></a><code class="help-tag">:xnoremap</code>
-:snor[emap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-s">mapmode-s</a>  	<a name="%3Asnor"></a><code class="help-tag">:snor</code> <a name="%3Asnore"></a><code class="help-tag">:snore</code> <a name="%3Asnoremap"></a><code class="help-tag">:snoremap</code>
-:ono[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-o">mapmode-o</a>  	<a name="%3Aono"></a><code class="help-tag">:ono</code> <a name="%3Aonoremap"></a><code class="help-tag">:onoremap</code>
-:no[remap]! <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-ic">mapmode-ic</a>  	<a name="%3Ano%21"></a><code class="help-tag">:no!</code> <a name="%3Anoremap%21"></a><code class="help-tag">:noremap!</code>
-:ino[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-i">mapmode-i</a>  	<a name="%3Aino"></a><code class="help-tag">:ino</code> <a name="%3Ainor"></a><code class="help-tag">:inor</code> <a name="%3Ainoremap"></a><code class="help-tag">:inoremap</code>
-:ln[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-l">mapmode-l</a>  	<a name="%3Aln"></a><code class="help-tag">:ln</code>  <a name="%3Alnoremap"></a><code class="help-tag">:lnoremap</code>
-:cno[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-c">mapmode-c</a>  	<a name="%3Acno"></a><code class="help-tag">:cno</code> <a name="%3Acnor"></a><code class="help-tag">:cnor</code> <a name="%3Acnoremap"></a><code class="help-tag">:cnoremap</code>
-:tno[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="map.html#mapmode-t">mapmode-t</a>  	<a name="%3Atno"></a><code class="help-tag">:tno</code> <a name="%3Atnoremap"></a><code class="help-tag">:tnoremap</code>
+:no[remap]  <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-nvo">mapmode-nvo</a>  	<a name="%3Ano"></a><code class="help-tag">:no</code>  <a name="%3Anoremap"></a><code class="help-tag">:noremap</code> <a name="%3Anor"></a><code class="help-tag">:nor</code>
+:nn[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-n">mapmode-n</a>  	<a name="%3Ann"></a><code class="help-tag">:nn</code>  <a name="%3Annoremap"></a><code class="help-tag">:nnoremap</code>
+:vn[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-v">mapmode-v</a>  	<a name="%3Avn"></a><code class="help-tag">:vn</code>  <a name="%3Avnoremap"></a><code class="help-tag">:vnoremap</code>
+:xn[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-x">mapmode-x</a>  	<a name="%3Axn"></a><code class="help-tag">:xn</code>  <a name="%3Axnoremap"></a><code class="help-tag">:xnoremap</code>
+:snor[emap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-s">mapmode-s</a>  	<a name="%3Asnor"></a><code class="help-tag">:snor</code> <a name="%3Asnore"></a><code class="help-tag">:snore</code> <a name="%3Asnoremap"></a><code class="help-tag">:snoremap</code>
+:ono[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-o">mapmode-o</a>  	<a name="%3Aono"></a><code class="help-tag">:ono</code> <a name="%3Aonoremap"></a><code class="help-tag">:onoremap</code>
+:no[remap]! <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-ic">mapmode-ic</a>  	<a name="%3Ano%21"></a><code class="help-tag">:no!</code> <a name="%3Anoremap%21"></a><code class="help-tag">:noremap!</code>
+:ino[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-i">mapmode-i</a>  	<a name="%3Aino"></a><code class="help-tag">:ino</code> <a name="%3Ainor"></a><code class="help-tag">:inor</code> <a name="%3Ainoremap"></a><code class="help-tag">:inoremap</code>
+:ln[oremap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-l">mapmode-l</a>  	<a name="%3Aln"></a><code class="help-tag">:ln</code>  <a name="%3Alnoremap"></a><code class="help-tag">:lnoremap</code>
+:cno[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-c">mapmode-c</a>  	<a name="%3Acno"></a><code class="help-tag">:cno</code> <a name="%3Acnor"></a><code class="help-tag">:cnor</code> <a name="%3Acnoremap"></a><code class="help-tag">:cnoremap</code>
+:tno[remap] <code>{lhs}</code> <code>{rhs}</code>		<a href="/neovim-docs-web/en/map#mapmode-t">mapmode-t</a>  	<a name="%3Atno"></a><code class="help-tag">:tno</code> <a name="%3Atnoremap"></a><code class="help-tag">:tnoremap</code>
 			Map the key sequence <code>{lhs}</code> to <code>{rhs}</code> for the modes
 			where the map command applies.  Disallow mapping of
 			<code>{rhs}</code>, to avoid nested and recursive mappings.  Often
 			used to redefine a command.
 			Note: When <code>&lt;Plug&gt;</code> appears in the <code>{rhs}</code> this part is
 			always applied even if remapping is disallowed.</div>
-<div class="old-help-para">:unm[ap]  <code>{lhs}</code>			<a href="map.html#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Aunm"></a><code class="help-tag-right">:unm</code>  <a name="%3Aunmap"></a><code class="help-tag">:unmap</code>
-:nun[map] <code>{lhs}</code>			<a href="map.html#mapmode-n">mapmode-n</a>  		<a name="%3Anun"></a><code class="help-tag-right">:nun</code>  <a name="%3Anunmap"></a><code class="help-tag">:nunmap</code>
-:vu[nmap] <code>{lhs}</code>			<a href="map.html#mapmode-v">mapmode-v</a>  		<a name="%3Avu"></a><code class="help-tag-right">:vu</code>   <a name="%3Avunmap"></a><code class="help-tag">:vunmap</code>
-:xu[nmap] <code>{lhs}</code>			<a href="map.html#mapmode-x">mapmode-x</a>  		<a name="%3Axu"></a><code class="help-tag-right">:xu</code>   <a name="%3Axunmap"></a><code class="help-tag">:xunmap</code>
-:sunm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-s">mapmode-s</a>  		<a name="%3Asunm"></a><code class="help-tag-right">:sunm</code> <a name="%3Asunmap"></a><code class="help-tag">:sunmap</code>
-:ou[nmap] <code>{lhs}</code>			<a href="map.html#mapmode-o">mapmode-o</a>  		<a name="%3Aou"></a><code class="help-tag-right">:ou</code>   <a name="%3Aounmap"></a><code class="help-tag">:ounmap</code>
-:unm[ap]! <code>{lhs}</code>			<a href="map.html#mapmode-ic">mapmode-ic</a>  		<a name="%3Aunm%21"></a><code class="help-tag-right">:unm!</code> <a name="%3Aunmap%21"></a><code class="help-tag">:unmap!</code>
-:iu[nmap] <code>{lhs}</code>			<a href="map.html#mapmode-i">mapmode-i</a>  		<a name="%3Aiu"></a><code class="help-tag-right">:iu</code>   <a name="%3Aiunmap"></a><code class="help-tag">:iunmap</code>
-:lu[nmap] <code>{lhs}</code>			<a href="map.html#mapmode-l">mapmode-l</a>  		<a name="%3Alu"></a><code class="help-tag-right">:lu</code>   <a name="%3Alunmap"></a><code class="help-tag">:lunmap</code>
-:cu[nmap] <code>{lhs}</code>			<a href="map.html#mapmode-c">mapmode-c</a>  		<a name="%3Acu"></a><code class="help-tag-right">:cu</code>   <a name="%3Acun"></a><code class="help-tag">:cun</code> <a name="%3Acunmap"></a><code class="help-tag">:cunmap</code>
-:tunma[p] <code>{lhs}</code>			<a href="map.html#mapmode-t">mapmode-t</a>  		<a name="%3Atunma"></a><code class="help-tag-right">:tunma</code> <a name="%3Atunmap"></a><code class="help-tag">:tunmap</code>
+<div class="old-help-para">:unm[ap]  <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Aunm"></a><code class="help-tag-right">:unm</code>  <a name="%3Aunmap"></a><code class="help-tag">:unmap</code>
+:nun[map] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-n">mapmode-n</a>  		<a name="%3Anun"></a><code class="help-tag-right">:nun</code>  <a name="%3Anunmap"></a><code class="help-tag">:nunmap</code>
+:vu[nmap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-v">mapmode-v</a>  		<a name="%3Avu"></a><code class="help-tag-right">:vu</code>   <a name="%3Avunmap"></a><code class="help-tag">:vunmap</code>
+:xu[nmap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-x">mapmode-x</a>  		<a name="%3Axu"></a><code class="help-tag-right">:xu</code>   <a name="%3Axunmap"></a><code class="help-tag">:xunmap</code>
+:sunm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-s">mapmode-s</a>  		<a name="%3Asunm"></a><code class="help-tag-right">:sunm</code> <a name="%3Asunmap"></a><code class="help-tag">:sunmap</code>
+:ou[nmap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-o">mapmode-o</a>  		<a name="%3Aou"></a><code class="help-tag-right">:ou</code>   <a name="%3Aounmap"></a><code class="help-tag">:ounmap</code>
+:unm[ap]! <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-ic">mapmode-ic</a>  		<a name="%3Aunm%21"></a><code class="help-tag-right">:unm!</code> <a name="%3Aunmap%21"></a><code class="help-tag">:unmap!</code>
+:iu[nmap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-i">mapmode-i</a>  		<a name="%3Aiu"></a><code class="help-tag-right">:iu</code>   <a name="%3Aiunmap"></a><code class="help-tag">:iunmap</code>
+:lu[nmap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-l">mapmode-l</a>  		<a name="%3Alu"></a><code class="help-tag-right">:lu</code>   <a name="%3Alunmap"></a><code class="help-tag">:lunmap</code>
+:cu[nmap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-c">mapmode-c</a>  		<a name="%3Acu"></a><code class="help-tag-right">:cu</code>   <a name="%3Acun"></a><code class="help-tag">:cun</code> <a name="%3Acunmap"></a><code class="help-tag">:cunmap</code>
+:tunma[p] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-t">mapmode-t</a>  		<a name="%3Atunma"></a><code class="help-tag-right">:tunma</code> <a name="%3Atunmap"></a><code class="help-tag">:tunmap</code>
 			Remove the mapping of <code>{lhs}</code> for the modes where the
 			map command applies.  The mapping may remain defined
 			for other modes where it applies.
 			It also works when <code>{lhs}</code> matches the <code>{rhs}</code> of a
 			mapping. This is for when an abbreviation applied.
 			Note: Trailing spaces are included in the <code>{lhs}</code>.
-			See <a href="map.html#map-trailing-white">map-trailing-white</a>.</div>
-<div class="old-help-para">:mapc[lear]			<a href="map.html#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Amapc"></a><code class="help-tag-right">:mapc</code>   <a name="%3Amapclear"></a><code class="help-tag">:mapclear</code>
-:nmapc[lear]			<a href="map.html#mapmode-n">mapmode-n</a>  		<a name="%3Anmapc"></a><code class="help-tag-right">:nmapc</code>  <a name="%3Anmapclear"></a><code class="help-tag">:nmapclear</code>
-:vmapc[lear]			<a href="map.html#mapmode-v">mapmode-v</a>  		<a name="%3Avmapc"></a><code class="help-tag-right">:vmapc</code>  <a name="%3Avmapclear"></a><code class="help-tag">:vmapclear</code>
-:xmapc[lear]			<a href="map.html#mapmode-x">mapmode-x</a>  		<a name="%3Axmapc"></a><code class="help-tag-right">:xmapc</code>  <a name="%3Axmapclear"></a><code class="help-tag">:xmapclear</code>
-:smapc[lear]			<a href="map.html#mapmode-s">mapmode-s</a>  		<a name="%3Asmapc"></a><code class="help-tag-right">:smapc</code>  <a name="%3Asmapclear"></a><code class="help-tag">:smapclear</code>
-:omapc[lear]			<a href="map.html#mapmode-o">mapmode-o</a>  		<a name="%3Aomapc"></a><code class="help-tag-right">:omapc</code>  <a name="%3Aomapclear"></a><code class="help-tag">:omapclear</code>
-:mapc[lear]!			<a href="map.html#mapmode-ic">mapmode-ic</a>  		<a name="%3Amapc%21"></a><code class="help-tag-right">:mapc!</code>  <a name="%3Amapclear%21"></a><code class="help-tag">:mapclear!</code>
-:imapc[lear]			<a href="map.html#mapmode-i">mapmode-i</a>  		<a name="%3Aimapc"></a><code class="help-tag-right">:imapc</code>  <a name="%3Aimapclear"></a><code class="help-tag">:imapclear</code>
-:lmapc[lear]			<a href="map.html#mapmode-l">mapmode-l</a>  		<a name="%3Almapc"></a><code class="help-tag-right">:lmapc</code>  <a name="%3Almapclear"></a><code class="help-tag">:lmapclear</code>
-:cmapc[lear]			<a href="map.html#mapmode-c">mapmode-c</a>  		<a name="%3Acmapc"></a><code class="help-tag-right">:cmapc</code>  <a name="%3Acmapclear"></a><code class="help-tag">:cmapclear</code>
-:tmapc[lear]			<a href="map.html#mapmode-t">mapmode-t</a>  		<a name="%3Atmapc"></a><code class="help-tag-right">:tmapc</code>  <a name="%3Atmapclear"></a><code class="help-tag">:tmapclear</code>
+			See <a href="/neovim-docs-web/en/map#map-trailing-white">map-trailing-white</a>.</div>
+<div class="old-help-para">:mapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Amapc"></a><code class="help-tag-right">:mapc</code>   <a name="%3Amapclear"></a><code class="help-tag">:mapclear</code>
+:nmapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-n">mapmode-n</a>  		<a name="%3Anmapc"></a><code class="help-tag-right">:nmapc</code>  <a name="%3Anmapclear"></a><code class="help-tag">:nmapclear</code>
+:vmapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-v">mapmode-v</a>  		<a name="%3Avmapc"></a><code class="help-tag-right">:vmapc</code>  <a name="%3Avmapclear"></a><code class="help-tag">:vmapclear</code>
+:xmapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-x">mapmode-x</a>  		<a name="%3Axmapc"></a><code class="help-tag-right">:xmapc</code>  <a name="%3Axmapclear"></a><code class="help-tag">:xmapclear</code>
+:smapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-s">mapmode-s</a>  		<a name="%3Asmapc"></a><code class="help-tag-right">:smapc</code>  <a name="%3Asmapclear"></a><code class="help-tag">:smapclear</code>
+:omapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-o">mapmode-o</a>  		<a name="%3Aomapc"></a><code class="help-tag-right">:omapc</code>  <a name="%3Aomapclear"></a><code class="help-tag">:omapclear</code>
+:mapc[lear]!			<a href="/neovim-docs-web/en/map#mapmode-ic">mapmode-ic</a>  		<a name="%3Amapc%21"></a><code class="help-tag-right">:mapc!</code>  <a name="%3Amapclear%21"></a><code class="help-tag">:mapclear!</code>
+:imapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-i">mapmode-i</a>  		<a name="%3Aimapc"></a><code class="help-tag-right">:imapc</code>  <a name="%3Aimapclear"></a><code class="help-tag">:imapclear</code>
+:lmapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-l">mapmode-l</a>  		<a name="%3Almapc"></a><code class="help-tag-right">:lmapc</code>  <a name="%3Almapclear"></a><code class="help-tag">:lmapclear</code>
+:cmapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-c">mapmode-c</a>  		<a name="%3Acmapc"></a><code class="help-tag-right">:cmapc</code>  <a name="%3Acmapclear"></a><code class="help-tag">:cmapclear</code>
+:tmapc[lear]			<a href="/neovim-docs-web/en/map#mapmode-t">mapmode-t</a>  		<a name="%3Atmapc"></a><code class="help-tag-right">:tmapc</code>  <a name="%3Atmapclear"></a><code class="help-tag">:tmapclear</code>
 			Remove ALL mappings for the modes where the map
 			command applies.
 			Use the <code>&lt;buffer&gt;</code> argument to remove buffer-local
-			mappings <a href="map.html#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a>
-			Warning: This also removes the <a href="vim_diff.html#default-mappings">default-mappings</a>.</div>
-<div class="old-help-para">:map				<a href="map.html#mapmode-nvo">mapmode-nvo</a>
-:nm[ap]				<a href="map.html#mapmode-n">mapmode-n</a>
-:vm[ap]				<a href="map.html#mapmode-v">mapmode-v</a>
-:xm[ap]				<a href="map.html#mapmode-x">mapmode-x</a>
-:sm[ap]				<a href="map.html#mapmode-s">mapmode-s</a>
-:om[ap]				<a href="map.html#mapmode-o">mapmode-o</a>
-:map!				<a href="map.html#mapmode-ic">mapmode-ic</a>
-:im[ap]				<a href="map.html#mapmode-i">mapmode-i</a>
-:lm[ap]				<a href="map.html#mapmode-l">mapmode-l</a>
-:cm[ap]				<a href="map.html#mapmode-c">mapmode-c</a>
-:tma[p]				<a href="map.html#mapmode-t">mapmode-t</a>
+			mappings <a href="/neovim-docs-web/en/map#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a>
+			Warning: This also removes the <a href="/neovim-docs-web/en/vim_diff#default-mappings">default-mappings</a>.</div>
+<div class="old-help-para">:map				<a href="/neovim-docs-web/en/map#mapmode-nvo">mapmode-nvo</a>
+:nm[ap]				<a href="/neovim-docs-web/en/map#mapmode-n">mapmode-n</a>
+:vm[ap]				<a href="/neovim-docs-web/en/map#mapmode-v">mapmode-v</a>
+:xm[ap]				<a href="/neovim-docs-web/en/map#mapmode-x">mapmode-x</a>
+:sm[ap]				<a href="/neovim-docs-web/en/map#mapmode-s">mapmode-s</a>
+:om[ap]				<a href="/neovim-docs-web/en/map#mapmode-o">mapmode-o</a>
+:map!				<a href="/neovim-docs-web/en/map#mapmode-ic">mapmode-ic</a>
+:im[ap]				<a href="/neovim-docs-web/en/map#mapmode-i">mapmode-i</a>
+:lm[ap]				<a href="/neovim-docs-web/en/map#mapmode-l">mapmode-l</a>
+:cm[ap]				<a href="/neovim-docs-web/en/map#mapmode-c">mapmode-c</a>
+:tma[p]				<a href="/neovim-docs-web/en/map#mapmode-t">mapmode-t</a>
 			List all key mappings for the modes where the map
 			command applies.  Note that ":map" and ":map!" are
 			used most often, because they include the other modes.</div>
-<div class="old-help-para">:map    <code>{lhs}</code>			<a href="map.html#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Amap_l"></a><code class="help-tag-right">:map_l</code>
-:nm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-n">mapmode-n</a>  		<a name="%3Anmap_l"></a><code class="help-tag-right">:nmap_l</code>
-:vm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-v">mapmode-v</a>  		<a name="%3Avmap_l"></a><code class="help-tag-right">:vmap_l</code>
-:xm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-x">mapmode-x</a>  		<a name="%3Axmap_l"></a><code class="help-tag-right">:xmap_l</code>
-:sm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-s">mapmode-s</a>  		<a name="%3Asmap_l"></a><code class="help-tag-right">:smap_l</code>
-:om[ap] <code>{lhs}</code>			<a href="map.html#mapmode-o">mapmode-o</a>  		<a name="%3Aomap_l"></a><code class="help-tag-right">:omap_l</code>
-:map!   <code>{lhs}</code>			<a href="map.html#mapmode-ic">mapmode-ic</a>  		<a name="%3Amap_l%21"></a><code class="help-tag-right">:map_l!</code>
-:im[ap] <code>{lhs}</code>			<a href="map.html#mapmode-i">mapmode-i</a>  		<a name="%3Aimap_l"></a><code class="help-tag-right">:imap_l</code>
-:lm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-l">mapmode-l</a>  		<a name="%3Almap_l"></a><code class="help-tag-right">:lmap_l</code>
-:cm[ap] <code>{lhs}</code>			<a href="map.html#mapmode-c">mapmode-c</a>  		<a name="%3Acmap_l"></a><code class="help-tag-right">:cmap_l</code>
-:tma[p] <code>{lhs}</code>			<a href="map.html#mapmode-t">mapmode-t</a>  		<a name="%3Atmap_l"></a><code class="help-tag-right">:tmap_l</code>
+<div class="old-help-para">:map    <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-nvo">mapmode-nvo</a>  		<a name="%3Amap_l"></a><code class="help-tag-right">:map_l</code>
+:nm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-n">mapmode-n</a>  		<a name="%3Anmap_l"></a><code class="help-tag-right">:nmap_l</code>
+:vm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-v">mapmode-v</a>  		<a name="%3Avmap_l"></a><code class="help-tag-right">:vmap_l</code>
+:xm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-x">mapmode-x</a>  		<a name="%3Axmap_l"></a><code class="help-tag-right">:xmap_l</code>
+:sm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-s">mapmode-s</a>  		<a name="%3Asmap_l"></a><code class="help-tag-right">:smap_l</code>
+:om[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-o">mapmode-o</a>  		<a name="%3Aomap_l"></a><code class="help-tag-right">:omap_l</code>
+:map!   <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-ic">mapmode-ic</a>  		<a name="%3Amap_l%21"></a><code class="help-tag-right">:map_l!</code>
+:im[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-i">mapmode-i</a>  		<a name="%3Aimap_l"></a><code class="help-tag-right">:imap_l</code>
+:lm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-l">mapmode-l</a>  		<a name="%3Almap_l"></a><code class="help-tag-right">:lmap_l</code>
+:cm[ap] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-c">mapmode-c</a>  		<a name="%3Acmap_l"></a><code class="help-tag-right">:cmap_l</code>
+:tma[p] <code>{lhs}</code>			<a href="/neovim-docs-web/en/map#mapmode-t">mapmode-t</a>  		<a name="%3Atmap_l"></a><code class="help-tag-right">:tmap_l</code>
 			List the key mappings for the key sequences starting
 			with <code>{lhs}</code> in the modes where the map command applies.</div>
 <div class="old-help-para">These commands are used to map a key or key sequence to a string of
 characters.  You can use this to put command sequences under function keys,
-translate one key into another, etc.  See <a href="starting.html#%3Amkexrc">:mkexrc</a> for how to save and
+translate one key into another, etc.  See <a href="/neovim-docs-web/en/starting#%3Amkexrc">:mkexrc</a> for how to save and
 restore the current mappings.</div>
 <div class="old-help-para">							<a name="map-ambiguous"></a><code class="help-tag-right">map-ambiguous</code>
 When two mappings start with the same sequence of characters, they are
@@ -161,7 +161,7 @@ The "&lt;buffer&gt;" argument can also be used to clear mappings:<pre>:unmap &lt
 :mapclear &lt;buffer&gt;</pre>
 Local mappings are also cleared when a buffer is deleted, but not when it is
 unloaded.  Just like local option values.
-Also see <a href="map.html#map-precedence">map-precedence</a>.</div>
+Also see <a href="/neovim-docs-web/en/map#map-precedence">map-precedence</a>.</div>
 <div class="old-help-para">						<a name="%3Amap-%3Cnowait%3E"></a><code class="help-tag-right">:map-&lt;nowait&gt;</code> <a name="%3Amap-nowait"></a><code class="help-tag">:map-nowait</code>
 When defining a buffer-local mapping for "," there may be a global mapping
 that starts with ",".  Then you need to type another character for Vim to know
@@ -207,7 +207,7 @@ already exists which is equal.
 Example of what will fail:<pre>:map ,w  /[#&amp;!]&lt;CR&gt;
 :map &lt;buffer&gt; &lt;unique&gt; ,w  /[.,;]&lt;CR&gt;</pre>
 If you want to map a key and then have it do what it was originally mapped to,
-have a look at <a href="builtin.html#maparg()">maparg()</a>.</div>
+have a look at <a href="/neovim-docs-web/en/builtin#maparg()">maparg()</a>.</div>
 <div class="old-help-para">						<a name="%3Amap-%3Cexpr%3E"></a><code class="help-tag-right">:map-&lt;expr&gt;</code> <a name="%3Amap-expression"></a><code class="help-tag">:map-expression</code>
 If the first argument to one of these commands is "&lt;expr&gt;" and it is used to
 define a new mapping or abbreviation, the argument is an expression.  The
@@ -217,7 +217,7 @@ text before the cursor and start omni completion when some condition is met.
 Using a script-local function is preferred, to avoid polluting the global
 namespace.  Use <code>&lt;SID&gt;</code> in the RHS so that the script that the mapping was
 defined in can be found.</div>
-<div class="old-help-para">For abbreviations <a href="eval.html#v%3Achar">v:char</a> is set to the character that was typed to trigger
+<div class="old-help-para">For abbreviations <a href="/neovim-docs-web/en/eval#v%3Achar">v:char</a> is set to the character that was typed to trigger
 the abbreviation.  You can use this to decide how to expand the <code>{lhs}</code>.  You
 should not either insert or change the v:char.</div>
 <div class="old-help-para">In case you want the mapping to not do anything, you can have the expression
@@ -239,13 +239,13 @@ expression-mapped:<pre>nmap ! f!&lt;Ignore&gt;x</pre>
 Be very careful about side effects!  The expression is evaluated while
 obtaining characters, you may very well make the command dysfunctional.
 Therefore the following is blocked for <code>&lt;expr&gt;</code> mappings:
-<div class="help-li" style=""> Changing the buffer text <a href="eval.html#textlock">textlock</a>.
+<div class="help-li" style=""> Changing the buffer text <a href="/neovim-docs-web/en/eval#textlock">textlock</a>.
 </div><div class="help-li" style=""> Editing another buffer.
-</div><div class="help-li" style=""> The <a href="various.html#%3Anormal">:normal</a> command.
+</div><div class="help-li" style=""> The <a href="/neovim-docs-web/en/various#%3Anormal">:normal</a> command.
 </div><div class="help-li" style=""> Moving the cursor is allowed, but it is restored afterwards.
 </div><div class="help-li" style=""> If the cmdline is changed, the old text and cursor position are restored.
 If you want the mapping to do any of these let the returned characters do
-that. (Or use a <a href="map.html#%3CCmd%3E">&lt;Cmd&gt;</a> mapping instead.)
+that. (Or use a <a href="/neovim-docs-web/en/map#%3CCmd%3E">&lt;Cmd&gt;</a> mapping instead.)
 </div></div>
 <div class="old-help-para">You can use getchar(), it consumes typeahead if there is any. E.g., if you
 have these mappings:<pre>inoremap &lt;expr&gt; &lt;C-L&gt; nr2char(getchar())
@@ -279,15 +279,15 @@ Example:<pre>noremap x &lt;Cmd&gt;echo mode(1)&lt;cr&gt;</pre></div>
 <div class="old-help-para">This is more flexible than <code>:&lt;C-U&gt;</code> in visual and operator-pending mode, or
 <code>&lt;C-O&gt;:</code> in insert-mode, because the commands are executed directly in the
 current mode (instead of always going to normal-mode).  Visual-mode is
-preserved, so tricks with <a href="visual.html#gv">gv</a> are not needed.  Commands can be invoked
+preserved, so tricks with <a href="/neovim-docs-web/en/visual#gv">gv</a> are not needed.  Commands can be invoked
 directly in cmdline-mode (which would otherwise require timer hacks).</div>
 <div class="old-help-para">Unlike <code>&lt;expr&gt;</code> mappings, there are no special restrictions on the <code>&lt;Cmd&gt;</code>
-command: it is executed as if an (unrestricted) <a href="autocmd.html#autocommand">autocommand</a> was invoked
+command: it is executed as if an (unrestricted) <a href="/neovim-docs-web/en/autocmd#autocommand">autocommand</a> was invoked
 or an async event event was processed.</div>
 <div class="old-help-para">Note:
 <div class="help-li" style=""> Because <code>&lt;Cmd&gt;</code> avoids mode-changes (unlike ":") it does not trigger
-  <a href="autocmd.html#CmdlineEnter">CmdlineEnter</a> and <a href="autocmd.html#CmdlineLeave">CmdlineLeave</a> events. This helps performance.
-</div><div class="help-li" style=""> For the same reason, <a href="intro.html#keycodes">keycodes</a> like <code>&lt;C-R&gt;</code><code>&lt;C-W&gt;</code> are interpreted as plain,
+  <a href="/neovim-docs-web/en/autocmd#CmdlineEnter">CmdlineEnter</a> and <a href="/neovim-docs-web/en/autocmd#CmdlineLeave">CmdlineLeave</a> events. This helps performance.
+</div><div class="help-li" style=""> For the same reason, <a href="/neovim-docs-web/en/intro#keycodes">keycodes</a> like <code>&lt;C-R&gt;</code><code>&lt;C-W&gt;</code> are interpreted as plain,
   unmapped keys.
 </div><div class="help-li" style=""> The command is not echo'ed, no need for <code>&lt;silent&gt;</code>.
 </div><div class="help-li" style=""> The <code>{rhs}</code> is not subject to abbreviations nor to other mappings, even if the
@@ -297,17 +297,17 @@ or an async event event was processed.</div>
 </div></div>
 <div class="old-help-para">							<a name="E5520"></a><code class="help-tag-right">E5520</code>
 <code>&lt;Cmd&gt;</code> commands must terminate, that is, they must be followed by <code>&lt;CR&gt;</code> in the
-<code>{rhs}</code> of the mapping definition.  <a href="cmdline.html#Command-line">Command-line</a> mode is never entered.</div>
+<code>{rhs}</code> of the mapping definition.  <a href="/neovim-docs-web/en/cmdline#Command-line">Command-line</a> mode is never entered.</div>
 <div class="old-help-para"><h3 class="help-heading">1.3 MAPPING AND MODES<span class="help-heading-tags">					<a name="%3Amap-modes"></a><span class="help-tag">:map-modes</span></span></h3>		<a name="mapmode-nvo"></a><code class="help-tag-right">mapmode-nvo</code> <a name="mapmode-n"></a><code class="help-tag">mapmode-n</code> <a name="mapmode-v"></a><code class="help-tag">mapmode-v</code> <a name="mapmode-o"></a><code class="help-tag">mapmode-o</code> <a name="mapmode-t"></a><code class="help-tag">mapmode-t</code></div>
 <div class="old-help-para">There are seven sets of mappings
 <div class="help-li" style=""> For Normal mode: When typing commands.
 </div><div class="help-li" style=""> For Visual mode: When typing commands while the Visual area is highlighted.
 </div><div class="help-li" style=""> For Select mode: like Visual mode but typing text replaces the selection.
 </div><div class="help-li" style=""> For Operator-pending mode: When an operator is pending (after "d", "y", "c",
-  etc.).  See below: <a href="map.html#omap-info">omap-info</a>.
+  etc.).  See below: <a href="/neovim-docs-web/en/map#omap-info">omap-info</a>.
 </div><div class="help-li" style=""> For Insert mode.  These are also used in Replace mode.
 </div><div class="help-li" style=""> For Command-line mode: When entering a ":" or "/" command.
-</div><div class="help-li" style=""> For Terminal mode: When typing in a <a href="various.html#%3Aterminal">:terminal</a> buffer.
+</div><div class="help-li" style=""> For Terminal mode: When typing in a <a href="/neovim-docs-web/en/various#%3Aterminal">:terminal</a> buffer.
 </div></div>
 <div class="old-help-para">Special case: While typing a count for a command in Normal mode, mapping zero
 is disabled.  This makes it possible to map zero without making it impossible
@@ -346,7 +346,7 @@ l[nore]map     |  -   | yes | yes |  -  |  -  |  -  |  -   | yes  |</div>
 						<a name="mapmode-x"></a><code class="help-tag-right">mapmode-x</code> <a name="mapmode-s"></a><code class="help-tag">mapmode-s</code>
 Some commands work both in Visual and Select mode, some in only one.  Note
 that quite often "Visual" is mentioned where both Visual and Select mode
-apply. <a href="visual.html#Select-mode-mapping">Select-mode-mapping</a>
+apply. <a href="/neovim-docs-web/en/visual#Select-mode-mapping">Select-mode-mapping</a>
 NOTE: Mapping a printable character in Select mode may confuse the user.  It's
 better to explicitly use :xmap and :smap for printable characters.  Or use
 :sunmap after defining the mapping.</div>
@@ -359,7 +359,7 @@ Some commands work both in Insert mode and Command-line mode, some not:</div>
 :imap  :inoremap  :iunmap  :imapclear	    yes		-		   -
 :cmap  :cnoremap  :cunmap  :cmapclear	     -		       yes	   -
 :lmap  :lnoremap  :lunmap  :lmapclear	    yes*       yes*	  yes*</div>
-<div class="old-help-para"><div class="help-li" style=""> If <a href="options.html#'iminsert'">'iminsert'</a> is 1, see <a href="map.html#language-mapping">language-mapping</a> below.
+<div class="old-help-para"><div class="help-li" style=""> If <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> is 1, see <a href="/neovim-docs-web/en/map#language-mapping">language-mapping</a> below.
 </div></div>
 <div class="old-help-para">The original Vi did not have separate mappings for
 Normal/Visual/Operator-pending mode and for Insert/Command-line mode.
@@ -394,10 +394,10 @@ Generally: Whenever a character is to be typed that is part of the text in the
 buffer, not a Vim command character.  "Lang-Arg" isn't really another mode,
 it's just used here for this situation.
    The simplest way to load a set of related language mappings is by using the
-<a href="options.html#'keymap'">'keymap'</a> option.  See <a href="usr_45.html#45.5">45.5</a>.
+<a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option.  See <a href="/neovim-docs-web/en/usr_45#45.5">45.5</a>.
    In Insert mode and in Command-line mode the mappings can be disabled with
-the <code>CTRL-^</code> command <a href="insert.html#i_CTRL-%5E">i_CTRL-^</a> <a href="cmdline.html#c_CTRL-%5E">c_CTRL-^</a>. These commands change the value of
-the <a href="options.html#'iminsert'">'iminsert'</a> option.  When starting to enter a normal command line (not a
+the <code>CTRL-^</code> command <a href="/neovim-docs-web/en/insert#i_CTRL-%5E">i_CTRL-^</a> <a href="/neovim-docs-web/en/cmdline#c_CTRL-%5E">c_CTRL-^</a>. These commands change the value of
+the <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> option.  When starting to enter a normal command line (not a
 search pattern) the mappings are disabled until a <code>CTRL-^</code> is typed.  The state
 last used is remembered for Insert mode and Search patterns separately.  The
 state for Insert mode is also used when typing a character as an argument to
@@ -429,28 +429,28 @@ Everything from the first non-blank after <code>{lhs}</code> up to the end of th
 (or '|') is considered to be part of <code>{rhs}</code>.  This allows the <code>{rhs}</code> to end
 with a space.</div>
 <div class="old-help-para">Note: When using mappings for Visual mode, you can use the "'&lt;" mark, which
-is the start of the last selected Visual area in the current buffer <a href="motion.html#'%3C">'&lt;</a>.</div>
-<div class="old-help-para">The <a href="various.html#%3Afilter">:filter</a> command can be used to select what mappings to list.  The
+is the start of the last selected Visual area in the current buffer <a href="/neovim-docs-web/en/motion#'%3C">'&lt;</a>.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/various#%3Afilter">:filter</a> command can be used to select what mappings to list.  The
 pattern is matched against the <code>{lhs}</code> and <code>{rhs}</code> in the raw form.  If a
-description was added using <a href="api.html#nvim_set_keymap()">nvim_set_keymap()</a> or <a href="api.html#nvim_buf_set_keymap()">nvim_buf_set_keymap()</a>
+description was added using <a href="/neovim-docs-web/en/api#nvim_set_keymap()">nvim_set_keymap()</a> or <a href="/neovim-docs-web/en/api#nvim_buf_set_keymap()">nvim_buf_set_keymap()</a>
 then the pattern is also matched against it.</div>
 <div class="old-help-para">							<a name="%3Amap-verbose"></a><code class="help-tag-right">:map-verbose</code>
-When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing a key map will also display where it was
+When <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> is non-zero, listing a key map will also display where it was
 last defined.  Example:<pre>:verbose map &lt;C-W&gt;*
 n  &lt;C-W&gt;*      * &lt;C-W&gt;&lt;C-S&gt;*
         Last set from ~/.config/nvim/init.vim</pre>
-See <a href="various.html#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
+See <a href="/neovim-docs-web/en/various#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
 <div class="old-help-para"><h3 class="help-heading">1.5 MAPPING SPECIAL KEYS<span class="help-heading-tags">				<a name="%3Amap-special-keys"></a><span class="help-tag">:map-special-keys</span></span></h3></div>
 <div class="old-help-para">There are two ways to map a special key:
 1. The Vi-compatible method: Map the key code.  Often this is a sequence that
    starts with <code>&lt;Esc&gt;</code>.  To enter a mapping like this you type ":map " and then
    you have to type <code>CTRL-V</code> before hitting the function key.  Note that when
-   the key code for the key is in the <a href="term.html#terminfo">terminfo</a> entry, it will automatically
+   the key code for the key is in the <a href="/neovim-docs-web/en/term#terminfo">terminfo</a> entry, it will automatically
    be translated into the internal code and become the second way of mapping.
 2. The second method is to use the internal code for the function key.  To
    enter such a mapping type <code>CTRL-K</code> and then hit the function key, or use
    the form "#1", "#2", .. "#9", "#0", "&lt;Up&gt;", "&lt;S-Down&gt;", "&lt;S-F7&gt;", etc.
-   (see table of keys <a href="intro.html#key-notation">key-notation</a>, all keys from <code>&lt;Up&gt;</code> can be used).  The
+   (see table of keys <a href="/neovim-docs-web/en/intro#key-notation">key-notation</a>, all keys from <code>&lt;Up&gt;</code> can be used).  The
    first ten function keys can be defined in two ways: Just the number, like
    "#2", and with "&lt;F&gt;", like "&lt;F2&gt;".  Both stand for function key 2.  "#0"
    refers to function key 10.</div>
@@ -464,8 +464,8 @@ it was recognized as a terminal code the internal code is written to the
 script file.</div>
 <div class="old-help-para"><h3 class="help-heading">1.6 SPECIAL CHARACTERS<span class="help-heading-tags">					<a name="%3Amap-special-chars"></a><span class="help-tag">:map-special-chars</span></span></h3>						<a name="map_backslash"></a><code class="help-tag-right">map_backslash</code> <a name="map-backslash"></a><code class="help-tag">map-backslash</code>
 Note that only <code>CTRL-V</code> is mentioned here as a special character for mappings
-and abbreviations.  When <a href="options.html#'cpoptions'">'cpoptions'</a> does not contain 'B', a backslash can
-also be used like <code>CTRL-V</code>.  The &lt;&gt; notation can be fully used then <a href="intro.html#%3C%3E">&lt;&gt;</a>.  But
+and abbreviations.  When <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> does not contain 'B', a backslash can
+also be used like <code>CTRL-V</code>.  The &lt;&gt; notation can be fully used then <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a>.  But
 you cannot use "&lt;C-V&gt;" like <code>CTRL-V</code> to escape the special meaning of what
 follows.</div>
 <div class="old-help-para">To map a backslash, or use a backslash literally in the <code>{rhs}</code>, the special
@@ -482,13 +482,13 @@ To include a space in <code>{lhs}</code> precede it with a <code>CTRL-V</code> (
 each space).
 					<a name="map_space_in_rhs"></a><code class="help-tag-right">map_space_in_rhs</code> <a name="map-space_in_rhs"></a><code class="help-tag">map-space_in_rhs</code>
 If you want a <code>{rhs}</code> that starts with a space, use "&lt;Space&gt;".  To be fully Vi
-compatible (but unreadable) don't use the <a href="intro.html#%3C%3E">&lt;&gt;</a> notation, precede <code>{rhs}</code> with a
+compatible (but unreadable) don't use the <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a> notation, precede <code>{rhs}</code> with a
 single <code>CTRL-V</code> (you have to type <code>CTRL-V</code> two times).
 						<a name="map_empty_rhs"></a><code class="help-tag-right">map_empty_rhs</code> <a name="map-empty-rhs"></a><code class="help-tag">map-empty-rhs</code>
 You can create an empty <code>{rhs}</code> by typing nothing after a single <code>CTRL-V</code> (you
 have to type <code>CTRL-V</code> two times).  Unfortunately, you cannot do this in a vimrc
 file.
-							<a href="intro.html#%3CNop%3E">&lt;Nop&gt;</a>
+							<a href="/neovim-docs-web/en/intro#%3CNop%3E">&lt;Nop&gt;</a>
 An easier way to get a mapping that doesn't produce anything, is to use
 "&lt;Nop&gt;" for the <code>{rhs}</code>.  For example, to disable function key 8:<pre>:map  &lt;F8&gt;  &lt;Nop&gt;
 :map! &lt;F8&gt;  &lt;Nop&gt;</pre></div>
@@ -526,11 +526,11 @@ keep "mapleader" at the default backslash, and set "maplocalleader" to an
 underscore.</div>
 <div class="old-help-para">							<a name="map-%3CSID%3E"></a><code class="help-tag-right">map-&lt;SID&gt;</code>
 In a script the special key name "&lt;SID&gt;" can be used to define a mapping
-that's local to the script.  See <a href="map.html#%3CSID%3E">&lt;SID&gt;</a> for details.</div>
+that's local to the script.  See <a href="/neovim-docs-web/en/map#%3CSID%3E">&lt;SID&gt;</a> for details.</div>
 <div class="old-help-para">							<a name="%3CPlug%3E"></a><code class="help-tag-right">&lt;Plug&gt;</code>
 The special key name "&lt;Plug&gt;" can be used for an internal mapping, which is
 not to be matched with any key sequence.  This is useful in plugins
-<a href="usr_41.html#using-%3CPlug%3E">using-&lt;Plug&gt;</a>.</div>
+<a href="/neovim-docs-web/en/usr_41#using-%3CPlug%3E">using-&lt;Plug&gt;</a>.</div>
 <div class="old-help-para">							<a name="%3CChar%3E"></a><code class="help-tag-right">&lt;Char&gt;</code> <a name="%3CChar-%3E"></a><code class="help-tag">&lt;Char-&gt;</code>
 To map a character by its decimal, octal or hexadecimal number the <code>&lt;Char&gt;</code>
 construct can be used:
@@ -538,7 +538,7 @@ construct can be used:
 	<code>&lt;Char-033&gt;</code>	character 27
 	<code>&lt;Char-0x7f&gt;</code>	character 127
 	<code>&lt;S-Char-114&gt;</code>    character 114 ('r') shifted ('R')
-This is useful to specify a (multibyte) character in a <a href="options.html#'keymap'">'keymap'</a> file.
+This is useful to specify a (multibyte) character in a <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> file.
 Upper and lowercase differences are ignored.</div>
 <div class="old-help-para">							<a name="map-comments"></a><code class="help-tag-right">map-comments</code>
 It is not possible to put a comment after these commands, because the '"'
@@ -549,20 +549,20 @@ Since the '|' character is used to separate a map command from the next
 command, you will have to do something special to include  a '|' in <code>{rhs}</code>.
 There are three methods:
 <div class="help-column_heading">   use	     works when			   example</div>   <code>&lt;Bar&gt;</code>     always			   :map _l :!ls <code>&lt;Bar&gt;</code> more^M
-   \|	     'b' is not in <a href="options.html#'cpoptions'">'cpoptions'</a>	   :map _l :!ls \| more^M
+   \|	     'b' is not in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>	   :map _l :!ls \| more^M
    ^V|	     always			   :map _l :!ls ^V| more^M</div>
 <div class="old-help-para">(here ^V stands for <code>CTRL-V</code>; to get one <code>CTRL-V</code> you have to type it twice; you
 cannot use the &lt;&gt; notation "&lt;C-V&gt;" here).</div>
-<div class="old-help-para">All three work when you use the default setting for <a href="options.html#'cpoptions'">'cpoptions'</a>.</div>
-<div class="old-help-para">When 'b' is present in <a href="options.html#'cpoptions'">'cpoptions'</a>, "\|" will be recognized as a mapping
+<div class="old-help-para">All three work when you use the default setting for <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.</div>
+<div class="old-help-para">When 'b' is present in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>, "\|" will be recognized as a mapping
 ending in a '\' and then another command.  This is Vi compatible, but
 illogical when compared to other commands.</div>
 <div class="old-help-para">						<a name="map_return"></a><code class="help-tag-right">map_return</code> <a name="map-return"></a><code class="help-tag">map-return</code>
 When you have a mapping that contains an Ex command, you need to put a line
 terminator after it to have it executed.  The use of <code>&lt;CR&gt;</code> is recommended for
-this (see <a href="intro.html#%3C%3E">&lt;&gt;</a>).  Example:<pre>:map  _ls  :!ls -l %:S&lt;CR&gt;:echo "the end"&lt;CR&gt;</pre>
+this (see <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a>).  Example:<pre>:map  _ls  :!ls -l %:S&lt;CR&gt;:echo "the end"&lt;CR&gt;</pre>
 To avoid mapping of the characters you type in insert or Command-line mode,
-type a <code>CTRL-V</code> first.  The mapping in Insert mode is disabled if the <a href="options.html#'paste'">'paste'</a>
+type a <code>CTRL-V</code> first.  The mapping in Insert mode is disabled if the <a href="/neovim-docs-web/en/options#'paste'">'paste'</a>
 option is on.
 							<a name="map-error"></a><code class="help-tag-right">map-error</code>
 Note that when an error is encountered (that causes an error message or beep)
@@ -579,13 +579,13 @@ suggestions:
 <div class="help-li" style=""> Function keys <code>&lt;F2&gt;</code>, <code>&lt;F3&gt;</code>, etc..  Also the shifted function keys <code>&lt;S-F1&gt;</code>,
   <code>&lt;S-F2&gt;</code>, etc.  Note that <code>&lt;F1&gt;</code> is already used for the help command.
 </div><div class="help-li" style=""> Meta-keys (with the ALT key pressed).  Depending on your keyboard accented
-  characters may be used as well. <a href="map.html#%3Amap-alt-keys">:map-alt-keys</a>
+  characters may be used as well. <a href="/neovim-docs-web/en/map#%3Amap-alt-keys">:map-alt-keys</a>
 </div><div class="help-li" style=""> Use the '_' or ',' character and then any other character.  The "_" and ","
-  commands do exist in Vim (see <a href="motion.html#_">_</a> and <a href="motion.html#%2C">,</a>), but you probably never use them.
+  commands do exist in Vim (see <a href="/neovim-docs-web/en/motion#_">_</a> and <a href="/neovim-docs-web/en/motion#%2C">,</a>), but you probably never use them.
 </div><div class="help-li" style=""> Use a key that is a synonym for another command.  For example: <code>CTRL-P</code> and
   <code>CTRL-N</code>.  Use an extra character to allow more mappings.
 </div><div class="help-li" style=""> The key defined by <code>&lt;Leader&gt;</code> and one or more other keys.  This is especially
-  useful in scripts. <a href="map.html#mapleader">mapleader</a>
+  useful in scripts. <a href="/neovim-docs-web/en/map#mapleader">mapleader</a>
 </div></div>
 <div class="old-help-para">See the file "index" for keys that are not used and thus can be mapped without
 losing any builtin function.  You can also use ":help <code>{key}</code>^D" to find out if
@@ -601,20 +601,20 @@ Multiplying a count</div>
 typed before the <code>{lhs}</code>.  For example, with this mapping:<pre>:map &lt;F4&gt;  3w</pre>
 Typing 2&lt;F4&gt; will result in "23w". Thus not moving 2 * 3 words but 23 words.
 If you want to multiply counts use the expression register:<pre>:map &lt;F4&gt;  @='3w'&lt;CR&gt;</pre>
-The part between quotes is the expression being executed. <a href="change.html#%40%3D">@=</a></div>
+The part between quotes is the expression being executed. <a href="/neovim-docs-web/en/change#%40%3D">@=</a></div>
 <div class="old-help-para"><h3 class="help-heading">1.9 USING MAPPINGS<span class="help-heading-tags">					<a name="map-typing"></a><span class="help-tag">map-typing</span></span></h3></div>
 <div class="old-help-para">Vim will compare what you type with the start of a mapped sequence.  If there
 is an incomplete match, it will get more characters until there either is a
 complete match or until there is no match at all.  Example: If you map! "qq",
 the first 'q' will not appear on the screen until you type another
 character.  This is because Vim cannot know if the next character will be a
-'q' or not.  If the <a href="options.html#'timeout'">'timeout'</a> option is on (which is the default) Vim will
-only wait for one second (or as long as specified with the <a href="options.html#'timeoutlen'">'timeoutlen'</a>
+'q' or not.  If the <a href="/neovim-docs-web/en/options#'timeout'">'timeout'</a> option is on (which is the default) Vim will
+only wait for one second (or as long as specified with the <a href="/neovim-docs-web/en/options#'timeoutlen'">'timeoutlen'</a>
 option).  After that it assumes that the 'q' is to be interpreted as such.  If
-you type slowly, or your system is slow, reset the <a href="options.html#'timeout'">'timeout'</a> option.  Then you
-might want to set the <a href="options.html#'ttimeout'">'ttimeout'</a> option.</div>
+you type slowly, or your system is slow, reset the <a href="/neovim-docs-web/en/options#'timeout'">'timeout'</a> option.  Then you
+might want to set the <a href="/neovim-docs-web/en/options#'ttimeout'">'ttimeout'</a> option.</div>
 <div class="old-help-para">			      				<a name="map-precedence"></a><code class="help-tag-right">map-precedence</code>
-Buffer-local mappings (defined using <a href="map.html#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a>) take precedence over
+Buffer-local mappings (defined using <a href="/neovim-docs-web/en/map#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a>) take precedence over
 global mappings.  When a buffer-local mapping is the same as a global mapping,
 Vim will use the buffer-local mapping.  In addition, Vim will use a complete
 mapping immediately if it was defined with <code>&lt;nowait&gt;</code>, even if a longer mapping
@@ -631,7 +631,7 @@ There are situations where key codes might not be recognized:
 </div></div>
 <div class="old-help-para">The result is that the key code is not recognized in this situation, and the
 mapping fails.  There are two actions needed to avoid this problem:</div>
-<div class="old-help-para"><div class="help-li" style=""> Remove the 'K' flag from <a href="options.html#'cpoptions'">'cpoptions'</a>.  This will make Vim wait for the rest
+<div class="old-help-para"><div class="help-li" style=""> Remove the 'K' flag from <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.  This will make Vim wait for the rest
   of the characters of the function key.
 </div><div class="help-li" style=""> When using <code>&lt;F1&gt;</code> to <code>&lt;F4&gt;</code> the actual key code generated may correspond to
   <code>&lt;xF1&gt;</code> to <code>&lt;xF4&gt;</code>.  There are mappings from <code>&lt;xF1&gt;</code> to <code>&lt;F1&gt;</code>, <code>&lt;xF2&gt;</code> to <code>&lt;F2&gt;</code>, etc.,
@@ -664,7 +664,7 @@ This will exchange the cursor up and down commands.</div>
 to be a part of a <code>{lhs}</code>.  For example, if you use:<pre>:map x y
 :map y x</pre>
 Vim will replace x with y, and then y with x, etc.  When this has happened
-<a href="options.html#'maxmapdepth'">'maxmapdepth'</a> times (default 1000), Vim will give the error message
+<a href="/neovim-docs-web/en/options#'maxmapdepth'">'maxmapdepth'</a> times (default 1000), Vim will give the error message
 "recursive mapping".</div>
 <div class="old-help-para">							<a name="%3Amap-undo"></a><code class="help-tag-right">:map-undo</code>
 If you include an undo command inside a mapped sequence, this will bring the
@@ -673,29 +673,29 @@ the original Vi, as long as there is only one undo command in the mapped
 sequence (having two undo commands in a mapped sequence did not make sense
 in the original Vi, you would get back the text before the first undo).</div>
 <div class="old-help-para"><h3 class="help-heading">1.10 MAPPING ALT-KEYS<span class="help-heading-tags">					<a name="%3Amap-alt-keys"></a><span class="help-tag">:map-alt-keys</span></span></h3></div>
-<div class="old-help-para">In the GUI Nvim handles the <a href="intro.html#ALT">ALT</a> key itself, thus mapping keys with ALT
+<div class="old-help-para">In the GUI Nvim handles the <a href="/neovim-docs-web/en/intro#ALT">ALT</a> key itself, thus mapping keys with ALT
 should always work.  But in a terminal Nvim gets a sequence of bytes and has
 to figure out whether ALT was pressed.  Terminals may use ESC to indicate that
-ALT was pressed.  If ESC is followed by a <code>{key}</code> within <a href="options.html#'ttimeoutlen'">'ttimeoutlen'</a>
+ALT was pressed.  If ESC is followed by a <code>{key}</code> within <a href="/neovim-docs-web/en/options#'ttimeoutlen'">'ttimeoutlen'</a>
 milliseconds, the ESC is interpreted as:
         &lt;ALT-{key}&gt;
 otherwise it is interpreted as two key presses:
         <code>&lt;ESC&gt;</code> <code>{key}</code></div>
 <div class="old-help-para"><h3 class="help-heading">1.11 MAPPING AN OPERATOR<span class="help-heading-tags">				<a name="%3Amap-operator"></a><span class="help-tag">:map-operator</span></span></h3></div>
 <div class="old-help-para">An operator is used before a <code>{motion}</code> command.  To define your own operator
-you must create a mapping that first sets the <a href="options.html#'operatorfunc'">'operatorfunc'</a> option and then
-invoke the <a href="map.html#g%40">g@</a> operator.  After the user types the <code>{motion}</code> command the
+you must create a mapping that first sets the <a href="/neovim-docs-web/en/options#'operatorfunc'">'operatorfunc'</a> option and then
+invoke the <a href="/neovim-docs-web/en/map#g%40">g@</a> operator.  After the user types the <code>{motion}</code> command the
 specified function will be called.</div>
 <div class="old-help-para">							<a name="g%40"></a><code class="help-tag-right">g@</code> <a name="E774"></a><code class="help-tag">E774</code> <a name="E775"></a><code class="help-tag">E775</code>
-g@{motion}		Call the function set by the <a href="options.html#'operatorfunc'">'operatorfunc'</a> option.
+g@{motion}		Call the function set by the <a href="/neovim-docs-web/en/options#'operatorfunc'">'operatorfunc'</a> option.
 			The '[ mark is positioned at the start of the text
 			moved over by <code>{motion}</code>, the '] mark on the last
 			character of the text.
 			The function is called with one String argument:
-			    "line"	<code>{motion}</code> was <a href="motion.html#linewise">linewise</a>
-			    "char"	<code>{motion}</code> was <a href="motion.html#charwise">charwise</a>
-			    "block"	<code>{motion}</code> was <a href="visual.html#blockwise-visual">blockwise-visual</a>
-			The type can be forced, see <a href="motion.html#forced-motion">forced-motion</a>.</div>
+			    "line"	<code>{motion}</code> was <a href="/neovim-docs-web/en/motion#linewise">linewise</a>
+			    "char"	<code>{motion}</code> was <a href="/neovim-docs-web/en/motion#charwise">charwise</a>
+			    "block"	<code>{motion}</code> was <a href="/neovim-docs-web/en/visual#blockwise-visual">blockwise-visual</a>
+			The type can be forced, see <a href="/neovim-docs-web/en/motion#forced-motion">forced-motion</a>.</div>
 <div class="old-help-para">Here is an example that counts the number of spaces with <code>&lt;F4&gt;</code>:<pre>nnoremap &lt;expr&gt; &lt;F4&gt; CountSpaces()
 xnoremap &lt;expr&gt; &lt;F4&gt; CountSpaces()
 " doubling &lt;F4&gt; works on a line
@@ -728,10 +728,10 @@ endfunction</pre>
 An <code>&lt;expr&gt;</code> mapping is used to be able to fetch any prefixed count and register.
 This also avoids using a command line, which would trigger CmdlineEnter and
 CmdlineLeave autocommands.</div>
-<div class="old-help-para">Note that the <a href="options.html#'selection'">'selection'</a> option is temporarily set to "inclusive" to be able
+<div class="old-help-para">Note that the <a href="/neovim-docs-web/en/options#'selection'">'selection'</a> option is temporarily set to "inclusive" to be able
 to yank exactly the right text by using Visual mode from the '[ to the ']
 mark.</div>
-<div class="old-help-para">Also note that the <a href="options.html#'clipboard'">'clipboard'</a> option is temporarily emptied to avoid
+<div class="old-help-para">Also note that the <a href="/neovim-docs-web/en/options#'clipboard'">'clipboard'</a> option is temporarily emptied to avoid
 clobbering the <code>"*</code> or <code>"+</code> registers, if its value contains the item <code>unnamed</code>
 or <code>unnamedplus</code>.</div>
 <div class="old-help-para">The <code>mode()</code> function will return the state as it will be after applying the
@@ -754,7 +754,7 @@ Examples:</div>
 	:iab tihs this</div>
 <div class="old-help-para">There are three types of abbreviations:</div>
 <div class="old-help-para">full-id	  The "full-id" type consists entirely of keyword characters (letters
-	  and characters from <a href="options.html#'iskeyword'">'iskeyword'</a> option).  This is the most common
+	  and characters from <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option).  This is the most common
 	  abbreviation.</div>
 <div class="old-help-para">	  Examples: "foo", "g3", "-1"</div>
 <div class="old-help-para">end-id	  The "end-id" type ends in a keyword character, but all the other
@@ -813,22 +813,22 @@ There are no default abbreviations.</div>
 <div class="old-help-para">Abbreviations are never recursive.  You can use ":ab f f-o-o" without any
 problem.  But abbreviations can be mapped.  <code>{some versions of Vi support}</code>
 recursive abbreviations, for no apparent reason}</div>
-<div class="old-help-para">Abbreviations are disabled if the <a href="options.html#'paste'">'paste'</a> option is on.</div>
+<div class="old-help-para">Abbreviations are disabled if the <a href="/neovim-docs-web/en/options#'paste'">'paste'</a> option is on.</div>
 <div class="old-help-para">				<a name="%3Aabbreviate-local"></a><code class="help-tag-right">:abbreviate-local</code> <a name="%3Aabbreviate-%3Cbuffer%3E"></a><code class="help-tag">:abbreviate-&lt;buffer&gt;</code>
 Just like mappings, abbreviations can be local to a buffer.  This is mostly
-used in a <a href="usr_43.html#filetype-plugin">filetype-plugin</a> file.  Example for a C plugin file:<pre>:abb &lt;buffer&gt; FF  for (i = 0; i &lt; ; ++i)</pre></div>
+used in a <a href="/neovim-docs-web/en/usr_43#filetype-plugin">filetype-plugin</a> file.  Example for a C plugin file:<pre>:abb &lt;buffer&gt; FF  for (i = 0; i &lt; ; ++i)</pre></div>
 <div class="old-help-para">						<a name="%3Aab"></a><code class="help-tag-right">:ab</code> <a name="%3Aabbreviate"></a><code class="help-tag">:abbreviate</code>
 :ab[breviate]		list all abbreviations.  The character in the first
 			column indicates the mode where the abbreviation is
 			used: 'i' for insert mode, 'c' for Command-line
 			mode, '!' for both.  These are the same as for
-			mappings, see <a href="map.html#map-listing">map-listing</a>.</div>
+			mappings, see <a href="/neovim-docs-web/en/map#map-listing">map-listing</a>.</div>
 <div class="old-help-para">						<a name="%3Aabbreviate-verbose"></a><code class="help-tag-right">:abbreviate-verbose</code>
-When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing an abbreviation will also display where it
+When <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> is non-zero, listing an abbreviation will also display where it
 was last defined.  Example:<pre>:verbose abbreviate
 !  teh                 the
         Last set from /home/abcd/vim/abbr.vim</pre>
-See <a href="various.html#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
+See <a href="/neovim-docs-web/en/various#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
 <div class="old-help-para">:ab[breviate] <code>{lhs}</code>	list the abbreviations that start with <code>{lhs}</code>
 			You may need to insert a <code>CTRL-V</code> (type it twice) to
 			avoid that a typed <code>{lhs}</code> is expanded, since
@@ -837,8 +837,8 @@ See <a href="various.html#%3Averbose-cmd">:verbose-cmd</a> for more information.
 			add abbreviation for <code>{lhs}</code> to <code>{rhs}</code>.  If <code>{lhs}</code> already
 			existed it is replaced with the new <code>{rhs}</code>.  <code>{rhs}</code> may
 			contain spaces.
-			See <a href="map.html#%3Amap-%3Cexpr%3E">:map-&lt;expr&gt;</a> for the optional <code>&lt;expr&gt;</code> argument.
-			See <a href="map.html#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a> for the optional <code>&lt;buffer&gt;</code> argument.</div>
+			See <a href="/neovim-docs-web/en/map#%3Amap-%3Cexpr%3E">:map-&lt;expr&gt;</a> for the optional <code>&lt;expr&gt;</code> argument.
+			See <a href="/neovim-docs-web/en/map#%3Amap-%3Cbuffer%3E">:map-&lt;buffer&gt;</a> for the optional <code>&lt;buffer&gt;</code> argument.</div>
 <div class="old-help-para">						<a name="%3Auna"></a><code class="help-tag-right">:una</code> <a name="%3Aunabbreviate"></a><code class="help-tag">:unabbreviate</code>
 :una[bbreviate] [&lt;buffer&gt;] <code>{lhs}</code>
 			Remove abbreviation for <code>{lhs}</code> from the list.  If none
@@ -941,14 +941,14 @@ use this function:<pre>func s:ScriptNumber()
 endfunc</pre>
 The "&lt;SNR&gt;" will be shown when listing functions and mappings.  This is useful
 to find out what they are defined to.</div>
-<div class="old-help-para">The <a href="repeat.html#%3Ascriptnames">:scriptnames</a> command can be used to see which scripts have been sourced
+<div class="old-help-para">The <a href="/neovim-docs-web/en/repeat#%3Ascriptnames">:scriptnames</a> command can be used to see which scripts have been sourced
 and what their <code>&lt;SNR&gt;</code> number is.</div>
 <div class="old-help-para"><h2 class="help-heading">4. User-defined commands<span class="help-heading-tags">				<a name="user-commands"></a><span class="help-tag">user-commands</span></span></h2></div>
 <div class="old-help-para">It is possible to define your own Ex commands.  A user-defined command can act
 just like a built-in command (it can have a range or arguments, arguments can
 be completed as filenames or buffer names, etc), except that when the command
 is executed, it is transformed into a normal Ex command and then executed.</div>
-<div class="old-help-para">For starters: See section <a href="usr_40.html#40.2">40.2</a> in the user manual.</div>
+<div class="old-help-para">For starters: See section <a href="/neovim-docs-web/en/usr_40#40.2">40.2</a> in the user manual.</div>
 <div class="old-help-para">					<a name="E183"></a><code class="help-tag-right">E183</code> <a name="E841"></a><code class="help-tag">E841</code> <a name="user-cmd-ambiguous"></a><code class="help-tag">user-cmd-ambiguous</code>
 All user defined commands must start with an uppercase letter, to avoid
 confusion with builtin commands.  Exceptions are these builtin commands:
@@ -980,14 +980,14 @@ scripts.</div>
 			    b	Command is local to current buffer
 			(see below for details on attributes)
 			The list can be filtered on command name with
-			<a href="various.html#%3Afilter">:filter</a>, e.g., to list all commands with "Pyth" in
+			<a href="/neovim-docs-web/en/various#%3Afilter">:filter</a>, e.g., to list all commands with "Pyth" in
 			the name:<pre>filter Pyth command</pre>
 :com[mand] <code>{cmd}</code>	List the user-defined commands that start with <code>{cmd}</code></div>
 <div class="old-help-para">							<a name="%3Acommand-verbose"></a><code class="help-tag-right">:command-verbose</code>
-When <a href="options.html#'verbose'">'verbose'</a> is non-zero, listing a command will also display where it was
+When <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> is non-zero, listing a command will also display where it was
 last defined and any completion argument. Example:<pre>:verbose command TOhtml</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	Name	    Args Range Complete  Definition</div><div class="help-column_heading">	TOhtml	    0	 %		 :call Convert2HTML(<code>&lt;line1&gt;</code>, <code>&lt;line2&gt;</code>)</div><div class="help-column_heading">	    Last set from /usr/share/vim/vim-7.0/plugin/tohtml.vim</div></div>
-<div class="old-help-para">See <a href="various.html#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/various#%3Averbose-cmd">:verbose-cmd</a> for more information.</div>
 <div class="old-help-para">							<a name="E174"></a><code class="help-tag-right">E174</code> <a name="E182"></a><code class="help-tag">E182</code>
 :com[mand][!] [{attr}...] <code>{cmd}</code> <code>{repl}</code>
 			Define a user command.  The name of the command is
@@ -1053,8 +1053,8 @@ completion can be enabled:</div>
 	-complete=event		autocommand events
 	-complete=expression	Vim expression
 	-complete=file		file and directory names
-	-complete=file_in_path	file and directory names in <a href="options.html#'path'">'path'</a>
-	-complete=filetype	filetype names <a href="options.html#'filetype'">'filetype'</a>
+	-complete=file_in_path	file and directory names in <a href="/neovim-docs-web/en/options#'path'">'path'</a>
+	-complete=filetype	filetype names <a href="/neovim-docs-web/en/options#'filetype'">'filetype'</a>
 	-complete=function	function name
 	-complete=help		help subjects
 	-complete=highlight	highlight groups
@@ -1064,13 +1064,13 @@ completion can be enabled:</div>
 	-complete=mapclear	buffer argument
 	-complete=mapping	mapping name
 	-complete=menu		menus
-	-complete=messages	<a href="message.html#%3Amessages">:messages</a> suboptions
+	-complete=messages	<a href="/neovim-docs-web/en/message#%3Amessages">:messages</a> suboptions
 	-complete=option	options
-	-complete=packadd	optional package <a href="repeat.html#pack-add">pack-add</a> names
+	-complete=packadd	optional package <a href="/neovim-docs-web/en/repeat#pack-add">pack-add</a> names
 	-complete=shellcmd	Shell command
-	-complete=sign		<a href="sign.html#%3Asign">:sign</a> suboptions
-	-complete=syntax	syntax file names <a href="options.html#'syntax'">'syntax'</a>
-	-complete=syntime	<a href="syntax.html#%3Asyntime">:syntime</a> suboptions
+	-complete=sign		<a href="/neovim-docs-web/en/sign#%3Asign">:sign</a> suboptions
+	-complete=syntax	syntax file names <a href="/neovim-docs-web/en/options#'syntax'">'syntax'</a>
+	-complete=syntime	<a href="/neovim-docs-web/en/syntax#%3Asyntime">:syntime</a> suboptions
 	-complete=tag		tags
 	-complete=tag_listfiles	tags, file names are shown when <code>CTRL-D</code> is hit
 	-complete=user		user names
@@ -1107,7 +1107,7 @@ candidates and the user supplied function should filter the candidates.</div>
 :    return system("cut -d: -f1 /etc/passwd")
 :endfun</pre>
 The following example completes filenames from the directories specified in
-the <a href="options.html#'path'">'path'</a> option:<pre>:com -nargs=1 -bang -complete=customlist,EditFileComplete
+the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option:<pre>:com -nargs=1 -bang -complete=customlist,EditFileComplete
                     \ EditFile edit&lt;bang&gt; &lt;args&gt;
 :fun EditFileComplete(A,L,P)
 :    return split(globpath(&amp;path, a:A), "\n")
@@ -1117,17 +1117,17 @@ the <a href="options.html#'path'">'path'</a> option:<pre>:com -nargs=1 -bang -co
 By default, user-defined commands do not accept a line number range.  However,
 it is possible to specify that the command does take a range (the -range
 attribute), or that it takes an arbitrary count value, either in the line
-number position (-range=N, like the <a href="windows.html#%3Asplit">:split</a> command) or as a "count"
-argument (-count=N, like the <a href="editing.html#%3ANext">:Next</a> command).  The count will then be
-available in the argument with <a href="map.html#%3Ccount%3E">&lt;count&gt;</a>.</div>
+number position (-range=N, like the <a href="/neovim-docs-web/en/windows#%3Asplit">:split</a> command) or as a "count"
+argument (-count=N, like the <a href="/neovim-docs-web/en/editing#%3ANext">:Next</a> command).  The count will then be
+available in the argument with <a href="/neovim-docs-web/en/map#%3Ccount%3E">&lt;count&gt;</a>.</div>
 <div class="old-help-para">Possible attributes are:</div>
 <div class="old-help-para">	-range	    Range allowed, default is current line
 	-range=%    Range allowed, default is whole file (1,$)
 	-range=N    A count (default N) which is specified in the line
-		    number position (like <a href="windows.html#%3Asplit">:split</a>); allows for zero line
+		    number position (like <a href="/neovim-docs-web/en/windows#%3Asplit">:split</a>); allows for zero line
 		    number.
 	-count=N    A count (default N) which is specified either in the line
-		    number position, or as an initial argument (like <a href="editing.html#%3ANext">:Next</a>).
+		    number position, or as an initial argument (like <a href="/neovim-docs-web/en/editing#%3ANext">:Next</a>).
 		    Specifying -count (without a default) acts like -count=0</div>
 <div class="old-help-para">Note that -range=N and -count=N are mutually exclusive - only one should be
 specified.</div>
@@ -1145,24 +1145,24 @@ buffer, relate to arguments, (loaded) buffers, windows or tab pages.</div>
     -addr=quickfix	  qf	Range for quickfix entries
     -addr=other		  ?	other kind of range</div>
 <div class="old-help-para"><div class="help-column_heading">Incremental preview</div>                                                  <a name="%3Acommand-preview"></a><code class="help-tag-right">:command-preview</code> <code>{nvim-api}</code>
-Commands can show an <a href="options.html#'inccommand'">'inccommand'</a> (as-you-type) preview by defining a preview
-handler (only from Lua, see <a href="api.html#nvim_create_user_command()">nvim_create_user_command()</a>).</div>
+Commands can show an <a href="/neovim-docs-web/en/options#'inccommand'">'inccommand'</a> (as-you-type) preview by defining a preview
+handler (only from Lua, see <a href="/neovim-docs-web/en/api#nvim_create_user_command()">nvim_create_user_command()</a>).</div>
 <div class="old-help-para">Before the preview callback is executed, Nvim will temporarily disable
-<a href="options.html#'cursorline'">'cursorline'</a> and <a href="options.html#'cursorcolumn'">'cursorcolumn'</a> to avoid highlighting issues.</div>
+<a href="/neovim-docs-web/en/options#'cursorline'">'cursorline'</a> and <a href="/neovim-docs-web/en/options#'cursorcolumn'">'cursorcolumn'</a> to avoid highlighting issues.</div>
 <div class="old-help-para">The preview callback must be a Lua function with this signature:<pre>function cmdpreview(opts, ns, buf)</pre></div>
-<div class="old-help-para">where "opts" has the same form as that given to <a href="api.html#nvim_create_user_command()">nvim_create_user_command()</a>
+<div class="old-help-para">where "opts" has the same form as that given to <a href="/neovim-docs-web/en/api#nvim_create_user_command()">nvim_create_user_command()</a>
 callbacks, "ns" is the preview namespace id for highlights, and "buf" is the
 buffer that your preview routine will directly modify to show the previewed
 results (for "inccommand=split", or nil for  "inccommand=nosplit").</div>
 <div class="old-help-para">Your command preview routine must implement this protocol:</div>
 <div class="old-help-para">1. Modify the target buffers as required for the preview (see
-   <a href="api.html#nvim_buf_set_text()">nvim_buf_set_text()</a> and <a href="api.html#nvim_buf_set_lines()">nvim_buf_set_lines()</a>).
+   <a href="/neovim-docs-web/en/api#nvim_buf_set_text()">nvim_buf_set_text()</a> and <a href="/neovim-docs-web/en/api#nvim_buf_set_lines()">nvim_buf_set_lines()</a>).
 2. If preview buffer is provided, add necessary text to the preview buffer.
 3. Add required highlights to the target buffers. If preview buffer is
    provided, add required highlights to the preview buffer as well. All
    highlights must be added to the preview namespace which is provided as an
-   argument to the preview callback (see <a href="api.html#nvim_buf_add_highlight()">nvim_buf_add_highlight()</a> and
-   <a href="api.html#nvim_buf_set_extmark()">nvim_buf_set_extmark()</a> for help on how to add highlights to a namespace).
+   argument to the preview callback (see <a href="/neovim-docs-web/en/api#nvim_buf_add_highlight()">nvim_buf_add_highlight()</a> and
+   <a href="/neovim-docs-web/en/api#nvim_buf_set_extmark()">nvim_buf_set_extmark()</a> for help on how to add highlights to a namespace).
 4. Return an integer (0, 1, 2) which controls how Nvim behaves as follows:
    0: No preview is shown.
    1: Preview is shown without preview window (even with "inccommand=split").
@@ -1286,13 +1286,13 @@ use <code>&lt;lt&gt;</code> in place of the initial &lt;.  Thus to include "&lt;
 		expands to nothing.
 					<a name="%3Cmods%3E"></a><code class="help-tag-right">&lt;mods&gt;</code> <a name="%3Cq-mods%3E"></a><code class="help-tag">&lt;q-mods&gt;</code> <a name="%3Acommand-modifiers"></a><code class="help-tag">:command-modifiers</code>
 	<code>&lt;mods&gt;</code>  The command modifiers, if specified. Otherwise, expands to
-		nothing. Supported modifiers are <a href="windows.html#%3Aaboveleft">:aboveleft</a>, <a href="windows.html#%3Abelowright">:belowright</a>,
-		<a href="windows.html#%3Abotright">:botright</a>, <a href="editing.html#%3Abrowse">:browse</a>, <a href="editing.html#%3Aconfirm">:confirm</a>, <a href="windows.html#%3Ahide">:hide</a>, <a href="windows.html#%3Ahorizontal">:horizontal</a>,
-		<a href="editing.html#%3Akeepalt">:keepalt</a>, <a href="motion.html#%3Akeepjumps">:keepjumps</a>, <a href="motion.html#%3Akeepmarks">:keepmarks</a>, <a href="cmdline.html#%3Akeeppatterns">:keeppatterns</a>,
-		<a href="windows.html#%3Aleftabove">:leftabove</a>, <a href="motion.html#%3Alockmarks">:lockmarks</a>, <a href="autocmd.html#%3Anoautocmd">:noautocmd</a>, <a href="recover.html#%3Anoswapfile">:noswapfile</a>
-		<a href="windows.html#%3Arightbelow">:rightbelow</a>, <a href="eval.html#%3Asandbox">:sandbox</a>, <a href="various.html#%3Asilent">:silent</a>, <a href="tabpage.html#%3Atab">:tab</a>, <a href="windows.html#%3Atopleft">:topleft</a>,
-		<a href="various.html#%3Aunsilent">:unsilent</a>, <a href="various.html#%3Averbose">:verbose</a>, and <a href="windows.html#%3Avertical">:vertical</a>.
-		Note that <a href="various.html#%3Afilter">:filter</a> is not supported.
+		nothing. Supported modifiers are <a href="/neovim-docs-web/en/windows#%3Aaboveleft">:aboveleft</a>, <a href="/neovim-docs-web/en/windows#%3Abelowright">:belowright</a>,
+		<a href="/neovim-docs-web/en/windows#%3Abotright">:botright</a>, <a href="/neovim-docs-web/en/editing#%3Abrowse">:browse</a>, <a href="/neovim-docs-web/en/editing#%3Aconfirm">:confirm</a>, <a href="/neovim-docs-web/en/windows#%3Ahide">:hide</a>, <a href="/neovim-docs-web/en/windows#%3Ahorizontal">:horizontal</a>,
+		<a href="/neovim-docs-web/en/editing#%3Akeepalt">:keepalt</a>, <a href="/neovim-docs-web/en/motion#%3Akeepjumps">:keepjumps</a>, <a href="/neovim-docs-web/en/motion#%3Akeepmarks">:keepmarks</a>, <a href="/neovim-docs-web/en/cmdline#%3Akeeppatterns">:keeppatterns</a>,
+		<a href="/neovim-docs-web/en/windows#%3Aleftabove">:leftabove</a>, <a href="/neovim-docs-web/en/motion#%3Alockmarks">:lockmarks</a>, <a href="/neovim-docs-web/en/autocmd#%3Anoautocmd">:noautocmd</a>, <a href="/neovim-docs-web/en/recover#%3Anoswapfile">:noswapfile</a>
+		<a href="/neovim-docs-web/en/windows#%3Arightbelow">:rightbelow</a>, <a href="/neovim-docs-web/en/eval#%3Asandbox">:sandbox</a>, <a href="/neovim-docs-web/en/various#%3Asilent">:silent</a>, <a href="/neovim-docs-web/en/tabpage#%3Atab">:tab</a>, <a href="/neovim-docs-web/en/windows#%3Atopleft">:topleft</a>,
+		<a href="/neovim-docs-web/en/various#%3Aunsilent">:unsilent</a>, <a href="/neovim-docs-web/en/various#%3Averbose">:verbose</a>, and <a href="/neovim-docs-web/en/windows#%3Avertical">:vertical</a>.
+		Note that <a href="/neovim-docs-web/en/various#%3Afilter">:filter</a> is not supported.
 		Examples:<pre>command! -nargs=+ -complete=file MyEdit
             \ for f in expand(&lt;q-args&gt;, 0, 1) |
             \ exe '&lt;mods&gt; split ' .. f |
@@ -1322,7 +1322,7 @@ If the first two characters of an escape sequence are "q-" (for example,
 <code>&lt;q-args&gt;</code>) then the value is quoted in such a way as to make it a valid value
 for use in an expression.  This uses the argument as one single value.
 When there is no argument <code>&lt;q-args&gt;</code> is an empty string.  See the
-<a href="map.html#q-args-example">q-args-example</a> below.
+<a href="/neovim-docs-web/en/map#q-args-example">q-args-example</a> below.
 							<a name="%3Cf-args%3E"></a><code class="help-tag-right">&lt;f-args&gt;</code>
 To allow commands to pass their arguments on to a user-defined function, there
 is a special form <code>&lt;f-args&gt;</code> ("function args").  This splits the command
@@ -1332,7 +1332,7 @@ See the Mycmd example below.  If no arguments are given <code>&lt;f-args&gt;</co
    To embed whitespace into an argument of <code>&lt;f-args&gt;</code>, prepend a backslash.
 <code>&lt;f-args&gt;</code> replaces every pair of backslashes (\\) with one backslash.  A
 backslash followed by a character other than white space or a backslash
-remains unmodified.  Also see <a href="map.html#f-args-example">f-args-example</a> below.  Overview:</div>
+remains unmodified.  Also see <a href="/neovim-docs-web/en/map#f-args-example">f-args-example</a> below.  Overview:</div>
 <div class="old-help-para"><div class="help-column_heading">	command		   <code>&lt;f-args&gt;</code></div>	XX ab		   "ab"
 	XX a\b		   'a\b'
 	XX a\ b		   'a b'
@@ -1379,7 +1379,7 @@ This will invoke:<pre>:call Allargs("%s/foo/bar/ge|update")</pre></div>
 <div class="old-help-para">When defining a user command in a script, it will be able to call functions
 local to the script and use mappings local to the script.  When the user
 invokes the user command, it will run in the context of the script it was
-defined in.  This matters if <a href="map.html#%3CSID%3E">&lt;SID&gt;</a> is used in a command.</div>
+defined in.  This matters if <a href="/neovim-docs-web/en/map#%3CSID%3E">&lt;SID&gt;</a> is used in a command.</div>
 
   
   

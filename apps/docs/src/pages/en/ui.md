@@ -31,9 +31,9 @@ have some elements ("widgets") presented by the UI itself rather than by Nvim
 </div>
 <div class="help-para">
 							<a name="ui-option"></a><code class="help-tag-right">ui-option</code>
-Call <a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a> to tell Nvim that your program wants to draw the Nvim
+Call <a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a> to tell Nvim that your program wants to draw the Nvim
 screen grid with a size of width × height cells. This is typically done by an
-embedder at startup (see <a href="ui.html#ui-startup">ui-startup</a>), but UIs can also connect to a running
+embedder at startup (see <a href="/neovim-docs-web/en/ui#ui-startup">ui-startup</a>), but UIs can also connect to a running
 Nvim instance and invoke nvim_ui_attach(). The <code>options</code> parameter is a map
 with these (optional) keys:
 
@@ -49,43 +49,43 @@ with these (optional) keys:
 							<a name="ui-override"></a><code class="help-tag-right">ui-override</code>
 <div class="help-li" style=""> <code>override</code>		Decides how UI capabilities are resolved.
 </div><div class="help-li" style="margin-left: 3rem;"> true:	Enable requested UI capabilities, even if not
-			  supported by all connected UIs (including <a href="term.html#TUI">TUI</a>).
+			  supported by all connected UIs (including <a href="/neovim-docs-web/en/term#TUI">TUI</a>).
 </div><div class="help-li" style="margin-left: 3rem;"> false: (default) Disable UI capabilities not
 			  supported by all connected UIs (including TUI).
 </div>
 </div>
 <div class="help-para">
 							<a name="ui-ext-options"></a><code class="help-tag-right">ui-ext-options</code>
-<div class="help-li" style=""> <code>ext_cmdline</code>		Externalize the cmdline. <a href="ui.html#ui-cmdline">ui-cmdline</a>
-</div><div class="help-li" style=""> <code>ext_hlstate</code>		Detailed highlight state. <a href="ui.html#ui-hlstate">ui-hlstate</a>
+<div class="help-li" style=""> <code>ext_cmdline</code>		Externalize the cmdline. <a href="/neovim-docs-web/en/ui#ui-cmdline">ui-cmdline</a>
+</div><div class="help-li" style=""> <code>ext_hlstate</code>		Detailed highlight state. <a href="/neovim-docs-web/en/ui#ui-hlstate">ui-hlstate</a>
 			Sets <code>ext_linegrid</code> implicitly.
-</div><div class="help-li" style=""> <code>ext_linegrid</code>	Line-based grid events. <a href="ui.html#ui-linegrid">ui-linegrid</a>
-			Deactivates <a href="ui.html#ui-grid-old">ui-grid-old</a> implicitly.
-</div><div class="help-li" style=""> <code>ext_messages</code>	Externalize messages. <a href="ui.html#ui-messages">ui-messages</a>
+</div><div class="help-li" style=""> <code>ext_linegrid</code>	Line-based grid events. <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a>
+			Deactivates <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a> implicitly.
+</div><div class="help-li" style=""> <code>ext_messages</code>	Externalize messages. <a href="/neovim-docs-web/en/ui#ui-messages">ui-messages</a>
 			Sets <code>ext_linegrid</code> and <code>ext_cmdline</code> implicitly.
-</div><div class="help-li" style=""> <code>ext_multigrid</code>	Per-window grid events. <a href="ui.html#ui-multigrid">ui-multigrid</a>
+</div><div class="help-li" style=""> <code>ext_multigrid</code>	Per-window grid events. <a href="/neovim-docs-web/en/ui#ui-multigrid">ui-multigrid</a>
 			Sets <code>ext_linegrid</code> implicitly.
-</div><div class="help-li" style=""> <code>ext_popupmenu</code>	Externalize <a href="insert.html#popupmenu-completion">popupmenu-completion</a> and
-			<a href="options.html#'wildmenu'">'wildmenu'</a>. <a href="ui.html#ui-popupmenu">ui-popupmenu</a>
-</div><div class="help-li" style=""> <code>ext_tabline</code>		Externalize the tabline. <a href="ui.html#ui-tabline">ui-tabline</a>
+</div><div class="help-li" style=""> <code>ext_popupmenu</code>	Externalize <a href="/neovim-docs-web/en/insert#popupmenu-completion">popupmenu-completion</a> and
+			<a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a>. <a href="/neovim-docs-web/en/ui#ui-popupmenu">ui-popupmenu</a>
+</div><div class="help-li" style=""> <code>ext_tabline</code>		Externalize the tabline. <a href="/neovim-docs-web/en/ui#ui-tabline">ui-tabline</a>
 </div><div class="help-li" style=""> <code>ext_termcolors</code>	Use external default colors.
-</div><div class="help-li" style=""> <code>term_name</code>		Sets the name of the terminal <a href="vim_diff.html#'term'">'term'</a>.
+</div><div class="help-li" style=""> <code>term_name</code>		Sets the name of the terminal <a href="/neovim-docs-web/en/vim_diff#'term'">'term'</a>.
 </div><div class="help-li" style=""> <code>term_colors</code>		Sets the number of supported colors 't_Co'.
-</div><div class="help-li" style=""> <code>term_background</code>	Sets the default value of <a href="options.html#'background'">'background'</a>.
+</div><div class="help-li" style=""> <code>term_background</code>	Sets the default value of <a href="/neovim-docs-web/en/options#'background'">'background'</a>.
 </div><div class="help-li" style=""> <code>stdin_fd</code>		Read buffer from <code>fd</code> as if it was a stdin pipe
-			This option can only used by <a href="starting.html#--embed">--embed</a> ui,
-			see <a href="ui.html#ui-startup-stdin">ui-startup-stdin</a>.
+			This option can only used by <a href="/neovim-docs-web/en/starting#--embed">--embed</a> ui,
+			see <a href="/neovim-docs-web/en/ui#ui-startup-stdin">ui-startup-stdin</a>.
 </div>
 </div>
 <div class="help-para">
-Specifying an unknown option is an error; UIs can check the <a href="api.html#api-metadata">api-metadata</a>
+Specifying an unknown option is an error; UIs can check the <a href="/neovim-docs-web/en/api#api-metadata">api-metadata</a>
 <code>ui_options</code> key for supported options.
 
 </div>
 <div class="help-para">
 By default Nvim requires all connected UIs to support the same capabilities,
 thus the active capabilities are the intersection of those requested. UIs may
-specify <a href="ui.html#ui-override">ui-override</a> to invert this behavior (useful for debugging). The
+specify <a href="/neovim-docs-web/en/ui#ui-override">ui-override</a> to invert this behavior (useful for debugging). The
 "option_set" event announces which capabilities are active.
 
 </div>
@@ -127,23 +127,23 @@ a batch not ending with "flush".
 
 </div>
 <div class="help-para">
-By default, Nvim sends <a href="ui.html#ui-global">ui-global</a> and <a href="ui.html#ui-grid-old">ui-grid-old</a> events (for backwards
+By default, Nvim sends <a href="/neovim-docs-web/en/ui#ui-global">ui-global</a> and <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a> events (for backwards
 compatibility); these suffice to implement a terminal-like interface. However
-the new <a href="ui.html#ui-linegrid">ui-linegrid</a> represents text more efficiently (especially highlighted
+the new <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> represents text more efficiently (especially highlighted
 text), and allows UI capabilities requiring multiple grids. New UIs should
-implement <a href="ui.html#ui-linegrid">ui-linegrid</a> instead of <a href="ui.html#ui-grid-old">ui-grid-old</a>.
+implement <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> instead of <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a>.
 
 </div>
 <div class="help-para">
 Nvim optionally sends various screen elements "semantically" as structured
-events instead of raw grid-lines, as specified by <a href="ui.html#ui-ext-options">ui-ext-options</a>. The UI
+events instead of raw grid-lines, as specified by <a href="/neovim-docs-web/en/ui#ui-ext-options">ui-ext-options</a>. The UI
 must present such elements itself, Nvim will not draw them on the grid.
 
 </div>
 <div class="help-para">
 Future versions of Nvim may add new update kinds and may append new parameters
 to existing update kinds. Clients must be prepared to ignore such extensions,
-for forward-compatibility. <a href="api.html#api-contract">api-contract</a>
+for forward-compatibility. <a href="/neovim-docs-web/en/api#api-contract">api-contract</a>
 
 </div>
 <div class="help-para">
@@ -152,35 +152,35 @@ for forward-compatibility. <a href="api.html#api-contract">api-contract</a>
 
 </div>
 <div class="help-para">
-UI embedders (clients that start Nvim with <a href="starting.html#--embed">--embed</a> and later call
-<a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a>) must start Nvim without <a href="starting.html#--headless">--headless</a>:<pre>nvim --embed</pre>
+UI embedders (clients that start Nvim with <a href="/neovim-docs-web/en/starting#--embed">--embed</a> and later call
+<a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a>) must start Nvim without <a href="/neovim-docs-web/en/starting#--headless">--headless</a>:<pre>nvim --embed</pre>
 Nvim will pause before loading startup files and reading buffers, so the UI
 has a chance to invoke requests and do early initialization. Startup will
-continue as soon as the UI invokes <a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a>.
+continue as soon as the UI invokes <a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a>.
 
 </div>
 <div class="help-para">
-A simple UI only needs to do a single <a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a> request and then
+A simple UI only needs to do a single <a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a> request and then
 prepare to handle any UI event. A more featureful UI, which might need
 additional configuration of the Nvim process, should use the following startup
 procedure:
 
 </div>
 <div class="help-para">
-1. Invoke <a href="api.html#nvim_get_api_info()">nvim_get_api_info()</a>, if needed to setup the client library and/or
+1. Invoke <a href="/neovim-docs-web/en/api#nvim_get_api_info()">nvim_get_api_info()</a>, if needed to setup the client library and/or
    to get the list of supported UI extensions.
 
 </div>
 <div class="help-para">
 2. Do any configuration that should be happen before user config is loaded.
    Buffers and windows are not available at this point, but this could be used
-   to set <a href="eval.html#g%3A">g:</a> variables visible to init.vim
+   to set <a href="/neovim-docs-web/en/eval#g%3A">g:</a> variables visible to init.vim
 
 </div>
 <div class="help-para">
 3. If the UI wants to do additional setup after user config is loaded,
    register a VimEnter autocmd:<pre>nvim_command("autocmd VimEnter * call rpcrequest(1, 'vimenter')")</pre>
-4. Now invoke <a href="api.html#nvim_ui_attach()">nvim_ui_attach()</a>. The UI must handle user input by now:
+4. Now invoke <a href="/neovim-docs-web/en/api#nvim_ui_attach()">nvim_ui_attach()</a>. The UI must handle user input by now:
    sourcing init.vim and loading buffers might lead to blocking prompts.
 
 </div>
@@ -193,7 +193,7 @@ procedure:
 <div class="help-para">
 							   <a name="ui-startup-stdin"></a><code class="help-tag-right">ui-startup-stdin</code>
 An UI can support the native read from stdin feature as invoked with
-<code>command | nvim -</code> for the builtin TUI. <a href="starting.html#--">--</a>
+<code>command | nvim -</code> for the builtin TUI. <a href="/neovim-docs-web/en/starting#--">--</a>
 The embedding process can detect that its stdin is open to a file which
 not is a terminal, just like nvim does. It then needs to forward this fd
 to Nvim. As fd=0 is already is used to send rpc data from the embedder to
@@ -240,12 +240,12 @@ the editor.
 <div class="help-column_heading">	KEY		DESCRIPTION</div>
 	<code>cursor_shape</code>:	"block", "horizontal", "vertical"
 	<code>cell_percentage</code>: Cell % occupied by the cursor.
-	<code>blinkwait</code>, <code>blinkon</code>, <code>blinkoff</code>: See <a href="options.html#cursor-blinking">cursor-blinking</a>.
+	<code>blinkwait</code>, <code>blinkon</code>, <code>blinkoff</code>: See <a href="/neovim-docs-web/en/options#cursor-blinking">cursor-blinking</a>.
 	<code>attr_id</code>:	Cursor attribute id (defined by <code>hl_attr_define</code>).
 			When attr_id is 0, the background and foreground
 			colors should be swapped.
-	<code>attr_id_lm</code>:	Cursor attribute id for when <a href="options.html#'langmap'">'langmap'</a> is active.
-	<code>short_name</code>:	Mode code name, see <a href="options.html#'guicursor'">'guicursor'</a>.
+	<code>attr_id_lm</code>:	Cursor attribute id for when <a href="/neovim-docs-web/en/options#'langmap'">'langmap'</a> is active.
+	<code>short_name</code>:	Mode code name, see <a href="/neovim-docs-web/en/options#'guicursor'">'guicursor'</a>.
 	<code>name</code>:		Mode descriptive name.
 	<code>mouse_shape</code>:	(To be implemented.)
 
@@ -269,18 +269,18 @@ the editor.
 
 </div>
 <div class="help-para">
-<div class="help-li" style=""> <a href="options.html#'arabicshape'">'arabicshape'</a>
-</div><div class="help-li" style=""> <a href="options.html#'ambiwidth'">'ambiwidth'</a>
-</div><div class="help-li" style=""> <a href="options.html#'emoji'">'emoji'</a>
-</div><div class="help-li" style=""> <a href="options.html#'guifont'">'guifont'</a>
-</div><div class="help-li" style=""> <a href="options.html#'guifontwide'">'guifontwide'</a>
-</div><div class="help-li" style=""> <a href="options.html#'linespace'">'linespace'</a>
-</div><div class="help-li" style=""> <a href="options.html#'mousefocus'">'mousefocus'</a>
-</div><div class="help-li" style=""> <a href="options.html#'mousemoveevent'">'mousemoveevent'</a>
-</div><div class="help-li" style=""> <a href="options.html#'pumblend'">'pumblend'</a>
-</div><div class="help-li" style=""> <a href="options.html#'showtabline'">'showtabline'</a>
-</div><div class="help-li" style=""> <a href="options.html#'termguicolors'">'termguicolors'</a>
-</div><div class="help-li" style=""> "ext_*" (all <a href="ui.html#ui-ext-options">ui-ext-options</a>)
+<div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'arabicshape'">'arabicshape'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'ambiwidth'">'ambiwidth'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'emoji'">'emoji'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'linespace'">'linespace'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'mousefocus'">'mousefocus'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'mousemoveevent'">'mousemoveevent'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'pumblend'">'pumblend'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'showtabline'">'showtabline'</a>
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'termguicolors'">'termguicolors'</a>
+</div><div class="help-li" style=""> "ext_*" (all <a href="/neovim-docs-web/en/ui#ui-ext-options">ui-ext-options</a>)
 </div>
 </div>
 <div class="help-para">
@@ -290,12 +290,12 @@ the editor.
 </div>
 <div class="help-para">
 	Options are not represented here if their effects are communicated in
-	other UI events. For example, instead of forwarding the <a href="options.html#'mouse'">'mouse'</a> option
+	other UI events. For example, instead of forwarding the <a href="/neovim-docs-web/en/options#'mouse'">'mouse'</a> option
 	value, the "mouse_on" and "mouse_off" UI events directly indicate if
-	mouse support is active. Some options like <a href="options.html#'ambiwidth'">'ambiwidth'</a> have already
+	mouse support is active. Some options like <a href="/neovim-docs-web/en/options#'ambiwidth'">'ambiwidth'</a> have already
 	taken effect on the grid, where appropriate empty cells are added,
 	however a UI might still use such options when rendering raw text
-	sent from Nvim, like for <a href="ui.html#ui-cmdline">ui-cmdline</a>.
+	sent from Nvim, like for <a href="/neovim-docs-web/en/ui#ui-cmdline">ui-cmdline</a>.
 
 </div>
 <div class="help-para">
@@ -312,7 +312,7 @@ the editor.
 <div class="help-para">
 <div class="help-column_heading">["mouse_on"]</div>
 <div class="help-column_heading">["mouse_off"]</div>
-	<a href="options.html#'mouse'">'mouse'</a> was enabled/disabled in the current editor mode. Useful for
+	<a href="/neovim-docs-web/en/options#'mouse'">'mouse'</a> was enabled/disabled in the current editor mode. Useful for
 	a terminal UI, or embedding into an application where Nvim mouse would
 	conflict with other usages of the mouse. Other UI:s may ignore this event.
 
@@ -326,7 +326,7 @@ the editor.
 </div>
 <div class="help-para">
 <div class="help-column_heading">["suspend"]</div>
-	<a href="starting.html#%3Asuspend">:suspend</a> command or <a href="starting.html#CTRL-Z">CTRL-Z</a> mapping is used. A terminal client (or
+	<a href="/neovim-docs-web/en/starting#%3Asuspend">:suspend</a> command or <a href="/neovim-docs-web/en/starting#CTRL-Z">CTRL-Z</a> mapping is used. A terminal client (or
 	another client where it makes sense) could suspend itself.  Other
 	clients can safely ignore it.
 
@@ -355,12 +355,12 @@ the editor.
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_linegrid</code> <a href="ui.html#ui-option">ui-option</a>. Recommended for all new UIs.
-Deactivates <a href="ui.html#ui-grid-old">ui-grid-old</a> implicitly.
+Activated by the <code>ext_linegrid</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>. Recommended for all new UIs.
+Deactivates <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a> implicitly.
 
 </div>
 <div class="help-para">
-The biggest change compared to <a href="ui.html#ui-grid-old">ui-grid-old</a> is to use a single <code>grid_line</code>
+The biggest change compared to <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a> is to use a single <code>grid_line</code>
 event to update the contents of a screen line (whereas the old protocol used
 a combination of cursor, highlight and text events)
 
@@ -369,7 +369,7 @@ a combination of cursor, highlight and text events)
 Most of these events take a <code>grid</code> index as first parameter.  Grid 1 is the
 global grid used by default for the entire editor screen state. The
 <code>ext_linegrid</code> capability by itself will never cause any additional grids to
-be created; to enable per-window grids, activate <a href="ui.html#ui-multigrid">ui-multigrid</a>.
+be created; to enable per-window grids, activate <a href="/neovim-docs-web/en/ui#ui-multigrid">ui-multigrid</a>.
 
 </div>
 <div class="help-para">
@@ -393,14 +393,14 @@ numerical highlight ids to the actual attributes.
 <div class="help-para">
 	The RGB values will always be valid colors, by default. If no
 	colors have been set, they will default to black and white, depending
-	on <a href="options.html#'background'">'background'</a>. By setting the <code>ext_termcolors</code> option, instead
+	on <a href="/neovim-docs-web/en/options#'background'">'background'</a>. By setting the <code>ext_termcolors</code> option, instead
 	-1 will be used for unset colors. This is mostly useful for a TUI
 	implementation, where using the terminal builtin ("ANSI") defaults
 	are expected.
 
 </div>
 <div class="help-para">
-	Note: Unlike the corresponding <a href="ui.html#ui-grid-old">ui-grid-old</a> events, the screen is not
+	Note: Unlike the corresponding <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a> events, the screen is not
 	always cleared after sending this event. The UI must repaint the
 	screen with changed background color itself.
 
@@ -444,7 +444,7 @@ numerical highlight ids to the actual attributes.
 <div class="help-para">
 	Highlights are always transmitted both for both the RGB format and as
 	terminal 256-color codes, as the <code>rgb_attr</code> and <code>cterm_attr</code> parameters
-	respectively. The <a href="ui.html#ui-rgb">ui-rgb</a> option has no effect effect anymore.
+	respectively. The <a href="/neovim-docs-web/en/ui#ui-rgb">ui-rgb</a> option has no effect effect anymore.
 	Most external UIs will only need to store and use the <code>rgb_attr</code>
 	attributes.
 
@@ -463,7 +463,7 @@ numerical highlight ids to the actual attributes.
 </div>
 <div class="help-para">
 	<code>info</code> is an empty array by default, and will be used by the
-	<a href="ui.html#ui-hlstate">ui-hlstate</a> extension explained below.
+	<a href="/neovim-docs-web/en/ui#ui-hlstate">ui-hlstate</a> extension explained below.
 
 </div>
 <div class="help-para">
@@ -472,8 +472,8 @@ numerical highlight ids to the actual attributes.
 	defined by a previous <code>hl_attr_define</code> call. This event is not needed
 	to render the grids which use attribute ids directly, but is useful
 	for an UI who want to render its own elements with consistent
-	highlighting. For instance an UI using <a href="ui.html#ui-popupmenu">ui-popupmenu</a> events, might
-	use the <a href="syntax.html#hl-Pmenu">hl-Pmenu</a> family of builtin highlights.
+	highlighting. For instance an UI using <a href="/neovim-docs-web/en/ui#ui-popupmenu">ui-popupmenu</a> events, might
+	use the <a href="/neovim-docs-web/en/syntax#hl-Pmenu">hl-Pmenu</a> family of builtin highlights.
 
 </div>
 <div class="help-para">
@@ -523,7 +523,7 @@ numerical highlight ids to the actual attributes.
 <div class="help-para">
 <div class="help-column_heading">["grid_scroll", grid, top, bot, left, right, rows, cols]</div>
 	Scroll a region of <code>grid</code>. This is semantically unrelated to editor
-	<a href="scroll.html#scrolling">scrolling</a>, rather this is an optimized way to say "copy these screen
+	<a href="/neovim-docs-web/en/scroll#scrolling">scrolling</a>, rather this is an optimized way to say "copy these screen
 	cells".
 
 </div>
@@ -568,13 +568,13 @@ numerical highlight ids to the actual attributes.
 
 </div>
 <div class="help-para">
-	Note when updating code from <a href="ui.html#ui-grid-old">ui-grid-old</a> events: ranges are
+	Note when updating code from <a href="/neovim-docs-web/en/ui#ui-grid-old">ui-grid-old</a> events: ranges are
 	end-exclusive, which is consistent with API conventions, but different
 	from <code>set_scroll_region</code> which was end-inclusive.
 
 </div>
 <div class="help-para">
-	The scrolled-in area will be filled using <a href="ui.html#ui-event-grid_line">ui-event-grid_line</a> directly
+	The scrolled-in area will be filled using <a href="/neovim-docs-web/en/ui#ui-event-grid_line">ui-event-grid_line</a> directly
 	after the scroll event. The UI thus doesn't need to clear this area as
 	part of handling the scroll event.
 
@@ -585,8 +585,8 @@ numerical highlight ids to the actual attributes.
 
 </div>
 <div class="help-para">
-This is the legacy representation of the screen grid, emitted if <a href="ui.html#ui-linegrid">ui-linegrid</a>
-is not active. New UIs should implement <a href="ui.html#ui-linegrid">ui-linegrid</a> instead.
+This is the legacy representation of the screen grid, emitted if <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a>
+is not active. New UIs should implement <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> instead.
 
 </div>
 <div class="help-para">
@@ -705,16 +705,16 @@ is not active. New UIs should implement <a href="ui.html#ui-linegrid">ui-linegri
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_hlstate</code> <a href="ui.html#ui-option">ui-option</a>.
-Activates <a href="ui.html#ui-linegrid">ui-linegrid</a> implicitly.
+Activated by the <code>ext_hlstate</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>.
+Activates <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> implicitly.
 
 </div>
 <div class="help-para">
 By default Nvim will only describe grid cells using the final calculated
-highlight attributes, as described by the dict keys in <a href="ui.html#ui-event-highlight_set">ui-event-highlight_set</a>.
+highlight attributes, as described by the dict keys in <a href="/neovim-docs-web/en/ui#ui-event-highlight_set">ui-event-highlight_set</a>.
 The <code>ext_hlstate</code> extension allows to the UI to also receive a semantic
 description of the highlights active in a cell. In this mode highlights will be
-predefined in a table, see <a href="ui.html#ui-event-hl_attr_define">ui-event-hl_attr_define</a> and <a href="ui.html#ui-event-grid_line">ui-event-grid_line</a>.
+predefined in a table, see <a href="/neovim-docs-web/en/ui#ui-event-hl_attr_define">ui-event-hl_attr_define</a> and <a href="/neovim-docs-web/en/ui#ui-event-grid_line">ui-event-grid_line</a>.
 The <code>info</code> parameter in <code>hl_attr_define</code> will contain a semantic description
 of the highlights. As highlight groups can be combined, this will be an array
 of items, with the item with highest priority last. Each item is a dictionary
@@ -723,22 +723,22 @@ with the following possible keys:
 </div>
 <div class="help-para">
     <code>kind</code>:	always present. One of the following values:
-	"ui":       Builtin UI highlight. <a href="syntax.html#highlight-groups">highlight-groups</a>
+	"ui":       Builtin UI highlight. <a href="/neovim-docs-web/en/syntax#highlight-groups">highlight-groups</a>
 	"syntax":   Highlight applied to a buffer by a syntax declaration or
 	            other runtime/plugin functionality such as
-		    <a href="api.html#nvim_buf_add_highlight()">nvim_buf_add_highlight()</a>
-	"terminal": highlight from a process running in a <a href="nvim_terminal_emulator.html#terminal-emulator">terminal-emulator</a>.
+		    <a href="/neovim-docs-web/en/api#nvim_buf_add_highlight()">nvim_buf_add_highlight()</a>
+	"terminal": highlight from a process running in a <a href="/neovim-docs-web/en/nvim_terminal_emulator#terminal-emulator">terminal-emulator</a>.
 		    Contains no further semantic information.
-    <code>ui_name</code>:	Highlight name from <a href="syntax.html#highlight-groups">highlight-groups</a>. Only for "ui" kind.
-    <code>hi_name</code>:	Name of the final <a href="syntax.html#%3Ahighlight">:highlight</a> group where the used
+    <code>ui_name</code>:	Highlight name from <a href="/neovim-docs-web/en/syntax#highlight-groups">highlight-groups</a>. Only for "ui" kind.
+    <code>hi_name</code>:	Name of the final <a href="/neovim-docs-web/en/syntax#%3Ahighlight">:highlight</a> group where the used
 		attributes are defined.
     <code>id</code>:	Unique numeric id representing this item.
 
 </div>
 <div class="help-para">
 Note: "ui" items will have both <code>ui_name</code> and <code>hi_name</code> present. These can
-differ, because the builtin group was linked to another group <a href="syntax.html#%3Ahi-link">:hi-link</a> , or
-because <a href="options.html#'winhighlight'">'winhighlight'</a> was used. UI items will be transmitted, even if the
+differ, because the builtin group was linked to another group <a href="/neovim-docs-web/en/syntax#%3Ahi-link">:hi-link</a> , or
+because <a href="/neovim-docs-web/en/options#'winhighlight'">'winhighlight'</a> was used. UI items will be transmitted, even if the
 highlight group is cleared, so <code>ui_name</code> can always be used to reliably identify
 screen elements, even if no attributes have been applied.
 
@@ -749,14 +749,14 @@ screen elements, even if no attributes have been applied.
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_multigrid</code> <a href="ui.html#ui-option">ui-option</a>.
-Activates <a href="ui.html#ui-linegrid">ui-linegrid</a> implicitly.
+Activated by the <code>ext_multigrid</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>.
+Activates <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> implicitly.
 
 </div>
 <div class="help-para">
-See <a href="ui.html#ui-linegrid">ui-linegrid</a> for grid events.
-See <a href="api.html#nvim_ui_try_resize_grid()">nvim_ui_try_resize_grid()</a> to request changing the grid size.
-See <a href="api.html#nvim_input_mouse()">nvim_input_mouse()</a> for sending mouse events to Nvim.
+See <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> for grid events.
+See <a href="/neovim-docs-web/en/api#nvim_ui_try_resize_grid()">nvim_ui_try_resize_grid()</a> to request changing the grid size.
+See <a href="/neovim-docs-web/en/api#nvim_input_mouse()">nvim_input_mouse()</a> for sending mouse events to Nvim.
 
 </div>
 <div class="help-para">
@@ -767,7 +767,7 @@ The multigrid extension gives UIs more control over how windows are displayed:
   per-window. Or reserve space around the border of the window for its own
   elements, such as scrollbars from the UI toolkit.
 </div><div class="help-li" style=""> A dedicated grid is used for messages, which may scroll over the window
-  area. (Alternatively <a href="ui.html#ui-messages">ui-messages</a> can be used).
+  area. (Alternatively <a href="/neovim-docs-web/en/ui#ui-messages">ui-messages</a> can be used).
 </div>
 </div>
 <div class="help-para">
@@ -796,7 +796,7 @@ tabs.
 	Display or reconfigure floating window <code>win</code>. The window should be
 	displayed above another grid <code>anchor_grid</code> at the specified position
 	<code>anchor_row</code> and <code>anchor_col</code>. For the meaning of <code>anchor</code> and more
-	details of positioning, see <a href="api.html#nvim_open_win()">nvim_open_win()</a>.
+	details of positioning, see <a href="/neovim-docs-web/en/api#nvim_open_win()">nvim_open_win()</a>.
 
 </div>
 <div class="help-para">
@@ -821,13 +821,13 @@ tabs.
 	Display messages on <code>grid</code>.  The grid will be displayed at <code>row</code> on
 	the default grid (grid=1), covering the full column width. <code>scrolled</code>
 	indicates whether the message area has been scrolled to cover other
-	grids. It can be useful to draw a separator then <a href="vim_diff.html#msgsep">msgsep</a>. The Builtin
-	TUI draws a full line filled with <code>sep_char</code> (<a href="options.html#'fillchars'">'fillchars'</a> msgsep
-	field) and <a href="syntax.html#hl-MsgSeparator">hl-MsgSeparator</a> highlight.
+	grids. It can be useful to draw a separator then <a href="/neovim-docs-web/en/vim_diff#msgsep">msgsep</a>. The Builtin
+	TUI draws a full line filled with <code>sep_char</code> (<a href="/neovim-docs-web/en/options#'fillchars'">'fillchars'</a> msgsep
+	field) and <a href="/neovim-docs-web/en/syntax#hl-MsgSeparator">hl-MsgSeparator</a> highlight.
 
 </div>
 <div class="help-para">
-	When <a href="ui.html#ui-messages">ui-messages</a> is active, no message grid is used, and this event
+	When <a href="/neovim-docs-web/en/ui#ui-messages">ui-messages</a> is active, no message grid is used, and this event
 	will not be sent.
 
 </div>
@@ -851,23 +851,23 @@ tabs.
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_popupmenu</code> <a href="ui.html#ui-option">ui-option</a>.
+Activated by the <code>ext_popupmenu</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>.
 
 </div>
 <div class="help-para">
-This UI extension delegates presentation of the <a href="insert.html#popupmenu-completion">popupmenu-completion</a> and
-command-line <a href="options.html#'wildmenu'">'wildmenu'</a>.
+This UI extension delegates presentation of the <a href="/neovim-docs-web/en/insert#popupmenu-completion">popupmenu-completion</a> and
+command-line <a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a>.
 
 </div>
 <div class="help-para">
 <div class="help-column_heading">["popupmenu_show", items, selected, row, col, grid]</div>
-	Show <a href="insert.html#popupmenu-completion">popupmenu-completion</a>. <code>items</code> is an array of completion items
+	Show <a href="/neovim-docs-web/en/insert#popupmenu-completion">popupmenu-completion</a>. <code>items</code> is an array of completion items
 	to show; each item is an array of the form [word, kind, menu, info] as
-	defined at <a href="insert.html#complete-items">complete-items</a>, except that <code>word</code> is replaced by <code>abbr</code>
+	defined at <a href="/neovim-docs-web/en/insert#complete-items">complete-items</a>, except that <code>word</code> is replaced by <code>abbr</code>
 	if present.  <code>selected</code> is the initially-selected item, a zero-based
 	index into the array of items (-1 if no item is selected). <code>row</code> and
 	<code>col</code> give the anchor position, where the first character of the
-	completed word will be. When <a href="ui.html#ui-multigrid">ui-multigrid</a> is used, <code>grid</code> is the
+	completed word will be. When <a href="/neovim-docs-web/en/ui#ui-multigrid">ui-multigrid</a> is used, <code>grid</code> is the
 	grid for the anchor position. When <code>ext_cmdline</code> is active, <code>grid</code> is
 	set to -1 to indicate the popupmenu should be anchored to the external
 	cmdline. Then <code>col</code> will be a byte position in the cmdline text.
@@ -891,7 +891,7 @@ command-line <a href="options.html#'wildmenu'">'wildmenu'</a>.
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_tabline</code> <a href="ui.html#ui-option">ui-option</a>.
+Activated by the <code>ext_tabline</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>.
 
 </div>
 <div class="help-para">
@@ -910,12 +910,12 @@ Activated by the <code>ext_tabline</code> <a href="ui.html#ui-option">ui-option<
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_cmdline</code> <a href="ui.html#ui-option">ui-option</a>.
+Activated by the <code>ext_cmdline</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>.
 
 </div>
 <div class="help-para">
-This UI extension delegates presentation of the <a href="cmdline.html#cmdline">cmdline</a> (except <a href="options.html#'wildmenu'">'wildmenu'</a>).
-For command-line <a href="options.html#'wildmenu'">'wildmenu'</a> UI events, activate <a href="ui.html#ui-popupmenu">ui-popupmenu</a>.
+This UI extension delegates presentation of the <a href="/neovim-docs-web/en/cmdline#cmdline">cmdline</a> (except <a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a>).
+For command-line <a href="/neovim-docs-web/en/options#'wildmenu'">'wildmenu'</a> UI events, activate <a href="/neovim-docs-web/en/ui#ui-popupmenu">ui-popupmenu</a>.
 
 </div>
 <div class="help-para">
@@ -929,14 +929,14 @@ For command-line <a href="options.html#'wildmenu'">'wildmenu'</a> UI events, act
 	The <code>content</code> is the full content that should be displayed in the
 	cmdline, and the <code>pos</code> is the position of the cursor that in the
 	cmdline. The content is divided into chunks with different highlight
-	attributes represented as a dict (see <a href="ui.html#ui-event-highlight_set">ui-event-highlight_set</a>).
+	attributes represented as a dict (see <a href="/neovim-docs-web/en/ui#ui-event-highlight_set">ui-event-highlight_set</a>).
 
 </div>
 <div class="help-para">
 	<code>firstc</code> and <code>prompt</code> are text, that if non-empty should be
 	displayed in front of the command line. <code>firstc</code> always indicates
 	built-in command lines such as <code>:</code> (ex command) and <code>/</code> <code>?</code> (search),
-	while <code>prompt</code> is an <a href="builtin.html#input()">input()</a> prompt. <code>indent</code> tells how many spaces
+	while <code>prompt</code> is an <a href="/neovim-docs-web/en/builtin#input()">input()</a> prompt. <code>indent</code> tells how many spaces
 	the content should be indented.
 
 </div>
@@ -945,7 +945,7 @@ For command-line <a href="options.html#'wildmenu'">'wildmenu'</a> UI events, act
 	typing <code>&lt;c-r&gt;=</code> at the command line prompt. The <code>level</code> field is used
 	to distinguish different command lines active at the same time. The
 	first invoked command line has level 1, the next recursively-invoked
-	prompt has level 2. A command line invoked from the <a href="cmdline.html#cmdline-window">cmdline-window</a>
+	prompt has level 2. A command line invoked from the <a href="/neovim-docs-web/en/cmdline#cmdline-window">cmdline-window</a>
 	has a higher level than than the edited command line.
 
 </div>
@@ -957,7 +957,7 @@ For command-line <a href="options.html#'wildmenu'">'wildmenu'</a> UI events, act
 <div class="help-para">
 <div class="help-column_heading">["cmdline_special_char", c, shift, level]</div>
 	Display a special char in the cmdline at the cursor position. This is
-	typically used to indicate a pending state, e.g. after <a href="cmdline.html#c_CTRL-V">c_CTRL-V</a>. If
+	typically used to indicate a pending state, e.g. after <a href="/neovim-docs-web/en/cmdline#c_CTRL-V">c_CTRL-V</a>. If
 	<code>shift</code> is true the text after the cursor should be shifted, otherwise
 	it should overwrite the char at the cursor.
 
@@ -974,7 +974,7 @@ For command-line <a href="options.html#'wildmenu'">'wildmenu'</a> UI events, act
 <div class="help-para">
 <div class="help-column_heading">["cmdline_block_show", lines]</div>
 	Show a block of context to the current command line. For example if
-	the user defines a <a href="userfunc.html#%3Afunction">:function</a> interactively:<pre>:function Foo()
+	the user defines a <a href="/neovim-docs-web/en/userfunc#%3Afunction">:function</a> interactively:<pre>:function Foo()
 :  echo "foo"
 :</pre>
 
@@ -1000,8 +1000,8 @@ For command-line <a href="options.html#'wildmenu'">'wildmenu'</a> UI events, act
 
 </div>
 <div class="help-para">
-Activated by the <code>ext_messages</code> <a href="ui.html#ui-option">ui-option</a>.
-Activates <a href="ui.html#ui-linegrid">ui-linegrid</a> and <a href="ui.html#ui-cmdline">ui-cmdline</a> implicitly.
+Activated by the <code>ext_messages</code> <a href="/neovim-docs-web/en/ui#ui-option">ui-option</a>.
+Activates <a href="/neovim-docs-web/en/ui#ui-linegrid">ui-linegrid</a> and <a href="/neovim-docs-web/en/ui#ui-cmdline">ui-cmdline</a> implicitly.
 
 </div>
 <div class="help-para">
@@ -1012,7 +1012,7 @@ as UI events.
 </div>
 <div class="help-para">
 Nvim will not allocate screen space for the cmdline or messages, and
-<a href="options.html#'cmdheight'">'cmdheight'</a> will be forced zero. Cmdline state is emitted as <a href="ui.html#ui-cmdline">ui-cmdline</a>
+<a href="/neovim-docs-web/en/options#'cmdheight'">'cmdheight'</a> will be forced zero. Cmdline state is emitted as <a href="/neovim-docs-web/en/ui#ui-cmdline">ui-cmdline</a>
 events, which the UI must handle.
 
 </div>
@@ -1024,19 +1024,19 @@ events, which the UI must handle.
 <div class="help-para">
 	kind
 	    Name indicating the message kind:
-		"" (empty)	Unknown (consider a feature-request: <a href="intro.html#bugs">bugs</a>)
-		"confirm"	<a href="builtin.html#confirm()">confirm()</a> or <a href="editing.html#%3Aconfirm">:confirm</a> dialog
-		"confirm_sub"	<a href="change.html#%3Asubstitute">:substitute</a> confirm dialog <a href="change.html#%3As_c">:s_c</a>
-		"emsg"		Error (<a href="message.html#errors">errors</a>, internal error, <a href="eval.html#%3Athrow">:throw</a>, …)
-		"echo"		<a href="eval.html#%3Aecho">:echo</a> message
-		"echomsg"	<a href="eval.html#%3Aechomsg">:echomsg</a> message
-		"echoerr"	<a href="eval.html#%3Aechoerr">:echoerr</a> message
-		"lua_error"	Error in <a href="lua.html#%3Alua">:lua</a> code
-		"rpc_error"	Error response from <a href="builtin.html#rpcrequest()">rpcrequest()</a>
-		"return_prompt"	<a href="message.html#press-enter">press-enter</a> prompt after a multiple messages
+		"" (empty)	Unknown (consider a feature-request: <a href="/neovim-docs-web/en/intro#bugs">bugs</a>)
+		"confirm"	<a href="/neovim-docs-web/en/builtin#confirm()">confirm()</a> or <a href="/neovim-docs-web/en/editing#%3Aconfirm">:confirm</a> dialog
+		"confirm_sub"	<a href="/neovim-docs-web/en/change#%3Asubstitute">:substitute</a> confirm dialog <a href="/neovim-docs-web/en/change#%3As_c">:s_c</a>
+		"emsg"		Error (<a href="/neovim-docs-web/en/message#errors">errors</a>, internal error, <a href="/neovim-docs-web/en/eval#%3Athrow">:throw</a>, …)
+		"echo"		<a href="/neovim-docs-web/en/eval#%3Aecho">:echo</a> message
+		"echomsg"	<a href="/neovim-docs-web/en/eval#%3Aechomsg">:echomsg</a> message
+		"echoerr"	<a href="/neovim-docs-web/en/eval#%3Aechoerr">:echoerr</a> message
+		"lua_error"	Error in <a href="/neovim-docs-web/en/lua#%3Alua">:lua</a> code
+		"rpc_error"	Error response from <a href="/neovim-docs-web/en/builtin#rpcrequest()">rpcrequest()</a>
+		"return_prompt"	<a href="/neovim-docs-web/en/message#press-enter">press-enter</a> prompt after a multiple messages
 		"quickfix"	Quickfix navigation message
-		"search_count"	Search count message ("S" flag of <a href="options.html#'shortmess'">'shortmess'</a>)
-		"wmsg"		Warning ("search hit BOTTOM", <a href="message.html#W10">W10</a>, …)
+		"search_count"	Search count message ("S" flag of <a href="/neovim-docs-web/en/options#'shortmess'">'shortmess'</a>)
+		"wmsg"		Warning ("search hit BOTTOM", <a href="/neovim-docs-web/en/message#W10">W10</a>, …)
 	    New kinds may be added in the future; clients should treat unknown
 	    kinds as the empty kind.
 
@@ -1066,27 +1066,27 @@ events, which the UI must handle.
 </div>
 <div class="help-para">
 <div class="help-column_heading">["msg_showmode", content]</div>
-	Shows <a href="options.html#'showmode'">'showmode'</a> and <a href="repeat.html#recording">recording</a> messages. <code>content</code> has the same
+	Shows <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> and <a href="/neovim-docs-web/en/repeat#recording">recording</a> messages. <code>content</code> has the same
 	format as in "msg_show". This event is sent with empty <code>content</code> to
 	hide the last message.
 
 </div>
 <div class="help-para">
 <div class="help-column_heading">["msg_showcmd", content]</div>
-	Shows <a href="options.html#'showcmd'">'showcmd'</a> messages. <code>content</code> has the same format as in "msg_show".
+	Shows <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a> messages. <code>content</code> has the same format as in "msg_show".
 	This event is sent with empty <code>content</code> to hide the last message.
 
 </div>
 <div class="help-para">
 <div class="help-column_heading">["msg_ruler", content]</div>
-	Used to display <a href="options.html#'ruler'">'ruler'</a> when there is no space for the ruler in a
+	Used to display <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a> when there is no space for the ruler in a
 	statusline. <code>content</code> has the same format as in "msg_show". This event is
 	sent with empty <code>content</code> to hide the last message.
 
 </div>
 <div class="help-para">
 <div class="help-column_heading">["msg_history_show", entries]</div>
-	Sent when <a href="message.html#%3Amessages">:messages</a> command is invoked. History is sent as a list of
+	Sent when <a href="/neovim-docs-web/en/message#%3Amessages">:messages</a> command is invoked. History is sent as a list of
 	entries, where each entry is a <code>[kind, content]</code> tuple.
 
 </div>

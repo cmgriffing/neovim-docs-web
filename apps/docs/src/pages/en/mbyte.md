@@ -17,9 +17,9 @@ layout: ../../layouts/MainLayout.astro
 This is about editing text in languages which have many characters that can
 not be represented using one byte (one octet).  Examples are Chinese, Japanese
 and Korean.  Unicode is also covered here.</div>
-<div class="old-help-para">For an introduction to the most common features, see <a href="usr_45.html#usr_45.txt">usr_45.txt</a> in the user
+<div class="old-help-para">For an introduction to the most common features, see <a href="/neovim-docs-web/en/usr_45#usr_45.txt">usr_45.txt</a> in the user
 manual.
-For changing the language of messages and menus see <a href="mlang.html#mlang.txt">mlang.txt</a>.</div>
+For changing the language of messages and menus see <a href="/neovim-docs-web/en/mlang#mlang.txt">mlang.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">Getting started<span class="help-heading-tags">						<a name="mbyte-first"></a><span class="help-tag">mbyte-first</span></span></h2></div>
 <div class="old-help-para">This is a summary of the multibyte features in Vim.  If you are lucky it works
 as described and you can start using Vim without much trouble.  If something
@@ -38,32 +38,32 @@ To change the locale inside Vim use:<pre>:language ja_JP.EUC</pre>
 Vim will give an error message if this doesn't work.  This is a good way to
 experiment and find the locale name you want to use.  But it's always better
 to set the locale in the shell, so that it is used right from the start.</div>
-<div class="old-help-para">See <a href="mbyte.html#mbyte-locale">mbyte-locale</a> for details.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/mbyte#mbyte-locale">mbyte-locale</a> for details.</div>
 <div class="old-help-para"><a name="_encoding"></a><h3 class="help-heading">ENCODING</h3></div>
-<div class="old-help-para">Nvim always uses UTF-8 internally. Thus <a href="options.html#'encoding'">'encoding'</a> option is always set
+<div class="old-help-para">Nvim always uses UTF-8 internally. Thus <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> option is always set
 to "utf-8" and cannot be changed.</div>
 <div class="old-help-para">All the text that is used inside Vim will be in UTF-8. Not only the text in
 the buffers, but also in registers, variables, etc.</div>
 <div class="old-help-para">You can edit files in different encodings than UTF-8.  Nvim
 will convert the file when you read it and convert it back when you write it.
-See <a href="options.html#'fileencoding'">'fileencoding'</a>, <a href="options.html#'fileencodings'">'fileencodings'</a> and <a href="editing.html#%2B%2Benc">++enc</a>.</div>
+See <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>, <a href="/neovim-docs-web/en/options#'fileencodings'">'fileencodings'</a> and <a href="/neovim-docs-web/en/editing#%2B%2Benc">++enc</a>.</div>
 <div class="old-help-para"><a name="_display-and-fonts"></a><h3 class="help-heading">DISPLAY AND FONTS</h3></div>
 <div class="old-help-para">If you are working in a terminal (emulator) you must make sure it accepts
 UTF-8, the encoding which Vim is working with. Otherwise only ASCII can
 be displayed and edited correctly.</div>
-<div class="old-help-para">For the GUI you must select fonts that work with UTF-8.  You can set <a href="options.html#'guifont'">'guifont'</a>
-and <a href="options.html#'guifontwide'">'guifontwide'</a>.  <a href="options.html#'guifont'">'guifont'</a> is used for the single-width characters,
-<a href="options.html#'guifontwide'">'guifontwide'</a> for the double-width characters. Thus the <a href="options.html#'guifontwide'">'guifontwide'</a> font
-must be exactly twice as wide as <a href="options.html#'guifont'">'guifont'</a>. Example for UTF-8:<pre>:set guifont=-misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
+<div class="old-help-para">For the GUI you must select fonts that work with UTF-8.  You can set <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a>
+and <a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a>.  <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> is used for the single-width characters,
+<a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a> for the double-width characters. Thus the <a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a> font
+must be exactly twice as wide as <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a>. Example for UTF-8:<pre>:set guifont=-misc-fixed-medium-r-normal-*-18-120-100-100-c-90-iso10646-1
 :set guifontwide=-misc-fixed-medium-r-normal-*-18-120-100-100-c-180-iso10646-1</pre>
-You can also set <a href="options.html#'guifont'">'guifont'</a> alone, the Nvim GUI will try to find a matching
-<a href="options.html#'guifontwide'">'guifontwide'</a> for you.</div>
+You can also set <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> alone, the Nvim GUI will try to find a matching
+<a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a> for you.</div>
 <div class="old-help-para"><a name="_input"></a><h3 class="help-heading">INPUT</h3></div>
 <div class="old-help-para">There are several ways to enter multibyte characters:
 <div class="help-li" style=""> Your system IME can be used.
-</div><div class="help-li" style=""> Keymaps can be used.  See <a href="mbyte.html#mbyte-keymap">mbyte-keymap</a>.
+</div><div class="help-li" style=""> Keymaps can be used.  See <a href="/neovim-docs-web/en/mbyte#mbyte-keymap">mbyte-keymap</a>.
 </div></div>
-<div class="old-help-para">The options <a href="options.html#'iminsert'">'iminsert'</a>, <a href="options.html#'imsearch'">'imsearch'</a> and <a href="options.html#'imcmdline'">'imcmdline'</a> can be used to choose
+<div class="old-help-para">The options <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a>, <a href="/neovim-docs-web/en/options#'imsearch'">'imsearch'</a> and <a href="/neovim-docs-web/en/options#'imcmdline'">'imcmdline'</a> can be used to choose
 the different input methods or disable them temporarily.</div>
 <div class="old-help-para"><h2 class="help-heading">Locale<span class="help-heading-tags">							<a name="mbyte-locale"></a><span class="help-tag">mbyte-locale</span></span></h2></div>
 <div class="old-help-para">The easiest setup is when your whole system uses the locale you want to work
@@ -93,11 +93,11 @@ matters what the setlocale() function uses, which is generally NOT the
 X-windows stuff.  You might have to do some experiments to find out what
 really works.</div>
 <div class="old-help-para">							<a name="locale-name"></a><code class="help-tag-right">locale-name</code>
-The (simplified) format of <a href="mbyte.html#locale">locale</a> name is:</div>
+The (simplified) format of <a href="/neovim-docs-web/en/mbyte#locale">locale</a> name is:</div>
 <div class="old-help-para">	language
 or	language_territory
 or	language_territory.codeset</div>
-<div class="old-help-para">Territory means the country (or part of it), codeset means the <a href="mbyte.html#charset">charset</a>.  For
+<div class="old-help-para">Territory means the country (or part of it), codeset means the <a href="/neovim-docs-web/en/mbyte#charset">charset</a>.  For
 example, the locale name "ja_JP.eucJP" means:
 	ja	the language is Japanese
 	JP	the country is Japan
@@ -116,12 +116,12 @@ and depends on your system.</div>
 <div class="old-help-para">To start using a locale for the whole system, see the documentation of your
 system.  Mostly you need to set it in a configuration file in "/etc".</div>
 <div class="old-help-para">To use a locale in a shell, set the $LANG environment value.  When you want to
-use Korean and the <a href="mbyte.html#locale">locale</a> name is "ko", do this:</div>
+use Korean and the <a href="/neovim-docs-web/en/mbyte#locale">locale</a> name is "ko", do this:</div>
 <div class="old-help-para">    sh:    export LANG=ko
     csh:   setenv LANG ko</div>
 <div class="old-help-para">You can put this in your ~/.profile or ~/.cshrc file to always use it.</div>
-<div class="old-help-para">To use a locale in Vim only, use the <a href="mlang.html#%3Alanguage">:language</a> command:<pre>:language ko</pre>
-Put this in your <a href="starting.html#init.vim">init.vim</a> file to use it always.</div>
+<div class="old-help-para">To use a locale in Vim only, use the <a href="/neovim-docs-web/en/mlang#%3Alanguage">:language</a> command:<pre>:language ko</pre>
+Put this in your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> file to use it always.</div>
 <div class="old-help-para">Or specify $LANG when starting Vim:</div>
 <div class="old-help-para">   sh:    LANG=ko vim <code>{vim-arguments}</code>
    csh:	  env LANG=ko vim <code>{vim-arguments}</code></div>
@@ -157,8 +157,8 @@ Vim can edit files in different character encodings.  There are three major grou
 		Millions of different characters.  Example: UTF-8.  The
 		relation between bytes and screen cells is complex.</div>
 <div class="old-help-para">Only UTF-8 is used by Vim internally.  But files in other
-encodings can be edited by using conversion, see <a href="options.html#'fileencoding'">'fileencoding'</a>.</div>
-<div class="old-help-para">Recognized <a href="options.html#'fileencoding'">'fileencoding'</a> values include:		<a name="encoding-values"></a><code class="help-tag-right">encoding-values</code>
+encodings can be edited by using conversion, see <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>.</div>
+<div class="old-help-para">Recognized <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> values include:		<a name="encoding-values"></a><code class="help-tag-right">encoding-values</code>
 1   latin1	8-bit characters (ISO 8859-1, also used for cp1252)
 1   iso-8859-n	ISO_8859 variant (n = 2 to 15)
 1   koi8-r	Russian
@@ -214,7 +214,7 @@ For MS-Windows "cp{number}" means using codepage <code>{number}</code>.
 Examples:<pre>:set fileencoding=8bit-cp1252
 :set fileencoding=2byte-cp932</pre>
 The MS-Windows codepage 1252 is very similar to latin1.  For practical reasons
-the same encoding is used and it's called latin1.  <a href="options.html#'isprint'">'isprint'</a> can be used to
+the same encoding is used and it's called latin1.  <a href="/neovim-docs-web/en/options#'isprint'">'isprint'</a> can be used to
 display the characters 0x80 - 0xA0 or not.</div>
 <div class="old-help-para">Several aliases can be used, they are translated to one of the names above.
 Incomplete list:</div>
@@ -249,14 +249,14 @@ or when conversion is not possible:</div>
 	cp936, euc-cn</div>
 <div class="old-help-para"><h3 class="help-heading">CONVERSION<span class="help-heading-tags">						<a name="charset-conversion"></a><span class="help-tag">charset-conversion</span></span></h3></div>
 <div class="old-help-para">Vim will automatically convert from one to another encoding in several places:
-<div class="help-li" style=""> When reading a file and <a href="options.html#'fileencoding'">'fileencoding'</a> is different from "utf-8"
-</div><div class="help-li" style=""> When writing a file and <a href="options.html#'fileencoding'">'fileencoding'</a> is different from "utf-8"
+<div class="help-li" style=""> When reading a file and <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> is different from "utf-8"
+</div><div class="help-li" style=""> When writing a file and <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a> is different from "utf-8"
 </div><div class="help-li" style=""> When displaying messages and the encoding used for LC_MESSAGES differs from
   "utf-8" (requires a gettext version that supports this).
-</div><div class="help-li" style=""> When reading a Vim script where <a href="repeat.html#%3Ascriptencoding">:scriptencoding</a> is different from
+</div><div class="help-li" style=""> When reading a Vim script where <a href="/neovim-docs-web/en/repeat#%3Ascriptencoding">:scriptencoding</a> is different from
   "utf-8".
 Most of these require iconv.  Conversion for reading and writing files may
-also be specified with the <a href="options.html#'charconvert'">'charconvert'</a> option.
+also be specified with the <a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a> option.
 </div></div>
 <div class="old-help-para">Useful utilities for converting the charset:
     All:	    iconv
@@ -270,7 +270,7 @@ conversion needs to be done.  These conversions are supported:
   handled internally.
 </div><div class="help-li" style=""> For MS-Windows, conversion from and
   to any codepage should work.
-</div><div class="help-li" style=""> Conversion specified with <a href="options.html#'charconvert'">'charconvert'</a>
+</div><div class="help-li" style=""> Conversion specified with <a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a>
 </div><div class="help-li" style=""> Conversion with the iconv library, if it is available.
 	Old versions of GNU iconv() may cause the conversion to fail (they
 	request a very large buffer, more than Vim is willing to provide).
@@ -279,23 +279,23 @@ conversion needs to be done.  These conversions are supported:
 <div class="old-help-para"><h2 class="help-heading">Input on X11<span class="help-heading-tags">					<a name="mbyte-XIM"></a><span class="help-tag">mbyte-XIM</span></span></h2></div>
 <div class="old-help-para">X INPUT METHOD (XIM) BACKGROUND			<a name="XIM"></a><code class="help-tag-right">XIM</code> <a name="xim"></a><code class="help-tag">xim</code> <a name="x-input-method"></a><code class="help-tag">x-input-method</code></div>
 <div class="old-help-para">XIM is an international input module for X.  There are two kinds of structures,
-Xlib unit type and <a href="mbyte.html#IM-server">IM-server</a> (Input-Method server) type.  <a href="mbyte.html#IM-server">IM-server</a> type
+Xlib unit type and <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> (Input-Method server) type.  <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> type
 is suitable for complex input, such as CJK.</div>
 <div class="old-help-para"><div class="help-li" style=""> IM-server
 							<a name="IM-server"></a><code class="help-tag-right">IM-server</code>
-  In <a href="mbyte.html#IM-server">IM-server</a> type input structures, the input event is handled by either
+  In <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> type input structures, the input event is handled by either
   of the two ways: FrontEnd system and BackEnd system.  In the FrontEnd
-  system, input events are snatched by the <a href="mbyte.html#IM-server">IM-server</a> first, then <a href="mbyte.html#IM-server">IM-server</a>
+  system, input events are snatched by the <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> first, then <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>
   give the application the result of input.  On the other hand, the BackEnd
   system works reverse order.  MS-Windows adopt BackEnd system.  In X, most of
-  <a href="mbyte.html#IM-server">IM-server</a>s adopt FrontEnd system.  The demerit of BackEnd system is the
+  <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>s adopt FrontEnd system.  The demerit of BackEnd system is the
   large overhead in communication, but it provides safe synchronization with
   no restrictions on applications.
 </div></div>
 <div class="old-help-para"><div class="help-li" style=""> Conversion Server
 							<a name="conversion-server"></a><code class="help-tag-right">conversion-server</code>
   Some system needs additional server: conversion server.  Most of Japanese
-  <a href="mbyte.html#IM-server">IM-server</a>s need it, Kana-Kanji conversion server.  For Chinese inputting,
+  <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>s need it, Kana-Kanji conversion server.  For Chinese inputting,
   it depends on the method of inputting, in some methods, PinYin or ZhuYin to
   HanZi conversion server is needed.  For Korean inputting, if you want to
   input Hanja, Hangul-Hanja conversion server is needed.
@@ -309,7 +309,7 @@ is suitable for complex input, such as CJK.</div>
   (distributed with Wnn, see below) and canna.  Canna can be found at:
   <a href="http://canna.sourceforge.jp/">http://canna.sourceforge.jp/</a></div>
 <div class="old-help-para">There is a good input system: Wnn4.2.  Wnn 4.2 contains,
-    xwnmo (<a href="mbyte.html#IM-server">IM-server</a>)
+    xwnmo (<a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>)
     jserver (Japanese Kana-Kanji conversion server)
     cserver (Chinese PinYin or ZhuYin to simplified HanZi conversion server)
     tserver (Chinese PinYin or ZhuYin to traditional HanZi conversion server)
@@ -330,16 +330,16 @@ Use the RPM or port for your system.</div>
   characters.</div>
 <div class="old-help-para">  The first and second areas are defined in international input of X with the
   names of "Preedit Area", "Status Area" respectively.  The third and fourth
-  areas are not defined and are left to be managed by the <a href="mbyte.html#IM-server">IM-server</a>.  In the
+  areas are not defined and are left to be managed by the <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>.  In the
   international input, four input styles have been defined using combinations
-  of Preedit Area and Status Area: <a href="mbyte.html#OnTheSpot">OnTheSpot</a>, <a href="mbyte.html#OffTheSpot">OffTheSpot</a>, <a href="mbyte.html#OverTheSpot">OverTheSpot</a>
-  and <a href="mbyte.html#Root">Root</a>.</div>
-<div class="old-help-para">  Currently, GUI Vim supports three styles, <a href="mbyte.html#OverTheSpot">OverTheSpot</a>, <a href="mbyte.html#OffTheSpot">OffTheSpot</a> and
-  <a href="mbyte.html#Root">Root</a>.</div>
+  of Preedit Area and Status Area: <a href="/neovim-docs-web/en/mbyte#OnTheSpot">OnTheSpot</a>, <a href="/neovim-docs-web/en/mbyte#OffTheSpot">OffTheSpot</a>, <a href="/neovim-docs-web/en/mbyte#OverTheSpot">OverTheSpot</a>
+  and <a href="/neovim-docs-web/en/mbyte#Root">Root</a>.</div>
+<div class="old-help-para">  Currently, GUI Vim supports three styles, <a href="/neovim-docs-web/en/mbyte#OverTheSpot">OverTheSpot</a>, <a href="/neovim-docs-web/en/mbyte#OffTheSpot">OffTheSpot</a> and
+  <a href="/neovim-docs-web/en/mbyte#Root">Root</a>.</div>
 <div class="old-help-para">.  on-the-spot						<a name="OnTheSpot"></a><code class="help-tag-right">OnTheSpot</code>
     Preedit Area and Status Area are performed by the client application in
     the area of application.  The client application is directed by the
-    <a href="mbyte.html#IM-server">IM-server</a> to display all pre-edit data at the location of text
+    <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> to display all pre-edit data at the location of text
     insertion.  The client registers callbacks invoked by the input method
     during pre-editing.
 .  over-the-spot					<a name="OverTheSpot"></a><code class="help-tag-right">OverTheSpot</code>
@@ -361,57 +361,57 @@ Use the RPM or port for your system.</div>
 <div class="old-help-para">Note that Display and Input are independent.  It is possible to see your
 language even though you have no input method for it.  But when your Display
 method doesn't match your Input method, the text will be displayed wrong.</div>
-<div class="old-help-para">To input your language you should run the <a href="mbyte.html#IM-server">IM-server</a> which supports your
-language and <a href="mbyte.html#conversion-server">conversion-server</a> if needed.</div>
+<div class="old-help-para">To input your language you should run the <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> which supports your
+language and <a href="/neovim-docs-web/en/mbyte#conversion-server">conversion-server</a> if needed.</div>
 <div class="old-help-para">The next 3 lines should be put in your ~/.Xdefaults file.  They are common for
-all X applications which uses <a href="mbyte.html#XIM">XIM</a>.  If you already use <a href="mbyte.html#XIM">XIM</a>, you can skip
+all X applications which uses <a href="/neovim-docs-web/en/mbyte#XIM">XIM</a>.  If you already use <a href="/neovim-docs-web/en/mbyte#XIM">XIM</a>, you can skip
 this.<pre>*international: True
 *.inputMethod: your_input_server_name
 *.preeditType: your_input_style</pre></div>
-<div class="old-help-para">input_server_name	is your <a href="mbyte.html#IM-server">IM-server</a> name (check your <a href="mbyte.html#IM-server">IM-server</a>
+<div class="old-help-para">input_server_name	is your <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> name (check your <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>
 			manual).
-your_input_style	is one of <a href="mbyte.html#OverTheSpot">OverTheSpot</a>, <a href="mbyte.html#OffTheSpot">OffTheSpot</a>, <a href="mbyte.html#Root">Root</a>.  See
-			also <a href="mbyte.html#xim-input-style">xim-input-style</a>.</div>
+your_input_style	is one of <a href="/neovim-docs-web/en/mbyte#OverTheSpot">OverTheSpot</a>, <a href="/neovim-docs-web/en/mbyte#OffTheSpot">OffTheSpot</a>, <a href="/neovim-docs-web/en/mbyte#Root">Root</a>.  See
+			also <a href="/neovim-docs-web/en/mbyte#xim-input-style">xim-input-style</a>.</div>
 <div class="old-help-para">international may not be necessary if you use X11R6.
 .inputMethod and.preeditType are optional if you use X11R6.</div>
-<div class="old-help-para">For example, when you are using kinput2 as <a href="mbyte.html#IM-server">IM-server</a>,<pre>*international: True
+<div class="old-help-para">For example, when you are using kinput2 as <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a>,<pre>*international: True
 *.inputMethod: kinput2
 *.preeditType: OverTheSpot</pre></div>
-<div class="old-help-para">When using <a href="mbyte.html#OverTheSpot">OverTheSpot</a>, GUI Vim always connects to the IM Server even in
+<div class="old-help-para">When using <a href="/neovim-docs-web/en/mbyte#OverTheSpot">OverTheSpot</a>, GUI Vim always connects to the IM Server even in
 Normal mode, so you can input your language with commands like "f" and "r".
 But when using one of the other two methods, GUI Vim connects to the IM Server
 only if it is not in Normal mode.</div>
-<div class="old-help-para">If your IM Server does not support <a href="mbyte.html#OverTheSpot">OverTheSpot</a>, and if you want to use your
+<div class="old-help-para">If your IM Server does not support <a href="/neovim-docs-web/en/mbyte#OverTheSpot">OverTheSpot</a>, and if you want to use your
 language with some Normal mode command like "f" or "r", then you should use a
-localized xterm  or an xterm which supports <a href="mbyte.html#XIM">XIM</a></div>
+localized xterm  or an xterm which supports <a href="/neovim-docs-web/en/mbyte#XIM">XIM</a></div>
 <div class="old-help-para">If needed, you can set the XMODIFIERS environment variable:</div>
 <div class="old-help-para">	sh:  export XMODIFIERS="@im=input_server_name"
 	csh: setenv XMODIFIERS "@im=input_server_name"</div>
-<div class="old-help-para">For example, when you are using kinput2 as <a href="mbyte.html#IM-server">IM-server</a> and sh,<pre>export XMODIFIERS="@im=kinput2"</pre></div>
+<div class="old-help-para">For example, when you are using kinput2 as <a href="/neovim-docs-web/en/mbyte#IM-server">IM-server</a> and sh,<pre>export XMODIFIERS="@im=kinput2"</pre></div>
 <div class="old-help-para"><h2 class="help-heading">Input with a keymap<span class="help-heading-tags">					<a name="mbyte-keymap"></a><span class="help-tag">mbyte-keymap</span></span></h2></div>
 <div class="old-help-para">When the keyboard doesn't produce the characters you want to enter in your
-text, you can use the <a href="options.html#'keymap'">'keymap'</a> option.  This will translate one or more
+text, you can use the <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option.  This will translate one or more
 (English) characters to another (non-English) character.  This only happens
 when typing text, not when typing Vim commands.  This avoids having to switch
 between two keyboard settings.</div>
-<div class="old-help-para">The value of the <a href="options.html#'keymap'">'keymap'</a> option specifies a keymap file to use.  The name of
+<div class="old-help-para">The value of the <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option specifies a keymap file to use.  The name of
 this file is one of these two:</div>
 <div class="old-help-para">	keymap/{keymap}_utf-8.vim
 	keymap/{keymap}.vim</div>
-<div class="old-help-para">Here <code>{keymap}</code> is the value of the <a href="options.html#'keymap'">'keymap'</a> option.
+<div class="old-help-para">Here <code>{keymap}</code> is the value of the <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> option.
 The file name with "utf-8" included is tried first.</div>
-<div class="old-help-para"><a href="options.html#'runtimepath'">'runtimepath'</a> is used to find these files.  To see an overview of all
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> is used to find these files.  To see an overview of all
 available keymap files, use this:<pre>:echo globpath(&amp;rtp, "keymap/*.vim")</pre>
 In Insert and Command-line mode you can use <code>CTRL-^</code> to toggle between using the
-keyboard map or not. <a href="insert.html#i_CTRL-%5E">i_CTRL-^</a> <a href="cmdline.html#c_CTRL-%5E">c_CTRL-^</a>
-This flag is remembered for Insert mode with the <a href="options.html#'iminsert'">'iminsert'</a> option.  When
+keyboard map or not. <a href="/neovim-docs-web/en/insert#i_CTRL-%5E">i_CTRL-^</a> <a href="/neovim-docs-web/en/cmdline#c_CTRL-%5E">c_CTRL-^</a>
+This flag is remembered for Insert mode with the <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a> option.  When
 leaving and entering Insert mode the previous value is used.  The same value
-is also used for commands that take a single character argument, like <a href="motion.html#f">f</a> and
-<a href="change.html#r">r</a>.
+is also used for commands that take a single character argument, like <a href="/neovim-docs-web/en/motion#f">f</a> and
+<a href="/neovim-docs-web/en/change#r">r</a>.
 For Command-line mode the flag is NOT remembered.  You are expected to type an
 Ex command first, which is ASCII.
-For typing search patterns the <a href="options.html#'imsearch'">'imsearch'</a> option is used.  It can be set to
-use the same value as for <a href="options.html#'iminsert'">'iminsert'</a>.
+For typing search patterns the <a href="/neovim-docs-web/en/options#'imsearch'">'imsearch'</a> option is used.  It can be set to
+use the same value as for <a href="/neovim-docs-web/en/options#'iminsert'">'iminsert'</a>.
 								<a name="lCursor"></a><code class="help-tag-right">lCursor</code>
 It is possible to give the GUI cursor another color when the language mappings
 are being used.  This is disabled by default, to avoid that the cursor becomes
@@ -432,12 +432,12 @@ also ignored.  The lines with the mappings may have a comment after the useful
 text.</div>
 <div class="old-help-para">The "b:keymap_name" can be set to a short name, which will be shown in the
 status line.  The idea is that this takes less room than the value of
-<a href="options.html#'keymap'">'keymap'</a>, which might be long to distinguish between different languages,
+<a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a>, which might be long to distinguish between different languages,
 keyboards and encodings.</div>
 <div class="old-help-para">The actual mappings are in the lines below "loadkeymap".  In the example "a"
 is mapped to "A" and "b" to "B".  Thus the first item is mapped to the second
 item.  This is done for each line, until the end of the file.
-These items are exactly the same as what can be used in a <a href="map.html#%3Almap">:lmap</a> command,
+These items are exactly the same as what can be used in a <a href="/neovim-docs-web/en/map#%3Almap">:lmap</a> command,
 using "&lt;buffer&gt;" to make the mappings local to the buffer.
 You can check the result with this command:<pre>:lmap</pre>
 The two items must be separated by white space.  You cannot include white
@@ -448,11 +448,11 @@ like a dead key.  Example:<pre>'a        á</pre>
 Since Vim doesn't know if the next character after a quote is really an "a",
 it will wait for the next character.  To be able to insert a single quote,
 also add this line:<pre>''        '</pre>
-Since the mapping is defined with <a href="map.html#%3Almap">:lmap</a> the resulting quote will not be
-used for the start of another character defined in the <a href="options.html#'keymap'">'keymap'</a>.
-It can be used in a standard <a href="map.html#%3Aimap">:imap</a> mapping.
+Since the mapping is defined with <a href="/neovim-docs-web/en/map#%3Almap">:lmap</a> the resulting quote will not be
+used for the start of another character defined in the <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a>.
+It can be used in a standard <a href="/neovim-docs-web/en/map#%3Aimap">:imap</a> mapping.
 The "accents" keymap uses this.				<a name="keymap-accents"></a><code class="help-tag-right">keymap-accents</code></div>
-<div class="old-help-para">The first column can also be in <a href="intro.html#%3C%3E">&lt;&gt;</a> form:
+<div class="old-help-para">The first column can also be in <a href="/neovim-docs-web/en/intro#%3C%3E">&lt;&gt;</a> form:
 	<code>&lt;C-c&gt;</code>		Ctrl-C
 	<code>&lt;A-c&gt;</code>		Alt-c
 	<code>&lt;A-C&gt;</code>		Alt-C
@@ -468,7 +468,7 @@ The characters are assumed to be encoded in UTF-8.
 It's possible to use ":scriptencoding" when all characters are given
 literally.  That doesn't work when using the <code>&lt;char-&gt;</code> construct, because the
 conversion is done on the keymap file, not on the resulting character.</div>
-<div class="old-help-para">The lines after "loadkeymap" are interpreted with <a href="options.html#'cpoptions'">'cpoptions'</a> set to "C".
+<div class="old-help-para">The lines after "loadkeymap" are interpreted with <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> set to "C".
 This means that continuation lines are not used and a backslash has a special
 meaning in the mappings.  Examples:<pre>" a comment line
 \"        x        maps " to x
@@ -613,8 +613,8 @@ internally.</div>
 </div><div class="help-li" style=""> MS-Windows GUI
 </div><div class="help-li" style=""> several other platforms
 </div></div>
-<div class="old-help-para">Double-width characters are supported.  Works best with <a href="options.html#'guifontwide'">'guifontwide'</a>.  When
-using only <a href="options.html#'guifont'">'guifont'</a> the wide characters are drawn in the normal width and
+<div class="old-help-para">Double-width characters are supported.  Works best with <a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a>.  When
+using only <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> the wide characters are drawn in the normal width and
 a space to fill the gap.</div>
 <div class="old-help-para">							<a name="bom-bytes"></a><code class="help-tag-right">bom-bytes</code>
 When reading a file a BOM (Byte Order Mark) can be used to recognize the
@@ -635,7 +635,7 @@ Up to six combining characters can be displayed.
 When editing text a composing character is mostly considered part of the
 preceding character.  For example "x" will delete a character and its
 following composing characters by default.
-If the <a href="options.html#'delcombine'">'delcombine'</a> option is on, then pressing 'x' will delete the combining
+If the <a href="/neovim-docs-web/en/options#'delcombine'">'delcombine'</a> option is on, then pressing 'x' will delete the combining
 characters, one at a time, then the base character.  But when inserting, you
 type the first character and the following composing characters separately,
 after which they will be joined.  The "r" command will not allow you to type a
@@ -661,31 +661,31 @@ selected font.</div>
 </div></div>
 <div class="old-help-para"><a name="_starting-vim"></a><h3 class="help-heading">STARTING VIM</h3></div>
 <div class="old-help-para">You might want to select the font used for the menus.  Unfortunately this
-doesn't always work.  See the system specific remarks below, and <a href="options.html#'langmenu'">'langmenu'</a>.</div>
+doesn't always work.  See the system specific remarks below, and <a href="/neovim-docs-web/en/options#'langmenu'">'langmenu'</a>.</div>
 <div class="old-help-para">USING UTF-8 IN X-Windows				<a name="utf-8-in-xwindows"></a><code class="help-tag-right">utf-8-in-xwindows</code></div>
 <div class="old-help-para">You need to specify a font to be used.  For double-wide characters another
 font is required, which is exactly twice as wide.  There are three ways to do
 this:</div>
-<div class="old-help-para">1. Set <a href="options.html#'guifont'">'guifont'</a> and let Vim find a matching <a href="options.html#'guifontwide'">'guifontwide'</a>
-2. Set <a href="options.html#'guifont'">'guifont'</a> and <a href="options.html#'guifontwide'">'guifontwide'</a></div>
+<div class="old-help-para">1. Set <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> and let Vim find a matching <a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a>
+2. Set <a href="/neovim-docs-web/en/options#'guifont'">'guifont'</a> and <a href="/neovim-docs-web/en/options#'guifontwide'">'guifontwide'</a></div>
 <div class="old-help-para">See the documentation for each option for details.  Example:<pre>:set guifont=-misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1</pre>
 You might also want to set the font used for the menus.  This only works for
-Motif.  Use the ":hi Menu font={fontname}" command for this. <a href="syntax.html#%3Ahighlight">:highlight</a></div>
+Motif.  Use the ":hi Menu font={fontname}" command for this. <a href="/neovim-docs-web/en/syntax#%3Ahighlight">:highlight</a></div>
 <div class="old-help-para"><h3 class="help-heading">TYPING UTF-8<span class="help-heading-tags">						<a name="utf-8-typing"></a><span class="help-tag">utf-8-typing</span></span></h3></div>
 <div class="old-help-para">If you are using X-Windows, you should find an input method that supports
 <a name="_utf-8."></a><h3 class="help-heading">UTF-8.</h3></div>
 <div class="old-help-para">If your system does not provide support for typing UTF-8, you can use the
-<a href="options.html#'keymap'">'keymap'</a> feature.  This allows writing a keymap file, which defines a UTF-8
-character as a sequence of ASCII characters.  See <a href="mbyte.html#mbyte-keymap">mbyte-keymap</a>.</div>
+<a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> feature.  This allows writing a keymap file, which defines a UTF-8
+character as a sequence of ASCII characters.  See <a href="/neovim-docs-web/en/mbyte#mbyte-keymap">mbyte-keymap</a>.</div>
 <div class="old-help-para">If everything else fails, you can type any character as four hex bytes:<pre>CTRL-V u 1234</pre>
 "1234" is interpreted as a hex number.  You must type four characters, prepend
 a zero if necessary.</div>
 <div class="old-help-para"><h3 class="help-heading">COMMAND ARGUMENTS<span class="help-heading-tags">					<a name="utf-8-char-arg"></a><span class="help-tag">utf-8-char-arg</span></span></h3></div>
-<div class="old-help-para">Commands like <a href="motion.html#f">f</a>, <a href="motion.html#F">F</a>, <a href="motion.html#t">t</a> and <a href="change.html#r">r</a> take an argument of one character.  For
+<div class="old-help-para">Commands like <a href="/neovim-docs-web/en/motion#f">f</a>, <a href="/neovim-docs-web/en/motion#F">F</a>, <a href="/neovim-docs-web/en/motion#t">t</a> and <a href="/neovim-docs-web/en/change#r">r</a> take an argument of one character.  For
 UTF-8 this argument may include one or two composing characters.  These need
 to be produced together with the base character, Vim doesn't wait for the next
 character to be typed to find out if it is a composing character or not.
-Using <a href="options.html#'keymap'">'keymap'</a> or <a href="map.html#%3Almap">:lmap</a> is a nice way to type these characters.</div>
+Using <a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a> or <a href="/neovim-docs-web/en/map#%3Almap">:lmap</a> is a nice way to type these characters.</div>
 <div class="old-help-para">The commands that search for a character in a line handle composing characters
 as follows.  When searching for a character without a composing character,
 this will find matches in the text with or without composing characters.  When
@@ -694,17 +694,17 @@ matches with that composing character.  It was implemented this way, because
 not everybody is able to type a composing character.</div>
 <div class="old-help-para"><h2 class="help-heading">Overview of options<span class="help-heading-tags">					<a name="mbyte-options"></a><span class="help-tag">mbyte-options</span></span></h2></div>
 <div class="old-help-para">These options are relevant for editing multibyte files.</div>
-<div class="old-help-para"><a href="options.html#'fileencoding'">'fileencoding'</a>	Encoding of a file.  When it's different from "utf-8"
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>	Encoding of a file.  When it's different from "utf-8"
 		conversion is done when reading or writing the file.</div>
-<div class="old-help-para"><a href="options.html#'fileencodings'">'fileencodings'</a>	List of possible encodings of a file.  When opening a file
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'fileencodings'">'fileencodings'</a>	List of possible encodings of a file.  When opening a file
 		these will be tried and the first one that doesn't cause an
-		error is used for <a href="options.html#'fileencoding'">'fileencoding'</a>.</div>
-<div class="old-help-para"><a href="options.html#'charconvert'">'charconvert'</a>	Expression used to convert files from one encoding to another.</div>
-<div class="old-help-para"><a href="options.html#'formatoptions'">'formatoptions'</a> The 'm' flag can be included to have formatting break a line
+		error is used for <a href="/neovim-docs-web/en/options#'fileencoding'">'fileencoding'</a>.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'charconvert'">'charconvert'</a>	Expression used to convert files from one encoding to another.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'formatoptions'">'formatoptions'</a> The 'm' flag can be included to have formatting break a line
 		at a multibyte character of 256 or higher.  Thus is useful for
 		languages where a sequence of characters can be broken
 		anywhere.</div>
-<div class="old-help-para"><a href="options.html#'keymap'">'keymap'</a>	Specify the name of a keyboard mapping.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/options#'keymap'">'keymap'</a>	Specify the name of a keyboard mapping.</div>
 <div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Contributions specifically for the multibyte features by:
 	Chi-Deok Hwang &lt;hwang@mizi.co.kr&gt;
 	SungHyun Nam &lt;goweol@gmail.com&gt;

@@ -14,21 +14,21 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">		    ADA FILE TYPE PLUG-INS REFERENCE MANUAL~</div>
 <div class="old-help-para"><h3 class="help-heading">ADA</h3></div>
-<div class="old-help-para">1.  Syntax Highlighting			    <a href="ft_ada.html#ft-ada-syntax">ft-ada-syntax</a>
-2.  File type Plug-in			    <a href="ft_ada.html#ft-ada-plugin">ft-ada-plugin</a>
-3.  Omni Completion			    <a href="ft_ada.html#ft-ada-omni">ft-ada-omni</a>
-    3.1 Omni Completion with "gnat xref"	<a href="ft_ada.html#gnat-xref">gnat-xref</a>
-    3.2 Omni Completion with "ctags"		<a href="ft_ada.html#ada-ctags">ada-ctags</a>
-4.  Compiler Support			    <a href="ft_ada.html#ada-compiler">ada-compiler</a>
-    4.1 GNAT					<a href="ft_ada.html#compiler-gnat">compiler-gnat</a>
-    4.2 Dec Ada					<a href="ft_ada.html#compiler-decada">compiler-decada</a>
-5.  References				    <a href="ft_ada.html#ada-reference">ada-reference</a>
-    5.1 Options					<a href="ft_ada.html#ft-ada-options">ft-ada-options</a>
-    5.2 Commands				<a href="ft_ada.html#ft-ada-commands">ft-ada-commands</a>
-    5.3 Variables				<a href="ft_ada.html#ft-ada-variables">ft-ada-variables</a>
-    5.4 Constants				<a href="ft_ada.html#ft-ada-constants">ft-ada-constants</a>
-    5.5 Functions				<a href="ft_ada.html#ft-ada-functions">ft-ada-functions</a>
-6.  Extra Plug-ins			    <a href="ft_ada.html#ada-extra-plugins">ada-extra-plugins</a></div>
+<div class="old-help-para">1.  Syntax Highlighting			    <a href="/neovim-docs-web/en/ft_ada#ft-ada-syntax">ft-ada-syntax</a>
+2.  File type Plug-in			    <a href="/neovim-docs-web/en/ft_ada#ft-ada-plugin">ft-ada-plugin</a>
+3.  Omni Completion			    <a href="/neovim-docs-web/en/ft_ada#ft-ada-omni">ft-ada-omni</a>
+    3.1 Omni Completion with "gnat xref"	<a href="/neovim-docs-web/en/ft_ada#gnat-xref">gnat-xref</a>
+    3.2 Omni Completion with "ctags"		<a href="/neovim-docs-web/en/ft_ada#ada-ctags">ada-ctags</a>
+4.  Compiler Support			    <a href="/neovim-docs-web/en/ft_ada#ada-compiler">ada-compiler</a>
+    4.1 GNAT					<a href="/neovim-docs-web/en/ft_ada#compiler-gnat">compiler-gnat</a>
+    4.2 Dec Ada					<a href="/neovim-docs-web/en/ft_ada#compiler-decada">compiler-decada</a>
+5.  References				    <a href="/neovim-docs-web/en/ft_ada#ada-reference">ada-reference</a>
+    5.1 Options					<a href="/neovim-docs-web/en/ft_ada#ft-ada-options">ft-ada-options</a>
+    5.2 Commands				<a href="/neovim-docs-web/en/ft_ada#ft-ada-commands">ft-ada-commands</a>
+    5.3 Variables				<a href="/neovim-docs-web/en/ft_ada#ft-ada-variables">ft-ada-variables</a>
+    5.4 Constants				<a href="/neovim-docs-web/en/ft_ada#ft-ada-constants">ft-ada-constants</a>
+    5.5 Functions				<a href="/neovim-docs-web/en/ft_ada#ft-ada-functions">ft-ada-functions</a>
+6.  Extra Plug-ins			    <a href="/neovim-docs-web/en/ft_ada#ada-extra-plugins">ada-extra-plugins</a></div>
 <div class="old-help-para"><a name="_-1.-syntax-highlighting-~"></a><h2 class="help-heading">1. Syntax Highlighting ~</h2>							       <a name="ft-ada-syntax"></a><code class="help-tag-right">ft-ada-syntax</code></div>
 <div class="old-help-para">This mode is designed for the 2005 edition of Ada ("Ada 2005"), which includes
 support for objected-programming, protected types, and so on.  It handles code
@@ -46,7 +46,7 @@ if" and "end loop" will be coloured as part of those respective groups.</div>
 to change how loops are displayed, enter the command ":hi Repeat" followed by
 the colour specification; on simple terminals the colour specification
 ctermfg=White often shows well).</div>
-<div class="old-help-para">There are several options you can select in this Ada mode. See <a href="ft_ada.html#ft-ada-options">ft-ada-options</a>
+<div class="old-help-para">There are several options you can select in this Ada mode. See <a href="/neovim-docs-web/en/ft_ada#ft-ada-options">ft-ada-options</a>
 for a complete list.</div>
 <div class="old-help-para">To enable them, assign a value to the option.  For example, to turn one on:
 <pre>&gt; let g:ada_standard_types = 1</pre>
@@ -54,26 +54,26 @@ To disable them use ":unlet".  Example:
 <pre>&gt; unlet g:ada_standard_types</pre>
 You can just use ":" and type these into the command line to set these
 temporarily before loading an Ada file.  You can make these option settings
-permanent by adding the "let" command(s), without a colon, to your <a href="starting.html#init.vim">init.vim</a>
+permanent by adding the "let" command(s), without a colon, to your <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a>
 file.</div>
 <div class="old-help-para">Even on a slow (90Mhz) PC this mode works quickly, but if you find the
-performance unacceptable, turn on <a href="ft_ada.html#g%3Aada_withuse_ordinary">g:ada_withuse_ordinary</a>.</div>
-<div class="old-help-para">Syntax folding instructions (<a href="fold.html#fold-syntax">fold-syntax</a>) are added when <a href="ft_ada.html#g%3Aada_folding">g:ada_folding</a> is
+performance unacceptable, turn on <a href="/neovim-docs-web/en/ft_ada#g%3Aada_withuse_ordinary">g:ada_withuse_ordinary</a>.</div>
+<div class="old-help-para">Syntax folding instructions (<a href="/neovim-docs-web/en/fold#fold-syntax">fold-syntax</a>) are added when <a href="/neovim-docs-web/en/ft_ada#g%3Aada_folding">g:ada_folding</a> is
 set.</div>
 <div class="old-help-para"><a name="_-2.-file-type-plug-in-~"></a><h2 class="help-heading">2. File type Plug-in ~</h2>					       <a name="ft-ada-indent"></a><code class="help-tag-right">ft-ada-indent</code> <a name="ft-ada-plugin"></a><code class="help-tag">ft-ada-plugin</code></div>
 <div class="old-help-para">The Ada plug-in provides support for:</div>
-<div class="old-help-para"><div class="help-li" style=""> auto indenting	(<a href="indent.html#indent.txt">indent.txt</a>)
-</div><div class="help-li" style=""> insert completion	(<a href="insert.html#i_CTRL-N">i_CTRL-N</a>)
-</div><div class="help-li" style=""> user completion	(<a href="insert.html#i_CTRL-X_CTRL-U">i_CTRL-X_CTRL-U</a>)
-</div><div class="help-li" style=""> tag searches		(<a href="tagsrch.html#tagsrch.txt">tagsrch.txt</a>)
-</div><div class="help-li" style=""> Quick Fix		(<a href="quickfix.html#quickfix.txt">quickfix.txt</a>)
-</div><div class="help-li" style=""> backspace handling	(<a href="options.html#'backspace'">'backspace'</a>)
-</div><div class="help-li" style=""> comment handling	(<a href="options.html#'comments'">'comments'</a>, <a href="options.html#'commentstring'">'commentstring'</a>)
+<div class="old-help-para"><div class="help-li" style=""> auto indenting	(<a href="/neovim-docs-web/en/indent#indent.txt">indent.txt</a>)
+</div><div class="help-li" style=""> insert completion	(<a href="/neovim-docs-web/en/insert#i_CTRL-N">i_CTRL-N</a>)
+</div><div class="help-li" style=""> user completion	(<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-U">i_CTRL-X_CTRL-U</a>)
+</div><div class="help-li" style=""> tag searches		(<a href="/neovim-docs-web/en/tagsrch#tagsrch.txt">tagsrch.txt</a>)
+</div><div class="help-li" style=""> Quick Fix		(<a href="/neovim-docs-web/en/quickfix#quickfix.txt">quickfix.txt</a>)
+</div><div class="help-li" style=""> backspace handling	(<a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a>)
+</div><div class="help-li" style=""> comment handling	(<a href="/neovim-docs-web/en/options#'comments'">'comments'</a>, <a href="/neovim-docs-web/en/options#'commentstring'">'commentstring'</a>)
 </div></div>
 <div class="old-help-para">The plug-in only activates the features of the Ada mode whenever an Ada
 file is opened and adds Ada related entries to the main and pop-up menu.</div>
 <div class="old-help-para"><a name="_-3.-omni-completion-~"></a><h2 class="help-heading">3. Omni Completion ~</h2>								 <a name="ft-ada-omni"></a><code class="help-tag-right">ft-ada-omni</code></div>
-<div class="old-help-para">The Ada omni-completions (<a href="insert.html#i_CTRL-X_CTRL-O">i_CTRL-X_CTRL-O</a>) uses tags database created either
+<div class="old-help-para">The Ada omni-completions (<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-O">i_CTRL-X_CTRL-O</a>) uses tags database created either
 by "gnat xref -v" or the "Universal Ctags" (<a href="https://ctags.io">https://ctags.io</a>).  The complete
 function will automatically detect which tool was used to create the tags
 file.</div>
@@ -111,7 +111,7 @@ Universal Ctags is preferred, Exuberant Ctags is no longer being developed.</div
 complete support yet.</div>
 <div class="old-help-para"><a name="_-4.-compiler-support-~"></a><h2 class="help-heading">4. Compiler Support ~</h2>								<a name="ada-compiler"></a><code class="help-tag-right">ada-compiler</code></div>
 <div class="old-help-para">The Ada mode supports more than one Ada compiler and will automatically load the
-compiler set in <a href="ft_ada.html#g%3Aada_default_compiler">g:ada_default_compiler</a> whenever an Ada source is opened. The
+compiler set in <a href="/neovim-docs-web/en/ft_ada#g%3Aada_default_compiler">g:ada_default_compiler</a> whenever an Ada source is opened. The
 provided compiler plug-ins are split into the actual compiler plug-in and a
 collection of support functions and variables. This allows the easy
 development of specialized compiler plug-ins fine tuned to your development
@@ -123,24 +123,24 @@ several versions available which differ in the licence terms used.</div>
 immediately shows the result. You can set the project file to be used by
 setting:
 <pre>&gt; call g:gnat.Set_Project_File ('my_project.gpr')</pre>
-Setting a project file will also create a Vim session (<a href="starting.html#views-sessions">views-sessions</a>) so -
+Setting a project file will also create a Vim session (<a href="/neovim-docs-web/en/starting#views-sessions">views-sessions</a>) so -
 like with the GPS - opened files, window positions etc. will be remembered
 separately for all projects.</div>
 <div class="old-help-para">								<a name="gnat_members"></a><code class="help-tag-right">gnat_members</code>
 <div class="help-column_heading">GNAT OBJECT</div></div>
 <div class="old-help-para">							       <a name="g%3Agnat.Make()"></a><code class="help-tag-right">g:gnat.Make()</code>
 g:gnat.Make()
-		Calls <a href="ft_ada.html#g%3Agnat.Make_Command">g:gnat.Make_Command</a> and displays the result inside a
-               <a href="quickfix.html#quickfix">quickfix</a> window.</div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Make_Command">g:gnat.Make_Command</a> and displays the result inside a
+               <a href="/neovim-docs-web/en/quickfix#quickfix">quickfix</a> window.</div>
 <div class="old-help-para">							     <a name="g%3Agnat.Pretty()"></a><code class="help-tag-right">g:gnat.Pretty()</code>
 g:gnat.Pretty()
-		Calls <a href="ft_ada.html#g%3Agnat.Pretty_Program">g:gnat.Pretty_Program</a></div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Pretty_Program">g:gnat.Pretty_Program</a></div>
 <div class="old-help-para">							       <a name="g%3Agnat.Find()"></a><code class="help-tag-right">g:gnat.Find()</code>
 g:gnat.Find()
-		Calls <a href="ft_ada.html#g%3Agnat.Find_Program">g:gnat.Find_Program</a></div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Find_Program">g:gnat.Find_Program</a></div>
 <div class="old-help-para">							       <a name="g%3Agnat.Tags()"></a><code class="help-tag-right">g:gnat.Tags()</code>
 g:gnat.Tags()
-		Calls <a href="ft_ada.html#g%3Agnat.Tags_Command">g:gnat.Tags_Command</a></div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Tags_Command">g:gnat.Tags_Command</a></div>
 <div class="old-help-para">						   <a name="g%3Agnat.Set_Project_File()"></a><code class="help-tag-right">g:gnat.Set_Project_File()</code>
 g:gnat.Set_Project_File([{file}])
 		Set gnat project file and load associated session.  An open
@@ -153,19 +153,19 @@ g:gnat.Project_File	string
 		Current project file.</div>
 <div class="old-help-para">							 <a name="g%3Agnat.Make_Command"></a><code class="help-tag-right">g:gnat.Make_Command</code>
 g:gnat.Make_Command	string
-		External command used for <a href="ft_ada.html#g%3Agnat.Make()">g:gnat.Make()</a> (<a href="options.html#'makeprg'">'makeprg'</a>).</div>
+		External command used for <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Make()">g:gnat.Make()</a> (<a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a>).</div>
 <div class="old-help-para">						       <a name="g%3Agnat.Pretty_Program"></a><code class="help-tag-right">g:gnat.Pretty_Program</code>
 g:gnat.Pretty_Program	string
-		External command used for <a href="ft_ada.html#g%3Agnat.Pretty()">g:gnat.Pretty()</a></div>
+		External command used for <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Pretty()">g:gnat.Pretty()</a></div>
 <div class="old-help-para">							 <a name="g%3Agnat.Find_Program"></a><code class="help-tag-right">g:gnat.Find_Program</code>
 g:gnat.Find_Program	string
-		External command used for <a href="ft_ada.html#g%3Agnat.Find()">g:gnat.Find()</a></div>
+		External command used for <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Find()">g:gnat.Find()</a></div>
 <div class="old-help-para">							 <a name="g%3Agnat.Tags_Command"></a><code class="help-tag-right">g:gnat.Tags_Command</code>
 g:gnat.Tags_Command	string
-		External command used for <a href="ft_ada.html#g%3Agnat.Tags()">g:gnat.Tags()</a></div>
+		External command used for <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Tags()">g:gnat.Tags()</a></div>
 <div class="old-help-para">							 <a name="g%3Agnat.Error_Format"></a><code class="help-tag-right">g:gnat.Error_Format</code>
 g:gnat.Error_Format	string
-		Error format (<a href="options.html#'errorformat'">'errorformat'</a>)</div>
+		Error format (<a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>)</div>
 <div class="old-help-para"><a name="_-4.2-dec-ada-~"></a><h3 class="help-heading">4.2 Dec Ada ~</h3>					    <a name="compiler-hpada"></a><code class="help-tag-right">compiler-hpada</code> <a name="compiler-decada"></a><code class="help-tag">compiler-decada</code>
 					<a name="compiler-vaxada"></a><code class="help-tag-right">compiler-vaxada</code> <a name="compiler-compaqada"></a><code class="help-tag">compiler-compaqada</code></div>
 <div class="old-help-para">Dec Ada (also known by - in chronological order - VAX Ada, Dec Ada, Compaq Ada
@@ -179,17 +179,17 @@ as separators.</div>
 <div class="help-column_heading">DEC ADA OBJECT</div></div>
 <div class="old-help-para">							     <a name="g%3Adecada.Make()"></a><code class="help-tag-right">g:decada.Make()</code>
 g:decada.Make()		function
-		Calls <a href="ft_ada.html#g%3Adecada.Make_Command">g:decada.Make_Command</a> and displays the result inside a
-		<a href="quickfix.html#quickfix">quickfix</a> window.</div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Adecada.Make_Command">g:decada.Make_Command</a> and displays the result inside a
+		<a href="/neovim-docs-web/en/quickfix#quickfix">quickfix</a> window.</div>
 <div class="old-help-para">							<a name="g%3Adecada.Unit_Name()"></a><code class="help-tag-right">g:decada.Unit_Name()</code>
 g:decada.Unit_Name()	function
 		Get the Unit name for the current file.</div>
 <div class="old-help-para">						       <a name="g%3Adecada.Make_Command"></a><code class="help-tag-right">g:decada.Make_Command</code>
 g:decada.Make_Command	string
-		External command used for <a href="ft_ada.html#g%3Adecada.Make()">g:decada.Make()</a> (<a href="options.html#'makeprg'">'makeprg'</a>).</div>
+		External command used for <a href="/neovim-docs-web/en/ft_ada#g%3Adecada.Make()">g:decada.Make()</a> (<a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a>).</div>
 <div class="old-help-para">						       <a name="g%3Adecada.Error_Format"></a><code class="help-tag-right">g:decada.Error_Format</code>
 g:decada.Error_Format	string
-		Error format (<a href="options.html#'errorformat'">'errorformat'</a>).</div>
+		Error format (<a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a>).</div>
 <div class="old-help-para"><a name="_-5.-references-~"></a><h2 class="help-heading">5. References ~</h2>							       <a name="ada-reference"></a><code class="help-tag-right">ada-reference</code></div>
 <div class="old-help-para"><a name="_-5.1-options-~"></a><h3 class="help-heading">5.1 Options ~</h3>							      <a name="ft-ada-options"></a><code class="help-tag-right">ft-ada-options</code></div>
 <div class="old-help-para">							<a name="g%3Aada_standard_types"></a><code class="help-tag-right">g:ada_standard_types</code>
@@ -252,8 +252,8 @@ g:ada_begin_preproc	  bool (true when exists)
 <div class="old-help-para">						    <a name="g%3Aada_omni_with_keywords"></a><code class="help-tag-right">g:ada_omni_with_keywords</code>
 g:ada_omni_with_keywords
 		Add Keywords, Pragmas, Attributes to omni-completions
-		(<a href="insert.html#compl-omni">compl-omni</a>). Note: You can always complete then with user
-		completion (<a href="insert.html#i_CTRL-X_CTRL-U">i_CTRL-X_CTRL-U</a>).</div>
+		(<a href="/neovim-docs-web/en/insert#compl-omni">compl-omni</a>). Note: You can always complete then with user
+		completion (<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-U">i_CTRL-X_CTRL-U</a>).</div>
 <div class="old-help-para">						      <a name="g%3Aada_extended_tagging"></a><code class="help-tag-right">g:ada_extended_tagging</code>
 g:ada_extended_tagging	  enum ("jump", "list")
 		use extended tagging, two options are available
@@ -265,7 +265,7 @@ g:ada_extended_tagging	  enum ("jump", "list")
 <div class="old-help-para">						   <a name="g%3Aada_extended_completion"></a><code class="help-tag-right">g:ada_extended_completion</code>
 g:ada_extended_completion
 		Uses extended completion for <code>&lt;C-N&gt;</code> and <code>&lt;C-R&gt;</code> completions
-		(<a href="insert.html#i_CTRL-N">i_CTRL-N</a>). In this mode the '.' is used as part of the
+		(<a href="/neovim-docs-web/en/insert#i_CTRL-N">i_CTRL-N</a>). In this mode the '.' is used as part of the
 		identifier so that 'Object.Method' or 'Package.Procedure' are
 		completed together.</div>
 <div class="old-help-para">						       <a name="g%3Aada_gnat_extensions"></a><code class="help-tag-right">g:ada_gnat_extensions</code>
@@ -283,39 +283,39 @@ false when the variable is undefined. The value to which the variable is set
 makes no difference.</div>
 <div class="old-help-para"><a name="_-5.2-commands-~"></a><h3 class="help-heading">5.2 Commands ~</h3>							     <a name="ft-ada-commands"></a><code class="help-tag-right">ft-ada-commands</code></div>
 <div class="old-help-para">:AdaRainbow							 <a name="%3AAdaRainbow"></a><code class="help-tag-right">:AdaRainbow</code>
-		Toggles rainbow colour (<a href="ft_ada.html#g%3Aada_rainbow_color">g:ada_rainbow_color</a>) mode for
+		Toggles rainbow colour (<a href="/neovim-docs-web/en/ft_ada#g%3Aada_rainbow_color">g:ada_rainbow_color</a>) mode for
 		'(' and ')'.</div>
 <div class="old-help-para">:AdaLines							   <a name="%3AAdaLines"></a><code class="help-tag-right">:AdaLines</code>
-		Toggles line error (<a href="ft_ada.html#g%3Aada_line_errors">g:ada_line_errors</a>) display.</div>
+		Toggles line error (<a href="/neovim-docs-web/en/ft_ada#g%3Aada_line_errors">g:ada_line_errors</a>) display.</div>
 <div class="old-help-para">:AdaSpaces							  <a name="%3AAdaSpaces"></a><code class="help-tag-right">:AdaSpaces</code>
-		Toggles space error (<a href="ft_ada.html#g%3Aada_space_errors">g:ada_space_errors</a>) display.</div>
+		Toggles space error (<a href="/neovim-docs-web/en/ft_ada#g%3Aada_space_errors">g:ada_space_errors</a>) display.</div>
 <div class="old-help-para">:AdaTagDir							  <a name="%3AAdaTagDir"></a><code class="help-tag-right">:AdaTagDir</code>
 		Creates tags file for the directory of the current file.</div>
 <div class="old-help-para">:AdaTagFile							 <a name="%3AAdaTagFile"></a><code class="help-tag-right">:AdaTagFile</code>
 		Creates tags file for the current file.</div>
 <div class="old-help-para">:AdaTypes							   <a name="%3AAdaTypes"></a><code class="help-tag-right">:AdaTypes</code>
-		Toggles standard types (<a href="ft_ada.html#g%3Aada_standard_types">g:ada_standard_types</a>) colour.</div>
+		Toggles standard types (<a href="/neovim-docs-web/en/ft_ada#g%3Aada_standard_types">g:ada_standard_types</a>) colour.</div>
 <div class="old-help-para">:GnatFind							   <a name="%3AGnatFind"></a><code class="help-tag-right">:GnatFind</code>
-		Calls <a href="ft_ada.html#g%3Agnat.Find()">g:gnat.Find()</a></div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Find()">g:gnat.Find()</a></div>
 <div class="old-help-para">:GnatPretty							 <a name="%3AGnatPretty"></a><code class="help-tag-right">:GnatPretty</code>
-		Calls <a href="ft_ada.html#g%3Agnat.Pretty()">g:gnat.Pretty()</a></div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Pretty()">g:gnat.Pretty()</a></div>
 <div class="old-help-para">:GnatTags							   <a name="%3AGnatTags"></a><code class="help-tag-right">:GnatTags</code>
-		Calls <a href="ft_ada.html#g%3Agnat.Tags()">g:gnat.Tags()</a></div>
+		Calls <a href="/neovim-docs-web/en/ft_ada#g%3Agnat.Tags()">g:gnat.Tags()</a></div>
 <div class="old-help-para"><a name="_-5.3-variables-~"></a><h3 class="help-heading">5.3 Variables ~</h3>							    <a name="ft-ada-variables"></a><code class="help-tag-right">ft-ada-variables</code></div>
 <div class="old-help-para">								      <a name="g%3Agnat"></a><code class="help-tag-right">g:gnat</code>
 g:gnat			    object
 		Control object which manages GNAT compiles.  The object
 		is created when the first Ada source code is loaded provided
-		that <a href="ft_ada.html#g%3Aada_default_compiler">g:ada_default_compiler</a> is set to "gnat". See
-		<a href="ft_ada.html#gnat_members">gnat_members</a> for details.</div>
+		that <a href="/neovim-docs-web/en/ft_ada#g%3Aada_default_compiler">g:ada_default_compiler</a> is set to "gnat". See
+		<a href="/neovim-docs-web/en/ft_ada#gnat_members">gnat_members</a> for details.</div>
 <div class="old-help-para">								    <a name="g%3Adecada"></a><code class="help-tag-right">g:decada</code>
 g:decada		      object
 		Control object which manages Dec Ada compiles.	The object
 		is created when the first Ada source code is loaded provided
-		that <a href="ft_ada.html#g%3Aada_default_compiler">g:ada_default_compiler</a> is set to "decada". See
-		<a href="ft_ada.html#decada_members">decada_members</a> for details.</div>
+		that <a href="/neovim-docs-web/en/ft_ada#g%3Aada_default_compiler">g:ada_default_compiler</a> is set to "decada". See
+		<a href="/neovim-docs-web/en/ft_ada#decada_members">decada_members</a> for details.</div>
 <div class="old-help-para"><a name="_-5.4-constants-~"></a><h3 class="help-heading">5.4 Constants ~</h3>							    <a name="ft-ada-constants"></a><code class="help-tag-right">ft-ada-constants</code></div>
-<div class="old-help-para">All constants are locked. See <a href="eval.html#%3Alockvar">:lockvar</a> for details.</div>
+<div class="old-help-para">All constants are locked. See <a href="/neovim-docs-web/en/eval#%3Alockvar">:lockvar</a> for details.</div>
 <div class="old-help-para">							     <a name="g%3Aada%23WordRegex"></a><code class="help-tag-right">g:ada#WordRegex</code>
 g:ada#WordRegex		string
 		Regular expression to search for Ada words.</div>
@@ -328,7 +328,7 @@ g:ada#Comment		string
 <div class="old-help-para">							      <a name="g%3Aada%23Keywords"></a><code class="help-tag-right">g:ada#Keywords</code>
 g:ada#Keywords		list of dictionaries
 		List of keywords, attributes etc. pp. in the format used by
-		omni completion. See <a href="insert.html#complete-items">complete-items</a> for details.</div>
+		omni completion. See <a href="/neovim-docs-web/en/insert#complete-items">complete-items</a> for details.</div>
 <div class="old-help-para">							   <a name="g%3Aada%23Ctags_Kinds"></a><code class="help-tag-right">g:ada#Ctags_Kinds</code>
 g:ada#Ctags_Kinds	dictionary of lists
 		Dictionary of the various kinds of items which the Ada support
@@ -355,7 +355,7 @@ g:ada#Ctags_Kinds	dictionary of lists
 		Toggles highlighting options on or off. Used for the Ada menu.</div>
 <div class="old-help-para">								  <a name="gnat%23New()"></a><code class="help-tag-right">gnat#New()</code>
 gnat#New ()
-		Create a new gnat object. See <a href="ft_ada.html#g%3Agnat">g:gnat</a> for details.</div>
+		Create a new gnat object. See <a href="/neovim-docs-web/en/ft_ada#g%3Agnat">g:gnat</a> for details.</div>
 <div class="old-help-para"><a name="_-6.-extra-plugins-~"></a><h2 class="help-heading">6. Extra Plugins ~</h2>							   <a name="ada-extra-plugins"></a><code class="help-tag-right">ada-extra-plugins</code></div>
 <div class="old-help-para">You can optionally install the following extra plug-ins. They work well with
 Ada and enhance the ability of the Ada mode:</div>

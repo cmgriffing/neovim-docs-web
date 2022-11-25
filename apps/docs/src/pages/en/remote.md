@@ -14,7 +14,7 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">Vim client-server communication</div>
 <div class="old-help-para"><h2 class="help-heading">1. Common functionality<span class="help-heading-tags">					<a name="clientserver"></a><span class="help-tag">clientserver</span></span></h2></div>
-<div class="old-help-para">Nvim's <a href="api.html#RPC">RPC</a> functionality allows clients to programmatically control Nvim. Nvim
+<div class="old-help-para">Nvim's <a href="/neovim-docs-web/en/api#RPC">RPC</a> functionality allows clients to programmatically control Nvim. Nvim
 itself takes command-line arguments that cause it to become a client to another
 Nvim running as a server. These arguments match those provided by Vim's
 clientserver option.</div>
@@ -30,7 +30,7 @@ clientserver option.</div>
 				The rest of the command line is taken as the
 				file list.  Thus any non-file arguments must
 				come before this.
-				You cannot edit stdin this way <a href="starting.html#--">--</a>.
+				You cannot edit stdin this way <a href="/neovim-docs-web/en/starting#--">--</a>.
 				The remote Vim is raised.  If you don't want
 				this use<pre>nvim --remote-send "&lt;C-\&gt;&lt;C-N&gt;:n filename&lt;CR&gt;"</pre></div>
 <div class="old-help-para">   --remote-silent [+{cmd}] <code>{file}</code> ...			<a name="--remote-silent"></a><code class="help-tag-right">--remote-silent</code>
@@ -53,7 +53,7 @@ clientserver option.</div>
 								<a name="--server"></a><code class="help-tag-right">--server</code>
    --server <code>{addr}</code>		Connect to the named pipe or socket at the
 				given address for executing remote commands.
-				See <a href="starting.html#--listen">--listen</a> for specifying an address when
+				See <a href="/neovim-docs-web/en/starting#--listen">--listen</a> for specifying an address when
 				starting a server.</div>
 <div class="old-help-para"><div class="help-column_heading">Examples</div></div>
 <div class="old-help-para">Start an Nvim server listening on a named pipe at '~/.cache/nvim/server.pipe':<pre>nvim --listen ~/.cache/nvim/server.pipe</pre>
@@ -61,7 +61,7 @@ Edit "file.txt" in an Nvim server listening at '~/.cache/nvim/server.pipe':<pre>
 This doesn't work, all arguments after --remote will be used as file names:<pre>nvim --remote --server ~/.cache/nvim/server.pipe file.txt</pre>
 Tell the remote server to write all files and exit:<pre>nvim --server ~/.cache/nvim/server.pipe --remote-send '&lt;C-\&gt;&lt;C-N&gt;:wqa&lt;CR&gt;'</pre>
 <a name="_remote-editing"></a><h3 class="help-heading">REMOTE EDITING</h3></div>
-<div class="old-help-para">The --remote argument will cause a <a href="windows.html#%3Adrop">:drop</a> command to be constructed from the
+<div class="old-help-para">The --remote argument will cause a <a href="/neovim-docs-web/en/windows#%3Adrop">:drop</a> command to be constructed from the
 rest of the command line and sent as described above.
 Note that the --remote and --remote-wait arguments will consume the rest of
 the command line.  I.e. all remaining arguments will be regarded as filenames.

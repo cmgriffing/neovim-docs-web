@@ -17,25 +17,25 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">The Vim script language is used for the startup vimrc file, syntax files, and
 many other things.  This chapter explains the items that can be used in a Vim
 script.  There are a lot of them, thus this is a long chapter.</div>
-<div class="old-help-para"><a href="usr_41.html#41.1">41.1</a>  	Introduction
-<a href="usr_41.html#41.2">41.2</a>  	Variables
-<a href="usr_41.html#41.3">41.3</a>  	Expressions
-<a href="usr_41.html#41.4">41.4</a>  	Conditionals
-<a href="usr_41.html#41.5">41.5</a>  	Executing an expression
-<a href="usr_41.html#41.6">41.6</a>  	Using functions
-<a href="usr_41.html#41.7">41.7</a>  	Defining a function
-<a href="usr_41.html#41.8">41.8</a>  	Lists and Dictionaries
-<a href="usr_41.html#41.9">41.9</a>  	Exceptions
-<a href="usr_41.html#41.10">41.10</a>  	Various remarks
-<a href="usr_41.html#41.11">41.11</a>  	Writing a plugin
-<a href="usr_41.html#41.12">41.12</a>  	Writing a filetype plugin
-<a href="usr_41.html#41.13">41.13</a>  	Writing a compiler plugin
-<a href="usr_41.html#41.14">41.14</a>  	Writing a plugin that loads quickly
-<a href="usr_41.html#41.15">41.15</a>  	Writing library scripts
-<a href="usr_41.html#41.16">41.16</a>  	Distributing Vim scripts</div>
-<div class="old-help-para">     Next chapter: <a href="usr_42.html#usr_42.txt">usr_42.txt</a>  Add new menus
- Previous chapter: <a href="usr_40.html#usr_40.txt">usr_40.txt</a>  Make new commands
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_41#41.1">41.1</a>  	Introduction
+<a href="/neovim-docs-web/en/usr_41#41.2">41.2</a>  	Variables
+<a href="/neovim-docs-web/en/usr_41#41.3">41.3</a>  	Expressions
+<a href="/neovim-docs-web/en/usr_41#41.4">41.4</a>  	Conditionals
+<a href="/neovim-docs-web/en/usr_41#41.5">41.5</a>  	Executing an expression
+<a href="/neovim-docs-web/en/usr_41#41.6">41.6</a>  	Using functions
+<a href="/neovim-docs-web/en/usr_41#41.7">41.7</a>  	Defining a function
+<a href="/neovim-docs-web/en/usr_41#41.8">41.8</a>  	Lists and Dictionaries
+<a href="/neovim-docs-web/en/usr_41#41.9">41.9</a>  	Exceptions
+<a href="/neovim-docs-web/en/usr_41#41.10">41.10</a>  	Various remarks
+<a href="/neovim-docs-web/en/usr_41#41.11">41.11</a>  	Writing a plugin
+<a href="/neovim-docs-web/en/usr_41#41.12">41.12</a>  	Writing a filetype plugin
+<a href="/neovim-docs-web/en/usr_41#41.13">41.13</a>  	Writing a compiler plugin
+<a href="/neovim-docs-web/en/usr_41#41.14">41.14</a>  	Writing a plugin that loads quickly
+<a href="/neovim-docs-web/en/usr_41#41.15">41.15</a>  	Writing library scripts
+<a href="/neovim-docs-web/en/usr_41#41.16">41.16</a>  	Distributing Vim scripts</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_42#usr_42.txt">usr_42.txt</a>  Add new menus
+ Previous chapter: <a href="/neovim-docs-web/en/usr_40#usr_40.txt">usr_40.txt</a>  Make new commands
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Introduction<span class="help-heading-tags">				<a name="vim-script-intro"></a><span class="help-tag">vim-script-intro</span> <a name="script"></a><span class="help-tag">script</span></span></h2></div>
 <div class="old-help-para">Your first experience with Vim scripts is the vimrc file.  Vim reads it when
 it starts up and executes the commands.  You can set options to values you
@@ -87,7 +87,7 @@ to the same variable.</div>
 make such a loop, it can be written much more compact:<pre>:for i in range(1, 4)
 :  echo "count is" i
 :endfor</pre>
-We won't explain how <a href="eval.html#%3Afor">:for</a> and <a href="builtin.html#range()">range()</a> work until later.  Follow the links
+We won't explain how <a href="/neovim-docs-web/en/eval#%3Afor">:for</a> and <a href="/neovim-docs-web/en/builtin#range()">range()</a> work until later.  Follow the links
 if you are impatient.</div>
 <div class="old-help-para"><a name="_four-kinds-of-numbers"></a><h3 class="help-heading">FOUR KINDS OF NUMBERS</h3></div>
 <div class="old-help-para">Numbers can be decimal, hexadecimal, octal or binary.</div>
@@ -131,8 +131,8 @@ example, one script contains this code:<pre>:let s:count = 1
 Since "s:count" is local to this script, you can be sure that sourcing the
 "other.vim" script will not change this variable.  If "other.vim" also uses an
 "s:count" variable, it will be a different copy, local to that script.  More
-about script-local variables here: <a href="eval.html#script-variable">script-variable</a>.</div>
-<div class="old-help-para">There are more kinds of variables, see <a href="eval.html#internal-variables">internal-variables</a>.  The most often
+about script-local variables here: <a href="/neovim-docs-web/en/eval#script-variable">script-variable</a>.</div>
+<div class="old-help-para">There are more kinds of variables, see <a href="/neovim-docs-web/en/eval#internal-variables">internal-variables</a>.  The most often
 used ones are:</div>
 <div class="old-help-para">	b:name		variable local to a buffer
 	w:name		variable local to a window
@@ -170,7 +170,7 @@ Thus "if !exists()" can be read as "if not exists()".
 <div class="old-help-para">So far only numbers were used for the variable value.  Strings can be used as
 well.  Numbers and strings are the basic types of variables that Vim supports.
 The type is dynamic, it is set each time when assigning a value to the
-variable with ":let".  More about types in <a href="usr_41.html#41.8">41.8</a>.
+variable with ":let".  More about types in <a href="/neovim-docs-web/en/usr_41#41.8">41.8</a>.
    To assign a string value to a variable, you need to use a string constant.
 There are two types of these.  First the string in double quotes:<pre>:let name = "peter"
 :echo name</pre></div>
@@ -199,10 +199,10 @@ a few useful ones:</div>
 	\&lt;C-W&gt;		<code>CTRL-W</code></div>
 <div class="old-help-para">The last two are just examples.  The  "\&lt;name&gt;" form can be used to include
 the special key "name".
-   See <a href="eval.html#expr-quote">expr-quote</a> for the full list of special items in a string.</div>
+   See <a href="/neovim-docs-web/en/eval#expr-quote">expr-quote</a> for the full list of special items in a string.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.3"></a><span class="help-tag">41.3</span>  	Expressions</span></h2></div>
 <div class="old-help-para">Vim has a rich, yet simple way to handle expressions.  You can read the
-definition here: <a href="eval.html#expression-syntax">expression-syntax</a>.  Here we will show the most common
+definition here: <a href="/neovim-docs-web/en/eval#expression-syntax">expression-syntax</a>.  Here we will show the most common
 items.
    The numbers, strings and variables mentioned above are expressions by
 themselves.  Thus everywhere an expression is expected, you can use a number,
@@ -218,9 +218,9 @@ do something and restore the old value.  Example:<pre>:let save_ic = &amp;ic
 :set noic
 :/The Start/,$delete
 :let &amp;ic = save_ic</pre>
-This makes sure the "The Start" pattern is used with the <a href="options.html#'ignorecase'">'ignorecase'</a> option
+This makes sure the "The Start" pattern is used with the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option
 off.  Still, it keeps the value that the user had set.  (Another way to do
-this would be to add "\C" to the pattern, see <a href="pattern.html#%2F%5CC">/\C</a>.)</div>
+this would be to add "\C" to the pattern, see <a href="/neovim-docs-web/en/pattern#%2F%5CC">/\C</a>.)</div>
 <div class="old-help-para"><a name="_mathematics"></a><h3 class="help-heading">MATHEMATICS</h3></div>
 <div class="old-help-para">It becomes more interesting if we combine these basic items.  Let's start with
 mathematics on numbers:</div>
@@ -233,7 +233,7 @@ mathematics on numbers:</div>
 <div class="old-help-para"><div class="help-column_heading">	20</div></div>
 <div class="old-help-para">Grouping is done with parentheses.  No surprises here.  Example:<pre>:echo (10 + 5) * 2</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	30</div></div>
-<div class="old-help-para">Strings can be concatenated with ".." (see <a href="eval.html#expr6">expr6</a>).  Example:<pre>:echo "foo" .. "bar"</pre></div>
+<div class="old-help-para">Strings can be concatenated with ".." (see <a href="/neovim-docs-web/en/eval#expr6">expr6</a>).  Example:<pre>:echo "foo" .. "bar"</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	foobar</div></div>
 <div class="old-help-para">When the ":echo" command gets multiple arguments, it separates them with a
 space.  In the example the argument is a single expression, thus no space is
@@ -270,7 +270,7 @@ contain garbage, Vim won't be able to find the ":endif".
 	:endif</div>
 <div class="old-help-para">This works just like using ":else" and then "if", but without the need for an
 extra ":endif".
-   A useful example for your vimrc file is checking the <a href="vim_diff.html#'term'">'term'</a> option and
+   A useful example for your vimrc file is checking the <a href="/neovim-docs-web/en/vim_diff#'term'">'term'</a> option and
 doing something depending upon its value:<pre>:if &amp;term == "xterm"
 :  " Do stuff for xterm
 :elseif &amp;term == "vt100"
@@ -295,7 +295,7 @@ ones:</div>
 Here "v:version" is a variable defined by Vim, which has the value of the Vim
 version.  600 is for version 6.0.  Version 6.1 has the value 601.  This is
 very useful to write a script that works with multiple versions of Vim.
-<a href="eval.html#v%3Aversion">v:version</a></div>
+<a href="/neovim-docs-web/en/eval#v%3Aversion">v:version</a></div>
 <div class="old-help-para">The logic operators work both for numbers and strings.  When comparing two
 strings, the mathematical difference is used.  This compares byte values,
 which may not be right for some languages.
@@ -319,11 +319,11 @@ pattern, like what's used for searching.  Example:<pre>:if str =~ " "
 Notice the use of a single-quote string for the pattern.  This is useful,
 because backslashes would need to be doubled in a double-quote string and
 patterns tend to contain many backslashes.</div>
-<div class="old-help-para">The <a href="options.html#'ignorecase'">'ignorecase'</a> option is used when comparing strings.  When you don't want
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option is used when comparing strings.  When you don't want
 that, append "#" to match case and "?" to ignore case.  Thus "==?" compares
 two strings to be equal while ignoring case.  And "!~#" checks if a pattern
 doesn't match, also checking the case of letters.  For the full table see
-<a href="eval.html#expr-%3D%3D">expr-==</a>.</div>
+<a href="/neovim-docs-web/en/eval#expr-%3D%3D">expr-==</a>.</div>
 <div class="old-help-para"><a name="_more-looping"></a><h3 class="help-heading">MORE LOOPING</h3></div>
 <div class="old-help-para">The ":while" command was already mentioned.  Two more statements can be used
 in between the ":while" and the ":endwhile":</div>
@@ -343,7 +343,7 @@ in between the ":while" and the ":endwhile":</div>
 :endwhile</pre>
 The ":sleep" command makes Vim take a nap.  The "50m" specifies fifty
 milliseconds.  Another example is ":sleep 4", which sleeps for four seconds.</div>
-<div class="old-help-para">Even more looping can be done with the ":for" command, see below in <a href="usr_41.html#41.8">41.8</a>.</div>
+<div class="old-help-para">Even more looping can be done with the ":for" command, see below in <a href="/neovim-docs-web/en/usr_41#41.8">41.8</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.5"></a><span class="help-tag">41.5</span>  	Executing an expression</span></h2></div>
 <div class="old-help-para">So far the commands in the script were executed by Vim directly.  The
 ":execute" command allows executing the result of an expression.  This is a
@@ -369,12 +369,12 @@ script.</div>
 value, you can use the eval() function:<pre>:let optname = "path"
 :let optval = eval('&amp;' .. optname)</pre>
 A "&amp;" character is prepended to "path", thus the argument to eval() is
-"&amp;path".  The result will then be the value of the <a href="options.html#'path'">'path'</a> option.
+"&amp;path".  The result will then be the value of the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option.
    The same thing can be done with:<pre>:exe 'let optval = &amp;' .. optname</pre>
 <h2 class="help-heading"><span class="help-heading-tags"><a name="41.6"></a><span class="help-tag">41.6</span>  	Using functions</span></h2></div>
 <div class="old-help-para">Vim defines many functions and provides a large amount of functionality that
 way.  A few examples will be given in this section.  You can find the whole
-list below: <a href="usr_41.html#function-list">function-list</a>.</div>
+list below: <a href="/neovim-docs-web/en/usr_41#function-list">function-list</a>.</div>
 <div class="old-help-para">A function is called with the ":call" command.  The parameters are passed in
 between parentheses separated by commas.  Example:<pre>:call search("Date: ", "W")</pre>
 This calls the search() function, with arguments "Date: " and "W".  The
@@ -399,7 +399,7 @@ Using the functions becomes interesting when you do more work before and
 after the substitute() call.</div>
 <div class="old-help-para"><h3 class="help-heading">FUNCTIONS<span class="help-heading-tags">						<a name="function-list"></a><span class="help-tag">function-list</span></span></h3></div>
 <div class="old-help-para">There are many functions.  We will mention them here, grouped by what they are
-used for.  You can find an alphabetical list here: <a href="builtin.html#builtin-function-list">builtin-function-list</a>.
+used for.  You can find an alphabetical list here: <a href="/neovim-docs-web/en/builtin#builtin-function-list">builtin-function-list</a>.
 Use <code>CTRL-]</code> on the function name to jump to detailed help on it.</div>
 <div class="old-help-para">String manipulation:					<a name="string-functions"></a><code class="help-tag-right">string-functions</code>
 	nr2char()		get a character by its number value
@@ -415,7 +415,7 @@ Use <code>CTRL-]</code> on the function name to jump to detailed help on it.</di
 	tr()			translate characters from one set to another
 	strtrans()		translate a string to make it printable
 	keytrans()		translate internal keycodes to a form that
-				can be used by <a href="map.html#%3Amap">:map</a>
+				can be used by <a href="/neovim-docs-web/en/map#%3Amap">:map</a>
 	tolower()		turn a string to lowercase
 	toupper()		turn a string to uppercase
 	charclass()		class of a character
@@ -608,7 +608,7 @@ System functions and manipulation of files:
 	isdirectory()		check if a directory exists
 	getfsize()		get the size of a file
 	getcwd()		get the current working directory
-	haslocaldir()		check if current window used <a href="editing.html#%3Alcd">:lcd</a> or <a href="editing.html#%3Atcd">:tcd</a>
+	haslocaldir()		check if current window used <a href="/neovim-docs-web/en/editing#%3Alcd">:lcd</a> or <a href="/neovim-docs-web/en/editing#%3Atcd">:tcd</a>
 	tempname()		get the name of a temporary file
 	mkdir()			create a new directory
 	chdir()			change current working directory
@@ -702,10 +702,10 @@ Buffers, windows and the argument list:
 	foldtext()		generate the line displayed for a closed fold
 	foldtextresult()	get the text displayed for a closed fold</div>
 <div class="old-help-para">Syntax and highlighting:	  <a name="syntax-functions"></a><code class="help-tag-right">syntax-functions</code> <a name="highlighting-functions"></a><code class="help-tag">highlighting-functions</code>
-	clearmatches()		clear all matches defined by <a href="builtin.html#matchadd()">matchadd()</a> and
-				the <a href="pattern.html#%3Amatch">:match</a> commands
-	getmatches()		get all matches defined by <a href="builtin.html#matchadd()">matchadd()</a> and
-				the <a href="pattern.html#%3Amatch">:match</a> commands
+	clearmatches()		clear all matches defined by <a href="/neovim-docs-web/en/builtin#matchadd()">matchadd()</a> and
+				the <a href="/neovim-docs-web/en/pattern#%3Amatch">:match</a> commands
+	getmatches()		get all matches defined by <a href="/neovim-docs-web/en/builtin#matchadd()">matchadd()</a> and
+				the <a href="/neovim-docs-web/en/pattern#%3Amatch">:match</a> commands
 	hlexists()		check if a highlight group exists
 	hlID()			get ID of a highlight group
 	synID()			get syntax ID at a specific position
@@ -716,11 +716,11 @@ Buffers, windows and the argument list:
 	diff_hlID()		get highlight ID for diff mode at a position
 	matchadd()		define a pattern to highlight (a "match")
 	matchaddpos()		define a list of positions to highlight
-	matcharg()		get info about <a href="pattern.html#%3Amatch">:match</a> arguments
-	matchdelete()		delete a match defined by <a href="builtin.html#matchadd()">matchadd()</a> or a
-				<a href="pattern.html#%3Amatch">:match</a> command
+	matcharg()		get info about <a href="/neovim-docs-web/en/pattern#%3Amatch">:match</a> arguments
+	matchdelete()		delete a match defined by <a href="/neovim-docs-web/en/builtin#matchadd()">matchadd()</a> or a
+				<a href="/neovim-docs-web/en/pattern#%3Amatch">:match</a> command
 	setmatches()		restore a list of matches saved by
-				<a href="builtin.html#getmatches()">getmatches()</a></div>
+				<a href="/neovim-docs-web/en/builtin#getmatches()">getmatches()</a></div>
 <div class="old-help-para">Spelling:					<a name="spell-functions"></a><code class="help-tag-right">spell-functions</code>
 	spellbadword()		locate badly spelled word at or after cursor
 	spellsuggest()		return suggested spelling corrections
@@ -771,10 +771,10 @@ Buffers, windows and the argument list:
 	winsaveview()		get view of current window
 	winrestview()		restore saved view of current window</div>
 <div class="old-help-para">Mappings and Menus:			    <a name="mapping-functions"></a><code class="help-tag-right">mapping-functions</code>
-	digraph_get()		get <a href="digraph.html#digraph">digraph</a>
-	digraph_getlist()	get all <a href="digraph.html#digraph">digraph</a>s
-	digraph_set()		register <a href="digraph.html#digraph">digraph</a>
-	digraph_setlist()	register multiple <a href="digraph.html#digraph">digraph</a>s
+	digraph_get()		get <a href="/neovim-docs-web/en/digraph#digraph">digraph</a>
+	digraph_getlist()	get all <a href="/neovim-docs-web/en/digraph#digraph">digraph</a>s
+	digraph_set()		register <a href="/neovim-docs-web/en/digraph#digraph">digraph</a>
+	digraph_setlist()	register multiple <a href="/neovim-docs-web/en/digraph#digraph">digraph</a>s
 	hasmapto()		check if a mapping exists
 	mapcheck()		check if a matching mapping exists
 	maparg()		get rhs of a mapping
@@ -847,13 +847,13 @@ Buffers, windows and the argument list:
 	setreg()		set contents and type of a register
 	reg_executing()		return the name of the register being executed
 	reg_recording()		return the name of the register being recorded</div>
-<div class="old-help-para">	shiftwidth()		effective value of <a href="options.html#'shiftwidth'">'shiftwidth'</a></div>
+<div class="old-help-para">	shiftwidth()		effective value of <a href="/neovim-docs-web/en/options#'shiftwidth'">'shiftwidth'</a></div>
 <div class="old-help-para">	wordcount()		get byte/word/char count of buffer</div>
-<div class="old-help-para">	luaeval()		evaluate <a href="lua.html#Lua">Lua</a> expression
-	py3eval()		evaluate <a href="if_pyth.html#Python">Python</a> expression
-	pyeval()		evaluate <a href="if_pyth.html#Python">Python</a> expression
-	pyxeval()		evaluate <a href="if_pyth.html#python_x">python_x</a> expression
-	rubyeval()		evaluate <a href="if_ruby.html#Ruby">Ruby</a> expression</div>
+<div class="old-help-para">	luaeval()		evaluate <a href="/neovim-docs-web/en/lua#Lua">Lua</a> expression
+	py3eval()		evaluate <a href="/neovim-docs-web/en/if_pyth#Python">Python</a> expression
+	pyeval()		evaluate <a href="/neovim-docs-web/en/if_pyth#Python">Python</a> expression
+	pyxeval()		evaluate <a href="/neovim-docs-web/en/if_pyth#python_x">python_x</a> expression
+	rubyeval()		evaluate <a href="/neovim-docs-web/en/if_ruby#Ruby">Ruby</a> expression</div>
 <div class="old-help-para">	debugbreak()		interrupt a program being debugged</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.7"></a><span class="help-tag">41.7</span>  	Defining a function</span></h2></div>
 <div class="old-help-para">Vim enables you to define your own functions.  The basic function declaration
@@ -954,7 +954,7 @@ This uses the ":echohl" command to specify the highlighting used for the
 following ":echo" command.  ":echohl None" stops it again.  The ":echon"
 command works like ":echo", but doesn't output a line break.</div>
 <div class="old-help-para">You can also use the a:000 variable, it is a List of all the "..." arguments.
-See <a href="userfunc.html#a%3A000">a:000</a>.</div>
+See <a href="/neovim-docs-web/en/userfunc#a%3A000">a:000</a>.</div>
 <div class="old-help-para"><a name="_listing-functions"></a><h3 class="help-heading">LISTING FUNCTIONS</h3></div>
 <div class="old-help-para">The ":function" command lists the names and arguments of all user-defined
 functions:<pre>:function</pre></div>
@@ -963,8 +963,8 @@ functions:<pre>:function</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	1     if &amp;syntax == ''</div><div class="help-column_heading">	2       let &amp;syntax = a:name</div><div class="help-column_heading">	3     endif</div><div class="help-column_heading">	   endfunction</div></div>
 <div class="old-help-para"><a name="_debugging"></a><h3 class="help-heading">DEBUGGING</h3></div>
 <div class="old-help-para">The line number is useful for when you get an error message or when debugging.
-See <a href="repeat.html#debug-scripts">debug-scripts</a> about debugging mode.
-   You can also set the <a href="options.html#'verbose'">'verbose'</a> option to 12 or higher to see all function
+See <a href="/neovim-docs-web/en/repeat#debug-scripts">debug-scripts</a> about debugging mode.
+   You can also set the <a href="/neovim-docs-web/en/options#'verbose'">'verbose'</a> option to 12 or higher to see all function
 calls.  Set it to 15 or higher to see every executed line.</div>
 <div class="old-help-para">DELETING A FUNCTION</div>
 <div class="old-help-para">To delete the Show() function:<pre>:delfunction Show</pre>
@@ -1135,8 +1135,8 @@ remains the same, of course.</div>
 :echo trans.translate('one two three')</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	een twee drie</div></div>
 <div class="old-help-para">Here "trans" refers to one of the two objects (Dictionaries).  No copy is
-made.  More about List and Dictionary identity can be found at <a href="eval.html#list-identity">list-identity</a>
-and <a href="eval.html#dict-identity">dict-identity</a>.</div>
+made.  More about List and Dictionary identity can be found at <a href="/neovim-docs-web/en/eval#list-identity">list-identity</a>
+and <a href="/neovim-docs-web/en/eval#dict-identity">dict-identity</a>.</div>
 <div class="old-help-para">Now you might use a language that isn't supported.  You can overrule the
 translate() function to do nothing:<pre>:let uk2uk = copy(transdict)
 :function! uk2uk.translate(line)
@@ -1154,7 +1154,7 @@ use "uk2uk" when no recognized language is found:<pre>:if $LANG =~ "de"
 :endif
 :echo trans.translate('one two three')</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	one two three</div></div>
-<div class="old-help-para">For further reading see <a href="eval.html#Lists">Lists</a> and <a href="eval.html#Dictionaries">Dictionaries</a>.</div>
+<div class="old-help-para">For further reading see <a href="/neovim-docs-web/en/eval#Lists">Lists</a> and <a href="/neovim-docs-web/en/eval#Dictionaries">Dictionaries</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.9"></a><span class="help-tag">41.9</span>  	Exceptions</span></h2></div>
 <div class="old-help-para">Let's start with an example:<pre>:try
 :   read ~/templates/pascal.tmpl
@@ -1178,7 +1178,7 @@ error message and execution is aborted.</div>
 :   echo "Sorry, the Pascal template file cannot be found."
 :endtry</pre>
 This means all errors are caught.  But then you will not see errors that are
-useful, such as "E21: Cannot make changes, <a href="options.html#'modifiable'">'modifiable'</a> is off".</div>
+useful, such as "E21: Cannot make changes, <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a> is off".</div>
 <div class="old-help-para">Another useful mechanism is the ":finally" command:<pre>:let tmp = tempname()
 :try
 :   exe ".,$write " .. tmp
@@ -1194,7 +1194,7 @@ filtering works, something goes wrong in between ":try" and ":finally" or the
 user cancels the filtering by pressing <code>CTRL-C</code>, the "call delete(tmp)" is
 always executed.  This makes sure you don't leave the temporary file behind.</div>
 <div class="old-help-para">More information about exception handling can be found in the reference
-manual: <a href="eval.html#exception-handling">exception-handling</a>.</div>
+manual: <a href="/neovim-docs-web/en/eval#exception-handling">exception-handling</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.10"></a><span class="help-tag">41.10</span>  	Various remarks</span></h2></div>
 <div class="old-help-para">Here is a summary of items that apply to Vim scripts.  They are also mentioned
 elsewhere, but form a nice checklist.</div>
@@ -1202,14 +1202,14 @@ elsewhere, but form a nice checklist.</div>
 recommended to always use the Unix fileformat.  Lines are then separated with
 the Newline character.  This also works on any other system.  That way you can
 copy your Vim scripts from MS-Windows to Unix and they still work.  See
-<a href="repeat.html#%3Asource_crnl">:source_crnl</a>.  To be sure it is set right, do this before writing the file:
+<a href="/neovim-docs-web/en/repeat#%3Asource_crnl">:source_crnl</a>.  To be sure it is set right, do this before writing the file:
 <pre>:setlocal fileformat=unix</pre>
 When using "dos" fileformat, lines are separated with CR-NL, two characters.
 The CR character causes various problems, better avoid this.</div>
 <div class="old-help-para"><a name="_white-space"></a><h3 class="help-heading">WHITE SPACE</h3></div>
 <div class="old-help-para">Blank lines are allowed in a script and ignored.</div>
 <div class="old-help-para">Leading whitespace characters (blanks and TABs) are ignored, except when using
-<a href="eval.html#%3Alet-heredoc">:let-heredoc</a> without "trim".</div>
+<a href="/neovim-docs-web/en/eval#%3Alet-heredoc">:let-heredoc</a> without "trim".</div>
 <div class="old-help-para">Trailing whitespace is often ignored, but not always.  One command that
 includes it is <code>map</code>.  You have to watch out for that, it can cause hard to
 understand mistakes.  A generic solution is to never use trailing white space,
@@ -1241,12 +1241,12 @@ commands (there are a few more commands with this restriction).  For the
 :execute cmd                        |" do it</pre>
 With the '|' character the command is separated from the next one.  And that
 next command is only a comment.  For the last command you need to do two
-things: <a href="eval.html#%3Aexecute">:execute</a> and use '|':<pre>:exe '!ls *.c'                        |" list C files</pre>
+things: <a href="/neovim-docs-web/en/eval#%3Aexecute">:execute</a> and use '|':<pre>:exe '!ls *.c'                        |" list C files</pre>
 Notice that there is no white space before the '|' in the abbreviation and
 mapping.  For these commands, any character until the end-of-line or '|' is
 included.  As a consequence of this behavior, you don't always see that
 trailing whitespace is included:<pre>:map &lt;F4&gt; o#include</pre>
-To spot these problems, you can set the <a href="options.html#'list'">'list'</a> option when editing vimrc
+To spot these problems, you can set the <a href="/neovim-docs-web/en/options#'list'">'list'</a> option when editing vimrc
 files.</div>
 <div class="old-help-para">For Unix there is one special way to comment a line, that allows making a Vim
 script executable:<pre>#!/usr/bin/env vim -S
@@ -1254,7 +1254,7 @@ echo "this is a Vim script"
 quit</pre>
 The "#" command by itself lists a line with the line number.  Adding an
 exclamation mark changes it into doing nothing, so that you can add the shell
-command to execute the rest of the file. <a href="various.html#%3A%23%21">:#!</a> <a href="starting.html#-S">-S</a></div>
+command to execute the rest of the file. <a href="/neovim-docs-web/en/various#%3A%23%21">:#!</a> <a href="/neovim-docs-web/en/starting#-S">-S</a></div>
 <div class="old-help-para"><a name="_pitfalls"></a><h3 class="help-heading">PITFALLS</h3></div>
 <div class="old-help-para">Even bigger problem arises in the following example:<pre>:map ,ab o#include
 :unmap ,ab</pre>
@@ -1310,13 +1310,13 @@ let XXX_loaded = 1</pre>
 </div></div>
 <div class="old-help-para">You can write a Vim script in such a way that many people can use it.  This is
 called a plugin.  Vim users can drop your script in their plugin directory and
-use its features right away <a href="usr_05.html#add-plugin">add-plugin</a>.</div>
+use its features right away <a href="/neovim-docs-web/en/usr_05#add-plugin">add-plugin</a>.</div>
 <div class="old-help-para">There are actually two types of plugins:</div>
 <div class="old-help-para">  global plugins: For all types of files.
 filetype plugins: Only for files of a specific type.</div>
 <div class="old-help-para">In this section the first type is explained.  Most items are also relevant for
 writing filetype plugins.  The specifics for filetype plugins are in the next
-section <a href="usr_41.html#write-filetype-plugin">write-filetype-plugin</a>.</div>
+section <a href="/neovim-docs-web/en/usr_41#write-filetype-plugin">write-filetype-plugin</a>.</div>
 <div class="old-help-para"><a name="_name"></a><h3 class="help-heading">NAME</h3></div>
 <div class="old-help-para">First of all you must choose a name for your plugin.  The features provided
 by the plugin should be clear from its name.  And it should be unlikely that
@@ -1346,22 +1346,22 @@ Therefore, put a header at the top of your plugin:<pre>1        " Vim global plu
 3        " Maintainer:        Bram Moolenaar &lt;Bram@vim.org&gt;</pre>
 About copyright and licensing: Since plugins are very useful and it's hardly
 worth restricting their distribution, please consider making your plugin
-either public domain or use the Vim <a href="uganda.html#license">license</a>.  A short note about this near
+either public domain or use the Vim <a href="/neovim-docs-web/en/uganda#license">license</a>.  A short note about this near
 the top of the plugin should be sufficient.  Example:<pre>4        " License:        This file is placed in the public domain.</pre>
 LINE CONTINUATION, AVOIDING SIDE EFFECTS		<a name="use-cpo-save"></a><code class="help-tag-right">use-cpo-save</code></div>
-<div class="old-help-para">In line 18 above, the line-continuation mechanism is used <a href="repeat.html#line-continuation">line-continuation</a>.
-Users with <a href="vim_diff.html#'compatible'">'compatible'</a> set will run into trouble here, they will get an error
-message.  We can't just reset <a href="vim_diff.html#'compatible'">'compatible'</a>, because that has a lot of side
-effects.  To avoid this, we will set the <a href="options.html#'cpoptions'">'cpoptions'</a> option to its Vim default
+<div class="old-help-para">In line 18 above, the line-continuation mechanism is used <a href="/neovim-docs-web/en/repeat#line-continuation">line-continuation</a>.
+Users with <a href="/neovim-docs-web/en/vim_diff#'compatible'">'compatible'</a> set will run into trouble here, they will get an error
+message.  We can't just reset <a href="/neovim-docs-web/en/vim_diff#'compatible'">'compatible'</a>, because that has a lot of side
+effects.  To avoid this, we will set the <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> option to its Vim default
 value and restore it later.  That will allow the use of line-continuation and
 make the script work for most people.  It is done like this:<pre>11        let s:save_cpo = &amp;cpo
 12        set cpo&amp;vim
 ..
 42        let &amp;cpo = s:save_cpo
 43        unlet s:save_cpo</pre>
-We first store the old value of <a href="options.html#'cpoptions'">'cpoptions'</a> in the s:save_cpo variable.  At
+We first store the old value of <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> in the s:save_cpo variable.  At
 the end of the plugin this value is restored.</div>
-<div class="old-help-para">Notice that a script-local variable is used <a href="eval.html#s%3Avar">s:var</a>.  A global variable could
+<div class="old-help-para">Notice that a script-local variable is used <a href="/neovim-docs-web/en/eval#s%3Avar">s:var</a>.  A global variable could
 already be in use for something else.  Always use script-local variables for
 things that are only used in the script.</div>
 <div class="old-help-para"><a name="_not-loading"></a><h3 class="help-heading">NOT LOADING</h3></div>
@@ -1393,7 +1393,7 @@ this mapping to start with.  Thus if the user has done:<pre>let mapleader = "_"<
 the mapping will define "_a".  If the user didn't do this, the default value
 will be used, which is a backslash.  Then a map for "\a" will be defined.</div>
 <div class="old-help-para">Note that <code>&lt;unique&gt;</code> is used, this will cause an error message if the mapping
-already happened to exist. <a href="map.html#%3Amap-%3Cunique%3E">:map-&lt;unique&gt;</a></div>
+already happened to exist. <a href="/neovim-docs-web/en/map#%3Amap-%3Cunique%3E">:map-&lt;unique&gt;</a></div>
 <div class="old-help-para">But what if the user wants to define their own key sequence?  We can allow that
 with this mechanism:<pre>21        if !hasmapto('&lt;Plug&gt;TypecorrAdd;')
 22          map &lt;unique&gt; &lt;Leader&gt;a  &lt;Plug&gt;TypecorrAdd;
@@ -1441,8 +1441,8 @@ CVS operations "Plugin.CVS.checkin", "Plugin.CVS.checkout", etc.</div>
 trouble.  Someone may have remapped ":call", for example.  In line 24 we also
 use ":noremap", but we do want "&lt;SID&gt;Add" to be remapped.  This is why
 "&lt;script&gt;" is used here.  This only allows mappings which are local to the
-script. <a href="map.html#%3Amap-%3Cscript%3E">:map-&lt;script&gt;</a>  The same is done in line 26 for ":noremenu".
-<a href="gui.html#%3Amenu-%3Cscript%3E">:menu-&lt;script&gt;</a></div>
+script. <a href="/neovim-docs-web/en/map#%3Amap-%3Cscript%3E">:map-&lt;script&gt;</a>  The same is done in line 26 for ":noremenu".
+<a href="/neovim-docs-web/en/gui#%3Amenu-%3Cscript%3E">:menu-&lt;script&gt;</a></div>
 <div class="old-help-para"><code>&lt;SID&gt;</code> AND <code>&lt;Plug&gt;</code>					<a name="using-%3CPlug%3E"></a><code class="help-tag-right">using-&lt;Plug&gt;</code></div>
 <div class="old-help-para">Both <code>&lt;SID&gt;</code> and <code>&lt;Plug&gt;</code> are used to avoid that mappings of typed keys interfere
 with mappings that are only to be used from other mappings.  Note the
@@ -1470,13 +1470,13 @@ difference between using <code>&lt;SID&gt;</code> and <code>&lt;Plug&gt;</code>:
 The user command is defined only if no command with the same name already
 exists.  Otherwise we would get an error here.  Overriding the existing user
 command with ":command!" is not a good idea, this would probably make the user
-wonder why the command they defined themself doesn't work.  <a href="map.html#%3Acommand">:command</a></div>
+wonder why the command they defined themself doesn't work.  <a href="/neovim-docs-web/en/map#%3Acommand">:command</a></div>
 <div class="old-help-para"><a name="_script-variables"></a><h3 class="help-heading">SCRIPT VARIABLES</h3></div>
 <div class="old-help-para">When a variable starts with "s:" it is a script variable.  It can only be used
 inside a script.  Outside the script it's not visible.  This avoids trouble
 with using the same variable name in different scripts.  The variables will be
 kept as long as Vim is running.  And the same variables are used when sourcing
-the same script again. <a href="eval.html#s%3Avar">s:var</a></div>
+the same script again. <a href="/neovim-docs-web/en/eval#s%3Avar">s:var</a></div>
 <div class="old-help-para">The fun is that these variables can also be used in functions, autocommands
 and user commands that are defined in the script.  In our example we can add
 a few lines to count the number of corrections:<pre>19        let s:count = 4
@@ -1535,16 +1535,16 @@ will use the local variables from this script.</div>
 42        let &amp;cpo = s:save_cpo
 43        unlet s:save_cpo</pre>
 Line 33 wasn't explained yet.  It applies the new correction to the word under
-the cursor.  The <a href="various.html#%3Anormal">:normal</a> command is used to use the new abbreviation.  Note
+the cursor.  The <a href="/neovim-docs-web/en/various#%3Anormal">:normal</a> command is used to use the new abbreviation.  Note
 that mappings and abbreviations are expanded here, even though the function
 was called from a mapping defined with ":noremap".</div>
-<div class="old-help-para">Using "unix" for the <a href="options.html#'fileformat'">'fileformat'</a> option is recommended.  The Vim scripts will
-then work everywhere.  Scripts with <a href="options.html#'fileformat'">'fileformat'</a> set to "dos" do not work on
-Unix.  Also see <a href="repeat.html#%3Asource_crnl">:source_crnl</a>.  To be sure it is set right, do this before
+<div class="old-help-para">Using "unix" for the <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> option is recommended.  The Vim scripts will
+then work everywhere.  Scripts with <a href="/neovim-docs-web/en/options#'fileformat'">'fileformat'</a> set to "dos" do not work on
+Unix.  Also see <a href="/neovim-docs-web/en/repeat#%3Asource_crnl">:source_crnl</a>.  To be sure it is set right, do this before
 writing the file:<pre>:set fileformat=unix</pre>
 <h3 class="help-heading">DOCUMENTATION<span class="help-heading-tags">						<a name="write-local-help"></a><span class="help-tag">write-local-help</span></span></h3></div>
 <div class="old-help-para">It's a good idea to also write some documentation for your plugin.  Especially
-when its behavior can be changed by the user.  See <a href="usr_05.html#add-local-help">add-local-help</a> for how
+when its behavior can be changed by the user.  See <a href="/neovim-docs-web/en/usr_05#add-local-help">add-local-help</a> for how
 they are installed.</div>
 <div class="old-help-para">Here is a simple example for a plugin help file, called "typecorr.txt":<pre> 1        *typecorr.txt*        Plugin for correcting typing mistakes
  2
@@ -1578,11 +1578,11 @@ detection snippet in a separate file.  It is usually in the form of an
 autocommand that sets the filetype when the file name matches a pattern.
 Example:<pre>au BufNewFile,BufRead *.foo                        set filetype=foofoo</pre>
 Write this single-line file as "ftdetect/foofoo.vim" in the first directory
-that appears in <a href="options.html#'runtimepath'">'runtimepath'</a>.  For Unix that would be
+that appears in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  For Unix that would be
 "~/.config/nvim/ftdetect/foofoo.vim".  The convention is to use the name of
 the filetype for the script name.</div>
 <div class="old-help-para">You can make more complicated checks if you like, for example to inspect the
-contents of the file to recognize the language.  Also see <a href="filetype.html#new-filetype">new-filetype</a>.</div>
+contents of the file to recognize the language.  Also see <a href="/neovim-docs-web/en/filetype#new-filetype">new-filetype</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">SUMMARY<span class="help-heading-tags">							<a name="plugin-special"></a><span class="help-tag">plugin-special</span></span></h3></div>
 <div class="old-help-para">Summary of special things to use in a plugin:</div>
 <div class="old-help-para">s:name			Variables local to the script.</div>
@@ -1598,9 +1598,9 @@ contents of the file to recognize the language.  Also see <a href="filetype.html
 <div class="old-help-para">exists(":Cmd")		Check if a user command already exists.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.12"></a><span class="help-tag">41.12</span>  	Writing a filetype plugin<span class="help-heading-tags">	<a name="write-filetype-plugin"></a><span class="help-tag">write-filetype-plugin</span> <a name="ftplugin"></a><span class="help-tag">ftplugin</span></span></span></h2></div>
 <div class="old-help-para">A filetype plugin is like a global plugin, except that it sets options and
-defines mappings for the current buffer only.  See <a href="usr_05.html#add-filetype-plugin">add-filetype-plugin</a> for
+defines mappings for the current buffer only.  See <a href="/neovim-docs-web/en/usr_05#add-filetype-plugin">add-filetype-plugin</a> for
 how this type of plugin is used.</div>
-<div class="old-help-para">First read the section on global plugins above <a href="usr_41.html#41.11">41.11</a>.  All that is said there
+<div class="old-help-para">First read the section on global plugins above <a href="/neovim-docs-web/en/usr_41#41.11">41.11</a>.  All that is said there
 also applies to filetype plugins.  There are a few extras, which are explained
 here.  The essential thing is that a filetype plugin should only have an
 effect on the current buffer.</div>
@@ -1616,17 +1616,17 @@ the same buffer (happens when using an ":edit" command without arguments).</div>
 <div class="old-help-para">Now users can disable loading the default plugin completely by making a
 filetype plugin with only this line:<pre>let b:did_ftplugin = 1</pre>
 This does require that the filetype plugin directory comes before $VIMRUNTIME
-in <a href="options.html#'runtimepath'">'runtimepath'</a>!</div>
+in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>!</div>
 <div class="old-help-para">If you do want to use the default plugin, but overrule one of the settings,
 you can write the different setting in a script:<pre>setlocal textwidth=70</pre>
 Now write this in the "after" directory, so that it gets sourced after the
-distributed "vim.vim" ftplugin <a href="options.html#after-directory">after-directory</a>.  For Unix this would be
+distributed "vim.vim" ftplugin <a href="/neovim-docs-web/en/options#after-directory">after-directory</a>.  For Unix this would be
 "~/.config/nvim/after/ftplugin/vim.vim".  Note that the default plugin will
 have set "b:did_ftplugin", but it is ignored here.</div>
 <div class="old-help-para"><a name="_options"></a><h3 class="help-heading">OPTIONS</h3></div>
 <div class="old-help-para">To make sure the filetype plugin only affects the current buffer use the<pre>:setlocal</pre>
 command to set options.  And only set options which are local to a buffer (see
-the help for the option to check that).  When using <a href="options.html#%3Asetlocal">:setlocal</a> for global
+the help for the option to check that).  When using <a href="/neovim-docs-web/en/options#%3Asetlocal">:setlocal</a> for global
 options or options local to a window, the value will change for many buffers,
 and that is not what a filetype plugin should do.</div>
 <div class="old-help-para">When an option has a value that is a list of flags or items, consider using
@@ -1640,14 +1640,14 @@ An example of how to define functionality in a filetype plugin:<pre>if !hasmapto
   map &lt;buffer&gt; &lt;unique&gt; &lt;LocalLeader&gt;i &lt;Plug&gt;JavaImport;
 endif
 noremap &lt;buffer&gt; &lt;unique&gt; &lt;Plug&gt;JavaImport; oimport ""&lt;Left&gt;&lt;Esc&gt;</pre>
-<a href="builtin.html#hasmapto()">hasmapto()</a> is used to check if the user has already defined a map to
+<a href="/neovim-docs-web/en/builtin#hasmapto()">hasmapto()</a> is used to check if the user has already defined a map to
 <code>&lt;Plug&gt;</code>JavaImport;.  If not, then the filetype plugin defines the default
-mapping.  This starts with <a href="map.html#%3CLocalLeader%3E">&lt;LocalLeader&gt;</a>, which allows the user to select
+mapping.  This starts with <a href="/neovim-docs-web/en/map#%3CLocalLeader%3E">&lt;LocalLeader&gt;</a>, which allows the user to select
 the key(s) they want filetype plugin mappings to start with.  The default is a
 backslash.
 "&lt;unique&gt;" is used to give an error message if the mapping already exists or
 overlaps with an existing mapping.
-<a href="map.html#%3Anoremap">:noremap</a> is used to avoid that any other mappings that the user has defined
+<a href="/neovim-docs-web/en/map#%3Anoremap">:noremap</a> is used to avoid that any other mappings that the user has defined
 interferes.  You might want to use ":noremap <code>&lt;script&gt;</code>" to allow remapping
 mappings defined in this script that start with <code>&lt;SID&gt;</code>.</div>
 <div class="old-help-para">The user must have a chance to disable the mappings in a filetype plugin,
@@ -1663,15 +1663,15 @@ if !exists("no_plugin_maps") &amp;&amp; !exists("no_mail_maps")
   nnoremap &lt;buffer&gt; &lt;Plug&gt;MailQuote; :.,$s/^/&gt; /&lt;CR&gt;
 endif</pre>
 Two global variables are used:
-<a href="filetype.html#no_plugin_maps">no_plugin_maps</a>  	disables mappings for all filetype plugins
-<a href="filetype.html#no_mail_maps">no_mail_maps</a>  		disables mappings for the "mail" filetype</div>
+<a href="/neovim-docs-web/en/filetype#no_plugin_maps">no_plugin_maps</a>  	disables mappings for all filetype plugins
+<a href="/neovim-docs-web/en/filetype#no_mail_maps">no_mail_maps</a>  		disables mappings for the "mail" filetype</div>
 <div class="old-help-para"><a name="_user-commands"></a><h3 class="help-heading">USER COMMANDS</h3></div>
 <div class="old-help-para">To add a user command for a specific file type, so that it can only be used in
-one buffer, use the "-buffer" argument to <a href="map.html#%3Acommand">:command</a>.  Example:<pre>:command -buffer  Make  make %:r.s</pre>
+one buffer, use the "-buffer" argument to <a href="/neovim-docs-web/en/map#%3Acommand">:command</a>.  Example:<pre>:command -buffer  Make  make %:r.s</pre>
 <a name="_variables"></a><h3 class="help-heading">VARIABLES</h3></div>
 <div class="old-help-para">A filetype plugin will be sourced for each buffer of the type it's for.  Local
-script variables <a href="eval.html#s%3Avar">s:var</a> will be shared between all invocations.  Use local
-buffer variables <a href="eval.html#b%3Avar">b:var</a> if you want a variable specifically for one buffer.</div>
+script variables <a href="/neovim-docs-web/en/eval#s%3Avar">s:var</a> will be shared between all invocations.  Use local
+buffer variables <a href="/neovim-docs-web/en/eval#b%3Avar">b:var</a> if you want a variable specifically for one buffer.</div>
 <div class="old-help-para"><a name="_functions"></a><h3 class="help-heading">FUNCTIONS</h3></div>
 <div class="old-help-para">When defining a function, this only needs to be done once.  But the filetype
 plugin will be sourced every time a file with this filetype will be opened.
@@ -1687,12 +1687,12 @@ undo the settings in your filetype plugin.  Example:<pre>let b:undo_ftplugin = "
         \ .. "| unlet b:match_ignorecase b:match_words b:match_skip"</pre>
 Using ":setlocal" with "&lt;" after the option name resets the option to its
 global value.  That is mostly the best way to reset the option value.</div>
-<div class="old-help-para">This does require removing the "C" flag from <a href="options.html#'cpoptions'">'cpoptions'</a> to allow line
-continuation, as mentioned above <a href="usr_41.html#use-cpo-save">use-cpo-save</a>.</div>
+<div class="old-help-para">This does require removing the "C" flag from <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a> to allow line
+continuation, as mentioned above <a href="/neovim-docs-web/en/usr_41#use-cpo-save">use-cpo-save</a>.</div>
 <div class="old-help-para">For undoing the effect of an indent script, the b:undo_indent variable should
 be set accordingly.</div>
 <div class="old-help-para"><a name="_file-name"></a><h3 class="help-heading">FILE NAME</h3></div>
-<div class="old-help-para">The filetype must be included in the file name <a href="usr_05.html#ftplugin-name">ftplugin-name</a>.  Use one of
+<div class="old-help-para">The filetype must be included in the file name <a href="/neovim-docs-web/en/usr_05#ftplugin-name">ftplugin-name</a>.  Use one of
 these three forms:</div>
 <div class="old-help-para">	.../ftplugin/stuff.vim
 	.../ftplugin/stuff_foo.vim
@@ -1708,14 +1708,14 @@ these three forms:</div>
 <div class="old-help-para">:setlocal		Set an option for the current buffer only.</div>
 <div class="old-help-para">:command -buffer	Define a user command local to the buffer.</div>
 <div class="old-help-para">exists("*s:Func")	Check if a function was already defined.</div>
-<div class="old-help-para">Also see <a href="usr_41.html#plugin-special">plugin-special</a>, the special things used for all plugins.</div>
+<div class="old-help-para">Also see <a href="/neovim-docs-web/en/usr_41#plugin-special">plugin-special</a>, the special things used for all plugins.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.13"></a><span class="help-tag">41.13</span>  	Writing a compiler plugin<span class="help-heading-tags">		<a name="write-compiler-plugin"></a><span class="help-tag">write-compiler-plugin</span></span></span></h2></div>
 <div class="old-help-para">A compiler plugin sets options for use with a specific compiler.  The user can
-load it with the <a href="quickfix.html#%3Acompiler">:compiler</a> command.  The main use is to set the
-<a href="options.html#'errorformat'">'errorformat'</a> and <a href="options.html#'makeprg'">'makeprg'</a> options.</div>
+load it with the <a href="/neovim-docs-web/en/quickfix#%3Acompiler">:compiler</a> command.  The main use is to set the
+<a href="/neovim-docs-web/en/options#'errorformat'">'errorformat'</a> and <a href="/neovim-docs-web/en/options#'makeprg'">'makeprg'</a> options.</div>
 <div class="old-help-para">Easiest is to have a look at examples.  This command will edit all the default
 compiler plugins:<pre>:next $VIMRUNTIME/compiler/*.vim</pre>
-Use <a href="editing.html#%3Anext">:next</a> to go to the next plugin file.</div>
+Use <a href="/neovim-docs-web/en/editing#%3Anext">:next</a> to go to the next plugin file.</div>
 <div class="old-help-para">There are two special items about these files.  First is a mechanism to allow
 a user to overrule or add to the default file.  The default files start with:<pre>:if exists("current_compiler")
 :  finish
@@ -1738,7 +1738,7 @@ runtime directory, use the mechanism mentioned above.  When
 "current_compiler" was already set by a user plugin nothing will be done.</div>
 <div class="old-help-para">When you write a compiler plugin to overrule settings from a default plugin,
 don't check "current_compiler".  This plugin is supposed to be loaded
-last, thus it should be in a directory at the end of <a href="options.html#'runtimepath'">'runtimepath'</a>.  For Unix
+last, thus it should be in a directory at the end of <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.  For Unix
 that could be ~/.config/nvim/after/compiler.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.14"></a><span class="help-tag">41.14</span>  	Writing a plugin that loads quickly<span class="help-heading-tags">	<a name="write-plugin-quickload"></a><span class="help-tag">write-plugin-quickload</span></span></span></h2></div>
 <div class="old-help-para">A plugin may grow and become quite long.  The startup delay may become
@@ -1751,8 +1751,8 @@ time the functions that implement the functionality are defined.</div>
 mean is that it loads quickly the first time, postponing the bulk of the
 script to the second time, which only happens when you actually use it.  When
 you always use the functionality it actually gets slower!</div>
-<div class="old-help-para">Note that since Vim 7 there is an alternative: use the <a href="userfunc.html#autoload">autoload</a>
-functionality <a href="usr_41.html#41.15">41.15</a>.</div>
+<div class="old-help-para">Note that since Vim 7 there is an alternative: use the <a href="/neovim-docs-web/en/userfunc#autoload">autoload</a>
+functionality <a href="/neovim-docs-web/en/usr_41#41.15">41.15</a>.</div>
 <div class="old-help-para">The following example shows how it's done:<pre>" Vim global plugin for demonstrating quick loading
 " Last Change:        2005 Feb 25
 " Maintainer:        Bram Moolenaar &lt;Bram@vim.org&gt;
@@ -1777,7 +1777,7 @@ function BufNetWrite(...)
         " write functionality here
 endfunction</pre>
 When the script is first loaded "s:did_load" is not set.  The commands between
-the "if" and "endif" will be executed.  This ends in a <a href="repeat.html#%3Afinish">:finish</a> command, thus
+the "if" and "endif" will be executed.  This ends in a <a href="/neovim-docs-web/en/repeat#%3Afinish">:finish</a> command, thus
 the rest of the script is not executed.</div>
 <div class="old-help-para">The second time the script is loaded "s:did_load" exists and the commands
 after the "endif" are executed.  This defines the (possible long)
@@ -1785,36 +1785,36 @@ BufNetRead() and BufNetWrite() functions.</div>
 <div class="old-help-para">If you drop this script in your plugin directory Vim will execute it on
 startup.  This is the sequence of events that happens:</div>
 <div class="old-help-para">1. The "BNRead" command is defined and the <code>&lt;F19&gt;</code> key is mapped when the script
-   is sourced at startup.  A <a href="autocmd.html#FuncUndefined">FuncUndefined</a> autocommand is defined.  The
+   is sourced at startup.  A <a href="/neovim-docs-web/en/autocmd#FuncUndefined">FuncUndefined</a> autocommand is defined.  The
    ":finish" command causes the script to terminate early.</div>
 <div class="old-help-para">2. The user types the BNRead command or presses the <code>&lt;F19&gt;</code> key.  The
    BufNetRead() or BufNetWrite() function will be called.</div>
-<div class="old-help-para">3. Vim can't find the function and triggers the <a href="autocmd.html#FuncUndefined">FuncUndefined</a> autocommand
+<div class="old-help-para">3. Vim can't find the function and triggers the <a href="/neovim-docs-web/en/autocmd#FuncUndefined">FuncUndefined</a> autocommand
    event.  Since the pattern "BufNet*" matches the invoked function, the
    command "source fname" will be executed.  "fname" will be equal to the name
    of the script, no matter where it is located, because it comes from
-   expanding "&lt;sfile&gt;" (see <a href="builtin.html#expand()">expand()</a>).</div>
+   expanding "&lt;sfile&gt;" (see <a href="/neovim-docs-web/en/builtin#expand()">expand()</a>).</div>
 <div class="old-help-para">4. The script is sourced again, the "s:did_load" variable exists and the
    functions are defined.</div>
 <div class="old-help-para">Notice that the functions that are loaded afterwards match the pattern in the
-<a href="autocmd.html#FuncUndefined">FuncUndefined</a> autocommand.  You must make sure that no other plugin defines
+<a href="/neovim-docs-web/en/autocmd#FuncUndefined">FuncUndefined</a> autocommand.  You must make sure that no other plugin defines
 functions that match this pattern.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.15"></a><span class="help-tag">41.15</span>  	Writing library scripts<span class="help-heading-tags">			<a name="write-library-script"></a><span class="help-tag">write-library-script</span></span></span></h2></div>
 <div class="old-help-para">Some functionality will be required in several places.  When this becomes more
 than a few lines you will want to put it in one script and use it from many
 scripts.  We will call that one script a library script.</div>
 <div class="old-help-para">Manually loading a library script is possible, so long as you avoid loading it
-when it's already done.  You can do this with the <a href="builtin.html#exists()">exists()</a> function.
+when it's already done.  You can do this with the <a href="/neovim-docs-web/en/builtin#exists()">exists()</a> function.
 Example:<pre>if !exists('*MyLibFunction')
    runtime library/mylibscript.vim
 endif
 call MyLibFunction(arg)</pre>
 Here you need to know that MyLibFunction() is defined in a script
-"library/mylibscript.vim" in one of the directories in <a href="options.html#'runtimepath'">'runtimepath'</a>.</div>
+"library/mylibscript.vim" in one of the directories in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.</div>
 <div class="old-help-para">To make this a bit simpler Vim offers the autoload mechanism.  Then the
 example looks like this:<pre>call mylib#myfunction(arg)</pre>
 That's a lot simpler, isn't it?  Vim will recognize the function name and when
-it's not defined search for the script "autoload/mylib.vim" in <a href="options.html#'runtimepath'">'runtimepath'</a>.
+it's not defined search for the script "autoload/mylib.vim" in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>.
 That script must define the "mylib#myfunction()" function.</div>
 <div class="old-help-para">You can put many other functions in the mylib.vim script, you are free to
 organize your functions in library scripts.  But you must use function names
@@ -1834,15 +1834,15 @@ exactly matches the subdirectory and script name.</div>
 This will load the script "autoload/dutch.vim", which should contain something
 like:<pre>let dutch#weekdays = ['zondag', 'maandag', 'dinsdag', 'woensdag',
         \ 'donderdag', 'vrijdag', 'zaterdag']</pre>
-Further reading: <a href="userfunc.html#autoload">autoload</a>.</div>
+Further reading: <a href="/neovim-docs-web/en/userfunc#autoload">autoload</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="41.16"></a><span class="help-tag">41.16</span>  	Distributing Vim scripts<span class="help-heading-tags">			<a name="distribute-script"></a><span class="help-tag">distribute-script</span></span></span></h2></div>
 <div class="old-help-para">Vim users will look for scripts on the Vim website: <a href="https://www.vim.org">https://www.vim.org</a>.
 If you made something that is useful for others, share it!</div>
 <div class="old-help-para">Vim scripts can be used on any system.  There might not be a tar or gzip
 command.  If you want to pack files together and/or compress them the "zip"
 utility is recommended.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_42.html#usr_42.txt">usr_42.txt</a>  Add new menus</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_42#usr_42.txt">usr_42.txt</a>  Add new menus</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

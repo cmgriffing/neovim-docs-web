@@ -17,20 +17,20 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Before you can insert or delete text the cursor has to be moved to the right
 place.  Vim has a large number of commands to position the cursor.  This
 chapter shows you how to use the most important ones.  You can find a list of
-these commands below <a href="quickref.html#Q_lr">Q_lr</a>.</div>
-<div class="old-help-para"><a href="usr_03.html#03.1">03.1</a>  	Word movement
-<a href="usr_03.html#03.2">03.2</a>  	Moving to the start or end of a line
-<a href="usr_03.html#03.3">03.3</a>  	Moving to a character
-<a href="usr_03.html#03.4">03.4</a>  	Matching a parenthesis
-<a href="usr_03.html#03.5">03.5</a>  	Moving to a specific line
-<a href="usr_03.html#03.6">03.6</a>  	Telling where you are
-<a href="usr_03.html#03.7">03.7</a>  	Scrolling around
-<a href="usr_03.html#03.8">03.8</a>  	Simple searches
-<a href="usr_03.html#03.9">03.9</a>  	Simple search patterns
-<a href="usr_03.html#03.10">03.10</a>  	Using marks</div>
-<div class="old-help-para">     Next chapter: <a href="usr_04.html#usr_04.txt">usr_04.txt</a>  Making small changes
- Previous chapter: <a href="usr_02.html#usr_02.txt">usr_02.txt</a>  The first steps in Vim
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+these commands below <a href="/neovim-docs-web/en/quickref#Q_lr">Q_lr</a>.</div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_03#03.1">03.1</a>  	Word movement
+<a href="/neovim-docs-web/en/usr_03#03.2">03.2</a>  	Moving to the start or end of a line
+<a href="/neovim-docs-web/en/usr_03#03.3">03.3</a>  	Moving to a character
+<a href="/neovim-docs-web/en/usr_03#03.4">03.4</a>  	Matching a parenthesis
+<a href="/neovim-docs-web/en/usr_03#03.5">03.5</a>  	Moving to a specific line
+<a href="/neovim-docs-web/en/usr_03#03.6">03.6</a>  	Telling where you are
+<a href="/neovim-docs-web/en/usr_03#03.7">03.7</a>  	Scrolling around
+<a href="/neovim-docs-web/en/usr_03#03.8">03.8</a>  	Simple searches
+<a href="/neovim-docs-web/en/usr_03#03.9">03.9</a>  	Simple search patterns
+<a href="/neovim-docs-web/en/usr_03#03.10">03.10</a>  	Using marks</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_04#usr_04.txt">usr_04.txt</a>  Making small changes
+ Previous chapter: <a href="/neovim-docs-web/en/usr_02#usr_02.txt">usr_02.txt</a>  The first steps in Vim
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Word movement</h2></div>
 <div class="old-help-para">To move the cursor forward one word, use the "w" command.  Like most Vim
 commands, you can use a numeric prefix to move past multiple words.  For
@@ -52,8 +52,8 @@ first word in the next line.  Thus you can use this to move through a
 paragraph, much faster than using "l".  "b" does the same in the other
 direction.</div>
 <div class="old-help-para">A word ends at a non-word character, such as a ".", "-" or ")".  To change
-what Vim considers to be a word, see the <a href="options.html#'iskeyword'">'iskeyword'</a> option.  If you try this
-out in the help directly, <a href="options.html#'iskeyword'">'iskeyword'</a> needs to be reset for the examples to
+what Vim considers to be a word, see the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option.  If you try this
+out in the help directly, <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> needs to be reset for the examples to
 work:<pre>:set iskeyword&amp;</pre>
 It is also possible to move by white-space separated WORDs.  This is not a
 word in the normal sense, that's why the uppercase is used.  The commands for
@@ -123,7 +123,7 @@ the matching "(".</div>
 if (a == (b * c) / d)		   <code>&lt;----------------&gt;</code>
 			    %</div>
 <div class="old-help-para">This also works for [] and {} pairs.  (This can be defined with the
-<a href="options.html#'matchpairs'">'matchpairs'</a> option.)</div>
+<a href="/neovim-docs-web/en/options#'matchpairs'">'matchpairs'</a> option.)</div>
 <div class="old-help-para">When the cursor is not on a useful character, "%" will search forward to find
 one.  Thus if the cursor is at the start of the line of the previous example,
 "%" will search forward and find the first "(".  Then it moves to its match:</div>
@@ -139,7 +139,7 @@ to go down thirty-two lines.  It is not a good way, but it works.  A much
 better way of doing things is to use the "G" command.  With a count, this
 command positions you at the given line number.  For example, "33G" puts you
 on line 33.  (For a better way of going through a compiler's error list, see
-<a href="usr_30.html#usr_30.txt">usr_30.txt</a>, for information on the :make command.)
+<a href="/neovim-docs-web/en/usr_30#usr_30.txt">usr_30.txt</a>, for information on the :make command.)
    With no argument, "G" positions you at the end of the file.  A quick way to
 go to the start of a file use "gg".  "1G" will do the same, but is a tiny bit
 more typing.</div>
@@ -174,7 +174,7 @@ you can see?  This figure shows the three commands you can use:</div>
 "H" for High, "M" for Middle and "L" for Low.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="03.6"></a><span class="help-tag">03.6</span>  	Telling where you are</span></h2></div>
 <div class="old-help-para">To see where you are in a file, there are three ways:</div>
-<div class="old-help-para">1.  Use the <code>CTRL-G</code> command.  You get a message like this (assuming the <a href="options.html#'ruler'">'ruler'</a>
+<div class="old-help-para">1.  Use the <code>CTRL-G</code> command.  You get a message like this (assuming the <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a>
     option is off):</div>
 <div class="old-help-para"><div class="help-column_heading">	"usr_03.txt" line 233 of 650 --35%-- col 45-52</div></div>
 <div class="old-help-para">    This shows the name of the file you are editing, the line number where the
@@ -184,18 +184,18 @@ you can see?  This figure shows the three commands you can use:</div>
     This indicates that the cursor is positioned on the second character, but
     because character one is a tab, occupying eight spaces worth of columns,
     the screen column is 9.</div>
-<div class="old-help-para">2.  Set the <a href="options.html#'number'">'number'</a> option.  This will display a line number in front of
+<div class="old-help-para">2.  Set the <a href="/neovim-docs-web/en/options#'number'">'number'</a> option.  This will display a line number in front of
     every line:<pre>:set number</pre></div>
 <div class="old-help-para">    To switch this off again:<pre>:set nonumber</pre></div>
-<div class="old-help-para">    Since <a href="options.html#'number'">'number'</a> is a boolean option, prepending "no" to its name has the
+<div class="old-help-para">    Since <a href="/neovim-docs-web/en/options#'number'">'number'</a> is a boolean option, prepending "no" to its name has the
     effect of switching it off.  A boolean option has only these two values,
     it is either on or off.
        Vim has many options.  Besides the boolean ones there are options with
     a numerical value and string options.  You will see examples of this where
     they are used.</div>
-<div class="old-help-para">3.  Set the <a href="options.html#'ruler'">'ruler'</a> option.  This will display the cursor position in the
+<div class="old-help-para">3.  Set the <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a> option.  This will display the cursor position in the
     lower right corner of the Vim window:<pre>:set ruler</pre>
-Using the <a href="options.html#'ruler'">'ruler'</a> option has the advantage that it doesn't take much room,
+Using the <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a> option has the advantage that it doesn't take much room,
 thus there is more space for your text.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="03.7"></a><span class="help-tag">03.7</span>  	Scrolling around</span></h2></div>
 <div class="old-help-para">The <code>CTRL-U</code> command scrolls down half a screen of text.  Think of looking
@@ -241,8 +241,8 @@ the cursor.  That's done with the "zz" command.</div>
 	| line with cursor |		 | later text	    |
 	+------------------+		 +------------------+</div>
 <div class="old-help-para">The "zt" command puts the cursor line at the top, "zb" at the bottom.  There
-are a few more scrolling commands, see <a href="quickref.html#Q_sc">Q_sc</a>.  To always keep a few lines of
-context around the cursor, use the <a href="options.html#'scrolloff'">'scrolloff'</a> option.</div>
+are a few more scrolling commands, see <a href="/neovim-docs-web/en/quickref#Q_sc">Q_sc</a>.  To always keep a few lines of
+context around the cursor, use the <a href="/neovim-docs-web/en/options#'scrolloff'">'scrolloff'</a> option.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="03.8"></a><span class="help-tag">03.8</span>  	Simple searches</span></h2></div>
 <div class="old-help-para">To search for a string, use the "/string" command.  To find the word include,
 for example, use the command:<pre>/include</pre>
@@ -266,7 +266,7 @@ The "N" command repeats the last search the opposite direction.  Thus using
 forwards.</div>
 <div class="old-help-para"><a name="_ignoring-case"></a><h3 class="help-heading">IGNORING CASE</h3></div>
 <div class="old-help-para">Normally you have to type exactly what you want to find.  If you don't care
-about upper or lowercase in a word, set the <a href="options.html#'ignorecase'">'ignorecase'</a> option:<pre>:set ignorecase</pre>
+about upper or lowercase in a word, set the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option:<pre>:set ignorecase</pre>
 If you now search for "word", it will also match "Word" and "WORD".  To match
 case again:<pre>:set noignorecase</pre>
 <a name="_history"></a><h3 class="help-heading">HISTORY</h3></div>
@@ -321,7 +321,7 @@ Also for the "n" and "N" commands.</div>
 essential ones:
 <pre>:set nowrapscan</pre>
 This stops the search at the end of the file.  Or, when you are searching
-backwards, it stops the search at the start of the file.  The <a href="options.html#'wrapscan'">'wrapscan'</a>
+backwards, it stops the search at the start of the file.  The <a href="/neovim-docs-web/en/options#'wrapscan'">'wrapscan'</a>
 option is on by default, thus searching wraps around the end of the file.
 <pre>:set noincsearch</pre>
 This disables the display of the matches while you are still typing your
@@ -335,15 +335,15 @@ Vim.  Example:<pre>Go:set hlsearch&lt;Esc&gt;</pre>
 "G" moves to the end of the file.  "o" starts a new line, where you type the
 ":set" command.  You end insert mode with <code>&lt;Esc&gt;</code>.  Then write and close the
 file:<pre>ZZ</pre>
-If you now start Vim again, the <a href="options.html#'hlsearch'">'hlsearch'</a> option will already be set.</div>
+If you now start Vim again, the <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a> option will already be set.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="03.9"></a><span class="help-tag">03.9</span>  	Simple search patterns</span></h2></div>
 <div class="old-help-para">The Vim editor uses regular expressions to specify what to search for.
 Regular expressions are an extremely powerful and compact way to specify a
 search pattern.  Unfortunately, this power comes at a price, because regular
 expressions are a bit tricky to specify.
    In this section we mention only a few essential ones.  More about search
-patterns and commands can be found in chapter 27 <a href="usr_27.html#usr_27.txt">usr_27.txt</a>.  You can find
-the full explanation here: <a href="pattern.html#pattern">pattern</a>.</div>
+patterns and commands can be found in chapter 27 <a href="/neovim-docs-web/en/usr_27#usr_27.txt">usr_27.txt</a>.  You can find
+the full explanation here: <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>.</div>
 <div class="old-help-para">BEGINNING AND END OF A LINE</div>
 <div class="old-help-para">The ^ character matches the beginning of a line.  On an English-US keyboard
 you find it above the 6.  The pattern "include" matches the word include
@@ -434,8 +434,8 @@ You will notice a few special marks.  These include:</div>
 	"	The cursor position when last editing the file
 	[	Start of the last change
 	]	End of the last change</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_04.html#usr_04.txt">usr_04.txt</a>  Making small changes</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_04#usr_04.txt">usr_04.txt</a>  Making small changes</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

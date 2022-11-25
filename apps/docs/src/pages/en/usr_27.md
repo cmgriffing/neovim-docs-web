@@ -14,32 +14,32 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">		     VIM USER MANUAL - by Bram Moolenaar</div>
 <div class="old-help-para">			 Search commands and patterns</div>
-<div class="old-help-para">In chapter 3 a few simple search patterns were mentioned <a href="usr_03.html#03.9">03.9</a>.  Vim can do
+<div class="old-help-para">In chapter 3 a few simple search patterns were mentioned <a href="/neovim-docs-web/en/usr_03#03.9">03.9</a>.  Vim can do
 much more complex searches.  This chapter explains the most often used ones.
-A detailed specification can be found here: <a href="pattern.html#pattern">pattern</a></div>
-<div class="old-help-para"><a href="usr_27.html#27.1">27.1</a>  	Ignoring case
-<a href="usr_27.html#27.2">27.2</a>  	Wrapping around the file end
-<a href="usr_27.html#27.3">27.3</a>  	Offsets
-<a href="usr_27.html#27.4">27.4</a>  	Matching multiple times
-<a href="usr_27.html#27.5">27.5</a>  	Alternatives
-<a href="usr_27.html#27.6">27.6</a>  	Character ranges
-<a href="usr_27.html#27.7">27.7</a>  	Character classes
-<a href="usr_27.html#27.8">27.8</a>  	Matching a line break
-<a href="usr_27.html#27.9">27.9</a>  	Examples</div>
-<div class="old-help-para">     Next chapter: <a href="usr_28.html#usr_28.txt">usr_28.txt</a>  Folding
- Previous chapter: <a href="usr_26.html#usr_26.txt">usr_26.txt</a>  Repeating
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+A detailed specification can be found here: <a href="/neovim-docs-web/en/pattern#pattern">pattern</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_27#27.1">27.1</a>  	Ignoring case
+<a href="/neovim-docs-web/en/usr_27#27.2">27.2</a>  	Wrapping around the file end
+<a href="/neovim-docs-web/en/usr_27#27.3">27.3</a>  	Offsets
+<a href="/neovim-docs-web/en/usr_27#27.4">27.4</a>  	Matching multiple times
+<a href="/neovim-docs-web/en/usr_27#27.5">27.5</a>  	Alternatives
+<a href="/neovim-docs-web/en/usr_27#27.6">27.6</a>  	Character ranges
+<a href="/neovim-docs-web/en/usr_27#27.7">27.7</a>  	Character classes
+<a href="/neovim-docs-web/en/usr_27#27.8">27.8</a>  	Matching a line break
+<a href="/neovim-docs-web/en/usr_27#27.9">27.9</a>  	Examples</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_28#usr_28.txt">usr_28.txt</a>  Folding
+ Previous chapter: <a href="/neovim-docs-web/en/usr_26#usr_26.txt">usr_26.txt</a>  Repeating
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Ignoring case</h2></div>
 <div class="old-help-para">By default, Vim's searches are case sensitive.  Therefore, "include",
 "INCLUDE", and "Include" are three different words and a search will match
 only one of them.
-   Now switch on the <a href="options.html#'ignorecase'">'ignorecase'</a> option:<pre>:set ignorecase</pre>
+   Now switch on the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option:<pre>:set ignorecase</pre>
 Search for "include" again, and now it will match "Include", "INCLUDE" and
-"InClUDe".  (Set the <a href="options.html#'hlsearch'">'hlsearch'</a> option to quickly see where a pattern
+"InClUDe".  (Set the <a href="/neovim-docs-web/en/options#'hlsearch'">'hlsearch'</a> option to quickly see where a pattern
 matches.)
    You can switch this off again with:<pre>:set noignorecase</pre>
 But let's keep it set, and search for "INCLUDE".  It will match exactly the
-same text as "include" did.  Now set the <a href="options.html#'smartcase'">'smartcase'</a> option:<pre>:set ignorecase smartcase</pre>
+same text as "include" did.  Now set the <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> option:<pre>:set ignorecase smartcase</pre>
 If you have a pattern with at least one uppercase character, the search
 becomes case sensitive.  The idea is that you didn't have to type that
 uppercase character, so you must have done it because you wanted case to
@@ -52,7 +52,7 @@ match.  That's smart!
 <div class="old-help-para"><a name="_case-in-one-pattern"></a><h3 class="help-heading">CASE IN ONE PATTERN</h3></div>
 <div class="old-help-para">If you want to ignore case for one specific pattern, you can do this by
 prepending the "\c" string.  Using "\C" will make the pattern to match case.
-This overrules the <a href="options.html#'ignorecase'">'ignorecase'</a> and <a href="options.html#'smartcase'">'smartcase'</a> options, when "\c" or "\C" is
+This overrules the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> and <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> options, when "\c" or "\C" is
 used their value doesn't matter.</div>
 <div class="old-help-para"><div class="help-column_heading">	pattern			matches</div>	\Cword			word
 	\CWord			Word
@@ -60,11 +60,11 @@ used their value doesn't matter.</div>
 	\cWord			word, Word, WORD, WoRd, etc.</div>
 <div class="old-help-para">A big advantage of using "\c" and "\C" is that it sticks with the pattern.
 Thus if you repeat a pattern from the search history, the same will happen, no
-matter if <a href="options.html#'ignorecase'">'ignorecase'</a> or <a href="options.html#'smartcase'">'smartcase'</a> was changed.</div>
+matter if <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> or <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> was changed.</div>
 <div class="old-help-para">	Note:
-	The use of "\" items in search patterns depends on the <a href="options.html#'magic'">'magic'</a> option.
-	In this chapter we will assume <a href="options.html#'magic'">'magic'</a> is on, because that is the
-	standard and recommended setting.  If you would change <a href="options.html#'magic'">'magic'</a>, many
+	The use of "\" items in search patterns depends on the <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> option.
+	In this chapter we will assume <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> is on, because that is the
+	standard and recommended setting.  If you would change <a href="/neovim-docs-web/en/options#'magic'">'magic'</a>, many
 	search patterns would suddenly become invalid.</div>
 <div class="old-help-para">	Note:
 	If your search takes much longer than you expected, you can interrupt
@@ -82,7 +82,7 @@ you keep searching forever!  To give you a hint, Vim displays this message:</div
 message:</div>
 <div class="old-help-para"><div class="help-column_heading">	search hit TOP, continuing at BOTTOM</div></div>
 <div class="old-help-para">Still, you don't know when you are back at the first match.  One way to see
-this is by switching on the <a href="options.html#'ruler'">'ruler'</a> option:<pre>:set ruler</pre>
+this is by switching on the <a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a> option:<pre>:set ruler</pre>
 Vim will display the cursor position in the lower righthand corner of the
 window (in the status line if there is one).  It looks like this:</div>
 <div class="old-help-para"><div class="help-column_heading">	101,29       84%</div></div>
@@ -166,7 +166,7 @@ Matches "ab", "abb", "abbb", etc.  It does not match "a" when no "b" follows.</d
 Matches "folder" and "folders".</div>
 <div class="old-help-para"><a name="_specific-counts"></a><h3 class="help-heading">SPECIFIC COUNTS</h3></div>
 <div class="old-help-para">To match a specific number of items use the form "\{n,m}".  "n" and "m" are
-numbers.  The item before it will be matched "n" to "m" times <a href="motion.html#inclusive">inclusive</a>.
+numbers.  The item before it will be matched "n" to "m" times <a href="/neovim-docs-web/en/motion#inclusive">inclusive</a>.
 Example:<pre>/ab\{3,5}</pre>
 matches "abbb", "abbbb" and "abbbbb".
   When "n" is omitted, it defaults to zero.  When "m" is omitted it defaults
@@ -218,7 +218,7 @@ These special characters are accepted to make it easier to use them inside a
 	\t	<code>&lt;Tab&gt;</code>
 	\r	<code>&lt;CR&gt;</code>
 	\b	<code>&lt;BS&gt;</code></div>
-<div class="old-help-para">There are a few more special cases for [] ranges, see <a href="pattern.html#%2F%5B%5D">/[]</a> for the whole
+<div class="old-help-para">There are a few more special cases for [] ranges, see <a href="/neovim-docs-web/en/pattern#%2F%5B%5D">/[]</a> for the whole
 story.</div>
 <div class="old-help-para"><a name="_complemented-range"></a><h3 class="help-heading">COMPLEMENTED RANGE</h3></div>
 <div class="old-help-para">To avoid matching a specific character, use "^" at the start of the range.
@@ -252,7 +252,7 @@ few more of these:</div>
 	range it stands for.
 	These items can not be used inside [].  Thus "[\d\l]" does NOT work to
 	match a digit or lowercase alpha.  Use "\(\d\|\l\)" instead.</div>
-<div class="old-help-para">See <a href="pattern.html#%2F%5Cs">/\s</a> for the whole list of these ranges.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/pattern#%2F%5Cs">/\s</a> for the whole list of these ranges.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="27.7"></a><span class="help-tag">27.7</span>  	Character classes</span></h2></div>
 <div class="old-help-para">The character range matches a fixed set of characters.  A character class is
 similar, but with an essential difference: The set of characters can be
@@ -262,25 +262,25 @@ The "\f" item stands for file name characters.  Thus this matches a sequence
 of characters that can be a file name.
    Which characters can be part of a file name depends on the system you are
 using.  On MS-Windows, the backslash is included, on Unix it is not.  This is
-specified with the <a href="options.html#'isfname'">'isfname'</a> option.  The default value for Unix is:<pre>:set isfname
+specified with the <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a> option.  The default value for Unix is:<pre>:set isfname
 isfname=@,48-57,/,.,-,_,+,,,#,$,%,~,=</pre>
 For other systems the default value is different.  Thus you can make a search
 pattern with "\f" to match a file name, and it will automatically adjust to
 the system you are using it on.</div>
 <div class="old-help-para">	Note:
 	Actually, Unix allows using just about any character in a file name,
-	including white space.  Including these characters in <a href="options.html#'isfname'">'isfname'</a> would
+	including white space.  Including these characters in <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a> would
 	be theoretically correct.  But it would make it impossible to find the
-	end of a file name in text.  Thus the default value of <a href="options.html#'isfname'">'isfname'</a> is a
+	end of a file name in text.  Thus the default value of <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a> is a
 	compromise.</div>
 <div class="old-help-para">The character classes are:</div>
-<div class="old-help-para"><div class="help-column_heading">	item	matches				option</div>	\i	identifier characters		<a href="options.html#'isident'">'isident'</a>
+<div class="old-help-para"><div class="help-column_heading">	item	matches				option</div>	\i	identifier characters		<a href="/neovim-docs-web/en/options#'isident'">'isident'</a>
 	\I	like \i, excluding digits
-	\k	keyword characters		<a href="options.html#'iskeyword'">'iskeyword'</a>
+	\k	keyword characters		<a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a>
 	\K	like \k, excluding digits
-	\p	printable characters		<a href="options.html#'isprint'">'isprint'</a>
+	\p	printable characters		<a href="/neovim-docs-web/en/options#'isprint'">'isprint'</a>
 	\P	like \p, excluding digits
-	\f	file name characters		<a href="options.html#'isfname'">'isfname'</a>
+	\f	file name characters		<a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a>
 	\F	like \f, excluding digits</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="27.8"></a><span class="help-tag">27.8</span>  	Matching a line break</span></h2></div>
 <div class="old-help-para">Vim can find a pattern that includes a line break.  You need to specify where
@@ -324,12 +324,12 @@ too.  This can be found with:<pre>/\&lt;\h\w*\&gt;</pre>
 "\&lt;" and "\&gt;" are used to find only whole words.  "\h" stands for "[A-Za-z_]"
 and "\w" for "[0-9A-Za-z_]".</div>
 <div class="old-help-para">	Note:
-	"\&lt;" and "\&gt;" depend on the <a href="options.html#'iskeyword'">'iskeyword'</a> option.  If it includes "-",
+	"\&lt;" and "\&gt;" depend on the <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option.  If it includes "-",
 	for example, then "ident-" is not matched.  In this situation use:<pre>/\w\@&lt;!\h\w*\w\@!</pre></div>
 <div class="old-help-para">	This checks if "\w" does not match before or after the identifier.
-	See <a href="pattern.html#%2F%5C%40%3C%21">/\@&lt;!</a> and <a href="pattern.html#%2F%5C%40%21">/\@!</a>.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_28.html#usr_28.txt">usr_28.txt</a>  Folding</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+	See <a href="/neovim-docs-web/en/pattern#%2F%5C%40%3C%21">/\@&lt;!</a> and <a href="/neovim-docs-web/en/pattern#%2F%5C%40%21">/\@!</a>.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_28#usr_28.txt">usr_28.txt</a>  Folding</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

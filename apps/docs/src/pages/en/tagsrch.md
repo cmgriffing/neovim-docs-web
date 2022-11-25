@@ -13,7 +13,7 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">Tags and special searches</div>
-<div class="old-help-para">See section <a href="usr_29.html#29.1">29.1</a> of the user manual for an introduction.</div>
+<div class="old-help-para">See section <a href="/neovim-docs-web/en/usr_29#29.1">29.1</a> of the user manual for an introduction.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Jump to a tag<span class="help-heading-tags">					<a name="tag-commands"></a><span class="help-tag">tag-commands</span></span></h2></div>
 <div class="old-help-para">							<a name="tag"></a><code class="help-tag-right">tag</code> <a name="tags"></a><code class="help-tag">tags</code>
 A tag is an identifier that appears in a "tags" file.  It is a sort of label
@@ -33,11 +33,11 @@ below.</div>
 :[count]ta[g][!] <code>{name}</code>
 			Jump to the definition of <code>{name}</code>, using the
 			information in the tags file(s).  Put <code>{name}</code> in the
-			tag stack.  See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].
-			<code>{name}</code> can be a regexp pattern, see <a href="tagsrch.html#tag-regexp">tag-regexp</a>.
+			tag stack.  See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].
+			<code>{name}</code> can be a regexp pattern, see <a href="/neovim-docs-web/en/tagsrch#tag-regexp">tag-regexp</a>.
 			When there are several matching tags for <code>{name}</code>, jump
 			to the [count] one.  When [count] is omitted the
-			first one is jumped to. See <a href="tagsrch.html#tag-matchlist">tag-matchlist</a> for
+			first one is jumped to. See <a href="/neovim-docs-web/en/tagsrch#tag-matchlist">tag-matchlist</a> for
 			jumping to other matching tags.</div>
 <div class="old-help-para">g&lt;LeftMouse&gt;						<a name="g%3CLeftMouse%3E"></a><code class="help-tag-right">g&lt;LeftMouse&gt;</code>
 <code>&lt;C-LeftMouse&gt;</code>					<a name="%3CC-LeftMouse%3E"></a><code class="help-tag-right">&lt;C-LeftMouse&gt;</code> <a name="CTRL-%5D"></a><code class="help-tag">CTRL-]</code>
@@ -46,7 +46,7 @@ below.</div>
 			keyword under or after cursor.
 			When there are several matching tags for <code>{name}</code>, jump
 			to the [count] one.  When no [count] is given the
-			first one is jumped to. See <a href="tagsrch.html#tag-matchlist">tag-matchlist</a> for
+			first one is jumped to. See <a href="/neovim-docs-web/en/tagsrch#tag-matchlist">tag-matchlist</a> for
 			jumping to other matching tags.</div>
 <div class="old-help-para">							<a name="v_CTRL-%5D"></a><code class="help-tag-right">v_CTRL-]</code>
 <code>{Visual}</code><code>CTRL-]</code>		Same as ":tag <code>{name}</code>", where <code>{name}</code> is the text that
@@ -72,37 +72,37 @@ When there are multiple matches for a tag, this priority is used:
 changed, to avoid confusion when using ":tnext".  It is changed when using
 ":tag <code>{name}</code>".</div>
 <div class="old-help-para">The ignore-case matches are not found for a ":tag" command when:
-<div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "followic" and the <a href="options.html#'ignorecase'">'ignorecase'</a> option is off
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "followscs" and the <a href="options.html#'ignorecase'">'ignorecase'</a> option is off and the
-  <a href="options.html#'smartcase'">'smartcase'</a> option is off or the pattern contains an upper case character.
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "match"
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "smart" and the pattern contains an upper case character.
+<div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "followic" and the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option is off
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "followscs" and the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option is off and the
+  <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> option is off or the pattern contains an upper case character.
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "match"
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "smart" and the pattern contains an upper case character.
 </div></div>
 <div class="old-help-para">The ignore-case matches are found when:
 <div class="help-li" style=""> a pattern is used (starting with a "/")
 </div><div class="help-li" style=""> for ":tselect"
-</div><div class="help-li" style=""> when <a href="options.html#'tagcase'">'tagcase'</a> is "followic" and <a href="options.html#'ignorecase'">'ignorecase'</a> is on
-</div><div class="help-li" style=""> when <a href="options.html#'tagcase'">'tagcase'</a> is "followscs" and <a href="options.html#'ignorecase'">'ignorecase'</a> is on or the <a href="options.html#'smartcase'">'smartcase'</a>
+</div><div class="help-li" style=""> when <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "followic" and <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is on
+</div><div class="help-li" style=""> when <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "followscs" and <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is on or the <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a>
   option is on and the pattern does not contain an upper case character
-</div><div class="help-li" style=""> when <a href="options.html#'tagcase'">'tagcase'</a> is "ignore"
-</div><div class="help-li" style=""> when <a href="options.html#'tagcase'">'tagcase'</a> is "smart" and the patter does not contain an upper case
+</div><div class="help-li" style=""> when <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "ignore"
+</div><div class="help-li" style=""> when <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "smart" and the patter does not contain an upper case
   character
 </div></div>
 <div class="old-help-para">Note that using ignore-case tag searching disables binary searching in the
 tags file, which causes a slowdown.  This can be avoided by fold-case sorting
-the tag file. See the <a href="options.html#'tagbsearch'">'tagbsearch'</a> option for an explanation.</div>
+the tag file. See the <a href="/neovim-docs-web/en/options#'tagbsearch'">'tagbsearch'</a> option for an explanation.</div>
 <div class="old-help-para"><h2 class="help-heading">2. Tag stack<span class="help-heading-tags">				<a name="tag-stack"></a><span class="help-tag">tag-stack</span> <a name="tagstack"></a><span class="help-tag">tagstack</span> <a name="E425"></a><span class="help-tag">E425</span></span></h2></div>
 <div class="old-help-para">On the tag stack is remembered which tags you jumped to, and from where.
-Tags are only pushed onto the stack when the <a href="options.html#'tagstack'">'tagstack'</a> option is set.</div>
+Tags are only pushed onto the stack when the <a href="/neovim-docs-web/en/options#'tagstack'">'tagstack'</a> option is set.</div>
 <div class="old-help-para">g&lt;RightMouse&gt;						<a name="g%3CRightMouse%3E"></a><code class="help-tag-right">g&lt;RightMouse&gt;</code>
 <code>&lt;C-RightMouse&gt;</code>					<a name="%3CC-RightMouse%3E"></a><code class="help-tag-right">&lt;C-RightMouse&gt;</code> <a name="CTRL-T"></a><code class="help-tag">CTRL-T</code>
 CTRL-T			Jump to [count] older entry in the tag stack
 			(default 1).</div>
 <div class="old-help-para">						<a name="%3Apo"></a><code class="help-tag-right">:po</code> <a name="%3Apop"></a><code class="help-tag">:pop</code> <a name="E555"></a><code class="help-tag">E555</code> <a name="E556"></a><code class="help-tag">E556</code>
 :[count]po[p][!]	Jump to [count] older entry in tag stack (default 1).
-			See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">:[count]ta[g][!]	Jump to [count] newer entry in tag stack (default 1).
-			See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">							<a name="%3Atags"></a><code class="help-tag-right">:tags</code>
 :tags			Show the contents of the tag stack.  The active
 			entry is marked with a '&gt;'.</div>
@@ -147,8 +147,8 @@ commands explained above the tag stack will look like this:</div>
 <div class="old-help-para">   # TO tag	FROM line  in file/text
    1  1 main		1  harddisk2:text/vim/test
    2  1 FuncB	       59  harddisk2:text/vim/src/main.c</div>
-<div class="old-help-para">The <a href="builtin.html#gettagstack()">gettagstack()</a> function returns the tag stack of a specified window. The
-<a href="builtin.html#settagstack()">settagstack()</a> function modifies the tag stack of a window.</div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/builtin#gettagstack()">gettagstack()</a> function returns the tag stack of a specified window. The
+<a href="/neovim-docs-web/en/builtin#settagstack()">settagstack()</a> function modifies the tag stack of a window.</div>
 <div class="old-help-para">							<a name="tagstack-examples"></a><code class="help-tag-right">tagstack-examples</code>
 Write to the tag stack just like <code>:tag</code> but with a user-defined
 jumper#jump_to_tag function:<pre>" Store where we're jumping from before we jump.
@@ -178,11 +178,11 @@ the same entry.</div>
 			information in the tags file(s).
 			When [name] is not given, the last tag name from the
 			tag stack is used.
-			See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].
+			See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].
 			With a '&gt;' in the first column is indicated which is
 			the current position in the list (if there is one).
-			[name] can be a regexp pattern, see <a href="tagsrch.html#tag-regexp">tag-regexp</a>.
-			See <a href="tagsrch.html#tag-priority">tag-priority</a> for the priorities used in the
+			[name] can be a regexp pattern, see <a href="/neovim-docs-web/en/tagsrch#tag-regexp">tag-regexp</a>.
+			See <a href="/neovim-docs-web/en/tagsrch#tag-priority">tag-priority</a> for the priorities used in the
 			listing.
 			Example output:</div>
 <div class="old-help-para"><pre>  # pri kind tag                file
@@ -193,7 +193,7 @@ the same entry.</div>
   3 F        f    mch_delay                os_unix.c
                 mch_delay(msec, ignoreinput)
 Type number and &lt;Enter&gt; (empty cancels):</pre></div>
-<div class="old-help-para">			See <a href="tagsrch.html#tag-priority">tag-priority</a> for the "pri" column.  Note that
+<div class="old-help-para">			See <a href="/neovim-docs-web/en/tagsrch#tag-priority">tag-priority</a> for the "pri" column.  Note that
 			this depends on the current file, thus using
 			":tselect xxx" can produce different results.
 			The "kind" column gives the kind of tag, if this was
@@ -201,7 +201,7 @@ Type number and &lt;Enter&gt; (empty cancels):</pre></div>
 			The "info" column shows information that could be
 			found in the tags file.  It depends on the program
 			that produced the tags file.
-			When the list is long, you may get the <a href="message.html#more-prompt">more-prompt</a>.
+			When the list is long, you may get the <a href="/neovim-docs-web/en/message#more-prompt">more-prompt</a>.
 			If you already see the tag you want to use, you can
 			type 'q' and enter the number.</div>
 <div class="old-help-para">							<a name="%3Asts"></a><code class="help-tag-right">:sts</code> <a name="%3Astselect"></a><code class="help-tag">:stselect</code>
@@ -225,29 +225,29 @@ g <code>CTRL-]</code>		Like <code>CTRL-]</code>, but use ":tjump" instead of ":t
 			the identifier.</div>
 <div class="old-help-para">							<a name="%3Atn"></a><code class="help-tag-right">:tn</code> <a name="%3Atnext"></a><code class="help-tag">:tnext</code>
 :[count]tn[ext][!]	Jump to [count] next matching tag (default 1).  See
-			<a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+			<a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">							<a name="%3Atp"></a><code class="help-tag-right">:tp</code> <a name="%3Atprevious"></a><code class="help-tag">:tprevious</code>
 :[count]tp[revious][!]	Jump to [count] previous matching tag (default 1).
-			See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">							<a name="%3AtN"></a><code class="help-tag-right">:tN</code> <a name="%3AtNext"></a><code class="help-tag">:tNext</code>
 :[count]tN[ext][!]	Same as ":tprevious".</div>
 <div class="old-help-para">							<a name="%3Atr"></a><code class="help-tag-right">:tr</code> <a name="%3Atrewind"></a><code class="help-tag">:trewind</code>
 :[count]tr[ewind][!]	Jump to first matching tag.  If [count] is given, jump
-			to [count]th matching tag.  See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+			to [count]th matching tag.  See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">							<a name="%3Atf"></a><code class="help-tag-right">:tf</code> <a name="%3Atfirst"></a><code class="help-tag">:tfirst</code>
 :[count]tf[irst][!]	Same as ":trewind".</div>
 <div class="old-help-para">							<a name="%3Atl"></a><code class="help-tag-right">:tl</code> <a name="%3Atlast"></a><code class="help-tag">:tlast</code>
-:tl[ast][!]		Jump to last matching tag.  See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+:tl[ast][!]		Jump to last matching tag.  See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">							<a name="%3Alt"></a><code class="help-tag-right">:lt</code> <a name="%3Altag"></a><code class="help-tag">:ltag</code>
 :lt[ag][!] [name]	Jump to tag [name] and add the matching tags to a new
 			location list for the current window.  [name] can be
-			a regexp pattern, see <a href="tagsrch.html#tag-regexp">tag-regexp</a>.  When [name] is
+			a regexp pattern, see <a href="/neovim-docs-web/en/tagsrch#tag-regexp">tag-regexp</a>.  When [name] is
 			not given, the last tag name from the tag stack is
 			used.  The search pattern to locate the tag line is
 			prefixed with "\V" to escape all the special
 			characters (very nomagic). The location list showing
 			the matching tags is independent of the tag stack.
-			See <a href="tagsrch.html#tag-%21">tag-!</a> for [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#tag-%21">tag-!</a> for [!].</div>
 <div class="old-help-para">When there is no other message, Vim shows which matching tag has been jumped
 to, and the number of matching tags:<pre>tag 1 of 3 or more</pre>
 The " or more" is used to indicate that Vim didn't try all the tags files yet.
@@ -265,22 +265,22 @@ The tag match list can also be used in the preview window.  The commands are
 the same as above, with a "p" prepended.</div>
 <div class="old-help-para">							<a name="%3Apts"></a><code class="help-tag-right">:pts</code> <a name="%3Aptselect"></a><code class="help-tag">:ptselect</code>
 :pts[elect][!] [name]	Does ":tselect[!] [name]" and shows the new tag in a
-			"Preview" window.  See <a href="windows.html#%3Aptag">:ptag</a> for more info.</div>
+			"Preview" window.  See <a href="/neovim-docs-web/en/windows#%3Aptag">:ptag</a> for more info.</div>
 <div class="old-help-para">							<a name="%3Aptj"></a><code class="help-tag-right">:ptj</code> <a name="%3Aptjump"></a><code class="help-tag">:ptjump</code>
 :ptj[ump][!] [name]	Does ":tjump[!] [name]" and shows the new tag in a
-			"Preview" window.  See <a href="windows.html#%3Aptag">:ptag</a> for more info.</div>
+			"Preview" window.  See <a href="/neovim-docs-web/en/windows#%3Aptag">:ptag</a> for more info.</div>
 <div class="old-help-para">							<a name="%3Aptn"></a><code class="help-tag-right">:ptn</code> <a name="%3Aptnext"></a><code class="help-tag">:ptnext</code>
-:[count]ptn[ext][!]	":tnext" in the preview window.  See <a href="windows.html#%3Aptag">:ptag</a>.</div>
+:[count]ptn[ext][!]	":tnext" in the preview window.  See <a href="/neovim-docs-web/en/windows#%3Aptag">:ptag</a>.</div>
 <div class="old-help-para">							<a name="%3Aptp"></a><code class="help-tag-right">:ptp</code> <a name="%3Aptprevious"></a><code class="help-tag">:ptprevious</code>
-:[count]ptp[revious][!]	":tprevious" in the preview window.  See <a href="windows.html#%3Aptag">:ptag</a>.</div>
+:[count]ptp[revious][!]	":tprevious" in the preview window.  See <a href="/neovim-docs-web/en/windows#%3Aptag">:ptag</a>.</div>
 <div class="old-help-para">							<a name="%3AptN"></a><code class="help-tag-right">:ptN</code> <a name="%3AptNext"></a><code class="help-tag">:ptNext</code>
 :[count]ptN[ext][!]	Same as ":ptprevious".</div>
 <div class="old-help-para">							<a name="%3Aptr"></a><code class="help-tag-right">:ptr</code> <a name="%3Aptrewind"></a><code class="help-tag">:ptrewind</code>
-:[count]ptr[ewind][!]	":trewind" in the preview window.  See <a href="windows.html#%3Aptag">:ptag</a>.</div>
+:[count]ptr[ewind][!]	":trewind" in the preview window.  See <a href="/neovim-docs-web/en/windows#%3Aptag">:ptag</a>.</div>
 <div class="old-help-para">							<a name="%3Aptf"></a><code class="help-tag-right">:ptf</code> <a name="%3Aptfirst"></a><code class="help-tag">:ptfirst</code>
 :[count]ptf[irst][!]	Same as ":ptrewind".</div>
 <div class="old-help-para">							<a name="%3Aptl"></a><code class="help-tag-right">:ptl</code> <a name="%3Aptlast"></a><code class="help-tag">:ptlast</code>
-:ptl[ast][!]		":tlast" in the preview window.  See <a href="windows.html#%3Aptag">:ptag</a>.</div>
+:ptl[ast][!]		":tlast" in the preview window.  See <a href="/neovim-docs-web/en/windows#%3Aptag">:ptag</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">4. Tags details<span class="help-heading-tags">						<a name="tag-details"></a><span class="help-tag">tag-details</span></span></h2></div>
 <div class="old-help-para">							<a name="static-tag"></a><code class="help-tag-right">static-tag</code>
 A static tag is a tag that is defined for a specific file.  In a C program
@@ -289,21 +289,21 @@ this could be a static function.</div>
 "n" command after jumping to a tag does not search for the same pattern that
 it did before jumping to the tag.  Vim does not do this as we consider it to
 be a bug.  If you really want the old Vi behavior, set the 't' flag in
-<a href="options.html#'cpoptions'">'cpoptions'</a>.</div>
+<a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.</div>
 <div class="old-help-para">							<a name="tag-binary-search"></a><code class="help-tag-right">tag-binary-search</code>
 Vim uses binary searching in the tags file to find the desired tag quickly.
 But this only works if the tags file was sorted on ASCII byte value.
 Therefore, if no match was found, another try is done with a linear search.
-If you only want the linear search, reset the <a href="options.html#'tagbsearch'">'tagbsearch'</a> option.  Or better:
+If you only want the linear search, reset the <a href="/neovim-docs-web/en/options#'tagbsearch'">'tagbsearch'</a> option.  Or better:
 Sort the tags file!</div>
 <div class="old-help-para">Note that the binary searching is disabled when not looking for a tag with a
 specific name.  This happens when ignoring case and when a regular expression
 is used that doesn't start with a fixed string.  Tag searching can be a lot
 slower then.  The former can be avoided by case-fold sorting the tags file.
-See <a href="options.html#'tagbsearch'">'tagbsearch'</a> for details.</div>
+See <a href="/neovim-docs-web/en/options#'tagbsearch'">'tagbsearch'</a> for details.</div>
 <div class="old-help-para">							<a name="tag-regexp"></a><code class="help-tag-right">tag-regexp</code>
 The ":tag" and ":tselect" commands accept a regular expression argument.  See
-<a href="pattern.html#pattern">pattern</a> for the special characters that can be used.
+<a href="/neovim-docs-web/en/pattern#pattern">pattern</a> for the special characters that can be used.
 When the argument starts with '/', it is used as a pattern.  If the argument
 does not start with '/', it is taken literally, as a full tag name.
 Examples:<pre>:tag main</pre></div>
@@ -318,7 +318,7 @@ the pattern.</div>
 <div class="old-help-para">							<a name="tag-%21"></a><code class="help-tag-right">tag-!</code>
 If the tag is in the current file this will always work.  Otherwise the
 performed actions depend on whether the current file was changed, whether a !
-is added to the command and on the <a href="options.html#'autowrite'">'autowrite'</a> option:</div>
+is added to the command and on the <a href="/neovim-docs-web/en/options#'autowrite'">'autowrite'</a> option:</div>
 <div class="old-help-para"><div class="help-column_heading">  tag in       file	   autowrite</div><div class="help-column_heading">current file  changed	!   option	  action</div><a name="_-yes-x-x-x-goto-tag"></a><h3 class="help-heading">    yes		 x	x     x	  goto tag</h3>    no		 no	x     x	  read other file, goto tag
     no		yes    yes    x   abandon current file, read other file, goto
 				  tag
@@ -333,18 +333,18 @@ is added to the command and on the <a href="options.html#'autowrite'">'autowrite
   added to the command, the changes to the current file are lost, the other
   file will be made the current file and read into the buffer.
 </div><div class="help-li" style=""> If the tag is in another file, the current file was changed and the
-  <a href="options.html#'autowrite'">'autowrite'</a> option is on, the current file will be written, the other
+  <a href="/neovim-docs-web/en/options#'autowrite'">'autowrite'</a> option is on, the current file will be written, the other
   file will be made the current file and read into the buffer.
 </div><div class="help-li" style=""> If the tag is in another file, the current file was changed and the
-  <a href="options.html#'autowrite'">'autowrite'</a> option is off, the command will fail.  If you want to save
+  <a href="/neovim-docs-web/en/options#'autowrite'">'autowrite'</a> option is off, the command will fail.  If you want to save
   the changes, use the ":w" command and then use ":tag" without an argument.
   This works because the tag is put on the stack anyway.  If you want to lose
   the changes you can use the ":tag!" command.
 </div></div>
 <div class="old-help-para">							<a name="tag-security"></a><code class="help-tag-right">tag-security</code>
 Note that Vim forbids some commands, for security reasons.  This works like
-using the <a href="vim_diff.html#'secure'">'secure'</a> option for exrc/vimrc files in the current directory.  See
-<a href="starting.html#trojan-horse">trojan-horse</a> and <a href="eval.html#sandbox">sandbox</a>.
+using the <a href="/neovim-docs-web/en/vim_diff#'secure'">'secure'</a> option for exrc/vimrc files in the current directory.  See
+<a href="/neovim-docs-web/en/starting#trojan-horse">trojan-horse</a> and <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>.
 When the <code>{tagaddress}</code> changes a buffer, you will get a warning message:
 	"WARNING: tag command changed a buffer!!!"
 In a future version changing the buffer will be impossible.  All this for
@@ -352,20 +352,20 @@ security reasons: Somebody might hide a nasty command in the tags file, which
 would otherwise go unnoticed.  Example:<pre>:$d|/tag-function-name/</pre>
 In Vi the ":tag" command sets the last search pattern when the tag is searched
 for.  In Vim this is not done, the previous search pattern is still remembered,
-unless the 't' flag is present in <a href="options.html#'cpoptions'">'cpoptions'</a>.</div>
+unless the 't' flag is present in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>.</div>
 <div class="old-help-para">							<a name="tags-option"></a><code class="help-tag-right">tags-option</code>
-The <a href="options.html#'tags'">'tags'</a> option is a list of file names.  Each of these files is searched
+The <a href="/neovim-docs-web/en/options#'tags'">'tags'</a> option is a list of file names.  Each of these files is searched
 for the tag.  This can be used to use a different tags file than the default
 file "tags".  It can also be used to access a common tags file.</div>
 <div class="old-help-para">The next file in the list is not used when:
 <div class="help-li" style=""> A matching static tag for the current buffer has been found.
 </div><div class="help-li" style=""> A matching global tag has been found.
 This also depends on whether case is ignored.  Case is ignored when:
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "followic" and <a href="options.html#'ignorecase'">'ignorecase'</a> is set
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "ignore"
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "smart" and the pattern only contains lower case
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "followic" and <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is set
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "ignore"
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "smart" and the pattern only contains lower case
   characters.
-</div><div class="help-li" style=""> <a href="options.html#'tagcase'">'tagcase'</a> is "followscs" and <a href="options.html#'smartcase'">'smartcase'</a> is set and the pattern only
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "followscs" and <a href="/neovim-docs-web/en/options#'smartcase'">'smartcase'</a> is set and the pattern only
   contains lower case characters.
 If case is not ignored, and the tags file only has a match without matching
 case, the next tags file is searched for a match with matching case.  If no
@@ -384,7 +384,7 @@ In this example the tag will first be searched for in the file "tags" in the
 directory where the current file is.  Next the "tags" file in the current
 directory.  If it is not found there, then the file "/home/user/commontags"
 will be searched for the tag.</div>
-<div class="old-help-para">This can be switched off by including the 'd' flag in <a href="options.html#'cpoptions'">'cpoptions'</a>, to make
+<div class="old-help-para">This can be switched off by including the 'd' flag in <a href="/neovim-docs-web/en/options#'cpoptions'">'cpoptions'</a>, to make
 it Vi compatible.  "./tags" will then be the tags file in the current
 directory, instead of the tags file in the directory where the current file
 is.</div>
@@ -392,9 +392,9 @@ is.</div>
 the space to be included in the string option:<pre>:set tags=tags\ /home/user/commontags</pre>
 To include a space in a file name use three backslashes.  To include a comma
 in a file name use two backslashes.  For example, use:<pre>:set tags=tag\\\ file,/home/user/common\\,tags</pre>
-for the files "tag file" and "/home/user/common,tags".  The <a href="options.html#'tags'">'tags'</a> option will
+for the files "tag file" and "/home/user/common,tags".  The <a href="/neovim-docs-web/en/options#'tags'">'tags'</a> option will
 have the value "tag\ file,/home/user/common\,tags".</div>
-<div class="old-help-para">If the <a href="options.html#'tagrelative'">'tagrelative'</a> option is on (which is the default) and using a tag file
+<div class="old-help-para">If the <a href="/neovim-docs-web/en/options#'tagrelative'">'tagrelative'</a> option is on (which is the default) and using a tag file
 in another directory, file names in that tag file are relative to the
 directory where the tag file is.</div>
 <div class="old-help-para"><h2 class="help-heading">5. Tags file format<span class="help-heading-tags">				<a name="tags-file-format"></a><span class="help-tag">tags-file-format</span> <a name="E431"></a><span class="help-tag">E431</span></span></h2></div>
@@ -418,7 +418,7 @@ ptags.py		For Python, in Python.  Found in your Python source
 <div class="old-help-para">The lines in the tags file must have one of these two formats:</div>
 <div class="old-help-para">1.  <code>{tagname}</code>		<code>{TAB}</code> <code>{tagfile}</code> <code>{TAB}</code> <code>{tagaddress}</code>
 2.  <code>{tagname}</code>		<code>{TAB}</code> <code>{tagfile}</code> <code>{TAB}</code> <code>{tagaddress}</code> <code>{term}</code> <code>{field}</code> ..</div>
-<div class="old-help-para">Previously an old format was supported, see <a href="tagsrch.html#tag-old-static">tag-old-static</a>.</div>
+<div class="old-help-para">Previously an old format was supported, see <a href="/neovim-docs-web/en/tagsrch#tag-old-static">tag-old-static</a>.</div>
 <div class="old-help-para">The first format is a normal tag, which is completely compatible with Vi.  It
 is the only format produced by traditional ctags implementations.  This is
 often used for functions that are global, also referenced in other files.</div>
@@ -439,7 +439,7 @@ ctags).</div>
 		doubtful).  It cannot contain a <code>&lt;Tab&gt;</code>.
 <code>{tagaddress}</code>	The Ex command that positions the cursor on the tag.  It can
 		be any Ex command, although restrictions apply (see
-		<a href="tagsrch.html#tag-security">tag-security</a>).  Posix only allows line numbers and search
+		<a href="/neovim-docs-web/en/tagsrch#tag-security">tag-security</a>).  Posix only allows line numbers and search
 		commands, which are mostly used.
 <code>{term}</code>		;" The two characters semicolon and double quote.  This is
 		interpreted by Vi as the start of a comment, which makes the
@@ -474,30 +474,30 @@ that indicates if the file was sorted.  When this line is found, Vim uses
 binary searching for the tags file:
 <div class="help-column_heading">	!_TAG_FILE_SORTED&lt;Tab&gt;1&lt;Tab&gt;{anything}</div></div>
 <div class="old-help-para">A tag file may be case-fold sorted to avoid a linear search when case is
-ignored.  (Case is ignored when <a href="options.html#'ignorecase'">'ignorecase'</a> is set and <a href="options.html#'tagcase'">'tagcase'</a> is
-"followic", or when <a href="options.html#'tagcase'">'tagcase'</a> is "ignore".)  See <a href="options.html#'tagbsearch'">'tagbsearch'</a> for details.
+ignored.  (Case is ignored when <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> is set and <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is
+"followic", or when <a href="/neovim-docs-web/en/options#'tagcase'">'tagcase'</a> is "ignore".)  See <a href="/neovim-docs-web/en/options#'tagbsearch'">'tagbsearch'</a> for details.
 The value '2' should be used then:
 <div class="help-column_heading">	!_TAG_FILE_SORTED&lt;Tab&gt;2&lt;Tab&gt;{anything}</div></div>
 <div class="old-help-para">The other tag that Vim recognizes is the encoding of the tags file:
 <div class="help-column_heading">	!_TAG_FILE_ENCODING&lt;Tab&gt;utf-8&lt;Tab&gt;{anything}</div>Here "utf-8" is the encoding used for the tags.  Vim will then convert the tag
-being searched for from <a href="options.html#'encoding'">'encoding'</a> to the encoding of the tags file.  And when
+being searched for from <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> to the encoding of the tags file.  And when
 listing tags the reverse happens.  When the conversion fails the unconverted
 tag is used.</div>
 <div class="old-help-para">							<a name="tag-search"></a><code class="help-tag-right">tag-search</code>
 The command can be any Ex command, but often it is a search command.
 Examples:
 <div class="help-column_heading">	tag1	file1	/^main(argc, argv)/</div><div class="help-column_heading">	tag2	file2	108</div></div>
-<div class="old-help-para">The command is always executed with <a href="options.html#'magic'">'magic'</a> not set.  The only special
+<div class="old-help-para">The command is always executed with <a href="/neovim-docs-web/en/options#'magic'">'magic'</a> not set.  The only special
 characters in a search pattern are "^" (begin-of-line) and "$" (<code>&lt;EOL&gt;</code>).
-See <a href="pattern.html#pattern">pattern</a>.  Note that you must put a backslash before each backslash in
+See <a href="/neovim-docs-web/en/pattern#pattern">pattern</a>.  Note that you must put a backslash before each backslash in
 the search text.  This is for backwards compatibility with Vi.</div>
 <div class="old-help-para">							<a name="E434"></a><code class="help-tag-right">E434</code> <a name="E435"></a><code class="help-tag">E435</code>
 If the command is a normal search command (it starts and ends with "/" or
 "?"), some special handling is done:
 <div class="help-li" style=""> Searching starts on line 1 of the file.
   The direction of the search is forward for "/", backward for "?".
-  Note that <a href="options.html#'wrapscan'">'wrapscan'</a> does not matter, the whole file is always searched.  (Vi
-  does use <a href="options.html#'wrapscan'">'wrapscan'</a>, which caused tags sometimes not be found.)
+  Note that <a href="/neovim-docs-web/en/options#'wrapscan'">'wrapscan'</a> does not matter, the whole file is always searched.  (Vi
+  does use <a href="/neovim-docs-web/en/options#'wrapscan'">'wrapscan'</a>, which caused tags sometimes not be found.)
 </div><div class="help-li" style=""> If the search fails, another try is done ignoring case.  If that fails too,
   a search is done for:
 	"^tagname[ \t]*("
@@ -518,40 +518,40 @@ the second format.  It is only supported by Elvis 1.x, older Vim versions and
 a few versions of ctags.  A static tag is often used for functions that are
 local, only referenced in the file <code>{tagfile}</code>.  Note that for the static tag,
 the two occurrences of <code>{tagfile}</code> must be exactly the same.  Also see
-<a href="tagsrch.html#tags-option">tags-option</a> below, for how static tags are used.</div>
+<a href="/neovim-docs-web/en/tagsrch#tags-option">tags-option</a> below, for how static tags are used.</div>
 <div class="old-help-para">The support was removed, since when you can update to the new Vim version you
 should also be able to update ctags to one that supports the second format.</div>
 <div class="old-help-para"><h2 class="help-heading">6. Include file searches<span class="help-heading-tags">		<a name="include-search"></a><span class="help-tag">include-search</span> <a name="definition-search"></a><span class="help-tag">definition-search</span></span></h2>							<a name="E387"></a><code class="help-tag-right">E387</code> <a name="E388"></a><code class="help-tag">E388</code> <a name="E389"></a><code class="help-tag">E389</code></div>
 <div class="old-help-para">These commands look for a string in the current file and in all encountered
 included files (recursively).  This can be used to find the definition of a
 variable, function or macro.  If you only want to search in the current
-buffer, use the commands listed at <a href="pattern.html#pattern-searches">pattern-searches</a>.</div>
+buffer, use the commands listed at <a href="/neovim-docs-web/en/pattern#pattern-searches">pattern-searches</a>.</div>
 <div class="old-help-para">When a line is encountered that includes another file, that file is searched
 before continuing in the current buffer.  Files included by included files are
 also searched.  When an include file could not be found it is silently
-ignored.  Use the <a href="tagsrch.html#%3Acheckpath">:checkpath</a> command to discover which files could not be
-found, possibly your <a href="options.html#'path'">'path'</a> option is not set up correctly.  Note: the
+ignored.  Use the <a href="/neovim-docs-web/en/tagsrch#%3Acheckpath">:checkpath</a> command to discover which files could not be
+found, possibly your <a href="/neovim-docs-web/en/options#'path'">'path'</a> option is not set up correctly.  Note: the
 included file is searched, not a buffer that may be editing that file.  Only
 for the current file the lines in the buffer are used.</div>
 <div class="old-help-para">The string can be any keyword or a defined macro.  For the keyword any match
-will be found.  For defined macros only lines that match with the <a href="options.html#'define'">'define'</a>
+will be found.  For defined macros only lines that match with the <a href="/neovim-docs-web/en/options#'define'">'define'</a>
 option will be found.  The default is "^#\s*define", which is for C programs.
-For other languages you probably want to change this.  See <a href="options.html#'define'">'define'</a> for an
+For other languages you probably want to change this.  See <a href="/neovim-docs-web/en/options#'define'">'define'</a> for an
 example for C++.  The string cannot contain an end-of-line, only matches
 within a line are found.</div>
 <div class="old-help-para">When a match is found for a defined macro, the displaying of lines continues
 with the next line when a line ends in a backslash.</div>
 <div class="old-help-para">The commands that start with "[" start searching from the start of the current
 file.  The commands that start with "]" start at the current cursor position.</div>
-<div class="old-help-para">The <a href="options.html#'include'">'include'</a> option is used to define a line that includes another file.  The
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'include'">'include'</a> option is used to define a line that includes another file.  The
 default is "\^#\s*include", which is for C programs.  Note: Vim does not
-recognize C syntax, if the <a href="options.html#'include'">'include'</a> option matches a line inside
-"#ifdef/#endif" or inside a comment, it is searched anyway.  The <a href="options.html#'isfname'">'isfname'</a>
+recognize C syntax, if the <a href="/neovim-docs-web/en/options#'include'">'include'</a> option matches a line inside
+"#ifdef/#endif" or inside a comment, it is searched anyway.  The <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a>
 option is used to recognize the file name that comes after the matched
 pattern.</div>
-<div class="old-help-para">The <a href="options.html#'path'">'path'</a> option is used to find the directory for the include files that
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'path'">'path'</a> option is used to find the directory for the include files that
 do not have an absolute path.</div>
-<div class="old-help-para">The <a href="options.html#'comments'">'comments'</a> option is used for the commands that display a single line or
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'comments'">'comments'</a> option is used for the commands that display a single line or
 jump to a line.  It defines patterns that may start a comment.  Those lines
 are ignored for the search, unless [!] is used.  One exception: When the line
 matches the pattern "^#define" it is not considered to be a comment.</div>
@@ -561,7 +561,7 @@ mapping to do that for you.  Here is an example:<pre>:map &lt;F4&gt; [I:let nr =
 [i			Display the first line that contains the keyword
 			under the cursor.  The search starts at the beginning
 			of the file.  Lines that look like a comment are
-			ignored (see <a href="options.html#'comments'">'comments'</a> option).  If a count is given,
+			ignored (see <a href="/neovim-docs-web/en/options#'comments'">'comments'</a> option).  If a count is given,
 			the count'th matching line is displayed, and comment
 			lines are not ignored.</div>
 <div class="old-help-para">							<a name="%5Di"></a><code class="help-tag-right">]i</code>
@@ -570,7 +570,7 @@ mapping to do that for you.  Here is an example:<pre>:map &lt;F4&gt; [I:let nr =
 :[range]is[earch][!] [count] [/]pattern[/]
 			Like "[i"  and "]i", but search in [range] lines
 			(default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">							<a name="%5BI"></a><code class="help-tag-right">[I</code>
 [I			Display all lines that contain the keyword under the
 			cursor.  Filenames and line numbers are displayed
@@ -582,12 +582,12 @@ mapping to do that for you.  Here is an example:<pre>:map &lt;F4&gt; [I:let nr =
 :[range]il[ist][!] [/]pattern[/]
 			Like "[I" and "]I", but search in [range] lines
 			(default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">							<a name="%5B_CTRL-I"></a><code class="help-tag-right">[_CTRL-I</code>
 [ <code>CTRL-I</code>		Jump to the first line that contains the keyword
 			under the cursor.  The search starts at the beginning
 			of the file.  Lines that look like a comment are
-			ignored (see <a href="options.html#'comments'">'comments'</a> option).  If a count is given,
+			ignored (see <a href="/neovim-docs-web/en/options#'comments'">'comments'</a> option).  If a count is given,
 			the count'th matching line is jumped to, and comment
 			lines are not ignored.</div>
 <div class="old-help-para">							<a name="%5D_CTRL-I"></a><code class="help-tag-right">]_CTRL-I</code>
@@ -597,20 +597,20 @@ mapping to do that for you.  Here is an example:<pre>:map &lt;F4&gt; [I:let nr =
 :[range]ij[ump][!] [count] [/]pattern[/]
 			Like "[ <code>CTRL-I</code>"  and "] <code>CTRL-I</code>", but search in
 			[range] lines (default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">CTRL-W <code>CTRL-I</code>					<a name="CTRL-W_CTRL-I"></a><code class="help-tag-right">CTRL-W_CTRL-I</code> <a name="CTRL-W_i"></a><code class="help-tag">CTRL-W_i</code>
 CTRL-W i		Open a new window, with the cursor on the first line
 			that contains the keyword under the cursor.  The
 			search starts at the beginning of the file.  Lines
 			that look like a comment line are ignored (see
-			<a href="options.html#'comments'">'comments'</a> option).  If a count is given, the count'th
+			<a href="/neovim-docs-web/en/options#'comments'">'comments'</a> option).  If a count is given, the count'th
 			matching line is jumped to, and comment lines are not
 			ignored.</div>
 <div class="old-help-para">							<a name="%3Aisp"></a><code class="help-tag-right">:isp</code> <a name="%3Aisplit"></a><code class="help-tag">:isplit</code>
 :[range]isp[lit][!] [count] [/]pattern[/]
 			Like "CTRL-W i"  and "CTRL-W i", but search in
 			[range] lines (default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">							<a name="%5Bd"></a><code class="help-tag-right">[d</code>
 [d			Display the first macro definition that contains the
 			macro under the cursor.  The search starts from the
@@ -622,7 +622,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]ds[earch][!] [count] [/]string[/]
 			Like "[d"  and "]d", but search in [range] lines
 			(default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">							<a name="%5BD"></a><code class="help-tag-right">[D</code>
 [D			Display all macro definitions that contain the macro
 			under the cursor.  Filenames and line numbers are
@@ -634,7 +634,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]dli[st][!] [/]string[/]
 			Like <code>[D</code>  and <code>]D</code>, but search in [range] lines
 			(default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].
 			Note that <code>:dl</code> works like <code>:delete</code> with the "l"
 			flag, not <code>:dlist</code>.</div>
 <div class="old-help-para">							<a name="%5B_CTRL-D"></a><code class="help-tag-right">[_CTRL-D</code>
@@ -649,7 +649,7 @@ CTRL-W i		Open a new window, with the cursor on the first line
 :[range]dj[ump][!] [count] [/]string[/]
 			Like "[ <code>CTRL-D</code>"  and "] <code>CTRL-D</code>", but search  in
 			[range] lines (default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">CTRL-W <code>CTRL-D</code>					<a name="CTRL-W_CTRL-D"></a><code class="help-tag-right">CTRL-W_CTRL-D</code> <a name="CTRL-W_d"></a><code class="help-tag">CTRL-W_d</code>
 CTRL-W d		Open a new window, with the cursor on the first
 			macro definition line that contains the keyword
@@ -660,7 +660,7 @@ CTRL-W d		Open a new window, with the cursor on the first
 :[range]dsp[lit][!] [count] [/]string[/]
 			Like "CTRL-W d", but search in [range] lines
 			(default: whole file).
-			See <a href="tagsrch.html#%3Asearch-args">:search-args</a> for [/] and [!].</div>
+			See <a href="/neovim-docs-web/en/tagsrch#%3Asearch-args">:search-args</a> for [/] and [!].</div>
 <div class="old-help-para">							<a name="%3Acheckp"></a><code class="help-tag-right">:checkp</code> <a name="%3Acheckpath"></a><code class="help-tag">:checkpath</code>
 :checkp[ath]		List all the included files that could not be found.</div>
 <div class="old-help-para">:checkp[ath]!		List all the included files.</div>
@@ -668,11 +668,11 @@ CTRL-W d		Open a new window, with the cursor on the first
 Common arguments for the commands above:
 [!]	When included, find matches in lines that are recognized as comments.
 	When excluded, a match is ignored when the line is recognized as a
-	comment (according to <a href="options.html#'comments'">'comments'</a>), or the match is in a C comment
+	comment (according to <a href="/neovim-docs-web/en/options#'comments'">'comments'</a>), or the match is in a C comment
 	(after "//" or inside /*/).  Note that a match may be missed if a
 	line is recognized as a comment, but the comment ends halfway the line.
 	And if the line is a comment, but it is not recognized (according to
-	<a href="options.html#'comments'">'comments'</a>) a match may be found in it anyway.  Example:<pre>/* comment
+	<a href="/neovim-docs-web/en/options#'comments'">'comments'</a>) a match may be found in it anyway.  Example:<pre>/* comment
    foobar */</pre></div>
 <div class="old-help-para">	A match for "foobar" is found, because this line is not recognized as
 	a comment (even though syntax highlighting does recognize it).
@@ -683,12 +683,12 @@ Common arguments for the commands above:
 	next command can be appended with '|'.  Example:<pre>:isearch /string/ | echo "the last one"</pre></div>
 <div class="old-help-para">	For a ":djump", ":dsplit", ":dlist" and ":dsearch" command the pattern
 	is used as a literal string, not as a search pattern.</div>
-<div class="old-help-para"><h2 class="help-heading">7. Using <a href="options.html#'tagfunc'">'tagfunc'</a><span class="help-heading-tags">						<a name="tag-function"></a><span class="help-tag">tag-function</span></span></h2></div>
+<div class="old-help-para"><h2 class="help-heading">7. Using <a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a><span class="help-heading-tags">						<a name="tag-function"></a><span class="help-tag">tag-function</span></span></h2></div>
 <div class="old-help-para">It is possible to provide Vim with a function which will generate a list of
-tags used for commands like <a href="tagsrch.html#%3Atag">:tag</a>, <a href="tagsrch.html#%3Atselect">:tselect</a> and Normal mode tag commands
-like <a href="tagsrch.html#CTRL-%5D">CTRL-]</a>.</div>
+tags used for commands like <a href="/neovim-docs-web/en/tagsrch#%3Atag">:tag</a>, <a href="/neovim-docs-web/en/tagsrch#%3Atselect">:tselect</a> and Normal mode tag commands
+like <a href="/neovim-docs-web/en/tagsrch#CTRL-%5D">CTRL-]</a>.</div>
 <div class="old-help-para">The function used for generating the taglist is specified by setting the
-<a href="options.html#'tagfunc'">'tagfunc'</a> option.  The function will be called with three arguments:
+<a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a> option.  The function will be called with three arguments:
    pattern	The tag identifier or pattern used during the tag search.
    flags	String containing flags to control the function behavior.
    info		Dict containing the following entries:
@@ -701,14 +701,14 @@ like <a href="tagsrch.html#CTRL-%5D">CTRL-]</a>.</div>
 	        (mnemonic: the tag function may use the context around the
 		cursor to perform a better job of generating the tag list.)
   'i'		In Insert mode, the user was completing a tag (with
-		<a href="insert.html#i_CTRL-X_CTRL-%5D">i_CTRL-X_CTRL-]</a> or <a href="options.html#'completeopt'">'completeopt'</a> contains <code>t</code>).
+		<a href="/neovim-docs-web/en/insert#i_CTRL-X_CTRL-%5D">i_CTRL-X_CTRL-]</a> or <a href="/neovim-docs-web/en/options#'completeopt'">'completeopt'</a> contains <code>t</code>).
   'r'		The first argument to tagfunc should be interpreted as a
-		<a href="pattern.html#pattern">pattern</a> (see <a href="tagsrch.html#tag-regexp">tag-regexp</a>), such as when using:<pre>:tag /pat</pre></div>
+		<a href="/neovim-docs-web/en/pattern#pattern">pattern</a> (see <a href="/neovim-docs-web/en/tagsrch#tag-regexp">tag-regexp</a>), such as when using:<pre>:tag /pat</pre></div>
 <div class="old-help-para">		It is also given when completing in insert mode.
 		If this flag is not present, the argument is usually taken
 		literally as the full tag name.</div>
-<div class="old-help-para">Note that when <a href="options.html#'tagfunc'">'tagfunc'</a> is set, the priority of the tags described in
-<a href="tagsrch.html#tag-priority">tag-priority</a> does not apply.  Instead, the priority is exactly as the
+<div class="old-help-para">Note that when <a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a> is set, the priority of the tags described in
+<a href="/neovim-docs-web/en/tagsrch#tag-priority">tag-priority</a> does not apply.  Instead, the priority is exactly as the
 ordering of the elements in the list returned by the function.
 								<a name="E987"></a><code class="help-tag-right">E987</code>
 The function should return a List of Dict entries.  Each Dict must at least
@@ -718,19 +718,19 @@ include the following entries and each value must be a string:
 			either relative to the current directory or a full path.
 	cmd		Ex command used to locate the tag in the file.  This
 			can be either an Ex search pattern or a line number.
-Note that the format is similar to that of <a href="builtin.html#taglist()">taglist()</a>, which makes it possible
+Note that the format is similar to that of <a href="/neovim-docs-web/en/builtin#taglist()">taglist()</a>, which makes it possible
 to use its output to generate the result.
 The following fields are optional:
 	kind		Type of the tag.
 	user_data	String of custom data stored in the tag stack which
 			can be used to disambiguate tags between operations.</div>
-<div class="old-help-para">If the function returns <a href="eval.html#v%3Anull">v:null</a> instead of a List, a standard tag lookup will
+<div class="old-help-para">If the function returns <a href="/neovim-docs-web/en/eval#v%3Anull">v:null</a> instead of a List, a standard tag lookup will
 be performed instead.</div>
-<div class="old-help-para">It is not allowed to change the tagstack from inside <a href="options.html#'tagfunc'">'tagfunc'</a>.  <a name="E986"></a><code class="help-tag">E986</code>
-It is not allowed to close a window or change window from inside <a href="options.html#'tagfunc'">'tagfunc'</a>.
+<div class="old-help-para">It is not allowed to change the tagstack from inside <a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a>.  <a name="E986"></a><code class="help-tag">E986</code>
+It is not allowed to close a window or change window from inside <a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a>.
 <a name="E1299"></a><code class="help-tag">E1299</code></div>
-<div class="old-help-para">The following is a hypothetical example of a function used for <a href="options.html#'tagfunc'">'tagfunc'</a>.  It
-uses the output of <a href="builtin.html#taglist()">taglist()</a> to generate the result: a list of tags in the
+<div class="old-help-para">The following is a hypothetical example of a function used for <a href="/neovim-docs-web/en/options#'tagfunc'">'tagfunc'</a>.  It
+uses the output of <a href="/neovim-docs-web/en/builtin#taglist()">taglist()</a> to generate the result: a list of tags in the
 inverse order of file names.
 <pre>function TagFunc(pattern, flags, info)
   function CompareFilenames(item1, item2)

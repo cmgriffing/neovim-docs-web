@@ -14,7 +14,7 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">Debugging Vim</div>
 <div class="old-help-para">This is for debugging Vim itself, when it doesn't work properly.
-For debugging Vim scripts, functions, etc. see <a href="repeat.html#debug-scripts">debug-scripts</a></div>
+For debugging Vim scripts, functions, etc. see <a href="/neovim-docs-web/en/repeat#debug-scripts">debug-scripts</a></div>
 <div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>1. Location of a crash, using gcc and gdb		<a name="debug-gcc"></a><code class="help-tag-right">debug-gcc</code> <a name="gdb"></a><code class="help-tag">gdb</code></div>
 <div class="old-help-para">When Vim crashes in one of the test files, and you are using gcc for
 compilation, here is what you can do to find out exactly where Vim crashes.
@@ -54,11 +54,11 @@ matches the EXE (same date).</div>
 then the PDB was built with the EXE.</div>
 <div class="old-help-para">If you have Visual Studio, use that instead of the VC Toolkit and WinDbg.</div>
 <div class="old-help-para">For other compilers, you should always use the corresponding debugger: gdb
-(see above <a href="debug.html#debug-gcc">debug-gcc</a>) for the Cygwin and MinGW compilers.</div>
+(see above <a href="/neovim-docs-web/en/debug#debug-gcc">debug-gcc</a>) for the Cygwin and MinGW compilers.</div>
 <div class="old-help-para">								<a name="debug-vs2005"></a><code class="help-tag-right">debug-vs2005</code>
 <div class="help-column_heading">3.2 Debugging Vim crashes with Visual Studio 2005/Visual C++ 2005 Express</div></div>
 <div class="old-help-para">First launch vim.exe or gvim.exe and then launch Visual Studio.  (If you don't
-have Visual Studio, follow the instructions at <a href="debug.html#get-ms-debuggers">get-ms-debuggers</a> to obtain a
+have Visual Studio, follow the instructions at <a href="/neovim-docs-web/en/debug#get-ms-debuggers">get-ms-debuggers</a> to obtain a
 free copy of Visual C++ 2005 Express Edition.)</div>
 <div class="old-help-para">On the Tools menu, click Attach to Process.  Choose the Vim process.</div>
 <div class="old-help-para">In Vim, reproduce the crash.  A dialog will appear in Visual Studio, telling
@@ -78,11 +78,11 @@ at ":help bug-report".  Paste the call stack into the bug report.</div>
 the Debug menu and send it with the bug report.  A minidump is a small file
 (&lt;100KB), which contains information about the state of your process.
 Visual C++ 2005 Express Edition cannot save minidumps and it cannot be
-installed as a just-in-time debugger. Use WinDbg, <a href="debug.html#debug-windbg">debug-windbg</a>, if you
+installed as a just-in-time debugger. Use WinDbg, <a href="/neovim-docs-web/en/debug#debug-windbg">debug-windbg</a>, if you
 need to save minidumps or you want a just-in-time (postmortem) debugger.</div>
 <div class="old-help-para">								<a name="debug-windbg"></a><code class="help-tag-right">debug-windbg</code>
 <div class="help-column_heading">3.3 Debugging Vim crashes with WinDbg</div></div>
-<div class="old-help-para">See <a href="debug.html#get-ms-debuggers">get-ms-debuggers</a> to obtain a copy of WinDbg.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/debug#get-ms-debuggers">get-ms-debuggers</a> to obtain a copy of WinDbg.</div>
 <div class="old-help-para">As with the Visual Studio IDE, you can attach WinDbg to a running Vim process.
 You can also have your system automatically invoke WinDbg as a postmortem
 debugger. To set WinDbg as your postmortem debugger, run "windbg -I".</div>
@@ -103,9 +103,9 @@ automatically. As above, set the Symbol File Path and the Source File Path.</div
 <div class="old-help-para">If you have a minidump file, you can open it in Visual Studio or in WinDbg.</div>
 <div class="old-help-para">In Visual Studio 2005: on the File menu, choose Open, then Project/Solution.
 Navigate to the .dmp file and open it. Now press F5 to invoke the debugger.
-Follow the instructions in <a href="debug.html#debug-vs2005">debug-vs2005</a> to set the Symbol File Path.</div>
+Follow the instructions in <a href="/neovim-docs-web/en/debug#debug-vs2005">debug-vs2005</a> to set the Symbol File Path.</div>
 <div class="old-help-para">In WinDbg: choose Open Crash Dump on the File menu. Follow the instructions in
-<a href="debug.html#debug-windbg">debug-windbg</a> to set the Symbol File Path.</div>
+<a href="/neovim-docs-web/en/debug#debug-windbg">debug-windbg</a> to set the Symbol File Path.</div>
 <div class="old-help-para">							<a name="get-ms-debuggers"></a><code class="help-tag-right">get-ms-debuggers</code>
 <div class="help-column_heading">3.5 Obtaining Microsoft Debugging Tools</div></div>
 <div class="old-help-para">Visual Studio 2017 Community Edition can be downloaded for free from:

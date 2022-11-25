@@ -13,12 +13,12 @@ layout: ../../layouts/MainLayout.astro
   </p>
   <hr>
   <div class="old-help-para">The <code>vim.lsp</code> Lua module is a framework for building LSP plugins.</div>
-<div class="old-help-para">  1. Start with <a href="lsp.html#vim.lsp.start_client()">vim.lsp.start_client()</a> and <a href="lsp.html#vim.lsp.buf_attach_client()">vim.lsp.buf_attach_client()</a>.
+<div class="old-help-para">  1. Start with <a href="/neovim-docs-web/en/lsp#vim.lsp.start_client()">vim.lsp.start_client()</a> and <a href="/neovim-docs-web/en/lsp#vim.lsp.buf_attach_client()">vim.lsp.buf_attach_client()</a>.
   2. Peek at the API:<pre>:lua print(vim.inspect(vim.lsp))</pre></div>
-<div class="old-help-para">  3. See <a href="lsp-extension.html#lsp-extension-example">lsp-extension-example</a> for a full example.</div>
+<div class="old-help-para">  3. See <a href="/neovim-docs-web/en/lsp-extension#lsp-extension-example">lsp-extension-example</a> for a full example.</div>
 <div class="old-help-para"><h2 class="help-heading">LSP EXAMPLE</h2></div>
 <div class="old-help-para">This example is for plugin authors or users who want a lot of control. If you
-are just getting started see <a href="lsp.html#lsp-quickstart">lsp-quickstart</a>.</div>
+are just getting started see <a href="/neovim-docs-web/en/lsp#lsp-quickstart">lsp-quickstart</a>.</div>
 <div class="old-help-para">For more advanced configurations where just filtering by filetype isn't
 sufficient, you can use the <code>vim.lsp.start_client()</code> and
 <code>vim.lsp.buf_attach_client()</code> commands to easily customize the configuration

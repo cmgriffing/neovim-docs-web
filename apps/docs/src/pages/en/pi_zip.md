@@ -18,7 +18,7 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Author:  Charles E. Campbell  &lt;NcampObell@SdrPchip.AorgM-NOSPAM&gt;
 	  (remove NOSPAM from Campbell's email first)
 Copyright: Copyright (C) 2005-2015 Charles E Campbell
-	The VIM LICENSE (see <a href="uganda.html#copyright">copyright</a>) applies to the files in this
+	The VIM LICENSE (see <a href="/neovim-docs-web/en/uganda#copyright">copyright</a>) applies to the files in this
 	package, including zipPlugin.vim, zip.vim, and pi_zip.vim.  except use
 	"zip.vim" instead of "VIM".  Like anything else that's free, zip.vim
 	and its associated files are providedas is* and comes with no
@@ -84,13 +84,13 @@ let g:loaded_zip      = 1</pre></div>
    v29 Apr 02, 2017 * (Klartext) reported that an encrypted zip file could
 		      opened but the swapfile held unencrypted contents.
 		      The solution is to edit the contents of a zip file
-		      using the <a href="recover.html#%3Anoswapfile">:noswapfile</a> modifier.
+		      using the <a href="/neovim-docs-web/en/recover#%3Anoswapfile">:noswapfile</a> modifier.
    v28 Oct 08, 2014 * changed the sanity checks for executables to reflect
 		      the command actually to be attempted in zip#Read()
 		      and zip#Write()
 <div class="help-li" style=""> added the extraction of a file capability
-       Nov 30, 2015 * added.epub to the <a href="pi_zip.html#g%3AzipPlugin_ext">g:zipPlugin_ext</a> list
-       Sep 13, 2016 * added.apk to the <a href="pi_zip.html#g%3AzipPlugin_ext">g:zipPlugin_ext</a> list and
+       Nov 30, 2015 * added.epub to the <a href="/neovim-docs-web/en/pi_zip#g%3AzipPlugin_ext">g:zipPlugin_ext</a> list
+       Sep 13, 2016 * added.apk to the <a href="/neovim-docs-web/en/pi_zip#g%3AzipPlugin_ext">g:zipPlugin_ext</a> list and
 		      sorted the suffices.
    v27 Jul 02, 2013 * sanity check: zipfile must have "PK" as its first
 		      two bytes.

@@ -48,37 +48,37 @@ o  Editing left-to-right files as in the original Vim, no change.</div>
 <div class="old-help-para">o  Many languages use and require right-to-left support.  These languages
    can quite easily be supported given the inclusion of their required
    keyboard mappings and some possible minor code change.  Some of the
-   current supported languages include - <a href="arabic.html#arabic.txt">arabic.txt</a> and <a href="hebrew.html#hebrew.txt">hebrew.txt</a>.</div>
+   current supported languages include - <a href="/neovim-docs-web/en/arabic#arabic.txt">arabic.txt</a> and <a href="/neovim-docs-web/en/hebrew#hebrew.txt">hebrew.txt</a>.</div>
 <div class="old-help-para">Of Interest...
 <a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+rileft.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/rileft.html%0D%0DContext%3A%0D%0D%60%60%60%0D%0A%0AOf%20Interest...%0A--------------%0A%0Ao%20%20Invocations%0A%20%20%20-----------%0A%20%20%20%2B%20'rightleft'%20('rl')%20sets%20window%20orientation%20to%20right-to-left.%0D%60%60%60">--------------</a></div>
 <div class="old-help-para">o  Invocations
    -----------
-<div class="help-li" style=""> <a href="options.html#'rightleft'">'rightleft'</a> (<a href="options.html#'rl'">'rl'</a>) sets window orientation to right-to-left.
-</div><div class="help-li" style=""> <a href="options.html#'delcombine'">'delcombine'</a> (<a href="options.html#'deco'">'deco'</a>), boolean, if editing UTF-8 encoded languages,
+<div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a> (<a href="/neovim-docs-web/en/options#'rl'">'rl'</a>) sets window orientation to right-to-left.
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'delcombine'">'delcombine'</a> (<a href="/neovim-docs-web/en/options#'deco'">'deco'</a>), boolean, if editing UTF-8 encoded languages,
      allows one to remove a composing character which gets superimposed
      on those that preceded them (some languages require this).
-</div><div class="help-li" style=""> <a href="options.html#'rightleftcmd'">'rightleftcmd'</a> (<a href="options.html#'rlc'">'rlc'</a>) sets the command-line within certain modes
+</div><div class="help-li" style=""> <a href="/neovim-docs-web/en/options#'rightleftcmd'">'rightleftcmd'</a> (<a href="/neovim-docs-web/en/options#'rlc'">'rlc'</a>) sets the command-line within certain modes
      (such as search) to be utilized in right-to-left orientation as well.
 </div></div>
 <div class="old-help-para">o  Typing backwards					<a name="ins-reverse"></a><code class="help-tag-right">ins-reverse</code>
    ----------------
-   In lieu of using the full-fledged <a href="options.html#'rightleft'">'rightleft'</a> option, one can opt for
-   reverse insertion.  When the <a href="options.html#'revins'">'revins'</a> (reverse insert) option is set,
+   In lieu of using the full-fledged <a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a> option, one can opt for
+   reverse insertion.  When the <a href="/neovim-docs-web/en/options#'revins'">'revins'</a> (reverse insert) option is set,
    inserting happens backwards.  This can be used to type right-to-left
    text.  When inserting characters the cursor is not moved and the text
    moves rightwards.  A <code>&lt;BS&gt;</code> deletes the character under the cursor.
    <code>CTRL-W</code> and <code>CTRL-U</code> also work in the opposite direction.  <code>&lt;BS&gt;</code>, <code>CTRL-W</code>
    and <code>CTRL-U</code> do not stop at the start of insert or end of line, no matter
-   how the <a href="options.html#'backspace'">'backspace'</a> option is set.</div>
+   how the <a href="/neovim-docs-web/en/options#'backspace'">'backspace'</a> option is set.</div>
 <div class="old-help-para">   There is no reverse replace mode (yet).</div>
-<div class="old-help-para">   If the <a href="options.html#'showmode'">'showmode'</a> option is set, "-- REVERSE INSERT --" will be shown
+<div class="old-help-para">   If the <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a> option is set, "-- REVERSE INSERT --" will be shown
    in the status line when reverse Insert mode is active.</div>
 <div class="old-help-para">o  Pasting when in a rightleft window
    ----------------------------------
    When cutting text with the mouse and pasting it in a rightleft window
    the text will be reversed, because the characters come from the cut buffer
    from the left to the right, while inserted in the file from the right to
-   the left.   In order to avoid it, toggle <a href="options.html#'revins'">'revins'</a> before pasting.</div>
+   the left.   In order to avoid it, toggle <a href="/neovim-docs-web/en/options#'revins'">'revins'</a> before pasting.</div>
 <div class="old-help-para">Bugs
 ----
 o  Does not handle <code>CTRL-A</code> and <code>CTRL-X</code> commands (add and subtract) correctly
@@ -89,7 +89,7 @@ o  Does not handle <code>CTRL-A</code> and <code>CTRL-X</code> commands (add and
    left to the right on the command-line.</div>
 <div class="old-help-para">o  Somewhat slower in right-to-left mode, because right-to-left motion is
    emulated inside Vim, not by the controlling terminal.</div>
-<div class="old-help-para">o  When both <a href="options.html#'rightleft'">'rightleft'</a> and <a href="options.html#'revins'">'revins'</a> are on: <a href="options.html#'textwidth'">'textwidth'</a> does not work.
+<div class="old-help-para">o  When both <a href="/neovim-docs-web/en/options#'rightleft'">'rightleft'</a> and <a href="/neovim-docs-web/en/options#'revins'">'revins'</a> are on: <a href="/neovim-docs-web/en/options#'textwidth'">'textwidth'</a> does not work.
    Lines do not wrap at all; you just get a single, long line.</div>
 <div class="old-help-para">o  There is no full bidirectionality (bidi) support.</div>
 

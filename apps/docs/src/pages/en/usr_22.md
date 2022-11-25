@@ -18,13 +18,13 @@ layout: ../../layouts/MainLayout.astro
 ways to browse the directory tree.  There are commands to jump to a file that
 is mentioned in another.  And Vim remembers which files have been edited
 before.</div>
-<div class="old-help-para"><a href="usr_22.html#22.1">22.1</a>  	The file browser
-<a href="usr_22.html#22.2">22.2</a>  	The current directory
-<a href="usr_22.html#22.3">22.3</a>  	Finding a file
-<a href="usr_22.html#22.4">22.4</a>  	The buffer list</div>
-<div class="old-help-para">     Next chapter: <a href="usr_23.html#usr_23.txt">usr_23.txt</a>  Editing other files
- Previous chapter: <a href="usr_21.html#usr_21.txt">usr_21.txt</a>  Go away and come back
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_22#22.1">22.1</a>  	The file browser
+<a href="/neovim-docs-web/en/usr_22#22.2">22.2</a>  	The current directory
+<a href="/neovim-docs-web/en/usr_22#22.3">22.3</a>  	Finding a file
+<a href="/neovim-docs-web/en/usr_22#22.4">22.4</a>  	The buffer list</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_23#usr_23.txt">usr_23.txt</a>  Editing other files
+ Previous chapter: <a href="/neovim-docs-web/en/usr_21#usr_21.txt">usr_21.txt</a>  Go away and come back
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	The file browser</h2></div>
 <div class="old-help-para">Vim has a plugin that makes it possible to edit a directory.  Try this:<pre>:edit .</pre>
 Through the magic of autocommands and Vim scripts, the window will be filled
@@ -75,15 +75,15 @@ MAPS                                                                 netrw-maps
           r................Reversing Sorting Order....................|netrw-r|</pre></div>
 <div class="old-help-para">    	(etc)</div>
 <div class="old-help-para">The <code>&lt;F1&gt;</code> key thus brings you to a netrw directory browsing contents help page.
-It's a regular help page; use the usual <a href="tagsrch.html#CTRL-%5D">CTRL-]</a> to jump to tagged help items
-and <a href="motion.html#CTRL-O">CTRL-O</a> to jump back.</div>
+It's a regular help page; use the usual <a href="/neovim-docs-web/en/tagsrch#CTRL-%5D">CTRL-]</a> to jump to tagged help items
+and <a href="/neovim-docs-web/en/motion#CTRL-O">CTRL-O</a> to jump back.</div>
 <div class="old-help-para">To select files for display and editing: (with the cursor is atop a filename)</div>
-<div class="old-help-para">	<code>&lt;enter&gt;</code>		Open the file in the current window.	   <a href="pi_netrw.html#netrw-cr">netrw-cr</a>
-	o		Horizontally split window and display file <a href="pi_netrw.html#netrw-o">netrw-o</a>
-	v		Vertically split window and display file   <a href="pi_netrw.html#netrw-v">netrw-v</a>
-	p		Use the <a href="windows.html#preview-window">preview-window</a> 		   <a href="pi_netrw.html#netrw-p">netrw-p</a>
-	P		Edit in the previous window		   <a href="pi_netrw.html#netrw-P">netrw-P</a>
-	t		Open file in a new tab			   <a href="pi_netrw.html#netrw-t">netrw-t</a></div>
+<div class="old-help-para">	<code>&lt;enter&gt;</code>		Open the file in the current window.	   <a href="/neovim-docs-web/en/pi_netrw#netrw-cr">netrw-cr</a>
+	o		Horizontally split window and display file <a href="/neovim-docs-web/en/pi_netrw#netrw-o">netrw-o</a>
+	v		Vertically split window and display file   <a href="/neovim-docs-web/en/pi_netrw#netrw-v">netrw-v</a>
+	p		Use the <a href="/neovim-docs-web/en/windows#preview-window">preview-window</a> 		   <a href="/neovim-docs-web/en/pi_netrw#netrw-p">netrw-p</a>
+	P		Edit in the previous window		   <a href="/neovim-docs-web/en/pi_netrw#netrw-P">netrw-P</a>
+	t		Open file in a new tab			   <a href="/neovim-docs-web/en/pi_netrw#netrw-t">netrw-t</a></div>
 <div class="old-help-para">The following normal-mode commands may be used to control the browser display:</div>
 <div class="old-help-para">	i		Controls listing style (thin, long, wide, and tree).
 			The long listing includes size and date information.
@@ -94,7 +94,7 @@ and <a href="motion.html#CTRL-O">CTRL-O</a> to jump back.</div>
 <div class="old-help-para">As a sampling of extra normal-mode commands:</div>
 <div class="old-help-para">	cd		Change Vim's notion of the current directory to be
 			the same as the browser directory.  (see
-			<a href="pi_netrw.html#g%3Anetrw_keepdir">g:netrw_keepdir</a> to control this, too)
+			<a href="/neovim-docs-web/en/pi_netrw#g%3Anetrw_keepdir">g:netrw_keepdir</a> to control this, too)
 	R		Rename the file or directory under the cursor; a
 			prompt will be issued for the new name.
 	D		Delete the file or directory under the cursor; a
@@ -108,7 +108,7 @@ and <a href="motion.html#CTRL-O">CTRL-O</a> to jump back.</div>
 urls such as:    (that trailing / is important)</div>
 <div class="old-help-para">	:Explore ftp://somehost/path/to/dir/
 	:e scp://somehost/path/to/dir/</div>
-<div class="old-help-para">See <a href="pi_netrw.html#netrw-browse">netrw-browse</a> for more.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/pi_netrw#netrw-browse">netrw-browse</a> for more.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="22.2"></a><span class="help-tag">22.2</span>  	The current directory</span></h2></div>
 <div class="old-help-para">Just like the shell, Vim has the concept of a current directory.  Suppose you
 are in your home directory and want to edit several files in a directory
@@ -170,11 +170,11 @@ page, it will also change the current tab page working directory.</div>
 <div class="old-help-para">You want to see what is in that "inits.h" file.  Move the cursor on the name
 of the file and type:<pre>gf</pre>
 Vim will find the file and edit it.
-   What if the file is not in the current directory?  Vim will use the <a href="options.html#'path'">'path'</a>
+   What if the file is not in the current directory?  Vim will use the <a href="/neovim-docs-web/en/options#'path'">'path'</a>
 option to find the file.  This option is a list of directory names where to
 look for your file.
    Suppose you have your include files located in "c:/prog/include".  This
-command will add it to the <a href="options.html#'path'">'path'</a> option:<pre>:set path+=c:/prog/include</pre>
+command will add it to the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option:<pre>:set path+=c:/prog/include</pre>
 This directory is an absolute path.  No matter where you are, it will be the
 same place.  What if you have located files in a subdirectory, below where the
 file is?  Then you can specify a relative path name.  This starts with a dot:
@@ -185,20 +185,20 @@ look for "proto/inits.h", starting in the directory of the file.
    Without the "./", thus "proto", Vim would look in the "proto" directory
 below the current directory.  And the current directory might not be where the
 file that you are editing is located.</div>
-<div class="old-help-para">The <a href="options.html#'path'">'path'</a> option allows specifying the directories where to search for files
-in many more ways.  See the help on the <a href="options.html#'path'">'path'</a> option.
-   The <a href="options.html#'isfname'">'isfname'</a> option is used to decide which characters are included in the
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'path'">'path'</a> option allows specifying the directories where to search for files
+in many more ways.  See the help on the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option.
+   The <a href="/neovim-docs-web/en/options#'isfname'">'isfname'</a> option is used to decide which characters are included in the
 file name, and which ones are not (e.g., the " character in the example
 above).</div>
 <div class="old-help-para">When you know the file name, but it's not to be found in the file, you can
 type it:<pre>:find inits.h</pre>
-Vim will then use the <a href="options.html#'path'">'path'</a> option to try and locate the file.  This is the
-same as the ":edit" command, except for the use of <a href="options.html#'path'">'path'</a>.</div>
+Vim will then use the <a href="/neovim-docs-web/en/options#'path'">'path'</a> option to try and locate the file.  This is the
+same as the ":edit" command, except for the use of <a href="/neovim-docs-web/en/options#'path'">'path'</a>.</div>
 <div class="old-help-para">To open the found file in a new window use <code>CTRL-W</code> f instead of "gf", or use
 ":sfind" instead of ":find".</div>
-<div class="old-help-para">A nice way to directly start Vim to edit a file somewhere in the <a href="options.html#'path'">'path'</a>:<pre>vim "+find stdio.h"</pre>
-This finds the file "stdio.h" in your value of <a href="options.html#'path'">'path'</a>.  The quotes are
-necessary to have one argument <a href="starting.html#-%2Bc">-+c</a>.</div>
+<div class="old-help-para">A nice way to directly start Vim to edit a file somewhere in the <a href="/neovim-docs-web/en/options#'path'">'path'</a>:<pre>vim "+find stdio.h"</pre>
+This finds the file "stdio.h" in your value of <a href="/neovim-docs-web/en/options#'path'">'path'</a>.  The quotes are
+necessary to have one argument <a href="/neovim-docs-web/en/starting#-%2Bc">-+c</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="22.4"></a><span class="help-tag">22.4</span>  	The buffer list</span></h2></div>
 <div class="old-help-para">The Vim editor uses the term buffer to describe a file being edited.
 Actually, a buffer is a copy of the file that you edit.  When you finish
@@ -214,7 +214,7 @@ The buffer "one.txt" disappears from the screen, but Vim still knows that you
 are editing this buffer, so it keeps the modified text.  This is called a
 hidden buffer: The buffer contains text, but you can't see it.
    The argument of ":hide" is another command.  ":hide" makes that command
-behave as if the <a href="options.html#'hidden'">'hidden'</a> option was set.  You could also set this option
+behave as if the <a href="/neovim-docs-web/en/options#'hidden'">'hidden'</a> option was set.  You could also set this option
 yourself.  The effect is that when any buffer is abandoned, it becomes hidden.
    Be careful!  When you have hidden buffers with changes, don't exit Vim
 without making sure you have saved all the buffers.</div>
@@ -239,13 +239,13 @@ buffer without having to type the name, see below.
    After the buffer number come the flags.  Then the name of the file
 and the line number where the cursor was the last time.
    The flags that can appear are these (from left to right):</div>
-<div class="old-help-para">	u	Buffer is unlisted <a href="windows.html#unlisted-buffer">unlisted-buffer</a>.
+<div class="old-help-para">	u	Buffer is unlisted <a href="/neovim-docs-web/en/windows#unlisted-buffer">unlisted-buffer</a>.
 	 %	Current buffer.
 	 #	Alternate buffer.
 	  a	Buffer is loaded and displayed.
 	  h	Buffer is loaded but hidden.
 	   =	Buffer is read-only.
-	   -		Buffer is not modifiable, the <a href="options.html#'modifiable'">'modifiable'</a> option is off.
+	   -		Buffer is not modifiable, the <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a> option is off.
 	    +	Buffer has been modified.</div>
 <div class="old-help-para">EDITING A BUFFER</div>
 <div class="old-help-para">You can edit a buffer by its number.  That avoids having to type the file
@@ -273,9 +273,9 @@ can't be editing nothing!</div>
 	It's actually made "unlisted", it no longer appears in the list from
 	":buffers".  The ":buffers!" command will list unlisted buffers (yes,
 	Vim can do the impossible).  To really make Vim forget about a buffer,
-	use ":bwipe".  Also see the <a href="options.html#'buflisted'">'buflisted'</a> option.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_23.html#usr_23.txt">usr_23.txt</a>  Editing other files</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+	use ":bwipe".  Also see the <a href="/neovim-docs-web/en/options#'buflisted'">'buflisted'</a> option.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_23#usr_23.txt">usr_23.txt</a>  Editing other files</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

@@ -17,16 +17,16 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">No matter how many files you have, you can edit them without leaving Vim.
 Define a list of files to work on and jump from one to the other.  Copy text
 from one file and put it in another one.</div>
-<div class="old-help-para"><a href="usr_07.html#07.1">07.1</a>  	Edit another file
-<a href="usr_07.html#07.2">07.2</a>  	A list of files
-<a href="usr_07.html#07.3">07.3</a>  	Jumping from file to file
-<a href="usr_07.html#07.4">07.4</a>  	Backup files
-<a href="usr_07.html#07.5">07.5</a>  	Copy text between files
-<a href="usr_07.html#07.6">07.6</a>  	Viewing a file
-<a href="usr_07.html#07.7">07.7</a>  	Changing the file name</div>
-<div class="old-help-para">     Next chapter: <a href="usr_08.html#usr_08.txt">usr_08.txt</a>  Splitting windows
- Previous chapter: <a href="usr_06.html#usr_06.txt">usr_06.txt</a>  Using syntax highlighting
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_07#07.1">07.1</a>  	Edit another file
+<a href="/neovim-docs-web/en/usr_07#07.2">07.2</a>  	A list of files
+<a href="/neovim-docs-web/en/usr_07#07.3">07.3</a>  	Jumping from file to file
+<a href="/neovim-docs-web/en/usr_07#07.4">07.4</a>  	Backup files
+<a href="/neovim-docs-web/en/usr_07#07.5">07.5</a>  	Copy text between files
+<a href="/neovim-docs-web/en/usr_07#07.6">07.6</a>  	Viewing a file
+<a href="/neovim-docs-web/en/usr_07#07.7">07.7</a>  	Changing the file name</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_08#usr_08.txt">usr_08.txt</a>  Splitting windows
+ Previous chapter: <a href="/neovim-docs-web/en/usr_06#usr_06.txt">usr_06.txt</a>  Using syntax highlighting
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Edit another file</h2></div>
 <div class="old-help-para">So far you had to start Vim for every file you wanted to edit.  There is a
 simpler way.  To start editing another file, use this command:<pre>:edit foo.txt</pre>
@@ -45,7 +45,7 @@ force (!) character:<pre>:edit! foo.txt</pre>
 If you want to edit another file, but not write the changes in the current
 file yet, you can make it hidden:<pre>:hide edit foo.txt</pre>
 The text with changes is still there, but you can't see it.  This is further
-explained in section <a href="usr_22.html#22.4">22.4</a>: The buffer list.</div>
+explained in section <a href="/neovim-docs-web/en/usr_22#22.4">22.4</a>: The buffer list.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="07.2"></a><span class="help-tag">07.2</span>  	A list of files</span></h2></div>
 <div class="old-help-para">You can start Vim to edit a sequence of files.  For example:<pre>vim one.c two.c three.c</pre>
 This command starts Vim and tells it that you will be editing three files.
@@ -125,7 +125,7 @@ the character.  Even when you move around in the file <code>" and</code>. will t
 to the remembered position.  At least until you make another change or leave
 the file.</div>
 <div class="old-help-para"><a name="_file-marks"></a><h3 class="help-heading">FILE MARKS</h3></div>
-<div class="old-help-para">In section <a href="usr_03.html#03.10">03.10</a> was explained how you can place a mark in a file with "mx"
+<div class="old-help-para">In section <a href="/neovim-docs-web/en/usr_03#03.10">03.10</a> was explained how you can place a mark in a file with "mx"
 and jump to that position with "`x".  That works within one file.  If you edit
 another file and place marks there, these are specific for that file.  Thus
 each file has its own set of marks, they are local to the file.
@@ -156,11 +156,11 @@ data.txt~.
    If you do not like the fact that the backup files end with ~, you can
 change the extension:<pre>:set backupext=.bak</pre>
 This will use data.txt.bak instead of data.txt~.
-   Another option that matters here is <a href="options.html#'backupdir'">'backupdir'</a>.  It specifies where the
+   Another option that matters here is <a href="/neovim-docs-web/en/options#'backupdir'">'backupdir'</a>.  It specifies where the
 backup file is written.  The default, to write the backup in the same
 directory as the original file, will mostly be the right thing.</div>
 <div class="old-help-para">	Note:
-	When the <a href="options.html#'backup'">'backup'</a> option isn't set but the <a href="options.html#'writebackup'">'writebackup'</a> is, Vim will
+	When the <a href="/neovim-docs-web/en/options#'backup'">'backup'</a> option isn't set but the <a href="/neovim-docs-web/en/options#'writebackup'">'writebackup'</a> is, Vim will
 	still create a backup file.  However, it is deleted as soon as writing
 	the file was completed successfully.  This functions as a safety
 	against losing your original file when writing fails in some way (disk
@@ -170,7 +170,7 @@ directory as the original file, will mostly be the right thing.</div>
 <div class="old-help-para">If you are editing source files, you might want to keep the file before you
 make any changes.  But the backup file will be overwritten each time you write
 the file.  Thus it only contains the previous version, not the first one.
-   To make Vim keep the original file, set the <a href="options.html#'patchmode'">'patchmode'</a> option.  This
+   To make Vim keep the original file, set the <a href="/neovim-docs-web/en/options#'patchmode'">'patchmode'</a> option.  This
 specifies the extension used for the first backup of a changed file.  Usually
 you would do this:<pre>:set patchmode=.orig</pre>
 When you now edit the file data.txt for the first time, make changes and write
@@ -178,8 +178,8 @@ the file, Vim will keep a copy of the unchanged file under the name
 "data.txt.orig".
    If you make further changes to the file, Vim will notice that
 "data.txt.orig" already exists and leave it alone.  Further backup files will
-then be called "data.txt~" (or whatever you specified with <a href="options.html#'backupext'">'backupext'</a>).
-   If you leave <a href="options.html#'patchmode'">'patchmode'</a> empty (that is the default), the original file
+then be called "data.txt~" (or whatever you specified with <a href="/neovim-docs-web/en/options#'backupext'">'backupext'</a>).
+   If you leave <a href="/neovim-docs-web/en/options#'patchmode'">'patchmode'</a> empty (that is the default), the original file
 will not be kept.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="07.5"></a><span class="help-tag">07.5</span>  	Copy text between files</span></h2></div>
 <div class="old-help-para">This explains how to copy text from one file to another.  Let's start with a
@@ -253,7 +253,7 @@ still write it.  Add the ! to the write command to force writing.</div>
 <div class="old-help-para">If you really want to forbid making changes in a file, do this:<pre>vim -M file</pre>
 Now every attempt to change the text will fail.  The help files are like this,
 for example.  If you try to make a change you get this error message:</div>
-<div class="old-help-para"><div class="help-column_heading">	E21: Cannot make changes, <a href="options.html#'modifiable'">'modifiable'</a> is off</div></div>
+<div class="old-help-para"><div class="help-column_heading">	E21: Cannot make changes, <a href="/neovim-docs-web/en/options#'modifiable'">'modifiable'</a> is off</div></div>
 <div class="old-help-para">You could use the -M argument to setup Vim to work in a viewer mode.  This is
 only voluntary though, since these commands will remove the protection:<pre>:set modifiable
 :set write</pre>
@@ -274,8 +274,8 @@ the file you started editing.  When you try to write the file, you might get
 this message:</div>
 <div class="old-help-para"><div class="help-column_heading">	E13: File exists (use ! to override)</div></div>
 <div class="old-help-para">This protects you from accidentally overwriting another file.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_08.html#usr_08.txt">usr_08.txt</a>  Splitting windows</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_08#usr_08.txt">usr_08.txt</a>  Splitting windows</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

@@ -14,8 +14,8 @@ layout: ../../layouts/MainLayout.astro
   <hr>
   <div class="old-help-para">Multi-language features <a name="multi-lang"></a><code class="help-tag">multi-lang</code></div>
 <div class="old-help-para">This is about using messages and menus in various languages.  For editing
-multibyte text see <a href="mbyte.html#multibyte">multibyte</a>.</div>
-<div class="old-help-para">The basics are explained in the user manual: <a href="usr_45.html#usr_45.txt">usr_45.txt</a>.</div>
+multibyte text see <a href="/neovim-docs-web/en/mbyte#multibyte">multibyte</a>.</div>
+<div class="old-help-para">The basics are explained in the user manual: <a href="/neovim-docs-web/en/usr_45#usr_45.txt">usr_45.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">1. Messages<span class="help-heading-tags">						<a name="multilang-messages"></a><span class="help-tag">multilang-messages</span></span></h2></div>
 <div class="old-help-para">Vim picks up the locale from the environment.  In most cases this means Vim
 will use the language that you prefer, unless it's not available.</div>
@@ -41,7 +41,7 @@ use of "-" and "_".</div>
 			Without argument all parts of the locale are printed
 			(this is system dependent).
 			The current language can also be obtained with the
-			<a href="eval.html#v%3Alang">v:lang</a>, <a href="eval.html#v%3Actype">v:ctype</a>, <a href="eval.html#v%3Acollate">v:collate</a> and <a href="eval.html#v%3Alc_time">v:lc_time</a>
+			<a href="/neovim-docs-web/en/eval#v%3Alang">v:lang</a>, <a href="/neovim-docs-web/en/eval#v%3Actype">v:ctype</a>, <a href="/neovim-docs-web/en/eval#v%3Acollate">v:collate</a> and <a href="/neovim-docs-web/en/eval#v%3Alc_time">v:lc_time</a>
 			variables.</div>
 <div class="old-help-para">:lan[guage] <code>{name}</code>
 :lan[guage] mes[sages] <code>{name}</code>
@@ -61,7 +61,7 @@ use of "-" and "_".</div>
 			With the "ctype" argument the language used for
 			character encoding is set.  This affects the libraries
 			that Vim was linked with.  It's unusual to set this to
-			a different value from <a href="options.html#'encoding'">'encoding'</a> or "C".  This sets
+			a different value from <a href="/neovim-docs-web/en/options#'encoding'">'encoding'</a> or "C".  This sets
 			$LC_CTYPE.
 			With the "time" argument the language used for time
 			and date messages is set.  This affects strftime().
@@ -92,13 +92,13 @@ to a .mo file.</div>
 the language of your choice.  use "en" to disable translations.<pre>:let $LANG = 'ja'</pre>
 (text for Windows by Muraoka Taro)</div>
 <div class="old-help-para"><h2 class="help-heading">2. Menus<span class="help-heading-tags">						<a name="multilang-menus"></a><span class="help-tag">multilang-menus</span></span></h2></div>
-<div class="old-help-para">See <a href="usr_45.html#45.2">45.2</a> for the basics, esp. using <a href="options.html#'langmenu'">'langmenu'</a>.</div>
+<div class="old-help-para">See <a href="/neovim-docs-web/en/usr_45#45.2">45.2</a> for the basics, esp. using <a href="/neovim-docs-web/en/options#'langmenu'">'langmenu'</a>.</div>
 <div class="old-help-para">Note that if changes have been made to the menus after the translation was
 done, some of the menus may be shown in English.  Please try contacting the
 maintainer of the translation and ask him to update it.  You can find the
 name and e-mail address of the translator in
 "$VIMRUNTIME/lang/menu_&lt;lang&gt;.vim".</div>
-<div class="old-help-para">To set the font to use for the menus, use the <a href="syntax.html#%3Ahighlight">:highlight</a> command.  Example:<pre>:highlight Menu font=k12,r12</pre>
+<div class="old-help-para">To set the font to use for the menus, use the <a href="/neovim-docs-web/en/syntax#%3Ahighlight">:highlight</a> command.  Example:<pre>:highlight Menu font=k12,r12</pre>
 <a name="_alias-locale-names"></a><h3 class="help-heading">ALIAS LOCALE NAMES</h3></div>
 <div class="old-help-para">Unfortunately, the locale names are different on various systems, even though
 they are for the same language and encoding.  If you do not get the menu
@@ -112,10 +112,10 @@ underscores, to avoid having to escape them.</div>
 <div class="old-help-para">If you find a menu translation file for your language with a different name,
 create a file in your own runtime directory to load that one.  The name of
 that file could be:<pre>~/.config/nvim/lang/menu_&lt;v:lang&gt;.vim</pre>
-Check the <a href="options.html#'runtimepath'">'runtimepath'</a> option for directories which are searched.  In that
+Check the <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a> option for directories which are searched.  In that
 file put a command to load the menu file with the other name:<pre>runtime lang/menu_&lt;other_lang&gt;.vim</pre>
 <a name="_translating-menus"></a><h3 class="help-heading">TRANSLATING MENUS</h3></div>
-<div class="old-help-para">If you want to do your own translations, you can use the <a href="mlang.html#%3Amenutrans">:menutrans</a> command,
+<div class="old-help-para">If you want to do your own translations, you can use the <a href="/neovim-docs-web/en/mlang#%3Amenutrans">:menutrans</a> command,
 explained below.  It is recommended to put the translations for one language
 in a Vim script.  For a language that has no translation yet, please consider
 becoming the maintainer and make your translations available to all Vim users.
@@ -127,7 +127,7 @@ Send an e-mail to the Vim maintainer &lt;maintainer@vim.org&gt;.</div>
 			Translate menu name <code>{english}</code> to <code>{mylang}</code>.  All
 			special characters like "&amp;" and "&lt;Tab&gt;" need to be
 			included.  Spaces and dots need to be escaped with a
-			backslash, just like in other <a href="gui.html#%3Amenu">:menu</a> commands.
+			backslash, just like in other <a href="/neovim-docs-web/en/gui#%3Amenu">:menu</a> commands.
 			Case in <code>{english}</code> is ignored.</div>
 <div class="old-help-para">See the $VIMRUNTIME/lang directory for examples.</div>
 <div class="old-help-para">To try out your translations you first have to remove all menus.  This is how
@@ -138,7 +138,7 @@ Each part of a menu path is translated separately.  The result is that when
 "Help" is translated to "Hilfe" and "Overview" to "Überblick" then
 "Help.Overview" will be translated to "Hilfe.Überblick".</div>
 <div class="old-help-para"><h2 class="help-heading">3. Scripts<span class="help-heading-tags">						<a name="multilang-scripts"></a><span class="help-tag">multilang-scripts</span></span></h2></div>
-<div class="old-help-para">In Vim scripts you can use the <a href="eval.html#v%3Alang">v:lang</a> variable to get the current language
+<div class="old-help-para">In Vim scripts you can use the <a href="/neovim-docs-web/en/eval#v%3Alang">v:lang</a> variable to get the current language
 (locale).  The default value is "C" or comes from the $LANG environment
 variable.</div>
 <div class="old-help-para">The following example shows how this variable is used in a simple way, to make

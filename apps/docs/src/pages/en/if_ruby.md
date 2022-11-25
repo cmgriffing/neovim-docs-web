@@ -26,8 +26,8 @@ downloading Ruby there.</div>
 			The <code>{endmarker}</code> after <code>{script}</code> must NOT be preceded by
 			any white space.</div>
 <div class="old-help-para">			If [endmarker] is omitted, it defaults to a dot '.'
-			like for the <a href="insert.html#%3Aappend">:append</a> and <a href="insert.html#%3Ainsert">:insert</a> commands.</div>
-<div class="old-help-para">			This form of the <a href="if_ruby.html#%3Aruby">:ruby</a> command is mainly useful for
+			like for the <a href="/neovim-docs-web/en/insert#%3Aappend">:append</a> and <a href="/neovim-docs-web/en/insert#%3Ainsert">:insert</a> commands.</div>
+<div class="old-help-para">			This form of the <a href="/neovim-docs-web/en/if_ruby#%3Aruby">:ruby</a> command is mainly useful for
 			including ruby code in vim scripts.</div>
 <div class="old-help-para">Example Vim script:<pre>function! RedGem()
 ruby &lt;&lt; EOF
@@ -54,7 +54,7 @@ endfunction</pre></div>
 <div class="old-help-para">							<a name="%3Arubyfile"></a><code class="help-tag-right">:rubyfile</code> <a name="%3Arubyf"></a><code class="help-tag">:rubyf</code>
 :rubyf[ile] <code>{file}</code>	Execute the Ruby script in <code>{file}</code>.  This is the same as
 			<code>:ruby load 'file'</code>, but allows file name completion.</div>
-<div class="old-help-para">Executing Ruby commands is not possible in the <a href="eval.html#sandbox">sandbox</a>.</div>
+<div class="old-help-para">Executing Ruby commands is not possible in the <a href="/neovim-docs-web/en/eval#sandbox">sandbox</a>.</div>
 <div class="old-help-para"><h2 class="help-heading">2. The VIM module<span class="help-heading-tags">					<a name="ruby-vim"></a><span class="help-tag">ruby-vim</span></span></h2></div>
 <div class="old-help-para">Ruby code gets all of its access to vim via the "VIM" module.</div>
 <div class="old-help-para">Overview<pre>print "Hello"                              # displays a message
@@ -85,15 +85,15 @@ VIM::message({msg})
 VIM::set_option({arg})
 	Sets a vim option.  <code>{arg}</code> can be any argument that the ":set" command
 	accepts.  Note that this means that no spaces are allowed in the
-	argument!  See <a href="options.html#%3Aset">:set</a>.</div>
+	argument!  See <a href="/neovim-docs-web/en/options#%3Aset">:set</a>.</div>
 <div class="old-help-para">							<a name="ruby-command"></a><code class="help-tag-right">ruby-command</code>
 VIM::command({cmd})
 	Executes Ex command <code>{cmd}</code>.</div>
 <div class="old-help-para">							<a name="ruby-evaluate"></a><code class="help-tag-right">ruby-evaluate</code>
 VIM::evaluate({expr})
 	Evaluates <code>{expr}</code> using the vim internal expression evaluator (see
-	<a href="eval.html#expression">expression</a>).  Returns the expression result as a string.
-	A <a href="eval.html#List">List</a> is turned into a string by joining the items and inserting
+	<a href="/neovim-docs-web/en/eval#expression">expression</a>).  Returns the expression result as a string.
+	A <a href="/neovim-docs-web/en/eval#List">List</a> is turned into a string by joining the items and inserting
 	line breaks.</div>
 <div class="old-help-para"><h2 class="help-heading">3. VIM::Buffer objects<span class="help-heading-tags">					<a name="ruby-buffer"></a><span class="help-tag">ruby-buffer</span></span></h2></div>
 <div class="old-help-para">VIM::Buffer objects represent vim buffers.</div>
@@ -140,7 +140,7 @@ cursor = [{row}, <code>{col}</code>]
 <div class="old-help-para">$curwin		The current window object.
 $curbuf		The current buffer object.</div>
 <div class="old-help-para"><h2 class="help-heading">6. rubyeval() Vim function<span class="help-heading-tags">				<a name="ruby-rubyeval"></a><span class="help-tag">ruby-rubyeval</span></span></h2></div>
-<div class="old-help-para">To facilitate bi-directional interface, you can use <a href="builtin.html#rubyeval()">rubyeval()</a> function to
+<div class="old-help-para">To facilitate bi-directional interface, you can use <a href="/neovim-docs-web/en/builtin#rubyeval()">rubyeval()</a> function to
 evaluate Ruby expressions and pass their values to Vim script.</div>
 <div class="old-help-para">The Ruby value "true", "false" and "nil" are converted to v:true, v:false and
 v:null, respectively.</div>

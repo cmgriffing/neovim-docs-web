@@ -17,17 +17,17 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">Vim can be tuned to work like you want it to.  This chapter shows you how to
 make Vim start with options set to different values.  Add plugins to extend
 Vim's capabilities.  Or define your own macros.</div>
-<div class="old-help-para"><a href="usr_05.html#05.1">05.1</a>  	The vimrc file
-<a href="usr_05.html#05.2">05.2</a>  	The example vimrc file explained
-<a href="usr_05.html#05.3">05.3</a>  	Simple mappings
-<a href="usr_05.html#05.4">05.4</a>  	Adding a package
-<a href="usr_05.html#05.5">05.5</a>  	Adding a plugin
-<a href="usr_05.html#05.6">05.6</a>  	Adding a help file
-<a href="usr_05.html#05.7">05.7</a>  	The option window
-<a href="usr_05.html#05.8">05.8</a>  	Often used options</div>
-<div class="old-help-para">     Next chapter: <a href="usr_06.html#usr_06.txt">usr_06.txt</a>  Using syntax highlighting
- Previous chapter: <a href="usr_04.html#usr_04.txt">usr_04.txt</a>  Making small changes
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_05#05.1">05.1</a>  	The vimrc file
+<a href="/neovim-docs-web/en/usr_05#05.2">05.2</a>  	The example vimrc file explained
+<a href="/neovim-docs-web/en/usr_05#05.3">05.3</a>  	Simple mappings
+<a href="/neovim-docs-web/en/usr_05#05.4">05.4</a>  	Adding a package
+<a href="/neovim-docs-web/en/usr_05#05.5">05.5</a>  	Adding a plugin
+<a href="/neovim-docs-web/en/usr_05#05.6">05.6</a>  	Adding a help file
+<a href="/neovim-docs-web/en/usr_05#05.7">05.7</a>  	The option window
+<a href="/neovim-docs-web/en/usr_05#05.8">05.8</a>  	Often used options</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_06#usr_06.txt">usr_06.txt</a>  Using syntax highlighting
+ Previous chapter: <a href="/neovim-docs-web/en/usr_04#usr_04.txt">usr_04.txt</a>  Making small changes
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	The vimrc file<span class="help-heading-tags">				<a name="vimrc-intro"></a><span class="help-tag">vimrc-intro</span></span></h2></div>
 <div class="old-help-para">You probably got tired of typing commands that you use very often.  To start
 Vim with all your favorite option settings and mappings, you write them in
@@ -35,17 +35,17 @@ what is called the init.vim file.  Vim executes the commands in this file when
 it starts up.</div>
 <div class="old-help-para">If you already have a init.vim file (e.g., when your sysadmin has one setup
 for you), you can edit it this way:<pre>:edit $MYVIMRC</pre>
-If you don't have a vimrc file yet, see <a href="starting.html#init.vim">init.vim</a> to find out where you can
+If you don't have a vimrc file yet, see <a href="/neovim-docs-web/en/starting#init.vim">init.vim</a> to find out where you can
 create a vimrc file.</div>
 <div class="old-help-para">This file is always used and is recommended:</div>
 <div class="old-help-para"><div class="help-column_heading">	~/.config/nvim/init.vim         (Unix and OSX)</div><div class="help-column_heading">	~/AppData/Local/nvim/init.vim   (Windows)</div></div>
 <div class="old-help-para">The vimrc file can contain all the commands that you type after a colon.  The
 simplest ones are for setting options.  For example, if you want Vim to always
-start with the <a href="options.html#'ignorecase'">'ignorecase'</a> option on, add this line your vimrc file:<pre>set ignorecase</pre>
+start with the <a href="/neovim-docs-web/en/options#'ignorecase'">'ignorecase'</a> option on, add this line your vimrc file:<pre>set ignorecase</pre>
 For this new line to take effect you need to exit Vim and start it again.
 Later you will learn how to do this without exiting Vim.</div>
 <div class="old-help-para">This chapter only explains the most basic items.  For more information on how
-to write a Vim script file: <a href="usr_41.html#usr_41.txt">usr_41.txt</a>.</div>
+to write a Vim script file: <a href="/neovim-docs-web/en/usr_41#usr_41.txt">usr_41.txt</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.2"></a><span class="help-tag">05.2</span>  	The example vimrc file explained<span class="help-heading-tags">		<a name="vimrc_example.vim"></a><span class="help-tag">vimrc_example.vim</span></span></span></h2></div>
 <div class="old-help-para">In the first chapter was explained how to create a vimrc file.<pre>:exe 'edit' stdpath('config').'/init.vim'</pre>
 In this section we will explain the various commands used in this file.  This
@@ -63,7 +63,7 @@ when pressing <code>&lt;Enter&gt;</code> in Insert mode, and when using the "o" 
 new line.
 <pre>set backup</pre>
 This tells Vim to keep a backup copy of a file when overwriting it. The backup
-file will have the same name as the original file with "~" added.  See <a href="usr_07.html#07.4">07.4</a>
+file will have the same name as the original file with "~" added.  See <a href="/neovim-docs-web/en/usr_07#07.4">07.4</a>
 <pre>set history=50</pre>
 Keep 50 commands and 50 search patterns in the history.  Use another number if
 you want to remember fewer or more lines.
@@ -82,7 +82,7 @@ the "2fw" command is executed and the displayed "2f" is removed.</div>
 	|<a class="parse-error" target="_blank" title="Report bug... (parse error)" href="https://github.com/neovim/tree-sitter-vimdoc/issues/new?labels=bug&amp;title=parse+error%3A+usr_05.txt+&amp;body=Found+%60tree-sitter-vimdoc%60+parse+error+at%3A+https://neovim.io/doc/user/usr_05.html%0D%0DContext%3A%0D%0D%60%60%60%0D%09%7Ctext%20in%20the%20Vim%20window%09%09%09%09%20%20%7C%0A%09%7C~%09%09%09%09%09%09%20%20%7C%0A%09%7C~%09%09%09%09%09%09%20%20%7C%0A%09%7C--%20VISUAL%20--%09%09%092f%20%20%20%20%2043%2C8%20%20%2017%25%20%7C%0A%09%2B-------------------------------------------------%2B%0A%09%20%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%09%09%20%20%20%20%20%20%5E%5E%5E%5E%5E%5E%5E%5E%20%5E%5E%5E%5E%5E%5E%5E%5E%5E%5E%0A%09%20%20'showmode'%09%09%20%20%20%20%20'showcmd'%09'ruler'%0D%60%60%60">--</a> VISUAL --			2f     43,8   17% |
 	+-------------------------------------------------+
 	 ^^^^^^^^^^^		      ^^^^^^^^ ^^^^^^^^^^
-	  <a href="options.html#'showmode'">'showmode'</a>		     <a href="options.html#'showcmd'">'showcmd'</a>	<a href="options.html#'ruler'">'ruler'</a></div>
+	  <a href="/neovim-docs-web/en/options#'showmode'">'showmode'</a>		     <a href="/neovim-docs-web/en/options#'showcmd'">'showcmd'</a>	<a href="/neovim-docs-web/en/options#'ruler'">'ruler'</a></div>
 <div class="old-help-para"><pre>set incsearch</pre>
 Display matches for a search pattern while you type.</div>
 <div class="old-help-para"><pre>map Q gq</pre>
@@ -98,7 +98,7 @@ executed like you typed them.</div>
 <div class="old-help-para"><pre>set hlsearch</pre>
 This option tells Vim to highlight matches with the last used search pattern.
 The "if" command is very useful to set options only when some condition is
-met.  More about that in <a href="usr_41.html#usr_41.txt">usr_41.txt</a>.</div>
+met.  More about that in <a href="/neovim-docs-web/en/usr_41#usr_41.txt">usr_41.txt</a>.</div>
 <div class="old-help-para">							<a name="vimrc-filetype"></a><code class="help-tag-right">vimrc-filetype</code><pre>filetype plugin indent on</pre>
 This switches on three very clever mechanisms:
 1. Filetype detection.
@@ -108,33 +108,33 @@ This switches on three very clever mechanisms:
    "#!/bin/sh", Vim will recognize it as a "sh" filetype.
    The filetype detection is used for syntax highlighting and the other two
    items below.
-   See <a href="filetype.html#filetypes">filetypes</a>.</div>
+   See <a href="/neovim-docs-web/en/filetype#filetypes">filetypes</a>.</div>
 <div class="old-help-para">2. Using filetype plugin files
    Many different filetypes are edited with different options.  For example,
-   when you edit a "c" file, it's very useful to set the <a href="options.html#'cindent'">'cindent'</a> option to
+   when you edit a "c" file, it's very useful to set the <a href="/neovim-docs-web/en/options#'cindent'">'cindent'</a> option to
    automatically indent the lines.  These commonly useful option settings are
    included with Vim in filetype plugins.  You can also add your own, see
-   <a href="usr_41.html#write-filetype-plugin">write-filetype-plugin</a>.</div>
+   <a href="/neovim-docs-web/en/usr_41#write-filetype-plugin">write-filetype-plugin</a>.</div>
 <div class="old-help-para">3. Using indent files
    When editing programs, the indent of a line can often be computed
    automatically.  Vim comes with these indent rules for a number of
-   filetypes.  See <a href="filetype.html#%3Afiletype-indent-on">:filetype-indent-on</a> and <a href="options.html#'indentexpr'">'indentexpr'</a>.</div>
+   filetypes.  See <a href="/neovim-docs-web/en/filetype#%3Afiletype-indent-on">:filetype-indent-on</a> and <a href="/neovim-docs-web/en/options#'indentexpr'">'indentexpr'</a>.</div>
 <div class="old-help-para">				<a name="restore-cursor"></a><code class="help-tag-right">restore-cursor</code> <a name="last-position-jump"></a><code class="help-tag">last-position-jump</code><pre>autocmd BufRead * autocmd FileType &lt;buffer&gt; ++once
   \ if &amp;ft !~# 'commit\|rebase' &amp;&amp; line("'\"") &gt; 1 &amp;&amp; line("'\"") &lt;= line("$") | exe 'normal! g`"' | endif</pre>
 Another autocommand.  This time it is used after reading any file.  The
 complicated stuff after it checks if the '" mark is defined, and jumps to it
 if so.  The backslash at the start of a line is used to continue the command
 from the previous line.  That avoids a line getting very long.
-See <a href="repeat.html#line-continuation">line-continuation</a>.  This only works in a Vim script file, not when
+See <a href="/neovim-docs-web/en/repeat#line-continuation">line-continuation</a>.  This only works in a Vim script file, not when
 typing commands at the command-line.</div>
 <div class="old-help-para"><pre>command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
           \ | wincmd p | diffthis</pre>
 This adds the ":DiffOrig" command.  Use this in a modified buffer to see the
-differences with the file it was loaded from.  See <a href="diff.html#diff">diff</a> and <a href="diff.html#%3ADiffOrig">:DiffOrig</a>.</div>
+differences with the file it was loaded from.  See <a href="/neovim-docs-web/en/diff#diff">diff</a> and <a href="/neovim-docs-web/en/diff#%3ADiffOrig">:DiffOrig</a>.</div>
 <div class="old-help-para"><pre>set nolangremap</pre>
 Prevent that the langmap option applies to characters that result from a
 mapping.  If set (default), this may break plugins (but it's backward
-compatible).  See <a href="options.html#'langremap'">'langremap'</a>.</div>
+compatible).  See <a href="/neovim-docs-web/en/options#'langremap'">'langremap'</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.3"></a><span class="help-tag">05.3</span>  	Simple mappings</span></h2></div>
 <div class="old-help-para">A mapping enables you to bind a set of Vim commands to a single key.  Suppose,
 for example, that you need to surround certain words with curly braces.  In
@@ -165,7 +165,7 @@ for example:<pre>:map \p i(&lt;Esc&gt;ea)&lt;Esc&gt;
 You need to type the \ and the p quickly after another, so that Vim knows they
 belong together.</div>
 <div class="old-help-para">The ":map" command (with no arguments) lists your current mappings.  At
-least the ones for Normal mode.  More about mappings in section <a href="usr_40.html#40.1">40.1</a>.</div>
+least the ones for Normal mode.  More about mappings in section <a href="/neovim-docs-web/en/usr_40#40.1">40.1</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.4"></a><span class="help-tag">05.4</span>  	Adding a package<span class="help-heading-tags">			<a name="add-package"></a><span class="help-tag">add-package</span> <a name="vimball-install"></a><span class="help-tag">vimball-install</span></span></span></h2></div>
 <div class="old-help-para">A package is a set of files that you can add to Vim.  There are two kinds of
 packages: optional and automatically loaded on startup.</div>
@@ -176,7 +176,7 @@ vimballs (self-installing Vim plugin archives).</div>
 That's all!  You can also type the command to try it out.  Now you can find
 help about this plugin:<pre>:help vimball</pre>
 This works, because when <code>:packadd</code> loaded the plugin it also added the
-package directory in <a href="options.html#'runtimepath'">'runtimepath'</a>, so that the help file can be found.  The
+package directory in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>, so that the help file can be found.  The
 tags for vimball's help are already created.  If you need to generate the help
 tags for a package, see the <code>:helptags</code> command.</div>
 <div class="old-help-para">You can find packages on the Internet in various places.  It usually comes as
@@ -191,7 +191,7 @@ unzip /tmp/fancy.zip</pre></div>
 	   path like this:
 <div class="help-column_heading">		~/.local/share/nvim/site/pack/fancy/start/fancytext/plugin/fancy.vim</div>	   Here "fancytext" is the name of the package, it can be anything
 	   else.</div>
-<div class="old-help-para">More information about packages can be found here: <a href="repeat.html#packages">packages</a>.</div>
+<div class="old-help-para">More information about packages can be found here: <a href="/neovim-docs-web/en/repeat#packages">packages</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.5"></a><span class="help-tag">05.5</span>  	Adding a plugin<span class="help-heading-tags">					<a name="add-plugin"></a><span class="help-tag">add-plugin</span> <a name="plugin"></a><span class="help-tag">plugin</span></span></span></h2></div>
 <div class="old-help-para">Vim's functionality can be extended by adding plugins.  A plugin is nothing
 more than a Vim script file that is loaded automatically when Vim starts.  You
@@ -200,13 +200,13 @@ can add a plugin very easily by dropping it in your plugin directory.</div>
 <div class="old-help-para">    global plugin: Used for all kinds of files
   filetype plugin: Only used for a specific type of file</div>
 <div class="old-help-para">The global plugins will be discussed first, then the filetype ones
-<a href="usr_05.html#add-filetype-plugin">add-filetype-plugin</a>.</div>
+<a href="/neovim-docs-web/en/usr_05#add-filetype-plugin">add-filetype-plugin</a>.</div>
 <div class="old-help-para"><h3 class="help-heading">GLOBAL PLUGINS<span class="help-heading-tags">						<a name="standard-plugin"></a><span class="help-tag">standard-plugin</span></span></h3></div>
 <div class="old-help-para">When you start Vim, it will automatically load a number of global plugins.
 You don't have to do anything for this.  They add functionality that most
 people will want to use, but which was implemented as a Vim script instead of
 being compiled into Vim.  You can find them listed in the help index
-<a href="index.html#standard-plugin-list">standard-plugin-list</a>.  Also see <a href="starting.html#load-plugins">load-plugins</a>.</div>
+<a href="/neovim-docs-web/en/index#standard-plugin-list">standard-plugin-list</a>.  Also see <a href="/neovim-docs-web/en/starting#load-plugins">load-plugins</a>.</div>
 <div class="old-help-para">							<a name="add-global-plugin"></a><code class="help-tag-right">add-global-plugin</code>
 You can add a global plugin to add functionality that will always be present
 when you use Vim.  There are only two steps for adding a global plugin:
@@ -219,7 +219,7 @@ when you use Vim.  There are only two steps for adding a global plugin:
   and its sub-directories and under $VIM/vimfiles/pack/dist/opt/.
 </div><div class="help-li" style=""> Download from the net.  There is a large collection on <a href="https://www.vim.org">https://www.vim.org</a>.
 </div><div class="help-li" style=""> They are sometimes posted in a Vim maillist.
-</div><div class="help-li" style=""> You could write one yourself, see <a href="usr_41.html#write-plugin">write-plugin</a>.
+</div><div class="help-li" style=""> You could write one yourself, see <a href="/neovim-docs-web/en/usr_41#write-plugin">write-plugin</a>.
 </div></div>
 <div class="old-help-para">USING A GLOBAL PLUGIN</div>
 <div class="old-help-para">First read the text in the plugin itself to check for any special conditions.
@@ -235,7 +235,7 @@ all your Perl plugins.</div>
 <div class="old-help-para"><h3 class="help-heading">FILETYPE PLUGINS<span class="help-heading-tags">			<a name="add-filetype-plugin"></a><span class="help-tag">add-filetype-plugin</span> <a name="ftplugins"></a><span class="help-tag">ftplugins</span></span></h3></div>
 <div class="old-help-para">The Vim distribution comes with a set of plugins for different filetypes that
 you can start using with this command:<pre>:filetype plugin on</pre>
-That's all!  See <a href="usr_05.html#vimrc-filetype">vimrc-filetype</a>.</div>
+That's all!  See <a href="/neovim-docs-web/en/usr_05#vimrc-filetype">vimrc-filetype</a>.</div>
 <div class="old-help-para">If you are missing a plugin for a filetype you are using, or you found a
 better one, you can add it.  There are two steps for adding a filetype plugin:
 1. Get a copy of the plugin.
@@ -270,32 +270,32 @@ Only files of this filetype will use the settings from the plugin.  The <code>&l
 part of the plugin file doesn't matter, you can use it to have several plugins
 for the same filetype.  Note that it must end in ".vim" or ".lua".</div>
 <div class="old-help-para">Further reading:
-<a href="filetype.html#filetype-plugins">filetype-plugins</a>  	Documentation for the filetype plugins and information
+<a href="/neovim-docs-web/en/filetype#filetype-plugins">filetype-plugins</a>  	Documentation for the filetype plugins and information
 			about how to avoid that mappings cause problems.
-<a href="starting.html#load-plugins">load-plugins</a>  		When the global plugins are loaded during startup.
-<a href="filetype.html#ftplugin-overrule">ftplugin-overrule</a>  	Overruling the settings from a global plugin.
-<a href="usr_41.html#write-plugin">write-plugin</a>  		How to write a plugin script.
-<a href="filetype.html#plugin-details">plugin-details</a>  	For more information about using plugins or when your
+<a href="/neovim-docs-web/en/starting#load-plugins">load-plugins</a>  		When the global plugins are loaded during startup.
+<a href="/neovim-docs-web/en/filetype#ftplugin-overrule">ftplugin-overrule</a>  	Overruling the settings from a global plugin.
+<a href="/neovim-docs-web/en/usr_41#write-plugin">write-plugin</a>  		How to write a plugin script.
+<a href="/neovim-docs-web/en/filetype#plugin-details">plugin-details</a>  	For more information about using plugins or when your
 			plugin doesn't work.
-<a href="filetype.html#new-filetype">new-filetype</a>  		How to detect a new file type.</div>
+<a href="/neovim-docs-web/en/filetype#new-filetype">new-filetype</a>  		How to detect a new file type.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.6"></a><span class="help-tag">05.6</span>  	Adding a help file<span class="help-heading-tags">		                   <a name="add-local-help"></a><span class="help-tag">add-local-help</span></span></span></h2></div>
 <div class="old-help-para">If you are lucky, the plugin you installed also comes with a help file.  We
 will explain how to install the help file, so that you can easily find help
 for your new plugin.</div>
 <div class="old-help-para">Let us suppose a plugin ("my-plugin"), which comes with a help file in a
 non-standard place (it usually resides in a sub-folder called <code>doc/</code>).</div>
-<div class="old-help-para">First, create a "doc" directory in one of the directories in <a href="options.html#'runtimepath'">'runtimepath'</a>:<pre>:!mkdir -p ~/.local/share/nvim/site/doc</pre>
+<div class="old-help-para">First, create a "doc" directory in one of the directories in <a href="/neovim-docs-web/en/options#'runtimepath'">'runtimepath'</a>:<pre>:!mkdir -p ~/.local/share/nvim/site/doc</pre>
 Now, copy the help file to the "doc" directory:<pre>:!cp my-plugin/my-plugin-doc.txt ~/.local/share/nvim/site/doc</pre>
 Here comes the trick, which allows you to jump to the subjects in the new help
-file. Generate the local tags file with the <a href="helphelp.html#%3Ahelptags">:helptags</a> command:<pre>:helptags ~/.local/share/nvim/site/doc</pre>
+file. Generate the local tags file with the <a href="/neovim-docs-web/en/helphelp#%3Ahelptags">:helptags</a> command:<pre>:helptags ~/.local/share/nvim/site/doc</pre>
 You can see an entry for the local help file when you do:<pre>:help local-additions</pre>
 The title lines from the local help files are automagically added to this
 section.  There you can see which local help files have been added and jump to
 them through the tag.</div>
-<div class="old-help-para">For writing a local help file, see <a href="usr_41.html#write-local-help">write-local-help</a>.</div>
+<div class="old-help-para">For writing a local help file, see <a href="/neovim-docs-web/en/usr_41#write-local-help">write-local-help</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.7"></a><span class="help-tag">05.7</span>  	The option window</span></h2></div>
 <div class="old-help-para">If you are looking for an option that does what you want, you can search in
-the help files here: <a href="options.html#options">options</a>.  Another way is by using this command:<pre>:options</pre>
+the help files here: <a href="/neovim-docs-web/en/options#options">options</a>.  Another way is by using this command:<pre>:options</pre>
 This opens a new window, with a list of options with a one-line explanation.
 The options are grouped by subject.  Move the cursor to a subject and press
 <code>&lt;Enter&gt;</code> to jump there.  Press <code>&lt;Enter&gt;</code> again to jump back.  Or use <code>CTRL-O</code>.</div>
@@ -305,9 +305,9 @@ text" subject.  Then move the cursor down to this line:</div>
 <div class="old-help-para">When you hit <code>&lt;Enter&gt;</code>, the line will change to:</div>
 <div class="old-help-para"><div class="help-column_heading">	set nowrap	wrap</div></div>
 <div class="old-help-para">The option has now been switched off.</div>
-<div class="old-help-para">Just above this line is a short description of the <a href="options.html#'wrap'">'wrap'</a> option.  Move the
+<div class="old-help-para">Just above this line is a short description of the <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option.  Move the
 cursor one line up to place it in this line.  Now hit <code>&lt;Enter&gt;</code> and you jump to
-the full help on the <a href="options.html#'wrap'">'wrap'</a> option.</div>
+the full help on the <a href="/neovim-docs-web/en/options#'wrap'">'wrap'</a> option.</div>
 <div class="old-help-para">For options that take a number or string argument you can edit the value.
 Then press <code>&lt;Enter&gt;</code> to apply the new value.  For example, move the cursor a few
 lines up to this line:</div>
@@ -315,7 +315,7 @@ lines up to this line:</div>
 <div class="old-help-para">Position the cursor on the zero with "$".  Change it into a five with "r5".
 Then press <code>&lt;Enter&gt;</code> to apply the new value.  When you now move the cursor
 around you will notice that the text starts scrolling before you reach the
-border.  This is what the <a href="options.html#'scrolloff'">'scrolloff'</a> option does, it specifies an offset
+border.  This is what the <a href="/neovim-docs-web/en/options#'scrolloff'">'scrolloff'</a> option does, it specifies an offset
 from the window border where scrolling starts.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="05.8"></a><span class="help-tag">05.8</span>  	Often used options</span></h2></div>
 <div class="old-help-para">There are an awful lot of options.  Most of them you will hardly ever use.
@@ -334,7 +334,7 @@ displayed.  To see a context of ten characters, do this:<pre>:set sidescroll=10<
 This doesn't change the text in the file, only the way it is displayed.</div>
 <div class="old-help-para"><a name="_wrapping-movement-commands"></a><h3 class="help-heading">WRAPPING MOVEMENT COMMANDS</h3></div>
 <div class="old-help-para">Most commands for moving around will stop moving at the start and end of a
-line.  You can change that with the <a href="options.html#'whichwrap'">'whichwrap'</a> option.  This sets it to the
+line.  You can change that with the <a href="/neovim-docs-web/en/options#'whichwrap'">'whichwrap'</a> option.  This sets it to the
 default value:<pre>:set whichwrap=b,s</pre>
 This allows the <code>&lt;BS&gt;</code> key, when used in the first position of a line, to move
 the cursor to the end of the previous line.  And the <code>&lt;Space&gt;</code> key moves from
@@ -342,7 +342,7 @@ the end of a line to the start of the next one.</div>
 <div class="old-help-para">To allow the cursor keys <code>&lt;Left&gt;</code> and <code>&lt;Right&gt;</code> to also wrap, use this command:<pre>:set whichwrap=b,s,&lt;,&gt;</pre>
 This is still only for Normal mode.  To let <code>&lt;Left&gt;</code> and <code>&lt;Right&gt;</code> do this in
 Insert mode as well:<pre>:set whichwrap=b,s,&lt;,&gt;,[,]</pre>
-There are a few other flags that can be added, see <a href="options.html#'whichwrap'">'whichwrap'</a>.</div>
+There are a few other flags that can be added, see <a href="/neovim-docs-web/en/options#'whichwrap'">'whichwrap'</a>.</div>
 <div class="old-help-para"><a name="_viewing-tabs"></a><h3 class="help-heading">VIEWING TABS</h3></div>
 <div class="old-help-para">When there are tabs in a file, you cannot see where they are.  To make them
 visible:<pre>:set list</pre>
@@ -350,11 +350,11 @@ Now every tab is displayed as ^I.  And a $ is displayed at the end of each
 line, so that you can spot trailing spaces that would otherwise go unnoticed.
    A disadvantage is that this looks ugly when there are many Tabs in a file.
 If you have a color terminal, or are using the GUI, Vim can show the spaces
-and tabs as highlighted characters.  Use the <a href="options.html#'listchars'">'listchars'</a> option:<pre>:set listchars=tab:&gt;-,trail:-</pre>
+and tabs as highlighted characters.  Use the <a href="/neovim-docs-web/en/options#'listchars'">'listchars'</a> option:<pre>:set listchars=tab:&gt;-,trail:-</pre>
 Now every tab will be displayed as "&gt;---" (with more or less "-") and trailing
 white space as "-".  Looks a lot better, doesn't it?</div>
 <div class="old-help-para"><a name="_keywords"></a><h3 class="help-heading">KEYWORDS</h3></div>
-<div class="old-help-para">The <a href="options.html#'iskeyword'">'iskeyword'</a> option specifies which characters can appear in a word:<pre>:set iskeyword</pre></div>
+<div class="old-help-para">The <a href="/neovim-docs-web/en/options#'iskeyword'">'iskeyword'</a> option specifies which characters can appear in a word:<pre>:set iskeyword</pre></div>
 <div class="old-help-para"><div class="help-column_heading">	  iskeyword=@,48-57,_,192-255</div></div>
 <div class="old-help-para">The "@" stands for all alphabetic letters.  "48-57" stands for ASCII
 characters 48 to 57, which are the numbers 0 to 9.  "192-255" are the
@@ -372,11 +372,11 @@ like "w" consider "upper-case" to be one word.  You can do it like this:<pre>:se
 <div class="old-help-para">When Vim starts there is one line at the bottom that is used for messages.
 When a message is long, it is either truncated, thus you can only see part of
 it, or the text scrolls and you have to press <code>&lt;Enter&gt;</code> to continue.
-   You can set the <a href="options.html#'cmdheight'">'cmdheight'</a> option to the number of lines used for
+   You can set the <a href="/neovim-docs-web/en/options#'cmdheight'">'cmdheight'</a> option to the number of lines used for
 messages.  Example:<pre>:set cmdheight=3</pre>
 This does mean there is less room to edit text, thus it's a compromise.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_06.html#usr_06.txt">usr_06.txt</a>  Using syntax highlighting</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_06#usr_06.txt">usr_06.txt</a>  Using syntax highlighting</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

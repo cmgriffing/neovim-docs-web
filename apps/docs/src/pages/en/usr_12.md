@@ -17,17 +17,17 @@ layout: ../../layouts/MainLayout.astro
 <div class="old-help-para">By combining several commands you can make Vim do nearly everything.  In this
 chapter a number of useful combinations will be presented.  This uses the
 commands introduced in the previous chapters and a few more.</div>
-<div class="old-help-para"><a href="usr_12.html#12.1">12.1</a>  	Replace a word
-<a href="usr_12.html#12.2">12.2</a>  	Change "Last, First" to "First Last"
-<a href="usr_12.html#12.3">12.3</a>  	Sort a list
-<a href="usr_12.html#12.4">12.4</a>  	Reverse line order
-<a href="usr_12.html#12.5">12.5</a>  	Count words
-<a href="usr_12.html#12.6">12.6</a>  	Find a man page
-<a href="usr_12.html#12.7">12.7</a>  	Trim blanks
-<a href="usr_12.html#12.8">12.8</a>  	Find where a word is used</div>
-<div class="old-help-para">     Next chapter: <a href="usr_20.html#usr_20.txt">usr_20.txt</a>  Typing command-line commands quickly
- Previous chapter: <a href="usr_11.html#usr_11.txt">usr_11.txt</a>  Recovering from a crash
-Table of contents: <a href="usr_toc.html#usr_toc.txt">usr_toc.txt</a></div>
+<div class="old-help-para"><a href="/neovim-docs-web/en/usr_12#12.1">12.1</a>  	Replace a word
+<a href="/neovim-docs-web/en/usr_12#12.2">12.2</a>  	Change "Last, First" to "First Last"
+<a href="/neovim-docs-web/en/usr_12#12.3">12.3</a>  	Sort a list
+<a href="/neovim-docs-web/en/usr_12#12.4">12.4</a>  	Reverse line order
+<a href="/neovim-docs-web/en/usr_12#12.5">12.5</a>  	Count words
+<a href="/neovim-docs-web/en/usr_12#12.6">12.6</a>  	Find a man page
+<a href="/neovim-docs-web/en/usr_12#12.7">12.7</a>  	Trim blanks
+<a href="/neovim-docs-web/en/usr_12#12.8">12.8</a>  	Find where a word is used</div>
+<div class="old-help-para">     Next chapter: <a href="/neovim-docs-web/en/usr_20#usr_20.txt">usr_20.txt</a>  Typing command-line commands quickly
+ Previous chapter: <a href="/neovim-docs-web/en/usr_11#usr_11.txt">usr_11.txt</a>  Recovering from a crash
+Table of contents: <a href="/neovim-docs-web/en/usr_toc#usr_toc.txt">usr_toc.txt</a></div>
 <div class="old-help-para"><h2 class="help-heading">	Replace a word</h2></div>
 <div class="old-help-para">The substitute command can be used to replace all occurrences of a word with
 another word:<pre>:%s/four/4/g</pre>
@@ -94,7 +94,7 @@ refers to the text matched by the second "\( \)", which is the "First" name.
 "\1" refers to the first "\( \)", which is the "Last" name.
    You can use up to nine backreferences in the "to" part of a substitute
 command.  "\0" stands for the whole matched pattern.  There are a few more
-special items in a substitute command, see <a href="change.html#sub-replace-special">sub-replace-special</a>.</div>
+special items in a substitute command, see <a href="/neovim-docs-web/en/change#sub-replace-special">sub-replace-special</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="12.3"></a><span class="help-tag">12.3</span>  	Sort a list</span></h2></div>
 <div class="old-help-para">In a Makefile you often have a list of files.  For example:</div>
 <div class="old-help-para"><div class="help-column_heading">	OBJS = \</div><div class="help-column_heading">		version.o \</div><div class="help-column_heading">		pch.o \</div><div class="help-column_heading">		getopt.o \</div><div class="help-column_heading">		util.o \</div><div class="help-column_heading">		getopt1.o \</div><div class="help-column_heading">		inp.o \</div><div class="help-column_heading">		patch.o \</div><div class="help-column_heading">		backup.o</div></div>
@@ -115,14 +115,14 @@ must have a backslash.
 keep the backslash in the last line, if you make sure an empty line comes
 after it.  That way you don't have this problem again.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="12.4"></a><span class="help-tag">12.4</span>  	Reverse line order</span></h2></div>
-<div class="old-help-para">The <a href="repeat.html#%3Aglobal">:global</a> command can be combined with the <a href="change.html#%3Amove">:move</a> command to move all the
+<div class="old-help-para">The <a href="/neovim-docs-web/en/repeat#%3Aglobal">:global</a> command can be combined with the <a href="/neovim-docs-web/en/change#%3Amove">:move</a> command to move all the
 lines before the first line, resulting in a reversed file.  The command is:<pre>:global/^/move 0</pre>
 Abbreviated:<pre>:g/^/m 0</pre>
 The "^" regular expression matches the beginning of the line (even if the line
-is blank).  The <a href="change.html#%3Amove">:move</a> command moves the matching line to after the imaginary
+is blank).  The <a href="/neovim-docs-web/en/change#%3Amove">:move</a> command moves the matching line to after the imaginary
 zeroth line, so the current matching line becomes the first line of the file.
-As the <a href="repeat.html#%3Aglobal">:global</a> command is not confused by the changing line numbering,
-<a href="repeat.html#%3Aglobal">:global</a> proceeds to match all remaining lines of the file and puts each as
+As the <a href="/neovim-docs-web/en/repeat#%3Aglobal">:global</a> command is not confused by the changing line numbering,
+<a href="/neovim-docs-web/en/repeat#%3Aglobal">:global</a> proceeds to match all remaining lines of the file and puts each as
 the first.</div>
 <div class="old-help-para">This also works on a range of lines.  First move to above the first line and
 mark it with "mt".  Then move the cursor to the last line in the range and
@@ -144,13 +144,13 @@ use your brain to compute the difference in the word position.  That's a good
 exercise, but there is an easier way.  With Visual mode, select the text you
 want to count words in.  Then type g <code>CTRL-G</code>.  The result:</div>
 <div class="old-help-para"><div class="help-column_heading">	Selected 5 of 293 Lines; 70 of 1884 Words; 359 of 10928 Bytes</div></div>
-<div class="old-help-para">For other ways to count words, lines and other items, see <a href="tips.html#count-items">count-items</a>.</div>
+<div class="old-help-para">For other ways to count words, lines and other items, see <a href="/neovim-docs-web/en/tips#count-items">count-items</a>.</div>
 <div class="old-help-para"><h2 class="help-heading"><span class="help-heading-tags"><a name="12.6"></a><span class="help-tag">12.6</span>  	Find a man page<span class="help-heading-tags">					<a name="find-manpage"></a><span class="help-tag">find-manpage</span></span></span></h2></div>
 <div class="old-help-para">While editing a shell script or C program, you are using a command or function
 that you want to find the man page for (this is on Unix).  Let's first use a
 simple way: Move the cursor to the word you want to find help on and press<pre>K</pre>
-Nvim will run <a href="filetype.html#%3AMan">:Man</a> on the word.  If the man page is found, it is displayed.
-You can also use the <a href="filetype.html#%3AMan">:Man</a> command to open a window on a man page:<pre>:Man csh</pre>
+Nvim will run <a href="/neovim-docs-web/en/filetype#%3AMan">:Man</a> on the word.  If the man page is found, it is displayed.
+You can also use the <a href="/neovim-docs-web/en/filetype#%3AMan">:Man</a> command to open a window on a man page:<pre>:Man csh</pre>
 You can scroll around and the text is highlighted.  This allows you to find
 the help you were looking for.  Use <code>CTRL-W</code> w to jump to the window with the
 text you were working on.
@@ -172,7 +172,7 @@ command:<pre>:%s/\s\+$//</pre>
 The line range "%" is used, thus this works on the whole file.  The pattern
 that the ":substitute" command matches with is "\s\+$".  This finds white
 space characters (\s), 1 or more of them (\+), before the end-of-line ($).
-Later will be explained how you write patterns like this, see <a href="usr_27.html#usr_27.txt">usr_27.txt</a>.
+Later will be explained how you write patterns like this, see <a href="/neovim-docs-web/en/usr_27#usr_27.txt">usr_27.txt</a>.
    The "to" part of the substitute command is empty: "//".  Thus it replaces
 with nothing, effectively deleting the matched white space.</div>
 <div class="old-help-para">Another wasteful use of spaces is placing them before a tab.  Often these can
@@ -215,9 +215,9 @@ matching line (no matter in what file it is), use the ":cnext" command.  To go
 to the previous match, use the ":cprev" command.  Use ":clist" to see all the
 matches and where they are.
    The ":grep" command uses the external commands grep (on Unix) or findstr
-(on Windows).  You can change this by setting the option <a href="options.html#'grepprg'">'grepprg'</a>.</div>
-<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="usr_20.html#usr_20.txt">usr_20.txt</a>  Typing command-line commands quickly</div>
-<div class="old-help-para">Copyright: see <a href="usr_01.html#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
+(on Windows).  You can change this by setting the option <a href="/neovim-docs-web/en/options#'grepprg'">'grepprg'</a>.</div>
+<div class="old-help-para"><a name="_-"></a><h2 class="help-heading"></h2>Next chapter: <a href="/neovim-docs-web/en/usr_20#usr_20.txt">usr_20.txt</a>  Typing command-line commands quickly</div>
+<div class="old-help-para">Copyright: see <a href="/neovim-docs-web/en/usr_01#manual-copyright">manual-copyright</a>  vim:tw=78:ts=8:noet:ft=help:norl:</div>
 
   
   

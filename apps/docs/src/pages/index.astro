@@ -1,10 +1,10 @@
 <script is:inline>
   // Redirect your homepage to the first page of documentation.
   // If you have a landing page, remove this script and add it here!
-  let newPathName = `/en/introduction`;
+  let newPathName = `/en`;
 
   if (window.location.pathname.indexOf("neovim-docs-web") > -1) {
-    newPathName = `/neovim-docs-web/en/introduction`;
+    newPathName = `/neovim-docs-web/en`;
   }
   window.location.pathname = newPathName;
 </script>

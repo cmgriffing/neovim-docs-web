@@ -78,3 +78,12 @@ a:hover {
   font-size: 0.85rem;
   color: var(--fg-color);
 }
+
+/* .search-hint {
+  top: 40px !important;
+  right: 6px !important;
+} */
+
+.search-input {
+  position: relative;
+}

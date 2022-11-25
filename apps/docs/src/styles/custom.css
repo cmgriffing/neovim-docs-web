@@ -1,0 +1,80 @@
+.right-tag {
+  text-align: right;
+}
+
+code,
+pre,
+kbd,
+samp {
+  background-color: var(--accent-bg-color);
+  color: var(--fg-color);
+  /* font-family: var(--bs-font-monospace); */
+}
+
+pre {
+  overflow: auto;
+  padding: 0.8em;
+  color: var(--theme-code-text) !important;
+  border-radius: 0.2em;
+  border: solid 2pt var(--border-color);
+  box-shadow: 0 0 2px var(--theme-code-bg);
+  background-color: var(--theme-code-bg) !important;
+}
+
+pre * {
+  color: var(--theme-code-text) !important;
+}
+
+a {
+  padding: 2px 4px;
+}
+
+a:empty {
+  padding: 0;
+}
+
+a:focus,
+a:hover {
+  color: var(--accent-color);
+  background-color: var(--accent-bg-color);
+  box-shadow: 0 0 2px gold;
+}
+
+.help-para {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.old-help-para {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  /* Tabs are used for alignment in old docs, so we must match Vim's 8-char expectation. */
+  tab-size: 4;
+  white-space: pre;
+  font-size: 16px;
+  font-family: ui-monospace, SFMono-Regular, SF Mono, Menlo, Consolas,
+    Liberation Mono, monospace;
+}
+
+.indented-block-label {
+  display: inline;
+}
+
+.help-heading {
+  position: relative;
+  margin-top: 1rem;
+}
+
+.help-heading-tags {
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  font-size: 1rem;
+  background: var(--accent-bg-color);
+  white-space: normal;
+  font-weight: normal;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.85rem;
+  color: var(--fg-color);
+}

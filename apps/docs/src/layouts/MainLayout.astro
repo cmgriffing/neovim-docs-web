@@ -8,17 +8,40 @@ import RightSidebar from "../components/RightSidebar/RightSidebar.astro";
 import * as CONFIG from "../config";
 import type { MarkdownHeading } from "astro";
 import Footer from "../components/Footer/Footer.astro";
+import { JSDOM } from "jsdom";
+import Case from "case";
 
 type Props = {
   frontmatter: CONFIG.Frontmatter;
   headings: MarkdownHeading[];
+  compiledContent: () => string;
 };
 
-const { frontmatter, headings } = Astro.props as Props;
+const { frontmatter, compiledContent } = Astro.props as Props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const currentPage = Astro.url.pathname;
 const currentFile = `src/pages${currentPage.replace(/\/$/, "")}.md`;
 const githubEditUrl = `${CONFIG.GITHUB_EDIT_URL}/${currentFile}`;
+
+const dom = new JSDOM(compiledContent());
+
+const headings = Array.from(dom.window.document.querySelectorAll("h2,h3")).map(
+  (heading) => {
+    console.log(heading.tagName);
+    const depth = heading.tagName === "H2" ? 2 : 3;
+
+    const id = heading.querySelector("a")?.getAttribute("name") || "";
+
+    return {
+      depth,
+      text: heading.textContent || "",
+      id,
+      slug: Case.kebab(heading.textContent || ""),
+    };
+  }
+);
+
+// console.log({ headings });
 ---
 
 <html
